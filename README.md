@@ -101,7 +101,7 @@ radar/
 ├── filter.js         # drops article/headline noise (is-it-a-tool)
 ├── dedup.js          # skips tools already in known.json
 ├── enrich.js         # categorize · blurb · tags (LLM or rules)
-├── llm.js            # provider-agnostic: NVIDIA -> Anthropic -> OpenAI -> OpenRouter
+├── llm.js            # provider-agnostic: Anthropic -> NVIDIA -> OpenAI -> OpenRouter
 ├── validate.js       # schema + confidence scoring
 ├── courseGen.js      # generates lessons + skills per tool
 ├── store/            # JSON DB (published, review-queue, courses, known)
@@ -126,7 +126,7 @@ node run.js && npm run sync   # full cycle
 | `GITHUB_TOKEN` | higher GitHub hunt rate limit |
 | `PRODUCTHUNT_TOKEN` | enables the Product Hunt source |
 
-LLM provider is auto-selected (NVIDIA → Anthropic → OpenAI → OpenRouter); the
+LLM provider is auto-selected (Anthropic → NVIDIA → OpenAI → OpenRouter); the
 first key present wins. NVIDIA uses `meta/llama-3.1-70b-instruct` by default.
 
 ---

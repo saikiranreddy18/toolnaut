@@ -12,6 +12,9 @@ export const EVENTS = {
   GALAXY_EXPLORE: 'galaxy_explore',
   SOUND_TOGGLE: 'sound_toggle',
   TIME_ON_PAGE: 'time_on_page',
+  ROADMAP_STEP_COMPLETE: 'roadmap_step_complete',
+  ROADMAP_CHECKPOINT_PASS: 'roadmap_checkpoint_pass',
+  ROADMAP_COMPLETE: 'roadmap_complete',
 }
 
 const GA_ID = import.meta.env.VITE_GA4_ID

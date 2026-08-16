@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { generateRoadmap } from '../../utils/roadmapGenerator'
 import { CATEGORY_META } from '../../utils/toolsCatalog'
+import { track, EVENTS } from '../../utils/analyticsEvents'
 import {
   loadRoadmapProgress,
   toggleStep,
@@ -186,6 +187,22 @@ export default function Learning() {
   const roadmap = useMemo(generateRoadmap, [])
   const [progress, setProgress] = useState(loadRoadmapProgress)
   const [shared, setShared] = useState(false)
+  const firedComplete = useRef(false)
+
+  const milestones = roadmap?.milestones || []
+  const totalSteps = milestones.reduce((n, m) => n + m.steps.length, 0)
+  const doneSteps = Object.keys(progress).filter((k) =>
+    milestones.some((m) => m.steps.some((_, i) => `${m.id}:${i}` === k)),
+  ).length
+  const allCleared = milestones.length > 0 && milestones.every((m) => milestoneComplete(progress, m))
+
+  // Fire once when the full roadmap first clears, not on every render.
+  useEffect(() => {
+    if (allCleared && !firedComplete.current) {
+      firedComplete.current = true
+      track(EVENTS.ROADMAP_COMPLETE, { milestoneCount: milestones.length })
+    }
+  }, [allCleared, milestones.length])
 
   if (!roadmap) {
     return (
@@ -202,13 +219,7 @@ export default function Learning() {
     )
   }
 
-  const { milestones } = roadmap
-  const totalSteps = milestones.reduce((n, m) => n + m.steps.length, 0)
-  const doneSteps = Object.keys(progress).filter((k) =>
-    milestones.some((m) => m.steps.some((_, i) => `${m.id}:${i}` === k)),
-  ).length
   const pct = Math.round((doneSteps / totalSteps) * 100)
-  const allCleared = milestones.every((m) => milestoneComplete(progress, m))
 
   const firstIncomplete = milestones.findIndex((m) => !milestoneComplete(progress, m))
   const unlockedThrough = firstIncomplete === -1 ? milestones.length : firstIncomplete
@@ -217,12 +228,16 @@ export default function Learning() {
     haptic.tap()
     const next = toggleStep(m.id, i)
     setProgress({ ...next })
+    if (isStepDone(next, m.id, i)) {
+      track(EVENTS.ROADMAP_STEP_COMPLETE, { milestoneId: m.id, week: m.week, stepIndex: i })
+    }
     if (milestoneComplete(next, m)) haptic.success()
   }
 
   function onQuizPass(m) {
     const next = setQuizPassed(m.id)
     setProgress({ ...next })
+    track(EVENTS.ROADMAP_CHECKPOINT_PASS, { milestoneId: m.id, week: m.week })
   }
 
   async function share() {

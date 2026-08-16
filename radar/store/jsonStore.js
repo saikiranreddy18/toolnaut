@@ -22,7 +22,13 @@ export function createJsonStore(dataDir) {
       return d
     }
   }
-  const save = (p, v) => fs.writeFileSync(p, JSON.stringify(v, null, 2))
+  // Write to a temp file then rename — a process kill mid-write can't leave a
+  // truncated/corrupt store file, since rename() is atomic on the same volume.
+  const save = (p, v) => {
+    const tmp = `${p}.${process.pid}.tmp`
+    fs.writeFileSync(tmp, JSON.stringify(v, null, 2))
+    fs.renameSync(tmp, p)
+  }
 
   const tools = load(P.tools)
   const courses = load(P.courses)
@@ -90,13 +96,25 @@ export function createJsonStore(dataDir) {
       save(P.skills, skills)
     },
 
-    // Versioned snapshot of the published data — the rollback point.
+    // Versioned snapshot of the published data — the rollback point. Prunes
+    // beyond SNAPSHOT_RETENTION so daily unattended runs don't grow disk
+    // usage forever.
     snapshot(tag) {
-      const dir = path.join(dataDir, 'snapshots', tag)
+      const snapshotsDir = path.join(dataDir, 'snapshots')
+      const dir = path.join(snapshotsDir, tag)
       fs.mkdirSync(dir, { recursive: true })
       save(path.join(dir, 'tools.json'), tools)
       save(path.join(dir, 'courses.json'), courses)
       save(path.join(dir, 'skills.json'), skills)
+
+      const retention = Number(process.env.RADAR_SNAPSHOT_RETENTION) || 14
+      const entries = fs.readdirSync(snapshotsDir, { withFileTypes: true })
+        .filter((e) => e.isDirectory())
+        .map((e) => e.name)
+        .sort()
+      for (const old of entries.slice(0, Math.max(0, entries.length - retention))) {
+        fs.rmSync(path.join(snapshotsDir, old), { recursive: true, force: true })
+      }
     },
 
     appendRun(report) {

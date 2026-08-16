@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { loadQuiz } from '../../state/quizStore'
@@ -35,6 +35,28 @@ function loadProgress() {
   try { return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {} } catch { return {} }
 }
 
+const GREETINGS = {
+  night: ['burning the midnight fuel', 'you\'re an owl 🦉', 'nocturnal grind energy'],
+  morning: ['rise and shine', 'coffee in hand?', 'morning explorer energy'],
+  afternoon: ['mid-day momentum', 'keep cooking', 'afternoon architect'],
+  evening: ['golden hour glow', 'evening expedition', 'dusk explorer'],
+}
+
+// Streak tracker (days since last reset).
+const STREAK_KEY = 'exus_streak_v1'
+
+function loadStreak() {
+  try { return JSON.parse(localStorage.getItem(STREAK_KEY)) || {} } catch { return {} }
+}
+
+// Calendar-day successor check (not a fixed 24h) so DST transitions don't
+// desync the streak.
+function isNextCalendarDay(prevDateStr, todayStr) {
+  const prev = new Date(prevDateStr)
+  prev.setDate(prev.getDate() + 1)
+  return prev.toDateString() === todayStr
+}
+
 function ProgressRing({ value }) {
   const r = 15
   const c = 2 * Math.PI * r
@@ -58,6 +80,33 @@ export default function Stack() {
   const persona = quiz.completed ? generatePersona(quiz.answers) : null
   const [progress, setProgress] = useState(loadProgress)
   const [addedSlugs, setAddedSlugs] = useState(loadStack)
+
+  const hour = new Date().getHours()
+  const period = hour < 5 ? 'night' : hour < 12 ? 'morning' : hour < 18 ? 'afternoon' : 'evening'
+  // Stable per period — was re-rolling on every re-render before (e.g. every
+  // stack edit), making the greeting flicker mid-session.
+  const greeting = useMemo(() => {
+    const options = GREETINGS[period]
+    return options[Math.floor(Math.random() * options.length)]
+  }, [period])
+
+  const today = new Date().toDateString()
+  const [streak, setStreak] = useState(() => {
+    const lastVisit = loadStreak()
+    if (lastVisit.date === today) return lastVisit.count || 1
+    if (lastVisit.date && isNextCalendarDay(lastVisit.date, today)) return (lastVisit.count || 0) + 1
+    return 1
+  })
+
+  // Persist the day's streak once per mount instead of on every render.
+  useEffect(() => {
+    const lastVisit = loadStreak()
+    if (lastVisit.date !== today) {
+      localStorage.setItem(STREAK_KEY, JSON.stringify({ date: today, count: streak }))
+      haptic.success()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   // Tools added from Discover, minus any that duplicate the starter stack.
   const starterNames = new Set((persona?.stack || []).map((t) => t.name))
@@ -88,26 +137,6 @@ export default function Stack() {
         </Link>
       </div>
     )
-  }
-
-  const hour = new Date().getHours()
-  const greetings = {
-    night: ['burning the midnight fuel', 'you\'re an owl 🦉', 'nocturnal grind energy'],
-    morning: ['rise and shine', 'coffee in hand?', 'morning explorer energy'],
-    afternoon: ['mid-day momentum', 'keep cooking', 'afternoon architect'],
-    evening: ['golden hour glow', 'evening expedition', 'dusk explorer'],
-  }
-  const period = hour < 5 ? 'night' : hour < 12 ? 'morning' : hour < 18 ? 'afternoon' : 'evening'
-  const greeting = greetings[period][Math.floor(Math.random() * 3)]
-
-  // Streak tracker (days since last reset)
-  const STREAK_KEY = 'exus_streak_v1'
-  const lastVisit = JSON.parse(localStorage.getItem(STREAK_KEY) || '{}')
-  const today = new Date().toDateString()
-  const streak = lastVisit.date === today ? lastVisit.count : (lastVisit.date && new Date(lastVisit.date).getTime() === new Date(today).getTime() - 86400000 ? lastVisit.count + 1 : 1)
-  if (lastVisit.date !== today) {
-    localStorage.setItem(STREAK_KEY, JSON.stringify({ date: today, count: streak }))
-    haptic.success()
   }
 
   const daily = toolOfTheDay(quiz.answers, starterNames, addedSlugs)

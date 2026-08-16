@@ -10,11 +10,13 @@ export async function fetchRSS({ feeds = [], limit = 40 } = {}) {
   for (const feed of feeds) {
     try {
       const xml = await retry(() => fetch(feed).then((r) => r.text()))
-      const items = xml.split(/<item[\s>]/i).slice(1)
+      // RSS wraps entries in <item>, Atom in <entry> — support both formats.
+      const isAtom = !/<item[\s>]/i.test(xml) && /<entry[\s>]/i.test(xml)
+      const items = xml.split(isAtom ? /<entry[\s>]/i : /<item[\s>]/i).slice(1)
       for (const item of items.slice(0, per)) {
         const name = tag(item, 'title')
-        const url = tag(item, 'link')
-        const description = tag(item, 'description')
+        const url = isAtom ? atomLink(item) : tag(item, 'link')
+        const description = tag(item, 'description') || tag(item, 'summary') || tag(item, 'content')
         if (!name || !url) continue
         out.push({ name, url, description: description || name, source: 'rss', sourceUrl: url, raw: { feed } })
       }
@@ -32,4 +34,15 @@ function tag(xml, name) {
     .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
     .replace(/<[^>]+>/g, '')
     .trim()
+}
+
+// Atom's <link> is a self-closing element with an href attribute, not text
+// content like RSS's <link>url</link> — prefer rel="alternate", else the
+// first <link> found.
+function atomLink(xml) {
+  const links = [...xml.matchAll(/<link\b([^>]*)\/?>/gi)]
+  const alt = links.find((m) => /rel=["']alternate["']/i.test(m[1])) || links[0]
+  if (!alt) return ''
+  const href = alt[1].match(/href=["']([^"']+)["']/i)
+  return href ? href[1] : ''
 }
