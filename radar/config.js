@@ -1,0 +1,43 @@
+import { fileURLToPath } from 'node:url'
+
+// All config comes from env with safe defaults. The pipeline runs with NO env
+// set at all: public no-key sources + deterministic fallback enrichment. Keys
+// only unlock richer sources and LLM enrichment.
+const num = (v, d) => (v != null && v !== '' && !Number.isNaN(Number(v)) ? Number(v) : d)
+const list = (v) => (v || '').split(',').map((s) => s.trim()).filter(Boolean)
+
+export const config = {
+  thresholds: {
+    publish: num(process.env.RADAR_PUBLISH_THRESHOLD, 0.75),
+    review: num(process.env.RADAR_REVIEW_THRESHOLD, 0.4),
+  },
+  maxCandidates: num(process.env.RADAR_MAX_CANDIDATES, 100),
+  dataDir: process.env.RADAR_DATA_DIR || fileURLToPath(new URL('./data', import.meta.url)),
+  sources: {
+    github: { enabled: true, token: process.env.GITHUB_TOKEN || null },
+    hackernews: { enabled: true },
+    producthunt: { enabled: !!process.env.PRODUCTHUNT_TOKEN, token: process.env.PRODUCTHUNT_TOKEN || null },
+    rss: { enabled: !!process.env.RSS_FEEDS, feeds: list(process.env.RSS_FEEDS) },
+  },
+  llm: {
+    // provider-agnostic; the first configured one (in this order) is used, and
+    // enrich/course-gen fall back to deterministic rules if none is set.
+    anthropic: process.env.ANTHROPIC_API_KEY
+      ? { key: process.env.ANTHROPIC_API_KEY, model: process.env.ANTHROPIC_MODEL || 'claude-opus-4-8' }
+      : null,
+    nvidia: process.env.NVIDIA_API_KEY
+      ? { key: process.env.NVIDIA_API_KEY, model: process.env.NVIDIA_MODEL || 'meta/llama-3.1-70b-instruct' }
+      : null,
+    openai: process.env.OPENAI_API_KEY
+      ? { key: process.env.OPENAI_API_KEY, model: process.env.OPENAI_MODEL || 'gpt-4o' }
+      : null,
+    openrouter: process.env.OPENROUTER_API_KEY
+      ? { key: process.env.OPENROUTER_API_KEY, model: process.env.OPENROUTER_MODEL || 'anthropic/claude-3.5-sonnet' }
+      : null,
+  },
+}
+
+export function hasLLM() {
+  const { anthropic, nvidia, openai, openrouter } = config.llm
+  return !!(anthropic || nvidia || openai || openrouter)
+}

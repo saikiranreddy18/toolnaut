@@ -1,0 +1,509 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-exus-dark: #0a0a0f;
+  --color-exus-deep: #12121c;
+  --color-exus-purple: #7c3aed;
+  --color-exus-cyan: #06b6d4;
+  --color-exus-pink: #ec4899;
+  --color-exus-gold: #f59e0b;
+  --color-exus-lime: #84cc16;
+  --color-exus-peach: #fb7185;
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.6; filter: brightness(1); }
+    50% { opacity: 1; filter: brightness(1.35); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #0a0a0f;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #e7e7f0;
+  background: #0a0a0f;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Kill the 300ms tap delay and double-tap zoom on controls (mobile-first) */
+button, a, input, select, textarea {
+  touch-action: manipulation;
+}
+
+/* Press feedback: everything tappable compresses slightly under the finger */
+.press {
+  transition: transform 0.15s ease;
+}
+.press:active {
+  transform: scale(0.96);
+}
+
+/* Hide scrollbars on horizontally swipeable rows (filter pills etc.) */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+::selection {
+  background: rgba(124, 58, 237, 0.55);
+  color: #fff;
+}
+
+/* Glass panel used across content sections so 3D scene glows through */
+.glass {
+  background: rgba(14, 14, 24, 0.62);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(139, 121, 255, 0.14);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Pulsing halo: cards breathe between a soft and a bright glow.
+   Set --halo-soft / --halo-strong per card to tint the light. */
+@keyframes halo-pulse {
+  0%, 100% { box-shadow: 0 0 26px var(--halo-soft), 0 12px 40px rgba(0, 0, 0, 0.45); }
+  50% { box-shadow: 0 0 68px var(--halo-strong), 0 0 18px var(--halo-soft), 0 12px 40px rgba(0, 0, 0, 0.45); }
+}
+.halo {
+  --halo-soft: rgba(255, 255, 255, 0.12);
+  --halo-strong: rgba(255, 255, 255, 0.32);
+  border-color: rgba(255, 255, 255, 0.18);
+  animation: halo-pulse 3.8s ease-in-out infinite;
+}
+
+.glow-btn {
+  box-shadow: 0 0 24px rgba(124, 58, 237, 0.45), 0 0 60px rgba(6, 182, 212, 0.18);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.glow-btn:hover {
+  box-shadow: 0 0 36px rgba(124, 58, 237, 0.75), 0 0 90px rgba(6, 182, 212, 0.35);
+  transform: translateY(-2px);
+}
+
+.text-glow {
+  text-shadow: 0 0 30px rgba(124, 58, 237, 0.6), 0 0 80px rgba(6, 182, 212, 0.25);
+}
+
+/* CSS-only starfield for in-app screens — the space feeling without a WebGL
+   canvas. Two layers of stars drift + twinkle; static under reduced motion. */
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 40% at 20% 10%, rgba(124, 58, 237, 0.14), transparent),
+    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(6, 182, 212, 0.1), transparent),
+    #0a0a0f;
+}
+.starfield::before,
+.starfield::after {
+  content: '';
+  position: absolute;
+  inset: -20% 0;
+  background-image:
+    radial-gradient(1.2px 1.2px at 12% 22%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(1px 1px at 28% 64%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1.4px 1.4px at 41% 12%, rgba(199,210,254,0.8), transparent),
+    radial-gradient(1px 1px at 55% 48%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.3px 1.3px at 67% 81%, rgba(165,243,252,0.8), transparent),
+    radial-gradient(1px 1px at 76% 30%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1.5px 1.5px at 88% 58%, rgba(216,180,254,0.85), transparent),
+    radial-gradient(1px 1px at 6% 84%, rgba(255,255,255,0.65), transparent),
+    radial-gradient(1.2px 1.2px at 94% 8%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 34% 92%, rgba(165,243,252,0.7), transparent);
+  background-size: 520px 520px;
+  animation: star-drift 160s linear infinite;
+}
+.starfield::after {
+  background-size: 340px 340px;
+  opacity: 0.55;
+  animation: star-drift 90s linear infinite reverse, star-twinkle 5.5s ease-in-out infinite;
+}
+@keyframes star-drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-520px); }
+}
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.7; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .starfield::before,
+  .starfield::after {
+    animation: none;
+  }
+}
+
+/* Comet scroll progress indicator */
+.comet-track {
+  position: fixed;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  z-index: 60;
+}
+.comet {
+  position: absolute;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: #06b6d4;
+  transform: translateX(-50%);
+  box-shadow: 0 0 12px #06b6d4, 0 -14px 22px 2px rgba(6, 182, 212, 0.35);
+}
+
+:focus-visible {
+  outline: 2px solid #06b6d4;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== GEN Z LAYER ===== */
+
+/* Neon text gradients for bold hero moments */
+.text-glow {
+  background: linear-gradient(120deg, #22d3ee, #ec4899 45%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: glow-shift 3s ease-in-out infinite;
+}
+
+@keyframes glow-shift {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.2); }
+}
+
+/* Glow text shadow for extra pop */
+.glow-text {
+  text-shadow: 0 0 20px rgba(34,211,238,0.6), 0 0 40px rgba(236,72,153,0.4);
+}
+
+/* Glowing badge frames */
+.badge-glow {
+  box-shadow: 0 0 16px rgba(124,58,237,0.5), inset 0 0 16px rgba(124,58,237,0.1);
+  border-color: rgba(124,58,237,0.6);
+  animation: badge-breathe 2s ease-in-out infinite;
+}
+
+@keyframes badge-breathe {
+  0%, 100% { box-shadow: 0 0 16px rgba(124,58,237,0.5), inset 0 0 16px rgba(124,58,237,0.1); }
+  50% { box-shadow: 0 0 24px rgba(124,58,237,0.8), inset 0 0 24px rgba(124,58,237,0.2); }
+}
+
+/* Neon gradient border */
+.neon-border {
+  border: 2px solid transparent;
+  background: linear-gradient(#0a0a0f, #0a0a0f) padding-box, linear-gradient(120deg, #7c3aed, #ec4899, #22d3ee) border-box;
+}
+
+/* Confetti burst particles */
+@keyframes burst {
+  0% { opacity: 1; transform: translate(0,0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--tx),var(--ty)) scale(0); }
+}
+.confetti {
+  position: fixed;
+  pointer-events: none;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: burst 0.8s ease-out forwards;
+  z-index: 999;
+}
+
+/* Streak flame glow */
+@keyframes flame-pulse {
+  0%, 100% { box-shadow: 0 0 8px #fb7185, 0 0 16px #ec4899; }
+  50% { box-shadow: 0 0 12px #fb7185, 0 0 24px #ec4899; }
+}
+.streak-flame {
+  animation: flame-pulse 2s ease-in-out infinite;
+}
+
+/* Spring pop animation on reveal */
+@keyframes spring-pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.spring-in {
+  animation: spring-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Vibrant glass tint (more color saturation for Gen Z) */
+.glass-glow {
+  background: rgba(14, 14, 24, 0.5);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  box-shadow: 0 0 24px rgba(124, 58, 237, 0.15), 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== ARCADE NEUBRUTALISM LAYER ===== */
+
+:root {
+  --lime: #a3ff2e;
+  --hot-pink: #ff2ea3;
+  --cyan: #22d3ee;
+  --ink-hard: #000;
+  --arcade-yellow: #ffde2e;
+  --arcade-orange: #ff8c2e;
+}
+
+/* ===== PLAY MODES — swap the arcade accent trio per theme ===== */
+/* --lime is the primary (button fill, needs black-legible brightness),
+   --hot-pink the secondary, --cyan the tertiary. Applied via data-theme on
+   <html> and persisted by themeStore. */
+html[data-theme='solar'] {
+  --lime: #ffc42e;
+  --hot-pink: #ff5d5d;
+  --cyan: #ff8f1f;
+  --arcade-yellow: #ffe14d;
+  --arcade-orange: #ff6a1f;
+}
+html[data-theme='toxic'] {
+  --lime: #7fff2a;
+  --hot-pink: #2affea;
+  --cyan: #b6ff3a;
+  --arcade-yellow: #d6ff2e;
+  --arcade-orange: #2affb0;
+}
+html[data-theme='synth'] {
+  --lime: #45e0ff;
+  --hot-pink: #ff5cc8;
+  --cyan: #b388ff;
+  --arcade-yellow: #ff5cc8;
+  --arcade-orange: #b388ff;
+}
+
+/* Chunky brutalist button — black border + hard offset shadow, click depresses */
+.nb-btn {
+  background: var(--lime);
+  color: #000;
+  border: 3px solid #000;
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 #000;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  cursor: pointer;
+}
+.nb-btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 #000; }
+.nb-btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 #000; }
+
+.nb-btn.pink { background: var(--hot-pink); color: #fff; }
+.nb-btn.cyan { background: var(--cyan, #22d3ee); color: #000; }
+.nb-btn.dark { background: #0a0a0f; color: var(--lime); border-color: var(--lime); box-shadow: 4px 4px 0 var(--lime); }
+.nb-btn.dark:active { box-shadow: 0 0 0 var(--lime); }
+
+/* Sticker card — tilted with hard offset shadow, alternating tilts */
+.sticker {
+  background: rgba(14, 14, 24, 0.75);
+  border: 2px solid #000;
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 var(--lime);
+  transform: rotate(-1.5deg);
+  transition: transform 0.2s ease;
+}
+.sticker.pink { box-shadow: 4px 4px 0 var(--hot-pink); }
+.sticker.cyan { box-shadow: 4px 4px 0 var(--cyan); }
+.sticker:nth-child(even) { transform: rotate(1.5deg); }
+.sticker:hover { transform: rotate(0deg) translate(-1px, -1px); }
+
+/* Chunky italic arcade display heading */
+.arcade-heading {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 0.92;
+  color: #fff;
+  text-shadow:
+    -1px -1px 0 var(--hot-pink),
+    2px 2px 0 var(--lime),
+    4px 4px 0 rgba(0,0,0,0.6);
+}
+
+.arcade-heading.outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--lime);
+  text-shadow: 4px 4px 0 var(--hot-pink);
+}
+
+.arcade-heading.lime {
+  color: var(--lime);
+  text-shadow: 3px 3px 0 #000;
+}
+
+.arcade-heading.split {
+  color: var(--lime);
+}
+.arcade-heading.split .cyan-line { color: var(--cyan); }
+.arcade-heading.split .pink-line { color: var(--hot-pink); }
+
+/* RGB-split outlined wordmark (matches the reference exactly): three stacked
+   stroked copies of the text — red / green / blue — offset horizontally and
+   blended with `screen` on the dark surface, so where the channels align the
+   outline reads white and where they separate you get pure R/G/B fringes.
+   Needs a `data-text` attribute equal to the text for the pseudo-copies. */
+.glitch-outline {
+  position: relative;
+  display: inline-block;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.86;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 255, 90, 0.95);     /* green channel (center) */
+}
+.glitch-outline::before,
+.glitch-outline::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: transparent;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.glitch-outline::before {
+  -webkit-text-stroke: 1px rgba(255, 0, 60, 0.85);     /* red channel, shifted left */
+  transform: translateX(-2px);
+}
+.glitch-outline::after {
+  -webkit-text-stroke: 1px rgba(0, 90, 255, 0.85);     /* blue channel, shifted right */
+  transform: translateX(2px);
+}
+
+/* Retro grid backdrop */
+.retro-grid {
+  background-image:
+    linear-gradient(rgba(163,255,46,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(163,255,46,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
+}
+
+/* Level badge — chunky pixel style with black border */
+.level-badge {
+  background: linear-gradient(135deg, var(--arcade-yellow), var(--arcade-orange));
+  border: 3px solid #000;
+  border-radius: 14px;
+  box-shadow: 3px 3px 0 #000;
+  color: #000;
+  transform: rotate(-2deg);
+}
+
+/* Day-streak dots (M T W T F …) */
+.day-dot {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 11px;
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.5);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+.day-dot.done {
+  background: var(--lime);
+  color: #000;
+  box-shadow: 0 0 14px var(--lime), 3px 3px 0 #000;
+}
+.day-dot.today {
+  background: var(--hot-pink);
+  color: #fff;
+  box-shadow: 0 0 14px var(--hot-pink), 3px 3px 0 #000;
+  animation: dot-bounce 1s ease-in-out infinite;
+}
+
+@keyframes dot-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Chunky arcade chip / pill */
+.arcade-chip {
+  background: transparent;
+  border: 2px solid rgba(163,255,46,0.4);
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: var(--lime);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.arcade-chip.on {
+  background: var(--lime);
+  color: #000;
+  border-color: #000;
+  box-shadow: 3px 3px 0 #000;
+}
+
+/* Diagonal marquee-style label (like the "level up your savings" tape) */
+.tape-label {
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  padding: 8px 20px;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transform: rotate(-6deg);
+  box-shadow: 3px 3px 0 #000;
+  border: 2px solid #000;
+}
+
+/* Pixel confetti — square particles instead of round */
+.pixel-confetti {
+  position: fixed;
+  pointer-events: none;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #000;
+  animation: burst 1s ease-out forwards;
+  z-index: 999;
+}

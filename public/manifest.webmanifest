@@ -1,0 +1,26 @@
+{
+  "name": "Toolnaut — Your AI Stack",
+  "short_name": "Toolnaut",
+  "description": "The role-aware command center for discovering, learning and mastering AI tools.",
+  "start_url": "/app/stack",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#060609",
+  "theme_color": "#060609",
+  "categories": ["productivity", "education"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
