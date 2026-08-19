@@ -2,7 +2,6 @@ import './env.js'
 import { createStore } from './store/index.js'
 import { makeToolRecord } from './schema.js'
 import { contentHash } from './util/hash.js'
-import { domainKey } from './util/slug.js'
 import { log } from './util/logger.js'
 
 // One-time seed: load the app's existing 704-tool catalog into the radar store
@@ -35,7 +34,7 @@ for (const t of catalog.TOOLS) {
   })
   rec.contentHash = contentHash(rec)
   store.upsertTool(rec)
-  store.markKnown(rec.slug, domainKey(rec.website))
+  store.markKnown(rec.slug)
   n++
 }
 log.info(`seeded ${n} tools into the radar store`)

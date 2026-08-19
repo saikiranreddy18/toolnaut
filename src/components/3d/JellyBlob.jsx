@@ -73,8 +73,9 @@ const JellyBlob = ({ scale = 1 }) => {
 
     // Animation loop
     let time = 0;
+    let frameId = 0;
     const animate = () => {
-      requestAnimationFrame(animate);
+      frameId = requestAnimationFrame(animate);
       time += 0.001;
 
       // Morph the blob
@@ -124,6 +125,7 @@ const JellyBlob = ({ scale = 1 }) => {
 
     // Cleanup
     return () => {
+      cancelAnimationFrame(frameId);
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('resize', handleResize);
       if (containerRef.current && renderer.domElement.parentNode === containerRef.current) {

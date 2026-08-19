@@ -145,7 +145,7 @@ export default function Discover() {
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {results.map((tool, i) => {
             const added = stack.includes(tool.slug)
-            const meta = CATEGORY_META[tool.category]
+            const meta = CATEGORY_META[tool.category] || { name: tool.category, color: 'var(--cyan)' }
             const stickerColor = i % 3 === 0 ? '' : i % 3 === 1 ? 'pink' : 'cyan'
             return (
               <Link

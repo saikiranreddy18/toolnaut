@@ -140,7 +140,7 @@ export default function Stack() {
   }
 
   const daily = toolOfTheDay(quiz.answers, starterNames, addedSlugs)
-  const dailyMeta = daily ? CATEGORY_META[daily.category] : null
+  const dailyMeta = daily ? CATEGORY_META[daily.category] || { name: daily.category, color: 'var(--cyan)' } : null
 
   // Persona → arcade level nametag (mirrors QuizResult)
   const experienceLevels = {

@@ -37,6 +37,15 @@ export const config = {
   },
 }
 
+// Fail loudly on a misconfigured threshold pair (e.g. percents instead of
+// fractions) — left unchecked it silently rejects every candidate, every run.
+const { publish, review } = config.thresholds
+if (!(review >= 0 && review < publish && publish <= 1)) {
+  throw new Error(
+    `radar config: invalid thresholds (review=${review}, publish=${publish}) — expected 0 <= review < publish <= 1, as fractions not percentages`,
+  )
+}
+
 export function hasLLM() {
   const { anthropic, nvidia, openai, openrouter } = config.llm
   return !!(anthropic || nvidia || openai || openrouter)

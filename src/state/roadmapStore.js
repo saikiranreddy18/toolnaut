@@ -35,6 +35,12 @@ export function setQuizPassed(milestoneId) {
   return persist(p)
 }
 
+// Progress keys aren't persona-scoped, so a retaken quiz must start clean —
+// otherwise the freshly generated roadmap inherits the old ticks.
+export function resetRoadmapProgress() {
+  try { localStorage.removeItem(KEY) } catch { /* storage blocked */ }
+}
+
 export function isQuizPassed(progress, milestoneId) {
   return !!progress[`${milestoneId}:quiz`]
 }

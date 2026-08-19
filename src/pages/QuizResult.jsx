@@ -13,22 +13,14 @@ export default function QuizResult() {
   const navigate = useNavigate()
   const quiz = loadQuiz()
 
-  if (!quiz.completed) {
-    return <Navigate to="/quiz?step=1" replace />
-  }
-
-  const persona = generatePersona(quiz.answers)
-
-  function retake() {
-    resetQuiz()
-    navigate('/quiz?step=1')
-  }
-
-  // Pixel confetti burst — square particles in arcade palette
+  // Pixel confetti burst — square particles in arcade palette. Declared before
+  // the completed-quiz redirect below so hook order stays stable.
   useEffect(() => {
     const colors = ['var(--lime)', 'var(--hot-pink)', 'var(--cyan)', '#ffde2e', '#a78bfa']
+    const timers = []
+    const nodes = []
     for (let i = 0; i < 40; i++) {
-      setTimeout(() => {
+      timers.push(setTimeout(() => {
         const conf = document.createElement('div')
         conf.className = 'pixel-confetti'
         conf.style.cssText = `
@@ -40,10 +32,26 @@ export default function QuizResult() {
           transform: rotate(${Math.random() * 360}deg);
         `
         document.body.appendChild(conf)
-        setTimeout(() => conf.remove(), 1000)
-      }, i * 25)
+        nodes.push(conf)
+        timers.push(setTimeout(() => conf.remove(), 1000))
+      }, i * 25))
+    }
+    return () => {
+      timers.forEach(clearTimeout)
+      nodes.forEach((n) => n.remove())
     }
   }, [])
+
+  if (!quiz.completed) {
+    return <Navigate to="/quiz?step=1" replace />
+  }
+
+  const persona = generatePersona(quiz.answers)
+
+  function retake() {
+    resetQuiz()
+    navigate('/quiz?step=1')
+  }
 
   // Persona → arcade-style level nametag
   const experienceLevels = {

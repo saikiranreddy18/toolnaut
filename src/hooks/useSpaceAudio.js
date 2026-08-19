@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 // Warm, musical deep-space ambience, synthesized in the browser:
 // a slowly-breathing suspended chord, a whisper of filtered air, and
@@ -89,18 +89,31 @@ function buildEngine() {
     if (ctx.state === 'running' && Math.random() < 0.65) twinkle()
   }, 4600)
 
-  return { ctx, master, twinkleTimer }
+  return { ctx, master, twinkleTimer, suspendTimer: null }
 }
 
 export function useSpaceAudio() {
   const [on, setOn] = useState(false)
   const engineRef = useRef(null)
 
+  // Tear the engine down on unmount — the chime interval and the AudioContext
+  // both outlive the component otherwise.
+  useEffect(() => () => {
+    const engine = engineRef.current
+    if (!engine) return
+    clearInterval(engine.twinkleTimer)
+    clearTimeout(engine.suspendTimer)
+    engine.ctx.close().catch(() => { /* already closed */ })
+    engineRef.current = null
+  }, [])
+
   const toggle = useCallback(() => {
     let engine = engineRef.current
     if (!engine) {
       engine = engineRef.current = buildEngine()
     }
+    // A pending fade-out suspend would otherwise silence a fast OFF→ON retoggle.
+    clearTimeout(engine.suspendTimer)
     const { ctx, master } = engine
     const next = !on
     if (next) {
@@ -110,7 +123,7 @@ export function useSpaceAudio() {
     } else {
       master.gain.cancelScheduledValues(ctx.currentTime)
       master.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.6)
-      setTimeout(() => ctx.suspend(), 700)
+      engine.suspendTimer = setTimeout(() => ctx.suspend(), 700)
     }
     setOn(next)
   }, [on])

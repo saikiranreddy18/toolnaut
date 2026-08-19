@@ -35,7 +35,7 @@ export default function ToolDetail() {
   const answers = quiz.completed ? quiz.answers : null
   const score = matchScore(tool, answers)
   const reasons = matchReasons(tool, answers)
-  const meta = CATEGORY_META[tool.category]
+  const meta = CATEGORY_META[tool.category] || { name: tool.category, color: 'var(--cyan)' }
   const added = stack.includes(tool.slug)
   // Prefer neighbours in the exact source category, then fall back to domain.
   const sameSource = TOOLS.filter((t) => t.sourceCategory === tool.sourceCategory && t.slug !== tool.slug)

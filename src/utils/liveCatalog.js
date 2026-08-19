@@ -24,6 +24,9 @@ export async function loadLiveCatalog() {
     const res = await fetch('/tools.json', { cache: 'no-cache', signal: ctrl.signal })
     clearTimeout(timer)
     if (!res.ok) return 0
+    // The SPA rewrite turns a missing /tools.json into a 200 + index.html, so
+    // res.ok alone is not enough — check the content type before parsing.
+    if (!(res.headers.get('content-type') || '').includes('json')) return 0
     const data = await res.json()
     const tools = Array.isArray(data) ? data : data?.tools
     if (!Array.isArray(tools)) return 0
