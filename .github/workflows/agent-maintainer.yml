@@ -1,0 +1,48 @@
+name: Agent · Maintainer
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"   # Mondays 03:00 UTC (08:30 IST)
+  workflow_dispatch:
+
+concurrency:
+  group: agent-maintainer
+  cancel-in-progress: false
+
+jobs:
+  maintain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      actions: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: --max-turns 40
+          prompt: |
+            You are the maintainer agent for Toolnaut. Read CLAUDE.md first.
+
+            Exit immediately if an open bot/deps/* PR already exists.
+
+            Run `npm audit` and `npm outdated`. Then open at most ONE PR on branch
+            bot/deps/<date> that does the smallest useful upgrade:
+              - Prioritise anything with a known security advisory.
+              - Then patch/minor upgrades that are safe.
+              - Do NOT take major-version bumps automatically. If a major bump is
+                warranted, open an ISSUE describing the migration instead.
+
+            `npm test`, `npm run build` and `npm run smoke` must all pass before you
+            open the PR. Never push to master. Never touch .github/workflows/.
+            Never edit the "version" field in package.json.
