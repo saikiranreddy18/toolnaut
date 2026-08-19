@@ -21,5 +21,5 @@ const id = createHash('sha256')
   .digest('hex')
   .slice(0, 12)
 
-writeFileSync(swPath, sw.replace('__BUILD_ID__', id))
+writeFileSync(swPath, sw.replaceAll('__BUILD_ID__', id))
 console.log(`stamp-sw: cache version → toolnaut-shell-${id}`)
