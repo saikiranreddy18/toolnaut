@@ -1,0 +1,72 @@
+name: Release
+
+# The ONLY place the version is ever bumped. Agents are forbidden from editing
+# package.json's version field, because five agents each bumping it means a
+# merge conflict on every single PR.
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: "Version bump"
+        required: true
+        default: patch
+        type: choice
+        options: [patch, minor, major]
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: "!contains(github.event.head_commit.message, 'chore(release)')"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+
+      - name: Decide the bump from the commit message
+        id: decide
+        run: |
+          MSG=$(git log -1 --pretty=%B)
+          if [ -n "${{ inputs.bump }}" ]; then
+            echo "bump=${{ inputs.bump }}" >> "$GITHUB_OUTPUT"
+          elif echo "$MSG" | grep -qE '^(BREAKING CHANGE|.*!:)'; then
+            echo "bump=major" >> "$GITHUB_OUTPUT"
+          elif echo "$MSG" | grep -qE '^feat(\(.+\))?:'; then
+            echo "bump=minor" >> "$GITHUB_OUTPUT"
+          elif echo "$MSG" | grep -qE '^(fix|perf)(\(.+\))?:'; then
+            echo "bump=patch" >> "$GITHUB_OUTPUT"
+          else
+            echo "bump=none" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Bump, tag and push
+        if: steps.decide.outputs.bump != 'none'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          npm version ${{ steps.decide.outputs.bump }} -m "chore(release): v%s"
+          git push --follow-tags origin master
+
+      - name: Publish a GitHub release
+        if: steps.decide.outputs.bump != 'none'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release create "v$(node -p "require('./package.json').version")" --generate-notes

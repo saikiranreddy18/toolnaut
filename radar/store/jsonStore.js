@@ -15,11 +15,15 @@ export function createJsonStore(dataDir) {
     known: path.join(dataDir, 'known.json'),
     runs: path.join(dataDir, 'runs.log.json'),
   }
+  // A missing file is the normal first-run case → default. ANY other failure
+  // (truncated JSON, bad permissions) must abort the run: silently defaulting
+  // to an empty store would make the next save() overwrite the real data.
   const load = (p, d = []) => {
     try {
       return JSON.parse(fs.readFileSync(p, 'utf8'))
-    } catch {
-      return d
+    } catch (e) {
+      if (e.code === 'ENOENT') return d
+      throw new Error(`radar store: cannot read ${p} — ${e.message}`, { cause: e })
     }
   }
   // Write to a temp file then rename — a process kill mid-write can't leave a

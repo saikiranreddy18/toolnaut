@@ -6,7 +6,7 @@ import { validate } from './validate.js'
 import { generateCourse } from './courseGen.js'
 import { skillsFor } from './skills.js'
 import { config } from './config.js'
-import { slugify, domainKey } from './util/slug.js'
+import { slugify } from './util/slug.js'
 import { log } from './util/logger.js'
 
 // THE ORCHESTRATOR — one full daily run:
@@ -18,7 +18,8 @@ import { log } from './util/logger.js'
 //  - candidates can be injected (tests) instead of hitting the network
 //  - each candidate is isolated in try/catch: one bad item never aborts the run
 //  - staged → validated → published: raw data never lands live unvalidated
-//  - every processed item is marked known → the run is idempotent (safe re-run)
+//  - every published/review item is marked known → the run is idempotent
+//    (safe re-run), while rejects stay reconsiderable on a later run
 //  - dryRun computes the full report without writing anything
 export async function runPipeline({ store, candidates, now = new Date().toISOString(), dryRun = false } = {}) {
   const report = {
@@ -34,34 +35,34 @@ export async function runPipeline({ store, candidates, now = new Date().toISOStr
   const raw = candidates || (await collectCandidates())
   report.counts.candidates = raw.length
 
-  // Collapse duplicates within this batch before doing any work.
+  // Collapse duplicates within this batch, then apply the cheap "is this
+  // actually a tool?" gate — drop article/headline noise before spending any
+  // enrichment effort on it. The maxCandidates cap is applied AFTER filtering:
+  // capping the raw list let a noisy source fill it with items that were about
+  // to be dropped anyway, so later sources (RSS) were fetched then discarded.
   const seen = new Set()
   const batch = []
-  for (const c of raw.slice(0, config.maxCandidates)) {
+  for (const c of raw) {
     if (!c?.name || !c?.url) continue
     const slug = slugify(c.name)
     if (!slug || seen.has(slug)) continue
     seen.add(slug)
+    const f = looksLikeTool(c)
+    if (!f.ok) {
+      report.counts.filtered++
+      report.filtered.push({ name: c.name, reason: f.reason })
+      continue
+    }
     batch.push({ candidate: c, slug })
   }
 
-  for (const { candidate, slug } of batch) {
-    // Cheap "is this actually a tool?" gate — drop article/headline noise
-    // before spending any enrichment effort on it.
-    const f = looksLikeTool(candidate)
-    if (!f.ok) {
-      report.counts.filtered++
-      report.filtered.push({ name: candidate.name, reason: f.reason })
-      continue
-    }
-
+  for (const { candidate, slug } of batch.slice(0, config.maxCandidates)) {
     const cls = classify(candidate, store)
     if (cls.status === 'skip') {
       report.counts.skipped++
       continue
     }
     report.counts.new++
-    const dkey = domainKey(candidate.url)
 
     let record
     try {
@@ -70,7 +71,6 @@ export async function runPipeline({ store, candidates, now = new Date().toISOStr
       log.error(`enrich crashed for ${slug}`, e.message)
       report.counts.rejected++
       report.rejected.push({ slug, reason: 'enrich-error' })
-      if (!dryRun) store.markKnown(slug, dkey)
       continue
     }
 
@@ -84,6 +84,7 @@ export async function runPipeline({ store, candidates, now = new Date().toISOStr
       report.counts.published++
       report.published.push({ slug, name: record.name, confidence: v.confidence, by: record.enrichedBy })
       if (!dryRun) {
+        store.markKnown(slug)
         store.upsertTool(record)
         try {
           store.upsertCourse(await generateCourse(record, { now }))
@@ -96,13 +97,16 @@ export async function runPipeline({ store, candidates, now = new Date().toISOStr
     } else if (v.decision === 'review') {
       report.counts.review++
       report.review.push({ slug, name: record.name, confidence: v.confidence, warnings: v.warnings })
-      if (!dryRun) store.enqueueReview(record)
+      if (!dryRun) {
+        store.markKnown(slug)
+        store.enqueueReview(record)
+      }
     } else {
+      // Rejects are NOT marked known — a bad threshold/config shouldn't
+      // blacklist a tool forever; the next run gets to reconsider it.
       report.counts.rejected++
       report.rejected.push({ slug, name: record.name, errors: v.errors })
     }
-
-    if (!dryRun) store.markKnown(slug, dkey)
   }
 
   if (!dryRun) {

@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
@@ -43,6 +43,12 @@ export default function ParticleField({ reduced, mobile = false }) {
     ],
     [],
   )
+
+  // Materials don't dispose their `map` — release the canvases on unmount.
+  useEffect(() => () => {
+    starTex.dispose()
+    nebulae.forEach((n) => n.tex.dispose())
+  }, [starTex, nebulae])
 
   useFrame((_, delta) => {
     if (starsRef.current && !reduced) starsRef.current.rotation.y += delta * 0.008

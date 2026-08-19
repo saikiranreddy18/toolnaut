@@ -1,0 +1,70 @@
+name: Agent · Bugfix
+
+# Hourly, but deliberately NOT a blind "go find bugs" loop — that produces
+# infinite low-value PRs. The agent only acts on a real signal: a red CI run on
+# master, or an open issue labelled `agent-fixable`. With no signal it exits.
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: agent-bugfix
+  cancel-in-progress: false
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      actions: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: --max-turns 40
+          prompt: |
+            You are the bugfix agent for the Toolnaut repository. Read CLAUDE.md first.
+
+            STOP CONDITIONS — check these FIRST and exit immediately without doing
+            anything if any of them hold:
+              a) `gh pr list --author "@me" --state open --head-prefix bot/bugfix/`
+                 (or equivalent) shows an open bot/bugfix/* PR. One at a time. Exit.
+              b) The latest CI run on master is green AND there are no open issues
+                 labelled `agent-fixable`. Nothing to do. Exit.
+
+            OTHERWISE, pick exactly ONE problem, in this priority order:
+              1. The failing job in the most recent red CI run on master.
+              2. The oldest open issue labelled `agent-fixable`.
+
+            Then:
+              - Create a branch named bot/bugfix/<short-slug>.
+              - Make the SMALLEST change that fixes the problem. Do not refactor
+                adjacent code, do not reformat, do not rename.
+              - Add or extend a test that fails before your fix and passes after,
+                unless the fix is genuinely untestable (say so in the PR if so).
+              - Run `npm test`, `npm run build`, and `npm run smoke`. All three must
+                pass. If you cannot make them pass, do NOT open a PR — open an issue
+                describing what you tried and why it failed, then stop.
+              - Do NOT edit the "version" field in package.json. Releases handle that.
+              - Open a PR against master titled "fix: <what>" whose body states: the
+                symptom, the root cause, a concrete failure scenario, and how you
+                verified it. Link the issue or CI run.
+
+            NEVER push to master. NEVER merge your own PR. NEVER change files under
+            .github/workflows/.

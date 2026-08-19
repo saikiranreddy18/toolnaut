@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useRef } from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { MotionConfig } from 'framer-motion'
 import Landing from './pages/Landing'
 import OnboardingShell from './shells/OnboardingShell'
 import ThemePicker from './components/ui/ThemePicker'
@@ -59,32 +60,34 @@ export default function App() {
       <CursorStars />
       <ThemePicker />
       <Suspense fallback={<PageFallback />}>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/starchart" element={<NexusLanding />} />
-          <Route path="/office" element={<Office />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/pricing" element={<Pricing />} />
+        <MotionConfig reducedMotion="user">
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/starchart" element={<NexusLanding />} />
+            <Route path="/office" element={<Office />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/pricing" element={<Pricing />} />
 
-          <Route element={<OnboardingShell />}>
-            <Route path="/quiz" element={<Quiz />} />
-            <Route path="/quiz/result" element={<QuizResult />} />
-            <Route path="/auth/login" element={<Login />} />
-          </Route>
+            <Route element={<OnboardingShell />}>
+              <Route path="/quiz" element={<Quiz />} />
+              <Route path="/quiz/result" element={<QuizResult />} />
+              <Route path="/auth/login" element={<Login />} />
+            </Route>
 
-          <Route path="/app" element={<AppShell />}>
-            <Route index element={<Navigate to="/app/stack" replace />} />
-            <Route path="stack" element={<Stack />} />
-            <Route path="discover" element={<Discover />} />
-            <Route path="tools/:slug" element={<ToolDetail />} />
-            <Route path="learning" element={<Learning />} />
-            <Route path="community" element={<Community />} />
-            <Route path="community/:id" element={<Thread />} />
-            <Route path="settings" element={<Settings />} />
-          </Route>
+            <Route path="/app" element={<AppShell />}>
+              <Route index element={<Navigate to="/app/stack" replace />} />
+              <Route path="stack" element={<Stack />} />
+              <Route path="discover" element={<Discover />} />
+              <Route path="tools/:slug" element={<ToolDetail />} />
+              <Route path="learning" element={<Learning />} />
+              <Route path="community" element={<Community />} />
+              <Route path="community/:id" element={<Thread />} />
+              <Route path="settings" element={<Settings />} />
+            </Route>
 
-          <Route path="*" element={<Landing />} />
-        </Routes>
+            <Route path="*" element={<Landing />} />
+          </Routes>
+        </MotionConfig>
       </Suspense>
     </BrowserRouter>
   )

@@ -1,6 +1,7 @@
 import { generatePersona } from './personaGenerator'
 import { findToolByName, getTool, CATEGORY_META } from './toolsCatalog'
 import { loadStack } from '../state/stackStore'
+import { loadQuiz } from '../state/quizStore'
 
 // Builds a 4-week learning roadmap from the persona's starter stack plus any
 // tools the user added in Discover. Each week focuses on one tool and carries
@@ -157,7 +158,7 @@ function quizFor(tool, siblings) {
 }
 
 export function generateRoadmap() {
-  const quiz = JSON.parse(localStorage.getItem('exus_quiz_v1') || 'null')
+  const quiz = loadQuiz()
   if (!quiz?.completed) return null
 
   const persona = generatePersona(quiz.answers)

@@ -20,6 +20,7 @@ export default function Quiz() {
   const [answers, setAnswers] = useState(() => loadQuiz().answers)
   const [burst, setBurst] = useState(false)
   const startedRef = useRef(false)
+  const answerTimer = useRef(null)
 
   const rawStep = parseInt(searchParams.get('step') || '1', 10)
   const step = Number.isNaN(rawStep) ? 1 : Math.min(Math.max(rawStep, 1), TOTAL)
@@ -42,6 +43,9 @@ export default function Quiz() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // Leaving mid-answer must not navigate after the fact.
+  useEffect(() => () => clearTimeout(answerTimer.current), [])
+
   const index = Math.min(step, allowedMax) - 1
   const question = QUESTIONS[index]
 
@@ -52,7 +56,7 @@ export default function Quiz() {
     const next = saveAnswer(q.id, opt.key)
     setAnswers(next.answers)
     setBurst(true)
-    setTimeout(() => {
+    answerTimer.current = setTimeout(() => {
       setBurst(false)
       if (index + 1 >= TOTAL) {
         haptic.success()

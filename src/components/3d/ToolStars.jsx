@@ -146,6 +146,12 @@ export default function ToolStars() {
     [items],
   )
 
+  // Material.dispose() leaves textures in `map` behind — drop the per-flagship
+  // name canvases explicitly. (Star textures are module-cached and shared.)
+  useEffect(() => () => {
+    nameTextures.forEach((tex) => tex && tex.dispose())
+  }, [nameTextures])
+
   useFrame(({ clock, camera }) => {
     const t = clock.elapsedTime
     const tooltip = document.getElementById('tool-tooltip')

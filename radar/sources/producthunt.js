@@ -1,4 +1,4 @@
-import { retry } from '../util/retry.js'
+import { retry, httpError } from '../util/retry.js'
 import { log } from '../util/logger.js'
 
 // Product Hunt GraphQL API. Requires a developer token (PRODUCTHUNT_TOKEN);
@@ -12,8 +12,9 @@ export async function fetchProductHunt({ token, limit = 30 } = {}) {
         method: 'POST',
         headers: { 'content-type': 'application/json', authorization: `Bearer ${token}` },
         body: JSON.stringify({ query }),
+        signal: AbortSignal.timeout(15000),
       }).then(async (r) => {
-        if (!r.ok) throw new Error(`Product Hunt ${r.status}`)
+        if (!r.ok) throw httpError(r, `Product Hunt ${r.status}`)
         return r.json()
       }),
     )

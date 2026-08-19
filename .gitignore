@@ -1,8 +1,11 @@
 node_modules
 dist
-.env
-.env.local
+
+# Vite loads .env, .env.local, .env.production, .env.development and their
+# .local variants — ignore them all, keep the checked-in example.
+.env*
+!.env.example
+
 *.log
 
 .vercel
-public/tools.json

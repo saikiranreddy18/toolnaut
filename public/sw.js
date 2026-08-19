@@ -1,7 +1,12 @@
 // Minimal service worker: enables installability and an offline app-shell
 // fallback. Network-first so users always get fresh content when online; the
 // cached shell only appears when the network is unavailable.
-const CACHE = 'nexus-shell-v1'
+//
+// CACHE must change on every deploy, otherwise the activate handler below
+// deletes nothing and the cache grows forever while serving the first build a
+// visitor ever saw. `__BUILD_ID__` is replaced with the build hash by the
+// stamp-sw plugin in vite.config.js — never hardcode a version here.
+const CACHE = 'toolnaut-shell-__BUILD_ID__'
 const SHELL = ['/', '/index.html', '/icon.svg', '/manifest.webmanifest']
 
 self.addEventListener('install', (event) => {
@@ -30,7 +35,16 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
-  // Static assets: cache-first for speed, refresh cache in the background.
+  // Only content-hashed build output is safe to serve cache-first. Everything
+  // else (/tools.json above all — the radar pipeline refreshes it daily, and
+  // the app fetches it with cache:'no-cache') must go network-first, or a
+  // stale copy is pinned in the cache forever.
+  const path = new URL(request.url).pathname
+  if (!path.startsWith('/assets/')) {
+    event.respondWith(fetch(request).catch(() => caches.match(request)))
+    return
+  }
+
   event.respondWith(
     caches.match(request).then((cached) => {
       const network = fetch(request)

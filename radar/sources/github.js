@@ -1,4 +1,4 @@
-import { retry } from '../util/retry.js'
+import { retry, httpError } from '../util/retry.js'
 import { log } from '../util/logger.js'
 
 // GitHub repository search for recently-created AI tools. Works without a token
@@ -11,8 +11,8 @@ export async function fetchGitHub({ token, limit = 40 } = {}) {
   if (token) headers.authorization = `Bearer ${token}`
   try {
     const data = await retry(() =>
-      fetch(url, { headers }).then(async (r) => {
-        if (!r.ok) throw new Error(`GitHub ${r.status}`)
+      fetch(url, { headers, signal: AbortSignal.timeout(15000) }).then(async (r) => {
+        if (!r.ok) throw httpError(r, `GitHub ${r.status}`)
         return r.json()
       }),
     )

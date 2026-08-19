@@ -1,6 +1,8 @@
 // Guest-safe quiz state, persisted to localStorage after every answer so a
 // refresh mid-quiz never loses progress. On signup, this payload is what gets
 // synced to the server (see APP-FLOW.md §3.1).
+import { resetRoadmapProgress } from './roadmapStore'
+
 const KEY = 'exus_quiz_v1'
 
 export function loadQuiz() {
@@ -33,4 +35,5 @@ export function completeQuiz() {
 
 export function resetQuiz() {
   save({ answers: {}, completed: false })
+  resetRoadmapProgress()
 }

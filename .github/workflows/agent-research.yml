@@ -1,0 +1,58 @@
+name: Agent · Research
+
+# Growth/product research. Deliberately weekly, not hourly — the answer to
+# "how do we grow the customer base" does not change in an hour. This agent
+# writes ISSUES and docs. It must never touch application code.
+on:
+  schedule:
+    - cron: "0 4 * * 1"   # Mondays 04:00 UTC (09:30 IST)
+  workflow_dispatch:
+
+concurrency:
+  group: agent-research
+  cancel-in-progress: false
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      issues: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: --max-turns 40
+          prompt: |
+            You are the growth research agent for Toolnaut (toolnaut.xyz) — a
+            role-aware AI-tool discovery platform: a 60-second quiz maps a user's
+            role and goals to a personalised stack from a 700+ tool catalog, plus a
+            4-week learning roadmap. Currently in free public beta, pre-revenue.
+            Read CLAUDE.md and README.md for how the product actually works.
+
+            Your job this week: propose enhancements that would plausibly grow the
+            user base, grounded in what the code actually does today.
+
+            Method:
+              - Read the existing open issues labelled `growth` first. Do NOT
+                re-propose anything already filed. If you have nothing genuinely new,
+                say so and exit without filing anything. An empty week is a valid
+                outcome; duplicate noise is not.
+              - Look at the real funnel in the code: landing → quiz → result →
+                signup → app. Find where a visitor drops out or where the value is
+                not visible before the ask.
+              - Consider: activation, shareability, SEO/discovery surface area,
+                retention hooks in the 4-week roadmap, and what would justify the
+                planned Student/Pro/Team paid tiers.
+
+            Output: open AT MOST 3 issues, labelled `growth`. Each must contain:
+              - The specific problem, with the file/route it lives in.
+              - The proposed change, concretely enough to implement.
+              - Why it would move signups or retention, and roughly how much work.
+              - How you would measure whether it worked.
+
+            Rank them and say which ONE you would do first. Do not open PRs. Do not
+            modify any files.

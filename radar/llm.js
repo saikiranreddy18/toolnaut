@@ -1,5 +1,5 @@
 import { config } from './config.js'
-import { retry } from './util/retry.js'
+import { retry, httpError } from './util/retry.js'
 
 // Provider-agnostic LLM dispatch. Uses whichever provider is configured, in
 // order (Anthropic → NVIDIA → OpenAI → OpenRouter). If none is set it throws
@@ -33,8 +33,9 @@ async function anthropicCall(cfg, system, user, json, maxTokens) {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({ model: cfg.model, max_tokens: maxTokens, system, messages: [{ role: 'user', content }] }),
+      signal: AbortSignal.timeout(30000),
     })
-    if (!res.ok) throw new Error(`Anthropic ${res.status}: ${await res.text()}`)
+    if (!res.ok) throw httpError(res, `Anthropic ${res.status}: ${await res.text()}`)
     return res.json()
   })
   return data.content?.[0]?.text ?? ''
@@ -57,8 +58,9 @@ async function chatCompletions(url, cfg, system, user, json, maxTokens, useRespo
           { role: 'user', content: json ? `${user}\n\nReturn only a JSON object.` : user },
         ],
       }),
+      signal: AbortSignal.timeout(30000),
     })
-    if (!res.ok) throw new Error(`LLM ${res.status}: ${await res.text()}`)
+    if (!res.ok) throw httpError(res, `LLM ${res.status}: ${await res.text()}`)
     return res.json()
   })
   return data.choices?.[0]?.message?.content ?? ''

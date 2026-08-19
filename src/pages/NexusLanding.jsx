@@ -7,17 +7,9 @@ import { useAnalytics } from '../hooks/useAnalytics'
 import { useSpaceAudio } from '../hooks/useSpaceAudio'
 import { EVENTS } from '../utils/analyticsEvents'
 import { galaxyState } from '../state/galaxyStore'
+import { webglAvailable } from '../utils/webgl'
 
 const Scene = lazy(() => import('../components/3d/Scene'))
-
-function webglAvailable() {
-  try {
-    const c = document.createElement('canvas')
-    return !!(c.getContext('webgl2') || c.getContext('webgl'))
-  } catch {
-    return false
-  }
-}
 
 const EASE = [0.16, 1, 0.3, 1]
 
