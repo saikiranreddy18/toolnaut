@@ -10,11 +10,12 @@ const base = `http://127.0.0.1:${PORT}`
 
 const server = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--host', '127.0.0.1'], {
   stdio: 'ignore',
+  shell: process.platform === 'win32',
 })
 process.on('exit', () => server.kill())
 await new Promise((r) => setTimeout(r, 5000))
 const routes = ['/', '/quiz?step=1', '/pricing', '/about', '/starchart', '/app/stack', '/app/discover', '/app/learning', '/office']
-const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' })
+const browser = await chromium.launch()
 let bad = 0
 for (const r of routes) {
   const page = await browser.newPage()
