@@ -2,7 +2,7 @@ import { config } from './config.js'
 import { retry, httpError } from './util/retry.js'
 
 // Provider-agnostic LLM dispatch. Uses whichever provider is configured, in
-// order (Anthropic → NVIDIA → OpenAI → OpenRouter). If none is set it throws
+// order (Featherless → Anthropic → NVIDIA → OpenAI → OpenRouter). If none is set it throws
 // NoLLMError, which callers catch to fall back to deterministic rules — the
 // pipeline never hard-depends on an LLM being available.
 export class NoLLMError extends Error {}
@@ -13,8 +13,19 @@ export class NoLLMError extends Error {}
 // prompt's "return only JSON" instruction instead.
 const NVIDIA_URL = 'https://integrate.api.nvidia.com/v1/chat/completions'
 
+// Featherless is OpenAI-compatible and supports response_format json_object.
+// Its default model (Kimi-K3) is a REASONING model: it burns completion tokens
+// on a hidden reasoning pass before emitting message.content, so a 512-token
+// budget returns finish_reason:'length' and an EMPTY content string. Callers
+// would then silently fall back to deterministic rules while looking correctly
+// configured. Floor the budget at 1024 so the answer survives the think.
+const FEATHERLESS_URL = 'https://api.featherless.ai/v1/chat/completions'
+const FEATHERLESS_MIN_TOKENS = 1024
+
 export async function callLLM(system, user, { json = false, maxTokens = 512 } = {}) {
-  const { anthropic, nvidia, openai, openrouter } = config.llm
+  const { featherless, anthropic, nvidia, openai, openrouter } = config.llm
+  if (featherless)
+    return chatCompletions(FEATHERLESS_URL, featherless, system, user, json, Math.max(maxTokens, FEATHERLESS_MIN_TOKENS))
   if (anthropic) return anthropicCall(anthropic, system, user, json, maxTokens)
   if (nvidia) return chatCompletions(NVIDIA_URL, nvidia, system, user, json, maxTokens, false)
   if (openai) return chatCompletions('https://api.openai.com/v1/chat/completions', openai, system, user, json, maxTokens)

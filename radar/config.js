@@ -22,6 +22,9 @@ export const config = {
   llm: {
     // provider-agnostic; the first configured one (in this order) is used, and
     // enrich/course-gen fall back to deterministic rules if none is set.
+    featherless: process.env.FEATHERLESS_API_KEY
+      ? { key: process.env.FEATHERLESS_API_KEY, model: process.env.FEATHERLESS_MODEL || 'moonshotai/Kimi-K3' }
+      : null,
     anthropic: process.env.ANTHROPIC_API_KEY
       ? { key: process.env.ANTHROPIC_API_KEY, model: process.env.ANTHROPIC_MODEL || 'claude-opus-4-8' }
       : null,
