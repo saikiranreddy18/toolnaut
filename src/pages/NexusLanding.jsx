@@ -430,28 +430,23 @@ function Pricing() {
   )
 }
 
-function Waitlist() {
-  const [email, setEmail] = useState('')
-  const [done, setDone] = useState(false)
+function FinalCTA() {
+  const track = useAnalytics()
   return (
     <section id="cta" className="relative z-10 mx-auto max-w-6xl scroll-mt-20 px-5 py-24 md:py-36">
       <motion.div {...rise} className="mx-auto max-w-xl text-center">
-        <Eyebrow>GET EARLY ACCESS</Eyebrow>
+        <Eyebrow>START HERE</Eyebrow>
         <h2 className="fos-heading font-display text-3xl font-bold tracking-tight md:text-5xl">Chart your stack in 60 seconds.</h2>
-        <p className="mt-4 text-[15px] leading-relaxed text-white/55">Join the early-access list — your first chart is on us.</p>
-        {done ? (
-          <div className="mx-auto mt-8 flex max-w-md items-center justify-center gap-3 rounded-full border border-[#84cc16]/30 bg-[#84cc16]/10 px-6 py-3.5 text-sm text-[#d9f99d]" role="status">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden="true"><path d="m5 13 4 4L19 7" /></svg>
-            You&rsquo;re on the list — we&rsquo;ll send your invite soon.
-          </div>
-        ) : (
-          <form className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row" onSubmit={(e) => { e.preventDefault(); if (email.includes('@')) setDone(true) }}>
-            <label htmlFor="nx-email" className="sr-only">Email address</label>
-            <input id="nx-email" type="email" required autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@startup.com"
-              className="min-h-[46px] flex-1 rounded-full border border-white/10 bg-white/[0.05] px-5 text-sm text-white/85 placeholder:text-white/30 focus:border-[#84cc16]/50 focus:outline-none focus:ring-2 focus:ring-[#84cc16]/25" />
-            <button type="submit" className="press min-h-[46px] cursor-pointer rounded-full bg-gradient-to-r from-[#84cc16] to-[#06b6d4] px-7 text-sm font-semibold text-[#0a0a0f] shadow-[0_0_28px_rgba(132,204,22,0.35)] transition-shadow hover:shadow-[0_0_46px_rgba(132,204,22,0.6)]">Get early access</button>
-          </form>
-        )}
+        <p className="mt-4 text-[15px] leading-relaxed text-white/55">Answer a few questions and get a stack mapped to how you actually work.</p>
+        <div className="mt-8 flex justify-center">
+          <Link
+            to="/quiz"
+            onClick={() => track(EVENTS.CTA_CLICK, { cta: 'open_app', location: 'starchart_cta' })}
+            className="press inline-flex min-h-[46px] cursor-pointer items-center rounded-full bg-gradient-to-r from-[#84cc16] to-[#06b6d4] px-8 text-sm font-semibold text-[#0a0a0f] shadow-[0_0_28px_rgba(132,204,22,0.35)] transition-shadow hover:shadow-[0_0_46px_rgba(132,204,22,0.6)]"
+          >
+            Chart my stack
+          </Link>
+        </div>
         <p className="mt-5 font-mono text-[11px] text-white/30">No credit card. Results before signup.</p>
       </motion.div>
     </section>
@@ -571,7 +566,7 @@ export default function NexusLanding() {
           <Roles />
           <RadarPreview />
           <Pricing />
-          <Waitlist />
+          <FinalCTA />
           <Footer />
         </div>
 

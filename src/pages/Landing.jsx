@@ -107,13 +107,6 @@ export default function Landing() {
             <Link to="/pricing" className="hover:text-white">Pricing</Link>
             <Link to="/about" className="hover:text-white">About</Link>
             <a href="#contact" className="hover:text-white">Contact</a>
-            <a
-              href="#cta"
-              onClick={() => track(EVENTS.CTA_CLICK, { cta: 'join_waitlist', location: 'nav' })}
-              className="nb-btn dark px-4 py-1.5 text-xs"
-            >
-              Join waitlist
-            </a>
             <Link
               to="/app/stack"
               onClick={() => track(EVENTS.CTA_CLICK, { cta: 'open_app', location: 'nav' })}

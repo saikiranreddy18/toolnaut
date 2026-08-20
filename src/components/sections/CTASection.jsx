@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { fadeUp, stagger } from '../ui/SectionShell'
-import WaitlistForm from '../ui/WaitlistForm'
 import { BRAND } from '../../config'
 import { useAnalytics, useSectionView } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
@@ -31,28 +30,22 @@ export default function CTASection() {
         </motion.h2>
 
         <motion.p variants={fadeUp} className="mx-auto mt-5 max-w-xl text-slate-300">
-          {BRAND} is in active development. Leave your email and you'll be the
-          first through the door when it launches — no spam, one announcement.
+          {BRAND} is live. Map your stack in about 60 seconds — no signup wall
+          to get your first chart.
         </motion.p>
 
         <motion.div variants={fadeUp} className="mt-10 flex justify-center">
-          <WaitlistForm location="final_cta" />
-        </motion.div>
-
-        <motion.p variants={fadeUp} className="mt-4 text-sm text-slate-500">
-          No credit card. No commitment. Just first access.
-        </motion.p>
-
-        <motion.p variants={fadeUp} className="mt-6 text-sm text-slate-300">
-          Or skip the line —{' '}
           <Link
             to="/app/stack"
             onClick={() => track(EVENTS.CTA_CLICK, { cta: 'open_app', location: 'final_cta' })}
-            className="font-black underline underline-offset-4 hover:text-white"
-            style={{ color: 'var(--lime)' }}
+            className="nb-btn inline-block px-8 py-4 text-base"
           >
-            open the beta app now →
+            🚀 Open the app
           </Link>
+        </motion.div>
+
+        <motion.p variants={fadeUp} className="mt-4 text-sm text-slate-500">
+          No credit card. No commitment.
         </motion.p>
       </motion.div>
 

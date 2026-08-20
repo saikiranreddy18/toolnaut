@@ -8,7 +8,6 @@ export const EVENTS = {
   QUIZ_COMPLETE: 'quiz_complete',
   PLAN_HOVER: 'plan_hover',
   PLAN_SELECT: 'plan_select',
-  WAITLIST_JOIN: 'waitlist_join',
   GALAXY_EXPLORE: 'galaxy_explore',
   SOUND_TOGGLE: 'sound_toggle',
   TIME_ON_PAGE: 'time_on_page',

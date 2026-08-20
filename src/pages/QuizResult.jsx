@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { generatePersona } from '../utils/personaGenerator'
 import { loadQuiz, resetQuiz } from '../state/quizStore'
-import WaitlistForm from '../components/ui/WaitlistForm'
 import { haptic } from '../utils/haptics'
 
 // Persona reveal — the emotional peak of the funnel. Arcade neubrutalism:
@@ -189,8 +188,6 @@ export default function QuizResult() {
           >
             🚀 enter your universe
           </Link>
-
-          <WaitlistForm location="quiz_result" />
 
           <div className="flex items-center gap-6 pt-2">
             <Link
