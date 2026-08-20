@@ -12,6 +12,12 @@ inputs:
     description: Port to bind the proxy to on the runner
     required: false
     default: "4000"
+  max_output_tokens:
+    description: >
+      Cap for Claude Code's requested max_tokens. Must stay at or below the
+      upstream model's ceiling (Featherless allows 32768 for Kimi-K3).
+    required: false
+    default: "32000"
 
 runs:
   using: composite
@@ -52,6 +58,13 @@ runs:
             echo "proxy up after ${i}s"
             echo "ANTHROPIC_BASE_URL=http://127.0.0.1:${{ inputs.port }}" >> "$GITHUB_ENV"
             echo "ANTHROPIC_API_KEY=${PROXY_MASTER_KEY}" >> "$GITHUB_ENV"
+            # Claude Code sizes max_tokens for Claude's output limit and asks
+            # for 64000. Featherless caps Kimi-K3 at 32768 and rejects the
+            # whole request:
+            #   max_tokens_exceeded - The requested 'max_tokens' of 64000
+            #   exceeds the maximum allowed for this model, which is 32768.
+            # Every agent call 400s on turn 1. Cap it below the ceiling.
+            echo "CLAUDE_CODE_MAX_OUTPUT_TOKENS=${{ inputs.max_output_tokens }}" >> "$GITHUB_ENV"
             echo "::add-mask::${PROXY_MASTER_KEY}"
             exit 0
           fi
