@@ -14,7 +14,11 @@
 model_list:
   - model_name: "*"
     litellm_params:
-      model: openai/moonshotai/Kimi-K3
+      # hosted_vllm/, NOT openai/. Both speak OpenAI chat-completions, but the
+      # openai/ prefix makes LiteLLM's /v1/messages bridge prefer OpenAI's
+      # Responses API — Featherless has no /v1/responses route, so every agent
+      # call 404s. hosted_vllm/ pins the bridge to chat-completions.
+      model: hosted_vllm/moonshotai/Kimi-K3
       api_base: https://api.featherless.ai/v1
       api_key: os.environ/FEATHERLESS_API_KEY
       # Kimi-K3 is a reasoning model: it spends completion tokens on a hidden

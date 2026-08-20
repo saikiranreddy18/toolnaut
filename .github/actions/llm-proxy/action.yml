@@ -18,7 +18,12 @@ runs:
   steps:
     - name: Install LiteLLM
       shell: bash
-      run: pipx install "litellm[proxy]" || pip install --quiet "litellm[proxy]"
+      # Pinned deliberately. litellm 1.97.0 imports get_flat_dependant from
+      # fastapi.dependencies.utils, which fastapi removed in 0.116+ — an
+      # unpinned install resolves fastapi 0.141 and the proxy dies on import
+      # before it ever binds a port. This exact pair is verified working
+      # against the live Featherless API.
+      run: pip install --quiet "litellm[proxy]==1.97.0" "fastapi==0.115.12"
 
     - name: Start proxy and wait for it to answer
       shell: bash
