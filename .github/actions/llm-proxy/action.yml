@@ -18,14 +18,16 @@ runs:
   steps:
     - name: Install LiteLLM
       shell: bash
-      # litellm is pinned so a future release cannot silently break all five
-      # agents. fastapi is deliberately NOT pinned: the [proxy] extra declares
-      # the range it needs, and pinning it separately makes the resolve
-      # impossible (ResolutionImpossible on a clean runner).
+      # litellm 1.97.0's proxy imports get_flat_dependant from
+      # fastapi.dependencies.utils. fastapi removed that symbol in 0.140.0,
+      # and litellm's [proxy] extra only says fastapi>=0.136.3,<1.0 — so a
+      # clean resolve picks 0.141 and the proxy dies on import before it ever
+      # binds a port. <0.140 is the upper half of that gap; >=0.136.3 comes
+      # from litellm itself. Verified working end to end on 0.139.2.
       #
-      # Not --quiet: if the resolve ever does fail, the conflict tree is the
-      # only thing that explains why, and --quiet throws it away.
-      run: pip install "litellm[proxy]==1.97.0"
+      # Not --quiet: if the resolve ever fails, the conflict tree is the only
+      # thing that explains why, and --quiet throws it away.
+      run: pip install "litellm[proxy]==1.97.0" "fastapi<0.140"
 
     - name: Start proxy and wait for it to answer
       shell: bash
