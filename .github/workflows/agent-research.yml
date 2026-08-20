@@ -30,7 +30,7 @@ jobs:
       - uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ env.ANTHROPIC_API_KEY }}
-          claude_args: --max-turns 40
+          claude_args: '--max-turns 40 --allowedTools "Bash,Read,Edit,Write,Glob,Grep,TodoWrite,WebSearch,WebFetch"'
           prompt: |
             You are the growth research agent for Toolnaut (toolnaut.xyz) — a
             role-aware AI-tool discovery platform: a 60-second quiz maps a user's
