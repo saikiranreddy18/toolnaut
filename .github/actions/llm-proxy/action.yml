@@ -1,0 +1,54 @@
+name: Featherless LLM proxy
+description: >
+  Starts a LiteLLM proxy on the runner that speaks the Anthropic Messages API
+  and forwards to Featherless, then exports ANTHROPIC_BASE_URL/ANTHROPIC_API_KEY
+  so claude-code-action talks to it instead of api.anthropic.com.
+
+inputs:
+  featherless_api_key:
+    description: Featherless API key
+    required: true
+  port:
+    description: Port to bind the proxy to on the runner
+    required: false
+    default: "4000"
+
+runs:
+  using: composite
+  steps:
+    - name: Install LiteLLM
+      shell: bash
+      run: pipx install "litellm[proxy]" || pip install --quiet "litellm[proxy]"
+
+    - name: Start proxy and wait for it to answer
+      shell: bash
+      env:
+        FEATHERLESS_API_KEY: ${{ inputs.featherless_api_key }}
+      run: |
+        set -euo pipefail
+        # A random per-job master key. The proxy is bound to loopback only, but
+        # this keeps it from accepting requests from anything else on the runner.
+        PROXY_MASTER_KEY="sk-proxy-$(head -c 24 /dev/urandom | base64 | tr -dc 'a-zA-Z0-9')"
+        export PROXY_MASTER_KEY
+
+        litellm --config .github/litellm.config.yaml \
+                --host 127.0.0.1 --port ${{ inputs.port }} \
+                > /tmp/litellm.log 2>&1 &
+        echo $! > /tmp/litellm.pid
+
+        # Fail fast and loudly. A proxy that never comes up would otherwise
+        # surface as an opaque connection error from deep inside the agent.
+        for i in $(seq 1 60); do
+          if curl -sf "http://127.0.0.1:${{ inputs.port }}/health/liveliness" >/dev/null 2>&1; then
+            echo "proxy up after ${i}s"
+            echo "ANTHROPIC_BASE_URL=http://127.0.0.1:${{ inputs.port }}" >> "$GITHUB_ENV"
+            echo "ANTHROPIC_API_KEY=${PROXY_MASTER_KEY}" >> "$GITHUB_ENV"
+            echo "::add-mask::${PROXY_MASTER_KEY}"
+            exit 0
+          fi
+          sleep 1
+        done
+
+        echo "::error::LiteLLM proxy did not become healthy within 60s"
+        cat /tmp/litellm.log
+        exit 1

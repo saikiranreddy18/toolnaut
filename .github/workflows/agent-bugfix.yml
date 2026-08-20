@@ -34,9 +34,14 @@ jobs:
 
       - run: npm ci
 
+      - name: Start the Featherless->Anthropic proxy
+        uses: ./.github/actions/llm-proxy
+        with:
+          featherless_api_key: ${{ secrets.FEATHERLESS_API_KEY }}
+
       - uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          anthropic_api_key: ${{ env.ANTHROPIC_API_KEY }}
           claude_args: --max-turns 40
           prompt: |
             You are the bugfix agent for the Toolnaut repository. Read CLAUDE.md first.

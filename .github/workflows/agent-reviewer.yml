@@ -19,9 +19,14 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v6
+      - name: Start the Featherless->Anthropic proxy
+        uses: ./.github/actions/llm-proxy
+        with:
+          featherless_api_key: ${{ secrets.FEATHERLESS_API_KEY }}
+
       - uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          anthropic_api_key: ${{ env.ANTHROPIC_API_KEY }}
           plugin_marketplaces: "https://github.com/anthropics/claude-code.git"
           plugins: "code-review@claude-code-plugins"
           prompt: "/code-review:code-review --comment ${{ github.repository }}/pull/${{ github.event.pull_request.number }}"

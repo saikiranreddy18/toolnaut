@@ -1,0 +1,30 @@
+# Anthropic-protocol shim in front of Featherless.
+#
+# claude-code-action speaks the Anthropic Messages API (/v1/messages).
+# Featherless only speaks the OpenAI chat-completions format. LiteLLM sits
+# between them and translates, so the agent workflows can run on a Featherless
+# key with no Anthropic account.
+#
+# The proxy runs ON THE RUNNER (127.0.0.1:4000) for the life of a single job:
+# nothing is publicly exposed, there is no service to host or pay for, and the
+# Featherless key never leaves the runner.
+#
+# model_name entries are the names Claude Code asks for. Every one is mapped to
+# the same Featherless model so that whatever the agent requests resolves.
+model_list:
+  - model_name: "*"
+    litellm_params:
+      model: openai/moonshotai/Kimi-K3
+      api_base: https://api.featherless.ai/v1
+      api_key: os.environ/FEATHERLESS_API_KEY
+      # Kimi-K3 is a reasoning model: it spends completion tokens on a hidden
+      # pass before emitting content. Too small a budget returns an empty
+      # string, which the agent would read as "the model said nothing".
+      max_tokens: 8192
+
+litellm_settings:
+  drop_params: true          # silently drop Anthropic-only params Featherless rejects
+  telemetry: false
+
+general_settings:
+  master_key: os.environ/PROXY_MASTER_KEY

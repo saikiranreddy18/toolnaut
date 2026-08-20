@@ -1,0 +1,85 @@
+name: Agent · Proxy smoke
+
+# Proves the Featherless->Anthropic shim works BEFORE any agent depends on it.
+# The agent workflows fail opaquely if the proxy is wrong — the error surfaces
+# from deep inside claude-code-action as a connection or auth problem. This
+# runs the same proxy and hits it with a real Anthropic-format /v1/messages
+# request, so a broken shim fails here with a readable message instead.
+on:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Start the Featherless->Anthropic proxy
+        uses: ./.github/actions/llm-proxy
+        with:
+          featherless_api_key: ${{ secrets.FEATHERLESS_API_KEY }}
+
+      - name: Anthropic-format request must return text
+        run: |
+          set -euo pipefail
+          body=$(curl -sf -X POST "$ANTHROPIC_BASE_URL/v1/messages" \
+            -H "x-api-key: $ANTHROPIC_API_KEY" \
+            -H "anthropic-version: 2023-06-01" \
+            -H "content-type: application/json" \
+            -d '{
+                  "model": "claude-sonnet-4-5",
+                  "max_tokens": 2048,
+                  "messages": [{"role":"user","content":"Reply with exactly: PROXY_OK"}]
+                }')
+
+          echo "$body" | head -c 1200
+          echo
+
+          text=$(echo "$body" | jq -r '[.content[]? | select(.type=="text") | .text] | join("")')
+          if [ -z "$text" ]; then
+            echo "::error::Proxy returned no text content — Anthropic->OpenAI translation is not working"
+            cat /tmp/litellm.log | tail -40
+            exit 1
+          fi
+          echo "OK: proxy returned text ($(echo -n "$text" | wc -c) chars)"
+
+      - name: Tool-use must survive translation
+        # This is the part most likely to break. Claude Code drives everything
+        # through tools; if tool_use blocks do not come back in Anthropic shape,
+        # the agents will loop or stall even though plain chat looked fine.
+        run: |
+          set -euo pipefail
+          body=$(curl -sf -X POST "$ANTHROPIC_BASE_URL/v1/messages" \
+            -H "x-api-key: $ANTHROPIC_API_KEY" \
+            -H "anthropic-version: 2023-06-01" \
+            -H "content-type: application/json" \
+            -d '{
+                  "model": "claude-sonnet-4-5",
+                  "max_tokens": 2048,
+                  "tools": [{
+                    "name": "get_weather",
+                    "description": "Get the weather for a city",
+                    "input_schema": {
+                      "type": "object",
+                      "properties": {"city": {"type": "string"}},
+                      "required": ["city"]
+                    }
+                  }],
+                  "messages": [{"role":"user","content":"What is the weather in Hyderabad? Use the tool."}]
+                }')
+
+          echo "$body" | head -c 1500
+          echo
+
+          if echo "$body" | jq -e '.content[]? | select(.type=="tool_use")' >/dev/null 2>&1; then
+            echo "OK: tool_use block returned in Anthropic shape — agents can drive tools"
+          else
+            echo "::warning::No tool_use block came back. Plain chat works, but Claude Code's"
+            echo "::warning::tool loop may stall on this model. Check /tmp/litellm.log."
+            tail -40 /tmp/litellm.log || true
+          fi
+
+      - name: Proxy log
+        if: always()
+        run: tail -60 /tmp/litellm.log || true
