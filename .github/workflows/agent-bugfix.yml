@@ -5,7 +5,7 @@ name: Agent · Bugfix
 # master, or an open issue labelled `agent-fixable`. With no signal it exits.
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "30 2 * * *"   # daily 02:30 UTC (08:00 IST)
   workflow_dispatch:
 
 concurrency:
