@@ -50,6 +50,6 @@ if (!(review >= 0 && review < publish && publish <= 1)) {
 }
 
 export function hasLLM() {
-  const { anthropic, nvidia, openai, openrouter } = config.llm
-  return !!(anthropic || nvidia || openai || openrouter)
+  const { featherless, anthropic, nvidia, openai, openrouter } = config.llm
+  return !!(featherless || anthropic || nvidia || openai || openrouter)
 }
