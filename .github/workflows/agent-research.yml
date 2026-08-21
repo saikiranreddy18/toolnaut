@@ -4,8 +4,8 @@ name: Agent · Research
 # "how do we grow the customer base" does not change in an hour. This agent
 # writes ISSUES and docs. It must never touch application code.
 on:
-  schedule:
-    - cron: "0 4 * * 1"   # Mondays 04:00 UTC (09:30 IST)
+  # schedule: disabled — the Claude routine now owns this.
+  #   - cron: "0 4 * * 1"   # Mondays 04:00 UTC (09:30 IST)
   workflow_dispatch:
 
 concurrency:

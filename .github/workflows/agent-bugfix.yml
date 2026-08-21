@@ -4,8 +4,8 @@ name: Agent · Bugfix
 # infinite low-value PRs. The agent only acts on a real signal: a red CI run on
 # master, or an open issue labelled `agent-fixable`. With no signal it exits.
 on:
-  schedule:
-    - cron: "30 2 * * *"   # daily 02:30 UTC (08:00 IST)
+  # schedule: disabled — the Claude routine now owns this.
+  #   - cron: "30 2 * * *"   # daily 02:30 UTC (08:00 IST)
   workflow_dispatch:
 
 concurrency:
