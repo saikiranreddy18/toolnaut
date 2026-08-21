@@ -13,7 +13,9 @@ export default function InstallPrompt() {
   const [iosHint, setIosHint] = useState(false)
 
   useEffect(() => {
-    if (localStorage.getItem(DISMISS_KEY)) return
+    let dismissed = false
+    try { dismissed = !!localStorage.getItem(DISMISS_KEY) } catch { /* storage blocked */ }
+    if (dismissed) return
     const standalone =
       window.matchMedia('(display-mode: standalone)').matches ||
       window.navigator.standalone === true
