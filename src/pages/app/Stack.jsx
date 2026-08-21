@@ -99,11 +99,13 @@ export default function Stack() {
   })
 
   // Persist the day's streak once per mount instead of on every render.
+  // No haptic here: this only fires on the day's first visit, which is a fresh
+  // page load with no user activation yet — the browser blocks vibrate() there
+  // and logs, so the buzz never actually reached the user.
   useEffect(() => {
     const lastVisit = loadStreak()
     if (lastVisit.date !== today) {
-      localStorage.setItem(STREAK_KEY, JSON.stringify({ date: today, count: streak }))
-      haptic.success()
+      try { localStorage.setItem(STREAK_KEY, JSON.stringify({ date: today, count: streak })) } catch { /* storage blocked */ }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

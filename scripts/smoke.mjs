@@ -14,7 +14,7 @@ const server = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--host'
 })
 process.on('exit', () => server.kill())
 await new Promise((r) => setTimeout(r, 5000))
-const routes = ['/', '/quiz?step=1', '/pricing', '/about', '/starchart', '/app/stack', '/app/discover', '/app/learning', '/office']
+const routes = ['/', '/quiz?step=1', '/pricing', '/about', '/starchart', '/app/stack', '/app/discover', '/app/learning', '/app/community', '/app/settings', '/office']
 const browser = await chromium.launch()
 let bad = 0
 for (const r of routes) {
@@ -22,11 +22,27 @@ for (const r of routes) {
   const errs = []
   page.on('console', m => { if (m.type() === 'error') errs.push(m.text()) })
   page.on('pageerror', e => errs.push('PAGEERROR ' + e.message))
+  // /app/* sits behind AppShell's session guard. Without a seeded session every
+  // one of these renders the login page instead, so the whole authed half of the
+  // app reported OK while never having been rendered at all.
+  const authed = r.startsWith('/app/')
+  if (authed) {
+    await page.addInitScript(() => {
+      localStorage.setItem('exus_session_v1', JSON.stringify({
+        user: { name: 'Smoke', provider: 'smoke' },
+        plan: 'shishya', role: 'user', simulated: true, at: Date.now(),
+      }))
+    })
+  }
   try {
     await page.goto(base + r, { waitUntil: 'networkidle', timeout: 25000 })
     await page.waitForTimeout(1200)
     const rootHtml = await page.$eval('#root', el => el.innerHTML.length).catch(() => 0)
     const real = errs.filter(e => !/favicon|fonts.googleapis|fonts.gstatic|ERR_INTERNET|net::ERR|WebGL|Failed to load resource.*tools\.json/i.test(e))
+    // A guarded route that bounced to login proves nothing about the page asked for.
+    if (authed && new URL(page.url()).pathname !== r) {
+      real.push(`redirected to ${new URL(page.url()).pathname}`)
+    }
     const status = real.length === 0 && rootHtml > 200 ? 'OK ' : 'FAIL'
     if (status === 'FAIL') bad++
     console.log(`${status} ${r.padEnd(20)} rootBytes=${rootHtml} errors=${real.length}`)
