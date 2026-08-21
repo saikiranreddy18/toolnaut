@@ -4,7 +4,7 @@ import { CloseIcon, SendIcon } from './icons'
 // AI chat assistant stub. The panel UX (persistent across /app routes,
 // context-aware greeting) is real; replies are canned until the Claude API
 // integration lands. Desktop: right column. Mobile: bottom sheet.
-export default function ChatPanel({ personaName, onClose }) {
+export default function ChatPanel({ personaName, onClose, idPrefix = 'chat' }) {
   const [messages, setMessages] = useState(() => [
     {
       role: 'assistant',
@@ -68,9 +68,9 @@ export default function ChatPanel({ personaName, onClose }) {
           className="flex items-center gap-2 rounded-full border-2 border-black bg-[#12121c]/90 p-1 pl-4"
           style={{ boxShadow: '3px 3px 0 #000' }}
         >
-          <label htmlFor="chat-input" className="sr-only">Message the assistant</label>
+          <label htmlFor={`${idPrefix}-input`} className="sr-only">Message the assistant</label>
           <input
-            id="chat-input"
+            id={`${idPrefix}-input`}
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
             placeholder="Ask about your stack..."

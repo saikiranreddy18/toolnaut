@@ -131,7 +131,7 @@ export default function AppShell() {
             className="sticky top-0 hidden h-dvh shrink-0 overflow-hidden border-l border-white/10 lg:block"
           >
             <div className="h-full w-[340px]">
-              <ChatPanel personaName={persona?.name} onClose={() => toggleChat(false)} />
+              <ChatPanel personaName={persona?.name} onClose={() => toggleChat(false)} idPrefix="chat-desktop" />
             </div>
           </motion.aside>
         )}
@@ -162,7 +162,7 @@ export default function AppShell() {
             role="dialog"
             aria-label="AI assistant"
           >
-            <ChatPanel personaName={persona?.name} onClose={() => toggleChat(false)} />
+            <ChatPanel personaName={persona?.name} onClose={() => toggleChat(false)} idPrefix="chat-mobile" />
           </motion.div>
         )}
       </AnimatePresence>
