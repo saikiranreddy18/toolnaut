@@ -92,3 +92,18 @@ test('httpError ignores a missing or non-positive Retry-After', () => {
   assert.equal(e.status, 500)
   assert.equal(e.retryAfterMs, undefined)
 })
+
+test('httpError reads an HTTP-date Retry-After header as a future offset', () => {
+  const future = new Date(Date.now() + 5000).toUTCString()
+  const res = { status: 429, headers: { get: (k) => (k === 'retry-after' ? future : null) } }
+  const e = httpError(res, 'rate limited')
+  assert.equal(e.status, 429)
+  assert.ok(e.retryAfterMs > 0 && e.retryAfterMs <= 5000, `expected a positive offset near 5000ms, got ${e.retryAfterMs}`)
+})
+
+test('httpError ignores a Retry-After HTTP-date that is already in the past', () => {
+  const past = new Date(Date.now() - 5000).toUTCString()
+  const res = { status: 429, headers: { get: (k) => (k === 'retry-after' ? past : null) } }
+  const e = httpError(res, 'rate limited')
+  assert.equal(e.retryAfterMs, undefined)
+})
