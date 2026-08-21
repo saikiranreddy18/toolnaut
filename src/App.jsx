@@ -25,7 +25,8 @@ const Pricing = lazy(() => import('./pages/Pricing'))
 
 // Scroll + analytics on route change. initAnalytics() already fires the first
 // page_view, so skip the initial render to avoid double counting. Hash links
-// (e.g. /#pricing from the quiz result) scroll to their section after paint.
+// scroll to their section after paint; an invalid selector (e.g. a pasted
+// hash-router URL) falls back to a plain scroll-to-top instead of throwing.
 function RouteEffects() {
   const location = useLocation()
   const first = useRef(true)
@@ -38,9 +39,14 @@ function RouteEffects() {
     }
 
     if (location.hash) {
-      requestAnimationFrame(() => {
-        document.querySelector(location.hash)?.scrollIntoView()
+      const handle = requestAnimationFrame(() => {
+        try {
+          document.querySelector(location.hash)?.scrollIntoView()
+        } catch {
+          window.scrollTo(0, 0)
+        }
       })
+      return () => cancelAnimationFrame(handle)
     } else {
       window.scrollTo(0, 0)
     }

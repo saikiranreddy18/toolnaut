@@ -191,7 +191,7 @@ export default function QuizResult() {
 
           <div className="flex items-center gap-6 pt-2">
             <Link
-              to="/#pricing"
+              to="/pricing"
               className="font-display text-xs font-bold uppercase tracking-wider text-cyan-300 underline decoration-2 decoration-cyan-400/60 underline-offset-4 hover:text-white"
             >
               see the plans

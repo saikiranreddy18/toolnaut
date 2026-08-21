@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { fadeUp } from './SectionShell'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
@@ -67,13 +68,13 @@ export default function PricingPillar({ plan }) {
           ))}
         </ul>
 
-        <a
-          href="#cta"
+        <Link
+          to="/quiz"
           onClick={() => track(EVENTS.PLAN_SELECT, { plan: plan.id, price: plan.price })}
           className={`nb-btn ${plan.id === 'guru' ? 'pink' : plan.id === 'pandava' ? 'cyan' : ''} mt-8 block w-full py-3 text-center text-sm`}
         >
           Reserve {plan.name} at launch
-        </a>
+        </Link>
       </div>
     </motion.div>
   )
