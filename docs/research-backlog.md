@@ -172,3 +172,67 @@ a client-side SPA with a static tool catalogue.
   bar addition to `Discover.jsx`, one new route in `App.jsx`, one line in
   `scripts/smoke.mjs`. No backend, no new dependency, no new label/meta maps.
 - **Found:** 2026-08-22 11:55 UTC
+
+### Surface tool freshness ("new this week")
+- **Status:** OPEN
+- **Seen in:** Product Hunt's whole homepage is daily-launches-first; There's
+  An AI For That runs a dedicated "Newest AI Tools" feed; Futurepedia sorts
+  its directory by "Newest" as a first-class filter, not a buried option —
+  freshness is core UX in every AI-tool directory because the category moves
+  fast enough that "when was this added" is itself a signal worth surfacing.
+- **Gap:** Toolnaut's own marketing already promises this and doesn't deliver
+  it. `src/components/sections/FeaturesSection.jsx:11` advertises "Weekly
+  Fresh Finds — New tools matched to your evolving role, delivered in one
+  scannable digest," but grepping `src/` for `Fresh Finds|new tool|changelog`
+  turns up only that one marketing string — no route, no page, no component
+  reads it. The underlying data already exists and is already correct: every
+  radar-discovered tool gets a `discoveredAt` timestamp stamped exactly once
+  (`radar/enrich.js:30`, fed by `radar/pipeline.js:69`), and `radar/dedup.js`'s
+  `classify()` guarantees a slug is only ever enriched/upserted the first time
+  it's seen (comment at `radar/dedup.js:6`: "nothing gets re-enriched day
+  after day... refreshing an existing tool's data is a separate dedicated
+  job") — so `discoveredAt` is a trustworthy first-published date, not a
+  rolling "last touched" stamp. It just never reaches the app: neither
+  `radar/scripts/sync-to-app.js`'s `FIELDS` list nor `src/utils/
+  liveCatalog.js`'s `FIELDS` list includes `discoveredAt`, so it's stripped
+  before `public/tools.json` is written and stripped again on merge into the
+  in-app catalog. The 704-tool bundled `TOOLS` array in `toolsCatalog.js`
+  never had this field either. Net effect: the data pipeline is the one thing
+  that actually differentiates Toolnaut from a static directory, and it is
+  completely invisible in the product today.
+- **Why it matters:** it's the cheapest possible win in this file — no new
+  tracking to add, no schema change, no pipeline logic to touch, just two
+  `FIELDS` arrays and a UI surface for data that's already correct. It also
+  closes a real gap between marketing copy and shipped product, which is a
+  small trust liability the longer it sits (a visitor who reads "weekly fresh
+  finds" and finds nothing built around it notices).
+- **Smallest useful version (what to actually build):**
+  - `radar/scripts/sync-to-app.js`: add `'discoveredAt'` to its `FIELDS`
+    array so it survives into `public/tools.json`. One line.
+  - `src/utils/liveCatalog.js`: add `'discoveredAt'` to its own `FIELDS`
+    array so `hydrateCatalog()` keeps it on merged tools. One line.
+  - New `src/utils/newTools.js`: a pure `isNewTool(tool, days = 7)` (valid
+    `discoveredAt`, parses to a date, within `days` of now) and
+    `getNewTools(days = 7)` that filters `TOOLS` (from `toolsCatalog.js`) and
+    sorts newest-first. Tools from the bundled 704-entry baseline have no
+    `discoveredAt` at all and correctly never qualify — no backfill needed,
+    no special-casing.
+  - `Discover.jsx`: a "🆕 New" badge on any card whose tool passes
+    `isNewTool()` (reuses existing card markup, no new visual primitive), plus
+    — to actually match the "scannable digest" promise in the marketing copy
+    rather than just a quiet badge — a short horizontal strip above the
+    filter bar, "🆕 New this week," rendering up to ~8 cards from
+    `getNewTools(7)` when it returns anything, hidden entirely when it's
+    empty (most weeks with a slow radar day should render nothing, not an
+    empty section).
+  - **What this would NOT include** (kept out to bound the diff): no
+    dedicated `/app/new` route or page in v1 — inline on Discover only; no
+    email or push digest delivery (no backend to send one); no
+    per-user "since your last visit" personalization (would need visit
+    tracking Toolnaut doesn't have); no changes to `radar/dedup.js` or
+    `upsertTool` — `discoveredAt` is already stamped correctly once, this is
+    purely a plumb-it-through-and-render job.
+- **Build size:** S — two one-line `FIELDS` additions (radar + app), one new
+  pure util (`newTools.js`), a badge + one small strip on `Discover.jsx`. No
+  backend, no new dependency, no radar pipeline logic change.
+- **Found:** 2026-08-22 12:15 UTC
