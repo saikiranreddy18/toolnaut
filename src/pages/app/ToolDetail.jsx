@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getTool, TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
 import { matchScore, matchReasons } from '../../utils/matchScore'
@@ -15,6 +15,20 @@ export default function ToolDetail() {
   const [stack, setStack] = useState(loadStack)
 
   const tool = getTool(slug)
+
+  // Prefer neighbours in the exact source category, then fall back to domain.
+  // Memoized so actions unrelated to this list (e.g. toggleStack, which only
+  // flips local `stack` state) don't re-filter all 700+ tools on every render
+  // — same fix already applied to Discover.jsx's equivalent computation.
+  // Runs before the not-found return below: clicking a related-tool link keeps
+  // this same component instance mounted with a new slug, so every hook here
+  // must run on every render regardless of whether that slug resolves.
+  const related = useMemo(() => {
+    if (!tool) return []
+    const sameSource = TOOLS.filter((t) => t.sourceCategory === tool.sourceCategory && t.slug !== tool.slug)
+    const sameDomain = TOOLS.filter((t) => t.category === tool.category && t.sourceCategory !== tool.sourceCategory && t.slug !== tool.slug)
+    return [...sameSource, ...sameDomain].slice(0, 3)
+  }, [tool])
 
   if (!tool) {
     return (
@@ -37,10 +51,6 @@ export default function ToolDetail() {
   const reasons = matchReasons(tool, answers)
   const meta = CATEGORY_META[tool.category] || { name: tool.category, color: 'var(--cyan)' }
   const added = stack.includes(tool.slug)
-  // Prefer neighbours in the exact source category, then fall back to domain.
-  const sameSource = TOOLS.filter((t) => t.sourceCategory === tool.sourceCategory && t.slug !== tool.slug)
-  const sameDomain = TOOLS.filter((t) => t.category === tool.category && t.sourceCategory !== tool.sourceCategory && t.slug !== tool.slug)
-  const related = [...sameSource, ...sameDomain].slice(0, 3)
 
   // Back preserves Discover's filters when we came from there (history state);
   // on a cold deep link there's nothing to go back to, so land on Discover.
