@@ -33,3 +33,24 @@ test('a corrupt store file preserves the original error as cause', () => {
     assert.equal(e.cause.code, undefined) // JSON.parse errors have no .code, unlike ENOENT
   }
 })
+
+test('upsertTool assigns version 1 on first insert and increments it on every update', () => {
+  const dir = tmpDir()
+  const store = createJsonStore(dir)
+  const inserted = store.upsertTool({ slug: 'acme', website: 'https://acme.dev' })
+  assert.equal(inserted.version, 1)
+
+  const updated = store.upsertTool({ slug: 'acme', website: 'https://acme.dev' })
+  assert.equal(updated.version, 2)
+  assert.equal(store.countTools(), 1) // update, not a duplicate row
+})
+
+test('upsertTool persists to disk so a fresh store reload sees the incremented version', () => {
+  const dir = tmpDir()
+  const first = createJsonStore(dir)
+  first.upsertTool({ slug: 'acme', website: 'https://acme.dev' })
+  first.upsertTool({ slug: 'acme', website: 'https://acme.dev' })
+
+  const reloaded = createJsonStore(dir)
+  assert.equal(reloaded.getTool('acme').version, 2)
+})
