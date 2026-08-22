@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
 import { matchScore } from '../../utils/matchScore'
@@ -55,21 +55,28 @@ export default function Discover() {
     }
   }
 
-  const needle = q.trim().toLowerCase()
-  const results = TOOLS
-    .filter((tool) =>
-      (!cat || tool.category === cat) &&
-      (!price || tool.price === price) &&
-      (!level || tool.level === level) &&
-      (!needle ||
-        tool.name.toLowerCase().includes(needle) ||
-        tool.blurb.toLowerCase().includes(needle) ||
-        tool.sourceCategory.toLowerCase().includes(needle) ||
-        (tool.dev && tool.dev.toLowerCase().includes(needle)) ||
-        tool.tags.some((tag) => tag.includes(needle))),
-    )
-    .map((tool) => ({ ...tool, score: matchScore(tool, answers) }))
-    .sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || a.name.localeCompare(b.name))
+  // quiz.answers is a fresh object from every loadQuiz() call, so key on its
+  // contents rather than identity — otherwise the memo below never hits and
+  // actions unrelated to filtering (e.g. toggleStack) re-run this over all
+  // TOOLS anyway.
+  const answersKey = answers ? JSON.stringify(answers) : ''
+  const results = useMemo(() => {
+    const needle = q.trim().toLowerCase()
+    return TOOLS
+      .filter((tool) =>
+        (!cat || tool.category === cat) &&
+        (!price || tool.price === price) &&
+        (!level || tool.level === level) &&
+        (!needle ||
+          tool.name.toLowerCase().includes(needle) ||
+          tool.blurb.toLowerCase().includes(needle) ||
+          tool.sourceCategory.toLowerCase().includes(needle) ||
+          (tool.dev && tool.dev.toLowerCase().includes(needle)) ||
+          tool.tags.some((tag) => tag.includes(needle))),
+      )
+      .map((tool) => ({ ...tool, score: matchScore(tool, answers) }))
+      .sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || a.name.localeCompare(b.name))
+  }, [q, cat, price, level, answersKey])
 
   const hasFilters = q || cat || price || level
 
