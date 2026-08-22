@@ -32,7 +32,7 @@ a client-side SPA with a static tool catalogue.
 <!-- Findings are appended below this line, newest last. -->
 
 ### Share / export your stack
-- **Status:** OPEN
+- **Status:** SHIPPED 42bdc9942cd9738c792b164b07d365e92f4dde80
 - **Seen in:** StackShare (stackshare.io/stacks — its entire product is
   public tech-stack profiles built to be shared, no export button needed
   because every stack already has a permanent URL); Futurepedia and There's

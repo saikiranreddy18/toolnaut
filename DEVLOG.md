@@ -11,13 +11,17 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ## 2026-08-22
 
+Two feature-ship cycles landed today — the schedule fired an end-of-day run
+at both 12:03 and 18:03 UTC. Recorded together since they're the same
+calendar day.
+
 **Researched today:** three gaps landed in `docs/research-backlog.md`, all
 specced to file paths/line numbers — share/export a personal stack
 (StackShare/Futurepedia pattern), side-by-side tool comparison (Capterra/G2
 pattern), and surfacing tool freshness ("new this week", Product
 Hunt/Futurepedia/There's An AI For That pattern).
 
-**Shipped:** surface tool freshness on Discover —
+**Shipped (12:03 UTC run):** surface tool freshness on Discover —
 [`2d7d192`](https://github.com/saikiranreddy18/toolnaut/commit/2d7d192f7f8b9d3a3110e8dcbb33117c23bf5b2e).
 Picked over the other two OPEN gaps because it was the cheapest by the
 backlog's own ranking rule (users touched × obviousness ÷ build size): radar
@@ -31,9 +35,24 @@ this week" strip plus a per-card badge. No backend, no new dependency, no
 new route — 61 lines. All three checks green (102 radar tests, build,
 11-route smoke) before push.
 
-**Queued next:** share/export-your-stack and side-by-side comparison are
-both still OPEN and fully specced (new page + new route each, S/M build
-size) — either is a good pick for tomorrow's feature run.
+**Shipped (18:03 UTC run):** share your stack via a public read-only link —
+[`42bdc99`](https://github.com/saikiranreddy18/toolnaut/commit/42bdc9942cd9738c792b164b07d365e92f4dde80).
+Next-highest-ranked OPEN gap after tool freshness shipped. A stack was stuck
+in localStorage with no way out — no share link, no export — while
+StackShare's whole growth loop is public stack URLs. Added a pure
+`src/utils/shareStack.js` (`encodeStackSlugs`/`decodeStackSlugs`, slugs only
+so an old link survives persona/quiz changes), a new public `/s/:slugs`
+route (`src/pages/SharedStack.jsx`, outside `AppShell`'s session guard,
+degrades quietly on an unknown slug instead of crashing), and a "🔗 Share"
+button on `Stack.jsx` that copies the link — mirrors `Learning.jsx`'s
+existing copy-to-clipboard/transient-label pattern, no new UI primitive.
+Visible on the live site immediately: no pipeline dependency, static
+client-side routing only. 92 lines. All three checks green (102 radar
+tests, build, 12-route smoke incl. the new `/s/:slugs` route) before push.
+
+**Queued next:** side-by-side tool comparison (Capterra/G2 pattern) is the
+one remaining OPEN gap, fully specced (new page + route, checkbox selection
+capped at 4, S/M build size) — good pick for the next feature run.
 
 ---
 
