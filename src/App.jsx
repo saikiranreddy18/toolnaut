@@ -22,6 +22,7 @@ const NexusLanding = lazy(() => import('./pages/NexusLanding'))
 const Office = lazy(() => import('./pages/Office'))
 const About = lazy(() => import('./pages/About'))
 const Pricing = lazy(() => import('./pages/Pricing'))
+const SharedStack = lazy(() => import('./pages/SharedStack'))
 
 // Scroll + analytics on route change. initAnalytics() already fires the first
 // page_view, so skip the initial render to avoid double counting. Hash links
@@ -73,6 +74,7 @@ export default function App() {
             <Route path="/office" element={<Office />} />
             <Route path="/about" element={<About />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/s/:slugs" element={<SharedStack />} />
 
             <Route element={<OnboardingShell />}>
               <Route path="/quiz" element={<Quiz />} />

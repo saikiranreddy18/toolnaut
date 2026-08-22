@@ -7,6 +7,7 @@ import { getTool, TOOLS, CATEGORY_META } from '../../utils/toolsCatalog'
 import { matchScore } from '../../utils/matchScore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { haptic } from '../../utils/haptics'
+import { encodeStackSlugs } from '../../utils/shareStack'
 
 // Deterministic daily pick: same tool all day, a new one tomorrow — so every
 // open of the app has something unexplored in it.
@@ -80,6 +81,7 @@ export default function Stack() {
   const persona = quiz.completed ? generatePersona(quiz.answers) : null
   const [progress, setProgress] = useState(loadProgress)
   const [addedSlugs, setAddedSlugs] = useState(loadStack)
+  const [copied, setCopied] = useState(false)
 
   const hour = new Date().getHours()
   const period = hour < 5 ? 'night' : hour < 12 ? 'morning' : hour < 18 ? 'afternoon' : 'evening'
@@ -121,6 +123,17 @@ export default function Stack() {
     const next = { ...progress, [toolName]: (current + 1) % STATUSES.length }
     setProgress(next)
     try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(next)) } catch { /* storage blocked */ }
+  }
+
+  async function copyShareLink() {
+    haptic.tap()
+    const slugs = [...(persona?.stack || []).map((t) => t.slug), ...addedSlugs]
+    const url = `${window.location.origin}/s/${encodeStackSlugs(slugs)}`
+    try {
+      await navigator.clipboard.writeText(url)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1600)
+    } catch { /* clipboard blocked */ }
   }
 
   if (!persona) {
@@ -174,6 +187,12 @@ export default function Stack() {
             <h1 className="arcade-heading mt-4 text-4xl sm:text-5xl">{persona.name.toUpperCase()}</h1>
             <p className="mt-3 font-display text-sm font-bold italic text-white">{persona.tagline}</p>
           </div>
+          <button
+            onClick={copyShareLink}
+            className="nb-btn dark shrink-0 px-4 py-2 text-xs"
+          >
+            {copied ? '✓ Copied' : '🔗 Share'}
+          </button>
         </div>
 
         {/* Day streak — 7 dots M T W T F S S */}
