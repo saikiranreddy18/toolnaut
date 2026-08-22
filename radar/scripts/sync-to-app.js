@@ -12,6 +12,7 @@ import { log } from '../util/logger.js'
 const FIELDS = [
   'slug', 'name', 'category', 'sourceCategory', 'price', 'pricing', 'level',
   'blurb', 'audience', 'dev', 'year', 'website', 'status', 'note', 'tags',
+  'discoveredAt',
 ]
 
 const src = path.join(config.dataDir, 'tools.json')

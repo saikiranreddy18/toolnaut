@@ -4,6 +4,7 @@ import { hydrateCatalog } from './toolsCatalog'
 const FIELDS = [
   'slug', 'name', 'category', 'sourceCategory', 'price', 'pricing', 'level',
   'blurb', 'audience', 'dev', 'year', 'website', 'status', 'note', 'tags',
+  'discoveredAt',
 ]
 
 function toCatalogShape(t) {

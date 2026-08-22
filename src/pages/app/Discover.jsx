@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
 import { matchScore } from '../../utils/matchScore'
+import { isNewTool, getNewTools } from '../../utils/newTools'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { useAnalytics } from '../../hooks/useAnalytics'
@@ -79,6 +80,9 @@ export default function Discover() {
   }, [q, cat, price, level, answersKey])
 
   const hasFilters = q || cat || price || level
+  // Computed once: TOOLS is fully hydrated with live (radar-discovered) tools
+  // before first render (see main.jsx), and discoveredAt never changes after.
+  const freshTools = useMemo(() => getNewTools(7).slice(0, 8), [])
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-8 lg:py-10">
@@ -111,6 +115,24 @@ export default function Discover() {
           }}
         />
       </div>
+
+      {freshTools.length > 0 && (
+        <div className="mt-6">
+          <p className="text-xs font-bold uppercase tracking-widest text-slate-500">🆕 New this week</p>
+          <div className="no-scrollbar -mx-5 mt-2 flex gap-3 overflow-x-auto px-5 sm:mx-0 sm:px-0">
+            {freshTools.map((tool) => (
+              <Link
+                key={tool.slug}
+                to={`/app/tools/${tool.slug}`}
+                className="sticker group flex w-40 shrink-0 flex-col p-3"
+              >
+                <p className="arcade-heading lime text-xs group-hover:opacity-80">{tool.name.toUpperCase()}</p>
+                <p className="mt-1 line-clamp-2 text-[10px] leading-relaxed text-slate-300">{tool.blurb}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* filter rows swipe horizontally on mobile, wrap on wide screens */}
       <div className="no-scrollbar -mx-5 mt-4 flex gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
@@ -165,14 +187,24 @@ export default function Discover() {
                     <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
                     <span className="truncate">{tool.sourceCategory}</span>
                   </span>
-                  {tool.score != null && (
-                    <span
-                      className="shrink-0 rounded-full px-2 py-0.5 font-display text-xs font-black"
-                      style={{ background: 'var(--lime)', color: '#000', border: '2px solid #000', boxShadow: '2px 2px 0 #000' }}
-                    >
-                      {tool.score}%
-                    </span>
-                  )}
+                  <span className="flex shrink-0 items-center gap-1.5">
+                    {isNewTool(tool) && (
+                      <span
+                        className="rounded-full px-2 py-0.5 font-display text-[10px] font-black"
+                        style={{ background: 'var(--hot-pink)', color: '#000', border: '2px solid #000', boxShadow: '2px 2px 0 #000' }}
+                      >
+                        NEW
+                      </span>
+                    )}
+                    {tool.score != null && (
+                      <span
+                        className="rounded-full px-2 py-0.5 font-display text-xs font-black"
+                        style={{ background: 'var(--lime)', color: '#000', border: '2px solid #000', boxShadow: '2px 2px 0 #000' }}
+                      >
+                        {tool.score}%
+                      </span>
+                    )}
+                  </span>
                 </div>
                 <p className="arcade-heading lime mt-3 text-base group-hover:opacity-80">
                   {tool.name.toUpperCase()}
