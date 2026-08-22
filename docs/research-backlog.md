@@ -15,6 +15,20 @@ a client-side SPA with a static tool catalogue.
 
 ---
 
+## Format
+
+```
+### <short gap name>
+- **Status:** OPEN
+- **Seen in:** <competitor(s), with URL>
+- **Gap:** <what they do that Toolnaut does not>
+- **Why it matters:** <who benefits and when>
+- **Build size:** <S | M | L> — <what it would touch>
+- **Found:** <YYYY-MM-DD HH:MM UTC>
+```
+
+---
+
 <!-- Findings are appended below this line, newest last. -->
 
 ### Share / export your stack
@@ -42,15 +56,3 @@ a client-side SPA with a static tool catalogue.
   `Stack.jsx` and `QuizResult.jsx`. Touches those two pages, a small new
   encode/decode util, and possibly a read-only `/s/:payload` route.
 - **Found:** 2026-08-22 09:58 UTC
-
-## Format
-
-```
-### <short gap name>
-- **Status:** OPEN
-- **Seen in:** <competitor(s), with URL>
-- **Gap:** <what they do that Toolnaut does not>
-- **Why it matters:** <who benefits and when>
-- **Build size:** <S | M | L> — <what it would touch>
-- **Found:** <YYYY-MM-DD HH:MM UTC>
-```

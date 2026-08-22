@@ -26,7 +26,17 @@ If neither applies, do the job for this hour:
 === RESEARCH RUNS (every hour EXCEPT UTC hour 16) ===
 Your job is to find what Toolnaut is MISSING, not to write more tests.
 
-Study ONE competitor or ONE problem area per run. Real products in this space:
+RESEARCH IS CUMULATIVE. Before searching anything, read
+docs/research-backlog.md and continue the work already there. If an OPEN gap is
+promising but thin, DEEPEN it rather than adding a new one: how competitors
+actually implement it, which of our files it would touch, what the smallest
+useful version looks like, and what it would NOT include. The end-of-day run
+can only build what your research has made concrete enough to build — a list of
+vague one-liners is a wasted day. Aim for two or three well-developed gaps over
+a shallow list of ten.
+
+When the backlog has no gap worth deepening, study ONE new competitor or
+problem area. Real products in this space:
 There's An AI For That, Futurepedia, ToolFinder, Product Hunt's AI section,
 G2/Capterra AI categories. Also study general SaaS patterns Toolnaut lacks
 (onboarding, sharing, export, comparison, search, filtering, personalisation).
@@ -46,7 +56,7 @@ longer the best use of a run.
 === FEATURE RUN + DAILY DIGEST (UTC hour 16 only) ===
 This is the end of the day. Two jobs, in order.
 
-FIRST, ship a feature:
+FIRST, ship a feature. The day is expected to produce one:
   - Read docs/research-backlog.md. Pick the highest-value OPEN gap you can
     finish in this run. Prefer something a user will notice.
   - Build it properly: real UI, wired to real data, matching the existing
@@ -54,8 +64,10 @@ FIRST, ship a feature:
   - Bound it: one coherent feature, roughly 300 lines of diff or less. If the
     top gap is bigger, pick a smaller one and leave the big one OPEN.
   - Mark it `SHIPPED <sha>` in the backlog once pushed.
-  - If every OPEN gap is too big or genuinely not worth building, ship nothing
-    and say so in the digest. Never pad the day with a token change.
+  - Shipping nothing is a LAST RESORT, not a soft option. It is acceptable only
+    when every OPEN gap genuinely cannot be built safely today. If you take it,
+    the digest must say which gaps you considered and exactly what blocked each
+    one. Never pad the day with a token change to avoid an empty day.
 
 SECOND, write the day up:
   - Prepend a dated section to DEVLOG.md above the previous day, covering:
