@@ -13,6 +13,7 @@ const TYPES = ['question', 'showcase', 'discussion']
 function Pill({ active, onClick, children }) {
   return (
     <button
+      type="button"
       onClick={onClick}
       aria-pressed={active}
       className={`arcade-chip press min-h-9 shrink-0 cursor-pointer ${active ? 'on' : ''}`}
