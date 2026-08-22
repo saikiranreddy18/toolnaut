@@ -63,3 +63,21 @@ test('respects custom thresholds', () => {
   const v = validate(r, { publishThreshold: 0.5, reviewThreshold: 0.2 })
   assert.equal(v.decision, 'publish')
 })
+
+// The 'reject' decision has two distinct causes: hard errors (tested above)
+// and confidence dropping below reviewThreshold on an otherwise-valid record.
+// Only the error path had coverage — a record that's valid but too weak to
+// even queue for review was never exercised.
+test('rejects a valid but low-confidence record instead of queuing it for review', () => {
+  const r = good()
+  r.enrichedBy = 'fallback:rules'
+  r.dev = ''
+  r.audience = ''
+  r.sourceCategory = 'Not A Real Category'
+  r.tags = []
+  const v = validate(r, { reviewThreshold: 0.5 })
+  assert.equal(v.valid, true)
+  assert.equal(v.errors.length, 0)
+  assert.equal(v.decision, 'reject')
+  assert.ok(v.confidence < 0.5)
+})
