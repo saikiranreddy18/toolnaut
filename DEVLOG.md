@@ -9,6 +9,34 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-08-22
+
+**Researched today:** three gaps landed in `docs/research-backlog.md`, all
+specced to file paths/line numbers — share/export a personal stack
+(StackShare/Futurepedia pattern), side-by-side tool comparison (Capterra/G2
+pattern), and surfacing tool freshness ("new this week", Product
+Hunt/Futurepedia/There's An AI For That pattern).
+
+**Shipped:** surface tool freshness on Discover —
+[`2d7d192`](https://github.com/saikiranreddy18/toolnaut/commit/2d7d192f7f8b9d3a3110e8dcbb33117c23bf5b2e).
+Picked over the other two OPEN gaps because it was the cheapest by the
+backlog's own ranking rule (users touched × obviousness ÷ build size): radar
+already stamps a correct, once-only `discoveredAt` on every tool
+(`radar/enrich.js`), it just never reached the app, so `FeaturesSection.jsx`'s
+"Weekly Fresh Finds" line had nothing behind it. Plumbed `discoveredAt`
+through both `FIELDS` boundaries (`radar/scripts/sync-to-app.js`,
+`src/utils/liveCatalog.js`), added a pure `src/utils/newTools.js`
+(`isNewTool`/`getNewTools`), and surfaced it on `Discover.jsx` as a "🆕 New
+this week" strip plus a per-card badge. No backend, no new dependency, no
+new route — 61 lines. All three checks green (102 radar tests, build,
+11-route smoke) before push.
+
+**Queued next:** share/export-your-stack and side-by-side comparison are
+both still OPEN and fully specced (new page + new route each, S/M build
+size) — either is a good pick for tomorrow's feature run.
+
+---
+
 ## 2026-08-22 — baseline
 
 Set up by hand; the routine writes every section after this one.

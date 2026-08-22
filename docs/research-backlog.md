@@ -174,7 +174,7 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-22 11:55 UTC
 
 ### Surface tool freshness ("new this week")
-- **Status:** OPEN
+- **Status:** SHIPPED 2d7d192f7f8b9d3a3110e8dcbb33117c23bf5b2e
 - **Seen in:** Product Hunt's whole homepage is daily-launches-first; There's
   An AI For That runs a dedicated "Newest AI Tools" feed; Futurepedia sorts
   its directory by "Newest" as a first-class filter, not a buried option —
