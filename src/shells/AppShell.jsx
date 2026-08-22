@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link, Navigate, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { BRAND } from '../config'
@@ -36,6 +36,22 @@ export default function AppShell() {
   const location = useLocation()
   const session = loadSession()
   const [chatOpen, setChatOpen] = useState(loadChatOpen)
+  const launcherRef = useRef(null)
+  const chatWasOpenRef = useRef(false)
+
+  // ChatPanel unmounts the launcher the instant it opens and moves focus onto
+  // its own close button; when it closes, send focus back here instead of
+  // leaving it on whatever the browser defaults to (<body>). Guarded by
+  // chatWasOpenRef so this never fires on mount (chatOpen starts false from
+  // loadChatOpen and must not steal focus on a page that never opened chat).
+  useEffect(() => {
+    if (chatOpen) {
+      chatWasOpenRef.current = true
+    } else if (chatWasOpenRef.current) {
+      chatWasOpenRef.current = false
+      launcherRef.current?.focus()
+    }
+  }, [chatOpen])
 
   if (!session) {
     return <Navigate to={`/auth/login?next=${encodeURIComponent(location.pathname)}`} replace />
@@ -142,6 +158,7 @@ export default function AppShell() {
       {/* chat launcher (both breakpoints when closed) */}
       {!chatOpen && (
         <button
+          ref={launcherRef}
           onClick={() => toggleChat(true)}
           aria-label="Open AI assistant"
           className="nb-btn fixed bottom-24 right-5 z-40 flex h-14 w-14 items-center justify-center !rounded-full !p-0 lg:bottom-6 lg:right-6"
