@@ -3,6 +3,8 @@
 // bugfix agent keys off — without it, "the build passed" says nothing about
 // whether the app actually renders.
 import { spawn } from 'node:child_process'
+import { existsSync, readdirSync } from 'node:fs'
+import path from 'node:path'
 import { chromium } from 'playwright'
 
 const PORT = 4173
@@ -13,9 +15,57 @@ const server = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--host'
   shell: process.platform === 'win32',
 })
 process.on('exit', () => server.kill())
-await new Promise((r) => setTimeout(r, 5000))
+// Wait until preview actually accepts a connection. This was a flat 5s sleep,
+// which is a race, not a wait: on a cold cache or a loaded machine vite needs
+// longer, every route then fails with ERR_CONNECTION_REFUSED, and the run
+// reports the whole app as broken when it was only slow to boot.
+const deadline = Date.now() + 60_000
+for (;;) {
+  try {
+    await fetch(base)
+    break
+  } catch {
+    if (Date.now() > deadline) throw new Error('vite preview did not accept a connection within 60s')
+    await new Promise((r) => setTimeout(r, 400))
+  }
+}
 const routes = ['/', '/quiz?step=1', '/pricing', '/about', '/starchart', '/app/stack', '/app/discover', '/app/learning', '/app/community', '/app/settings', '/office']
-const browser = await chromium.launch()
+// Playwright resolves one exact browser build id and refuses to launch if that
+// precise directory is missing, telling you to run `playwright install` — which
+// is not possible in a locked image. Sandboxes routinely ship a different build:
+// the autonomous agent's runner has chromium 1194 while this playwright wants
+// 1234, so every hourly run was hand-copying binaries into a fake 1234 path
+// before it could smoke-test anything. Fall back to whichever build is present.
+function installedChromium() {
+  const root = process.env.PLAYWRIGHT_BROWSERS_PATH
+  if (!root || !existsSync(root)) return null
+  // headless shell first: that is what chromium.launch() uses by default
+  const layouts = [
+    ['chrome-headless-shell-linux64', 'chrome-headless-shell'],
+    ['chrome-linux', 'chrome-headless-shell'],
+    ['chrome-linux64', 'chrome'],
+    ['chrome-linux', 'chrome'],
+  ]
+  const dirs = readdirSync(root).filter((d) => d.startsWith('chromium')).sort().reverse()
+  for (const dir of dirs) {
+    for (const rel of layouts) {
+      const candidate = path.join(root, dir, ...rel)
+      if (existsSync(candidate)) return candidate
+    }
+  }
+  return null
+}
+
+let executablePath
+try {
+  const wanted = chromium.executablePath()
+  if (!existsSync(wanted)) {
+    executablePath = installedChromium()
+    if (executablePath) console.log(`smoke: playwright wanted ${wanted}, using ${executablePath}`)
+  }
+} catch { executablePath = installedChromium() }
+
+const browser = await chromium.launch(executablePath ? { executablePath } : {})
 let bad = 0
 for (const r of routes) {
   const page = await browser.newPage()
