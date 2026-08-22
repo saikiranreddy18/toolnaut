@@ -101,3 +101,74 @@ a client-side SPA with a static tool catalogue.
   no new dependency.
 - **Found:** 2026-08-22 09:58 UTC
 - **Deepened:** 2026-08-22 10:55 UTC
+
+### Side-by-side tool comparison
+- **Status:** OPEN
+- **Seen in:** Capterra (side-by-side comparison tool lets buyers compare up
+  to four products at once on features, pricing model and target user size —
+  this "pick up to N, see a table" pattern is the de-facto standard across
+  G2/Capterra's whole category-page UX); There's An AI For That and similar
+  directories run individual "X vs Y" comparison pages for the same reason —
+  a visitor evaluating tools wants two or three options next to each other,
+  not one detail page at a time.
+- **Gap:** Toolnaut's `TOOLS` catalog already carries every field a
+  comparison table needs (`price`, `pricing`, `level`, `dev`, `year`,
+  `audience`, `status`, `tags` — confirmed in `src/utils/toolsCatalog.js:48+`)
+  and `Discover.jsx` already lets a visitor filter down to a shortlist, but
+  there is no way to put two or three of those results next to each other.
+  The only per-tool views are `Discover.jsx`'s card grid and
+  `ToolDetail.jsx`'s single-tool page (confirmed by grepping
+  `compare|comparison` across `src/` — zero hits outside this file).
+  Evaluating "Claude vs ChatGPT vs Gemini" today means opening three
+  `ToolDetail` pages in sequence and holding the differences in your head.
+- **Why it matters:** Comparison is the single highest-intent action in a
+  tool-discovery flow — it's the last step before someone commits, which is
+  exactly the moment Toolnaut most wants to be useful. It's also the step
+  every serious competitor (G2, Capterra) treats as core UX rather than a
+  nice-to-have.
+- **Smallest useful version (what to actually build):**
+  - Add a compare checkbox next to the existing "⚡ ADD" stack button on each
+    `Discover.jsx` result card (`Discover.jsx:185-190`). Selection is local
+    `useState` array of slugs, capped at **4** (matches Capterra's cap —
+    disable/grey out further checkboxes past 4 rather than silently
+    dropping or erroring).
+  - When 2+ tools are selected, show a floating bottom bar (same fixed/sticky
+    pattern would be new to this file, but the "pill row" visual language
+    already exists via the `Pill` component) reading "Compare (n) →" that
+    links to `/app/compare?tools=slug1,slug2,slug3`. Comma-joined slugs in
+    the query string mirrors `Discover.jsx`'s own `q`/`cat`/`price`/`level`
+    param style (`Discover.jsx:33-36`) — no new encoding scheme.
+  - New page `src/pages/app/Compare.jsx`, registered in `src/App.jsx`
+    alongside the other `AppShell`-guarded routes (same auth gate as
+    `Discover`/`Stack`, since this is a within-session comparison action, not
+    a public share artifact like the separate share-stack gap above). Reads
+    `tools` from `useSearchParams()`, resolves each slug via `getTool()`,
+    drops unknown slugs silently (consistent with how the share-stack gap
+    plans to degrade stale links).
+  - Table layout: one column per tool (max 4, so it never needs horizontal
+    scroll tricks beyond what a 4-column grid already needs on mobile —
+    stack columns vertically under `sm:`), one row per field: category,
+    price tier + `pricing` detail string, level, dev, year, audience, status,
+    tags. Reuse `CATEGORY_META`/`PRICE_LABELS`/`LEVEL_LABELS` exactly as
+    `Discover.jsx` and `ToolDetail.jsx` already do — no new label maps. If
+    the quiz is complete, add a "Match" row using the existing
+    `matchScore()` util so the table doubles as a personalised tiebreaker.
+  - Each column gets its own "⚡ ADD TO STACK" button (reuse
+    `addToStack`/`removeFromStack` from `stackStore.js` verbatim) and a small
+    "✕ remove from comparison" control that re-filters the `tools` param and
+    replaces the URL — so trimming the comparison down doesn't need a trip
+    back to Discover.
+  - `scripts/smoke.mjs:32`'s hardcoded route array needs one addition, e.g.
+    `/app/compare?tools=chatgpt,claude`, or the new route ships untested —
+    same footgun flagged on the share-stack gap.
+  - **What this would NOT include** (kept out to bound the diff): no
+    limit-free comparison (hard cap at 4), no comparing across categories
+    with wildly different fields (the table just renders "—" for anything
+    absent, no per-category schema), no persisted/named comparisons (state
+    lives entirely in the URL, same as Discover's filters), no exporting the
+    table as an image/PDF/CSV, no live pricing lookups — everything comes
+    from the static catalog already in the bundle.
+- **Build size:** S/M — one new page (`Compare.jsx`), a checkbox + floating
+  bar addition to `Discover.jsx`, one new route in `App.jsx`, one line in
+  `scripts/smoke.mjs`. No backend, no new dependency, no new label/meta maps.
+- **Found:** 2026-08-22 11:55 UTC
