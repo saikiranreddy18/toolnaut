@@ -236,3 +236,65 @@ a client-side SPA with a static tool catalogue.
   pure util (`newTools.js`), a badge + one small strip on `Discover.jsx`. No
   backend, no new dependency, no radar pipeline logic change.
 - **Found:** 2026-08-22 12:15 UTC
+
+### Skills graph / coverage gaps (Progress Tracking promise)
+- **Status:** OPEN
+- **Seen in:** Coursera for Business's Skills Dashboard and LinkedIn Learning's
+  skill-gap dashboards both give an individual a single aggregate view of
+  proficiency across skill categories rather than a bare completion
+  percentage — the point is to answer "what am I missing," not just "how far
+  am I through the course." That's the same shape of promise Toolnaut already
+  makes for itself.
+- **Gap:** `src/components/sections/FeaturesSection.jsx:9` advertises
+  "Progress Tracking — A skills graph that grows with you and shows exactly
+  where the gaps are," but nothing in `src/` renders anything of the kind
+  (grepped `radar chart|category.*progress|coverage|gap analysis`, zero
+  hits). What actually exists: `Stack.jsx`'s `ProgressRing` draws one ring
+  per tool card (`Stack.jsx:61-77`), cycling through `Not started → Exploring
+  → Using weekly → Mastered` per tool name in `localStorage['exus_progress_v1']`
+  (`Stack.jsx:32-37`); `Learning.jsx` shows one linear "X of Y steps" bar
+  across the whole 4-week roadmap (`Learning.jsx:257-279`). Neither
+  aggregates across categories, and nothing ever tells the user which of
+  their six galaxy domains (`code`/`design`/`writing`/`data`/`automation`/
+  `learning` — `toolsCatalog.js:9-16`) has zero tools in their stack. A user
+  who has only ever added Writing tools has no way to discover that from the
+  app itself.
+- **Why it matters:** same "promised in the marketing copy, absent from the
+  product" pattern as the Weekly Fresh Finds gap (now shipped) — a visitor
+  who reads "shows exactly where the gaps are" and finds only per-card rings
+  notices the mismatch. It also doubles as a soft cross-sell: a domain with
+  zero coverage is a one-tap link into Discover pre-filtered to exactly that
+  category, which nothing on Stack.jsx does today.
+- **Smallest useful version (what to actually build):**
+  - New pure util `src/utils/skillCoverage.js`: `getDomainCoverage(tools,
+    progress)` — `tools` is the resolved starter ∪ added stack (same shape
+    `Stack.jsx` already builds at `Stack.jsx:116-119`), `progress` is the
+    existing `{ [toolName]: statusIndex }` map. Groups tools by `.category`
+    (one of the 6 `CATEGORY_META` keys) and returns one entry per domain:
+    `{ domain, name, color, count, avgStatus }` where `avgStatus` is the mean
+    `statusIndex / (STATUSES.length - 1)` for that domain's tools (0 if
+    `count` is 0). Pure, easy to `node --test` like the share-stack util.
+  - New `src/components/app/SkillGraph.jsx`: six horizontal bars, one per
+    domain, sorted by `count` descending. Each bar: domain name + color chip
+    (reuse `CATEGORY_META` colors, same dot pattern already used in
+    `Learning.jsx:329-334`), a fill sized by `avgStatus`, a tool-count badge,
+    and — only for domains with `count === 0` — a muted "Explore →" link to
+    `/app/discover?cat=<domain>`, reusing `Discover.jsx`'s existing `cat`
+    query param (`Discover.jsx:33-36`) so the CTA actually filters instead of
+    just linking to the generic page.
+  - Wire it into `Stack.jsx` under a `tape-label` "📊 Skills graph" header,
+    placed between the streak card and "today's drop" — same sticker-card
+    visual language as the streak block right above it (`Stack.jsx:198-219`),
+    no new visual primitive needed.
+  - **What this would NOT include** (kept out to bound the diff): no
+    time-series / historical view (the promise's "grows with you" reads as
+    real-time reflecting current stack state, not a week-over-week trend —
+    that would need snapshotting progress over time, a real v2); no
+    cross-user or role-benchmark comparison; no self-assessed proficiency
+    quiz; no change to how progress is stored or keyed (stays per-tool-name
+    in `localStorage`, same footgun the existing code already has and this
+    doesn't need to fix).
+- **Build size:** S — one pure util (`skillCoverage.js`), one new small
+  component (`SkillGraph.jsx`), ~15 lines wiring it into `Stack.jsx`. No
+  backend, no new dependency, no new route.
+- **Found:** 2026-08-23 00:15 UTC
