@@ -373,3 +373,75 @@ a client-side SPA with a static tool catalogue.
   `communityStore.js`, ~10 lines wiring it into `Stack.jsx`. No backend, no
   new dependency, no new route.
 - **Found:** 2026-08-23 06:06 UTC
+
+### Favorites / bookmarks (sold on the pricing page, absent from the app)
+- **Status:** OPEN
+- **Seen in:** Futurepedia has a dedicated "Favorites" button on every tool
+  that saves it to the visitor's profile for later, separate from anything
+  transactional — the point is a lightweight save-for-later a visitor can do
+  before they've committed to using a tool, not after.
+- **Gap:** Toolnaut already sells this to itself. `src/utils/planData.js:22`
+  promises "Save up to 10 favorite tools" on the Student tier and
+  `planData.js:46` promises "Unlimited favorite tools" on Pro, and the
+  comparison table at `planData.js:83` repeats it as a plan-differentiating
+  row ("Saved favorites: 10 / Unlimited / Unlimited"). `src/pages/Pricing.jsx`
+  renders `PLANS`/`COMPARISON` directly, so this copy is live on
+  `/pricing` today. But grepping `src/pages` and `src/components` for
+  `favorite|bookmark|heart` turns up nothing — no heart icon, no saved-list
+  page, no store. The only "save a tool" mechanic that exists is
+  `stackStore.js`'s add-to-stack, which is a different, heavier action: it
+  seeds `Stack.jsx`'s progress rings, the skills-graph gap above, and the
+  onboarding-checklist gap above — i.e. "I'm actively using/learning this,"
+  not "I want to remember this for later." A visitor skimming Discover for
+  candidates has no lightweight way to shortlist five tools without
+  triggering all of that. This is the same "marketing promises it, product
+  doesn't have it" shape as the (now-shipped) Weekly Fresh Finds gap and the
+  still-open Skills Graph gap — except this one is sold on the pricing page
+  itself, which makes the mismatch a direct, checkable false claim rather
+  than a features-section platitude.
+- **Why it matters:** it's a real trust gap (a paying-tier feature that
+  literally does not exist, discoverable by anyone who reads `/pricing`
+  closely), and it's also a missing low-friction on-ramp: Discover's only
+  action today is the all-or-nothing "⚡ ADD" into the stack (`Discover.jsx:217-222`),
+  which is more commitment than "I might want this later" — a lighter save
+  action likely gets used more often and earlier in a visitor's session than
+  the stack does.
+- **Smallest useful version (what to actually build):**
+  - New `src/state/favoritesStore.js`, mirroring `stackStore.js`'s exact
+    shape (`localStorage` key `exus_favorites_v1`, array of slugs):
+    `loadFavorites()`, `addFavorite(slug)`, `removeFavorite(slug)`,
+    `isFavorite(slug)`. Same try/catch-on-throw pattern as `stackStore.js:7-17`
+    (must tolerate `localStorage` throwing, per this repo's own
+    `src/state/*` rule) — no plan-based cap enforced anywhere, since there is
+    no billing/subscription system in this codebase at all (confirmed:
+    zero hits for `stripe|checkout|subscription|billing` under `src/`) — the
+    10-tool cap in the copy is unenforceable today and out of scope; this
+    gap is only about the feature existing, not about gating it.
+  - A heart-icon toggle button next to the existing "⚡ ADD" button on each
+    Discover card (`Discover.jsx:217-222`) and next to the "ADD TO STACK"
+    button on `ToolDetail.jsx:136`. Filled heart when `isFavorite(tool.slug)`,
+    outline otherwise; click toggles and stops propagation same as
+    `toggleStack` already does at `Discover.jsx:218`.
+  - New `src/pages/app/Favorites.jsx` + route `/app/favorites` (registered
+    next to `stack`/`discover` in `src/App.jsx:87-88`), reusing the same
+    read-only-ish card grid pattern `SharedStack.jsx` already established for
+    rendering a list of resolved tools, but with the heart-toggle (remove)
+    and an "⚡ ADD TO STACK" button per card instead of a "build your own"
+    CTA. Empty state links to `/app/discover`.
+  - One nav entry for Favorites wherever `AppShell` currently lists
+    Stack/Discover/Learning/Community links (needs a quick check of
+    `AppShell.jsx`'s nav array when built — not yet located precisely).
+  - `scripts/smoke.mjs`'s hardcoded route array needs `/app/favorites` added,
+    same footgun flagged on every gap above.
+  - **What this would NOT include** (kept out to bound the diff): no plan-tier
+    enforcement of the 10-tool cap (no billing system exists to hang it off
+    of — if that ever gets built, it's a separate gap); no favoriting from the
+    galaxy/3D explorer view; no notes-per-favorite (Futurepedia has this, but
+    it's an added-complexity v2, not needed to close the core gap); no
+    syncing favorites into the share-stack or comparison URL state — favorites
+    stay a separate, private, local list.
+- **Build size:** S — one new store (`favoritesStore.js`), one new page
+  (`Favorites.jsx`), one new route, a heart-button addition to two existing
+  files (`Discover.jsx`, `ToolDetail.jsx`), one nav link, one line in
+  `scripts/smoke.mjs`. No backend, no new dependency.
+- **Found:** 2026-08-23 12:04 UTC
