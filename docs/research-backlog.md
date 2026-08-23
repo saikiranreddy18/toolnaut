@@ -298,3 +298,78 @@ a client-side SPA with a static tool catalogue.
   component (`SkillGraph.jsx`), ~15 lines wiring it into `Stack.jsx`. No
   backend, no new dependency, no new route.
 - **Found:** 2026-08-23 00:15 UTC
+
+### First-session onboarding checklist
+- **Status:** OPEN
+- **Seen in:** Notion's and Linear's "Getting Started" checklists both convert
+  a new signup into an activated user by naming the 3-5 actions that predict
+  retention and showing live progress against them, instead of leaving the
+  user to discover the product's own surfaces on their own; HubSpot's
+  onboarding checklist is the same pattern applied to a much colder, more
+  transactional signup than Toolnaut's quiz flow. It's one of the most
+  studied activation patterns in SaaS precisely because scattering the "what
+  do I do next" burden across a UI (which is what Toolnaut does today) loses
+  users at every extra click.
+- **Gap:** confirmed no checklist/onboarding-progress component exists
+  (grepped `checklist|getting.started|onboard` across `src/`; only hits are
+  `OnboardingShell.jsx`, which is a layout wrapper for the quiz/login route
+  transition — no persistent nudge UI, `App.jsx:79`). What exists instead is
+  scattered and inconsistent: `Stack.jsx`'s "Next up" card (`Stack.jsx:337-356`)
+  only ever nudges toward Discover or the roadmap, `QuizResult.jsx` presumably
+  nudges once at quiz completion and is never seen again, and Community,
+  Settings, and "post your first thread" are never surfaced as onboarding
+  steps anywhere. A brand-new user who finishes the quiz lands on `Stack.jsx`
+  with a starter stack already filled in and no signal for what to do next
+  beyond the one generic "Next up" paragraph — nothing tells them the
+  roadmap, the community, or adding a second tool from Discover are things
+  worth doing today.
+- **Why it matters:** the quiz already does the hard work of getting someone
+  to a filled-in persona and stack — the highest-effort step is behind them —
+  but nothing in the product capitalizes on that momentum by giving them an
+  explicit, checkable list of next actions. This is pure activation/retention
+  upside with zero backend need: every signal a checklist needs already lives
+  in localStorage behind existing stores.
+- **Smallest useful version (what to actually build):**
+  - New pure util `src/utils/onboardingSteps.js`: `getOnboardingSteps()`
+    returns a fixed ordered list of `{ id, label, done, href }` computed from
+    stores that already exist — no new persistence:
+    - `quiz` — `loadQuiz().completed` (`src/state/quizStore.js`)
+    - `first_tool` — `loadStack().length > 0` (added a tool beyond the
+      starter stack, via `src/state/stackStore.js:6`)
+    - `roadmap_step` — any step done in `loadRoadmapProgress()` via
+      `allStepsDone`/`isStepDone` helpers already exported from
+      `src/state/roadmapStore.js:7-28` (checking "at least one step toggled"
+      rather than a full milestone, since this is a "get started" nudge, not
+      a completion tracker — `Learning.jsx` already owns milestone
+      completion)
+      community — whether the user has posted; `communityStore.js` has no
+      export for this today (its `THREADS_KEY` user threads are read only
+      inside `loadThreads()`/`getThread()`), so this step needs one new
+      one-line export, e.g. `hasPostedThread()` reading `exus_threads_v1`
+      directly, mirroring the existing `read()` helper at
+      `communityStore.js:9-16`.
+  - New `src/components/app/OnboardingChecklist.jsx`: a dismissible sticker
+    card (same visual language as the streak card, `Stack.jsx:199-219`) shown
+    on `Stack.jsx` only while incomplete — hides itself entirely once every
+    step is done, and stores a "dismissed" flag in localStorage
+    (`exus_onboarding_dismissed_v1`) so a user who closes it manually doesn't
+    have it reappear. Each row is a checkmark (done/not-done, same dot
+    pattern as `ProgressRing`'s use elsewhere) plus a label and a link to the
+    relevant page (`/app/discover`, `/app/learning`, `/app/community`) for
+    any step not yet done.
+  - Wire into `Stack.jsx` directly under the streak card, above "today's
+    drop" — matches where the streak/skills-graph gap above is already
+    planned to live, so this and the skills-graph gap should not both ship in
+    the same run without checking they don't crowd the same section.
+  - **What this would NOT include** (kept out to bound the diff): no
+    step-specific rewards/badges beyond the checkmark itself; no email or
+    push reminder if a user never returns; no server-tracked activation
+    funnel/analytics beyond the existing `useAnalytics` event pattern (a
+    single `CTA_CLICK`-style event on dismiss would be enough, no new event
+    taxonomy); no per-role customization of which steps appear — same four
+    steps for every persona in v1.
+- **Build size:** S — one pure util (`onboardingSteps.js`), one small
+  component (`OnboardingChecklist.jsx`), one new one-line export in
+  `communityStore.js`, ~10 lines wiring it into `Stack.jsx`. No backend, no
+  new dependency, no new route.
+- **Found:** 2026-08-23 06:06 UTC
