@@ -103,7 +103,7 @@ a client-side SPA with a static tool catalogue.
 - **Deepened:** 2026-08-22 10:55 UTC
 
 ### Side-by-side tool comparison
-- **Status:** OPEN
+- **Status:** SHIPPED 50b0471
 - **Seen in:** Capterra (side-by-side comparison tool lets buyers compare up
   to four products at once on features, pricing model and target user size —
   this "pick up to N, see a table" pattern is the de-facto standard across
