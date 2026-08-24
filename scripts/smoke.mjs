@@ -29,7 +29,7 @@ for (;;) {
     await new Promise((r) => setTimeout(r, 400))
   }
 }
-const routes = ['/', '/quiz?step=1', '/pricing', '/about', '/starchart', '/app/stack', '/app/discover', '/app/learning', '/app/community', '/app/settings', '/office', '/s/chatgpt']
+const routes = ['/', '/quiz?step=1', '/pricing', '/about', '/starchart', '/app/stack', '/app/discover', '/app/compare?tools=chatgpt,claude', '/app/learning', '/app/community', '/app/settings', '/office', '/s/chatgpt']
 // Playwright resolves one exact browser build id and refuses to launch if that
 // precise directory is missing, telling you to run `playwright install` — which
 // is not possible in a locked image. Sandboxes routinely ship a different build:
@@ -90,7 +90,11 @@ for (const r of routes) {
     const rootHtml = await page.$eval('#root', el => el.innerHTML.length).catch(() => 0)
     const real = errs.filter(e => !/favicon|fonts.googleapis|fonts.gstatic|ERR_INTERNET|net::ERR|WebGL|Failed to load resource.*tools\.json/i.test(e))
     // A guarded route that bounced to login proves nothing about the page asked for.
-    if (authed && new URL(page.url()).pathname !== r) {
+    // Compare pathnames only — `r` may carry a query string (e.g. /app/compare?tools=...)
+    // that page.url().pathname never includes, so comparing against the raw route
+    // string here would flag every authed route with a query param as "redirected".
+    const wantPath = new URL(base + r).pathname
+    if (authed && new URL(page.url()).pathname !== wantPath) {
       real.push(`redirected to ${new URL(page.url()).pathname}`)
     }
     const status = real.length === 0 && rootHtml > 200 ? 'OK ' : 'FAIL'

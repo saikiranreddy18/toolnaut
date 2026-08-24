@@ -11,6 +11,7 @@ import { haptic } from '../../utils/haptics'
 
 const PRICES = ['free', 'freemium', 'paid']
 const LEVELS = ['beginner', 'intermediate', 'advanced']
+const MAX_COMPARE = 4
 
 function Pill({ active, onClick, children }) {
   return (
@@ -29,6 +30,7 @@ function Pill({ active, onClick, children }) {
 export default function Discover() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [stack, setStack] = useState(loadStack)
+  const [compare, setCompare] = useState([])
   const track = useAnalytics()
 
   const quiz = loadQuiz()
@@ -44,6 +46,12 @@ export default function Discover() {
     if (value) next.set(key, value)
     else next.delete(key)
     setSearchParams(next, { replace: key === 'q' })
+  }
+
+  function toggleCompare(slug) {
+    setCompare((c) =>
+      c.includes(slug) ? c.filter((s) => s !== slug) : c.length < MAX_COMPARE ? [...c, slug] : c,
+    )
   }
 
   function toggleStack(tool) {
@@ -214,15 +222,50 @@ export default function Discover() {
                   <span className="rounded-full border border-white/20 px-2 py-0.5">{PRICE_LABELS[tool.price]}</span>
                   <span className="rounded-full border border-white/20 px-2 py-0.5">{LEVEL_LABELS[tool.level]}</span>
                 </div>
-                <button
-                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleStack(tool) }}
-                  className={`nb-btn mt-4 px-4 py-2 text-xs ${added ? 'dark' : ''}`}
-                >
-                  {added ? '✓ IN STACK' : '⚡ ADD'}
-                </button>
+                <div className="mt-4 flex items-center gap-2">
+                  <button
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleStack(tool) }}
+                    className={`nb-btn px-4 py-2 text-xs ${added ? 'dark' : ''}`}
+                  >
+                    {added ? '✓ IN STACK' : '⚡ ADD'}
+                  </button>
+                  <label
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex shrink-0 cursor-pointer items-center gap-1.5 rounded-full border border-white/20 px-2.5 py-2 text-[10px] font-bold uppercase text-slate-400 hover:text-white"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={compare.includes(tool.slug)}
+                      disabled={!compare.includes(tool.slug) && compare.length >= MAX_COMPARE}
+                      onChange={(e) => { e.preventDefault(); toggleCompare(tool.slug) }}
+                      className="h-3.5 w-3.5 cursor-pointer accent-[var(--lime)] disabled:cursor-not-allowed"
+                    />
+                    Compare
+                  </label>
+                </div>
               </Link>
             )
           })}
+        </div>
+      )}
+
+      {compare.length >= 2 && (
+        <div
+          className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-center gap-3 px-5 py-4"
+          style={{ background: 'rgba(10,9,16,0.96)', borderTop: '2px solid #000', boxShadow: '0 -3px 0 #000' }}
+        >
+          <p className="text-xs font-bold uppercase tracking-wider text-slate-300">
+            {compare.length} of {MAX_COMPARE} selected
+          </p>
+          <Link
+            to={`/app/compare?tools=${compare.map(encodeURIComponent).join(',')}`}
+            className="nb-btn px-5 py-2.5 text-xs"
+          >
+            COMPARE ({compare.length}) →
+          </Link>
+          <button onClick={() => setCompare([])} className="nb-btn dark px-4 py-2.5 text-xs">
+            CLEAR
+          </button>
         </div>
       )}
 
