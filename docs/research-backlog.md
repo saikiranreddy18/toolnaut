@@ -172,6 +172,32 @@ a client-side SPA with a static tool catalogue.
   bar addition to `Discover.jsx`, one new route in `App.jsx`, one line in
   `scripts/smoke.mjs`. No backend, no new dependency, no new label/meta maps.
 - **Found:** 2026-08-22 11:55 UTC
+- **Deepened 2026-08-24 12:07 UTC:** this is actually a promise-gap, not just
+  competitive parity — should have been cited against the marketing copy from
+  the start. `src/components/sections/FeaturesSection.jsx:8` sells "Live Tool
+  Comparison — Side-by-side capability, pricing, and integration comparisons
+  kept current" as one of six headline capabilities on the landing page today,
+  and this is the one FEATURES card with literally nothing behind it (the
+  other five either ship — Role-Aware Discovery, Smart Learning Paths, Signal
+  over Noise, Weekly Fresh Finds — or have an OPEN spec already, Progress
+  Tracking above). That makes this the single highest-priority item in this
+  backlog: it is not a "nice competitive addition," it is the last unbacked
+  claim on the homepage.
+  One real wrinkle found while re-checking the field list against that exact
+  promise: the word "integration comparisons" has no data behind it at all.
+  Grepped `toolsCatalog.js` for an `integrations` field — zero hits; the only
+  matches are the substring `"integration"` inside a couple of tool `blurb`/
+  `tags` strings (e.g. `composio`'s blurb), never a structured field on any of
+  the 700+ entries. The comparison table as specced above (price, level, dev,
+  year, audience, status, tags) is the honest maximum buildable from the
+  catalog today — it should ship without inventing an "Integrations" row, and
+  the marketing copy's "integration comparisons" phrase is mildly overstated
+  against what the table can actually show. Not a reason to hold the build:
+  flagging it here so whoever ships this doesn't try to backfill a fake
+  integrations field to match the copy, and so the copy itself is a candidate
+  for a follow-up wording pass (out of scope for this feature — a one-line
+  content edit, not a build) once the table ships and the bigger mismatch
+  (comparison exists at all) is closed.
 
 ### Surface tool freshness ("new this week")
 - **Status:** SHIPPED 2d7d192f7f8b9d3a3110e8dcbb33117c23bf5b2e
