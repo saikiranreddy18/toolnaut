@@ -445,3 +445,75 @@ a client-side SPA with a static tool catalogue.
   files (`Discover.jsx`, `ToolDetail.jsx`), one nav link, one line in
   `scripts/smoke.mjs`. No backend, no new dependency.
 - **Found:** 2026-08-23 12:04 UTC
+
+### Per-tool ratings & reviews
+- **Status:** OPEN
+- **Seen in:** G2 and Capterra are built around per-product star ratings and
+  written reviews as the primary trust signal on every category and detail
+  page — it's the single biggest reason buyers land there instead of a
+  vendor's own site. Product Hunt's comment threads sit directly under each
+  launch for the same reason: social proof from other users, not just the
+  vendor's own copy, is what a visitor evaluating a specific tool weighs most.
+- **Gap:** Toolnaut has zero rating or review surface anywhere. Grepped
+  `toolsCatalog.js` for `rating|score` — the only hits are unrelated substring
+  matches inside tool blurbs (`ambience`, `crewai`, `google-assistant`), no
+  rating field on any of the 700+ catalog entries. `ToolDetail.jsx` already
+  shows a personalised `matchScore()` badge (`ToolDetail.jsx:86-93`) and a
+  "WHY IT FITS" reasons list (`ToolDetail.jsx:141-160`), but those are both
+  algorithmic — Toolnaut's own opinion of the fit, never another user's. The
+  closest thing that exists is `communityStore.js`'s discussion threads
+  (seeded `THREADS` + local user posts, upvoted, layered exactly like this
+  gap would need), but threads have no `tool` field at all — `Community.jsx`
+  and `communityStore.js` have no way to attach a post to a specific catalog
+  slug, so "what do other users think of Notion AI specifically" has no home
+  even inside the one social feature Toolnaut already ships.
+- **Why it matters:** review content is the most-cited reason G2/Capterra
+  convert better than a plain directory — a star average plus a couple of
+  real sentences from someone who tried the tool is a stronger nudge toward
+  "add to stack" than another algorithmic match score. It also gives
+  Community's existing local-first crowdsourcing pattern (seed content +
+  per-browser user additions, already accepted for threads) a second, more
+  frequently-touched surface: a visitor lands on `ToolDetail` for a specific
+  tool far more often than they open Community cold.
+- **Smallest useful version (what to actually build):**
+  - New `src/utils/toolReviewsData.js`: a small seed array (~20-30 entries
+    across ~15 well-known slugs — `chatgpt`, `claude`, `notion-ai`,
+    `perplexity`, `cursor`, etc., cross-checked against real slugs in
+    `toolsCatalog.js` before writing any) of `{ id, slug, author, rating (1-5
+    int), body, at }`, mirroring `communityData.js`'s `THREADS` shape exactly
+    so the layering logic below can copy `communityStore.js`'s pattern
+    verbatim rather than invent a new one.
+  - New `src/state/toolReviewsStore.js`: same `read`/`write` localStorage
+    helpers as `communityStore.js:9-19` (must tolerate `localStorage`
+    throwing, this repo's own `src/state/*` rule), new key
+    `exus_tool_reviews_v1`. `getReviews(slug)` merges seed + user reviews for
+    that slug, newest first. `getAverageRating(slug)` returns `null` when a
+    tool has zero reviews (never render "0.0 stars" — an empty state is
+    honest, a fabricated zero isn't) or the mean rounded to one decimal.
+    `addReview(slug, { rating, body, author })` pushes to the user list,
+    capped at one review per slug per browser (check existing user reviews
+    for that slug + author combo before pushing, same "no duplicate" spirit
+    as `toggleUpvote`'s toggle-not-append design).
+  - `ToolDetail.jsx`: an average-rating badge (star icon + `X.X` + review
+    count) next to the existing MATCH/status badges at
+    `ToolDetail.jsx:81-102`, shown only when `getAverageRating(slug)` is not
+    null. A new "REVIEWS" sticker section after "WHY IT FITS"
+    (`ToolDetail.jsx:141-160`) listing each review (author, star rating,
+    body, relative time via `communityData.js`'s existing `timeAgo()`) and,
+    below the list, a small inline form — 5-star click picker (new, small,
+    reusable) + one-line textarea — reusing `Community.jsx`'s `Composer`
+    visual language (`Community.jsx:159-221`: `glass` card, plain `input`/
+    `textarea`, `nb-btn` submit) rather than inventing new form chrome.
+  - **What this would NOT include** (kept out to bound the diff): no rating
+    surfaced on `Discover.jsx` cards in v1 (real product value is on the
+    detail page where someone is already deciding; a card-grid star badge is
+    a natural, separate follow-up once this ships and doesn't block it); no
+    moderation/reporting/edit/delete on submitted reviews; no verified-user
+    or "used this tool" gating on who can review — same trust model
+    Community threads already ship with; no review syncing into the
+    share-stack or comparison gaps above; no per-category rating rollups.
+- **Build size:** S/M — one seed data file (`toolReviewsData.js`), one new
+  store (`toolReviewsStore.js`, closely mirrors `communityStore.js`), a
+  rating badge + reviews section + small star-picker form added to
+  `ToolDetail.jsx`. No backend, no new dependency, no new route.
+- **Found:** 2026-08-24 06:06 UTC
