@@ -517,3 +517,72 @@ a client-side SPA with a static tool catalogue.
   rating badge + reviews section + small star-picker form added to
   `ToolDetail.jsx`. No backend, no new dependency, no new route.
 - **Found:** 2026-08-24 06:06 UTC
+
+### Global quick-search (Cmd+K)
+- **Status:** OPEN
+- **Seen in:** Linear, Notion, GitHub and Vercel all ship a keyboard-triggered
+  command palette (⌘K / Ctrl+K) that jumps straight to any object — a page, a
+  document, a repo, a project — from anywhere in the product, not just from a
+  dedicated search page. Raycast built its entire product around the same
+  interaction. It's now the default expectation for any tool-heavy SaaS app:
+  a power user should never have to navigate to a specific page before they
+  can start typing what they want.
+- **Gap:** Toolnaut's only search is the local text input on `Discover.jsx`
+  (`Discover.jsx:104-112`), filtering the in-memory `TOOLS` array by name,
+  blurb, `sourceCategory`, `dev` and `tags` (`Discover.jsx:64-80`). It only
+  works if the user is already on `/app/discover` — there is no way to search
+  from `Stack.jsx`, `Learning.jsx`, `Community.jsx` or `Settings.jsx` without
+  first clicking "FIND" in the nav and then clicking into the search box.
+  Confirmed no palette exists: grepped `src/` for `cmd+k|command.?palette|
+  kbd|Cmd\+K`, zero hits outside CSS/font references. `AppShell.jsx`
+  (`AppShell.jsx:14-20`) already centralizes the app's five top-level routes
+  in a `NAV` array and already has three separate `window.addEventListener
+  ('keydown', ...)` precedents in this codebase (`GalaxyExplorer.jsx:100`,
+  `InstallPrompt.jsx:56`, `ChatPanel.jsx:29`) for exactly this kind of
+  global-shortcut wiring, so a palette listener isn't a new pattern, just a
+  new place to hang one.
+- **Why it matters:** Toolnaut's core value is a 700+ tool catalog — search is
+  the single most-used verb in the product, more than "add to stack" or
+  "browse categories," and today it's gated behind a page load. A returning
+  user who already knows the tool name they want ("cursor", "perplexity")
+  should never need more than a keystroke and a few characters to get there,
+  from any screen, including the marketing pages before login.
+- **Smallest useful version (what to actually build):**
+  - New pure util `src/utils/searchTools.js`: extract the exact matching
+    predicate already inlined in `Discover.jsx:71-76` (name/blurb/
+    sourceCategory/dev/tags substring match) into `searchTools(query, limit =
+    8)` so both `Discover.jsx` and the new palette share one implementation
+    instead of two copies drifting apart. `Discover.jsx` calls it in place of
+    its inline filter; behavior doesn't change, just the seam moves.
+  - New `src/components/app/CommandPalette.jsx`: a fixed-position modal
+    (reuse the existing bottom-sheet/glass-card visual language from
+    `ChatPanel.jsx`'s mobile sheet and `Community.jsx`'s `Composer` — no new
+    visual primitive), opened by a global `keydown` listener for `Cmd+K` /
+    `Ctrl+K` (mirrors the exact listener-cleanup shape already used in
+    `ChatPanel.jsx:29-30`) mounted once in `AppShell.jsx`. Typing filters via
+    `searchTools()`; arrow keys move a highlighted index; Enter navigates to
+    `/app/tool/:slug` (`ToolDetail.jsx`'s existing route) and closes the
+    palette; Escape closes without navigating.
+  - Also list matches against the five `NAV` entries already defined in
+    `AppShell.jsx:14-20` (label + route) above the tool results, so "learn"
+    or "squad" jumps straight to that page — the palette does double duty as
+    both search and navigation, which is the actual Linear/Notion pattern
+    rather than a tools-only search box.
+  - A small "⌘K" hint chip next to the sidebar logo (desktop) and the mobile
+    top bar (`AppShell.jsx:80-127`) so the shortcut is discoverable without
+    reading docs — same "quiet affordance" role the existing persona sticker
+    already plays in that sidebar.
+  - **What this would NOT include** (kept out to bound the diff): no fuzzy/
+    typo-tolerant matching (substring match only, same as Discover today —
+    upgrading the match quality is a separate, independent gap); no search
+    across Community threads or roadmap steps in v1, tools + nav only; no
+    recent-searches or search-history persistence; no palette on marketing
+    pages outside `/app/*` in v1 (would need a second mount point in
+    `App.jsx`'s public layout, deferred since the highest-intent user is
+    already logged in).
+- **Build size:** S/M — one pure util (`searchTools.js`, mostly an extraction
+  of existing logic), one new component (`CommandPalette.jsx`), a few lines
+  wiring the listener and mount into `AppShell.jsx`, a one-line refactor of
+  `Discover.jsx`'s filter to call the shared util. No backend, no new
+  dependency, no new route.
+- **Found:** 2026-08-24 09:15 UTC
