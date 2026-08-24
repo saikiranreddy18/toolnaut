@@ -543,3 +543,80 @@ a client-side SPA with a static tool catalogue.
   rating badge + reviews section + small star-picker form added to
   `ToolDetail.jsx`. No backend, no new dependency, no new route.
 - **Found:** 2026-08-24 06:06 UTC
+
+### PDF roadmap export (sold on Pro pricing, absent from the app)
+- **Status:** OPEN
+- **Seen in:** this is the same "pricing page sells it, product doesn't have
+  it" shape as the (now-shipped) Favorites gap — not a competitor feature to
+  copy, a direct claim on Toolnaut's own `/pricing` to make true. The general
+  pattern — "download your plan/progress as a shareable document" — is
+  standard in every learning-path product (Coursera issues a completion
+  certificate PDF, Notion/Linear both offer "export as PDF" on any page) as
+  the natural artifact a learner takes out of the tool into a resume, a
+  manager 1:1, or a portfolio.
+- **Gap:** `src/utils/planData.js:49` promises "Export learning roadmaps as
+  PDF" as a Pro-tier feature, and the comparison table repeats it as a
+  plan-differentiating row: `['PDF roadmap export', false, true, true]`
+  (`planData.js:87`) — false on Student, true on Pro and Team. `Pricing.jsx`
+  renders `PLANS`/`COMPARISON` verbatim, so both claims are live on `/pricing`
+  today. Grepped the whole repo for `pdf|jspdf|window.print` (case-insensitive)
+  — the only hits are those same two `planData.js` strings; there is no
+  export button, no print stylesheet, no PDF library in `package.json`
+  anywhere. `src/pages/app/Learning.jsx` (the 4-week roadmap page this claim
+  is about) has a `share()` function (`Learning.jsx:246-253`) that only does
+  `navigator.share`/clipboard-copy of a one-line brag string when the roadmap
+  is fully cleared — nothing renders or downloads the roadmap itself, cleared
+  or not.
+- **Why it matters:** same direct-false-claim risk as the Favorites gap before
+  it shipped — a visitor who reads the Pro row on the comparison table and
+  goes looking for the button finds nothing. It's also a genuinely useful
+  artifact independent of the pricing-page mismatch: a learner who has built
+  and partly cleared a 4-week plan has no way to get it out of the browser
+  tab to reference later, print, or attach anywhere.
+- **Smallest useful version (what to actually build):**
+  - No new dependency needed — a PDF export doesn't require a client-side PDF
+    library (`jsPDF`, `html2pdf`) when the browser's own print-to-PDF does
+    the job: `window.print()` opens the native print dialog, and every
+    browser's "Save as PDF" destination is exactly this feature, at zero
+    bundle cost. This matches the project's existing bias toward zero new
+    dependencies (confirmed no PDF/canvas library already in `package.json`).
+  - Add a print stylesheet, e.g. `src/styles/print.css` (new file, imported
+    once from `src/main.jsx` or inlined via a `<style media="print">` block
+    in `Learning.jsx`) that on `@media print`: hides `AppShell`'s nav chrome,
+    the galaxy/3D canvas background, and any button/interactive controls
+    (`.nb-btn`, the toggle checkmarks' click affordance can stay but their
+    hover/press styles don't matter in print); forces the sticker cards'
+    `background`/`box-shadow`/`backdrop-blur` down to flat black-on-white or
+    removes them (arcade neon glows don't render on paper and waste toner);
+    and makes sure milestone cards aren't cut mid-card across a page break
+    (`break-inside: avoid`).
+  - Add one "⬇ Export as PDF" button on `Learning.jsx`, next to the existing
+    overall-progress bar near the top (`Learning.jsx:253-274`, same header
+    area as the progress bar and share button), calling `window.print()`
+    directly — no new component needed beyond the button itself.
+  - The exported content should read as a real roadmap on paper: since
+    `roadmap.milestones` (from `generateRoadmap()`, `roadmapGenerator.js:184-206`)
+    already carries each week's tool, its 3 steps, and its lessons, the
+    existing `Learning.jsx` render tree already has everything a printed page
+    needs — the print stylesheet's job is purely to make what's already
+    on-screen legible on paper, not to build a second render path. Consider
+    force-expanding any collapsed `LessonStep` detail (`Learning.jsx:41-77`
+    uses local `useState` for an open/closed disclosure) via a print-only CSS
+    rule (`@media print { [data-lesson-detail] { display: block !important } }`)
+    so a printed page doesn't just show collapsed checkbox rows with no
+    lesson content — this is the one place a `data-*` hook needs adding to
+    the existing component, not new logic.
+  - **What this would NOT include** (kept out to bound the diff): no
+    plan-tier gating of the button (same reasoning as the Favorites gap — no
+    billing system exists anywhere in this codebase to enforce Student vs Pro
+    against, confirmed zero hits for `stripe|checkout|subscription|billing`
+    under `src/`); no server-rendered/headless-Chromium PDF generation (this
+    is a static SPA, `window.print()` is the only zero-backend option); no
+    custom PDF layout/branding beyond what the print stylesheet produces; no
+    export of Stack.jsx or other pages in v1 — scoped to the roadmap page
+    only, since that's the exact artifact the pricing copy names ("export
+    learning roadmaps").
+- **Build size:** S — one new print stylesheet, one button + `window.print()`
+  call on `Learning.jsx`, one `data-*` attribute added to `LessonStep` so
+  print CSS can force-expand it. No backend, no new dependency, no new route.
+- **Found:** 2026-08-24 21:15 UTC
