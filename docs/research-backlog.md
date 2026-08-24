@@ -543,3 +543,82 @@ a client-side SPA with a static tool catalogue.
   rating badge + reviews section + small star-picker form added to
   `ToolDetail.jsx`. No backend, no new dependency, no new route.
 - **Found:** 2026-08-24 06:06 UTC
+
+### Individual tool pages are not public at all
+- **Status:** OPEN
+- **Seen in:** every directory competitor's core growth loop runs through
+  public per-product pages: There's An AI For That, Futurepedia, and G2/
+  Capterra all give each listed tool its own URL that works for a
+  signed-out visitor and gets indexed/shared individually — that's how a
+  Google search for a specific tool, or a link dropped in a group chat,
+  turns into a new visitor at all. It's a more basic pattern than any
+  single feature on the page; it's the reason directory sites get organic
+  traffic in the first place.
+- **Gap:** Toolnaut's only tool-detail view, `ToolDetail.jsx`, is mounted at
+  `/app/tools/:slug` (`src/App.jsx:89`), inside the `<Route path="/app"
+  element={<AppShell />}>` block. `AppShell.jsx:56-58` redirects to
+  `/auth/login` immediately if `loadSession()` returns falsy — there is no
+  code path that renders a tool's page without a session. So all 700+
+  catalog entries are entirely unreachable by a URL until someone has
+  logged in; a link to a specific tool page 404s-via-redirect for anyone
+  else, an AI-tool detail page can never rank in search, and the "Related
+  tools" links inside `ToolDetail.jsx:166-175` only make sense once you're
+  already inside the walled app. This is the same shape of problem the
+  share-stack gap fixed for whole stacks (`/s/:slugs`,
+  `src/pages/SharedStack.jsx`, public route outside `AppShell` at
+  `src/App.jsx:77`) — but that fix only solved it for a curated multi-tool
+  list, not for a single tool, which is the far more common thing an actual
+  visitor wants to share ("check out this one tool" beats "check out my
+  five-tool stack" by volume) and the only URL shape that matters for SEO.
+- **Why it matters:** this isn't a missing feature so much as a missing
+  front door. Every other directory in this space treats "does a tool have
+  its own public page" as table stakes, not a nice-to-have — it's the
+  mechanism that turns curiosity ("what is Cursor?") into a Toolnaut visit
+  instead of a generic Google result. Right now that curiosity has nowhere
+  to land: the only public URLs in the whole app are `/`, `/pricing`,
+  `/about`, `/starchart`, `/office`, and `/s/:slugs` (`src/App.jsx:72-77`) —
+  zero of the 700+ tools Toolnaut catalogs are reachable without signing up
+  first.
+- **Smallest useful version (what to actually build):**
+  - New public page `src/pages/PublicTool.jsx`, following the exact
+    `SharedStack.jsx` pattern (read-only, no session, no `localStorage`
+    writes, unknown slug renders a "not found" state instead of crashing):
+    resolves `:slug` via `getTool()` (`src/utils/toolsCatalog.js:757`) and
+    renders the parts of `ToolDetail.jsx` that don't depend on a session —
+    category dot + `sourceCategory`, status badge if not `Active`, name,
+    dev/year line, blurb, price/level/tag chips, "VISIT WEBSITE" link
+    (`ToolDetail.jsx:81-132`). Deliberately drops the MATCH badge, "WHY IT
+    FITS" reasons, and the "ADD TO MY STACK" button — all three need
+    `loadQuiz()`/`loadStack()` state a signed-out visitor doesn't have —
+    and replaces them with one CTA, "Take the quiz to see your fit →
+    `/quiz`", mirroring `SharedStack.jsx:47-52`'s own "Build my own stack"
+    closer.
+  - New public route `/tools/:slug` in `src/App.jsx`, registered next to
+    `/s/:slugs` at line 77 (outside the `AppShell`-guarded block, so it
+    needs no `<Route>` nesting changes beyond adding one sibling line).
+    Deliberately a different path prefix than the authed `/app/tools/:slug`
+    so both can coexist without a routing conflict.
+  - On the authed `ToolDetail.jsx`, add a small "🔗 Share" control next to
+    the existing "VISIT WEBSITE" link (`ToolDetail.jsx:120-132`) that
+    copies `${location.origin}/tools/${tool.slug}` to the clipboard —
+    same `navigator.clipboard.writeText` + transient "Copied!" label
+    pattern `Stack.jsx:128-136`'s `copyShareLink` already established, not
+    a new interaction to design.
+  - `scripts/smoke.mjs:32`'s hardcoded route array needs one addition, e.g.
+    `/tools/chatgpt` — same footgun flagged on every gap above.
+  - **What this would NOT include** (kept out to bound the diff): no
+    server-side rendering or per-tool `<meta>`/OG tags (this is a pure
+    client-rendered SPA with no SSR — a public URL fixes shareability and
+    lets a visitor land on real content immediately, but it does not by
+    itself fix crawler indexing without a much bigger rendering change,
+    which is a separate, larger project); no comments/reviews on this page
+    (the ratings/reviews gap above already owns that surface and can layer
+    onto both the public and authed pages later without conflicting with
+    this); no redirecting the authed `/app/tools/:slug` route away — both
+    URLs coexist, the authed one keeps the personalized match/stack
+    actions; no analytics/view-count on public pages.
+- **Build size:** S — one new page (`PublicTool.jsx`, largely a trimmed copy
+  of already-public `ToolDetail.jsx` markup), one new public route in
+  `App.jsx`, a share-button addition to `ToolDetail.jsx`, one line in
+  `scripts/smoke.mjs`. No backend, no new dependency.
+- **Found:** 2026-08-24 15:08 UTC
