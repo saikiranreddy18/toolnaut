@@ -543,3 +543,61 @@ a client-side SPA with a static tool catalogue.
   rating badge + reviews section + small star-picker form added to
   `ToolDetail.jsx`. No backend, no new dependency, no new route.
 - **Found:** 2026-08-24 06:06 UTC
+
+### Community-submitted tools ("Suggest a tool")
+- **Status:** OPEN
+- **Seen in:** There's An AI For That runs a prominent "Submit a Tool" flow as
+  a primary nav item; Futurepedia accepts vendor/user tool submissions into
+  its directory; Product Hunt's entire growth loop is community-submitted
+  launches, not a centrally curated list — in every comparable AI-tool
+  directory, letting users hand the catalog new entries is treated as a core
+  growth channel, not an afterthought.
+- **Gap:** Toolnaut's catalog only grows through `radar`'s automated
+  GitHub/HN/Product-Hunt/RSS scouting (`radar/README.md:3-6`) — there is no
+  user-facing way to suggest a tool anywhere in the product. Grepped
+  `submit|suggest|request` (tool-related) across `src/`: zero hits. The
+  clearest missed moment is `Discover.jsx`'s empty state
+  (`Discover.jsx:170-180`): when a search returns nothing, the user has just
+  told Toolnaut about a real gap in its own catalog, and today the product
+  only offers "Try a broader search or clear the filters" — it throws that
+  signal away instead of capturing it.
+- **Why it matters:** it turns a dead-end (zero results) into an engagement
+  point instead of a bounce, and it's free top-of-funnel sourcing that costs
+  nothing to build: this repo's own automation already runs entirely off
+  GitHub issues (the `agent-fixable` label, the daily dev-digest issues in
+  `.github/workflows/agent-*.yml`), so a submission mechanism that lands as a
+  GitHub issue slots into infrastructure that already exists rather than
+  requiring a new backend.
+- **Smallest useful version (what to actually build):**
+  - Add a `GITHUB_REPO_URL` constant to `src/config.js` (which today only
+    holds `BRAND`/`BRAND_SHORT` — confirmed nothing in `src/` currently
+    references a GitHub URL at all, so this is a first-of-its-kind value;
+    whoever builds this must verify it against the actual repo slug before
+    hardcoding it, rather than assuming).
+  - New pure util `src/utils/suggestTool.js`: `buildSuggestToolUrl({ name,
+    url, note })` → a GitHub `issues/new` URL with `title`, a structured
+    `body` (tool name / URL / note, clearly labelled so a human triaging
+    issues doesn't have to guess the shape), and `labels=tool-submission`,
+    all URI-encoded via `URLSearchParams`. Pure and testable the same way as
+    `shareStack.js`/`newTools.js`.
+  - Inline form in `Discover.jsx`'s empty state (`Discover.jsx:170-180`) —
+    not a new page/route, kept light: "🔭 Don't see it? Suggest a tool" with
+    two inputs (tool name, optional URL), a submit button that calls
+    `buildSuggestToolUrl()` and opens the result in a new tab
+    (`window.open(url, '_blank', 'noopener')`) — no local persistence, no
+    submission history, because the GitHub issue itself is the store.
+  - One small persistent link for users who aren't mid-search — `Settings.jsx`
+    is the natural home (reuses `nb-btn` styling, same pattern as the
+    existing external "VISIT WEBSITE" link on `ToolDetail.jsx:120-132`).
+  - **What this would NOT include** (kept out to bound the diff): no in-app
+    submission status/history ("your suggestion is pending"); no moderation
+    queue inside the app — the GitHub issue tracker is the queue; no
+    automatic radar ingestion of submitted issues in v1 (a human, or a
+    future separate agent workflow, triages them — wiring radar to read
+    GitHub issues is a distinct, larger piece of work, not this gap); no
+    separate vendor/company submission path.
+- **Build size:** S — one new config constant, one pure util
+  (`suggestTool.js`), a small form added to `Discover.jsx`'s existing empty
+  state, one link on `Settings.jsx`. No backend, no new dependency, no new
+  route.
+- **Found:** 2026-08-25 00:15 UTC
