@@ -8,7 +8,8 @@
     "build": "vite build && node scripts/stamp-sw.mjs",
     "preview": "vite preview",
     "smoke": "node scripts/smoke.mjs",
-    "test": "cd radar && node --test"
+    "test": "cd radar && node --test",
+    "radar:health": "node scripts/radar-health.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.0.0",
