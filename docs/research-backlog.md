@@ -669,3 +669,81 @@ a client-side SPA with a static tool catalogue.
   `Learning.jsx` calling `window.print()`. No backend, no new dependency, no
   new route, no new store.
 - **Found:** 2026-08-25 03:20 UTC
+
+### Per-route page title & meta description (SEO/social, every page shares one)
+- **Status:** OPEN
+- **Seen in:** every directory competitor treats per-listing metadata as
+  table stakes because it's their primary organic-search channel — G2 and
+  Capterra generate a unique `<title>`/description per product page keyed off
+  the product name, and There's An AI For That / Futurepedia do the same per
+  tool listing. This is also standard for any content-per-URL site (a blog
+  post, a Notion public page) — the page title matches what the page is
+  actually showing, not a fixed site-wide string.
+- **Gap:** confirmed by reading `index.html:11-27` and grepping `document.title|
+  react-helmet|<title>|og:title|og:description` across `src/`: the only
+  `<title>`, `<meta name="description">`, and every `og:*`/`twitter:*` tag are
+  static, hardcoded once in `index.html` for the root `/` route, and nothing
+  in `package.json` provides `react-helmet`/`react-helmet-async` or any other
+  per-route head manager. Of `src/App.jsx`'s 15 routes (`App.jsx:73-98`), only
+  one — `NexusLanding.jsx:518-523` — ever touches `document.title` at all, via
+  a raw `useEffect` that sets it to a fixed string on mount and restores the
+  previous value on unmount; it never touches `<meta name="description">` or
+  any `og:*`/`twitter:*` tag, and social crawlers (which don't execute JS —
+  `index.html`'s own comment at line 15 says so) never see the change anyway.
+  Net effect: `ToolDetail.jsx` (one route, 700+ distinct tool slugs),
+  `Pricing.jsx`, `About.jsx`, `SharedStack.jsx` (the just-shipped share-stack
+  feature above), and `Compare.jsx` all render with the exact same tab title
+  ("Toolnaut — Your AI Stack, Personalized") and the exact same social-preview
+  card as the homepage, regardless of which tool, stack, or comparison is
+  actually on screen.
+- **Why it matters:** two distinct costs, both real and both free to name
+  precisely. (1) SEO: Google's crawler does render JS during indexing (unlike
+  Twitter/Facebook's crawlers), so a correct per-route `document.title` and
+  `<meta name="description">` would genuinely help long-tail search — someone
+  searching "Notion AI review" or "Notion AI alternatives" has a real reason
+  to land on a Toolnaut `ToolDetail` page today, but that page's `<title>`
+  never mentions the tool name at all, which is a meaningful ranking signal
+  left on the table across 700+ pages. (2) Social/share quality: the
+  share-stack gap above (shipped) built `/s/:slugs` specifically to be
+  "something to post when they want to show someone their AI stack," but a
+  pasted share link previews as the generic homepage card in every chat app
+  and social feed — the exact feature meant to drive sharing undercuts itself
+  the moment it's actually shared. Same problem for `ToolDetail` links pasted
+  into a Slack channel or DM.
+- **Smallest useful version (what to actually build):**
+  - New `src/hooks/usePageMeta.js`: a small hook, `usePageMeta({ title,
+    description })`, that in a `useEffect` sets `document.title` and finds-or-
+    creates a `<meta name="description">` tag via `document.querySelector`,
+    writing the previous values and restoring them on unmount — same
+    restore-on-unmount shape `NexusLanding.jsx:518-523` already established,
+    generalized into one reusable hook instead of every page hand-rolling the
+    same `useEffect`. Pure DOM manipulation, no dependency (`react-helmet-
+    async` would be the "correct" long-term answer but is a new dependency
+    for a change this size — out of scope for a first cut per this file's own
+    dependency-free bias).
+  - Call it from `ToolDetail.jsx` with `${tool.name} — Toolnaut` / `tool.blurb`
+    (both already loaded for the page), `Pricing.jsx` with a pricing-specific
+    title/description, `About.jsx`, `SharedStack.jsx` (title naming the tools
+    in the stack, e.g. "My AI stack: Notion AI, Cursor, Perplexity —
+    Toolnaut"), and `Compare.jsx` (title naming the compared tools). Each call
+    site supplies its own strings — no shared copy table needed for five call
+    sites.
+  - Replace `NexusLanding.jsx`'s hand-rolled `document.title` `useEffect`
+    (`NexusLanding.jsx:518-523`) with the same hook, so there is exactly one
+    place this logic lives.
+  - **What this would NOT include** (kept out to bound the diff): no dynamic
+    `og:*`/`twitter:*` tag updates — those need a crawler that executes JS,
+    which social crawlers don't, so updating them client-side would be dead
+    code that looks like it works and doesn't; fixing *those* for real needs
+    either a Vercel Edge Middleware/serverless function injecting per-route
+    HTML or a prerender step, which is a backend-shaped change this backlog's
+    own ranking rule says to reject — flagging it here as the honest reason
+    social previews stay generic, not silently working around it with fake
+    client-side OG tags; no per-category or per-audience meta variants beyond
+    the five call sites above; no sitemap/structured-data (`JSON-LD`) work,
+    a separate and larger SEO project; no i18n/locale variants.
+- **Build size:** S — one new hook (`usePageMeta.js`), five call sites
+  (`ToolDetail.jsx`, `Pricing.jsx`, `About.jsx`, `SharedStack.jsx`,
+  `Compare.jsx`) plus replacing `NexusLanding.jsx`'s existing ad hoc version.
+  No backend, no new dependency, no new route.
+- **Found:** 2026-08-25 12:09 UTC
