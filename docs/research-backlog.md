@@ -747,3 +747,62 @@ a client-side SPA with a static tool catalogue.
   `Compare.jsx`) plus replacing `NexusLanding.jsx`'s existing ad hoc version.
   No backend, no new dependency, no new route.
 - **Found:** 2026-08-25 12:09 UTC
+
+### Pro chat assistant & the entire Team tier are unbacked and unbuildable client-side
+- **Status:** REJECTED — needs a backend/multi-user system; logged so future
+  research hours don't re-spend an hour rediscovering this, and so it's
+  visible to a human rather than silently sitting on the pricing page.
+- **Seen in:** not a competitor pattern — this entry exists because
+  re-auditing `planData.js` for other unbacked rows (after the favorites and
+  PDF-export gaps, both found the same way) turned up two more categories of
+  false claim, one bigger than either of those.
+- **Gap 1 — "AI-powered chat assistant (Claude-powered Q&A)" (Pro tier,
+  `planData.js:44`, repeated at `planData.js:84`):** `src/components/app/
+  ChatPanel.jsx` exists and is wired into the app (persistent panel, opens
+  from `AppShell`, context-aware greeting using the user's persona name), but
+  it is an explicit, self-labelled stub — its own header renders "Preview —
+  replies are canned" (`ChatPanel.jsx:53`) and every reply is the same
+  hardcoded string regardless of what's typed (`ChatPanel.jsx:41-45`: "I come
+  online with the backend integration..."). The code is honest about this to
+  the user in-product; the pricing page is not — `/pricing` sells it as a
+  live Claude-powered feature with no such caveat.
+- **Gap 2 — the whole Team tier (`planData.js:52-76`, `pandava` plan, $50/mo,
+  repeated across 7 rows of the comparison table at `planData.js:88-92`):**
+  every one of "Team stack standardization," "Role-based team onboarding,"
+  "Team analytics dashboard," "Collaborative tool-evaluation workspace,"
+  "Admin controls + member management," "Shared progress + team
+  leaderboards," "Quarterly AI stack audit reports," and "API access for
+  integrations" requires the thing this codebase fundamentally does not have:
+  a multi-user account system. Confirmed by reading `src/state/authStore.js`
+  and `src/utils/toolsCatalog.js` — there is no team/org entity, no seats, no
+  server-side user record at all; "login" is local-only (grepped
+  `team|seat|org|member` across `src/state`, zero hits beyond the `pandava`
+  plan copy itself). None of these are gaps a client-side SPA change can
+  close — they need real accounts, a database, and a permissions model.
+- **Why this is REJECTED rather than logged OPEN like the favorites/PDF
+  gaps:** those two were closeable with a `localStorage` store and a
+  `window.print()` call — genuinely client-only. This isn't: a real chat
+  assistant needs a server-held Anthropic API key (an API key shipped in a
+  `VITE_`-prefixed client bundle is a public secret — `radar/.env.example`'s
+  own comment on `src/.env.example` warns "these are baked into the client
+  bundle... only ever put PUBLIC values here"), which means a Vercel
+  serverless function under a new `api/` directory (none exists today —
+  `vercel.json` has no `functions` config, confirmed) plus a secret only a
+  human with Vercel project access can set. The Team tier needs actual
+  backend accounts. Both are exactly the shape this file's own ranking rule
+  says to reject: "A gap that needs a backend is usually REJECTED."
+- **What would actually be honest to ship, if anyone wants to close this
+  later (not proposed as this run's build — flagged for whoever owns pricing
+  copy):** the cheapest real fix is a copy correction, not a feature build —
+  either soften "Claude-powered Q&A" to something like "AI copilot (preview)"
+  until the backend lands, or gate the whole claim behind a "Coming soon"
+  qualifier the way `HeroSection.jsx`'s "✦ LAUNCHING SOON ✦" tape-label
+  already does elsewhere on this site. Same for the Team tier: either build
+  the minimum real slice (which is out of scope for any single feature run
+  under this backlog's own S/M sizing) or mark it "Coming soon" until it's
+  real. This backlog's job is to find buildable product gaps, not rewrite
+  pricing copy unasked, so no edit was made — this is a finding, not a fix.
+- **Build size:** L (chat: needs a serverless function + secret Vercel-side
+  config outside this repo's reach; Team tier: needs full multi-user
+  accounts) — out of scope for this backlog's client-only SPA model.
+- **Found:** 2026-08-25 15:35 UTC
