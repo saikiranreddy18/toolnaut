@@ -4,15 +4,18 @@ import { getTool, TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../..
 import { matchScore, matchReasons } from '../../utils/matchScore'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
+import { loadFavorites, addFavorite, removeFavorite } from '../../state/favoritesStore'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
+import { HeartIcon } from '../../components/app/icons'
 
 export default function ToolDetail() {
   const { slug } = useParams()
   const navigate = useNavigate()
   const track = useAnalytics()
   const [stack, setStack] = useState(loadStack)
+  const [favorites, setFavorites] = useState(loadFavorites)
 
   const tool = getTool(slug)
 
@@ -51,6 +54,7 @@ export default function ToolDetail() {
   const reasons = matchReasons(tool, answers)
   const meta = CATEGORY_META[tool.category] || { name: tool.category, color: 'var(--cyan)' }
   const added = stack.includes(tool.slug)
+  const favorited = favorites.includes(tool.slug)
 
   // Back preserves Discover's filters when we came from there (history state);
   // on a cold deep link there's nothing to go back to, so land on Discover.
@@ -66,6 +70,16 @@ export default function ToolDetail() {
       haptic.select()
       setStack(addToStack(tool.slug))
       track(EVENTS.CTA_CLICK, { cta: 'add_to_stack', tool: tool.slug, location: 'detail' })
+    }
+  }
+
+  function toggleFavorite() {
+    if (favorited) {
+      setFavorites(removeFavorite(tool.slug))
+    } else {
+      haptic.select()
+      setFavorites(addFavorite(tool.slug))
+      track(EVENTS.CTA_CLICK, { cta: 'add_favorite', tool: tool.slug, location: 'detail' })
     }
   }
 
@@ -131,12 +145,25 @@ export default function ToolDetail() {
         </a>
       )}
 
-      <button
-        onClick={toggleStack}
-        className={`nb-btn mt-7 px-8 py-4 text-base ${added ? 'dark' : ''}`}
-      >
-        {added ? '✓ IN MY STACK — REMOVE' : '⚡ ADD TO MY STACK'}
-      </button>
+      <div className="mt-7 flex items-center gap-3">
+        <button
+          onClick={toggleStack}
+          className={`nb-btn px-8 py-4 text-base ${added ? 'dark' : ''}`}
+        >
+          {added ? '✓ IN MY STACK — REMOVE' : '⚡ ADD TO MY STACK'}
+        </button>
+        <button
+          onClick={toggleFavorite}
+          aria-label={favorited ? 'Remove from favorites' : 'Save to favorites'}
+          aria-pressed={favorited}
+          className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-black ${
+            favorited ? 'bg-[var(--hot-pink)] text-white' : 'bg-transparent text-slate-400 hover:text-white'
+          }`}
+          style={{ boxShadow: '3px 3px 0 #000' }}
+        >
+          <HeartIcon filled={favorited} />
+        </button>
+      </div>
 
       <div className="sticker mt-8 p-5" style={{ transform: 'rotate(0)' }}>
         <p className="arcade-heading lime text-base">◆ WHY IT FITS</p>

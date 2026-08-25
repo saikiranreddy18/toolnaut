@@ -9,11 +9,12 @@ import { generatePersona } from '../utils/personaGenerator'
 import { planLabel } from '../utils/planData'
 import ChatPanel from '../components/app/ChatPanel'
 import InstallPrompt from '../components/app/InstallPrompt'
-import { StackIcon, DiscoverIcon, LearningIcon, CommunityIcon, SettingsIcon, ChatIcon } from '../components/app/icons'
+import { StackIcon, DiscoverIcon, LearningIcon, CommunityIcon, SettingsIcon, ChatIcon, HeartIcon } from '../components/app/icons'
 
 const NAV = [
   { to: '/app/stack', label: 'STACK', Icon: StackIcon },
   { to: '/app/discover', label: 'FIND', Icon: DiscoverIcon },
+  { to: '/app/favorites', label: 'SAVED', Icon: HeartIcon },
   { to: '/app/learning', label: 'LEARN', Icon: LearningIcon },
   { to: '/app/community', label: 'SQUAD', Icon: CommunityIcon },
   { to: '/app/settings', label: 'ME', Icon: SettingsIcon },
@@ -190,7 +191,7 @@ export default function AppShell() {
         className="fixed inset-x-0 bottom-0 z-40 bg-[#0a0a0f]/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-md lg:hidden"
         style={{ borderTop: '2px solid var(--lime)' }}
       >
-        <div className="grid grid-cols-5">
+        <div className="grid grid-cols-6">
           {NAV.map(({ to, label, Icon }) => (
             <NavLink
               key={to}

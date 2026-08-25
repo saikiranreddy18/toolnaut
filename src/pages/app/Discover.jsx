@@ -5,9 +5,11 @@ import { matchScore } from '../../utils/matchScore'
 import { isNewTool, getNewTools } from '../../utils/newTools'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
+import { loadFavorites, addFavorite, removeFavorite } from '../../state/favoritesStore'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
+import { HeartIcon } from '../../components/app/icons'
 
 const PRICES = ['free', 'freemium', 'paid']
 const LEVELS = ['beginner', 'intermediate', 'advanced']
@@ -30,6 +32,7 @@ function Pill({ active, onClick, children }) {
 export default function Discover() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [stack, setStack] = useState(loadStack)
+  const [favorites, setFavorites] = useState(loadFavorites)
   const [compare, setCompare] = useState([])
   const track = useAnalytics()
 
@@ -61,6 +64,16 @@ export default function Discover() {
       haptic.select()
       setStack(addToStack(tool.slug))
       track(EVENTS.CTA_CLICK, { cta: 'add_to_stack', tool: tool.slug })
+    }
+  }
+
+  function toggleFavorite(tool) {
+    if (favorites.includes(tool.slug)) {
+      setFavorites(removeFavorite(tool.slug))
+    } else {
+      haptic.select()
+      setFavorites(addFavorite(tool.slug))
+      track(EVENTS.CTA_CLICK, { cta: 'add_favorite', tool: tool.slug })
     }
   }
 
@@ -228,6 +241,16 @@ export default function Discover() {
                     className={`nb-btn px-4 py-2 text-xs ${added ? 'dark' : ''}`}
                   >
                     {added ? '✓ IN STACK' : '⚡ ADD'}
+                  </button>
+                  <button
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleFavorite(tool) }}
+                    aria-label={favorites.includes(tool.slug) ? 'Remove from favorites' : 'Save to favorites'}
+                    aria-pressed={favorites.includes(tool.slug)}
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 ${
+                      favorites.includes(tool.slug) ? 'text-[var(--hot-pink)]' : 'text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    <HeartIcon filled={favorites.includes(tool.slug)} />
                   </button>
                   <label
                     onClick={(e) => e.stopPropagation()}

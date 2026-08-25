@@ -14,6 +14,7 @@ const AppShell = lazy(() => import('./shells/AppShell'))
 const Stack = lazy(() => import('./pages/app/Stack'))
 const Settings = lazy(() => import('./pages/app/Settings'))
 const Discover = lazy(() => import('./pages/app/Discover'))
+const Favorites = lazy(() => import('./pages/app/Favorites'))
 const Compare = lazy(() => import('./pages/app/Compare'))
 const ToolDetail = lazy(() => import('./pages/app/ToolDetail'))
 const Learning = lazy(() => import('./pages/app/Learning'))
@@ -87,6 +88,7 @@ export default function App() {
               <Route index element={<Navigate to="/app/stack" replace />} />
               <Route path="stack" element={<Stack />} />
               <Route path="discover" element={<Discover />} />
+              <Route path="favorites" element={<Favorites />} />
               <Route path="compare" element={<Compare />} />
               <Route path="tools/:slug" element={<ToolDetail />} />
               <Route path="learning" element={<Learning />} />
