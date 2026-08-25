@@ -9,6 +9,55 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-08-25
+
+**Radar health:** OK — 1 run in the last 24h, published 5 new tools (73
+candidates seen, 12 passed filtering, 0 stuck in review). Catalogue is
+growing normally.
+
+**Researched today:** the 00:15 UTC run found and specced a new gap
+(per-route page title/meta description — every page from `ToolDetail` to
+the just-shipped `Compare`/`SharedStack` shares one static `<title>` and
+`og:description` from `index.html`, which both hurts long-tail SEO and
+undercuts the share-stack feature's own social previews). The 15:35 UTC run
+re-audited `planData.js` after finding two prior false claims there
+(favorites, PDF export) and found two more — the Pro chat assistant (an
+honest, self-labelled "canned replies" stub in `ChatPanel.jsx` sold on
+`/pricing` as live Claude-powered Q&A) and the entire Team tier (needs real
+multi-user accounts this SPA has none of) — both logged **REJECTED**, since
+both need a backend this repo can't build, per this backlog's own ranking
+rule. No new PR-facing bug found today; a stale bugfix PR (#3, three days
+old) sits outside this routine's scope since it pushes to master directly
+rather than through PRs.
+
+**Shipped:** favorites/bookmarks —
+[`4fe402f`](https://github.com/saikiranreddy18/toolnaut/commit/4fe402f).
+Picked over the skills-graph and onboarding-checklist gaps because it's a
+direct, checkable false claim on `/pricing` today (Student tier promises
+"Save up to 10 favorite tools", Pro promises "Unlimited") with genuinely
+nothing behind it — worse than a features-section platitude, it's a
+paying-tier claim. New `favoritesStore.js` mirrors `stackStore.js`'s exact
+shape (localStorage, try/catch on throw). A heart-toggle button now sits
+next to "⚡ ADD" on every `Discover.jsx` card and next to "ADD TO MY STACK"
+on `ToolDetail.jsx`, both wired to the new store. New `/app/favorites`
+page renders a read-only-ish card grid (unfavorite + add-to-stack per
+card) and a "SAVED" entry now sits in `AppShell`'s nav (bottom nav grid
+bumped from 5 to 6 columns to fit it). Shipped ungated — no plan-tier cap
+enforcement, since there's no billing system in this codebase to hang a
+10-tool limit off of; same scope limit already applied when the PDF-export
+gap shipped. **Live on toolnaut.xyz** — client-rendered on the existing
+static catalog, nothing waits on the radar pipeline.
+
+**Queued next:** skills-graph coverage view and the first-session
+onboarding checklist remain OPEN and fully specced. Per-tool ratings &
+reviews (S/M) and per-route page title/meta (SEO) are also OPEN. The Pro
+chat assistant / Team tier finding is REJECTED for a build but still open
+as a copy-correction task for whoever owns pricing copy (soften "Claude-
+powered Q&A" or gate it behind "Coming soon," per the finding's own note) —
+not something this routine does unasked.
+
+---
+
 ## 2026-08-24
 
 **Researched today:** two runs deepened the backlog rather than adding

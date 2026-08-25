@@ -401,7 +401,7 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-23 06:06 UTC
 
 ### Favorites / bookmarks (sold on the pricing page, absent from the app)
-- **Status:** OPEN
+- **Status:** SHIPPED 4fe402f
 - **Seen in:** Futurepedia has a dedicated "Favorites" button on every tool
   that saves it to the visitor's profile for later, separate from anything
   transactional — the point is a lightweight save-for-later a visitor can do
