@@ -601,3 +601,71 @@ a client-side SPA with a static tool catalogue.
   state, one link on `Settings.jsx`. No backend, no new dependency, no new
   route.
 - **Found:** 2026-08-25 00:15 UTC
+
+### PDF roadmap export (sold on Pro, does not exist)
+- **Status:** OPEN
+- **Seen in:** this isn't a competitor pattern so much as a Toolnaut-only
+  false claim — flagged while re-auditing `planData.js` for other unbacked
+  rows after the favorites gap (found there is not the only one). Print/
+  export-to-PDF as a client-only feature (no server render, no PDF library)
+  is a standard web pattern via a dedicated print stylesheet + `window.print()`
+  — GitHub's own "Print" on rendered Markdown and countless invoice/reports
+  pages use exactly this, no backend involved.
+- **Gap:** `src/utils/planData.js:49` promises "Export learning roadmaps as
+  PDF" on the Pro tier, repeated as a comparison-table row at
+  `planData.js:87` (`['PDF roadmap export', false, true, true]`) — live today
+  on `/pricing` via `PricingSection.jsx`. Grepped the whole `src/` tree for
+  `print(|PDF|jspdf|download` (case-insensitive): the only hits are those two
+  `planData.js` copy lines and unrelated tool-catalog blurbs (`toolsCatalog.js:469`
+  matches "Blueprint AI", a false positive). `src/pages/app/Learning.jsx`
+  already renders the full 4-week roadmap (`generateRoadmap()` → `milestones`
+  with `week`/`title`/`focus`/`steps`/`tool`, `Learning.jsx:224-385`) and
+  already has one export-adjacent action — `share()` at `Learning.jsx:243-250`
+  copies a one-line brag string, not the roadmap content itself. There is no
+  `package.json` PDF dependency (`jspdf`, `html2canvas`, etc. — confirmed
+  zero hits) and no `@media print` rule anywhere in `src/index.css` (509
+  lines, checked in full) or any component file. A Pro subscriber who reads
+  the pricing page and looks for this gets nothing.
+- **Why it matters:** same category of issue as the favorites gap — a
+  specific, checkable claim on the pricing page with zero product behind it,
+  discoverable by anyone who actually tries to use what they're told they're
+  paying for. It's also a real, if secondary, retention aid on its own
+  merits: a roadmap someone can save/print survives outside the browser tab
+  the same way the (shipped) stack-share link does, useful for someone who
+  wants to follow their 4-week plan without Toolnaut open.
+- **Smallest useful version (what to actually build):**
+  - No new dependency — use the browser's native print-to-PDF via
+    `window.print()`, which every modern browser already exposes as "Save as
+    PDF" in its print destination picker. This is the only approach
+    consistent with every other gap in this file staying dependency-free.
+  - Add a scoped `@media print` block to `src/index.css` (or a small
+    `Learning.jsx`-only `<style>` — whichever keeps the block visibly tied to
+    the one page it affects) that hides everything print doesn't need: the
+    galaxy/3D background canvas, `AppShell`'s nav chrome, the "How ▾" lesson
+    disclosure toggles, the checkpoint quiz forms, and all the sticker
+    box-shadow/rotate decoration (`transform: rotate(...)`, `box-shadow`
+    inherited from the `.sticker` class) that reads as visual noise on paper
+    — keep milestone title, week, focus, step list with done/not-done state,
+    and the tool link. Force light-on-white text color for print (the app is
+    dark-theme-only; printing white text on a transparent/dark background as-is
+    would be unreadable/wasteful on paper).
+  - One "🖨️ Export as PDF" button on `Learning.jsx`, near the existing
+    "🎓 SHARE MY BADGE" button's visual slot (`Learning.jsx:398-400`) —
+    always visible (not gated behind `allCleared`, since exporting an
+    in-progress roadmap is at least as useful as a completed one), calling
+    `window.print()` directly. No new component needed beyond the button and
+    the print stylesheet.
+  - **What this would NOT include** (kept out to bound the diff): no actual
+    PDF-library-generated file (no `jspdf`/`html2canvas`, no client-side
+    binary PDF construction) — `window.print()` → "Save as PDF" is the
+    honest, dependency-free way to deliver this and is what "export as PDF"
+    means to a user regardless of mechanism; no plan-tier gating (same
+    reasoning as the favorites gap — no billing system exists to enforce
+    Student vs. Pro against, so this ships ungated for everyone, same as
+    favorites would); no print styling for any other page (Stack, Discover,
+    ToolDetail) in v1, scoped to `Learning.jsx` only since that's the exact
+    page the copy names ("roadmaps"); no server-rendered/emailed PDF.
+- **Build size:** S — one `@media print` stylesheet block, one button on
+  `Learning.jsx` calling `window.print()`. No backend, no new dependency, no
+  new route, no new store.
+- **Found:** 2026-08-25 03:20 UTC
