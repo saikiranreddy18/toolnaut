@@ -1,0 +1,116 @@
+name: Radar
+
+# Discovers new AI tools and publishes them into the app's catalogue.
+#
+# Nothing ran this before: radar/run.js said "point a cron at this file" and
+# nothing ever did, so all 704 catalogue entries came from the original
+# spreadsheet import and not one tool had ever been added automatically.
+#
+# The store (radar/data/) is committed rather than cached. dedup.js decides what
+# is new by asking store.isKnown(slug) against known.json, so if that file does
+# not survive between runs the pipeline rediscovers the same tools every night
+# and republishes them forever. A cache would work until it was evicted, and
+# then fail quietly; git makes the state durable and reviewable.
+
+on:
+  schedule:
+    # 01:00 UTC / 06:30 IST — deliberately away from the autonomous dev routine,
+    # which fires at 00:03, 06:03, 12:03 and 18:03 UTC. Two jobs pushing to
+    # master at the same moment race, and both hold Featherless capacity.
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+    inputs:
+      max_candidates:
+        description: "Candidates to process (each costs ~50s of LLM time)"
+        required: false
+        default: "25"
+      dry_run:
+        description: "Compute the report but write and commit nothing"
+        type: boolean
+        required: false
+        default: false
+
+# One radar at a time. Kimi-K3 costs 4 concurrency units against a plan limit of
+# 4, so a second run would collide with the first and fail on both.
+concurrency:
+  group: radar
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    # ~50s per tool of LLM time, serial by design. 25 candidates is ~20 minutes;
+    # the ceiling leaves room for a slow upstream without hanging all day.
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Run the discovery pipeline
+        env:
+          FEATHERLESS_API_KEY: ${{ secrets.FEATHERLESS_API_KEY }}
+          FEATHERLESS_MODEL: moonshotai/Kimi-K3
+          # Kimi-K3 reasons before answering; a measured enrichment call took
+          # 49s. Anything near the old 30s default aborts every call and the
+          # pipeline silently falls back to the rules classifier.
+          FEATHERLESS_TIMEOUT_MS: "180000"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RADAR_MAX_CANDIDATES: ${{ github.event.inputs.max_candidates || '25' }}
+          RADAR_LOG: info
+        run: |
+          cd radar
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            node run.js --dry-run
+          else
+            node run.js
+          fi
+
+      - name: Export published tools into the app
+        if: github.event.inputs.dry_run != 'true'
+        run: node radar/scripts/sync-to-app.js
+
+      - name: Report what changed
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          echo "### Radar run" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f public/tools.json ]; then
+            COUNT=$(node -e "console.log(JSON.parse(require('fs').readFileSync('public/tools.json','utf8')).length)")
+            echo "Published tools in the app feed: **$COUNT**" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          git status --short radar/data public/tools.json >> "$GITHUB_STEP_SUMMARY" || true
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit the store and the app feed
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add radar/data public/tools.json
+
+          if git diff --cached --quiet; then
+            echo "Nothing new — no commit. An empty night is a normal outcome."
+            exit 0
+          fi
+
+          git commit             -m "chore(radar): publish newly discovered tools"             -m "Automated run of the discovery pipeline. Adds whatever cleared the confidence threshold to public/tools.json, and updates the store so tonight's finds are not rediscovered tomorrow."
+
+          # master moves under this job — the dev routine and the release bot
+          # both push here. Rebase and retry rather than failing the night's work.
+          for i in 1 2 3; do
+            git pull --rebase --quiet origin master && git push origin HEAD:master && exit 0
+            echo "push attempt $i failed, retrying"
+            sleep 5
+          done
+          echo "::error::could not push after 3 attempts"
+          exit 1
