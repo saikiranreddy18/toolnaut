@@ -1,0 +1,15 @@
+[
+  {
+    "at": "2026-08-25T09:25:10.610Z",
+    "counts": {
+      "candidates": 73,
+      "filtered": 12,
+      "new": 5,
+      "skipped": 0,
+      "published": 5,
+      "review": 0,
+      "rejected": 0,
+      "courses": 5
+    }
+  }
+]

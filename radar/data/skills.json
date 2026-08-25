@@ -1,0 +1,357 @@
+[
+  {
+    "id": "skill-code",
+    "name": "code",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ablo-make-your-ai-app-multiplayer",
+      "glm-53-open-weight-beat-anthropic-openai-models"
+    ],
+    "courses": [
+      "course-ablo-make-your-ai-app-multiplayer",
+      "course-glm-53-open-weight-beat-anthropic-openai-models"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-multiplayer",
+    "name": "multiplayer",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ablo-make-your-ai-app-multiplayer"
+    ],
+    "courses": [
+      "course-ablo-make-your-ai-app-multiplayer"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-real-time",
+    "name": "real time",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ablo-make-your-ai-app-multiplayer"
+    ],
+    "courses": [
+      "course-ablo-make-your-ai-app-multiplayer"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-collaboration",
+    "name": "collaboration",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ablo-make-your-ai-app-multiplayer"
+    ],
+    "courses": [
+      "course-ablo-make-your-ai-app-multiplayer"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-sdk",
+    "name": "sdk",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ablo-make-your-ai-app-multiplayer"
+    ],
+    "courses": [
+      "course-ablo-make-your-ai-app-multiplayer"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-open-source",
+    "name": "open source",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ablo-make-your-ai-app-multiplayer"
+    ],
+    "courses": [
+      "course-ablo-make-your-ai-app-multiplayer"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-design",
+    "name": "design",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-built-an-ai-music-generator-with-some-harnesses",
+      "edify"
+    ],
+    "courses": [
+      "course-i-built-an-ai-music-generator-with-some-harnesses",
+      "course-edify"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-ai music",
+    "name": "ai music",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-built-an-ai-music-generator-with-some-harnesses"
+    ],
+    "courses": [
+      "course-i-built-an-ai-music-generator-with-some-harnesses"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-music generation",
+    "name": "music generation",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-built-an-ai-music-generator-with-some-harnesses"
+    ],
+    "courses": [
+      "course-i-built-an-ai-music-generator-with-some-harnesses"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-text to music",
+    "name": "text to music",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-built-an-ai-music-generator-with-some-harnesses"
+    ],
+    "courses": [
+      "course-i-built-an-ai-music-generator-with-some-harnesses"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-song generator",
+    "name": "song generator",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-built-an-ai-music-generator-with-some-harnesses"
+    ],
+    "courses": [
+      "course-i-built-an-ai-music-generator-with-some-harnesses"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-audio",
+    "name": "audio",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-built-an-ai-music-generator-with-some-harnesses"
+    ],
+    "courses": [
+      "course-i-built-an-ai-music-generator-with-some-harnesses"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-automation",
+    "name": "automation",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "headless-tools"
+    ],
+    "courses": [
+      "course-headless-tools"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-headless",
+    "name": "headless",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "headless-tools"
+    ],
+    "courses": [
+      "course-headless-tools"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-ai agents",
+    "name": "ai agents",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "headless-tools"
+    ],
+    "courses": [
+      "course-headless-tools"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-api-first",
+    "name": "api first",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "headless-tools"
+    ],
+    "courses": [
+      "course-headless-tools"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-saas",
+    "name": "saas",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "headless-tools"
+    ],
+    "courses": [
+      "course-headless-tools"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-open-weight",
+    "name": "open weight",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "glm-53-open-weight-beat-anthropic-openai-models"
+    ],
+    "courses": [
+      "course-glm-53-open-weight-beat-anthropic-openai-models"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-llm",
+    "name": "llm",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "glm-53-open-weight-beat-anthropic-openai-models"
+    ],
+    "courses": [
+      "course-glm-53-open-weight-beat-anthropic-openai-models"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-budget-friendly",
+    "name": "budget friendly",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "glm-53-open-weight-beat-anthropic-openai-models"
+    ],
+    "courses": [
+      "course-glm-53-open-weight-beat-anthropic-openai-models"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-coding",
+    "name": "coding",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "glm-53-open-weight-beat-anthropic-openai-models"
+    ],
+    "courses": [
+      "course-glm-53-open-weight-beat-anthropic-openai-models"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-api",
+    "name": "api",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "glm-53-open-weight-beat-anthropic-openai-models"
+    ],
+    "courses": [
+      "course-glm-53-open-weight-beat-anthropic-openai-models"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-video-editing",
+    "name": "video editing",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "edify"
+    ],
+    "courses": [
+      "course-edify"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-nle",
+    "name": "nle",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "edify"
+    ],
+    "courses": [
+      "course-edify"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-subtitles",
+    "name": "subtitles",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "edify"
+    ],
+    "courses": [
+      "course-edify"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-vtuber",
+    "name": "vtuber",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "edify"
+    ],
+    "courses": [
+      "course-edify"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-windows",
+    "name": "windows",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "edify"
+    ],
+    "courses": [
+      "course-edify"
+    ],
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  }
+]

@@ -1,0 +1,283 @@
+[
+  {
+    "id": "course-ablo-make-your-ai-app-multiplayer",
+    "toolSlug": "ablo-make-your-ai-app-multiplayer",
+    "title": "Master Ablo, make your AI app multiplayer",
+    "objectives": [
+      "Understand what Ablo, make your AI app multiplayer is for",
+      "Use Ablo, make your AI app multiplayer on a real task",
+      "Know where Ablo, make your AI app multiplayer fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Ablo, make your AI app multiplayer for your real workflow, not the demo.",
+          "Say what Ablo, make your AI app multiplayer does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Ablo, make your AI app multiplayer.",
+          "Push Ablo, make your AI app multiplayer to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Ablo, make your AI app multiplayer into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-multiplayer",
+      "skill-real-time",
+      "skill-collaboration",
+      "skill-sdk",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "course-i-built-an-ai-music-generator-with-some-harnesses",
+    "toolSlug": "i-built-an-ai-music-generator-with-some-harnesses",
+    "title": "Master I built an AI music generator with some harnesses",
+    "objectives": [
+      "Generate your first song from a text prompt",
+      "Use prompt settings like genre, mood, and tempo to steer output",
+      "Run the provided harnesses to batch-generate and evaluate songs"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Song",
+        "estMinutes": 10,
+        "steps": [
+          "Install or launch the app, confirm the audio output folder is set, and open the main prompt screen",
+          "Type a simple prompt like 'a lo-fi hip hop track with soft piano and rain sounds' and click Generate",
+          "Play the result in the built-in preview player and save it to your library"
+        ]
+      },
+      {
+        "title": "Writing Better Prompts",
+        "estMinutes": 15,
+        "steps": [
+          "Add genre, mood, instrument, and tempo descriptors to your prompt (e.g., 'upbeat synth-pop, 120 BPM, female vocals')",
+          "Generate 3 variations of the same prompt using the variation button and compare which descriptors had the most effect",
+          "Save your best-performing prompt as a reusable template in the prompt library"
+        ]
+      },
+      {
+        "title": "Using the Batch Harness",
+        "estMinutes": 15,
+        "steps": [
+          "Create a CSV or text file with 5-10 prompts, one per line, following the harness's expected format",
+          "Run the batch harness command (or the 'Batch' tab in the UI) and point it at your prompts file",
+          "Open the output folder and confirm each prompt produced an audio file and a metadata log"
+        ]
+      },
+      {
+        "title": "Using the Evaluation Harness",
+        "estMinutes": 15,
+        "steps": [
+          "Point the evaluation harness at a folder of generated songs from the previous module",
+          "Read the harness's report (scores for prompt match, audio quality, or duration) and identify your weakest prompt",
+          "Rewrite that one prompt, regenerate the song, and re-run the harness to compare scores"
+        ]
+      },
+      {
+        "title": "Exporting and Sharing",
+        "estMinutes": 10,
+        "steps": [
+          "Pick your best song and export it in your preferred format (e.g., MP3 for sharing, WAV for editing)",
+          "Rename the exported file using the metadata from the generation log (title, prompt, date)",
+          "Set default export settings so future generations save in your chosen format automatically"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-ai music",
+      "skill-music generation",
+      "skill-text to music",
+      "skill-song generator",
+      "skill-audio"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "course-headless-tools",
+    "toolSlug": "headless-tools",
+    "title": "Master Headless Tools",
+    "objectives": [
+      "Navigate the Headless Tools directory and filter by category",
+      "Evaluate a listing for agent-readiness (docs, auth, machine-readable specs)",
+      "Integrate one directory tool into an AI agent via function calling"
+    ],
+    "modules": [
+      {
+        "title": "Find and Shortlist Tools",
+        "estMinutes": 15,
+        "steps": [
+          "Open headless.tools and filter the directory by one category you'll actually use (e.g., email, payments, or web scraping)",
+          "Open 3 listings and record each tool's base API URL, auth method, and free tier limits in a notes file",
+          "Discard any listing whose docs require a human UI flow (OAuth consent screens you can't automate, dashboard-only config)"
+        ]
+      },
+      {
+        "title": "Assess Agent-Readiness",
+        "estMinutes": 20,
+        "steps": [
+          "For each shortlisted tool, check its docs for an OpenAPI spec, MCP server, or structured JSON error responses — note which exist",
+          "Read the rate limits and webhook docs; write down how an agent would retry a 429 and verify a webhook signature",
+          "Pick a winner by scoring the 3 tools 1-5 on spec availability, error format, and idempotency-key support"
+        ]
+      },
+      {
+        "title": "Test the API Headlessly",
+        "estMinutes": 25,
+        "steps": [
+          "Sign up for your chosen tool, mint an API key, and store it in a .env file (never hardcode it)",
+          "Run the docs' 'hello world' endpoint with curl, piping the response through jq to confirm the JSON shape matches the docs",
+          "Deliberately send one malformed request and one request without the key; confirm both return machine-readable error codes"
+        ]
+      },
+      {
+        "title": "Wire It Into an Agent",
+        "estMinutes": 30,
+        "steps": [
+          "Write a JSON-schema function definition (name, description, parameters) that wraps the endpoint you tested",
+          "Register the function with your agent framework (OpenAI tools, Anthropic tool use, or LangChain) and run a prompt that triggers it",
+          "Add a guardrail: cap calls per run, and log the agent's raw tool-call arguments for one test session to catch hallucinated parameters"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-headless",
+      "skill-ai agents",
+      "skill-api-first",
+      "skill-saas"
+    ],
+    "prerequisites": [
+      "Comfortable with REST APIs, JSON, and curl or an HTTP client",
+      "Understand API key auth and environment variables",
+      "Have built at least a basic AI agent or chatbot with tool/function calling"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "course-glm-53-open-weight-beat-anthropic-openai-models",
+    "toolSlug": "glm-53-open-weight-beat-anthropic-openai-models",
+    "title": "Master GLM-5.3 (open-weight) beat Anthropic/OpenAI models",
+    "objectives": [
+      "Understand what GLM-5.3 (open-weight) beat Anthropic/OpenAI models is for",
+      "Use GLM-5.3 (open-weight) beat Anthropic/OpenAI models on a real task",
+      "Know where GLM-5.3 (open-weight) beat Anthropic/OpenAI models fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure GLM-5.3 (open-weight) beat Anthropic/OpenAI models for your real workflow, not the demo.",
+          "Say what GLM-5.3 (open-weight) beat Anthropic/OpenAI models does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through GLM-5.3 (open-weight) beat Anthropic/OpenAI models.",
+          "Push GLM-5.3 (open-weight) beat Anthropic/OpenAI models to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold GLM-5.3 (open-weight) beat Anthropic/OpenAI models into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-open-weight",
+      "skill-llm",
+      "skill-budget-friendly",
+      "skill-coding",
+      "skill-api"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "course-edify",
+    "toolSlug": "edify",
+    "title": "Master Edify",
+    "objectives": [
+      "Understand what Edify is for",
+      "Use Edify on a real task",
+      "Know where Edify fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Edify for your real workflow, not the demo.",
+          "Say what Edify does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Edify.",
+          "Push Edify to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Edify into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-video-editing",
+      "skill-nle",
+      "skill-subtitles",
+      "skill-vtuber",
+      "skill-windows"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-25T09:25:10.610Z"
+  }
+]

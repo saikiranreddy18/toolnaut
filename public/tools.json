@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "ablo-make-your-ai-app-multiplayer",
+    "name": "Ablo, make your AI app multiplayer",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Open source",
+    "level": "intermediate",
+    "blurb": "Open-source SDK that adds real-time multiplayer collaboration to AI applications.",
+    "audience": "AI app developers",
+    "dev": "Ablo",
+    "year": 2026,
+    "website": "https://github.com/Abloatai/ablo",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "multiplayer",
+      "real-time",
+      "collaboration",
+      "sdk",
+      "open-source"
+    ],
+    "discoveredAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "slug": "i-built-an-ai-music-generator-with-some-harnesses",
+    "name": "I built an AI music generator with some harnesses",
+    "category": "design",
+    "sourceCategory": "Audio, Music & Voice",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "beginner",
+    "blurb": "AI music generator that creates original songs from simple prompts.",
+    "audience": "Musicians and content creators",
+    "dev": "",
+    "year": 2026,
+    "website": "https://onlymusic.ai",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai music",
+      "music generation",
+      "text to music",
+      "song generator",
+      "audio"
+    ],
+    "discoveredAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "slug": "headless-tools",
+    "name": "Headless Tools",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free directory",
+    "level": "intermediate",
+    "blurb": "Curated directory of headless, UI-free SaaS tools built for AI agents to consume.",
+    "audience": "developers building AI agents",
+    "dev": "",
+    "year": 2026,
+    "website": "https://hdls.tools",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "headless",
+      "ai agents",
+      "api-first",
+      "saas",
+      "automation"
+    ],
+    "discoveredAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "slug": "glm-53-open-weight-beat-anthropic-openai-models",
+    "name": "GLM-5.3 (open-weight) beat Anthropic/OpenAI models",
+    "category": "code",
+    "sourceCategory": "LLMs & Chatbots",
+    "price": "free",
+    "pricing": "open weights; low-cost API",
+    "level": "intermediate",
+    "blurb": "Open-weight LLM rivaling top Anthropic and OpenAI models at a fraction of the cost.",
+    "audience": "cost-conscious AI developers and builders",
+    "dev": "Zhipu AI",
+    "year": 2026,
+    "website": "https://reinvently.co.uk/tools/ed-o-meter/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "open-weight",
+      "llm",
+      "budget-friendly",
+      "coding",
+      "api"
+    ],
+    "discoveredAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "slug": "edify",
+    "name": "Edify",
+    "category": "design",
+    "sourceCategory": "Video Generation & Avatars",
+    "price": "paid",
+    "pricing": "$29.99 one-time",
+    "level": "intermediate",
+    "blurb": "Windows NLE video editor with OpenFX, proxy editing, AI subtitles, and VTuber tools.",
+    "audience": "Windows video creators and VTubers",
+    "dev": "",
+    "year": 2026,
+    "website": "https://apps.microsoft.com/detail/9nkkk5k5s4ct?hl=en-US&gl=US",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "video-editing",
+      "nle",
+      "subtitles",
+      "vtuber",
+      "windows"
+    ],
+    "discoveredAt": "2026-08-25T09:25:10.610Z"
+  }
+]
