@@ -747,6 +747,63 @@ a client-side SPA with a static tool catalogue.
   `Compare.jsx`) plus replacing `NexusLanding.jsx`'s existing ad hoc version.
   No backend, no new dependency, no new route.
 - **Found:** 2026-08-25 12:09 UTC
+- **Deepened 2026-08-25 21:09 UTC:** two of this gap's five call sites
+  (`ToolDetail.jsx`, `Compare.jsx`) get zero real SEO value from the hook as
+  specced, because the pages themselves are unreachable by a crawler today —
+  a problem one level below meta tags. `AppShell.jsx:57-59` hard-redirects
+  any visitor with no session straight to `/auth/login`, and both routes are
+  nested under `<Route path="/app" element={<AppShell />}>` in `App.jsx:87-98`.
+  `authStore.js:6-25` confirms the session is entirely fake/local — `signIn()`
+  just writes a localStorage flag, no real credential check, no backend call
+  — but a crawler doesn't click "Continue with Google" or "Send magic link"
+  (`Login.jsx:78-87,96-114`) any more than a real unauthenticated user would,
+  so it never gets one. `scripts/smoke.mjs:75-77` already documents this
+  exact failure mode in its own comment — it seeds a fake session via
+  `page.addInitScript` before visiting any `/app/*` route specifically
+  "[without one] every one of these renders the login page instead" — the
+  smoke suite had to route around the same wall this finding is about. Net
+  effect: a Google crawl of `toolnaut.xyz/app/tools/notion-ai` today renders
+  the **login page's** HTML (title "Enter your command center", generic
+  description), never the tool's. Same failure for a `ToolDetail` link
+  pasted into Slack/Discord — the recipient who isn't already signed in
+  clicks through to a login screen, not the tool page they were sent, which
+  is a worse outcome than the "generic preview card" problem the base gap
+  already names for `SharedStack` links (that route is correctly public,
+  outside `AppShell`, at `App.jsx:79`).
+  This does **not** invalidate the base gap — `Pricing.jsx`, `About.jsx`,
+  and `SharedStack.jsx` are all top-level public routes (`App.jsx:74-79`,
+  outside `AppShell`) and get the hook's full SEO/social value with no
+  further change. It scopes the gap: ship `usePageMeta` for those three
+  first since they're immediately net-positive, and treat `ToolDetail`/
+  `Compare` as blocked on a separate, smaller decision rather than silently
+  wiring the hook into two pages a crawler can't reach and calling it done.
+  **Smallest real fix for the two blocked pages:** the session gate buys no
+  actual security today (there's no real account, no billing, nothing
+  private to protect — `planData.js`'s Team-tier admin/seat claims are
+  already REJECTED above as needing real accounts this app doesn't have),
+  and `ToolDetail.jsx` already degrades cleanly with no session: `quiz.completed
+  ? quiz.answers : null` (`ToolDetail.jsx:51-52`) already falls back to a
+  "Take the quiz" prompt instead of a match score, and stack/favorites default
+  to empty arrays rather than throwing. So `ToolDetail` (at minimum — `Compare`
+  is a smaller win since a comparison URL is a less likely inbound/shared link)
+  could render outside the guard entirely: pull it out of the `AppShell`-nested
+  route and give it its own top-level public route (mirroring `SharedStack`'s
+  pattern exactly), keeping the nav/nudge chrome only for the fields that
+  need it (add-to-stack/favorite buttons already check `session` implicitly
+  via their stores, not via a hard redirect, so they'd just no-op to
+  localStorage for a guest same as any first-time visitor). **What this would
+  NOT include:** no change to `AppShell`'s guard for `Stack`/`Discover`/
+  `Learning`/`Community`/`Favorites`/`Settings` — those pages assume an
+  active persona/session-scoped state in a way a single tool page does not,
+  and reworking the guard wholesale is a much larger, riskier change than
+  this file's own S/M sizing bias allows; no removal of the login flow
+  itself. **Build size of the follow-up fix:** S/M — move `ToolDetail`'s
+  route to top-level (public) in `App.jsx`, decide what nav chrome (if any)
+  a guest sees instead of the full `AppShell`, add its route to
+  `scripts/smoke.mjs`'s unauthed section. Should ship together with or
+  right after the base `usePageMeta` gap, not as a separate backlog line —
+  same feature, one more file (`App.jsx`'s route table) than originally
+  scoped.
 
 ### Pro chat assistant & the entire Team tier are unbacked and unbuildable client-side
 - **Status:** REJECTED — needs a backend/multi-user system; logged so future
