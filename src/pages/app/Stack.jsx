@@ -8,6 +8,7 @@ import { matchScore } from '../../utils/matchScore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { haptic } from '../../utils/haptics'
 import { encodeStackSlugs } from '../../utils/shareStack'
+import SkillGraph from '../../components/app/SkillGraph'
 
 // Deterministic daily pick: same tool all day, a new one tomorrow — so every
 // open of the app has something unexplored in it.
@@ -217,6 +218,11 @@ export default function Stack() {
             })}
           </div>
         </div>
+      </motion.div>
+
+      {/* Skills graph — coverage across the 6 galaxy domains */}
+      <motion.div {...cardIn(0.5)} className="mt-6">
+        <SkillGraph tools={[...persona.stack, ...addedTools]} progress={progress} />
       </motion.div>
 
       {/* Today's drop — sticker card, chunky lime CTA */}
