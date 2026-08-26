@@ -998,3 +998,83 @@ a client-side SPA with a static tool catalogue.
   card grid. No new store, no new util, no new route, no backend, no new
   dependency.
 - **Found:** 2026-08-26 06:20 UTC
+
+### Command palette / ⌘K quick jump
+- **Status:** OPEN
+- **Seen in:** Linear, Notion, Vercel, GitHub and Raycast all ship a ⌘K/Ctrl+K
+  overlay as a first-class navigation surface — type a few letters from
+  anywhere in the app, land on the exact page or record instantly, no menu
+  hunting. It's specifically called out as "a standard UX convention across
+  modern SaaS applications" (see sources) precisely because it collapses
+  navigation-by-clicking into navigation-by-typing the moment an app has more
+  than a handful of destinations — which Toolnaut already does, at 700+ tools
+  deep.
+- **Gap:** confirmed absent by reading `src/shells/AppShell.jsx` in full and
+  grepping `keydown|Cmd\+K|command.palette|cmdk` across `src/` (case-
+  insensitive): three files already hand-roll their own single-purpose
+  `keydown` listener — `ChatPanel.jsx`, `InstallPrompt.jsx`,
+  `GalaxyExplorer.jsx` — but none is a global quick-jump; each only handles
+  its own local widget (closing on Escape, etc). `Discover.jsx:42-101` already
+  has real search-and-filter logic keyed off `?q=`, but it only works once a
+  user has already navigated to `/app/discover` — there's no way to jump
+  straight to a specific tool or page from `Stack.jsx`, `Learning.jsx`, or
+  anywhere else without first clicking FIND in the nav, then typing. No shared
+  `Modal`/`Dialog` component exists either (glob for `Modal*` under
+  `src/components/ui/` — zero hits), so every overlay in this codebase,
+  `ChatPanel`'s mobile bottom sheet included, is hand-rolled per-component,
+  which is the existing precedent this gap's own overlay should match rather
+  than introduce a new abstraction for.
+- **Why it matters:** the catalog is Toolnaut's actual asset (700+ tools, a
+  number every competitor in this file is smaller than on a per-directory
+  basis), but today the only path to any specific tool is
+  nav-to-Discover-then-filter or already knowing its `/app/tools/:slug` URL.
+  A returning user who knows they want "Cursor" or "Perplexity" pays a
+  multi-click tax every time. This is pure power-user retention UX — the
+  exact users who come back daily (the ones the streak/skills-graph gaps
+  above are already trying to reward) are the ones who'd use this most.
+- **Smallest useful version (what to actually build):**
+  - New `src/components/app/CommandPalette.jsx`: a controlled overlay
+    (`open`/`onClose` props, same shape as `ChatPanel`'s `onClose` prop) —
+    fixed inset-0 backdrop + centered panel, autofocused text input, and a
+    result list built from two sources filtered by the same lowercase
+    substring match `Discover.jsx:86-97` already uses: (1) the 6 `NAV` entries
+    already defined in `AppShell.jsx:14-21` (label + route, shown first,
+    labelled "GO TO"), and (2) `TOOLS` imported directly from
+    `toolsCatalog.js` (same import `Discover.jsx:3` already does — since
+    `hydrateCatalog()` mutates `TOOLS` in place, `toolsCatalog.js:760-762`,
+    radar-published tools are searchable with zero extra wiring), capped at
+    ~8 matches. Arrow-key up/down moves a local `selected` index, Enter
+    navigates via `useNavigate()` to the nav route or `/app/tools/:slug` and
+    closes, Escape closes — same keyboard contract `ChatPanel`'s bottom sheet
+    already implies via its `role="dialog"` pattern.
+  - Wire into `AppShell.jsx`: one `const [paletteOpen, setPaletteOpen] =
+    useState(false)`, one `useEffect` global `keydown` listener for
+    `(e.metaKey || e.ctrlKey) && e.key === 'k'` → `e.preventDefault()` +
+    open — the same per-component-listener pattern `ChatPanel.jsx`/
+    `InstallPrompt.jsx`/`GalaxyExplorer.jsx` each already establish, just at
+    the shell level instead of a leaf component. Add one small trigger
+    button under the persona sticker in the desktop sidebar
+    (`AppShell.jsx:86-100`, "🔎 Quick jump ⌘K") and one in the mobile top bar
+    (`AppShell.jsx:118-128`, icon-only, since Cmd/Ctrl+K isn't reachable on a
+    touch keyboard) — mobile users need a visible tap target, not just a
+    hidden shortcut.
+  - No new dependency — a hand-rolled input+filter+list matches every other
+    gap in this file's dependency-free bias (`cmdk` would be the "correct"
+    long-term library but isn't needed for a first cut this small).
+  - **What this would NOT include** (kept out to bound the diff): no fuzzy/
+    subsequence matching (Raycast-grade) — plain substring match, same
+    algorithm `Discover.jsx` already uses, good enough at this catalog size;
+    no in-palette actions beyond navigation (no add-to-stack/favorite-toggle
+    from inside the palette — pure quick-jump in v1); no recent/frequency
+    ranking of results (would pair naturally with the still-open "Recently
+    viewed tools" gap above once shipped, but doesn't depend on it and isn't
+    required to be useful on its own); no availability outside `/app/*` — the
+    public marketing pages don't have enough navigable depth to need this;
+    no shared `Modal` abstraction extracted from this or `ChatPanel` — matches
+    existing per-component precedent, a real dedup pass is a separate
+    refactor this backlog's own "no drive-by refactors" rule would reject
+    bundling in here.
+- **Build size:** S — one new component (`CommandPalette.jsx`), ~20 lines
+  wiring state + a global keydown listener + two trigger buttons into
+  `AppShell.jsx`. No backend, no new dependency, no new route.
+- **Found:** 2026-08-26 09:06 UTC
