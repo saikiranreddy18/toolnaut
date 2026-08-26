@@ -1182,3 +1182,57 @@ a client-side SPA with a static tool catalogue.
   lines + 1 fix in `sitemap.xml`, one line in `scripts/smoke.mjs`. No
   backend, no new dependency.
 - **Found:** 2026-08-26 12:15 UTC
+
+### Weekly discovery digest email & personalized alerts (Student/Pro tiers, unbuildable client-side)
+- **Status:** REJECTED — needs a backend/email-delivery system; logged so
+  future research hours don't re-spend an hour rediscovering this, same
+  reason the Pro chat assistant / Team tier finding above was logged rather
+  than left silently on the pricing page.
+- **Seen in:** not a competitor pattern — found while auditing `planData.js`
+  for other unbacked rows (the same file that already produced the
+  now-shipped Favorites gap, the still-open PDF-export gap, and the
+  REJECTED chat/Team-tier gap above). This is the same audit, later pass,
+  same file.
+- **Gap:** `planData.js:21` promises "Weekly discovery digest **email**" on
+  the Student tier, and `planData.js:45` promises "Weekly trending tools +
+  personalized **alerts**" on the Pro tier — both are live on `/pricing`
+  today via `Pricing.jsx` → `PLANS`. Neither is delivered anywhere. This is
+  distinct from the (shipped) "Weekly Fresh Finds" gap above: that gap built
+  an in-app strip on `Discover.jsx` that a user only sees if they open the
+  app that week — it is not an email and not a push alert, so it does not
+  close either pricing-page promise. Confirmed no delivery mechanism exists:
+  no `api/` directory, no `functions` block in `vercel.json` (checked in
+  full — it only has `rewrites` and cache-control `headers`, nothing
+  serverless), and grepping `notification|web.?push` across all of `src/`
+  returns zero hits. There is no email-sending capability anywhere in this
+  repo (`radar/` sends nothing either — it only writes `public/tools.json`)
+  and no push-subscription/service-worker-push code (`public/sw.js` handles
+  only cache install/activate/fetch, confirmed against this file's own
+  CLAUDE.md note on what the fetch handler is allowed to touch).
+- **Why this is REJECTED rather than logged OPEN:** an actual email digest
+  needs a transactional/marketing email provider (Resend, Postmark,
+  Mailchimp, etc.), a server-held API key the same `VITE_`-prefix-is-public
+  problem the chat-assistant rejection already names, and — the part no
+  amount of client code can substitute for — someone or something deciding
+  *what* goes in each week's digest, which is an ongoing editorial/ops task,
+  not a one-time build. "Personalized alerts" additionally implies either
+  web push (needs a push service + subscription storage, i.e. a backend) or
+  email again. Both fail this file's own ranking rule: "a gap that needs a
+  backend is usually REJECTED."
+- **What would actually be honest to ship, if anyone wants to close this
+  later (a finding, not a proposed build):** a static third-party
+  newsletter-signup embed (e.g. a Mailchimp/Buttondown form `action=`
+  pointing off-site) could plausibly capture emails with zero backend code
+  in this repo, but that only solves list-building — it still needs a human
+  or a separate automation to actually author and send a weekly digest, so
+  it would not, by itself, make the pricing copy true. The honest fix
+  remains a copy correction: soften "digest email" / "personalized alerts"
+  to describe what's actually live (the in-app "New this week" strip) until
+  real delivery infrastructure exists, the same move already flagged for
+  the chat-assistant/Team-tier copy above. No edit made — flagged for
+  whoever owns pricing copy.
+- **Build size:** L (needs a transactional email or push provider, a
+  server-held secret, and an ongoing content/ops process — none of which a
+  client-only SPA change can provide) — out of scope for this backlog's
+  client-only SPA model.
+- **Found:** 2026-08-26 15:15 UTC
