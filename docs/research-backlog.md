@@ -929,3 +929,72 @@ a client-side SPA with a static tool catalogue.
   strip added to `Discover.jsx` reusing the "New this week" strip's existing
   markup pattern. No backend, no new dependency, no new route.
 - **Found:** 2026-08-26 00:35 UTC
+
+### Tool status warning has no reason attached ("note" field collected, never shown)
+- **Status:** OPEN
+- **Seen in:** ToolDirectory.AI (a 2026 AI-tool directory competitor, studied
+  fresh this run) markets "every entry reviewed, dated, and re-tested" and
+  moves dead/rebranded tools to an explicit "graveyard" rather than letting
+  stale listings rot silently — the point being a directory's credibility
+  rests on telling a visitor *when and why* a listing stopped being current,
+  not just quietly delisting or vaguely flagging it. Toolnaut already collects
+  exactly this signal per-tool but throws away the "why" half of it before it
+  ever reaches a user.
+- **Gap:** `toolsCatalog.js` already carries a `status` field (`"Active"` on
+  652 of 704 tools, `"Uncertain"` on the other 52) *and* a `note` field giving
+  the specific reason for 47 of those 52 — e.g. Pi: `"Core team moved to
+  Microsoft (2024); app in maintenance"`, Baichuan: `"Pivoted toward medical
+  AI"`, Krutrim: `"Reports of restructuring (2025)"`. This is real, already-
+  written editorial content, not something that needs research to produce.
+  But grepping `note\b` across every page in `src/pages/app/` — `ToolDetail.jsx`,
+  `Compare.jsx`, `Discover.jsx` — turns up zero renders of `tool.note` anywhere.
+  `ToolDetail.jsx:108-115` renders a hot-pink "UNCERTAIN" pill when
+  `status !== 'Active'`, but nothing below it explains why; `Compare.jsx:47`
+  puts `"Status"` in the comparison table as a bare word (`t.status || '—'`)
+  with no second row for the reason; `Discover.jsx` never surfaces `status` at
+  all, so a card grid can carry an "Uncertain" tool with literally no visual
+  distinction from an actively-maintained one until a user clicks all the way
+  into its detail page. `personaGenerator.js:99` already *uses* `status` to
+  quietly deprioritize non-Active tools in scoring, so the signal is trusted
+  enough to affect ranking — it just isn't trusted enough to show its work.
+- **Why it matters:** a "why" turns a vague warning into something a user can
+  actually act on. "UNCERTAIN" alone reads as Toolnaut being unsure of its own
+  data (a trust cost); "UNCERTAIN — core team moved to Microsoft, app in
+  maintenance" reads as Toolnaut having done real diligence (a trust gain) —
+  same badge, opposite effect on credibility, and the only difference is
+  whether the one sentence Toolnaut already wrote gets rendered. It's also a
+  discovery-time problem, not just a detail-page one: today a user could
+  filter Discover, land on a card for one of the 52 non-Active tools, and add
+  it to their stack with zero signal anything is off, since the warning only
+  exists on a page they haven't navigated to yet.
+- **Smallest useful version (what to actually build):**
+  - `ToolDetail.jsx:108-115` — when `tool.status !== 'Active'` and `tool.note`
+    is non-empty, render the note as a small line directly under the existing
+    pill (e.g. `<p className="mt-2 text-xs text-slate-400">{tool.note}</p>`),
+    matching the muted-caption style already used elsewhere on this page for
+    secondary text. When `note` is empty (5 of the 52), the pill alone is
+    still honest — don't fabricate a reason.
+  - `Compare.jsx`: extend the existing `Status` row's `get()` to append the
+    note in parentheses when present — `t.status === 'Active' ? 'Active' :
+    \`${t.status}${t.note ? \` (${t.note})\` : ''}\`` — one row, no new row
+    added to the table, so the grid layout is untouched.
+  - `Discover.jsx`: add the same hot-pink "UNCERTAIN"-style badge
+    `ToolDetail.jsx` already has (reuse its exact style object, don't invent a
+    second one) next to the existing NEW/score badges on any card whose
+    `tool.status !== 'Active'`, so the signal exists at the point a user is
+    deciding whether to open or add a tool, not only after. Full note text
+    stays detail-page-only (card space is tight); the card badge's job is just
+    "look closer before you commit to this one."
+  - **What this would NOT include** (kept out to bound the diff): no new
+    catalog data or backfilled notes for the 5 `Uncertain` tools missing one —
+    render what exists, don't invent editorial content; no filter/exclude-
+    Uncertain-tools toggle on Discover (a separate, larger UX decision about
+    whether to hide rather than flag); no change to `personaGenerator.js`'s
+    existing scoring penalty; no retroactive "graveyard" page listing all
+    non-Active tools — that's a bigger, distinct feature this gap doesn't
+    require to be useful.
+- **Build size:** S — a few lines added to two existing conditionals
+  (`ToolDetail.jsx`, `Compare.jsx`) plus one reused badge on `Discover.jsx`'s
+  card grid. No new store, no new util, no new route, no backend, no new
+  dependency.
+- **Found:** 2026-08-26 06:20 UTC
