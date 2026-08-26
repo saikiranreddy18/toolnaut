@@ -9,6 +9,56 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-08-26
+
+**Radar health:** OK — 1 run in the last 26h, published 21 new tools. Feed
+sits at 26 tools in `public/tools.json` since the last run (02:18 UTC);
+catalogue is growing normally, no action needed.
+
+**Researched today:** four research-hour runs plus one deeper audit pass.
+Found and specced: recently-viewed tools (Amazon/G2-style "continue
+browsing" rail — the signal already exists on every `ToolDetail` mount, it's
+just never captured); a tool-status warning with no reason attached (52
+catalog entries are marked "Uncertain" and 47 of them already have a
+one-sentence editorial reason in `note`, but nothing ever renders it — an
+easy trust win, data already written); command palette / ⌘K quick-jump
+(700+ tools deep with no way to jump to one without nav-then-filter); and
+category/role landing pages ("best AI tools for X" — the single biggest
+unclaimed SEO surface found so far, since every tool-bearing route sits
+behind the fake session gate and `RolesSection`'s six cards are pure
+decoration with zero links). A fifth pass re-audited `planData.js` one more
+time and found the Student/Pro tiers' "weekly digest email" and
+"personalized alerts" promises have nothing behind them — logged
+**REJECTED** (needs real email/push infrastructure this repo has none of),
+same treatment as the chat-assistant/Team-tier finding from yesterday.
+
+**Shipped:** skills graph —
+[`bf156a0`](https://github.com/saikiranreddy18/toolnaut/commit/bf156a010e614b2d5399ad30a187c731e5cf352f).
+Picked over the newer research-hour finds because it closes the last
+unbacked claim on the homepage's FeaturesSection — "Progress Tracking: a
+skills graph that grows with you and shows exactly where the gaps are" had
+nothing behind it except per-tool progress rings, no aggregate view across
+the 6 galaxy domains. New pure `skillCoverage.js` (`getDomainCoverage`)
+groups the resolved stack by domain and scores mean progress per domain;
+new `SkillGraph.jsx` renders one bar per domain with a color chip, a
+tool-count badge, and — for any domain with zero tools — an "Explore →"
+link straight into Discover pre-filtered to that domain. Wired into
+`Stack.jsx` between the streak card and today's drop. **Live on
+toolnaut.xyz** — client-rendered off existing `localStorage` state, nothing
+waits on the radar pipeline or a separate deploy step.
+
+**Queued next:** category/role landing pages is now the highest-value OPEN
+item — it's the biggest unclaimed SEO surface in the backlog, already
+speced as a public `/tools/:domain` route reusing `SharedStack.jsx`'s card
+pattern. First-session onboarding checklist, per-tool ratings & reviews,
+command palette, recently-viewed tools, tool-status-note reason, PDF
+roadmap export, and per-route meta tags are all still OPEN and fully
+specced. The Pro chat assistant / Team tier and the weekly-digest-email
+findings remain REJECTED-for-build but open as copy-correction tasks for
+whoever owns pricing copy.
+
+---
+
 ## 2026-08-25
 
 **Radar health:** OK — 1 run in the last 24h, published 5 new tools (73

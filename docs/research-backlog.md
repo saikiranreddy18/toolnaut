@@ -264,7 +264,7 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-22 12:15 UTC
 
 ### Skills graph / coverage gaps (Progress Tracking promise)
-- **Status:** OPEN
+- **Status:** SHIPPED bf156a010e614b2d5399ad30a187c731e5cf352f
 - **Seen in:** Coursera for Business's Skills Dashboard and LinkedIn Learning's
   skill-gap dashboards both give an individual a single aggregate view of
   proficiency across skill categories rather than a bare completion
