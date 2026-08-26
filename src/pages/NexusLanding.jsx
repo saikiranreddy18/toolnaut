@@ -60,7 +60,7 @@ function Nav() {
               <a key={l.href} href={l.href} className="transition-colors duration-200 hover:text-white/90">{l.label}</a>
             ))}
           </nav>
-          <CtaPill to="/quiz">Chart your stack</CtaPill>
+          <CtaPill to="/goal">Chart your stack</CtaPill>
         </div>
       </div>
     </header>
@@ -267,7 +267,7 @@ function SkySurvey() {
               Radar scans the frontier every day and charts new tools onto your stack — so the map is never out of date, and you never fall behind.
             </p>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-5">
-              <CtaPill to="/quiz" big>Chart your stack — 60 seconds</CtaPill>
+              <CtaPill to="/goal" big>Chart your stack — 60 seconds</CtaPill>
               <a href="#how-it-works" className="cursor-pointer text-sm text-white/50 transition-colors hover:text-white/90">See how it works</a>
             </div>
           </div>
@@ -289,7 +289,7 @@ function StaticHero() {
           Toolnaut charts the exploding universe of AI tools to your role — a named, connected stack instead of an endless feed.
         </p>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-5">
-          <CtaPill to="/quiz" big>Chart your stack</CtaPill>
+          <CtaPill to="/goal" big>Chart your stack</CtaPill>
           <a href="#how-it-works" className="cursor-pointer text-sm text-white/50 transition-colors hover:text-white/90">See how it works</a>
         </div>
       </div>
@@ -418,8 +418,8 @@ function Pricing() {
                 ))}
               </ul>
               <div className="mt-7">
-                {p.featured ? <CtaPill to="/quiz" big>{p.cta}</CtaPill> : (
-                  <Link to="/quiz" className="press inline-flex cursor-pointer items-center rounded-full border border-white/15 px-6 py-2.5 text-sm text-white/70 transition-colors hover:border-white/30 hover:text-white">{p.cta}</Link>
+                {p.featured ? <CtaPill to="/goal" big>{p.cta}</CtaPill> : (
+                  <Link to="/goal" className="press inline-flex cursor-pointer items-center rounded-full border border-white/15 px-6 py-2.5 text-sm text-white/70 transition-colors hover:border-white/30 hover:text-white">{p.cta}</Link>
                 )}
               </div>
             </div>
@@ -440,7 +440,7 @@ function FinalCTA() {
         <p className="mt-4 text-[15px] leading-relaxed text-white/55">Answer a few questions and get a stack mapped to how you actually work.</p>
         <div className="mt-8 flex justify-center">
           <Link
-            to="/quiz"
+            to="/goal"
             onClick={() => track(EVENTS.CTA_CLICK, { cta: 'open_app', location: 'starchart_cta' })}
             className="press inline-flex min-h-[46px] cursor-pointer items-center rounded-full bg-gradient-to-r from-[#84cc16] to-[#06b6d4] px-8 text-sm font-semibold text-[#0a0a0f] shadow-[0_0_28px_rgba(132,204,22,0.35)] transition-shadow hover:shadow-[0_0_46px_rgba(132,204,22,0.6)]"
           >

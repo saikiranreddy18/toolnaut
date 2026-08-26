@@ -212,7 +212,7 @@ export default function Learning() {
           Take the 60-second quiz and we'll chart a 4-week path through the exact
           tools that fit how you work.
         </p>
-        <Link to="/quiz" className="nb-btn mt-8 px-8 py-4 text-base">
+        <Link to="/goal" className="nb-btn mt-8 px-8 py-4 text-base">
           ⚡ FIND MY PATH
         </Link>
       </div>

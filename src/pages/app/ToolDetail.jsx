@@ -178,7 +178,7 @@ export default function ToolDetail() {
           </ul>
         ) : (
           <p className="mt-2 text-sm text-slate-300">
-            <Link to="/quiz" className="font-black underline underline-offset-2" style={{ color: 'var(--lime)' }}>
+            <Link to="/goal" className="font-black underline underline-offset-2" style={{ color: 'var(--lime)' }}>
               Take the quiz
             </Link>{' '}
             and this becomes personal — fit, budget, learning curve, scored against your profile.

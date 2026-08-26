@@ -69,7 +69,7 @@ export default function PricingPillar({ plan }) {
         </ul>
 
         <Link
-          to="/quiz"
+          to="/goal"
           onClick={() => track(EVENTS.PLAN_SELECT, { plan: plan.id, price: plan.price })}
           className={`nb-btn ${plan.id === 'guru' ? 'pink' : plan.id === 'pandava' ? 'cyan' : ''} mt-8 block w-full py-3 text-center text-sm`}
         >

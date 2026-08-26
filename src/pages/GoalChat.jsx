@@ -6,7 +6,6 @@ import { loadQuiz, saveAnswer, completeQuiz } from '../state/quizStore'
 import { useAnalytics } from '../hooks/useAnalytics'
 import { EVENTS } from '../utils/analyticsEvents'
 import { haptic } from '../utils/haptics'
-import { BrandLogo } from '../components/ui/Mascot'
 
 // Conversational intake. Replaces the one-question-per-screen quiz with a chat:
 // the same nine answers, asked by something that talks back.
@@ -145,8 +144,9 @@ export default function GoalChat() {
 
   return (
     <div className="flex min-h-screen flex-col px-4 pb-4 pt-5 sm:px-6">
-      <header className="mx-auto flex w-full max-w-2xl shrink-0 items-center justify-between pb-4">
-        <BrandLogo size={34} textClass="text-base" />
+      {/* OnboardingShell already renders the wordmark top-left; a second one
+          here sat directly on top of it. Only the exit control belongs to this page. */}
+      <header className="mx-auto flex w-full max-w-2xl shrink-0 items-center justify-end pb-4">
         <button
           onClick={() => navigate('/')}
           aria-label="Leave and go back to the home page"
@@ -238,6 +238,7 @@ export default function GoalChat() {
               {question.options.map((opt) => (
                 <button
                   key={opt.key}
+                  data-testid="goal-chip"
                   onClick={() => answer(opt.key)}
                   className="cursor-pointer rounded-full border-2 border-black bg-white/[0.06] px-3.5 py-1.5 text-xs font-bold text-slate-200 transition-colors hover:bg-[var(--lime)] hover:text-black"
                   style={{ boxShadow: '2px 2px 0 #000' }}
@@ -254,6 +255,7 @@ export default function GoalChat() {
           <div className="flex items-center gap-2">
             <input
               id="goal-reply"
+              data-testid="goal-input"
               ref={inputRef}
               value={draft}
               onChange={(e) => setDraft(e.target.value)}

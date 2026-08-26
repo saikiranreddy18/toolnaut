@@ -93,7 +93,7 @@ export default function AppShell() {
           {persona ? (
             <p className="mt-1 text-xs font-bold text-cyan-300">Plan: {planLabel(session.plan)}</p>
           ) : (
-            <Link to="/quiz" className="mt-1 inline-block text-xs font-bold text-cyan-300 underline decoration-2 underline-offset-2 hover:text-white">
+            <Link to="/goal" className="mt-1 inline-block text-xs font-bold text-cyan-300 underline decoration-2 underline-offset-2 hover:text-white">
               60 seconds →
             </Link>
           )}

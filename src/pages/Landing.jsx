@@ -73,7 +73,7 @@ export default function Landing() {
   // QUIZ_START now fires on /quiz mount (single source of truth) —
   // HeroSection already tracks the CTA_CLICK.
   function openQuiz() {
-    navigate('/quiz')
+    navigate('/goal')
   }
 
   return (

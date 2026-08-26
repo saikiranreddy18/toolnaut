@@ -113,7 +113,7 @@ export default function Discover() {
       </h1>
       {!answers && (
         <p className="mt-3 text-sm text-slate-400">
-          <Link to="/quiz" className="font-bold underline underline-offset-2" style={{ color: 'var(--lime)' }}>
+          <Link to="/goal" className="font-bold underline underline-offset-2" style={{ color: 'var(--lime)' }}>
             Take the quiz
           </Link>{' '}
           to unlock personal match scores.

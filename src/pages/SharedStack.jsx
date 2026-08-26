@@ -45,7 +45,7 @@ export default function SharedStack() {
       )}
 
       <Link
-        to="/quiz"
+        to="/goal"
         className="glow-btn mt-10 inline-block rounded-full bg-gradient-to-r from-exus-purple to-exus-cyan px-7 py-3 font-display text-sm font-semibold text-white"
       >
         Build my own stack

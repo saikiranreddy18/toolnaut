@@ -14,7 +14,7 @@ export default function Pricing() {
         <Link to="/" aria-label={BRAND}>
           <BrandLogo size={44} textClass="text-xl" />
         </Link>
-        <Link to="/quiz" className="nb-btn px-4 py-2 text-xs">
+        <Link to="/goal" className="nb-btn px-4 py-2 text-xs">
           ⚡ Find your stack
         </Link>
       </header>

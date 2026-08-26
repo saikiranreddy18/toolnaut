@@ -200,7 +200,7 @@ export default function QuizResult() {
               onClick={retake}
               className="cursor-pointer font-display text-xs font-bold uppercase tracking-wider text-slate-400 underline decoration-2 decoration-white/20 underline-offset-4 hover:text-white"
             >
-              retake quiz
+              start over
             </button>
           </div>
         </motion.div>

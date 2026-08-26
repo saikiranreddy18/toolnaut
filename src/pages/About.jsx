@@ -32,7 +32,7 @@ export default function About() {
         <Link to="/" aria-label={BRAND}>
           <BrandLogo size={44} textClass="text-xl" />
         </Link>
-        <Link to="/quiz" className="nb-btn px-4 py-2 text-xs">
+        <Link to="/goal" className="nb-btn px-4 py-2 text-xs">
           ⚡ Find your stack
         </Link>
       </header>
@@ -77,7 +77,7 @@ export default function About() {
           viewport={{ once: true }}
           className="mt-14 text-center"
         >
-          <Link to="/quiz" className="nb-btn inline-block px-8 py-4 text-base">
+          <Link to="/goal" className="nb-btn inline-block px-8 py-4 text-base">
             🚀 Take the 60-second quiz
           </Link>
           <p className="mt-4 text-xs text-slate-500">

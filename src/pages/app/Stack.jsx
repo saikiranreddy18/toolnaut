@@ -145,7 +145,7 @@ export default function Stack() {
           tools that fit how you actually work.
         </p>
         <Link
-          to="/quiz"
+          to="/goal"
           className="glow-btn mt-8 rounded-full bg-gradient-to-r from-exus-purple to-exus-cyan px-7 py-3 font-display text-sm font-semibold text-white"
         >
           Find my stack
