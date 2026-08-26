@@ -1236,3 +1236,41 @@ a client-side SPA with a static tool catalogue.
   client-only SPA change can provide) — out of scope for this backlog's
   client-only SPA model.
 - **Found:** 2026-08-26 15:15 UTC
+
+### Final-page CTA broke its own "no signup wall" promise
+- **Status:** FIXED (this commit) — small demonstrable bug, fixed in this run
+  rather than logged as OPEN; entry kept for the record per this backlog's
+  own audit trail.
+- **Seen in:** not a competitor pattern — found while auditing every
+  `src/components/sections/*` file for unbacked marketing claims (the same
+  sweep style that already produced the shipped Compare/Fresh-Finds/Skills-
+  Graph gaps and the still-open per-route-meta gap), specifically checking
+  the two marketing sections (`HeroSection.jsx`, `CTASection.jsx`,
+  `HowItWorksSection.jsx`, `AudienceSection.jsx`) not yet individually
+  audited in this file.
+- **Gap:** `CTASection.jsx` — the very last thing a visitor sees before the
+  footer — reads "Map your stack in about 60 seconds — no signup wall to get
+  your first chart," directly above a "🚀 Open the app" button that linked to
+  `/app/stack`. But `AppShell.jsx:57-58` hard-redirects any visitor with no
+  session to `/auth/login?next=...`, which requires clicking "Continue with
+  Google/GitHub" or submitting an email before anything renders — a wall,
+  even though the session it creates is fake/local (`authStore.js`). Compare
+  this to `HeroSection.jsx`'s primary CTA, which calls `onEnter()` →
+  `navigate('/goal')` (`Landing.jsx:75-76`) — the actual quiz, reachable with
+  zero session. So the identical "no signup wall" promise was true for the
+  first CTA on the page and false for the last one: any first-time visitor
+  who scrolled past the hero without taking the quiz and clicked the bottom
+  CTA instead hit exactly the wall the copy told them didn't exist.
+- **Why it matters:** this is the same "promise vs. product" mismatch shape
+  as every other audited-copy gap in this file, except self-contained inside
+  one component — the button's own destination contradicts the sentence
+  directly above it, with no cross-file reasoning needed to see the bug.
+- **Fix shipped this run:** `CTASection.jsx` now reads
+  `loadSession() ? '/app/stack' : '/goal'` and routes the button there —
+  a returning user with a session goes straight to their stack (unchanged
+  behavior), a first-time visitor goes to the session-free quiz that actually
+  delivers "your first chart" in 60 seconds, matching the copy. One-line
+  behavioral change plus one import; no new component, no new route, no
+  layout change. Verified via `npm run smoke` (0 console errors, all 15
+  routes) alongside `npm test` (102/102) and `npm run build`.
+- **Found & fixed:** 2026-08-26 21:15 UTC

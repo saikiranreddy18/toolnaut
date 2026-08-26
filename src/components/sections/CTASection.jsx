@@ -4,12 +4,16 @@ import { fadeUp, stagger } from '../ui/SectionShell'
 import { BRAND } from '../../config'
 import { useAnalytics, useSectionView } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
+import { loadSession } from '../../state/authStore'
 
 const CONTACT_EMAIL = 'hello@toolnaut.app'
 
 export default function CTASection() {
   const track = useAnalytics()
   const ref = useSectionView('cta')
+  // A signed-out visitor has no stack yet — "map your stack" below means the
+  // quiz, not the (session-gated) app, or this button breaks its own promise.
+  const openTarget = loadSession() ? '/app/stack' : '/goal'
 
   return (
     <section id="cta" ref={ref} className="relative z-10">
@@ -36,7 +40,7 @@ export default function CTASection() {
 
         <motion.div variants={fadeUp} className="mt-10 flex justify-center">
           <Link
-            to="/app/stack"
+            to={openTarget}
             onClick={() => track(EVENTS.CTA_CLICK, { cta: 'open_app', location: 'final_cta' })}
             className="nb-btn inline-block px-8 py-4 text-base"
           >
