@@ -1078,3 +1078,107 @@ a client-side SPA with a static tool catalogue.
   wiring state + a global keydown listener + two trigger buttons into
   `AppShell.jsx`. No backend, no new dependency, no new route.
 - **Found:** 2026-08-26 09:06 UTC
+
+### Category/role landing pages ("Best AI tools for X") — zero crawlable listing pages exist
+- **Status:** OPEN
+- **Seen in:** every AI-tool directory in this file's comparison set runs its
+  organic-acquisition funnel through category/use-case listing pages, not the
+  homepage: Futurepedia and There's An AI For That both structure their whole
+  site around per-category pages ("AI Writing Tools," "AI Video Tools," etc.)
+  that rank independently in search; G2/Capterra's category pages are the
+  single biggest inbound-traffic surface either site has, well ahead of any
+  individual product page. The pattern works because a long-tail search like
+  "best AI tools for marketing" or "AI coding tools" has real, high-intent
+  search volume that a generic homepage can never rank for — you need one URL
+  per category, each with real content and real links.
+- **Gap:** Toolnaut has no page like this at all — not gated, not public, not
+  in any form. Confirmed three ways: (1) every tool-bearing route
+  (`discover`, `compare`, `tools/:slug`, `favorites`) is nested under
+  `<Route path="/app">` in `src/App.jsx:90-100`, which `AppShell.jsx:57-58`
+  hard-redirects to `/auth/login` for anyone without a (fake, local-only)
+  session — so even a gated version of a category page doesn't exist, only
+  the single-tool-and-search machinery behind the login wall. (2) The one
+  page that visually gestures at "roles" is purely decorative:
+  `RolesSection.jsx` on the homepage renders six sticker cards (Student, PM,
+  Designer, Marketer, Engineer, Founder — `starchartData.js:38-45`) as an SVG
+  constellation graphic with **zero links or tool content** — no `<a>`,
+  no `Link`, nothing clickable, confirmed reading the full 60-line file. It
+  exists purely as landing-page decoration, not a navigation surface. (3) the
+  hand-maintained `public/sitemap.xml` lists exactly 5 URLs — `/`, `/quiz`
+  (itself stale; the real route is `/goal` per the redirect at
+  `App.jsx:85` and the just-shipped entry-point fix), `/pricing`, `/about`,
+  `/starchart` — confirming there is no category/tool-listing content for a
+  crawler to discover even if it existed. A 700+-tool catalog with 26 real
+  source categories (`toolsCatalog.js:19-45`, each already carrying a
+  `domain` and a `count` — e.g. `"Marketing, SEO & Sales"`, 41 tools,
+  `"AI Coding & Development"`, 62 tools) currently has exactly one indexable
+  page total.
+- **Why it matters:** this is Toolnaut's single biggest unclaimed SEO/
+  acquisition surface, larger than the already-open per-route-meta gap
+  (which only fixes `<title>`/description on pages that already exist).
+  Every one of the 26 source categories is a plausible long-tail search
+  query with a real, differentiated tool list behind it today — the content
+  to answer "best AI tools for HR and recruiting" or "AI video generation
+  tools" already sits in the bundled catalog, unreachable by anyone who
+  isn't already a signed-in Toolnaut user. Right now the *only* way to see
+  Toolnaut's tools filtered by anything is to sit through the quiz/chat or
+  fake-sign-in first — there is no top-of-funnel page a search engine, a
+  shared link, or a curious first-time visitor can land on and immediately
+  see real, useful, filtered content.
+- **Smallest useful version (what to actually build):**
+  - New public route `/tools/:domain` in `src/App.jsx`, alongside `/s/:slugs`
+    (`App.jsx:79`) — outside `AppShell`, no session needed, same tier as the
+    share-stack page. Scope `:domain` to the 6 `CATEGORY_META` keys
+    (`code`/`design`/`writing`/`data`/`automation`/`learning`,
+    `toolsCatalog.js:9-16`) rather than all 26 `SOURCE_CATEGORIES` for v1 —
+    6 clean, pre-existing, human-readable slugs versus 26 that would need new
+    URL-safe slugging and copy for names like `"Presentations, Design &
+    Websites"`. The 26-category version is a natural, larger follow-up once
+    this pattern proves out, not required for a first cut.
+  - New `src/pages/CategoryLanding.jsx`: reads `:domain` via `useParams()`,
+    validates against `CATEGORY_META`, redirects unknown domains to `/`
+    (same silent-degrade spirit as `SharedStack.jsx`'s unknown-slug
+    handling). Filters `TOOLS` (imported directly from `toolsCatalog.js`,
+    same import `Discover.jsx:3` already does) by `.category === domain`,
+    renders a heading ("Best AI tools for {CATEGORY_META[domain].name}"), a
+    one-line description, and a read-only card grid reusing
+    `SharedStack.jsx`'s existing public card markup (glass card, blurb,
+    category chip — already the one precedent in this codebase for
+    "show tool cards to a visitor with no session"). No add-to-stack/
+    favorite actions (those need a session) — just a "Take the 60-second
+    quiz for your personal stack →" CTA to `/goal` at the top and bottom,
+    matching the already-shipped entry-point-consistency fix's own reasoning
+    for why every CTA should point at `/goal` directly.
+  - Wire `RolesSection.jsx`'s six cards to link somewhere real: since the
+    marketing `ROLES` array (Student/PM/Designer/.../Founder) doesn't map
+    1:1 onto the 6 data `CATEGORY_META` domains, the smallest honest fix is
+    giving each `Tilt` card a `Link` to the domain it's closest to in spirit
+    (e.g. Engineer → `/tools/code`, Designer → `/tools/design`, Marketer →
+    `/tools/writing`) rather than inventing a second role taxonomy — a
+    judgment call for whoever builds this to confirm against
+    `personaGenerator.js`'s own role→domain weighting before wiring, so the
+    mapping is consistent with what the quiz itself already believes.
+  - Add all 6 new URLs to `public/sitemap.xml` (which also needs its stale
+    `/quiz` entry corrected to `/goal` while touching this file, and the
+    already-shipped `/s/:slugs`... though a share link is per-user and
+    shouldn't be in a static sitemap — just the 6 new category URLs plus the
+    `/quiz`→`/goal` fix).
+  - `scripts/smoke.mjs`'s hardcoded route array needs one example URL added
+    (e.g. `/tools/code`), same footgun flagged on every gap in this file that
+    adds a route.
+  - **What this would NOT include** (kept out to bound the diff): no all-26-
+    source-category expansion in v1 (noted above as the natural follow-up);
+    no per-category unique long-form copy beyond a one-line description (a
+    real content/SEO pass with 6 hand-written paragraphs is a copywriting
+    task, not an engineering one, and shouldn't block shipping the page
+    structure); no pagination/sorting/filtering controls on these pages (that
+    is what the existing gated `Discover.jsx` is for — these are top-of-
+    funnel landing pages, not a second search UI); no per-route meta tags
+    beyond what this gap's own heading provides unless the separately-open
+    `usePageMeta` hook gap ships first, in which case these 6 pages are
+    natural additional call sites for it, not a reason to block on it now.
+- **Build size:** S/M — one new page (`CategoryLanding.jsx`), one new public
+  route in `App.jsx`, a `Link` wiring change in `RolesSection.jsx`, 6 new
+  lines + 1 fix in `sitemap.xml`, one line in `scripts/smoke.mjs`. No
+  backend, no new dependency.
+- **Found:** 2026-08-26 12:15 UTC
