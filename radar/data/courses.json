@@ -279,5 +279,1071 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "course-captureagent",
+    "toolSlug": "captureagent",
+    "title": "Master CaptureAgent",
+    "objectives": [
+      "Understand what CaptureAgent is for",
+      "Use CaptureAgent on a real task",
+      "Know where CaptureAgent fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure CaptureAgent for your real workflow, not the demo.",
+          "Say what CaptureAgent does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through CaptureAgent.",
+          "Push CaptureAgent to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold CaptureAgent into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-govcon",
+      "skill-federal contracts",
+      "skill-proposal writing",
+      "skill-bidding"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-ecdeos",
+    "toolSlug": "ecdeos",
+    "title": "Master Ecdeos",
+    "objectives": [
+      "Understand what Ecdeos is for",
+      "Use Ecdeos on a real task",
+      "Know where Ecdeos fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Ecdeos for your real workflow, not the demo.",
+          "Say what Ecdeos does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Ecdeos.",
+          "Push Ecdeos to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Ecdeos into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-p2p",
+      "skill-distributed-os",
+      "skill-decentralized",
+      "skill-protocol",
+      "skill-web"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-canvasformusic",
+    "toolSlug": "canvasformusic",
+    "title": "Master CanvasForMusic",
+    "objectives": [
+      "Build a seamless 3–8 second vertical looping video in CanvasForMusic",
+      "Export an MP4 that meets Spotify Canvas specs (9:16, 1080x1920)",
+      "Upload and publish the Canvas on a track via Spotify for Artists"
+    ],
+    "modules": [
+      {
+        "title": "Set Up Your Canvas Project",
+        "estMinutes": 8,
+        "steps": [
+          "Sign up for a free CanvasForMusic account and click 'New Canvas' to open a 9:16 (1080x1920) project",
+          "Drag in your own video clip or pick one from the built-in stock library that matches your track's mood",
+          "Name the project after your song so exports stay organized when you make canvases for multiple tracks"
+        ]
+      },
+      {
+        "title": "Trim and Perfect the Loop",
+        "estMinutes": 12,
+        "steps": [
+          "Drag the timeline handles to select the 3–8 second segment with the strongest motion (performance, visual hook, or beat-matched movement)",
+          "Choose a loop style: 'Boomerang' for a palindrome loop or 'Crossfade' to blend the end back into the start, then scrub the loop point until no jump is visible",
+          "Press the loop preview button and watch it repeat 5+ times to confirm the seam is invisible on a phone-sized preview"
+        ]
+      },
+      {
+        "title": "Export and Publish to Spotify",
+        "estMinutes": 10,
+        "steps": [
+          "Click Export and select the 'Spotify Canvas' preset (MP4, H.264, 9:16) to guarantee the file passes Spotify's upload checks",
+          "Log into Spotify for Artists, go to Music, pick the track, click 'Add Canvas', and upload the exported MP4",
+          "Review the mobile preview in the app, submit, and check back within a few days to confirm the Canvas is live and looping correctly"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-spotify",
+      "skill-canvas",
+      "skill-video",
+      "skill-music",
+      "skill-visuals"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-gibson-adk-and-zero-trust-runtime",
+    "toolSlug": "gibson-adk-and-zero-trust-runtime",
+    "title": "Master Gibson ADK and Zero Trust Runtime",
+    "objectives": [
+      "Understand what Gibson ADK and Zero Trust Runtime is for",
+      "Use Gibson ADK and Zero Trust Runtime on a real task",
+      "Know where Gibson ADK and Zero Trust Runtime fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Gibson ADK and Zero Trust Runtime for your real workflow, not the demo.",
+          "Say what Gibson ADK and Zero Trust Runtime does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Gibson ADK and Zero Trust Runtime.",
+          "Push Gibson ADK and Zero Trust Runtime to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Gibson ADK and Zero Trust Runtime into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-zero trust",
+      "skill-security",
+      "skill-adk",
+      "skill-runtime"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-a-daily-cartoon-contest-between-ai-models-judged-blind",
+    "toolSlug": "a-daily-cartoon-contest-between-ai-models-judged-blind",
+    "title": "Master A daily cartoon contest between AI models, judged blind",
+    "objectives": [
+      "Understand how the daily blind cartoon contest works",
+      "Cast an informed blind vote on today's cartoons",
+      "Track results and model standings over time"
+    ],
+    "modules": [
+      {
+        "title": "Tour the Daily Contest",
+        "estMinutes": 5,
+        "steps": [
+          "Open the homepage and read today's cartoon prompt or theme shown at the top",
+          "Note the two key times: when voting closes and when the model identities are revealed",
+          "Scroll through today's cartoon entries and confirm no model names or logos are visible"
+        ]
+      },
+      {
+        "title": "Cast Your Blind Vote",
+        "estMinutes": 5,
+        "steps": [
+          "Compare today's cartoons side by side on humor, originality, and how well they fit the prompt",
+          "Click the cartoon you think is best and hit the Vote button to lock it in",
+          "Verify your vote was recorded by checking for the confirmation message or filled-in vote banner"
+        ]
+      },
+      {
+        "title": "Read the Reveal and Results",
+        "estMinutes": 5,
+        "steps": [
+          "Return after the reveal time to see which AI model drew each cartoon",
+          "Check the vote counts to see whether your pick won the day",
+          "Open the leaderboard page to view each model's all-time wins and win rate"
+        ]
+      },
+      {
+        "title": "Make It a Daily Habit",
+        "estMinutes": 4,
+        "steps": [
+          "Sign up for the daily email or notification so you never miss a voting window",
+          "Browse the archive to revisit past contests and see how model styles differ",
+          "Share a favorite cartoon using the share button to invite friends to vote"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-cartoons",
+      "skill-ai-contest",
+      "skill-image-generation",
+      "skill-blind-voting",
+      "skill-humor"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-coolplugz",
+    "toolSlug": "coolplugz",
+    "title": "Master CoolPlugz",
+    "objectives": [
+      "Understand what CoolPlugz is for",
+      "Use CoolPlugz on a real task",
+      "Know where CoolPlugz fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure CoolPlugz for your real workflow, not the demo.",
+          "Say what CoolPlugz does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through CoolPlugz.",
+          "Push CoolPlugz to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold CoolPlugz into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-claude",
+      "skill-mcp",
+      "skill-jira",
+      "skill-pull-requests",
+      "skill-automation"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-the-ai-health-agent-that-will-know-me-for-life",
+    "toolSlug": "the-ai-health-agent-that-will-know-me-for-life",
+    "title": "Master The AI Health Agent That Will Know Me for Life",
+    "objectives": [
+      "Summarize the essay's core thesis about a lifelong, data-tracking AI health agent",
+      "Identify the specific health data categories the envisioned agent would monitor",
+      "Assess your own health-data footprint and the privacy trade-offs of such an agent"
+    ],
+    "modules": [
+      {
+        "title": "First Read: Locate the Thesis",
+        "estMinutes": 15,
+        "steps": [
+          "Read only the introduction and conclusion; write the author's main claim about lifelong AI health agents in one sentence",
+          "Skim the remaining sections and list the three boldest predictions the essay makes about what this agent will do"
+        ]
+      },
+      {
+        "title": "Map the Agent's Data Diet",
+        "estMinutes": 20,
+        "steps": [
+          "Reread the essay and highlight every data source the agent would track (wearables, lab results, genomics, medical records, sleep, diet, symptoms)",
+          "Build a two-column table with at least 6 rows: data type in column one, what the agent learns or does with it in column two"
+        ]
+      },
+      {
+        "title": "Audit Your Own Health Data",
+        "estMinutes": 20,
+        "steps": [
+          "List every place your health data currently lives (patient portal like MyChart, Apple Health/Google Fit, fitness tracker, DNA test, pharmacy records)",
+          "Open one source and actually view or export a record, e.g., download your latest lab result from your provider's portal"
+        ]
+      },
+      {
+        "title": "Privacy and Trust Check",
+        "estMinutes": 15,
+        "steps": [
+          "Note where the essay addresses (or ignores) data ownership, consent, and who profits from your lifelong record",
+          "Draft three non-negotiable questions you would ask before handing your lifetime health data to any AI agent"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai health",
+      "skill-health agent",
+      "skill-personal data",
+      "skill-longevity",
+      "skill-essay"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-hermes-agent",
+    "toolSlug": "hermes-agent",
+    "title": "Master Hermes Agent",
+    "objectives": [
+      "Understand what Hermes Agent is for",
+      "Use Hermes Agent on a real task",
+      "Know where Hermes Agent fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Hermes Agent for your real workflow, not the demo.",
+          "Say what Hermes Agent does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Hermes Agent.",
+          "Push Hermes Agent to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Hermes Agent into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-open-source",
+      "skill-ai-agent",
+      "skill-llm",
+      "skill-self-hosted"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-try-to-beat-this-ai-writing-detector",
+    "toolSlug": "try-to-beat-this-ai-writing-detector",
+    "title": "Master Try to beat this AI writing detector",
+    "objectives": [
+      "Understand what Try to beat this AI writing detector is for",
+      "Use Try to beat this AI writing detector on a real task",
+      "Know where Try to beat this AI writing detector fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Try to beat this AI writing detector.",
+          "Say what Try to beat this AI writing detector does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Try to beat this AI writing detector.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Try to beat this AI writing detector into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-ai detection",
+      "skill-detector",
+      "skill-interactive",
+      "skill-testing"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-mrea",
+    "toolSlug": "mrea",
+    "title": "Master MREA",
+    "objectives": [
+      "Understand what MREA is for",
+      "Use MREA on a real task",
+      "Know where MREA fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure MREA for your real workflow, not the demo.",
+          "Say what MREA does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through MREA.",
+          "Push MREA to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold MREA into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-governance",
+      "skill-multi-agent",
+      "skill-framework",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-thinkrail-jetbrains-incubator",
+    "toolSlug": "thinkrail-jetbrains-incubator",
+    "title": "Master ThinkRail (JetBrains incubator)",
+    "objectives": [
+      "Understand what ThinkRail (JetBrains incubator) is for",
+      "Use ThinkRail (JetBrains incubator) on a real task",
+      "Know where ThinkRail (JetBrains incubator) fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure ThinkRail (JetBrains incubator) for your real workflow, not the demo.",
+          "Say what ThinkRail (JetBrains incubator) does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through ThinkRail (JetBrains incubator).",
+          "Push ThinkRail (JetBrains incubator) to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold ThinkRail (JetBrains incubator) into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding agent",
+      "skill-gui",
+      "skill-web-based",
+      "skill-developer tools",
+      "skill-jetbrains"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-designing-loops-for-production-grade-work",
+    "toolSlug": "designing-loops-for-production-grade-work",
+    "title": "Master Designing Loops for Production-Grade Work",
+    "objectives": [
+      "Understand what Designing Loops for Production-Grade Work is for",
+      "Use Designing Loops for Production-Grade Work on a real task",
+      "Know where Designing Loops for Production-Grade Work fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Designing Loops for Production-Grade Work for your real workflow, not the demo.",
+          "Say what Designing Loops for Production-Grade Work does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Designing Loops for Production-Grade Work.",
+          "Push Designing Loops for Production-Grade Work to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Designing Loops for Production-Grade Work into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-agents",
+      "skill-llm",
+      "skill-production",
+      "skill-loops",
+      "skill-tutorial"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-limitless-library",
+    "toolSlug": "limitless-library",
+    "title": "Master Limitless Library",
+    "objectives": [
+      "Understand what Limitless Library is for",
+      "Use Limitless Library on a real task",
+      "Know where Limitless Library fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Limitless Library for your real workflow, not the demo.",
+          "Say what Limitless Library does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Limitless Library.",
+          "Push Limitless Library to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Limitless Library into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-code reuse",
+      "skill-open source",
+      "skill-library",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-player-vs-computer",
+    "toolSlug": "player-vs-computer",
+    "title": "Master Player vs. Computer",
+    "objectives": [
+      "Understand what Player vs. Computer is for",
+      "Use Player vs. Computer on a real task",
+      "Know where Player vs. Computer fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Player vs. Computer.",
+          "Say what Player vs. Computer does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Player vs. Computer.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Player vs. Computer into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-web game",
+      "skill-browser game",
+      "skill-casual",
+      "skill-open source",
+      "skill-fun"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-genbio-launches-a-virtual-biological-cell",
+    "toolSlug": "genbio-launches-a-virtual-biological-cell",
+    "title": "Master GenBio launches a virtual biological cell",
+    "objectives": [
+      "Understand what GenBio launches a virtual biological cell is for",
+      "Use GenBio launches a virtual biological cell on a real task",
+      "Know where GenBio launches a virtual biological cell fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure GenBio launches a virtual biological cell for your real workflow, not the demo.",
+          "Say what GenBio launches a virtual biological cell does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through GenBio launches a virtual biological cell.",
+          "Push GenBio launches a virtual biological cell to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold GenBio launches a virtual biological cell into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-virtual cell",
+      "skill-biology",
+      "skill-simulation",
+      "skill-biotech",
+      "skill-ai model"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-aristra-your-life-os",
+    "toolSlug": "aristra-your-life-os",
+    "title": "Master Aristra, your life OS",
+    "objectives": [
+      "Understand what Aristra, your life OS is for",
+      "Use Aristra, your life OS on a real task",
+      "Know where Aristra, your life OS fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Aristra, your life OS.",
+          "Say what Aristra, your life OS does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Aristra, your life OS.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Aristra, your life OS into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-productivity",
+      "skill-life-os",
+      "skill-planning",
+      "skill-ai-assistant",
+      "skill-organization"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-launch-hn-vendo-yc-s26",
+    "toolSlug": "launch-hn-vendo-yc-s26",
+    "title": "Master Launch HN: Vendo (YC S26)",
+    "objectives": [
+      "Embed the Vendo agent into an existing web app",
+      "Expose your product's API as safe, agent-callable tools",
+      "Configure auth, guardrails, and ship to production"
+    ],
+    "modules": [
+      {
+        "title": "Install and embed the agent",
+        "estMinutes": 20,
+        "steps": [
+          "Run `npm install @vendo/agent` and add `<VendoAgent apiKey={...} userToken={...} />` to your app's root layout",
+          "Generate a project API key from the Vendo dashboard and store it in your env file",
+          "Verify the agent chat widget renders and responds in your dev environment"
+        ]
+      },
+      {
+        "title": "Define tools the agent can call",
+        "estMinutes": 35,
+        "steps": [
+          "Write a tools manifest (vendo.tools.ts) mapping tool names to your existing REST endpoints, e.g. `createInvoice`, `listProjects`",
+          "Add JSON Schema definitions for each tool's inputs so the agent can validate user requests",
+          "Mark read-only vs. write tools and flag destructive actions for user confirmation"
+        ]
+      },
+      {
+        "title": "Wire up user auth and permissions",
+        "estMinutes": 25,
+        "steps": [
+          "Implement the server-side session endpoint that signs short-lived user tokens with your Vendo secret",
+          "Pass the signed token into the widget so the agent acts only within that user's permissions",
+          "Test that the agent cannot access another user's data by switching accounts in dev"
+        ]
+      },
+      {
+        "title": "Test, set guardrails, and deploy",
+        "estMinutes": 25,
+        "steps": [
+          "Use Vendo's sandbox replay view to inspect agent traces and confirm correct tool calls on 3 realistic user tasks",
+          "Configure rate limits and blocked topics in the dashboard guardrails panel",
+          "Promote the config from staging to production and monitor the first week via the analytics tab"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agent",
+      "skill-embedded ai",
+      "skill-feature builder",
+      "skill-sdk",
+      "skill-saas"
+    ],
+    "prerequisites": [
+      "Intermediate JavaScript/TypeScript and React",
+      "A running web app with user authentication",
+      "Existing REST API endpoints the agent can call",
+      "A Vendo account with dashboard access"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-ai-resume-screening",
+    "toolSlug": "ai-resume-screening",
+    "title": "Master AI Resume Screening",
+    "objectives": [
+      "Understand what AI Resume Screening is for",
+      "Use AI Resume Screening on a real task",
+      "Know where AI Resume Screening fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for AI Resume Screening.",
+          "Say what AI Resume Screening does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Resume Screening.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Resume Screening into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-resume screening",
+      "skill-recruiting",
+      "skill-hiring",
+      "skill-hr",
+      "skill-ai"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-aifi-on-aws",
+    "toolSlug": "aifi-on-aws",
+    "title": "Master AiFi on AWS",
+    "objectives": [
+      "Understand what AiFi on AWS is for",
+      "Use AiFi on AWS on a real task",
+      "Know where AiFi on AWS fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AiFi on AWS for your real workflow, not the demo.",
+          "Say what AiFi on AWS does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AiFi on AWS.",
+          "Push AiFi on AWS to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AiFi on AWS into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-aifi",
+      "skill-aws",
+      "skill-finance",
+      "skill-agent",
+      "skill-crypto"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-agenttrail",
+    "toolSlug": "agenttrail",
+    "title": "Master agenttrail",
+    "objectives": [
+      "Understand what agenttrail is for",
+      "Use agenttrail on a real task",
+      "Know where agenttrail fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure agenttrail for your real workflow, not the demo.",
+          "Say what agenttrail does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through agenttrail.",
+          "Push agenttrail to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold agenttrail into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-observability",
+      "skill-ai agents",
+      "skill-monitoring",
+      "skill-developer tools",
+      "skill-coding"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-ai-agent-hacking-writeups",
+    "toolSlug": "ai-agent-hacking-writeups",
+    "title": "Master ai-agent-hacking-writeups",
+    "objectives": [
+      "Understand what ai-agent-hacking-writeups is for",
+      "Use ai-agent-hacking-writeups on a real task",
+      "Know where ai-agent-hacking-writeups fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure ai-agent-hacking-writeups for your real workflow, not the demo.",
+          "Say what ai-agent-hacking-writeups does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through ai-agent-hacking-writeups.",
+          "Push ai-agent-hacking-writeups to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold ai-agent-hacking-writeups into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai security",
+      "skill-prompt injection",
+      "skill-red teaming",
+      "skill-ai agents",
+      "skill-exploits"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-26T02:18:24.360Z"
   }
 ]

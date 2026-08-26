@@ -6,11 +6,25 @@
     "level": "intermediate",
     "toolsTeaching": [
       "ablo-make-your-ai-app-multiplayer",
-      "glm-53-open-weight-beat-anthropic-openai-models"
+      "glm-53-open-weight-beat-anthropic-openai-models",
+      "ecdeos",
+      "coolplugz",
+      "thinkrail-jetbrains-incubator",
+      "limitless-library",
+      "player-vs-computer",
+      "launch-hn-vendo-yc-s26",
+      "agenttrail"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
-      "course-glm-53-open-weight-beat-anthropic-openai-models"
+      "course-glm-53-open-weight-beat-anthropic-openai-models",
+      "course-ecdeos",
+      "course-coolplugz",
+      "course-thinkrail-jetbrains-incubator",
+      "course-limitless-library",
+      "course-player-vs-computer",
+      "course-launch-hn-vendo-yc-s26",
+      "course-agenttrail"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -59,10 +73,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "ablo-make-your-ai-app-multiplayer"
+      "ablo-make-your-ai-app-multiplayer",
+      "launch-hn-vendo-yc-s26"
     ],
     "courses": [
-      "course-ablo-make-your-ai-app-multiplayer"
+      "course-ablo-make-your-ai-app-multiplayer",
+      "course-launch-hn-vendo-yc-s26"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -72,10 +88,14 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "ablo-make-your-ai-app-multiplayer"
+      "ablo-make-your-ai-app-multiplayer",
+      "hermes-agent",
+      "mrea"
     ],
     "courses": [
-      "course-ablo-make-your-ai-app-multiplayer"
+      "course-ablo-make-your-ai-app-multiplayer",
+      "course-hermes-agent",
+      "course-mrea"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -86,11 +106,15 @@
     "level": "beginner",
     "toolsTeaching": [
       "i-built-an-ai-music-generator-with-some-harnesses",
-      "edify"
+      "edify",
+      "canvasformusic",
+      "a-daily-cartoon-contest-between-ai-models-judged-blind"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
-      "course-edify"
+      "course-edify",
+      "course-canvasformusic",
+      "course-a-daily-cartoon-contest-between-ai-models-judged-blind"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -165,10 +189,28 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "headless-tools"
+      "headless-tools",
+      "captureagent",
+      "gibson-adk-and-zero-trust-runtime",
+      "coolplugz",
+      "the-ai-health-agent-that-will-know-me-for-life",
+      "hermes-agent",
+      "mrea",
+      "aristra-your-life-os",
+      "ai-resume-screening",
+      "aifi-on-aws"
     ],
     "courses": [
-      "course-headless-tools"
+      "course-headless-tools",
+      "course-captureagent",
+      "course-gibson-adk-and-zero-trust-runtime",
+      "course-coolplugz",
+      "course-the-ai-health-agent-that-will-know-me-for-life",
+      "course-hermes-agent",
+      "course-mrea",
+      "course-aristra-your-life-os",
+      "course-ai-resume-screening",
+      "course-aifi-on-aws"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -191,10 +233,20 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "headless-tools"
+      "headless-tools",
+      "gibson-adk-and-zero-trust-runtime",
+      "mrea",
+      "limitless-library",
+      "agenttrail",
+      "ai-agent-hacking-writeups"
     ],
     "courses": [
-      "course-headless-tools"
+      "course-headless-tools",
+      "course-gibson-adk-and-zero-trust-runtime",
+      "course-mrea",
+      "course-limitless-library",
+      "course-agenttrail",
+      "course-ai-agent-hacking-writeups"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -217,10 +269,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "headless-tools"
+      "headless-tools",
+      "launch-hn-vendo-yc-s26"
     ],
     "courses": [
-      "course-headless-tools"
+      "course-headless-tools",
+      "course-launch-hn-vendo-yc-s26"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -243,10 +297,14 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "glm-53-open-weight-beat-anthropic-openai-models"
+      "glm-53-open-weight-beat-anthropic-openai-models",
+      "hermes-agent",
+      "designing-loops-for-production-grade-work"
     ],
     "courses": [
-      "course-glm-53-open-weight-beat-anthropic-openai-models"
+      "course-glm-53-open-weight-beat-anthropic-openai-models",
+      "course-hermes-agent",
+      "course-designing-loops-for-production-grade-work"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -269,10 +327,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "glm-53-open-weight-beat-anthropic-openai-models"
+      "glm-53-open-weight-beat-anthropic-openai-models",
+      "agenttrail"
     ],
     "courses": [
-      "course-glm-53-open-weight-beat-anthropic-openai-models"
+      "course-glm-53-open-weight-beat-anthropic-openai-models",
+      "course-agenttrail"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -353,5 +413,1170 @@
       "course-edify"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
+  },
+  {
+    "id": "skill-govcon",
+    "name": "govcon",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "captureagent"
+    ],
+    "courses": [
+      "course-captureagent"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-federal contracts",
+    "name": "federal contracts",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "captureagent"
+    ],
+    "courses": [
+      "course-captureagent"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-proposal writing",
+    "name": "proposal writing",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "captureagent"
+    ],
+    "courses": [
+      "course-captureagent"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-bidding",
+    "name": "bidding",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "captureagent"
+    ],
+    "courses": [
+      "course-captureagent"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-p2p",
+    "name": "p2p",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ecdeos"
+    ],
+    "courses": [
+      "course-ecdeos"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-distributed-os",
+    "name": "distributed os",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ecdeos"
+    ],
+    "courses": [
+      "course-ecdeos"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-decentralized",
+    "name": "decentralized",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ecdeos"
+    ],
+    "courses": [
+      "course-ecdeos"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-protocol",
+    "name": "protocol",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ecdeos"
+    ],
+    "courses": [
+      "course-ecdeos"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-web",
+    "name": "web",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ecdeos"
+    ],
+    "courses": [
+      "course-ecdeos"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-spotify",
+    "name": "spotify",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "canvasformusic"
+    ],
+    "courses": [
+      "course-canvasformusic"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-canvas",
+    "name": "canvas",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "canvasformusic"
+    ],
+    "courses": [
+      "course-canvasformusic"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-video",
+    "name": "video",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "canvasformusic"
+    ],
+    "courses": [
+      "course-canvasformusic"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-music",
+    "name": "music",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "canvasformusic"
+    ],
+    "courses": [
+      "course-canvasformusic"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-visuals",
+    "name": "visuals",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "canvasformusic"
+    ],
+    "courses": [
+      "course-canvasformusic"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-zero trust",
+    "name": "zero trust",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "gibson-adk-and-zero-trust-runtime"
+    ],
+    "courses": [
+      "course-gibson-adk-and-zero-trust-runtime"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-security",
+    "name": "security",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "gibson-adk-and-zero-trust-runtime"
+    ],
+    "courses": [
+      "course-gibson-adk-and-zero-trust-runtime"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-adk",
+    "name": "adk",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "gibson-adk-and-zero-trust-runtime"
+    ],
+    "courses": [
+      "course-gibson-adk-and-zero-trust-runtime"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-runtime",
+    "name": "runtime",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "gibson-adk-and-zero-trust-runtime"
+    ],
+    "courses": [
+      "course-gibson-adk-and-zero-trust-runtime"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-cartoons",
+    "name": "cartoons",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "a-daily-cartoon-contest-between-ai-models-judged-blind"
+    ],
+    "courses": [
+      "course-a-daily-cartoon-contest-between-ai-models-judged-blind"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-ai-contest",
+    "name": "ai contest",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "a-daily-cartoon-contest-between-ai-models-judged-blind"
+    ],
+    "courses": [
+      "course-a-daily-cartoon-contest-between-ai-models-judged-blind"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-image-generation",
+    "name": "image generation",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "a-daily-cartoon-contest-between-ai-models-judged-blind"
+    ],
+    "courses": [
+      "course-a-daily-cartoon-contest-between-ai-models-judged-blind"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-blind-voting",
+    "name": "blind voting",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "a-daily-cartoon-contest-between-ai-models-judged-blind"
+    ],
+    "courses": [
+      "course-a-daily-cartoon-contest-between-ai-models-judged-blind"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-humor",
+    "name": "humor",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "a-daily-cartoon-contest-between-ai-models-judged-blind"
+    ],
+    "courses": [
+      "course-a-daily-cartoon-contest-between-ai-models-judged-blind"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-claude",
+    "name": "claude",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "coolplugz"
+    ],
+    "courses": [
+      "course-coolplugz"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-mcp",
+    "name": "mcp",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "coolplugz"
+    ],
+    "courses": [
+      "course-coolplugz"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-jira",
+    "name": "jira",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "coolplugz"
+    ],
+    "courses": [
+      "course-coolplugz"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-pull-requests",
+    "name": "pull requests",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "coolplugz"
+    ],
+    "courses": [
+      "course-coolplugz"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-ai health",
+    "name": "ai health",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "the-ai-health-agent-that-will-know-me-for-life"
+    ],
+    "courses": [
+      "course-the-ai-health-agent-that-will-know-me-for-life"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-health agent",
+    "name": "health agent",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "the-ai-health-agent-that-will-know-me-for-life"
+    ],
+    "courses": [
+      "course-the-ai-health-agent-that-will-know-me-for-life"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-personal data",
+    "name": "personal data",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "the-ai-health-agent-that-will-know-me-for-life"
+    ],
+    "courses": [
+      "course-the-ai-health-agent-that-will-know-me-for-life"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-longevity",
+    "name": "longevity",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "the-ai-health-agent-that-will-know-me-for-life"
+    ],
+    "courses": [
+      "course-the-ai-health-agent-that-will-know-me-for-life"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-essay",
+    "name": "essay",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "the-ai-health-agent-that-will-know-me-for-life"
+    ],
+    "courses": [
+      "course-the-ai-health-agent-that-will-know-me-for-life"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-ai-agent",
+    "name": "ai agent",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "hermes-agent"
+    ],
+    "courses": [
+      "course-hermes-agent"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-self-hosted",
+    "name": "self hosted",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "hermes-agent"
+    ],
+    "courses": [
+      "course-hermes-agent"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-writing",
+    "name": "writing",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "try-to-beat-this-ai-writing-detector"
+    ],
+    "courses": [
+      "course-try-to-beat-this-ai-writing-detector"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-ai detection",
+    "name": "ai detection",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "try-to-beat-this-ai-writing-detector"
+    ],
+    "courses": [
+      "course-try-to-beat-this-ai-writing-detector"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-detector",
+    "name": "detector",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "try-to-beat-this-ai-writing-detector"
+    ],
+    "courses": [
+      "course-try-to-beat-this-ai-writing-detector"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-interactive",
+    "name": "interactive",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "try-to-beat-this-ai-writing-detector"
+    ],
+    "courses": [
+      "course-try-to-beat-this-ai-writing-detector"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-testing",
+    "name": "testing",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "try-to-beat-this-ai-writing-detector"
+    ],
+    "courses": [
+      "course-try-to-beat-this-ai-writing-detector"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-governance",
+    "name": "governance",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "mrea"
+    ],
+    "courses": [
+      "course-mrea"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-multi-agent",
+    "name": "multi agent",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "mrea"
+    ],
+    "courses": [
+      "course-mrea"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-framework",
+    "name": "framework",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "mrea"
+    ],
+    "courses": [
+      "course-mrea"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-coding agent",
+    "name": "coding agent",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "thinkrail-jetbrains-incubator"
+    ],
+    "courses": [
+      "course-thinkrail-jetbrains-incubator"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-gui",
+    "name": "gui",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "thinkrail-jetbrains-incubator"
+    ],
+    "courses": [
+      "course-thinkrail-jetbrains-incubator"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-web-based",
+    "name": "web based",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "thinkrail-jetbrains-incubator"
+    ],
+    "courses": [
+      "course-thinkrail-jetbrains-incubator"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-developer tools",
+    "name": "developer tools",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "thinkrail-jetbrains-incubator",
+      "limitless-library",
+      "agenttrail"
+    ],
+    "courses": [
+      "course-thinkrail-jetbrains-incubator",
+      "course-limitless-library",
+      "course-agenttrail"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-jetbrains",
+    "name": "jetbrains",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "thinkrail-jetbrains-incubator"
+    ],
+    "courses": [
+      "course-thinkrail-jetbrains-incubator"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-learning",
+    "name": "learning",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "designing-loops-for-production-grade-work",
+      "ai-agent-hacking-writeups"
+    ],
+    "courses": [
+      "course-designing-loops-for-production-grade-work",
+      "course-ai-agent-hacking-writeups"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-agents",
+    "name": "agents",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "designing-loops-for-production-grade-work"
+    ],
+    "courses": [
+      "course-designing-loops-for-production-grade-work"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-production",
+    "name": "production",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "designing-loops-for-production-grade-work"
+    ],
+    "courses": [
+      "course-designing-loops-for-production-grade-work"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-loops",
+    "name": "loops",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "designing-loops-for-production-grade-work"
+    ],
+    "courses": [
+      "course-designing-loops-for-production-grade-work"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-tutorial",
+    "name": "tutorial",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "designing-loops-for-production-grade-work"
+    ],
+    "courses": [
+      "course-designing-loops-for-production-grade-work"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-code reuse",
+    "name": "code reuse",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "limitless-library"
+    ],
+    "courses": [
+      "course-limitless-library"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-open source",
+    "name": "open source",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "limitless-library",
+      "player-vs-computer"
+    ],
+    "courses": [
+      "course-limitless-library",
+      "course-player-vs-computer"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-library",
+    "name": "library",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "limitless-library"
+    ],
+    "courses": [
+      "course-limitless-library"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-web game",
+    "name": "web game",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "player-vs-computer"
+    ],
+    "courses": [
+      "course-player-vs-computer"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-browser game",
+    "name": "browser game",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "player-vs-computer"
+    ],
+    "courses": [
+      "course-player-vs-computer"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-casual",
+    "name": "casual",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "player-vs-computer"
+    ],
+    "courses": [
+      "course-player-vs-computer"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-fun",
+    "name": "fun",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "player-vs-computer"
+    ],
+    "courses": [
+      "course-player-vs-computer"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-data",
+    "name": "data",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "genbio-launches-a-virtual-biological-cell"
+    ],
+    "courses": [
+      "course-genbio-launches-a-virtual-biological-cell"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-virtual cell",
+    "name": "virtual cell",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "genbio-launches-a-virtual-biological-cell"
+    ],
+    "courses": [
+      "course-genbio-launches-a-virtual-biological-cell"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-biology",
+    "name": "biology",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "genbio-launches-a-virtual-biological-cell"
+    ],
+    "courses": [
+      "course-genbio-launches-a-virtual-biological-cell"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-simulation",
+    "name": "simulation",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "genbio-launches-a-virtual-biological-cell"
+    ],
+    "courses": [
+      "course-genbio-launches-a-virtual-biological-cell"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-biotech",
+    "name": "biotech",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "genbio-launches-a-virtual-biological-cell"
+    ],
+    "courses": [
+      "course-genbio-launches-a-virtual-biological-cell"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-ai model",
+    "name": "ai model",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "genbio-launches-a-virtual-biological-cell"
+    ],
+    "courses": [
+      "course-genbio-launches-a-virtual-biological-cell"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-productivity",
+    "name": "productivity",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "aristra-your-life-os"
+    ],
+    "courses": [
+      "course-aristra-your-life-os"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-life-os",
+    "name": "life os",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "aristra-your-life-os"
+    ],
+    "courses": [
+      "course-aristra-your-life-os"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-planning",
+    "name": "planning",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "aristra-your-life-os"
+    ],
+    "courses": [
+      "course-aristra-your-life-os"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-ai-assistant",
+    "name": "ai assistant",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "aristra-your-life-os"
+    ],
+    "courses": [
+      "course-aristra-your-life-os"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-organization",
+    "name": "organization",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "aristra-your-life-os"
+    ],
+    "courses": [
+      "course-aristra-your-life-os"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-ai agent",
+    "name": "ai agent",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "launch-hn-vendo-yc-s26"
+    ],
+    "courses": [
+      "course-launch-hn-vendo-yc-s26"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-embedded ai",
+    "name": "embedded ai",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "launch-hn-vendo-yc-s26"
+    ],
+    "courses": [
+      "course-launch-hn-vendo-yc-s26"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-feature builder",
+    "name": "feature builder",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "launch-hn-vendo-yc-s26"
+    ],
+    "courses": [
+      "course-launch-hn-vendo-yc-s26"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-resume screening",
+    "name": "resume screening",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-resume-screening"
+    ],
+    "courses": [
+      "course-ai-resume-screening"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-recruiting",
+    "name": "recruiting",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-resume-screening"
+    ],
+    "courses": [
+      "course-ai-resume-screening"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-hiring",
+    "name": "hiring",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-resume-screening"
+    ],
+    "courses": [
+      "course-ai-resume-screening"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-hr",
+    "name": "hr",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-resume-screening"
+    ],
+    "courses": [
+      "course-ai-resume-screening"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-ai",
+    "name": "ai",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-resume-screening"
+    ],
+    "courses": [
+      "course-ai-resume-screening"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-aifi",
+    "name": "aifi",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "aifi-on-aws"
+    ],
+    "courses": [
+      "course-aifi-on-aws"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-aws",
+    "name": "aws",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "aifi-on-aws"
+    ],
+    "courses": [
+      "course-aifi-on-aws"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-finance",
+    "name": "finance",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "aifi-on-aws"
+    ],
+    "courses": [
+      "course-aifi-on-aws"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-agent",
+    "name": "agent",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "aifi-on-aws"
+    ],
+    "courses": [
+      "course-aifi-on-aws"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-crypto",
+    "name": "crypto",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "aifi-on-aws"
+    ],
+    "courses": [
+      "course-aifi-on-aws"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-observability",
+    "name": "observability",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agenttrail"
+    ],
+    "courses": [
+      "course-agenttrail"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-monitoring",
+    "name": "monitoring",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agenttrail"
+    ],
+    "courses": [
+      "course-agenttrail"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-ai security",
+    "name": "ai security",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-agent-hacking-writeups"
+    ],
+    "courses": [
+      "course-ai-agent-hacking-writeups"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-prompt injection",
+    "name": "prompt injection",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-agent-hacking-writeups"
+    ],
+    "courses": [
+      "course-ai-agent-hacking-writeups"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-red teaming",
+    "name": "red teaming",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-agent-hacking-writeups"
+    ],
+    "courses": [
+      "course-ai-agent-hacking-writeups"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-exploits",
+    "name": "exploits",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-agent-hacking-writeups"
+    ],
+    "courses": [
+      "course-ai-agent-hacking-writeups"
+    ],
+    "updatedAt": "2026-08-26T02:18:24.360Z"
   }
 ]

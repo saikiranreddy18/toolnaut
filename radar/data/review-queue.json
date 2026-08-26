@@ -1,0 +1,59 @@
+[
+  {
+    "slug": "ora-benchmarks-every-major-ai-agent-on-vercel",
+    "name": "Ora benchmarks every major AI agent on Vercel",
+    "category": "automation",
+    "sourceCategory": "Productivity & Meetings",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Ora benchmarks every major AI agent on Vercel – Customers",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://vercel.com/customers/how-ora-benchmarks-every-major-ai-agent-on-vercel",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "automation",
+      "agent"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49443115",
+    "discoveredAt": "2026-08-26T02:18:24.360Z",
+    "updatedAt": "2026-08-26T02:18:24.360Z",
+    "contentHash": "c2e08b53990d9afb",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
+  },
+  {
+    "slug": "zero-friction-local-ai-for-mac",
+    "name": "Zero () friction local AI for Mac",
+    "category": "automation",
+    "sourceCategory": "Productivity & Meetings",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Show HN: Zero () friction local AI for Mac",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://www.basecompute.co/local",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "automation"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49380978",
+    "discoveredAt": "2026-08-26T02:18:24.360Z",
+    "updatedAt": "2026-08-26T02:18:24.360Z",
+    "contentHash": "697bf2b651a47d2d",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
+  }
+]
