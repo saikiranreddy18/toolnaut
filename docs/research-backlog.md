@@ -863,3 +863,69 @@ a client-side SPA with a static tool catalogue.
   config outside this repo's reach; Team tier: needs full multi-user
   accounts) — out of scope for this backlog's client-only SPA model.
 - **Found:** 2026-08-25 15:35 UTC
+
+### Recently viewed tools
+- **Status:** OPEN
+- **Seen in:** Amazon's "Recently viewed items" rail is the canonical version
+  of this pattern; G2 and Capterra both surface a "recently viewed" strip on
+  category pages so a buyer comparing several product pages in one session can
+  jump back without re-searching; Product Hunt's own profile keeps a viewed-
+  launches history for the same reason. It's a standard directory/e-commerce
+  pattern precisely because evaluating options means opening several detail
+  pages in sequence, then wanting to return to one without redoing the search.
+- **Gap:** confirmed absent — grepped `recently.viewed|recent.{0,10}history|
+  view.{0,10}history` across `src/`, zero hits, and read `ToolDetail.jsx` in
+  full: it reads `slug` via `useParams()` and computes `related` (same-category
+  neighbours, `ToolDetail.jsx:29-34`) but writes nothing anywhere recording
+  that the tool was opened. `favoritesStore.js` and `stackStore.js` are both
+  deliberate, explicit user actions (heart-click, add-to-stack); neither
+  captures the passive "I looked at this" signal a detail-page visit already
+  is. A Toolnaut user comparing four ChatGPT-alternative pages in one session
+  today has no way back to the first one except the browser's own back button
+  or re-running the same Discover search.
+- **Why it matters:** it's the cheapest kind of personalization — the signal
+  (a `ToolDetail` mount) already exists on every single page view, it just
+  isn't captured. It also pairs naturally with two already-shipped features
+  without duplicating either: unlike Favorites (an explicit "save this") or
+  Stack (an explicit "I'm using/learning this"), Recently Viewed needs no
+  click at all, so it fills the gap for a visitor who is still just browsing
+  and hasn't decided to save anything yet — the exact moment before a
+  favorite/stack action happens, not a replacement for either.
+- **Smallest useful version (what to actually build):**
+  - New `src/state/recentlyViewedStore.js`, same shape as `favoritesStore.js`
+    (`localStorage` key `exus_recently_viewed_v1`, try/catch on every read and
+    write per this repo's own `src/state/*` rule): `loadRecentlyViewed()`
+    returns the array of slugs, most-recent-first; `recordView(slug)` moves
+    `slug` to the front if already present (no duplicate entries, "seen again"
+    just re-surfaces it) or unshifts it if new, then truncates to a fixed cap
+    (12 — enough for a short strip, small enough the localStorage value never
+    grows unbounded).
+  - `ToolDetail.jsx`: one `useEffect(() => { if (tool) recordView(tool.slug)
+    }, [tool?.slug])` — records on mount and whenever the slug changes (e.g.
+    clicking a related-tool link keeps the component mounted per the existing
+    comment at `ToolDetail.jsx:26-28`), never on the "tool not found" branch.
+  - Render strip: **not** on `Stack.jsx` — the skills-graph and onboarding-
+    checklist gaps above are both already targeting space directly under the
+    streak card there, and a third card competing for that slot is worse UX
+    than picking a different, equally natural home. `Discover.jsx` already has
+    exactly this shape of strip for the shipped "New this week" feature
+    (`freshTools`/`getNewTools(7)`, rendered above the filter bar) — add a
+    second, similarly-collapsed strip "👀 Continue browsing" using
+    `loadRecentlyViewed()` resolved through `getTool()`, capped at ~6 cards,
+    rendered only when non-empty, placed below the "New this week" strip so
+    the personalised-to-you row reads after the catalog-wide freshness row.
+    Reuses the same small-card visual language already established for that
+    strip — no new component needed beyond a `.map()` over resolved tools.
+  - **What this would NOT include** (kept out to bound the diff): no
+    cross-device sync (stays local to the browser, same as every other
+    `src/state/*` store); no "clear history" control in v1 (Settings.jsx is
+    the natural home for that later, not required to ship the core feature);
+    no time-decay/expiry on entries beyond the 12-item cap; no view-count or
+    "viewed 3 times" annotation, just presence and recency; no surfacing on
+    `Compare.jsx` or `SharedStack.jsx` — this is a Discover-only convenience
+    rail, not a data feed other features need to read.
+- **Build size:** S — one new store (`recentlyViewedStore.js`, closely mirrors
+  `favoritesStore.js`), a four-line `useEffect` in `ToolDetail.jsx`, one new
+  strip added to `Discover.jsx` reusing the "New this week" strip's existing
+  markup pattern. No backend, no new dependency, no new route.
+- **Found:** 2026-08-26 00:35 UTC
