@@ -7,7 +7,7 @@ import ThemePicker from './components/ui/ThemePicker'
 import CursorStars from './components/ui/CursorStars'
 import { track, EVENTS } from './utils/analyticsEvents'
 
-const Quiz = lazy(() => import('./pages/Quiz'))
+const GoalChat = lazy(() => import('./pages/GoalChat'))
 const QuizResult = lazy(() => import('./pages/QuizResult'))
 const Login = lazy(() => import('./pages/auth/Login'))
 const AppShell = lazy(() => import('./shells/AppShell'))
@@ -79,7 +79,10 @@ export default function App() {
             <Route path="/s/:slugs" element={<SharedStack />} />
 
             <Route element={<OnboardingShell />}>
-              <Route path="/quiz" element={<Quiz />} />
+              <Route path="/goal" element={<GoalChat />} />
+              {/* the form-based quiz was replaced by the conversation; links,
+                  bookmarks and old analytics all still point at /quiz */}
+              <Route path="/quiz" element={<Navigate to="/goal" replace />} />
               <Route path="/quiz/result" element={<QuizResult />} />
               <Route path="/auth/login" element={<Login />} />
             </Route>
