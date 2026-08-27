@@ -8,7 +8,6 @@ import AudienceSection from '../components/sections/AudienceSection'
 import PricingSection from '../components/sections/PricingSection'
 import FeaturesSection from '../components/sections/FeaturesSection'
 import StatsSection from '../components/sections/StatsSection'
-import LeaderboardSection from '../components/sections/LeaderboardSection'
 import CTASection from '../components/sections/CTASection'
 import CometProgress from '../components/ui/CometProgress'
 import GalaxyExplorer from '../components/ui/GalaxyExplorer'
@@ -135,7 +134,6 @@ export default function Landing() {
         <RolesSection />
         <AudienceSection />
         <FeaturesSection />
-        <LeaderboardSection />
         <PricingSection />
         <CTASection />
       </main>

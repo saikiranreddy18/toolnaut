@@ -59,8 +59,11 @@ export default function StatsSection() {
         </div>
 
         <motion.div variants={fadeUp} className="mt-10">
-          <div className="mb-3 flex items-center justify-center gap-3">
-            <span className="font-display text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+          <div className="mb-3 flex flex-wrap items-center justify-center gap-3">
+            <span
+              className="rounded-full border-2 border-black px-3 py-1 font-display text-[10px] font-black uppercase tracking-[0.2em] text-slate-300"
+              style={{ background: '#12121c' }}
+            >
               The community
             </span>
             {SEEDED && (
@@ -77,10 +80,11 @@ export default function StatsSection() {
             {community.map((s) => (
               <div
                 key={s.k}
-                className="rounded-2xl border-2 border-white/10 bg-white/[0.03] px-3 py-5 text-center"
+                className="rounded-2xl border-[3px] border-black px-3 py-5 text-center"
+                style={{ background: '#12121c', boxShadow: '3px 3px 0 #000' }}
               >
                 <p className="font-display text-2xl font-black tabular-nums text-white md:text-3xl">{s.n}</p>
-                <p className="mt-1.5 font-display text-[9px] font-black uppercase tracking-[0.14em] text-slate-500">
+                <p className="mt-1.5 font-display text-[9px] font-black uppercase tracking-[0.14em] text-slate-400">
                   {s.k}
                 </p>
               </div>
