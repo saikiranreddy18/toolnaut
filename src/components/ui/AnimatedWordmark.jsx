@@ -1,21 +1,19 @@
 import { useId } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import Mascot from './Mascot'
 
-// The hero logo reveal: the mark draws itself, then Naut hops up and perches on
-// the infinity with his arms over the top.
+// The hero logo reveal: the mark draws itself.
 //
 // The infinity is animated by stroke-dashoffset rather than by fading in, so it
 // LOOKS DRAWN — a single continuous line tracing itself, which is the whole
 // point of a mark that has no start and no end. Fading would have been half the
 // work and none of the idea.
 //
-// Naut arrives after the line closes, not with it. He is landing on something
-// that already exists; overlapping the two reads as an accident rather than as
-// a character choosing to sit somewhere.
+// Naut used to land on the mark once the line closed. At hero size his head
+// filled the gap between the two loops and the openings read as eyes — the
+// lockup stopped being a wordmark and became a single creature. The mascot
+// still belongs beside the name in the nav lockup, just not inside the glyph.
 //
-// Under prefers-reduced-motion everything renders in its final state with no
-// motion at all — the mark is still complete and Naut is still perched.
+// Under prefers-reduced-motion the mark renders complete, with no motion.
 
 const LEMNISCATE =
   'M100 60 C100 12 22 12 22 60 C22 108 100 108 100 60 C100 12 178 12 178 60 C178 108 100 108 100 60 Z'
@@ -24,7 +22,7 @@ const LEMNISCATE =
 // length so the tail never leaves a visible gap at the join.
 const PATH_LEN = 660
 
-export default function AnimatedWordmark({ className = '', mascotSize = 46 }) {
+export default function AnimatedWordmark({ className = '' }) {
   const glowId = `hero-glow-${useId().replace(/:/g, '')}`
   const still = useReducedMotion()
 
@@ -75,18 +73,6 @@ export default function AnimatedWordmark({ className = '', mascotSize = 46 }) {
           />
         </svg>
 
-        {/* Naut, arriving once the line has closed. Anchored to the top of the
-            infinity so he reads as resting ON it rather than floating near it. */}
-        <motion.span
-          className="absolute left-1/2 z-10"
-          style={{ bottom: '46%', translateX: '-50%' }}
-          initial={still ? false : { opacity: 0, y: -34, scale: 0.7 }}
-          animate={still ? false : { opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 1.75, type: 'spring', stiffness: 320, damping: 15 }}
-          aria-hidden="true"
-        >
-          <Mascot mood="cheeky" size={mascotSize} />
-        </motion.span>
       </span>
 
       <motion.span aria-hidden="true" {...letter(0.3)}>lnaut</motion.span>

@@ -23,7 +23,7 @@ export default function HeroSection({ onEnter }) {
           letter-by-letter fade of the name in spaced cyan caps — which spelled
           the brand without ever showing the mark. */}
       <div className="mb-7 mt-6 flex justify-center">
-        <AnimatedWordmark className="text-4xl text-white sm:text-5xl md:text-6xl" mascotSize={52} />
+        <AnimatedWordmark className="text-4xl text-white sm:text-5xl md:text-6xl" />
       </div>
 
       <motion.h1
