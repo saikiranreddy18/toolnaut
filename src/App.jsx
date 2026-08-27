@@ -25,6 +25,7 @@ const About = lazy(() => import('./pages/About'))
 const Pricing = lazy(() => import('./pages/Pricing'))
 const Legal = lazy(() => import('./pages/Legal'))
 const SharedStack = lazy(() => import('./pages/SharedStack'))
+const CategoryLanding = lazy(() => import('./pages/CategoryLanding'))
 
 // Scroll + analytics on route change. initAnalytics() already fires the first
 // page_view, so skip the initial render to avoid double counting. Hash links
@@ -81,6 +82,7 @@ export default function App() {
             <Route path="/terms" element={<Legal />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/s/:slugs" element={<SharedStack />} />
+            <Route path="/tools/:domain" element={<CategoryLanding />} />
 
             <Route element={<OnboardingShell />}>
               <Route path="/goal" element={<GoalChat />} />

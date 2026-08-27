@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import SectionShell, { fadeUp } from '../ui/SectionShell'
 import Tilt from '../ui/Tilt'
 import { ROLES } from '../../utils/rolesData'
@@ -24,34 +25,36 @@ export default function RolesSection() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {ROLES.map((r, i) => (
           <motion.div key={r.name} variants={fadeUp} className="h-full">
-            <Tilt className={`sticker ${TILTS[i % 3]} h-full p-6`} max={6}>
-              <div className="flex items-center justify-between">
-                <h3 className="font-display text-lg font-black uppercase italic text-white">
-                  {r.name}
-                </h3>
-                <span className="font-display text-[10px] font-black uppercase tracking-widest" style={{ color: r.color }}>
-                  {r.pts.length} stars
-                </span>
-              </div>
-              <svg viewBox="0 0 100 80" className="mt-4 h-24 w-full" aria-hidden="true">
-                {r.pts.map((p, j) => j > 0 && (
-                  <line
-                    key={`l${j}`}
-                    x1={r.pts[j - 1][0]} y1={r.pts[j - 1][1]}
-                    x2={p[0]} y2={p[1]}
-                    stroke={r.color} strokeWidth="0.7" opacity="0.4"
-                  />
-                ))}
-                {r.pts.map((p, j) => (
-                  <circle
-                    key={`c${j}`}
-                    cx={p[0]} cy={p[1]} r="2.4"
-                    fill={r.color}
-                    style={{ filter: `drop-shadow(0 0 4px ${r.color})` }}
-                  />
-                ))}
-              </svg>
-            </Tilt>
+            <Link to={`/tools/${r.domain}`} className="block h-full">
+              <Tilt className={`sticker ${TILTS[i % 3]} h-full p-6`} max={6}>
+                <div className="flex items-center justify-between">
+                  <h3 className="font-display text-lg font-black uppercase italic text-white">
+                    {r.name}
+                  </h3>
+                  <span className="font-display text-[10px] font-black uppercase tracking-widest" style={{ color: r.color }}>
+                    {r.pts.length} stars
+                  </span>
+                </div>
+                <svg viewBox="0 0 100 80" className="mt-4 h-24 w-full" aria-hidden="true">
+                  {r.pts.map((p, j) => j > 0 && (
+                    <line
+                      key={`l${j}`}
+                      x1={r.pts[j - 1][0]} y1={r.pts[j - 1][1]}
+                      x2={p[0]} y2={p[1]}
+                      stroke={r.color} strokeWidth="0.7" opacity="0.4"
+                    />
+                  ))}
+                  {r.pts.map((p, j) => (
+                    <circle
+                      key={`c${j}`}
+                      cx={p[0]} cy={p[1]} r="2.4"
+                      fill={r.color}
+                      style={{ filter: `drop-shadow(0 0 4px ${r.color})` }}
+                    />
+                  ))}
+                </svg>
+              </Tilt>
+            </Link>
           </motion.div>
         ))}
       </div>
