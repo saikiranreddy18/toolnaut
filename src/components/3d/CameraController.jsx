@@ -35,18 +35,11 @@ export default function CameraController({ reduced }) {
       return
     }
 
-    // Pages that run their own scrollytelling track (e.g. /starchart's 480vh
-    // sky survey) mark it with #galaxy-track so the camera's progress stays
-    // locked to that narrative instead of the full page (which keeps scrolling
-    // long after the track ends, via footer/pricing/etc — that drift is what
-    // desyncs the "dive" from the content beats).
-    const track = document.getElementById('galaxy-track')
+    // Camera progress tracks the whole page. The landing is the only page that
+    // mounts the galaxy; the scrollytelling variant this used to support belonged
+    // to /starchart, which no longer exists.
     let rawP
-    if (track) {
-      const top = track.getBoundingClientRect().top + window.scrollY
-      const span = track.offsetHeight - window.innerHeight
-      rawP = span > 0 ? Math.max(0, Math.min(1, (window.scrollY - top) / span)) : 0
-    } else {
+    {
       const doc = document.documentElement
       const max = doc.scrollHeight - window.innerHeight
       rawP = max > 0 ? Math.min(1, window.scrollY / max) : 0

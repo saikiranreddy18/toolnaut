@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 import SectionShell, { fadeUp } from '../ui/SectionShell'
 import Tilt from '../ui/Tilt'
-import { ROLES } from '../nexus/starchartData'
+import { ROLES } from '../../utils/rolesData'
 
 // "Every role gets a different sky" — the constellation cards from the
-// STARCHART page, restyled in the main landing page's arcade/sticker look.
+// the retired starchart page, restyled in the landing page's arcade/sticker look.
 // Each role previews a mini sub-constellation (points in a 100×80 box) drawn
 // in that persona's accent color.
 const TILTS = ['', 'pink', 'cyan']

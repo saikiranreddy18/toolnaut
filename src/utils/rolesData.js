@@ -1,10 +1,4 @@
 // Role cards for the landing page's RolesSection.
-//
-// What remains of the /starchart data file. That page is gone, and with it
-// NAV_LINKS, CONSTELLATION, HOW_IT_WORKS, RADAR_ITEMS and PRICING — the last of
-// which was a SECOND price list (Explorer free / Navigator $19) contradicting
-// planData's Student/Pro/Team on /pricing. Two prices on one site is worse than
-// either price; deleting the page settles it.
 
 export const ROLES = [
   { name: 'Student', color: '#fb7185', pts: [[18, 55], [40, 30], [64, 48], [82, 24]] },

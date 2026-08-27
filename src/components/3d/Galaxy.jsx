@@ -26,9 +26,7 @@ function makeCoreTexture() {
 }
 
 // Procedural spiral galaxy: dense golden core, violet mid-band, blue outer arms.
-// `descend` (STARCHART landing): as you scroll the whole disk SINKS and its
-// tilt opens toward face-on — so scrolling reads as "descending into the world."
-export default function Galaxy({ reduced, spin = !reduced, descend = false }) {
+export default function Galaxy({ reduced, spin = !reduced }) {
   const group = useRef()
 
   const { positions, colors } = useMemo(() => {
@@ -89,14 +87,6 @@ export default function Galaxy({ reduced, spin = !reduced, descend = false }) {
     // slow sidereal rotation + scroll-coupled sweep
     const base = spin ? clock.elapsedTime * 0.018 : 0
     group.current.rotation.y = base + p * 2.4
-
-    if (descend) {
-      // eased so the "diving in" feels weighted, not linear — the disk sinks
-      // below the fold and its tilt opens as the reader travels deeper.
-      const e = p * p * (3 - 2 * p)
-      group.current.position.y = -3.1 - e * 6
-      group.current.rotation.x = 0.12 + e * 0.5
-    }
   })
 
   return (
