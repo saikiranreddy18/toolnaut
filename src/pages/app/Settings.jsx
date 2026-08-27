@@ -7,14 +7,14 @@ export default function Settings() {
   const navigate = useNavigate()
   const session = loadSession()
 
-  function handleSignOut() {
-    signOut()
+  async function handleSignOut() {
+    await signOut()
     navigate('/', { replace: true })
   }
 
   function handleRetake() {
     resetQuiz()
-    navigate('/quiz?step=1')
+    navigate('/goal')
   }
 
   return (

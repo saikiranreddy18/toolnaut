@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
-import { loadSession, signIn } from '../../state/authStore'
+import { loadSession, signIn, signInWithEmail, isSupabaseConfigured } from '../../state/authStore'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 
@@ -34,6 +34,7 @@ export default function Login() {
   const track = useAnalytics()
   const [email, setEmail] = useState('')
   const [error, setError] = useState(false)
+  const [linkSent, setLinkSent] = useState(false)
 
   const next = searchParams.get('next') || '/app/stack'
 
@@ -42,19 +43,34 @@ export default function Login() {
     return <Navigate to={next} replace />
   }
 
-  function enter(provider, name) {
-    signIn(provider, name)
+  // With real OAuth the browser LEAVES for Google, so navigating here would
+  // race the redirect. Only the simulated path has anywhere to go immediately;
+  // the real one returns through watchSession when Google sends them back.
+  async function enter(provider, name) {
     track(EVENTS.CTA_CLICK, { cta: 'sign_in', provider })
-    navigate(next, { replace: true })
+    try {
+      const session = await signIn(provider, name)
+      if (session) navigate(next, { replace: true })
+    } catch {
+      setError(true)
+    }
   }
 
-  function magicLink(e) {
+  async function magicLink(e) {
     e.preventDefault()
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setError(true)
       return
     }
-    enter('magic_link', email.split('@')[0])
+    track(EVENTS.CTA_CLICK, { cta: 'sign_in', provider: 'magic_link' })
+    try {
+      const { sent } = await signInWithEmail(email)
+      // A real link is in their inbox — say so rather than faking a sign-in.
+      if (sent) setLinkSent(true)
+      else navigate(next, { replace: true })
+    } catch {
+      setError(true)
+    }
   }
 
   return (
@@ -112,10 +128,21 @@ export default function Login() {
               Send
             </button>
           </div>
-          <p className={`mt-2 text-xs font-bold ${error ? 'text-exus-peach' : 'text-slate-500'}`}>
+          {/* Three states now, and the third matters: when a real link has been
+              sent, the old "no email is sent" line would be a flat lie. That
+              line survives only while Supabase is unconfigured. */}
+          <p
+            className={`mt-2 text-xs font-bold ${error ? 'text-exus-peach' : linkSent ? '' : 'text-slate-500'}`}
+            style={linkSent ? { color: 'var(--lime)' } : undefined}
+            role={error || linkSent ? 'status' : undefined}
+          >
             {error
               ? 'Please enter a valid email address.'
-              : 'Dev preview — sign-in is simulated locally, no email is sent.'}
+              : linkSent
+                ? 'Check your inbox — we sent you a sign-in link.'
+                : isSupabaseConfigured
+                  ? "We'll email you a sign-in link. No password to remember."
+                  : 'Dev preview — sign-in is simulated locally, no email is sent.'}
           </p>
         </form>
       </motion.div>
