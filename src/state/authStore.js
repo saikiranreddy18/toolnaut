@@ -79,7 +79,7 @@ export function watchSession(onChange) {
 // Async in both cases so callers never have to know which backend is live. The
 // real path does not resolve to a session — the browser leaves for Google and
 // comes back through watchSession.
-export async function signIn(provider = 'google', name = 'Explorer') {
+export async function signIn(provider = 'google', { redirectTo = '/app/stack', name = 'Explorer' } = {}) {
   if (!isSupabaseConfigured) {
     return write({
       user: { name, provider },
@@ -93,8 +93,13 @@ export async function signIn(provider = 'google', name = 'Explorer') {
   const { error } = await supabase.auth.signInWithOAuth({
     provider,
     options: {
-      // Come back where they left off rather than always at the root.
-      redirectTo: `${window.location.origin}${window.location.pathname}`,
+      // Send them to their DESTINATION, not back where they clicked.
+      //
+      // This was `origin + pathname`, which meant clicking sign-in on
+      // /auth/login sent Google back to /auth/login — landing an
+      // already-authenticated person on the sign-in screen and looking, from
+      // the outside, exactly like the sign-in had failed.
+      redirectTo: `${window.location.origin}${redirectTo}`,
       queryParams: { prompt: 'select_account' },
     },
   })

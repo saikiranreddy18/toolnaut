@@ -72,7 +72,9 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
     setBusy(id)
     track(EVENTS.CTA_CLICK, { cta: 'sign_in', provider: id })
     try {
-      const session = await signIn(id)
+      // Pass the destination through, so the provider returns them INTO the
+      // app rather than back to the sign-in screen they started on.
+      const session = await signIn(id, { redirectTo: next })
       // Only the simulated path returns a session; the real one has already
       // sent the browser to the provider by now.
       if (session) window.location.assign(next)
