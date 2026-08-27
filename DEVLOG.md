@@ -9,6 +9,59 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-08-27
+
+**Radar health:** OK — 1 run in the last 26h, published 21 new tools. Feed
+sits at 47 tools in `public/tools.json`, last run 06:10 UTC. Catalogue is
+growing normally, no action needed.
+
+**Researched today:** three research-hour runs continued the backlog, all
+appended without needing to re-open anything. Found the "Discover's filter
+chips carry no facet counts" gap (15:07 UTC) — category/price/level pills
+show no result-count preview before a click, a standard faceted-search
+pattern (Amazon, G2, Algolia) missing from Toolnaut's highest-traffic page.
+Found and specced "Popularity signal (GitHub stars / HN points) collected by
+radar, discarded before it reaches a record" (03:06 UTC) — a real pipeline
+bug, not just a missing feature: `radar/sources/github.js` and
+`hackernews.js` both fetch a real popularity number per candidate and
+`enrich()` throws it away one function later without ever assigning it onto
+the record. Also logged "Community access (Discord & forum)" as REJECTED
+(09:35 UTC) — half the claim (forum) already ships, the missing half (a
+Discord server) needs a human to stand up and moderate an external
+community indefinitely, not a code change, following this backlog's own
+precedent for un-buildable pricing-page claims.
+
+**Shipped:** public category/role landing pages —
+[`927ee5b`](https://github.com/saikiranreddy18/toolnaut/commit/927ee5b).
+Picked over the popularity-signal and facet-count gaps because yesterday's
+run had already flagged it as the single biggest unclaimed surface in the
+whole backlog: every tool-bearing route sat behind `AppShell`'s fake session
+gate, so the 700+ tool catalog had zero crawlable listing pages for a
+search engine or a shared link to land on. New public `/tools/:domain`
+route (one per `CATEGORY_META` domain — code/design/writing/data/
+automation/learning) and `CategoryLanding.jsx`, reusing `SharedStack.jsx`'s
+existing read-only card pattern, no session required. `RolesSection.jsx`'s
+six landing-page cards — previously pure decoration with zero links — now
+route to the domain closest to each role (a judgment call, documented in
+`rolesData.js`, since the quiz's own domain answer doesn't map 1:1 from
+role name). Added all 6 URLs to `sitemap.xml` and one example route to
+`scripts/smoke.mjs`. **Live on toolnaut.xyz** — pure client-side routing
+off the bundled catalog, nothing waits on radar or a separate deploy step.
+Kept to this run's spec: no all-26-source-category expansion, no per-route
+meta tags (that's the separate, still-open `usePageMeta` gap), no
+pagination — just the 6 domain pages and the real links into them.
+
+**Queued next:** popularity-signal badge and Discover facet-counts are both
+still-open, fully specced S-size gaps, either a natural pick for tomorrow's
+run. Per-tool ratings & reviews, command palette, recently-viewed tools,
+tool-status-note reason, PDF roadmap export, and the two-thirds-scoped
+per-route meta-tags gap (blocked on a `ToolDetail`/`Compare` public-route
+decision) remain OPEN. Discord/chat-assistant/Team-tier/digest-email
+findings stay REJECTED-for-build, open only as copy-correction tasks for
+whoever owns pricing copy.
+
+---
+
 ## 2026-08-26
 
 **Radar health:** OK — 1 run in the last 26h, published 21 new tools. Feed

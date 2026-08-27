@@ -1080,7 +1080,7 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-26 09:06 UTC
 
 ### Category/role landing pages ("Best AI tools for X") — zero crawlable listing pages exist
-- **Status:** OPEN
+- **Status:** SHIPPED 927ee5b
 - **Seen in:** every AI-tool directory in this file's comparison set runs its
   organic-acquisition funnel through category/use-case listing pages, not the
   homepage: Futurepedia and There's An AI For That both structure their whole
