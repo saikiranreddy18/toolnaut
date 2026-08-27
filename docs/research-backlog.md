@@ -1274,3 +1274,84 @@ a client-side SPA with a static tool catalogue.
   layout change. Verified via `npm run smoke` (0 console errors, all 15
   routes) alongside `npm test` (102/102) and `npm run build`.
 - **Found & fixed:** 2026-08-26 21:15 UTC
+
+### Popularity signal (GitHub stars / HN points) collected by radar, discarded before it reaches a record
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern this time — found auditing `radar/`
+  itself for the same "data collected, never shown" shape that produced the
+  already-shipped `discoveredAt`/Fresh-Finds gap. G2/Capterra-style review
+  counts and Product Hunt's own upvote counts are the competitor analog (a
+  numeric popularity signal displayed next to every listing), but the honest
+  framing here is a pipeline bug, not a missing feature: Toolnaut already
+  fetches a real popularity number for two of its four sources and throws it
+  away one function later.
+- **Gap:** `radar/sources/github.js:25` fetches
+  `raw: { stars: repo.stargazers_count, lang: repo.language, owner:
+  repo.owner?.login }` for every GitHub candidate, and
+  `radar/sources/hackernews.js:27` fetches `raw: { points: hit.points, author:
+  hit.author }` for every HN candidate — both real, already-paid-for API
+  calls (`sort=stars&order=desc` is literally in the GitHub query URL).
+  But `enrich()` (`radar/enrich.js:12-36`) only ever reads `candidate.raw` to
+  pull `dev`/`owner` out of it (`enrich.js:116,140`) — the `stars`/`points`
+  values themselves never get assigned onto the `record` object being built,
+  and `makeToolRecord()`'s field list (`radar/schema.js:53-61`) has no slot
+  for them at all. Once `enrich()` returns, `candidate.raw` goes out of scope
+  and the number is gone permanently — unlike `discoveredAt` (which *was*
+  captured correctly and only got stripped later, at the sync/hydrate layer),
+  this signal never survives past the single function that already has it in
+  hand. Product Hunt (`producthunt.js:27`, `raw: {}`) and RSS
+  (`rss.js:26`, `raw: { feed }`) genuinely have no equivalent number to give,
+  which is fine — this gap only ever applies to GitHub- and
+  Hacker-News-sourced tools, the same subset that already gets a
+  `discoveredAt` stamp.
+- **Why it matters:** it's free signal a directory competitor would pay an API
+  quota for, sitting one line away from a real "trending" badge, and it
+  compounds the value of the already-shipped Fresh Finds strip — a new tool
+  with 2,400 GitHub stars in its first week is a materially stronger signal
+  than a new tool with 12, and today Toolnaut can't tell a visitor which is
+  which even though the number was already in memory during enrichment.
+- **Smallest useful version (what to actually build):**
+  - `radar/schema.js`: add `popularity: null, popularityLabel: ''` to
+    `makeToolRecord()`'s content fields (next to `note`/`tags`, not in
+    `HASHED_FIELDS` — a star count isn't part of a tool's identity and
+    shouldn't retrigger change detection). `popularity` is a plain number for
+    sorting/thresholding, `popularityLabel` a short pre-formatted string
+    (`"★ 2.4k GitHub stars"`, `"142 HN points"`) so the app never needs to
+    know unit-formatting rules for two different source APIs.
+  - `radar/enrich.js`: in `enrich()`, before building `record`, compute
+    `popularity`/`popularityLabel` from `candidate.source` +
+    `candidate.raw` — `github` → `candidate.raw.stars` (format large numbers
+    with a small local `k`-suffix helper, no new dependency), `hackernews` →
+    `candidate.raw.points` (append `" HN points"`); any other source (or a
+    missing/non-numeric value) leaves both `null`/`''`, never a fabricated
+    zero — same "don't render a fake number" principle the still-open
+    ratings-gap already commits to for average ratings. Spread both into the
+    `record` object alongside the existing `discoveredAt`/`updatedAt` lines.
+  - `radar/scripts/sync-to-app.js` and `src/utils/liveCatalog.js`: add
+    `'popularity'` and `'popularityLabel'` to both `FIELDS` arrays (mirrors
+    exactly how `discoveredAt` was plumbed through in the shipped Fresh-Finds
+    gap — two one-line additions, same two files).
+  - `Discover.jsx`: a small badge next to the existing 🆕 NEW pill
+    (`Discover.jsx:212-217`, same card position) reading `tool.popularityLabel`
+    when `tool.popularity` is truthy — reuses the pill's existing visual
+    language, no new component. Since this only ever applies to
+    radar-discovered tools, it naturally co-occurs with the NEW badge rather
+    than needing its own separate strip.
+  - **What this would NOT include** (kept out to bound the diff): no
+    backfilling popularity for the 704 bundled baseline tools (they were
+    never radar-discovered, so there's no honest number to give them — same
+    reasoning the shipped `isNewTool()` util already applies by design); no
+    re-fetching/refreshing an existing tool's star count over time (`radar/
+    dedup.js`'s own rule is nothing gets re-enriched after first sight — a
+    stamped-once "stars at discovery" number, same spirit as the stamped-once
+    `discoveredAt`); no cross-source popularity ranking or leaderboard page
+    (GitHub stars and HN points aren't comparable units — this is a per-card
+    badge, not a sortable "trending" tab); no change to `personaGenerator.js`
+    scoring — this is a display-only signal in v1, the same scope limit the
+    tool-status-note gap above already applies to its own `note` field.
+- **Build size:** S — one schema field pair, ~10 lines in `enrich.js`, two
+  one-line `FIELDS` additions (radar + app, exactly mirroring the shipped
+  Fresh-Finds plumbing), one badge on `Discover.jsx`. No backend, no new
+  dependency, no new route, no radar source changes (the fetches already
+  happen).
+- **Found:** 2026-08-27 03:06 UTC
