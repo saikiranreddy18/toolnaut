@@ -55,5 +55,33 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "fishtool",
+    "name": "FishTool",
+    "category": "automation",
+    "sourceCategory": "Productivity & Meetings",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "这是一个完全使用Astrbot开发的项目，如果你恰好在B站上发视频，那这个项目就是为你而生的，这是一个结合运营业务实战经验制作的AI运营工具箱，瞄准真实业务痛点、面向新手个人创作者、无需学习成本…",
+    "audience": "",
+    "dev": "FORK-is-coding",
+    "year": 2026,
+    "website": "https://github.com/FORK-is-coding/FishTool",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "automation"
+    ],
+    "source": "github",
+    "sourceUrl": "https://github.com/FORK-is-coding/FishTool",
+    "discoveredAt": "2026-08-27T06:10:30.704Z",
+    "updatedAt": "2026-08-27T06:10:30.704Z",
+    "contentHash": "5bfa0b82be6fd123",
+    "confidence": 0.63,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]

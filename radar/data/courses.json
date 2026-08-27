@@ -1345,5 +1345,1130 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "course-text-editor-that-does-it-all",
+    "toolSlug": "text-editor-that-does-it-all",
+    "title": "Master Text editor that does it all",
+    "objectives": [
+      "Create and format a document using blocks and styles",
+      "Capture and organize notes in folders",
+      "Use the built-in AI assistant to draft and revise text"
+    ],
+    "modules": [
+      {
+        "title": "Set Up Your Workspace",
+        "estMinutes": 10,
+        "steps": [
+          "Download the app (or open the web version) and sign up for a free account",
+          "Open the sidebar and locate the three main areas: Documents, Notes, and the AI assistant button",
+          "Create a new workspace named 'My Projects' and pin it to your sidebar"
+        ]
+      },
+      {
+        "title": "Write Your First Document",
+        "estMinutes": 15,
+        "steps": [
+          "Click the '+' button, choose New Document, and title it 'Meeting Notes'",
+          "Type '/' on a new line to open the block menu, then add a Heading, a bullet list, and one checkbox item",
+          "Select a sentence and apply bold styling, then paste a link and turn it into an embedded preview"
+        ]
+      },
+      {
+        "title": "Capture and Organize Notes",
+        "estMinutes": 15,
+        "steps": [
+          "Use the Quick Note shortcut (the lightning or pencil icon) to jot down three short ideas without leaving your current screen",
+          "Create a folder called 'Ideas' and drag your quick notes into it",
+          "Add a tag like '#todo' to one note, then use the search bar to find it by that tag"
+        ]
+      },
+      {
+        "title": "Draft and Edit with the AI Assistant",
+        "estMinutes": 15,
+        "steps": [
+          "Open a blank document, click the AI (sparkle) button, and prompt it: 'Draft a 3-paragraph project update about a website redesign'",
+          "Highlight one paragraph and choose 'Improve writing' from the AI menu; accept or undo the suggestion",
+          "Select your full document and run the 'Summarize' command, then copy the summary into your Ideas folder"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-text editor",
+      "skill-ai assistant",
+      "skill-notes",
+      "skill-productivity"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-build-your-own-theme-park",
+    "toolSlug": "build-your-own-theme-park",
+    "title": "Master Build your own theme park",
+    "objectives": [
+      "Generate a complete theme park concept from a single text prompt",
+      "Customize zones, rides, and visual style using follow-up prompts",
+      "Refine the design and export or share the finished park"
+    ],
+    "modules": [
+      {
+        "title": "Your First Park in One Prompt",
+        "estMinutes": 7,
+        "steps": [
+          "Open the tool and write a starting prompt that names a theme, a target audience, and three anchor attractions (e.g., \"an underwater sci-fi park for families with a submarine coaster, jellyfish carousel, and deep-sea food hall\")",
+          "Click generate and review the park map or image the tool produces",
+          "Regenerate once with one word changed in the prompt to see how strongly it steers the result"
+        ]
+      },
+      {
+        "title": "Shape the Layout",
+        "estMinutes": 8,
+        "steps": [
+          "Use a follow-up prompt to split the park into named zones (e.g., thrill area, kids' zone, food court) and ask the tool to rearrange them",
+          "Move or regenerate a single zone while keeping the rest locked, if the tool offers partial edits",
+          "Check guest flow: prompt the tool to add paths, entrances, and rest areas between zones"
+        ]
+      },
+      {
+        "title": "Add Signature Details",
+        "estMinutes": 8,
+        "steps": [
+          "Prompt one hero attraction with a specific name and gimmick (e.g., \"a launch coaster called Comet Rush that dives through a looping space station\")",
+          "Add flavor details: themed food stalls, a mascot, and staff uniforms matching your theme",
+          "Adjust the visual style with a style keyword (retro cartoon, watercolor, neon cyberpunk) and regenerate"
+        ]
+      },
+      {
+        "title": "Polish and Share",
+        "estMinutes": 6,
+        "steps": [
+          "Run a final coherence prompt asking the tool to unify colors, signage, and naming across the whole park",
+          "Name your park and generate a tagline or welcome-sign text to place at the entrance",
+          "Use the export or share button to save the image, video flythrough, or link, and note the prompts you used so you can recreate it"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-theme park",
+      "skill-generator",
+      "skill-demo",
+      "skill-fun"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-launch-hn-risklytics-yc-s26",
+    "toolSlug": "launch-hn-risklytics-yc-s26",
+    "title": "Master Launch HN: Risklytics (YC S26)",
+    "objectives": [
+      "Understand what Launch HN: Risklytics (YC S26) is for",
+      "Use Launch HN: Risklytics (YC S26) on a real task",
+      "Know where Launch HN: Risklytics (YC S26) fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Launch HN: Risklytics (YC S26) for your real workflow, not the demo.",
+          "Say what Launch HN: Risklytics (YC S26) does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Launch HN: Risklytics (YC S26).",
+          "Push Launch HN: Risklytics (YC S26) to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Launch HN: Risklytics (YC S26) into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-insurance",
+      "skill-risk",
+      "skill-fintech",
+      "skill-startups",
+      "skill-analytics"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-placeroot",
+    "toolSlug": "placeroot",
+    "title": "Master PlaceRoot",
+    "objectives": [
+      "Understand what PlaceRoot is for",
+      "Use PlaceRoot on a real task",
+      "Know where PlaceRoot fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure PlaceRoot for your real workflow, not the demo.",
+          "Say what PlaceRoot does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through PlaceRoot.",
+          "Push PlaceRoot to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold PlaceRoot into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-maps",
+      "skill-geocoding",
+      "skill-routing",
+      "skill-ai-agents",
+      "skill-location"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-abbs",
+    "toolSlug": "abbs",
+    "title": "Master ABBS",
+    "objectives": [
+      "Post and reply on ABBS boards via the HTTP API",
+      "Design machine-readable messages other agents can act on",
+      "Coordinate a multi-agent task through threaded exchanges"
+    ],
+    "modules": [
+      {
+        "title": "Boards, Handles & First Post",
+        "estMinutes": 8,
+        "steps": [
+          "Register an agent handle and store the returned API key",
+          "List available public boards with GET /boards and pick a sandbox board",
+          "Post a first message with a metadata tag so you can filter it later"
+        ]
+      },
+      {
+        "title": "Reading & Filtering the Feed",
+        "estMinutes": 8,
+        "steps": [
+          "Poll a board using the ?since= cursor to fetch only new messages",
+          "Filter results by tag and author handle to isolate your agent's thread",
+          "Handle pagination until the response returns an empty results array"
+        ]
+      },
+      {
+        "title": "Threads, Replies & Mentions",
+        "estMinutes": 8,
+        "steps": [
+          "Reply to an existing message using its parent_id to create a thread",
+          "Mention another agent with @handle syntax and verify the notification fires",
+          "Read the full thread back and confirm the reply chain is correctly ordered"
+        ]
+      },
+      {
+        "title": "Machine-Readable Message Schemas",
+        "estMinutes": 10,
+        "steps": [
+          "Define a JSON envelope with type, message_id, and correlation_id fields",
+          "Implement a request/response handshake between two message posts",
+          "Reject and log malformed messages missing required envelope fields"
+        ]
+      },
+      {
+        "title": "Coordinating a Multi-Agent Task",
+        "estMinutes": 12,
+        "steps": [
+          "Run a second agent that posts a task offer with a structured payload",
+          "Have the first agent reply with accept/decline and a result payload",
+          "Add retry logic for rate-limit (429) and conflicting-write responses"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-bulletin board",
+      "skill-agent communication",
+      "skill-messaging",
+      "skill-developer tools"
+    ],
+    "prerequisites": [
+      "Experience calling REST APIs with Python or Node.js",
+      "Basic async/event-loop programming"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-we-run-stateful-ai-agents-on-a-serverless-infra",
+    "toolSlug": "we-run-stateful-ai-agents-on-a-serverless-infra",
+    "title": "Master We run stateful AI agents on a serverless infra",
+    "objectives": [
+      "Understand what We run stateful AI agents on a serverless infra is for",
+      "Use We run stateful AI agents on a serverless infra on a real task",
+      "Know where We run stateful AI agents on a serverless infra fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure We run stateful AI agents on a serverless infra for your real workflow, not the demo.",
+          "Say what We run stateful AI agents on a serverless infra does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through We run stateful AI agents on a serverless infra.",
+          "Push We run stateful AI agents on a serverless infra to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold We run stateful AI agents on a serverless infra into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-serverless",
+      "skill-infrastructure",
+      "skill-deployment"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-agents-should-be-durable-not-long-lived",
+    "toolSlug": "agents-should-be-durable-not-long-lived",
+    "title": "Master Agents Should Be Durable, Not Long-Lived",
+    "objectives": [
+      "Understand what Agents Should Be Durable, Not Long-Lived is for",
+      "Use Agents Should Be Durable, Not Long-Lived on a real task",
+      "Know where Agents Should Be Durable, Not Long-Lived fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Agents Should Be Durable, Not Long-Lived for your real workflow, not the demo.",
+          "Say what Agents Should Be Durable, Not Long-Lived does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Agents Should Be Durable, Not Long-Lived.",
+          "Push Agents Should Be Durable, Not Long-Lived to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Agents Should Be Durable, Not Long-Lived into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-durable execution",
+      "skill-architecture",
+      "skill-reliability",
+      "skill-workflows"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
+    "toolSlug": "a-benchmark-for-safely-measuring-container-breakout-capabili",
+    "title": "Master A benchmark for safely measuring container breakout capabilities",
+    "objectives": [
+      "Understand what A benchmark for safely measuring container breakout capabilities is for",
+      "Use A benchmark for safely measuring container breakout capabilities on a real task",
+      "Know where A benchmark for safely measuring container breakout capabilities fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure A benchmark for safely measuring container breakout capabilities for your real workflow, not the demo.",
+          "Say what A benchmark for safely measuring container breakout capabilities does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through A benchmark for safely measuring container breakout capabilities.",
+          "Push A benchmark for safely measuring container breakout capabilities to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold A benchmark for safely measuring container breakout capabilities into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-benchmark",
+      "skill-sandbox",
+      "skill-container escape",
+      "skill-ai safety",
+      "skill-agents"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-devx",
+    "toolSlug": "devx",
+    "title": "Master Devx",
+    "objectives": [
+      "Understand what Devx is for",
+      "Use Devx on a real task",
+      "Know where Devx fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Devx for your real workflow, not the demo.",
+          "Say what Devx does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Devx.",
+          "Push Devx to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Devx into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding agent",
+      "skill-autonomous",
+      "skill-termux",
+      "skill-android",
+      "skill-cli"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-why-ai-agents-need-persistent-browser-identities",
+    "toolSlug": "why-ai-agents-need-persistent-browser-identities",
+    "title": "Master Why AI Agents Need Persistent Browser Identities",
+    "objectives": [
+      "Understand what Why AI Agents Need Persistent Browser Identities is for",
+      "Use Why AI Agents Need Persistent Browser Identities on a real task",
+      "Know where Why AI Agents Need Persistent Browser Identities fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Why AI Agents Need Persistent Browser Identities for your real workflow, not the demo.",
+          "Say what Why AI Agents Need Persistent Browser Identities does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Why AI Agents Need Persistent Browser Identities.",
+          "Push Why AI Agents Need Persistent Browser Identities to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Why AI Agents Need Persistent Browser Identities into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-browser automation",
+      "skill-persistent identity",
+      "skill-sessions",
+      "skill-authentication"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-serve-markdown-to-ai-agents-with-accept-headers",
+    "toolSlug": "serve-markdown-to-ai-agents-with-accept-headers",
+    "title": "Master Serve Markdown to AI Agents with Accept Headers",
+    "objectives": [
+      "Understand what Serve Markdown to AI Agents with Accept Headers is for",
+      "Use Serve Markdown to AI Agents with Accept Headers on a real task",
+      "Know where Serve Markdown to AI Agents with Accept Headers fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Serve Markdown to AI Agents with Accept Headers for your real workflow, not the demo.",
+          "Say what Serve Markdown to AI Agents with Accept Headers does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Serve Markdown to AI Agents with Accept Headers.",
+          "Push Serve Markdown to AI Agents with Accept Headers to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Serve Markdown to AI Agents with Accept Headers into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-markdown",
+      "skill-ai agents",
+      "skill-accept headers",
+      "skill-content negotiation",
+      "skill-web serving"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-shelf-protocol",
+    "toolSlug": "shelf-protocol",
+    "title": "Master Shelf Protocol",
+    "objectives": [
+      "Understand what Shelf Protocol is for",
+      "Use Shelf Protocol on a real task",
+      "Know where Shelf Protocol fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Shelf Protocol for your real workflow, not the demo.",
+          "Say what Shelf Protocol does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Shelf Protocol.",
+          "Push Shelf Protocol to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Shelf Protocol into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-protocol",
+      "skill-ai-agents",
+      "skill-commerce",
+      "skill-web-standards",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-web-game-player-vs-computer",
+    "toolSlug": "web-game-player-vs-computer",
+    "title": "Master Web Game \"Player vs. Computer\"",
+    "objectives": [
+      "Launch the game in a browser and start a match against the computer",
+      "Make valid moves using the on-screen controls and follow turn flow",
+      "Read round results and use replay/difficulty options to improve"
+    ],
+    "modules": [
+      {
+        "title": "Launch and Set Up a Match",
+        "estMinutes": 5,
+        "steps": [
+          "Open the game's URL in Chrome, Edge, or Firefox and wait for the board/play area to fully load",
+          "Choose a difficulty level (Easy, Medium, or Hard) from the settings or start screen",
+          "Click 'Start', 'New Game', or 'Play vs Computer' to begin the first round"
+        ]
+      },
+      {
+        "title": "Play Your First Round",
+        "estMinutes": 10,
+        "steps": [
+          "Take your turn by clicking a cell/button or typing your move, depending on the game's input prompt",
+          "Watch for the computer's counter-move, usually shown with an animation or highlighted marker",
+          "Follow the turn indicator and score display to track whose move it is and the current standing"
+        ]
+      },
+      {
+        "title": "Read Results and Rematch",
+        "estMinutes": 6,
+        "steps": [
+          "Interpret the end-of-round message (Win / Lose / Draw) and any points added to the scoreboard",
+          "Click 'Play Again' or 'Reset' to start a fresh round without reloading the page",
+          "Increase the difficulty one level and replay, noting how the computer's move choices change"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-web-game",
+      "skill-open-source",
+      "skill-browser-game",
+      "skill-ai-opponent"
+    ],
+    "prerequisites": [
+      "A computer or tablet with a modern web browser",
+      "Stable internet connection"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-bytedance-launches-ai-office-product-doubao-work",
+    "toolSlug": "bytedance-launches-ai-office-product-doubao-work",
+    "title": "Master ByteDance Launches AI Office Product \"Doubao Work\"",
+    "objectives": [
+      "Understand what ByteDance Launches AI Office Product \"Doubao Work\" is for",
+      "Use ByteDance Launches AI Office Product \"Doubao Work\" on a real task",
+      "Know where ByteDance Launches AI Office Product \"Doubao Work\" fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for ByteDance Launches AI Office Product \"Doubao Work\".",
+          "Say what ByteDance Launches AI Office Product \"Doubao Work\" does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through ByteDance Launches AI Office Product \"Doubao Work\".",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold ByteDance Launches AI Office Product \"Doubao Work\" into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai office",
+      "skill-productivity",
+      "skill-doubao",
+      "skill-assistant",
+      "skill-workspace"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-propose-and-dual-control-for-dns-changes",
+    "toolSlug": "propose-and-dual-control-for-dns-changes",
+    "title": "Master Propose and Dual-Control for DNS Changes",
+    "objectives": [
+      "Draft a well-formed DNS change proposal with justification and rollback notes",
+      "Run validation checks and interpret the diff before submission",
+      "Complete a dual-control approval cycle from request to verified go-live"
+    ],
+    "modules": [
+      {
+        "title": "Drafting a Change Proposal",
+        "estMinutes": 15,
+        "steps": [
+          "Open the proposal form and select the target zone; add the new or modified record (type, name, value, TTL) and a one-line business justification",
+          "Enter current vs. desired state for each record and set the TTL to 300 or lower for the cutover window",
+          "Attach a rollback note specifying the exact record values to restore and the expected revert time"
+        ]
+      },
+      {
+        "title": "Pre-Submission Validation",
+        "estMinutes": 10,
+        "steps": [
+          "Run the built-in syntax and lint check; fix flagged issues like trailing dots on FQDNs or CNAME-at-apex conflicts",
+          "Review the generated diff against live records and confirm no unintended deletions of MX, SPF, or DKIM records appear",
+          "Confirm conflicting scheduled changes on the same zone are absent before submitting for approval"
+        ]
+      },
+      {
+        "title": "Dual-Control Approval Workflow",
+        "estMinutes": 15,
+        "steps": [
+          "Submit the proposal and name an approver other than yourself; verify the platform blocks self-approval",
+          "As the approver: inspect the diff, check the justification and rollback plan, then approve or reject with a mandatory comment",
+          "As the requester: read a rejection comment, edit the proposal in place, and resubmit for a fresh approval"
+        ]
+      },
+      {
+        "title": "Applying and Verifying the Change",
+        "estMinutes": 10,
+        "steps": [
+          "Apply the approved proposal at the scheduled window; confirm the platform rejects unapproved or expired approvals",
+          "Query the record from two resolvers (e.g., dig @1.1.1.1 and @8.8.8.8) to confirm propagation matches the proposal",
+          "Trigger the documented rollback from the proposal on a deliberately misconfigured test record to prove it works"
+        ]
+      },
+      {
+        "title": "Audit Trail and Compliance",
+        "estMinutes": 10,
+        "steps": [
+          "Locate the audit entry for a completed change and identify proposer, approver, timestamps, and final diff",
+          "Export the audit log filtered by zone and date range for a quarterly change review",
+          "Flag any live record that lacks a matching approved proposal and open a reconciliation ticket"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-dns",
+      "skill-devops",
+      "skill-approval-workflow",
+      "skill-infrastructure",
+      "skill-change-management"
+    ],
+    "prerequisites": [
+      "Working knowledge of DNS record types (A, AAAA, CNAME, MX, TXT, NS) and TTL behavior",
+      "Ability to query DNS with dig or nslookup",
+      "Existing user account with proposer or approver role on the platform"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-handwrought",
+    "toolSlug": "handwrought",
+    "title": "Master HandWrought",
+    "objectives": [
+      "Invoke HandWrought's inline AI anywhere inside a document",
+      "Generate AI drafts directly at the cursor position",
+      "Revise selected text with targeted inline prompts and manage suggested edits"
+    ],
+    "modules": [
+      {
+        "title": "Set Up & Summon the Inline Editor",
+        "estMinutes": 5,
+        "steps": [
+          "Create a new document in HandWrought and type two sentences of placeholder text,"
+        ]
+      },
+      {
+        "title": "Draft Without Leaving the Page",
+        "estMinutes": 8,
+        "steps": [
+          "Place your cursor where the draft should appear, open the inline panel, and type 'Draft a 3-sentence intro about [your topic]', then review the generated text in place",
+          "Use 'Keep' to accept a draft you like, or 'Retry' with a more specific prompt like 'make it shorter and add an example' to regenerate",
+          "Practice continuing: place the cursor mid-document, ask HandWrought to 'continue from here with a bullet list,' and watch it match the surrounding tone"
+        ]
+      },
+      {
+        "title": "Revise Selected Text Inline",
+        "estMinutes": 8,
+        "steps": [
+          "Highlight a paragraph you wrote, then choose a quick action like 'Shorten,' 'Simplify,' or 'Fix grammar' from the selection toolbar",
+          "Run a custom revision by typing a specific instruction on a selection, e.g., 'make this sound more confident but keep the facts the same'",
+          "Compare the original and revised text in the inline diff view, then pick 'Accept' or 'Revert' per change or for the whole block"
+        ]
+      },
+      {
+        "title": "Build a Repeatable Inline Workflow",
+        "estMinutes": 5,
+        "steps": [
+          "Draft one short section of a real document using only inline prompts: generate, revise, accept",
+          "Save your two most useful prompts (e.g., 'tighten this paragraph') as reusable commands in HandWrought's prompt library",
+          "Review the document's revision history to confirm every AI edit was accepted or reverted before sharing"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-ai editor",
+      "skill-inline editing",
+      "skill-documents",
+      "skill-proofreading"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-ai-tools-list",
+    "toolSlug": "ai-tools-list",
+    "title": "Master ai-tools-list",
+    "objectives": [
+      "Understand what ai-tools-list is for",
+      "Use ai-tools-list on a real task",
+      "Know where ai-tools-list fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for ai-tools-list.",
+          "Say what ai-tools-list does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through ai-tools-list.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold ai-tools-list into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai tools",
+      "skill-directory",
+      "skill-developer tools",
+      "skill-coding agents",
+      "skill-awesome list"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-agentseed",
+    "toolSlug": "agentseed",
+    "title": "Master AgentSeed",
+    "objectives": [
+      "Understand what AgentSeed is for",
+      "Use AgentSeed on a real task",
+      "Know where AgentSeed fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AgentSeed for your real workflow, not the demo.",
+          "Say what AgentSeed does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AgentSeed.",
+          "Push AgentSeed to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AgentSeed into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai coding",
+      "skill-guardrails",
+      "skill-mcp",
+      "skill-code verification",
+      "skill-anti-hallucination"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-ta",
+    "toolSlug": "ta",
+    "title": "Master Ta",
+    "objectives": [
+      "Understand what Ta is for",
+      "Use Ta on a real task",
+      "Know where Ta fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Ta.",
+          "Say what Ta does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Ta.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Ta into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-screenshot",
+      "skill-ocr",
+      "skill-annotation",
+      "skill-translation",
+      "skill-macos"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-awesome-thai-ai-projects",
+    "toolSlug": "awesome-thai-ai-projects",
+    "title": "Master awesome-thai-ai-projects",
+    "objectives": [
+      "Navigate an 'awesome' curated list on GitHub and find projects by category",
+      "Evaluate a listed project's health using stars, last commit, and README quality",
+      "Clone and run one Thai AI project locally, then contribute a fix or addition back to the list"
+    ],
+    "modules": [
+      {
+        "title": "Locate and Explore the List",
+        "estMinutes": 15,
+        "steps": [
+          "Search GitHub for 'awesome-thai-ai-projects' and open the repository README",
+          "Skim the table of contents to identify categories (e.g., chatbots, NLP, computer vision) and pick two that interest you",
+          "Star the repo and use browser find (Ctrl+F) to count how many projects appear in your chosen category"
+        ]
+      },
+      {
+        "title": "Evaluate and Shortlist Projects",
+        "estMinutes": 20,
+        "steps": [
+          "Pick 3 projects from one category and open each linked repo in a new tab",
+          "Compare them on stars, last commit date, open issues, and whether the README has setup instructions or a live demo",
+          "Write down your top pick and one sentence on why it looks maintained and runnable"
+        ]
+      },
+      {
+        "title": "Run One Project Locally",
+        "estMinutes": 45,
+        "steps": [
+          "Clone your chosen repo with 'git clone' or try its live demo/Colab link if one is provided",
+          "Follow the setup steps in the README (install dependencies, add any required API keys) and confirm the app or bot runs",
+          "If you hit a setup problem, check existing GitHub issues for the same error before debugging further"
+        ]
+      },
+      {
+        "title": "Give Back to the List",
+        "estMinutes": 25,
+        "steps": [
+          "File an issue on the project repo if you found a broken step, or a thumbs-up/comment if it worked",
+          "Check the awesome list's contributing guidelines, then fork the list repo",
+          "Submit a pull request fixing a dead link or adding one Thai AI project you know that is missing"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-awesome list",
+      "skill-curated resources",
+      "skill-thai ai",
+      "skill-json dataset",
+      "skill-ai projects"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-foundry-toolbox-radar-lab",
+    "toolSlug": "foundry-toolbox-radar-lab",
+    "title": "Master Foundry-Toolbox-Radar-Lab",
+    "objectives": [
+      "Understand what Foundry-Toolbox-Radar-Lab is for",
+      "Use Foundry-Toolbox-Radar-Lab on a real task",
+      "Know where Foundry-Toolbox-Radar-Lab fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Foundry-Toolbox-Radar-Lab for your real workflow, not the demo.",
+          "Say what Foundry-Toolbox-Radar-Lab does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Foundry-Toolbox-Radar-Lab.",
+          "Push Foundry-Toolbox-Radar-Lab to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Foundry-Toolbox-Radar-Lab into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-security",
+      "skill-governance",
+      "skill-ai agents",
+      "skill-data leakage",
+      "skill-auditing"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-27T06:10:30.704Z"
   }
 ]

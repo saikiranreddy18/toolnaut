@@ -13,7 +13,15 @@
       "limitless-library",
       "player-vs-computer",
       "launch-hn-vendo-yc-s26",
-      "agenttrail"
+      "agenttrail",
+      "a-benchmark-for-safely-measuring-container-breakout-capabili",
+      "devx",
+      "serve-markdown-to-ai-agents-with-accept-headers",
+      "web-game-player-vs-computer",
+      "ai-tools-list",
+      "agentseed",
+      "awesome-thai-ai-projects",
+      "foundry-toolbox-radar-lab"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -24,7 +32,15 @@
       "course-limitless-library",
       "course-player-vs-computer",
       "course-launch-hn-vendo-yc-s26",
-      "course-agenttrail"
+      "course-agenttrail",
+      "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
+      "course-devx",
+      "course-serve-markdown-to-ai-agents-with-accept-headers",
+      "course-web-game-player-vs-computer",
+      "course-ai-tools-list",
+      "course-agentseed",
+      "course-awesome-thai-ai-projects",
+      "course-foundry-toolbox-radar-lab"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -90,12 +106,16 @@
     "toolsTeaching": [
       "ablo-make-your-ai-app-multiplayer",
       "hermes-agent",
-      "mrea"
+      "mrea",
+      "shelf-protocol",
+      "web-game-player-vs-computer"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
       "course-hermes-agent",
-      "course-mrea"
+      "course-mrea",
+      "course-shelf-protocol",
+      "course-web-game-player-vs-computer"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -108,13 +128,17 @@
       "i-built-an-ai-music-generator-with-some-harnesses",
       "edify",
       "canvasformusic",
-      "a-daily-cartoon-contest-between-ai-models-judged-blind"
+      "a-daily-cartoon-contest-between-ai-models-judged-blind",
+      "build-your-own-theme-park",
+      "ta"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
       "course-edify",
       "course-canvasformusic",
-      "course-a-daily-cartoon-contest-between-ai-models-judged-blind"
+      "course-a-daily-cartoon-contest-between-ai-models-judged-blind",
+      "course-build-your-own-theme-park",
+      "course-ta"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -198,7 +222,15 @@
       "mrea",
       "aristra-your-life-os",
       "ai-resume-screening",
-      "aifi-on-aws"
+      "aifi-on-aws",
+      "placeroot",
+      "abbs",
+      "we-run-stateful-ai-agents-on-a-serverless-infra",
+      "agents-should-be-durable-not-long-lived",
+      "why-ai-agents-need-persistent-browser-identities",
+      "shelf-protocol",
+      "bytedance-launches-ai-office-product-doubao-work",
+      "propose-and-dual-control-for-dns-changes"
     ],
     "courses": [
       "course-headless-tools",
@@ -210,7 +242,15 @@
       "course-mrea",
       "course-aristra-your-life-os",
       "course-ai-resume-screening",
-      "course-aifi-on-aws"
+      "course-aifi-on-aws",
+      "course-placeroot",
+      "course-abbs",
+      "course-we-run-stateful-ai-agents-on-a-serverless-infra",
+      "course-agents-should-be-durable-not-long-lived",
+      "course-why-ai-agents-need-persistent-browser-identities",
+      "course-shelf-protocol",
+      "course-bytedance-launches-ai-office-product-doubao-work",
+      "course-propose-and-dual-control-for-dns-changes"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -238,7 +278,13 @@
       "mrea",
       "limitless-library",
       "agenttrail",
-      "ai-agent-hacking-writeups"
+      "ai-agent-hacking-writeups",
+      "abbs",
+      "we-run-stateful-ai-agents-on-a-serverless-infra",
+      "agents-should-be-durable-not-long-lived",
+      "why-ai-agents-need-persistent-browser-identities",
+      "serve-markdown-to-ai-agents-with-accept-headers",
+      "foundry-toolbox-radar-lab"
     ],
     "courses": [
       "course-headless-tools",
@@ -246,7 +292,13 @@
       "course-mrea",
       "course-limitless-library",
       "course-agenttrail",
-      "course-ai-agent-hacking-writeups"
+      "course-ai-agent-hacking-writeups",
+      "course-abbs",
+      "course-we-run-stateful-ai-agents-on-a-serverless-infra",
+      "course-agents-should-be-durable-not-long-lived",
+      "course-why-ai-agents-need-persistent-browser-identities",
+      "course-serve-markdown-to-ai-agents-with-accept-headers",
+      "course-foundry-toolbox-radar-lab"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -511,10 +563,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "ecdeos"
+      "ecdeos",
+      "shelf-protocol"
     ],
     "courses": [
-      "course-ecdeos"
+      "course-ecdeos",
+      "course-shelf-protocol"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -615,10 +669,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "gibson-adk-and-zero-trust-runtime"
+      "gibson-adk-and-zero-trust-runtime",
+      "foundry-toolbox-radar-lab"
     ],
     "courses": [
-      "course-gibson-adk-and-zero-trust-runtime"
+      "course-gibson-adk-and-zero-trust-runtime",
+      "course-foundry-toolbox-radar-lab"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -732,10 +788,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "coolplugz"
+      "coolplugz",
+      "agentseed"
     ],
     "courses": [
-      "course-coolplugz"
+      "course-coolplugz",
+      "course-agentseed"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -862,10 +920,14 @@
     "domain": "writing",
     "level": "beginner",
     "toolsTeaching": [
-      "try-to-beat-this-ai-writing-detector"
+      "try-to-beat-this-ai-writing-detector",
+      "text-editor-that-does-it-all",
+      "handwrought"
     ],
     "courses": [
-      "course-try-to-beat-this-ai-writing-detector"
+      "course-try-to-beat-this-ai-writing-detector",
+      "course-text-editor-that-does-it-all",
+      "course-handwrought"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -927,10 +989,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "mrea"
+      "mrea",
+      "foundry-toolbox-radar-lab"
     ],
     "courses": [
-      "course-mrea"
+      "course-mrea",
+      "course-foundry-toolbox-radar-lab"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -966,10 +1030,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "thinkrail-jetbrains-incubator"
+      "thinkrail-jetbrains-incubator",
+      "devx"
     ],
     "courses": [
-      "course-thinkrail-jetbrains-incubator"
+      "course-thinkrail-jetbrains-incubator",
+      "course-devx"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1007,12 +1073,16 @@
     "toolsTeaching": [
       "thinkrail-jetbrains-incubator",
       "limitless-library",
-      "agenttrail"
+      "agenttrail",
+      "abbs",
+      "ai-tools-list"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
       "course-limitless-library",
-      "course-agenttrail"
+      "course-agenttrail",
+      "course-abbs",
+      "course-ai-tools-list"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1050,10 +1120,12 @@
     "domain": "learning",
     "level": "advanced",
     "toolsTeaching": [
-      "designing-loops-for-production-grade-work"
+      "designing-loops-for-production-grade-work",
+      "a-benchmark-for-safely-measuring-container-breakout-capabili"
     ],
     "courses": [
-      "course-designing-loops-for-production-grade-work"
+      "course-designing-loops-for-production-grade-work",
+      "course-a-benchmark-for-safely-measuring-container-breakout-capabili"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1182,10 +1254,12 @@
     "domain": "code",
     "level": "beginner",
     "toolsTeaching": [
-      "player-vs-computer"
+      "player-vs-computer",
+      "build-your-own-theme-park"
     ],
     "courses": [
-      "course-player-vs-computer"
+      "course-player-vs-computer",
+      "course-build-your-own-theme-park"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1195,10 +1269,12 @@
     "domain": "data",
     "level": "advanced",
     "toolsTeaching": [
-      "genbio-launches-a-virtual-biological-cell"
+      "genbio-launches-a-virtual-biological-cell",
+      "launch-hn-risklytics-yc-s26"
     ],
     "courses": [
-      "course-genbio-launches-a-virtual-biological-cell"
+      "course-genbio-launches-a-virtual-biological-cell",
+      "course-launch-hn-risklytics-yc-s26"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1273,10 +1349,14 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "aristra-your-life-os"
+      "aristra-your-life-os",
+      "text-editor-that-does-it-all",
+      "bytedance-launches-ai-office-product-doubao-work"
     ],
     "courses": [
-      "course-aristra-your-life-os"
+      "course-aristra-your-life-os",
+      "course-text-editor-that-does-it-all",
+      "course-bytedance-launches-ai-office-product-doubao-work"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1578,5 +1658,1025 @@
       "course-ai-agent-hacking-writeups"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
+  },
+  {
+    "id": "skill-text editor",
+    "name": "text editor",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "text-editor-that-does-it-all"
+    ],
+    "courses": [
+      "course-text-editor-that-does-it-all"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-ai assistant",
+    "name": "ai assistant",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "text-editor-that-does-it-all"
+    ],
+    "courses": [
+      "course-text-editor-that-does-it-all"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-notes",
+    "name": "notes",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "text-editor-that-does-it-all"
+    ],
+    "courses": [
+      "course-text-editor-that-does-it-all"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-theme park",
+    "name": "theme park",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "build-your-own-theme-park"
+    ],
+    "courses": [
+      "course-build-your-own-theme-park"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-generator",
+    "name": "generator",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "build-your-own-theme-park"
+    ],
+    "courses": [
+      "course-build-your-own-theme-park"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-demo",
+    "name": "demo",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "build-your-own-theme-park"
+    ],
+    "courses": [
+      "course-build-your-own-theme-park"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-insurance",
+    "name": "insurance",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "launch-hn-risklytics-yc-s26"
+    ],
+    "courses": [
+      "course-launch-hn-risklytics-yc-s26"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-risk",
+    "name": "risk",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "launch-hn-risklytics-yc-s26"
+    ],
+    "courses": [
+      "course-launch-hn-risklytics-yc-s26"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-fintech",
+    "name": "fintech",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "launch-hn-risklytics-yc-s26"
+    ],
+    "courses": [
+      "course-launch-hn-risklytics-yc-s26"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-startups",
+    "name": "startups",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "launch-hn-risklytics-yc-s26"
+    ],
+    "courses": [
+      "course-launch-hn-risklytics-yc-s26"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-analytics",
+    "name": "analytics",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "launch-hn-risklytics-yc-s26"
+    ],
+    "courses": [
+      "course-launch-hn-risklytics-yc-s26"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-maps",
+    "name": "maps",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "placeroot"
+    ],
+    "courses": [
+      "course-placeroot"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-geocoding",
+    "name": "geocoding",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "placeroot"
+    ],
+    "courses": [
+      "course-placeroot"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-routing",
+    "name": "routing",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "placeroot"
+    ],
+    "courses": [
+      "course-placeroot"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-ai-agents",
+    "name": "ai agents",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "placeroot",
+      "shelf-protocol"
+    ],
+    "courses": [
+      "course-placeroot",
+      "course-shelf-protocol"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-location",
+    "name": "location",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "placeroot"
+    ],
+    "courses": [
+      "course-placeroot"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-bulletin board",
+    "name": "bulletin board",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "abbs"
+    ],
+    "courses": [
+      "course-abbs"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-agent communication",
+    "name": "agent communication",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "abbs"
+    ],
+    "courses": [
+      "course-abbs"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-messaging",
+    "name": "messaging",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "abbs"
+    ],
+    "courses": [
+      "course-abbs"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-serverless",
+    "name": "serverless",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "we-run-stateful-ai-agents-on-a-serverless-infra"
+    ],
+    "courses": [
+      "course-we-run-stateful-ai-agents-on-a-serverless-infra"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-infrastructure",
+    "name": "infrastructure",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "we-run-stateful-ai-agents-on-a-serverless-infra",
+      "propose-and-dual-control-for-dns-changes"
+    ],
+    "courses": [
+      "course-we-run-stateful-ai-agents-on-a-serverless-infra",
+      "course-propose-and-dual-control-for-dns-changes"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-deployment",
+    "name": "deployment",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "we-run-stateful-ai-agents-on-a-serverless-infra"
+    ],
+    "courses": [
+      "course-we-run-stateful-ai-agents-on-a-serverless-infra"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-durable execution",
+    "name": "durable execution",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "agents-should-be-durable-not-long-lived"
+    ],
+    "courses": [
+      "course-agents-should-be-durable-not-long-lived"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-architecture",
+    "name": "architecture",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "agents-should-be-durable-not-long-lived"
+    ],
+    "courses": [
+      "course-agents-should-be-durable-not-long-lived"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-reliability",
+    "name": "reliability",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "agents-should-be-durable-not-long-lived"
+    ],
+    "courses": [
+      "course-agents-should-be-durable-not-long-lived"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-workflows",
+    "name": "workflows",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "agents-should-be-durable-not-long-lived"
+    ],
+    "courses": [
+      "course-agents-should-be-durable-not-long-lived"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-benchmark",
+    "name": "benchmark",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "a-benchmark-for-safely-measuring-container-breakout-capabili"
+    ],
+    "courses": [
+      "course-a-benchmark-for-safely-measuring-container-breakout-capabili"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-sandbox",
+    "name": "sandbox",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "a-benchmark-for-safely-measuring-container-breakout-capabili"
+    ],
+    "courses": [
+      "course-a-benchmark-for-safely-measuring-container-breakout-capabili"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-container escape",
+    "name": "container escape",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "a-benchmark-for-safely-measuring-container-breakout-capabili"
+    ],
+    "courses": [
+      "course-a-benchmark-for-safely-measuring-container-breakout-capabili"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-ai safety",
+    "name": "ai safety",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "a-benchmark-for-safely-measuring-container-breakout-capabili"
+    ],
+    "courses": [
+      "course-a-benchmark-for-safely-measuring-container-breakout-capabili"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-autonomous",
+    "name": "autonomous",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "devx"
+    ],
+    "courses": [
+      "course-devx"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-termux",
+    "name": "termux",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "devx"
+    ],
+    "courses": [
+      "course-devx"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-android",
+    "name": "android",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "devx"
+    ],
+    "courses": [
+      "course-devx"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-cli",
+    "name": "cli",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "devx"
+    ],
+    "courses": [
+      "course-devx"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-browser automation",
+    "name": "browser automation",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "why-ai-agents-need-persistent-browser-identities"
+    ],
+    "courses": [
+      "course-why-ai-agents-need-persistent-browser-identities"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-persistent identity",
+    "name": "persistent identity",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "why-ai-agents-need-persistent-browser-identities"
+    ],
+    "courses": [
+      "course-why-ai-agents-need-persistent-browser-identities"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-sessions",
+    "name": "sessions",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "why-ai-agents-need-persistent-browser-identities"
+    ],
+    "courses": [
+      "course-why-ai-agents-need-persistent-browser-identities"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-authentication",
+    "name": "authentication",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "why-ai-agents-need-persistent-browser-identities"
+    ],
+    "courses": [
+      "course-why-ai-agents-need-persistent-browser-identities"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-markdown",
+    "name": "markdown",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "serve-markdown-to-ai-agents-with-accept-headers"
+    ],
+    "courses": [
+      "course-serve-markdown-to-ai-agents-with-accept-headers"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-accept headers",
+    "name": "accept headers",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "serve-markdown-to-ai-agents-with-accept-headers"
+    ],
+    "courses": [
+      "course-serve-markdown-to-ai-agents-with-accept-headers"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-content negotiation",
+    "name": "content negotiation",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "serve-markdown-to-ai-agents-with-accept-headers"
+    ],
+    "courses": [
+      "course-serve-markdown-to-ai-agents-with-accept-headers"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-web serving",
+    "name": "web serving",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "serve-markdown-to-ai-agents-with-accept-headers"
+    ],
+    "courses": [
+      "course-serve-markdown-to-ai-agents-with-accept-headers"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-commerce",
+    "name": "commerce",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "shelf-protocol"
+    ],
+    "courses": [
+      "course-shelf-protocol"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-web-standards",
+    "name": "web standards",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "shelf-protocol"
+    ],
+    "courses": [
+      "course-shelf-protocol"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-web-game",
+    "name": "web game",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "web-game-player-vs-computer"
+    ],
+    "courses": [
+      "course-web-game-player-vs-computer"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-browser-game",
+    "name": "browser game",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "web-game-player-vs-computer"
+    ],
+    "courses": [
+      "course-web-game-player-vs-computer"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-ai-opponent",
+    "name": "ai opponent",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "web-game-player-vs-computer"
+    ],
+    "courses": [
+      "course-web-game-player-vs-computer"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-ai office",
+    "name": "ai office",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "bytedance-launches-ai-office-product-doubao-work"
+    ],
+    "courses": [
+      "course-bytedance-launches-ai-office-product-doubao-work"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-doubao",
+    "name": "doubao",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "bytedance-launches-ai-office-product-doubao-work"
+    ],
+    "courses": [
+      "course-bytedance-launches-ai-office-product-doubao-work"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-assistant",
+    "name": "assistant",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "bytedance-launches-ai-office-product-doubao-work"
+    ],
+    "courses": [
+      "course-bytedance-launches-ai-office-product-doubao-work"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-workspace",
+    "name": "workspace",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "bytedance-launches-ai-office-product-doubao-work"
+    ],
+    "courses": [
+      "course-bytedance-launches-ai-office-product-doubao-work"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-dns",
+    "name": "dns",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "propose-and-dual-control-for-dns-changes"
+    ],
+    "courses": [
+      "course-propose-and-dual-control-for-dns-changes"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-devops",
+    "name": "devops",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "propose-and-dual-control-for-dns-changes"
+    ],
+    "courses": [
+      "course-propose-and-dual-control-for-dns-changes"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-approval-workflow",
+    "name": "approval workflow",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "propose-and-dual-control-for-dns-changes"
+    ],
+    "courses": [
+      "course-propose-and-dual-control-for-dns-changes"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-change-management",
+    "name": "change management",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "propose-and-dual-control-for-dns-changes"
+    ],
+    "courses": [
+      "course-propose-and-dual-control-for-dns-changes"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-ai editor",
+    "name": "ai editor",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "handwrought"
+    ],
+    "courses": [
+      "course-handwrought"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-inline editing",
+    "name": "inline editing",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "handwrought"
+    ],
+    "courses": [
+      "course-handwrought"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-documents",
+    "name": "documents",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "handwrought"
+    ],
+    "courses": [
+      "course-handwrought"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-proofreading",
+    "name": "proofreading",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "handwrought"
+    ],
+    "courses": [
+      "course-handwrought"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-ai tools",
+    "name": "ai tools",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-tools-list"
+    ],
+    "courses": [
+      "course-ai-tools-list"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-directory",
+    "name": "directory",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-tools-list"
+    ],
+    "courses": [
+      "course-ai-tools-list"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-coding agents",
+    "name": "coding agents",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-tools-list"
+    ],
+    "courses": [
+      "course-ai-tools-list"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-awesome list",
+    "name": "awesome list",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-tools-list",
+      "awesome-thai-ai-projects"
+    ],
+    "courses": [
+      "course-ai-tools-list",
+      "course-awesome-thai-ai-projects"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-ai coding",
+    "name": "ai coding",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentseed"
+    ],
+    "courses": [
+      "course-agentseed"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-guardrails",
+    "name": "guardrails",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentseed"
+    ],
+    "courses": [
+      "course-agentseed"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-code verification",
+    "name": "code verification",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentseed"
+    ],
+    "courses": [
+      "course-agentseed"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-anti-hallucination",
+    "name": "anti hallucination",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentseed"
+    ],
+    "courses": [
+      "course-agentseed"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-screenshot",
+    "name": "screenshot",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ta"
+    ],
+    "courses": [
+      "course-ta"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-ocr",
+    "name": "ocr",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ta"
+    ],
+    "courses": [
+      "course-ta"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-annotation",
+    "name": "annotation",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ta"
+    ],
+    "courses": [
+      "course-ta"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-translation",
+    "name": "translation",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ta"
+    ],
+    "courses": [
+      "course-ta"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-macos",
+    "name": "macos",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ta"
+    ],
+    "courses": [
+      "course-ta"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-curated resources",
+    "name": "curated resources",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "awesome-thai-ai-projects"
+    ],
+    "courses": [
+      "course-awesome-thai-ai-projects"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-thai ai",
+    "name": "thai ai",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "awesome-thai-ai-projects"
+    ],
+    "courses": [
+      "course-awesome-thai-ai-projects"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-json dataset",
+    "name": "json dataset",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "awesome-thai-ai-projects"
+    ],
+    "courses": [
+      "course-awesome-thai-ai-projects"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-ai projects",
+    "name": "ai projects",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "awesome-thai-ai-projects"
+    ],
+    "courses": [
+      "course-awesome-thai-ai-projects"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-data leakage",
+    "name": "data leakage",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "foundry-toolbox-radar-lab"
+    ],
+    "courses": [
+      "course-foundry-toolbox-radar-lab"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-auditing",
+    "name": "auditing",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "foundry-toolbox-radar-lab"
+    ],
+    "courses": [
+      "course-foundry-toolbox-radar-lab"
+    ],
+    "updatedAt": "2026-08-27T06:10:30.704Z"
   }
 ]
