@@ -7,6 +7,7 @@ import { loadQuiz } from '../../state/quizStore'
 import { loadSession } from '../../state/authStore'
 import { haptic } from '../../utils/haptics'
 import { UpvoteIcon, ReplyIcon } from '../../components/app/icons'
+import RankCard from '../../components/app/RankCard'
 
 const TYPES = ['question', 'showcase', 'discussion']
 
@@ -58,6 +59,9 @@ export default function Community() {
 
   return (
     <div className="mx-auto max-w-2xl px-5 py-6 lg:py-10">
+      {/* SQUAD is the social surface, so standing belongs at the top of it:
+          your rank is the first thing you want to see when you open it. */}
+      <RankCard />
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1">
           <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ SQUAD</p>
