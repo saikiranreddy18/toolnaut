@@ -7,6 +7,8 @@ import RolesSection from '../components/sections/RolesSection'
 import AudienceSection from '../components/sections/AudienceSection'
 import PricingSection from '../components/sections/PricingSection'
 import FeaturesSection from '../components/sections/FeaturesSection'
+import StatsSection from '../components/sections/StatsSection'
+import LeaderboardSection from '../components/sections/LeaderboardSection'
 import CTASection from '../components/sections/CTASection'
 import CometProgress from '../components/ui/CometProgress'
 import GalaxyExplorer from '../components/ui/GalaxyExplorer'
@@ -128,12 +130,13 @@ export default function Landing() {
 
       <main className={`transition-opacity duration-500 ${explore ? 'pointer-events-none opacity-0' : ''}`}>
         <HeroSection onEnter={openQuiz} />
+        <StatsSection />
         <HowItWorksSection />
         <RolesSection />
         <AudienceSection />
         <FeaturesSection />
-        {/* Pricing hidden for now — restore by un-commenting: */}
-        {/* <PricingSection /> */}
+        <LeaderboardSection />
+        <PricingSection />
         <CTASection />
       </main>
 
