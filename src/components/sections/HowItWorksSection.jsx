@@ -3,7 +3,7 @@ import SectionShell, { fadeUp } from '../ui/SectionShell'
 import Tilt from '../ui/Tilt'
 
 const STEPS = [
-  { name: 'Discover', text: 'Tell us your role, goals, and experience. Two minutes, no forms that feel like forms.' },
+  { name: 'Discover', text: 'Tell us your role, goals, and experience. Sixty seconds, no forms that feel like forms.' },
   { name: 'Match', text: 'We map the tool landscape to your role and surface only what earns a place in your stack.' },
   { name: 'Learn', text: 'Follow a learning path built for your level — from first prompt to production workflow.' },
   { name: 'Master', text: 'Track progress against your role, not generic benchmarks. Stay ahead as the field moves.' },
