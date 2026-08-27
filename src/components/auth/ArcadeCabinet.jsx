@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { TOOLS } from '../../utils/toolsCatalog'
+import Wordmark from '../ui/Wordmark'
 
 // The cabinet: a live CRT, a joystick that moves, and buttons that travel.
 //
@@ -90,8 +91,12 @@ export default function ArcadeCabinet({ launching = false }) {
             className="w-fit shrink-0 rounded-lg border-[3px] border-black px-5 py-1.5"
             style={{ background: 'var(--lime)', boxShadow: '3px 3px 0 #000' }}
           >
-            <span className="font-display text-lg font-black italic tracking-[0.08em] text-black md:text-xl">
-              ✦ TOOLNAUT ✦
+            {/* On lime the glow would be invisible, so the mark runs flat here
+                and the infinity takes the marquee's black. */}
+            <span className="flex items-center gap-1.5 text-lg text-black md:text-xl" style={{ '--lime': '#000' }}>
+              <span aria-hidden="true" className="text-sm">✦</span>
+              <Wordmark glow={false} className="tracking-[0.02em]" />
+              <span aria-hidden="true" className="text-sm">✦</span>
             </span>
           </div>
           <span

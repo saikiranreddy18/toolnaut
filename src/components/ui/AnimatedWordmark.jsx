@@ -1,0 +1,95 @@
+import { useId } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
+import Mascot from './Mascot'
+
+// The hero logo reveal: the mark draws itself, then Naut hops up and perches on
+// the infinity with his arms over the top.
+//
+// The infinity is animated by stroke-dashoffset rather than by fading in, so it
+// LOOKS DRAWN — a single continuous line tracing itself, which is the whole
+// point of a mark that has no start and no end. Fading would have been half the
+// work and none of the idea.
+//
+// Naut arrives after the line closes, not with it. He is landing on something
+// that already exists; overlapping the two reads as an accident rather than as
+// a character choosing to sit somewhere.
+//
+// Under prefers-reduced-motion everything renders in its final state with no
+// motion at all — the mark is still complete and Naut is still perched.
+
+const LEMNISCATE =
+  'M100 60 C100 12 22 12 22 60 C22 108 100 108 100 60 C100 12 178 12 178 60 C178 108 100 108 100 60 Z'
+
+// Measured from the path above; used for the draw-on. Slightly over the true
+// length so the tail never leaves a visible gap at the join.
+const PATH_LEN = 660
+
+export default function AnimatedWordmark({ className = '', mascotSize = 46 }) {
+  const glowId = `hero-glow-${useId().replace(/:/g, '')}`
+  const still = useReducedMotion()
+
+  const letter = (delay) =>
+    still
+      ? {}
+      : {
+          initial: { opacity: 0, y: 14 },
+          animate: { opacity: 1, y: 0 },
+          transition: { delay, duration: 0.5, ease: 'easeOut' },
+        }
+
+  return (
+    <span
+      role="img"
+      aria-label="Toolnaut"
+      className={`relative inline-flex items-center whitespace-nowrap font-display font-black italic ${className}`}
+    >
+      <motion.span aria-hidden="true" {...letter(0.15)}>T</motion.span>
+
+      <span className="relative inline-block" style={{ width: '1.72em', height: '1.03em', margin: '0 0.02em' }}>
+        <svg
+          viewBox="0 0 200 120"
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full"
+          style={{ overflow: 'visible' }}
+        >
+          <defs>
+            <filter id={glowId} x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="9" result="b" />
+              <feMerge>
+                <feMergeNode in="b" />
+                <feMergeNode in="b" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <motion.path
+            d={LEMNISCATE}
+            fill="none"
+            stroke="var(--lime)"
+            strokeWidth="21"
+            strokeLinecap="round"
+            filter={`url(#${glowId})`}
+            initial={still ? false : { strokeDasharray: PATH_LEN, strokeDashoffset: PATH_LEN }}
+            animate={still ? false : { strokeDashoffset: 0 }}
+            transition={{ delay: 0.5, duration: 1.15, ease: 'easeInOut' }}
+          />
+        </svg>
+
+        {/* Naut, arriving once the line has closed. Anchored to the top of the
+            infinity so he reads as resting ON it rather than floating near it. */}
+        <motion.span
+          className="absolute left-1/2 z-10"
+          style={{ bottom: '46%', translateX: '-50%' }}
+          initial={still ? false : { opacity: 0, y: -34, scale: 0.7 }}
+          animate={still ? false : { opacity: 1, y: 0, scale: 1 }}
+          transition={{ delay: 1.75, type: 'spring', stiffness: 320, damping: 15 }}
+          aria-hidden="true"
+        >
+          <Mascot mood="cheeky" size={mascotSize} />
+        </motion.span>
+      </span>
+
+      <motion.span aria-hidden="true" {...letter(0.3)}>lnaut</motion.span>
+    </span>
+  )
+}

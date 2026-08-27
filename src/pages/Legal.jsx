@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { BRAND } from '../config'
+import Wordmark from '../components/ui/Wordmark'
 
 // Privacy policy and terms, rendered from one component because they share a
 // layout and differ only in body.
@@ -201,8 +202,9 @@ export default function Legal() {
       <div className="starfield" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto max-w-2xl px-5 py-16 md:py-24">
-        <Link to="/" className="font-display text-xs font-black uppercase tracking-[0.2em] text-slate-400 hover:text-white">
-          ← {BRAND}
+        <Link to="/" className="inline-flex items-center gap-2 text-slate-400 hover:text-white" aria-label="Back to Toolnaut">
+          <span aria-hidden="true">←</span>
+          <Wordmark className="text-sm" />
         </Link>
 
         <h1 className="arcade-heading mt-6 text-3xl md:text-4xl">

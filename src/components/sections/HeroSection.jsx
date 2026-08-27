@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
 import { BRAND } from '../../config'
+import AnimatedWordmark from '../ui/AnimatedWordmark'
 import { useAnalytics, useSectionView } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 
 export default function HeroSection({ onEnter }) {
   const track = useAnalytics()
   const ref = useSectionView('hero')
-  const letters = BRAND.split('')
 
   return (
     <section id="hero" ref={ref} className="pointer-events-none relative z-10 flex min-h-screen flex-col items-center justify-center px-5 text-center">
@@ -19,22 +19,12 @@ export default function HeroSection({ onEnter }) {
         <span className="tape-label" style={{ fontSize: 11 }}>✦ LAUNCHING SOON ✦</span>
       </motion.div>
 
-      <motion.p
-        className="mb-6 font-display text-base font-semibold tracking-[0.55em] text-cyan-300 md:text-xl"
-        aria-label={BRAND}
-      >
-        {letters.map((ch, i) => (
-          <motion.span
-            key={i}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.3 + i * 0.08, duration: 0.4 }}
-            aria-hidden="true"
-          >
-            {ch === ' ' ? ' ' : ch}
-          </motion.span>
-        ))}
-      </motion.p>
+      {/* The wordmark draws itself and Naut lands on it. This replaced a
+          letter-by-letter fade of the name in spaced cyan caps — which spelled
+          the brand without ever showing the mark. */}
+      <div className="mb-7 mt-6 flex justify-center">
+        <AnimatedWordmark className="text-4xl text-white sm:text-5xl md:text-6xl" mascotSize={52} />
+      </div>
 
       <motion.h1
         initial={{ opacity: 0, y: 26 }}

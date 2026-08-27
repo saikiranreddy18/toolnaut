@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { fadeUp, stagger } from '../ui/SectionShell'
 import { BRAND } from '../../config'
+import Wordmark from '../ui/Wordmark'
 import { useAnalytics, useSectionView } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { loadSession } from '../../state/authStore'
@@ -79,7 +80,7 @@ export default function CTASection() {
           </p>
 
           <div className="mx-auto mt-14 flex max-w-4xl flex-col items-center gap-6 border-t border-white/10 pt-8 md:flex-row md:justify-between">
-            <p className="font-display text-sm font-bold tracking-[0.35em] text-white">{BRAND}</p>
+            <Wordmark className="text-base text-white" />
             <nav className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-semibold text-white">
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
