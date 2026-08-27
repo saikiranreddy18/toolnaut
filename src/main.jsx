@@ -5,9 +5,11 @@ import './index.css'
 import { initAnalytics } from './utils/analyticsEvents'
 import { loadLiveCatalog } from './utils/liveCatalog'
 import { loadTheme, applyTheme } from './state/themeStore'
+import { loadMoon, applyMoon } from './state/moonStore'
 
 initAnalytics()
 applyTheme(loadTheme()) // paint the saved play-mode before first render
+applyMoon(loadMoon())   // and the saved sky, so there is no flash of the wrong night
 
 // Merge the radar pipeline's live catalog (/tools.json) over the bundled
 // baseline before first paint. Resolves instantly to a no-op when the file

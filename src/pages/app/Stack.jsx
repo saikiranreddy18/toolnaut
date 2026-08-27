@@ -140,9 +140,9 @@ export default function Stack() {
   if (!persona) {
     return (
       <div className="flex min-h-[70dvh] flex-col items-center justify-center px-5 text-center">
-        <h1 className="font-display text-2xl font-bold text-white">Your stack starts with the quiz</h1>
+        <h1 className="font-display text-2xl font-bold text-white">Your stack starts with a chat</h1>
         <p className="mt-3 max-w-md text-sm text-slate-400">
-          Sixty seconds, five questions — and this dashboard fills itself with the
+          Sixty seconds, nine questions — and this dashboard fills itself with the
           tools that fit how you actually work.
         </p>
         <Link
