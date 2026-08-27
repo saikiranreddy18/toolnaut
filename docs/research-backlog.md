@@ -1355,3 +1355,61 @@ a client-side SPA with a static tool catalogue.
   dependency, no new route, no radar source changes (the fetches already
   happen).
 - **Found:** 2026-08-27 03:06 UTC
+
+### "Community access (Discord & forum)" — half the claim doesn't exist
+- **Status:** REJECTED — the real half (forum) already ships; the missing half
+  (a Discord server) is not a code gap, it's a standing external community a
+  human has to create and commit to moderating. Logged as a finding, not an
+  OPEN build, following the same shape as the Pro-chat-assistant/Team-tier and
+  digest-email entries above — this backlog's own precedent for "false claim,
+  no code fix closes it."
+- **Seen in:** not a competitor pattern — found continuing this backlog's own
+  running audit of `planData.js` (the file that already produced the shipped
+  Favorites gap and the still-open PDF-export/chat/Team-tier/digest-email
+  findings). `LeaderboardSection.jsx` and `StatsSection.jsx` were also checked
+  this run against the same "promise vs. product" test and are both clean —
+  the leaderboard explicitly self-labels its sample data ("Sample — not real
+  users yet," `LeaderboardSection.jsx:9-15`) and the stats section computes
+  every number live off real data (`TOOLS.length`, `SOURCE_CATEGORIES.length`,
+  `QUESTIONS.length`, `StatsSection.jsx:6-18`) rather than hardcoding a claim.
+  That leaves `planData.js` as the one remaining source of unaudited copy, and
+  it had one more row nobody had checked yet.
+- **Gap:** `planData.js:20` lists "Community access (Discord & forum)" as the
+  Student tier's very first feature bullet (inherited by Pro/Team via "plus:
+  Everything in Student"). Grepped `[Dd]iscord` across the entire repo
+  (source, docs, `package.json`, `index.html`) — the only hit anywhere is this
+  backlog's own unrelated sentence about pasting a share link into Slack/
+  Discord (line 768). No invite link, no `VITE_DISCORD_URL` config value, no
+  Discord icon in `Settings.jsx`/footer/`About.jsx` — nothing. The "forum"
+  half of the claim is real: `src/pages/app/Community.jsx` + `communityStore.js`
+  is a genuine, working in-app forum (seeded threads, real user posts,
+  upvoting, categories). But it's also completely ungated — since this
+  codebase has no billing/plan enforcement at all (confirmed by the
+  REJECTED Team-tier entry above), every visitor with a fake local session
+  already gets full Community access regardless of which tier's copy claims
+  to sell it, so the bullet is doubly inaccurate: half invents a channel that
+  doesn't exist, half sells as a paid differentiator something already free
+  to anyone.
+- **Why this is REJECTED rather than logged OPEN like the favorites/PDF gaps:**
+  those two were closeable with a `localStorage` store and a `window.print()`
+  call — genuinely client-only code. A real Discord community needs a human to
+  create the server, set up channels/roles, and then actually show up to
+  moderate and answer people in it indefinitely — that's an ongoing ops/product
+  commitment no code change can substitute for or fake, the same reason the
+  digest-email finding above rejected "someone has to author the newsletter
+  every week" as unbuildable-by-a-coding-run.
+- **What would actually be honest to ship, if anyone wants to close this
+  later (a finding, not a proposed build):** two independent, cheap options,
+  neither requires touching app code: (1) stand up a real Discord server and
+  drop its invite link into `planData.js`/`Settings.jsx`/footer — a few
+  minutes of manual setup, zero engineering, but a real standing commitment;
+  or (2) the copy-only fix matching this backlog's own precedent for every
+  other unbacked claim — drop "Discord" from the bullet, keep "forum" (e.g.
+  "Community access (in-app forum)"), which is instantly true with a one-line
+  content edit and needs no infrastructure decision. No edit made this run —
+  flagged for whoever owns pricing copy, same as the chat-assistant/Team-tier/
+  digest-email findings above.
+- **Build size:** N/A (external community setup) or trivial (one-line copy
+  edit) — neither is a client-side feature build, so out of scope for this
+  backlog's build-and-ship model.
+- **Found:** 2026-08-27 09:35 UTC
