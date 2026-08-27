@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import ArcadeCabinet from './ArcadeCabinet'
 import { signIn, signInWithEmail, isSupabaseConfigured } from '../../state/authStore'
+import { postAuthDestination } from '../../utils/postAuth'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
@@ -74,10 +75,10 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
     try {
       // Pass the destination through, so the provider returns them INTO the
       // app rather than back to the sign-in screen they started on.
-      const session = await signIn(id, { redirectTo: next })
+      const session = await signIn(id, { redirectTo: postAuthDestination(next) })
       // Only the simulated path returns a session; the real one has already
       // sent the browser to the provider by now.
-      if (session) window.location.assign(next)
+      if (session) window.location.assign(postAuthDestination(next))
     } catch {
       setError('Could not reach the sign-in provider. Try again.')
       setBusy(null)
@@ -95,9 +96,9 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
     setBusy('email')
     track(EVENTS.CTA_CLICK, { cta: 'sign_in', provider: 'magic_link' })
     try {
-      const { sent } = await signInWithEmail(email)
+      const { sent } = await signInWithEmail(email, { redirectTo: postAuthDestination(next) })
       if (sent) setLinkSent(true)
-      else window.location.assign(next)
+      else window.location.assign(postAuthDestination(next))
     } catch {
       setError('Could not send the link. Try again in a moment.')
     } finally {

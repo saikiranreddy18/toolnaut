@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import SignInModal from '../../components/auth/SignInModal'
 import { loadSession, watchSession } from '../../state/authStore'
+import { postAuthDestination } from '../../utils/postAuth'
 
 // /auth/login renders the sign-in dialog.
 //
@@ -25,13 +26,13 @@ export default function Login() {
   useEffect(() => {
     // Already signed in — nothing to do here.
     if (loadSession()) {
-      navigate(next, { replace: true })
+      navigate(postAuthDestination(next), { replace: true })
       return
     }
     // Otherwise wait for one to arrive, which is what a redirect back from a
     // provider looks like. No-op when Supabase is unconfigured.
     return watchSession((session) => {
-      if (session) navigate(next, { replace: true })
+      if (session) navigate(postAuthDestination(next), { replace: true })
     })
   }, [navigate, next])
 

@@ -112,7 +112,7 @@ export async function signIn(provider = 'google', { redirectTo = '/app/stack', n
 // display name, which is useless to anything that has to send mail.
 // Resolves { sent: true } when a real link is on its way, so the caller can say
 // "check your inbox" instead of pretending the person is signed in.
-export async function signInWithEmail(email) {
+export async function signInWithEmail(email, { redirectTo = '/app/stack' } = {}) {
   if (!isSupabaseConfigured) {
     write({
       user: { name: String(email).split('@')[0], email, provider: 'magic_link' },
@@ -126,7 +126,9 @@ export async function signInWithEmail(email) {
 
   const { error } = await supabase.auth.signInWithOtp({
     email,
-    options: { emailRedirectTo: `${window.location.origin}/app/stack` },
+    // Decided when the link is SENT, since it may be opened hours later in a
+    // different tab — there is no page state to consult at that point.
+    options: { emailRedirectTo: `${window.location.origin}${redirectTo}` },
   })
   if (error) throw error
   return { sent: true, simulated: false }
