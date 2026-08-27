@@ -20,7 +20,6 @@ const ToolDetail = lazy(() => import('./pages/app/ToolDetail'))
 const Learning = lazy(() => import('./pages/app/Learning'))
 const Community = lazy(() => import('./pages/app/Community'))
 const Thread = lazy(() => import('./pages/app/Thread'))
-const NexusLanding = lazy(() => import('./pages/NexusLanding'))
 const Office = lazy(() => import('./pages/Office'))
 const About = lazy(() => import('./pages/About'))
 const Pricing = lazy(() => import('./pages/Pricing'))
@@ -72,7 +71,6 @@ export default function App() {
         <MotionConfig reducedMotion="user">
           <Routes>
             <Route path="/" element={<Landing />} />
-            <Route path="/starchart" element={<NexusLanding />} />
             <Route path="/office" element={<Office />} />
             <Route path="/about" element={<About />} />
             <Route path="/pricing" element={<Pricing />} />
@@ -99,6 +97,11 @@ export default function App() {
               <Route path="community/:id" element={<Thread />} />
               <Route path="settings" element={<Settings />} />
             </Route>
+
+            {/* /starchart was a second landing page. The catch-all would render
+                Landing at that stale URL, which reads as duplicate content to a
+                crawler; redirecting corrects the address bar and the bookmark. */}
+            <Route path="/starchart" element={<Navigate to="/" replace />} />
 
             <Route path="*" element={<Landing />} />
           </Routes>
