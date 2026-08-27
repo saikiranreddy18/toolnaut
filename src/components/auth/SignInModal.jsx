@@ -228,7 +228,14 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
                   </p>
                 )}
 
-                <p className="mt-5 text-[11px] leading-relaxed text-neutral-500">
+                <p className="mt-4 text-[11px] leading-relaxed text-neutral-500">
+                  By continuing you agree to our{' '}
+                  <a href="/terms" className="font-bold underline underline-offset-2 text-neutral-700">Terms</a>{' '}
+                  and{' '}
+                  <a href="/privacy" className="font-bold underline underline-offset-2 text-neutral-700">Privacy Policy</a>.
+                </p>
+
+                <p className="mt-2 text-[11px] leading-relaxed text-neutral-500">
                   {isSupabaseConfigured
                     ? 'No password, ever. We only use your email to sign you in.'
                     : 'Dev preview — sign-in is simulated locally, no email is sent.'}

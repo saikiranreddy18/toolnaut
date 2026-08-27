@@ -23,6 +23,7 @@ const Thread = lazy(() => import('./pages/app/Thread'))
 const Office = lazy(() => import('./pages/Office'))
 const About = lazy(() => import('./pages/About'))
 const Pricing = lazy(() => import('./pages/Pricing'))
+const Legal = lazy(() => import('./pages/Legal'))
 const SharedStack = lazy(() => import('./pages/SharedStack'))
 
 // Scroll + analytics on route change. initAnalytics() already fires the first
@@ -73,6 +74,11 @@ export default function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/office" element={<Office />} />
             <Route path="/about" element={<About />} />
+            {/* Google requires both before an OAuth app can go to production,
+                and both previously resolved only via the SPA catch-all — which
+                served the landing page to anyone who clicked them. */}
+            <Route path="/privacy" element={<Legal />} />
+            <Route path="/terms" element={<Legal />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/s/:slugs" element={<SharedStack />} />
 
