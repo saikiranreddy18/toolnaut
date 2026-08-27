@@ -14,10 +14,16 @@ name: Radar
 
 on:
   schedule:
-    # 01:00 UTC / 06:30 IST — deliberately away from the autonomous dev routine,
+    # 01:07 UTC / ~06:37 IST — deliberately away from the autonomous dev routine,
     # which fires at 00:03, 06:03, 12:03 and 18:03 UTC. Two jobs pushing to
     # master at the same moment race, and both hold Featherless capacity.
-    - cron: "0 1 * * *"
+    #
+    # Off the hour on purpose: the 2026-08-27 01:00 run never fired at all (no
+    # run, no failure — just silence), and GitHub's own docs warn that
+    # top-of-the-hour is the highest-load, highest-drop-risk moment for
+    # scheduled workflows. radar-health.mjs would catch a repeat of this, but
+    # avoiding it is cheaper than recovering from it.
+    - cron: "7 1 * * *"
   workflow_dispatch:
     inputs:
       max_candidates:
