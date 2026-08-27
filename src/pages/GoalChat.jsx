@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { CHAT_QUESTIONS, GREETING, acknowledge, matchFreeText, saveNote } from '../utils/goalChat'
+import { CHAT_QUESTIONS, GREETING, acknowledge, matchFreeText, saveNote, askServer } from '../utils/goalChat'
 import { loadQuiz, saveAnswer, completeQuiz } from '../state/quizStore'
 import { useAnalytics } from '../hooks/useAnalytics'
 import { EVENTS } from '../utils/analyticsEvents'
@@ -80,7 +80,7 @@ export default function GoalChat() {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' })
   }, [messages, typing])
 
-  function answer(optionKey, spokenText) {
+  function answer(optionKey, spokenText, botReply) {
     if (done || typing) return
     haptic.tap()
     const q = CHAT_QUESTIONS[index]
@@ -91,7 +91,8 @@ export default function GoalChat() {
     saveAnswer(q.id, optionKey)
     if (spokenText) saveNote(q.id, spokenText)
 
-    const ack = acknowledge(q.id, optionKey)
+    // A sentence written for THIS person beats the canned one for this option.
+    const ack = botReply || acknowledge(q.id, optionKey)
     const isLast = index === CHAT_QUESTIONS.length - 1
 
     setTyping(true)
@@ -114,23 +115,64 @@ export default function GoalChat() {
     })
   }
 
-  function submitDraft(e) {
+  // Same as answer(), minus echoing the user's message — submitDraft shows it
+  // before going to the server, so their words land immediately rather than
+  // after a network round trip.
+  function answerResolved(q, optionKey, botReply) {
+    saveAnswer(q.id, optionKey)
+    const ack = botReply || acknowledge(q.id, optionKey)
+    const isLast = index === CHAT_QUESTIONS.length - 1
+    setUnmatched(false)
+    setTyping(true)
+    after(TYPING_MS, () => {
+      setTyping(false)
+      if (ack) setMessages((m) => [...m, { from: 'bot', text: ack }])
+      if (isLast) {
+        after(500, () => {
+          setMessages((m) => [...m, { from: 'bot', text: "That's everything. Charting your stack now…" }])
+          completeQuiz()
+          track(EVENTS.QUIZ_COMPLETE, { ...loadQuiz().answers, surface: 'goal_chat' })
+          haptic.success()
+          after(900, () => navigate('/quiz/result'))
+        })
+        setIndex(CHAT_QUESTIONS.length)
+      } else {
+        setIndex((i) => i + 1)
+      }
+    })
+  }
+
+  async function submitDraft(e) {
     e.preventDefault()
     const text = draft.trim()
     if (!text || done || typing) return
 
-    const key = matchFreeText(question.id, text)
+    const q = question
     setDraft('')
+    setMessages((m) => [...m, { from: 'user', text }])
+    saveNote(q.id, text)
+    setTyping(true)
 
+    // The model reads the sentence; keywords are the safety net. The order
+    // matters: a confident wrong answer is worse than asking, so anything
+    // neither can place ends at the chips rather than at a guess.
+    const fromServer = await askServer({
+      questionId: q.id,
+      question: q.ask,
+      options: q.options,
+      text,
+      answered: loadQuiz().answers,
+    })
+    const key = fromServer.key || matchFreeText(q.id, text)
+
+    setTyping(false)
     if (key) {
-      answer(key, text)
+      answerResolved(q, key, fromServer.key ? fromServer.reply : null)
       return
     }
 
-    // Nothing matched. Say so and let them pick, rather than silently filing
-    // them under whichever option happened to score highest.
-    setMessages((m) => [...m, { from: 'user', text }])
-    saveNote(question.id, text)
+    // Neither the model nor the keywords could place it. Say so and let them
+    // pick, rather than filing them under whichever option scored highest.
     setUnmatched(true)
     setTyping(true)
     after(TYPING_MS, () => {

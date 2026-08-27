@@ -275,3 +275,32 @@ export function saveNote(questionId, text) {
 export function clearNotes() {
   try { localStorage.removeItem(NOTES_KEY) } catch { /* storage blocked */ }
 }
+
+// Ask the server to understand a typed reply. The key lives only in the Vercel
+// function; this just posts the question and the sentence.
+//
+// Always resolves — never throws and never hangs the conversation. A missing
+// endpoint (vite dev serves no /api), a cold function, a slow model or a
+// mangled response all come back as { key: null }, and the caller falls through
+// to matchFreeText, which is offline and instant. The model makes the chat
+// smarter; it is never the thing standing between a visitor and their result.
+export async function askServer({ questionId, question, options, text, answered }) {
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ questionId, question, options, text, answered }),
+      signal: AbortSignal.timeout(10000),
+    })
+    if (!res.ok) return { key: null, reply: null, source: 'http_' + res.status }
+    const data = await res.json()
+    const valid = new Set(options.map((o) => o.key))
+    return {
+      key: valid.has(data?.key) ? data.key : null,
+      reply: typeof data?.reply === 'string' ? data.reply : null,
+      source: data?.source || 'llm',
+    }
+  } catch {
+    return { key: null, reply: null, source: 'unreachable' }
+  }
+}
