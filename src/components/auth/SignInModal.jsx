@@ -153,10 +153,20 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
                   </svg>
                 </button>
 
+                <span className="absolute left-6 top-6 text-lg" style={{ color: "var(--cyan)" }} aria-hidden="true">✦</span>
+                <span className="absolute right-16 top-14 text-sm" style={{ color: "var(--hot-pink)" }} aria-hidden="true">✦</span>
+
                 <h2 id="signin-title" className="font-display text-4xl font-black italic leading-[0.95] md:text-5xl">
                   <span className="block" style={{ color: '#84cc16', WebkitTextStroke: '2px #000' }}>ENTER</span>
                   <span className="block" style={{ color: 'var(--hot-pink)', WebkitTextStroke: '2px #000' }}>OUR WORLD</span>
                 </h2>
+
+                {/* speed lines — the reference has them trailing the headline */}
+                <div className="mt-1 flex gap-1" aria-hidden="true">
+                  {[10, 16, 22, 14, 9].map((w, i) => (
+                    <span key={i} className="h-1 -skew-x-[30deg] bg-black" style={{ width: w }} />
+                  ))}
+                </div>
 
                 <p className="mt-4 text-sm leading-relaxed text-neutral-700">
                   Chart your stack. Answer nine questions and get the AI tools built

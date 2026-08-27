@@ -76,17 +76,39 @@ export default function ArcadeCabinet({ launching = false }) {
         className="relative rounded-[26px] border-[3px] border-black p-3"
         style={{ background: '#15151c', boxShadow: '7px 7px 0 #000' }}
       >
-        {/* marquee */}
-        <div
-          className="mx-auto mb-3 w-fit rounded-lg border-[3px] border-black px-6 py-1.5"
-          style={{ background: 'var(--lime)', boxShadow: '3px 3px 0 #000' }}
-        >
-          <span className="font-display text-lg font-black italic tracking-[0.1em] text-black md:text-xl">
-            ✦ TOOLNAUT ✦
-          </span>
+        {/* top bezel — two vents flanking the marquee, like a real cabinet head */}
+        <div className="mb-3 flex items-center gap-2">
+          <span
+            className="h-7 flex-1 rounded-md border-[3px] border-black"
+            style={{
+              background:
+                'repeating-linear-gradient(90deg, #24242e 0 3px, #15151c 3px 7px)',
+            }}
+            aria-hidden="true"
+          />
+          <div
+            className="w-fit shrink-0 rounded-lg border-[3px] border-black px-5 py-1.5"
+            style={{ background: 'var(--lime)', boxShadow: '3px 3px 0 #000' }}
+          >
+            <span className="font-display text-lg font-black italic tracking-[0.08em] text-black md:text-xl">
+              ✦ TOOLNAUT ✦
+            </span>
+          </div>
+          <span
+            className="h-7 flex-1 rounded-md border-[3px] border-black"
+            style={{
+              background:
+                'repeating-linear-gradient(90deg, #24242e 0 3px, #15151c 3px 7px)',
+            }}
+            aria-hidden="true"
+          />
         </div>
 
-        {/* ── the screen ── */}
+        {/* ── the screen, recessed into a bezel ── */}
+        <div
+          className="rounded-[16px] border-[3px] border-black p-3"
+          style={{ background: '#1c1c24', boxShadow: 'inset 0 3px 12px rgba(0,0,0,0.8)' }}
+        >
         <div
           className={`relative overflow-hidden rounded-[10px] border-[3px] border-black ${launching ? '' : 'crt-flicker'}`}
           style={{ background: '#05070c', aspectRatio: '4 / 3' }}
@@ -112,7 +134,7 @@ export default function ArcadeCabinet({ launching = false }) {
             <div
               className="planet-surface absolute left-1/2 h-[200%] w-[200%] -translate-x-1/2 rounded-full"
               style={{
-                bottom: '-155%',
+                bottom: '-132%',
                 background:
                   'radial-gradient(circle at 38% 18%, #3b82c4 0%, #1d4e86 30%, #123a63 52%, #0a1f38 72%, #061225 100%),' +
                   'repeating-linear-gradient(102deg, rgba(163,255,46,0.10) 0 26px, transparent 26px 74px)',
@@ -120,11 +142,31 @@ export default function ArcadeCabinet({ launching = false }) {
                 boxShadow: 'inset -30px 10px 70px rgba(0,0,0,0.7)',
               }}
             />
+
+            {/* City lights on the night side. Warm pinpricks are what make a
+                blue sphere read as EARTH rather than as a gradient — it is the
+                single cheapest detail with the largest payoff here. Drifts with
+                the surface so it stays attached to the planet. */}
+            <div
+              className="planet-surface pointer-events-none absolute left-1/2 h-[200%] w-[200%] -translate-x-1/2 rounded-full opacity-70"
+              style={{
+                bottom: '-132%',
+                backgroundImage:
+                  'radial-gradient(1.5px 1.5px at 34% 9%, rgba(255,214,140,0.95), transparent),' +
+                  'radial-gradient(1px 1px at 41% 11%, rgba(255,196,110,0.8), transparent),' +
+                  'radial-gradient(2px 2px at 47% 8%, rgba(255,226,160,0.9), transparent),' +
+                  'radial-gradient(1px 1px at 55% 12%, rgba(255,190,105,0.75), transparent),' +
+                  'radial-gradient(1.5px 1.5px at 61% 9%, rgba(255,214,140,0.85), transparent),' +
+                  'radial-gradient(1px 1px at 29% 13%, rgba(255,200,120,0.7), transparent),' +
+                  'radial-gradient(1.5px 1.5px at 68% 14%, rgba(255,205,130,0.8), transparent)',
+                backgroundSize: '200% 100%',
+              }}
+            />
             {/* atmosphere: a bright rim hugging the horizon arc */}
             <div
               className="pointer-events-none absolute left-1/2 h-[200%] w-[200%] -translate-x-1/2 rounded-full"
               style={{
-                bottom: '-155%',
+                bottom: '-132%',
                 boxShadow: 'inset 0 10px 26px rgba(34,211,238,0.55), 0 -2px 30px rgba(34,211,238,0.28)',
               }}
             />
@@ -171,25 +213,26 @@ export default function ArcadeCabinet({ launching = false }) {
           <div className="crt-rollbar" aria-hidden="true" />
           <div className="crt-glass" aria-hidden="true" />
         </div>
+        </div>
 
         {/* ── controls ── */}
         <div className="mt-3 flex items-center justify-between rounded-xl border-[3px] border-black px-5 py-3" style={{ background: '#0d0d13' }}>
           {/* Joystick. The base is drawn first and the shaft pivots from its
               centre, so leaning looks hinged rather than like a sliding stick. */}
-          <div className="relative h-16 w-16 shrink-0" aria-hidden="true">
+          <div className="relative h-20 w-20 shrink-0" aria-hidden="true">
             <div
-              className="absolute bottom-0 left-1/2 h-3.5 w-14 -translate-x-1/2 rounded-[50%] border-[3px] border-black"
+              className="absolute bottom-0 left-1/2 h-4 w-16 -translate-x-1/2 rounded-[50%] border-[3px] border-black"
               style={{ background: 'linear-gradient(#3a3a46, #1c1c24)' }}
             />
             <div
-              className="joystick-shaft absolute bottom-[7px] left-1/2 h-9 w-3 rounded-full border-[3px] border-black"
+              className="joystick-shaft absolute bottom-[8px] left-1/2 h-11 w-3.5 rounded-full border-[3px] border-black"
               style={{
                 background: 'linear-gradient(90deg, #c01f7b, var(--hot-pink) 55%, #ff7ac6)',
                 transform: `translateX(-50%) rotate(${tilt.x}deg)`,
               }}
             >
               <span
-                className="absolute -top-4 left-1/2 h-7 w-7 -translate-x-1/2 rounded-full border-[3px] border-black"
+                className="absolute -top-5 left-1/2 h-9 w-9 -translate-x-1/2 rounded-full border-[3px] border-black"
                 style={{
                   background: 'radial-gradient(circle at 32% 28%, #ff9ad4, var(--hot-pink) 58%, #a81a68)',
                 }}
@@ -211,7 +254,7 @@ export default function ArcadeCabinet({ launching = false }) {
                 onPointerDown={() => setPressed(b.id)}
                 onPointerUp={() => setPressed(null)}
                 onPointerLeave={() => setPressed(null)}
-                className="cab-btn h-9 w-9 rounded-full border-[3px] border-black"
+                className="cab-btn h-11 w-11 rounded-full border-[3px] border-black"
                 style={{
                   background: b.color,
                   boxShadow: pressed === b.id ? '0 0 0 #000' : '3px 3px 0 #000',
@@ -222,9 +265,12 @@ export default function ArcadeCabinet({ launching = false }) {
           </div>
         </div>
 
-        <div className="mt-2 flex items-center justify-between px-1">
-          <span className="font-display text-[10px] font-black uppercase tracking-[0.14em]" style={{ color: 'var(--lime)' }}>
-            ⬢ CHART YOUR FUTURE
+        <div className="mt-3 flex items-center justify-between rounded-xl border-[3px] border-black px-3 py-2" style={{ background: '#0d0d13' }}>
+          <span
+            className="rounded-full border-2 border-black px-3 py-1 font-display text-[10px] font-black uppercase tracking-[0.14em]"
+            style={{ background: '#15151c', color: 'var(--lime)' }}
+          >
+            ⊕ CHART YOUR FUTURE
           </span>
           <span className="flex gap-1" aria-hidden="true">
             {[0, 1, 2].map((i) => (
@@ -243,6 +289,18 @@ export default function ArcadeCabinet({ launching = false }) {
           {TOOLS.length}+
         </p>
         <p className="font-display text-[9px] font-black uppercase leading-none text-black">AI tools</p>
+      </div>
+
+      {/* globe badge, as in the reference — pure decoration, hidden from AT */}
+      <div
+        className="absolute -left-2 bottom-[4%] hidden h-11 w-11 rotate-[6deg] items-center justify-center rounded-full border-[3px] border-black md:flex"
+        style={{ background: '#15151c', boxShadow: '3px 3px 0 #000' }}
+        aria-hidden="true"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--hot-pink)" strokeWidth="2">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18" />
+        </svg>
       </div>
     </div>
   )
