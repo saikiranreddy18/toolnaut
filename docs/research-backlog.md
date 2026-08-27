@@ -1413,3 +1413,91 @@ a client-side SPA with a static tool catalogue.
   edit) — neither is a client-side feature build, so out of scope for this
   backlog's build-and-ship model.
 - **Found:** 2026-08-27 09:35 UTC
+
+### Discover's filter chips carry no facet counts
+- **Status:** OPEN
+- **Seen in:** faceted-search result counts next to every filter value are
+  standard across directory/e-commerce UX — Amazon's left-rail filters show
+  `(1,204)` next to each brand/category, G2 and Capterra's filter sidebars do
+  the same for category/pricing-model/deployment facets, and Algolia's own
+  faceting docs (algolia.com/doc/guides/managing-results/refine-results/
+  faceting) describe result counts as the baseline expectation for any
+  faceted-filter UI, not an advanced option — the point being a filter chip
+  that doesn't tell you how many results it leads to forces a click-and-see
+  loop instead of letting a user route straight to a non-empty result set.
+  This is also a named pattern in this backlog's own remit ("general SaaS
+  patterns Toolnaut lacks... search, filtering, personalisation") that hasn't
+  been covered by any shipped or OPEN entry yet — Compare and per-tool
+  Discover badges (Fresh Finds, popularity, status) all touch result *cards*,
+  none touch the filter controls themselves.
+- **Gap:** `Discover.jsx`'s three filter rows — category (`CATEGORY_META`
+  entries, `Discover.jsx:161-165`), price (`PRICES`, `:170-174`), and level
+  (`LEVELS`, `:176-180`) — render each `Pill` with a bare label and nothing
+  else (confirmed reading `Pill` at `Discover.jsx:18-28`: two props, `active`
+  and `children`, no count slot). A user has no way to tell, before clicking,
+  whether "Advanced" or "Paid" narrows the current search to 80 tools or to
+  zero — they have to click, look at the grid, and click back out if it's not
+  useful. This gets worse compounded with search: typing a narrow query like
+  "healthcare" and then trying category/price/level chips means blindly
+  guessing which combination isn't a dead end, since `results.length === 0`
+  only shows *after* a filter is already applied (`Discover.jsx:183-193`).
+  Grepped `count|facet` across `src/pages/app/Discover.jsx` and
+  `src/utils/toolsCatalog.js` — zero hits related to this; the only counts
+  anywhere in the app are `TOOLS.length` in the page heading (`:112`, a fixed
+  total, not per-filter) and `SOURCE_CATEGORIES`' own static `count` field
+  (`toolsCatalog.js:19+`, a hand-authored catalog-wide tally unrelated to the
+  live-filtered result set).
+- **Why it matters:** this is friction on the single highest-traffic page in
+  the app — `Discover.jsx` is where every quiz-completer and every
+  Compare-curious visitor ends up — and it's friction with no user-facing
+  payoff, since Toolnaut already computes the exact number needed
+  (`results.length`) for the *currently selected* combination every render;
+  it just never breaks that number down per candidate filter value before the
+  user commits to clicking one. Cheap to close because no new data exists to
+  wire in — this is a pure client-side count over the same `TOOLS` array
+  `results` already filters, not a new signal like the popularity or
+  status-note gaps above.
+- **Smallest useful version (what to actually build):**
+  - New pure util `src/utils/facetCounts.js`: `getFacetCounts(tools, { q, cat,
+    price, level })` → `{ categories: { [id]: count }, prices: { [id]: count
+    }, levels: { [id]: count } }`. Standard faceted-search semantics: each
+    group's count is computed with the *other* active filters (plus the text
+    search) applied but that group's own filter cleared — e.g. the price
+    facet's counts answer "how many results if I picked this price, given my
+    current category/level/search," not "how many results total across the
+    whole catalog." Pure function, no DOM/React import, unit-testable with
+    `node --test` the same way `shareStack.js`/`newTools.js` already are.
+    Reuses the exact same predicate logic `Discover.jsx`'s `results` `useMemo`
+    already has (`Discover.jsx:85-101`) rather than inventing a second
+    filtering algorithm — factor that predicate out of `Discover.jsx` into the
+    new util and have both `results` and `getFacetCounts` call it, instead of
+    keeping two copies of the same four-condition filter in sync by hand.
+  - `Discover.jsx`: one more `useMemo(() => getFacetCounts(TOOLS, { q, cat,
+    price, level }), [q, cat, price, level])`, same dependency array shape
+    already used for `results`.
+  - `Pill`: add an optional `count` prop, rendered as a small trailing number
+    in a muted tone (e.g. `<span className="ml-1 opacity-60">{count}</span>`)
+    — no new visual primitive, just one more span inside the existing button
+    markup. The "All" pill shows the query-only count (facets ignored, mirrors
+    how "All" already behaves as a filter-clearing action); every other pill
+    shows its computed facet count.
+  - Zero-count pills: keep them clickable (a user might still want to clear
+    down to that combination and adjust the search) but visually deprioritize
+    with reduced opacity — same non-destructive "still usable, just
+    deprioritized" pattern the Uncertain-tool status-badge gap above already
+    commits to, never a disabled/unclickable control.
+  - **What this would NOT include** (kept out to bound the diff): no
+    multi-select per facet group (category/price/level all stay
+    single-select, exactly today's interaction model — this gap only changes
+    what's rendered next to each option, not how many can be active at once);
+    no faceting on fields with no filter UI today (`tags`, `audience`, `dev`)
+    — only the three groups that already have chips; no server-side
+    computation (700-900 tools times 3 small filter passes is trivial
+    in-memory work, no perf concern, no new dependency); no persisting facet
+    preferences or remembering which combinations a user tried.
+- **Build size:** S — one new pure util (`facetCounts.js`, plus factoring the
+  existing filter predicate out of `Discover.jsx` so both call sites share it),
+  a `count` prop added to `Pill`, ~15 lines wiring the new `useMemo` and count
+  props into the three existing filter rows. No backend, no new dependency, no
+  new route, no new store.
+- **Found:** 2026-08-27 15:07 UTC
