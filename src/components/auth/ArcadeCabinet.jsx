@@ -1,17 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
+import CabinetGalaxy from './CabinetGalaxy'
 import { TOOLS } from '../../utils/toolsCatalog'
 import Wordmark from '../ui/Wordmark'
 
-// The cabinet: a live CRT, a joystick that moves, and buttons that travel.
+// The cabinet: a live screen showing Toolnaut's own galaxy, a joystick that
+// flies it, and buttons that travel.
 //
-// Deliberately CSS and SVG rather than React Three Fiber. The landing page
-// already runs a 70,000-particle R3F scene; mounting a second WebGL context
-// inside a modal costs a context, a frame budget and a fallback path, all for a
-// decorative screen. Everything here animates on transform and opacity only.
+// The screen used to be a CSS planet, and the comment here used to argue against
+// WebGL. That was right while the screen was decoration and wrong the moment the
+// joystick was meant to control it — you cannot orbit a gradient. The galaxy is
+// now the real R3F component the landing page mounts, at reduced point count,
+// and it falls back to the CSS sky where WebGL is unavailable.
 //
-// The screen is not a static image. It boots, types, cycles real tool names out
-// of the catalogue, and the tube flickers — "powered on" comes from movement,
-// not from detail.
+// Everything else still animates on transform and opacity: the tube boots, types
+// its status, and cycles real tool names out of the catalogue.
 
 const BOOT_LINES = [
   'TOOLNAUT OS v2.1',
@@ -24,6 +26,7 @@ export default function ArcadeCabinet({ launching = false }) {
   const [typed, setTyped] = useState('')
   const [toolName, setToolName] = useState('')
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
+  const tiltRef = useRef({ x: 0, y: 0 })
   const [pressed, setPressed] = useState(null)
   const timers = useRef([])
 
@@ -63,14 +66,22 @@ export default function ArcadeCabinet({ launching = false }) {
     const dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2)
     const dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2)
     const clamp = (n) => Math.max(-1, Math.min(1, n))
-    setTilt({ x: clamp(dx) * 13, y: clamp(dy) * 9 })
+    const nx = clamp(dx)
+    const ny = clamp(dy)
+    setTilt({ x: nx * 13, y: ny * 9 })      // the visible lean of the stick
+    tiltRef.current = { x: nx, y: -ny }     // what the galaxy camera reads
+  }
+
+  function releaseStick() {
+    setTilt({ x: 0, y: 0 })
+    tiltRef.current = { x: 0, y: 0 }
   }
 
   return (
     <div
       className="relative select-none"
       onPointerMove={trackStick}
-      onPointerLeave={() => setTilt({ x: 0, y: 0 })}
+      onPointerLeave={releaseStick}
     >
       {/* cabinet body */}
       <div
@@ -118,73 +129,8 @@ export default function ArcadeCabinet({ launching = false }) {
           className={`relative overflow-hidden rounded-[10px] border-[3px] border-black ${launching ? '' : 'crt-flicker'}`}
           style={{ background: '#05070c', aspectRatio: '4 / 3' }}
         >
-          {/* Starfield behind the planet, so the black is never empty. */}
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                'radial-gradient(1px 1px at 18% 22%, rgba(255,255,255,0.8), transparent),' +
-                'radial-gradient(1px 1px at 62% 14%, rgba(255,255,255,0.6), transparent),' +
-                'radial-gradient(1px 1px at 82% 34%, rgba(199,210,254,0.7), transparent),' +
-                'radial-gradient(1px 1px at 38% 8%, rgba(255,255,255,0.5), transparent),' +
-                'radial-gradient(1px 1px at 8% 44%, rgba(165,243,252,0.6), transparent)',
-            }}
-          />
-
-          {/* The planet is a circle TWICE the frame, pushed far enough below it
-              that only the top arc shows. Sized any smaller and it reads as a
-              ball sitting on the screen; any larger and the curve flattens into
-              a plain blue field — which is exactly what the first attempt did. */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div
-              className="planet-surface absolute left-1/2 h-[200%] w-[200%] -translate-x-1/2 rounded-full"
-              style={{
-                bottom: '-132%',
-                background:
-                  'radial-gradient(circle at 38% 18%, #3b82c4 0%, #1d4e86 30%, #123a63 52%, #0a1f38 72%, #061225 100%),' +
-                  'repeating-linear-gradient(102deg, rgba(163,255,46,0.10) 0 26px, transparent 26px 74px)',
-                backgroundSize: '100% 100%, 200% 100%',
-                boxShadow: 'inset -30px 10px 70px rgba(0,0,0,0.7)',
-              }}
-            />
-
-            {/* City lights on the night side. Warm pinpricks are what make a
-                blue sphere read as EARTH rather than as a gradient — it is the
-                single cheapest detail with the largest payoff here. Drifts with
-                the surface so it stays attached to the planet. */}
-            <div
-              className="planet-surface pointer-events-none absolute left-1/2 h-[200%] w-[200%] -translate-x-1/2 rounded-full opacity-70"
-              style={{
-                bottom: '-132%',
-                backgroundImage:
-                  'radial-gradient(1.5px 1.5px at 34% 9%, rgba(255,214,140,0.95), transparent),' +
-                  'radial-gradient(1px 1px at 41% 11%, rgba(255,196,110,0.8), transparent),' +
-                  'radial-gradient(2px 2px at 47% 8%, rgba(255,226,160,0.9), transparent),' +
-                  'radial-gradient(1px 1px at 55% 12%, rgba(255,190,105,0.75), transparent),' +
-                  'radial-gradient(1.5px 1.5px at 61% 9%, rgba(255,214,140,0.85), transparent),' +
-                  'radial-gradient(1px 1px at 29% 13%, rgba(255,200,120,0.7), transparent),' +
-                  'radial-gradient(1.5px 1.5px at 68% 14%, rgba(255,205,130,0.8), transparent)',
-                backgroundSize: '200% 100%',
-              }}
-            />
-            {/* atmosphere: a bright rim hugging the horizon arc */}
-            <div
-              className="pointer-events-none absolute left-1/2 h-[200%] w-[200%] -translate-x-1/2 rounded-full"
-              style={{
-                bottom: '-132%',
-                boxShadow: 'inset 0 10px 26px rgba(34,211,238,0.55), 0 -2px 30px rgba(34,211,238,0.28)',
-              }}
-            />
-          </div>
-
-          {/* a small moon, because the horizon alone reads as a gradient */}
-          <div
-            className="absolute right-[14%] top-[16%] h-9 w-9 rounded-full md:h-11 md:w-11"
-            style={{
-              background: 'radial-gradient(circle at 34% 30%, #e8ecf5 0%, #9aa3b5 55%, #4a5265 100%)',
-              boxShadow: '0 0 22px rgba(232,236,245,0.28)',
-            }}
-          />
+          {/* The real galaxy, flown by the joystick. */}
+          <CabinetGalaxy tiltRef={tiltRef} />
 
           {/* HUD */}
           <div className="absolute inset-0 flex flex-col justify-between p-3 font-mono text-[10px] leading-relaxed md:p-4 md:text-xs">
