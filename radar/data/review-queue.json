@@ -83,5 +83,33 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "sparrow-2",
+    "name": "Sparrow-2",
+    "category": "design",
+    "sourceCategory": "Image Generation & Editing",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Show HN: Sparrow-2 – Solving the cocktail party problem",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://www.tavus.io/blog/sparrow-2",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "design"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49468613",
+    "discoveredAt": "2026-08-28T09:13:13.222Z",
+    "updatedAt": "2026-08-28T09:13:13.222Z",
+    "contentHash": "c4184b6d8eddb935",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]
