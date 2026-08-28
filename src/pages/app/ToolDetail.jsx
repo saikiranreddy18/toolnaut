@@ -35,14 +35,15 @@ export default function ToolDetail() {
 
   if (!tool) {
     return (
-      <div className="flex min-h-[70dvh] flex-col items-center justify-center px-5 text-center">
-        <h1 className="font-display text-2xl font-bold text-white">Tool not found</h1>
-        <p className="mt-2 text-sm text-slate-400">It may have been renamed or removed from the catalog.</p>
-        <Link
-          to="/app/discover"
-          className="mt-6 rounded-full border border-white/15 px-4 py-2 font-display text-sm text-slate-200 hover:border-exus-cyan/60 hover:text-white"
-        >
-          Browse all tools
+      <div className="mx-auto flex min-h-[70dvh] max-w-md flex-col items-center justify-center px-5 text-center">
+        <h1 className="arcade-heading text-2xl">TOOL NOT FOUND</h1>
+        <p className="mt-3 text-sm leading-relaxed text-slate-300">
+          Nothing in the catalog is filed under
+          {' '}<span className="font-bold text-white">{slug}</span>. It may have been
+          renamed, or the link may be from an older build.
+        </p>
+        <Link to="/app/discover" className="nb-btn mt-6 min-h-11 px-5 py-2.5 text-xs">
+          BROWSE ALL TOOLS →
         </Link>
       </div>
     )
@@ -58,8 +59,10 @@ export default function ToolDetail() {
 
   // Back preserves Discover's filters when we came from there (history state);
   // on a cold deep link there's nothing to go back to, so land on Discover.
+  const cameFromApp = window.history.state?.idx > 0
+
   function goBack() {
-    if (window.history.state?.idx > 0) navigate(-1)
+    if (cameFromApp) navigate(-1)
     else navigate('/app/discover')
   }
 
@@ -87,9 +90,9 @@ export default function ToolDetail() {
     <div className="mx-auto max-w-3xl px-5 py-8 lg:py-10">
       <button
         onClick={goBack}
-        className="cursor-pointer font-display text-sm text-slate-400 transition-colors hover:text-white"
+        className="press cursor-pointer font-display text-sm text-slate-400 transition-colors hover:text-white"
       >
-        ← Back to Discover
+        {cameFromApp ? '← Back' : '← Back to FIND'}
       </button>
 
       <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -154,7 +157,7 @@ export default function ToolDetail() {
         </button>
         <button
           onClick={toggleFavorite}
-          aria-label={favorited ? 'Remove from favorites' : 'Save to favorites'}
+          aria-label={favorited ? `Remove ${tool.name} from saved` : `Save ${tool.name}`}
           aria-pressed={favorited}
           className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-black ${
             favorited ? 'bg-[var(--hot-pink)] text-white' : 'bg-transparent text-slate-400 hover:text-white'

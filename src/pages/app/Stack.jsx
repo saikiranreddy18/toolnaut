@@ -1,13 +1,17 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { loadQuiz } from '../../state/quizStore'
 import { generatePersona } from '../../utils/personaGenerator'
 import { getTool, TOOLS, CATEGORY_META } from '../../utils/toolsCatalog'
-import { matchScore } from '../../utils/matchScore'
+import { matchScore, matchReasonShort } from '../../utils/matchScore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { haptic } from '../../utils/haptics'
 import { encodeStackSlugs } from '../../utils/shareStack'
+import { recordVisit, weekDots } from '../../state/streakStore'
+import { generateRoadmap } from '../../utils/roadmapGenerator'
+import { loadRoadmapProgress, milestoneComplete } from '../../state/roadmapStore'
+import { loadProgress, cycleProgress, STATUSES } from '../../state/progressStore'
 import SkillGraph from '../../components/app/SkillGraph'
 
 // Deterministic daily pick: same tool all day, a new one tomorrow — so every
@@ -29,34 +33,11 @@ const cardIn = (i) => ({
   transition: { duration: 0.3, delay: 0.05 + i * 0.05, ease: [0.16, 1, 0.3, 1] },
 })
 
-// Per-tool progress, stored locally until the backend owns it.
-const PROGRESS_KEY = 'exus_progress_v1'
-const STATUSES = ['Not started', 'Exploring', 'Using weekly', 'Mastered']
-
-function loadProgress() {
-  try { return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {} } catch { return {} }
-}
-
 const GREETINGS = {
   night: ['burning the midnight fuel', 'you\'re an owl 🦉', 'nocturnal grind energy'],
   morning: ['rise and shine', 'coffee in hand?', 'morning explorer energy'],
   afternoon: ['mid-day momentum', 'keep cooking', 'afternoon architect'],
   evening: ['golden hour glow', 'evening expedition', 'dusk explorer'],
-}
-
-// Streak tracker (days since last reset).
-const STREAK_KEY = 'exus_streak_v1'
-
-function loadStreak() {
-  try { return JSON.parse(localStorage.getItem(STREAK_KEY)) || {} } catch { return {} }
-}
-
-// Calendar-day successor check (not a fixed 24h) so DST transitions don't
-// desync the streak.
-function isNextCalendarDay(prevDateStr, todayStr) {
-  const prev = new Date(prevDateStr)
-  prev.setDate(prev.getDate() + 1)
-  return prev.toDateString() === todayStr
 }
 
 function ProgressRing({ value }) {
@@ -93,25 +74,12 @@ export default function Stack() {
     return options[Math.floor(Math.random() * options.length)]
   }, [period])
 
-  const today = new Date().toDateString()
-  const [streak, setStreak] = useState(() => {
-    const lastVisit = loadStreak()
-    if (lastVisit.date === today) return lastVisit.count || 1
-    if (lastVisit.date && isNextCalendarDay(lastVisit.date, today)) return (lastVisit.count || 0) + 1
-    return 1
-  })
-
-  // Persist the day's streak once per mount instead of on every render.
-  // No haptic here: this only fires on the day's first visit, which is a fresh
-  // page load with no user activation yet — the browser blocks vibrate() there
-  // and logs, so the buzz never actually reached the user.
-  useEffect(() => {
-    const lastVisit = loadStreak()
-    if (lastVisit.date !== today) {
-      try { localStorage.setItem(STREAK_KEY, JSON.stringify({ date: today, count: streak })) } catch { /* storage blocked */ }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  // Recorded once per mount. recordVisit is idempotent within a calendar day,
+  // so this both persists today's visit and returns the streak to render —
+  // no separate write-back effect, and the dots below reflect real visits only.
+  const [visit] = useState(() => recordVisit())
+  const streak = visit.count
+  const dots = weekDots(visit.days)
 
   // Tools added from Discover, minus any that duplicate the starter stack.
   const starterNames = new Set((persona?.stack || []).map((t) => t.name))
@@ -119,11 +87,19 @@ export default function Stack() {
     .map(getTool)
     .filter((t) => t && !starterNames.has(t.name))
 
+  // Where LEARN currently stands, read from the same store that page writes.
+  // Stack is the app's home screen, so it is the right place to say what the
+  // next move is — otherwise the two pages never reference each other and the
+  // product reads as a set of unrelated tabs.
+  const nextLearningStep = useMemo(() => {
+    const roadmap = generateRoadmap()
+    const done = loadRoadmapProgress()
+    const next = (roadmap?.milestones || []).find((m) => !milestoneComplete(done, m))
+    return next ? { week: next.week, title: next.title } : null
+  }, [])
+
   function cycle(toolName) {
-    const current = progress[toolName] || 0
-    const next = { ...progress, [toolName]: (current + 1) % STATUSES.length }
-    setProgress(next)
-    try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(next)) } catch { /* storage blocked */ }
+    setProgress({ ...cycleProgress(progress, toolName) })
   }
 
   async function copyShareLink() {
@@ -157,6 +133,15 @@ export default function Stack() {
 
   const daily = toolOfTheDay(quiz.answers, starterNames, addedSlugs)
   const dailyMeta = daily ? CATEGORY_META[daily.category] || { name: daily.category, color: 'var(--cyan)' } : null
+  const dailyReason = daily ? matchReasonShort(daily, quiz.answers) : null
+
+  // One list, one card language. `starter` marks the persona-chosen three,
+  // which have no slug-backed removal because they are derived, not stored.
+  const allStackTools = [
+    ...persona.stack.map((t) => ({ ...t, starter: true })),
+    ...addedTools,
+  ]
+  const untouchedCount = allStackTools.filter((t) => !progress[t.name]).length
 
   // Persona → arcade level nametag (mirrors QuizResult)
   const experienceLevels = {
@@ -167,10 +152,6 @@ export default function Stack() {
     teacher: 'COSMIC LEGEND',
   }
   const level = experienceLevels[quiz.answers?.experience] || 'STAR CADET'
-
-  // 5-day streak dots — Sun→Sat, current day highlighted
-  const dayLetters = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
-  const dowToday = new Date().getDay()
 
   return (
     <div className="relative mx-auto max-w-4xl px-5 py-6 lg:py-10">
@@ -190,7 +171,7 @@ export default function Stack() {
           </div>
           <button
             onClick={copyShareLink}
-            className="nb-btn dark shrink-0 px-4 py-2 text-xs"
+            className="nb-btn dark min-h-11 shrink-0 px-4 py-2 text-xs"
           >
             {copied ? '✓ Copied' : '🔗 Share'}
           </button>
@@ -199,24 +180,27 @@ export default function Stack() {
         {/* Day streak — 7 dots M T W T F S S */}
         <div className="mt-6 sticker p-4">
           <div className="mb-3 flex items-center justify-between">
-            <span className="font-display text-xs font-black uppercase tracking-widest text-white">
+            <h2 className="font-display text-xs font-black uppercase tracking-widest text-white">
               🔥 {streak}-day streak
-            </span>
+            </h2>
             <span className="font-display text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--lime)' }}>
               keep it lit
             </span>
           </div>
           <div className="flex justify-between gap-1">
-            {dayLetters.map((letter, i) => {
-              const isDone = i < dowToday
-              const isToday = i === dowToday
-              return (
-                <div key={i} className={`day-dot ${isToday ? 'today' : isDone ? 'done' : ''}`}>
-                  {letter}
-                </div>
-              )
-            })}
+            {dots.map((d) => (
+              <div
+                key={d.key}
+                className={`day-dot ${d.isToday ? 'today' : d.visited ? 'done' : ''} ${d.isFuture ? 'opacity-40' : ''}`}
+                title={d.isFuture ? 'Not here yet' : d.visited ? `Opened Toolnaut on ${d.key}` : `No visit on ${d.key}`}
+              >
+                {d.letter}
+              </div>
+            ))}
           </div>
+          <p className="mt-2 text-[10px] font-bold uppercase tracking-wider text-slate-500">
+            {dots.filter((d) => d.visited).length} of 7 days this week
+          </p>
         </div>
       </motion.div>
 
@@ -225,11 +209,73 @@ export default function Stack() {
         <SkillGraph tools={[...persona.stack, ...addedTools]} progress={progress} />
       </motion.div>
 
-      {/* Today's drop — sticker card, chunky lime CTA */}
+      {/* THE STACK ITSELF.
+          Moved above "today's drop" deliberately. The page reads
+          who am I -> what am I good at -> WHAT DO I USE -> what next, and the
+          tools are the answer to the question the product exists to answer.
+          They used to sit fourth, under a decorative daily pick.
+
+          Starter picks and self-added tools are one grid now. They were two
+          sections in two different card languages (sticker vs glass), which
+          read as two unrelated features rather than one stack. */}
+      <section className="relative mt-10">
+        <div className="mb-5 flex flex-wrap items-center gap-3">
+          <h2 className="tape-label text-xs">⚡ your kit</h2>
+          <span className="font-display text-xs font-bold uppercase tracking-widest text-slate-500">
+            {allStackTools.length} tool{allStackTools.length === 1 ? '' : 's'} locked in
+          </span>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {allStackTools.map((tool, i) => {
+            const statusIdx = progress[tool.name] || 0
+            const stickerColor = i % 3 === 0 ? '' : i % 3 === 1 ? 'pink' : 'cyan'
+            return (
+              <motion.article key={tool.name} {...cardIn(2 + Math.min(i, 6))} className={`sticker ${stickerColor} relative flex flex-col p-5`}>
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <h3 className="arcade-heading lime text-base sm:text-lg">
+                      {tool.slug ? (
+                        <Link to={`/app/tools/${tool.slug}`} className="after:absolute after:inset-0 after:content-['']">
+                          {tool.name.toUpperCase()}
+                        </Link>
+                      ) : tool.name.toUpperCase()}
+                    </h3>
+                    <p className="mt-2 text-xs leading-relaxed text-slate-300">{tool.blurb}</p>
+                  </div>
+                  <div className="shrink-0 text-center">
+                    <ProgressRing value={statusIdx / (STATUSES.length - 1)} />
+                  </div>
+                </div>
+                <div className="relative z-10 mt-4 flex flex-wrap items-center gap-2">
+                  <button
+                    onClick={() => cycle(tool.name)}
+                    aria-label={`${tool.name} progress: ${STATUSES[statusIdx]}. Change`}
+                    className="nb-btn dark min-h-11 px-4 py-2 text-xs"
+                  >
+                    {STATUSES[statusIdx]}
+                  </button>
+                  {tool.starter ? (
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">From your persona</span>
+                  ) : (
+                    <button
+                      onClick={() => setAddedSlugs(removeFromStack(tool.slug))}
+                      className="press min-h-11 px-2 font-display text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-[var(--hot-pink)]"
+                    >
+                      Remove
+                    </button>
+                  )}
+                </div>
+              </motion.article>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* Today's drop — one unexplored, high-scoring pick per day */}
       {daily && (
-        <motion.div
+        <motion.section
           {...cardIn(1)}
-          className="sticker pink relative mt-8 overflow-hidden p-5"
+          className="sticker pink relative mt-10 overflow-hidden p-5"
         >
           <div
             className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full opacity-30 blur-3xl"
@@ -245,121 +291,66 @@ export default function Stack() {
             </span>
           </div>
           <div className="mt-5">
-            <p className="arcade-heading lime text-2xl">{daily.name.toUpperCase()}</p>
+            <h2 className="arcade-heading lime text-2xl">{daily.name.toUpperCase()}</h2>
+            {dailyReason && (
+              <p className="mt-1.5 text-[11px] font-bold uppercase tracking-wide" style={{ color: 'var(--lime)' }}>
+                ◆ {dailyReason} · not in your stack yet
+              </p>
+            )}
             <p className="mt-2 text-sm leading-relaxed text-slate-300">{daily.blurb}</p>
           </div>
           <div className="mt-5 flex items-center gap-3">
             <button
               onClick={() => { haptic.select(); setAddedSlugs(addToStack(daily.slug)) }}
-              className="nb-btn flex-1 py-3 text-sm"
+              className="nb-btn min-h-11 flex-1 py-3 text-sm"
             >
               ⚡ grab it
             </button>
             <Link
               to={`/app/tools/${daily.slug}`}
-              className="nb-btn dark px-5 py-3 text-sm"
+              className="nb-btn dark min-h-11 px-5 py-3 text-sm"
             >
               peek
             </Link>
           </div>
-        </motion.div>
+        </motion.section>
       )}
 
-      {/* Starter stack — sticker cards on alternating tilt */}
-      <div className="relative mt-10">
-        <div className="mb-5 flex items-center gap-3">
-          <span className="tape-label text-xs">⚡ your kit</span>
-          <span className="font-display text-xs font-bold uppercase tracking-widest text-slate-500">
-            {persona.stack.length} tools locked in
-          </span>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {persona.stack.map((tool, i) => {
-            const statusIdx = progress[tool.name] || 0
-            const stickerColor = i === 0 ? '' : i === 1 ? 'pink' : 'cyan'
-            return (
-              <motion.div key={tool.name} {...cardIn(2 + i)} className={`sticker ${stickerColor} p-5`}>
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <p className="arcade-heading lime text-base sm:text-lg">{tool.name.toUpperCase()}</p>
-                    <p className="mt-2 text-xs leading-relaxed text-slate-300">{tool.blurb}</p>
-                  </div>
-                  <ProgressRing value={statusIdx / (STATUSES.length - 1)} />
-                </div>
-                <button
-                  onClick={() => cycle(tool.name)}
-                  className="nb-btn dark mt-4 px-4 py-2 text-xs"
-                >
-                  {STATUSES[statusIdx]}
-                </button>
-              </motion.div>
-            )
-          })}
-        </div>
-      </div>
-
-      {addedTools.length > 0 && (
-        <>
-          <p className="mt-10 font-display text-sm font-semibold text-white">Added from Discover</p>
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {addedTools.map((tool) => {
-              const statusIdx = progress[tool.name] || 0
-              return (
-                <div key={tool.slug} className="glass rounded-2xl p-5">
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <Link
-                        to={`/app/tools/${tool.slug}`}
-                        className="font-display text-base font-semibold text-white hover:text-cyan-200"
-                      >
-                        {tool.name}
-                      </Link>
-                      <p className="mt-1 text-xs leading-relaxed text-slate-400">{tool.blurb}</p>
-                    </div>
-                    <ProgressRing value={statusIdx / (STATUSES.length - 1)} />
-                  </div>
-                  <div className="mt-4 flex items-center gap-2">
-                    <button
-                      onClick={() => cycle(tool.name)}
-                      className="cursor-pointer rounded-full border border-white/15 px-3.5 py-1.5 font-display text-xs text-slate-300 transition-colors hover:border-exus-cyan/60 hover:text-white"
-                    >
-                      {STATUSES[statusIdx]} — tap to update
-                    </button>
-                    <button
-                      onClick={() => setAddedSlugs(removeFromStack(tool.slug))}
-                      aria-label={`Remove ${tool.name} from stack`}
-                      className="cursor-pointer rounded-full border border-white/10 px-3.5 py-1.5 font-display text-xs text-slate-500 transition-colors hover:border-exus-peach/50 hover:text-exus-peach"
-                    >
-                      Remove
-                    </button>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </>
-      )}
-
-      <div className="glass mt-8 rounded-2xl p-5">
-        <p className="font-display text-sm font-semibold text-white">Next up</p>
-        <p className="mt-1 text-sm text-slate-400">
+      {/* Next up — the one place that says what to do after this screen */}
+      <section className="sticker cyan mt-8 p-5">
+        <h2 className="arcade-heading lime text-base">◆ NEXT UP</h2>
+        <ul className="mt-3 space-y-2.5 text-sm text-slate-300">
           {addedTools.length === 0 && (
-            <>
-              Grow your stack in{' '}
-              <Link to="/app/discover" className="text-cyan-300 underline underline-offset-2 hover:text-white">
-                Discover
-              </Link>
-              {' — '}every tool is ranked against your persona.{' '}
-            </>
+            <li>
+              <Link to="/app/discover" className="font-bold underline underline-offset-2" style={{ color: 'var(--lime)' }}>
+                Add a tool in FIND
+              </Link>{' '}
+              — all {TOOLS.length} are scored against your persona.
+            </li>
           )}
-          Your{' '}
-          <Link to="/app/learning" className="text-cyan-300 underline underline-offset-2 hover:text-white">
-            4-week learning path
-          </Link>{' '}
-          is charted from this stack. Suggested plan for your profile:{' '}
-          <span className="font-semibold text-exus-cyan">{persona.suggestedPlan}</span>.
-        </p>
-      </div>
+          {nextLearningStep ? (
+            <li>
+              <Link to="/app/learning" className="font-bold underline underline-offset-2" style={{ color: 'var(--lime)' }}>
+                Continue week {nextLearningStep.week}
+              </Link>{' '}
+              — {nextLearningStep.title}.
+            </li>
+          ) : (
+            <li>
+              <Link to="/app/learning" className="font-bold underline underline-offset-2" style={{ color: 'var(--lime)' }}>
+                Start your 4-week path
+              </Link>{' '}
+              — charted from the stack above.
+            </li>
+          )}
+          {untouchedCount > 0 && (
+            <li>
+              Mark progress on {untouchedCount} tool{untouchedCount === 1 ? '' : 's'} you have not
+              opened yet — it moves your skills graph.
+            </li>
+          )}
+        </ul>
+      </section>
     </div>
   )
 }

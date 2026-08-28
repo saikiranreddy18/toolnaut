@@ -61,10 +61,10 @@ export default function Compare() {
       {tools.length === 0 ? (
         <div className="mt-8">
           <p className="max-w-md text-sm text-slate-400">
-            Pick 2 to 4 tools on Discover and hit "Compare" to see them side by side.
+            Pick 2 to 4 tools in FIND and hit “Compare” to see them side by side.
           </p>
           <Link to="/app/discover" className="nb-btn dark mt-5 inline-block px-5 py-2.5 text-xs">
-            ← BACK TO DISCOVER
+            ← BACK TO FIND
           </Link>
         </div>
       ) : (
@@ -166,7 +166,7 @@ export default function Compare() {
           </div>
 
           <Link to="/app/discover" className="nb-btn dark mt-8 inline-block px-5 py-2.5 text-xs">
-            ← BACK TO DISCOVER
+            ← BACK TO FIND
           </Link>
         </>
       )}

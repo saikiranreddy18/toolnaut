@@ -43,6 +43,7 @@ export default function Community() {
     () => (cat ? threads.filter((t) => t.category === cat) : threads),
     [threads, cat],
   )
+  const seededCount = useMemo(() => shown.filter((t) => t.seed).length, [shown])
 
   function setCat(id) {
     const next = new URLSearchParams(searchParams)
@@ -59,21 +60,27 @@ export default function Community() {
 
   return (
     <div className="mx-auto max-w-2xl px-5 py-6 lg:py-10">
-      {/* SQUAD is the social surface, so standing belongs at the top of it:
-          your rank is the first thing you want to see when you open it. */}
-      <RankCard />
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1">
           <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ SQUAD</p>
           <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">THE SIGNAL</h1>
-          <p className="mt-2 text-sm font-medium text-slate-300">Questions, showcases &amp; stacks from the galaxy.</p>
+          <p className="mt-2 text-sm font-medium text-slate-300">
+            Where explorers compare stacks and answer each other's tool questions.
+          </p>
         </div>
         <button
           onClick={() => { setComposing((v) => !v); haptic.tap() }}
-          className="nb-btn shrink-0 px-4 py-2.5 text-xs"
+          className="nb-btn min-h-11 shrink-0 px-4 py-2.5 text-xs"
         >
           {composing ? '× CLOSE' : '+ POST'}
         </button>
+      </div>
+
+      {/* Standing sits under the page identity, not above it. It used to be the
+          first thing on the screen, so a first-time visitor met a table of
+          placeholder handles before learning what SQUAD was for. */}
+      <div className="mt-8">
+        <RankCard />
       </div>
 
       <AnimatePresence>
@@ -84,6 +91,25 @@ export default function Community() {
           />
         )}
       </AnimatePresence>
+
+      {/* The eight seed threads are written, not collected. RankCard right above
+          already says its rows are placeholders; the feed said nothing, so the
+          one invented thing on the page was the one thing unlabelled. */}
+      {seededCount > 0 && (
+        <div className="mt-6 rounded-xl border-2 border-black p-3" style={{ background: 'rgba(255,46,163,0.08)' }}>
+          <p className="text-xs leading-relaxed text-slate-300">
+            <span
+              className="mr-2 inline-block rounded-full border-2 border-black px-2 py-0.5 align-middle font-display text-[9px] font-black uppercase tracking-[0.12em] text-black"
+              style={{ background: 'var(--hot-pink)' }}
+            >
+              Preview
+            </span>
+            {seededCount} example conversations show what this space is for.
+            They are written by us, not posted by users — accounts are not live
+            yet. Your own posts and upvotes are real and saved.
+          </p>
+        </div>
+      )}
 
       {/* category filter — swipeable on mobile */}
       <div className="no-scrollbar -mx-5 mt-5 flex gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
@@ -119,6 +145,11 @@ export default function Community() {
                 <span className="font-display text-[10px] font-bold uppercase tracking-wider text-slate-400">
                   {t.mine ? 'YOU' : t.author} · {timeAgo(t.at)}
                 </span>
+                {t.seed && (
+                  <span className="rounded-full border border-white/20 px-1.5 py-0.5 font-display text-[9px] font-black uppercase tracking-wider text-slate-500">
+                    Example
+                  </span>
+                )}
               </div>
 
               <Link to={`/app/community/${t.id}`} className="mt-3 block">
@@ -152,9 +183,28 @@ export default function Community() {
       </div>
 
       {shown.length === 0 && (
-        <div className="mt-16 text-center">
-          <p className="arcade-heading text-xl">SILENCE</p>
-          <p className="mt-3 text-sm text-slate-400">Be the first to post in this category.</p>
+        /* Was a dead end: a headline, a sentence, and nothing to click. */
+        <div className="mt-12">
+          <h2 className="arcade-heading text-xl">NOTHING HERE YET</h2>
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-slate-300">
+            No one has posted in{' '}
+            <span className="font-bold text-white">
+              {FORUM_CATEGORIES.find((c) => c.id === cat)?.name || 'this category'}
+            </span>{' '}
+            yet. Ask the question you came here with — it is the fastest way to
+            start the thread you were looking for.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <button
+              onClick={() => { setComposing(true); haptic.tap() }}
+              className="nb-btn min-h-11 px-5 py-2.5 text-xs"
+            >
+              + POST THE FIRST ONE
+            </button>
+            <button onClick={() => setCat('')} className="nb-btn dark min-h-11 px-4 py-2.5 text-xs">
+              SEE ALL CATEGORIES
+            </button>
+          </div>
         </div>
       )}
     </div>

@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
 import { matchScore, matchReasonShort } from '../../utils/matchScore'
+import { byProminence, isCatalogNoise } from '../../utils/prominence'
 import { getNewTools } from '../../utils/newTools'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
@@ -88,6 +89,7 @@ export default function Discover() {
   // actions unrelated to filtering (e.g. toggleStack) re-run this over all
   // TOOLS anyway.
   const answersKey = answers ? JSON.stringify(answers) : ''
+  const tieBreak = useMemo(() => byProminence(answers?.domain), [answers?.domain])
   const results = useMemo(() => {
     const needle = q.trim().toLowerCase()
     return TOOLS
@@ -103,8 +105,11 @@ export default function Discover() {
           tool.tags.some((tag) => tag.includes(needle))),
       )
       .map((tool) => ({ ...tool, score: matchScore(tool, answers) }))
-      .sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || a.name.localeCompare(b.name))
-  }, [q, cat, price, level, answersKey])
+      // Score first, then prominence. matchScore caps at 99 and dozens of tools
+      // tie there, so without a real tiebreak the top of the list was whatever
+      // sorted first alphabetically — scraped repo names, not tools.
+      .sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || tieBreak(a, b))
+  }, [q, cat, price, level, answersKey, tieBreak])
 
   const hasFilters = !!(q || cat || price || level)
 
@@ -119,7 +124,10 @@ export default function Discover() {
 
   // Computed once: TOOLS is fully hydrated with live (radar-discovered) tools
   // before first render (see main.jsx), and discoveredAt never changes after.
-  const freshTools = useMemo(() => getNewTools(7).slice(0, 8), [])
+  // Same filter as the ranking: "New this week" reads as an editorial pick, so
+  // a scraped repo wearing a NEW badge there is the most prominent place the
+  // catalog's few non-products could possibly land.
+  const freshTools = useMemo(() => getNewTools(7).filter((t) => !isCatalogNoise(t)).slice(0, 8), [])
 
   // For the no-results state: the categories that actually still have tools,
   // so every suggested escape route is guaranteed to lead somewhere.

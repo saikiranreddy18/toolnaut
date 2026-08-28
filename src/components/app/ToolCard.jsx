@@ -108,9 +108,12 @@ export default function ToolCard({
               checked={compare.checked}
               disabled={compare.disabled}
               onChange={() => compare.onToggle(tool.slug)}
+              /* every checkbox on the page would otherwise announce as just
+                 "Compare", with nothing to say which of 24 tools it belongs to */
+              aria-label={`Compare ${tool.name}`}
               className="h-3.5 w-3.5 cursor-pointer accent-[var(--lime)] disabled:cursor-not-allowed"
             />
-            Compare
+            <span aria-hidden="true">Compare</span>
           </label>
         )}
       </div>

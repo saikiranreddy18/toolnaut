@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getTool, TOOLS, CATEGORY_META } from '../../utils/toolsCatalog'
 import { matchScore, matchReasonShort } from '../../utils/matchScore'
+import { byProminence } from '../../utils/prominence'
 import { loadQuiz } from '../../state/quizStore'
 import { loadFavorites, addFavorite, removeFavorite } from '../../state/favoritesStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
@@ -54,7 +55,7 @@ export default function Favorites() {
     if (!answers) return []
     return TOOLS
       .map((t) => ({ ...t, score: matchScore(t, answers) }))
-      .sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || a.name.localeCompare(b.name))
+      .sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || byProminence(answers.domain)(a, b))
       .slice(0, 3)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answers ? JSON.stringify(answers) : ''])

@@ -1,4 +1,5 @@
 import { TOOLS, CATEGORY_META } from './toolsCatalog'
+import { FLAGSHIP, starterScore } from './prominence'
 
 const DOMAIN_NOUN = {
   code: 'Builder',
@@ -72,33 +73,6 @@ function careerLine(role, stage) {
   if (!r && !s) return null
   if (r && s && r !== s) return `${s} ${r}`
   return r || s
-}
-
-// Recognisable flagship tools per domain. The source data has no popularity
-// signal, so this small curated list keeps a fresh user's starter stack full
-// of names they'll actually recognise, with accessibility scoring as tiebreak.
-const FLAGSHIP = {
-  code: ['Claude Code', 'Cursor', 'GitHub Copilot', 'Windsurf', 'Replit'],
-  design: ['Midjourney', 'Canva', 'Figma', 'Adobe Firefly', 'Runway'],
-  writing: ['ChatGPT', 'Claude', 'Grammarly', 'Notion AI', 'Jasper'],
-  data: ['Perplexity', 'Julius', 'ChatGPT', 'Hex', 'Tableau'],
-  automation: ['Zapier', 'n8n', 'Make', 'Gumloop', 'Lindy'],
-  learning: ['NotebookLM', 'Khanmigo', 'Duolingo', 'Quizlet', 'Gamma'],
-}
-
-// Rank a domain's tools so the starter stack leads with recognisable flagships,
-// then favours approachable, active, low-cost picks for a fresh user.
-function starterScore(t, flagships) {
-  let s = 0
-  const rank = flagships.indexOf(t.name)
-  if (rank !== -1) s += 20 - rank // flagship order wins decisively
-  if (t.price === 'freemium') s += 3
-  else if (t.price === 'free') s += 2
-  if (t.level === 'beginner') s += 2
-  else if (t.level === 'intermediate') s += 1
-  if (t.status === 'Active') s += 1
-  if (t.year) s += Math.max(0, t.year - 2021) * 0.3 // gentle recency nudge
-  return s
 }
 
 // answers: { domain, role, career_stage, experience, goal, budget, pace,

@@ -7,9 +7,9 @@ export default function SkillGraph({ tools, progress }) {
   return (
     <div className="sticker p-4">
       <div className="mb-3 flex items-center justify-between">
-        <span className="tape-label text-xs" style={{ transform: 'rotate(-2deg)' }}>
+        <h2 className="tape-label text-xs" style={{ transform: 'rotate(-2deg)' }}>
           📊 Skills graph
-        </span>
+        </h2>
         <span className="font-display text-[10px] font-bold uppercase tracking-widest text-slate-500">
           where the gaps are
         </span>
@@ -25,7 +25,8 @@ export default function SkillGraph({ tools, progress }) {
               {d.count === 0 ? (
                 <Link
                   to={`/app/discover?cat=${d.domain}`}
-                  className="text-[10px] font-bold uppercase tracking-widest text-slate-500 underline underline-offset-2 hover:text-white"
+                  aria-label={`Explore ${d.name} tools — nothing in your stack yet`}
+                  className="-my-2 flex min-h-11 items-center px-1 text-[10px] font-bold uppercase tracking-widest text-slate-500 underline underline-offset-2 hover:text-white"
                 >
                   Explore →
                 </Link>

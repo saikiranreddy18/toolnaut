@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { generateRoadmap } from '../../utils/roadmapGenerator'
 import { CATEGORY_META } from '../../utils/toolsCatalog'
+import { loadQuiz } from '../../state/quizStore'
+import { QUESTIONS } from '../../utils/quizLogic'
 import { track, EVENTS } from '../../utils/analyticsEvents'
 import {
   loadRoadmapProgress,
@@ -224,6 +226,18 @@ export default function Learning() {
   const firstIncomplete = milestones.findIndex((m) => !milestoneComplete(progress, m))
   const unlockedThrough = firstIncomplete === -1 ? milestones.length : firstIncomplete
 
+  // "What should I learn next?" answered literally, at the top, instead of
+  // leaving the user to scan four week-cards for the first unticked box.
+  // Everything here is read from progress the page already tracks.
+  const current = firstIncomplete === -1 ? null : milestones[firstIncomplete]
+  const nextStepIndex = current ? current.steps.findIndex((_, i) => !isStepDone(progress, current.id, i)) : -1
+  const awaitingCheckpoint = current && nextStepIndex === -1
+
+  // Their own stated weekly budget, not an invented estimate.
+  const paceLabel = QUESTIONS
+    .find((q) => q.id === 'pace')?.options
+    .find((o) => o.key === loadQuiz().answers?.pace)?.label || null
+
   function onToggle(m, i) {
     haptic.tap()
     const next = toggleStep(m.id, i)
@@ -253,6 +267,36 @@ export default function Learning() {
     <div className="relative z-10 mx-auto max-w-2xl px-5 py-6 lg:py-10">
       <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ LEARN</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR 4-WEEK<br/>ORBIT</h1>
+
+        {/* Next move — the single answer to "what do I do now" */}
+        {current && (
+          <div className="sticker cyan mt-6 p-5">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="tape-label text-xs" style={{ transform: 'rotate(-2deg)' }}>
+                ▸ your next move
+              </span>
+              {paceLabel && (
+                <span className="font-display text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                  your pace: {paceLabel}/week
+                </span>
+              )}
+            </div>
+            <h2 className="arcade-heading lime mt-3 text-lg">
+              WEEK {current.week} · {current.title.toUpperCase()}
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-white">
+              {awaitingCheckpoint
+                ? 'Every step is ticked — clear the checkpoint below to unlock the next week.'
+                : current.steps[nextStepIndex]}
+            </p>
+            <a
+              href={`#${current.id}`}
+              className="nb-btn cyan mt-4 inline-block min-h-11 px-5 py-2.5 text-xs"
+            >
+              {awaitingCheckpoint ? 'GO TO CHECKPOINT →' : 'GO TO THIS STEP →'}
+            </a>
+          </div>
+        )}
 
         {/* overall progress — chunky arcade bar */}
         <div className="sticker mt-6 p-4 backdrop-blur-sm bg-black/20" style={{ transform: 'rotate(0)' }}>
@@ -297,6 +341,7 @@ export default function Learning() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: mi * 0.06, ease: [0.16, 1, 0.3, 1] }}
                 className="relative mb-6"
+                id={m.id}
               >
                 {/* node with glow effect */}
                 <span
