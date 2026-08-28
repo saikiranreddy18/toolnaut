@@ -658,3 +658,79 @@ html[data-theme='synth'] {
     animation: none;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SIGN-IN PANEL — arcade cabinet trim
+   Ported from the approved sign-in build. Three things carry that design and
+   none of them are decoration:
+     - a STEPPED perimeter, so the panel is a cut plate rather than a rounded box
+     - nested inset rings (pink between two blacks) instead of one border
+     - a chamfered corner, which is what makes it read as machined metal
+   Brand tokens stay Toolnaut's own; only the geometry is borrowed.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.signin-panel {
+  clip-path: polygon(0 0, 97% 0, 100% 3%, 100% 93%, 93% 100%, 0 100%);
+  box-shadow:
+    inset 0 0 0 5px var(--hot-pink),
+    inset 0 0 0 10px #09090a,
+    inset 0 0 0 14px #f5f1e8;
+}
+
+/* the pink rail down the inside edge */
+.signin-panel::before {
+  position: absolute;
+  top: 9px;
+  right: 7px;
+  bottom: 70px;
+  width: 9px;
+  content: '';
+  background: linear-gradient(#ff78ac, var(--hot-pink) 70%);
+  box-shadow: -5px 0 #050506;
+  pointer-events: none;
+}
+
+/* the cut corner, bottom right */
+.signin-panel::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 72px;
+  height: 72px;
+  content: '';
+  border-top: 8px solid #09090a;
+  background: var(--hot-pink);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  pointer-events: none;
+}
+
+/* The headline: Bungee, skewed, thick outline over a hard offset shadow. The
+   second line is squeezed horizontally so both lines end flush — the reference
+   does this and it is why the block reads as a stamped logotype. */
+.enter-heading {
+  padding-right: 26px;
+  font-family: 'Bungee', var(--font-display), sans-serif;
+  font-style: italic;
+  line-height: 0.82;
+  letter-spacing: -0.065em;
+  text-transform: uppercase;
+  transform: skewX(-8deg);
+}
+.enter-heading span,
+.enter-heading strong {
+  display: block;
+  -webkit-text-stroke: 3px #080809;
+  text-shadow: 7px 7px #080809;
+}
+.enter-heading strong {
+  font-size: 0.86em;
+  white-space: nowrap;
+  transform: skewX(8deg) scaleX(0.91);
+  transform-origin: left;
+}
+
+@media (max-width: 640px) {
+  .enter-heading span,
+  .enter-heading strong { -webkit-text-stroke-width: 2px; text-shadow: 4px 4px #080809; }
+  .signin-panel::after { width: 48px; height: 48px; }
+}

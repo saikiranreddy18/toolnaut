@@ -141,8 +141,8 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
 
               {/* right: the controls */}
               <div
-                className="relative rounded-[20px] border-[3px] border-black p-6 md:p-8"
-                style={{ background: '#f5f1e8', boxShadow: '5px 5px 0 #000' }}
+                className="signin-panel relative overflow-hidden p-7 pb-6 md:p-9 md:pb-7"
+                style={{ background: '#f5f1e8', border: '8px solid #09090a' }}
               >
                 <button
                   ref={closeRef}
@@ -159,9 +159,12 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
                 <span className="absolute left-6 top-6 text-lg" style={{ color: "var(--cyan)" }} aria-hidden="true">✦</span>
                 <span className="absolute right-16 top-14 text-sm" style={{ color: "var(--hot-pink)" }} aria-hidden="true">✦</span>
 
-                <h2 id="signin-title" className="font-display text-4xl font-black italic leading-[0.95] md:text-5xl">
-                  <span className="block" style={{ color: '#84cc16', WebkitTextStroke: '2px #000' }}>ENTER</span>
-                  <span className="block" style={{ color: 'var(--hot-pink)', WebkitTextStroke: '2px #000' }}>OUR WORLD</span>
+                <h2
+                  id="signin-title"
+                  className="enter-heading mt-3 text-[clamp(2.4rem,4.4vw,3.6rem)]"
+                >
+                  <span style={{ color: 'var(--lime)' }}>Enter</span>
+                  <strong style={{ color: 'var(--hot-pink)' }}>our world</strong>
                 </h2>
 
                 {/* speed lines — the reference has them trailing the headline */}
