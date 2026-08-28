@@ -4,6 +4,7 @@ import ArcadeCabinet from './ArcadeCabinet'
 import CabinetContours from './CabinetContours'
 import { signIn, signInWithEmail, isSupabaseConfigured } from '../../state/authStore'
 import { postAuthDestination } from '../../utils/postAuth'
+import { armLaunch, clearLaunch } from '../../utils/launchFlag'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
@@ -77,11 +78,20 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
     try {
       // Pass the destination through, so the provider returns them INTO the
       // app rather than back to the sign-in screen they started on.
-      const session = await signIn(id, { redirectTo: postAuthDestination(next) })
+      const dest = postAuthDestination(next)
+      // Arm the launch only for a first arrival. postAuthDestination returns
+      // /goal exactly when there is no completed intake — that IS the signal
+      // for "signed up" as opposed to "signed back in", and a returning user
+      // asked for the app, not a rocket in front of it.
+      if (dest === '/goal') armLaunch()
+      const session = await signIn(id, { redirectTo: dest })
       // Only the simulated path returns a session; the real one has already
       // sent the browser to the provider by now.
-      if (session) window.location.assign(postAuthDestination(next))
+      if (session) window.location.assign(dest)
     } catch {
+      // nothing is going to arrive, so leave no armed flag behind to fire on
+      // an unrelated navigation later in this tab
+      clearLaunch()
       setError('Could not reach the sign-in provider. Try again.')
       setBusy(null)
     }
@@ -98,10 +108,13 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
     setBusy('email')
     track(EVENTS.CTA_CLICK, { cta: 'sign_in', provider: 'magic_link' })
     try {
-      const { sent } = await signInWithEmail(email, { redirectTo: postAuthDestination(next) })
+      const dest = postAuthDestination(next)
+      if (dest === '/goal') armLaunch()
+      const { sent } = await signInWithEmail(email, { redirectTo: dest })
       if (sent) setLinkSent(true)
-      else window.location.assign(postAuthDestination(next))
+      else window.location.assign(dest)
     } catch {
+      clearLaunch()
       setError('Could not send the link. Try again in a moment.')
     } finally {
       setBusy(null)

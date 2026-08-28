@@ -4,6 +4,7 @@ import { MotionConfig } from 'framer-motion'
 import Landing from './pages/Landing'
 import OnboardingShell from './shells/OnboardingShell'
 import ThemePicker from './components/ui/ThemePicker'
+import ArrivalLaunch from './components/auth/ArrivalLaunch'
 import CursorStars from './components/ui/CursorStars'
 import { track, EVENTS } from './utils/analyticsEvents'
 
@@ -69,6 +70,7 @@ export default function App() {
       <RouteEffects />
       <CursorStars />
       <ThemePicker />
+      <ArrivalLaunch />
       <Suspense fallback={<PageFallback />}>
         <MotionConfig reducedMotion="user">
           <Routes>
