@@ -138,14 +138,18 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
           >
             <CabinetContours />
 
-            {/* 741/1360 puts the separator at 54.5%, so the cabinet and panel
-                split there rather than at the 51/49 I had guessed. */}
+            {/* Insets read off the contour's innermost path. All four are a
+                fraction of WIDTH because that is what percentage padding
+                resolves against on every side — expressing the vertical ones
+                as a share of height is the bug that left a dead band at the
+                bottom. Inside that box the separator (741/1360) falls at
+                53.76%, not the 54.5% it occupies of the full frame. */}
             <div
-              className="relative grid gap-0 md:grid-cols-[54.5%_45.5%]"
-              style={{ padding: '8.2% 3.5% 8.4% 9.5%' }}
+              className="relative grid items-stretch gap-0 md:grid-cols-[53.76%_46.24%]"
+              style={{ padding: '4.85% 5.74% 4.56% 8.24%' }}
             >
               {/* left: the machine */}
-              <div className="pr-5 md:pr-7">
+              <div className="h-full pr-5 md:pr-7">
                 <ArcadeCabinet
                   framed={false}
                   onButtonA={() => useProvider('google')}
@@ -199,14 +203,30 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
                       key={p.id}
                       onClick={() => useProvider(p.id)}
                       disabled={Boolean(busy)}
-                      className="cab-btn flex min-h-12 items-center justify-center gap-3 rounded-xl border-[3px] border-black px-5 py-3 font-bold disabled:opacity-60"
+                      className="cab-btn flex min-h-[3.25rem] items-center gap-3 rounded-lg border-[3px] border-black px-4 py-3 font-bold disabled:opacity-60"
                       style={{
-                        background: p.dark ? '#15151c' : 'var(--lime)',
-                        color: p.dark ? '#fff' : '#000',
-                        boxShadow: '4px 4px 0 #000',
+                        background: p.dark ? '#0d0d0f' : 'var(--lime)',
+                        color: p.dark ? '#f8f7f1' : '#0a0a0c',
+                        boxShadow: p.dark
+                          ? '5px 5px 0 #36363b, inset 0 2px rgba(255,255,255,0.1)'
+                          : '5px 5px 0 #171719, inset 0 2px rgba(255,255,255,0.38)',
                       }}
                     >
-                      {busy === p.id ? 'Opening…' : <>{p.icon}{p.label}</>}
+                      {busy === p.id ? (
+                        <span className="flex-1 text-center">Opening…</span>
+                      ) : (
+                        <>
+                          <span className="shrink-0">{p.icon}</span>
+                          <span className="flex-1 text-center">{p.label}</span>
+                          <svg
+                            width="19" height="19" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" strokeWidth="2.6" strokeLinecap="round"
+                            strokeLinejoin="round" className="shrink-0" aria-hidden="true"
+                          >
+                            <path d="M9 5l7 7-7 7" />
+                          </svg>
+                        </>
+                      )}
                     </button>
                   ))}
                 </div>
@@ -230,22 +250,39 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
                   </div>
                 ) : (
                   <form onSubmit={sendLink} noValidate>
-                    <label htmlFor="signin-email" className="sr-only">Email address</label>
-                    <input
-                      id="signin-email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => { setEmail(e.target.value); setError('') }}
-                      placeholder="Enter your email"
-                      aria-invalid={Boolean(error)}
-                      className="min-h-12 w-full rounded-xl border-[3px] border-black bg-white px-4 text-base text-black placeholder:text-neutral-400 focus:outline-none focus:ring-4"
-                      style={{ boxShadow: '4px 4px 0 #000' }}
-                    />
+                    <label
+                      htmlFor="signin-email"
+                      className="flex min-h-[3.25rem] items-center gap-3 rounded-lg border-[3px] border-black px-3 focus-within:outline focus-within:outline-[3px] focus-within:outline-offset-[3px]"
+                      style={{ background: '#f8f4eb', boxShadow: '4px 4px 0 #1b1b1d', outlineColor: 'var(--cyan)' }}
+                    >
+                      <svg
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a0a0b"
+                        strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                        className="shrink-0" aria-hidden="true"
+                      >
+                        <rect x="2" y="4" width="20" height="16" rx="2" />
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                      </svg>
+                      <span className="sr-only">Email address</span>
+                      <input
+                        id="signin-email"
+                        type="email"
+                        value={email}
+                        onChange={(e) => { setEmail(e.target.value); setError('') }}
+                        placeholder="Enter your email"
+                        autoComplete="email"
+                        aria-invalid={Boolean(error)}
+                        className="w-full border-0 bg-transparent text-base text-[#0a0a0b] outline-none placeholder:text-[#5f5c59]"
+                      />
+                    </label>
                     <button
                       type="submit"
                       disabled={Boolean(busy)}
-                      className="cab-btn mt-3 min-h-12 w-full rounded-xl border-[3px] border-black px-5 font-display font-black uppercase tracking-wide text-black disabled:opacity-60"
-                      style={{ background: 'var(--lime)', boxShadow: '4px 4px 0 #000' }}
+                      className="cab-btn mt-3.5 min-h-[3.25rem] w-full rounded-lg border-[3px] border-black px-5 font-display font-black uppercase tracking-wide text-[#10110b] disabled:opacity-60"
+                      style={{
+                        background: 'var(--lime)',
+                        boxShadow: '5px 5px 0 #171719, inset 0 2px rgba(255,255,255,0.42)',
+                      }}
                     >
                       {busy === 'email' ? 'Sending…' : 'Send magic link'}
                     </button>

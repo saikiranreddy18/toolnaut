@@ -80,13 +80,13 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
 
   return (
     <div
-      className="relative select-none"
+      className="relative h-full select-none"
       onPointerMove={trackStick}
       onPointerLeave={releaseStick}
     >
       {/* cabinet body */}
       <div
-        className={`relative p-3 ${framed ? 'rounded-[26px] border-[3px] border-black' : ''}`}
+        className={`relative flex h-full flex-col p-3 ${framed ? 'rounded-[26px] border-[3px] border-black' : ''}`}
         style={framed ? { background: '#15151c', boxShadow: '7px 7px 0 #000' } : { background: 'transparent' }}
       >
         {/* top bezel — two vents flanking the marquee, like a real cabinet head */}
@@ -123,12 +123,12 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
 
         {/* ── the screen, recessed into a bezel ── */}
         <div
-          className="rounded-[16px] border-[3px] border-black p-3"
+          className="min-h-0 flex-1 rounded-[16px] border-[3px] border-black p-3"
           style={{ background: '#1c1c24', boxShadow: 'inset 0 3px 12px rgba(0,0,0,0.8)' }}
         >
         <div
-          className={`relative overflow-hidden rounded-[10px] border-[3px] border-black ${launching ? '' : 'crt-flicker'}`}
-          style={{ background: '#05070c', aspectRatio: '4 / 3' }}
+          className={`relative h-full overflow-hidden rounded-[10px] border-[3px] border-black ${launching ? '' : 'crt-flicker'}`}
+          style={{ background: '#05070c' }}
         >
           {/* The real galaxy, flown by the joystick. */}
           <CabinetGalaxy tiltRef={tiltRef} />
@@ -251,11 +251,14 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
 
       {/* globe badge, as in the reference — pure decoration, hidden from AT */}
       <div
-        className="absolute -left-2 bottom-[4%] hidden h-11 w-11 rotate-[6deg] items-center justify-center rounded-full border-[3px] border-black md:flex"
-        style={{ background: '#15151c', boxShadow: '3px 3px 0 #000' }}
+        className="absolute -left-[13%] top-[34%] hidden h-16 w-16 items-center justify-center rounded-full border-[5px] border-black lg:flex"
+        style={{
+          background: '#151518',
+          boxShadow: 'inset 0 0 0 4px var(--hot-pink), 4px 4px 0 #050506',
+        }}
         aria-hidden="true"
       >
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--hot-pink)" strokeWidth="2">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--hot-pink)" strokeWidth="2.2">
           <circle cx="12" cy="12" r="9" />
           <path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18" />
         </svg>

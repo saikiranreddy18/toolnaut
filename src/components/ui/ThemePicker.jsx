@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { THEMES, loadTheme, setTheme } from '../../state/themeStore'
-import { MOONS, loadMoon, setMoon } from '../../state/moonStore'
+import { loadMoon, setMoon } from '../../state/moonStore'
+import MoonToggle from './MoonToggle'
 import { haptic } from '../../utils/haptics'
 
 // Floating "play modes" switcher — a palette button (bottom-right) that expands
@@ -22,7 +23,6 @@ export default function ThemePicker() {
   }
 
   function pickMoon(id) {
-    haptic.tap()
     setMoonState(setMoon(id))
   }
 
@@ -56,30 +56,26 @@ export default function ThemePicker() {
             ))}
 
             <div className="my-1 h-px bg-white/10" role="separator" />
-            <p className="px-3 pb-1 font-display text-[9px] font-black uppercase tracking-[0.16em] text-slate-500">
-              Moonlight
-            </p>
-            {MOONS.map((m) => (
-              <button
-                key={m.id}
-                onClick={() => pickMoon(m.id)}
-                aria-pressed={moon === m.id}
-                className={`press flex items-center gap-2.5 rounded-xl px-3 py-2 text-left ${moon === m.id ? 'bg-white/10' : 'hover:bg-white/5'}`}
-              >
-                <span
-                  className="flex h-3.5 w-3.5 items-center justify-center rounded-full border-2 border-black text-[8px] leading-none"
-                  style={{ background: m.id === 'full' ? '#e2e8f0' : '#12121c', color: m.id === 'full' ? '#0a0a0f' : '#64748b' }}
-                  aria-hidden="true"
+            <div className="flex items-center gap-3 px-3 py-2">
+              <span className="flex flex-col">
+                <label
+                  htmlFor="moonlight-switch"
+                  className="font-display text-xs font-black uppercase tracking-wider text-white"
                 >
-                  {m.id === 'full' ? '' : '·'}
+                  Moonlight
+                </label>
+                {/* the hint has to say what changes, because the switch shows
+                    the moon and not the sky it is lighting */}
+                <span className="text-[10px] text-slate-400">
+                  {moon === 'full' ? 'Lit sky, softer stars' : 'Deep dark, more stars'}
                 </span>
-                <span className="flex flex-col">
-                  <span className="font-display text-xs font-black uppercase tracking-wider text-white">{m.name}</span>
-                  <span className="text-[10px] text-slate-400">{m.hint}</span>
-                </span>
-                {moon === m.id && <span className="ml-auto text-xs" style={{ color: 'var(--lime)' }}>✓</span>}
-              </button>
-            ))}
+              </span>
+              <MoonToggle
+                id="moonlight-switch"
+                lit={moon === 'full'}
+                onChange={(on) => pickMoon(on ? 'full' : 'none')}
+              />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
