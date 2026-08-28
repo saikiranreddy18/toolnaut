@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import CabinetGalaxy from './CabinetGalaxy'
+import { haptic } from '../../utils/haptics'
 import { TOOLS } from '../../utils/toolsCatalog'
 import Wordmark from '../ui/Wordmark'
 
@@ -21,7 +22,7 @@ const BOOT_LINES = [
   'LINKING CATALOGUE...',
 ]
 
-export default function ArcadeCabinet({ launching = false }) {
+export default function ArcadeCabinet({ launching = false, framed = true, onButtonA, onButtonB }) {
   const [booted, setBooted] = useState(false)
   const [typed, setTyped] = useState('')
   const [toolName, setToolName] = useState('')
@@ -85,8 +86,8 @@ export default function ArcadeCabinet({ launching = false }) {
     >
       {/* cabinet body */}
       <div
-        className="relative rounded-[26px] border-[3px] border-black p-3"
-        style={{ background: '#15151c', boxShadow: '7px 7px 0 #000' }}
+        className={`relative p-3 ${framed ? 'rounded-[26px] border-[3px] border-black' : ''}`}
+        style={framed ? { background: '#15151c', boxShadow: '7px 7px 0 #000' } : { background: 'transparent' }}
       >
         {/* top bezel — two vents flanking the marquee, like a real cabinet head */}
         <div className="mb-3 flex items-center gap-2">
@@ -193,23 +194,29 @@ export default function ArcadeCabinet({ launching = false }) {
 
           {/* two cabinet buttons that actually travel */}
           <div className="flex gap-3">
+            {/* These do something now. They were aria-hidden decoration, which
+                is fine for a picture of a cabinet and wrong for one you can
+                operate: A starts the sign-in, B jumps to the email field. Real
+                buttons, so they take keyboard focus and announce themselves. */}
             {[
-              { id: 'a', color: 'var(--lime)' },
-              { id: 'b', color: 'var(--cyan)' },
+              { id: 'a', color: 'var(--lime)', label: 'Start sign-in with Google', run: onButtonA },
+              { id: 'b', color: 'var(--cyan)', label: 'Sign in with email instead', run: onButtonB },
             ].map((b) => (
               <button
                 key={b.id}
                 type="button"
-                tabIndex={-1}
-                aria-hidden="true"
+                aria-label={b.label}
+                title={b.label}
                 onPointerDown={() => setPressed(b.id)}
                 onPointerUp={() => setPressed(null)}
                 onPointerLeave={() => setPressed(null)}
-                className="cab-btn h-11 w-11 rounded-full border-[3px] border-black"
+                onClick={() => { haptic.tap(); b.run?.() }}
+                className="cab-btn h-11 w-11 rounded-full border-[3px] border-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
                 style={{
                   background: b.color,
                   boxShadow: pressed === b.id ? '0 0 0 #000' : '3px 3px 0 #000',
                   filter: pressed === b.id ? 'brightness(0.85)' : 'none',
+                  outlineColor: 'var(--cyan)',
                 }}
               />
             ))}

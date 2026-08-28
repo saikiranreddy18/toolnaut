@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import ArcadeCabinet from './ArcadeCabinet'
+import CabinetContours from './CabinetContours'
 import { signIn, signInWithEmail, isSupabaseConfigured } from '../../state/authStore'
 import { postAuthDestination } from '../../utils/postAuth'
 import { useAnalytics } from '../../hooks/useAnalytics'
@@ -132,16 +133,29 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 18, scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 260, damping: 24 }}
-            className="relative my-auto w-full max-w-5xl rounded-[28px] border-[3px] p-3 md:p-4"
-            style={{ borderColor: 'var(--hot-pink)', background: '#0a0a0f', boxShadow: '9px 9px 0 #000' }}
+            className="relative my-auto w-full max-w-5xl"
+            style={{ background: 'transparent' }}
           >
-            <div className="grid gap-4 md:grid-cols-[1.05fr_1fr]">
+            <CabinetContours />
+
+            {/* 741/1360 puts the separator at 54.5%, so the cabinet and panel
+                split there rather than at the 51/49 I had guessed. */}
+            <div
+              className="relative grid gap-0 md:grid-cols-[54.5%_45.5%]"
+              style={{ padding: '8.2% 3.5% 8.4% 9.5%' }}
+            >
               {/* left: the machine */}
-              <ArcadeCabinet />
+              <div className="pr-5 md:pr-7">
+                <ArcadeCabinet
+                  framed={false}
+                  onButtonA={() => useProvider('google')}
+                  onButtonB={() => document.getElementById('signin-email')?.focus()}
+                />
+              </div>
 
               {/* right: the controls */}
               <div
-                className="signin-panel relative overflow-hidden p-7 pb-6 md:p-9 md:pb-7"
+                className="signin-panel relative overflow-hidden p-6 pb-5 md:p-7 md:pb-6"
                 style={{ background: '#f5f1e8', border: '8px solid #09090a' }}
               >
                 <button
