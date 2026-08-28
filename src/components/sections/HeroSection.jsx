@@ -16,7 +16,7 @@ export default function HeroSection({ onEnter }) {
         transition={{ delay: 0.9, type: 'spring', stiffness: 260, damping: 18 }}
         className="mb-5"
       >
-        <span className="tape-label" style={{ fontSize: 11 }}>✦ LAUNCHING SOON ✦</span>
+        <span className="tape-label" style={{ fontSize: 11 }}>✦ FREE PUBLIC BETA ✦</span>
       </motion.div>
 
       {/* The wordmark draws itself and Naut lands on it. This replaced a

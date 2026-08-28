@@ -21,7 +21,11 @@
       "ai-tools-list",
       "agentseed",
       "awesome-thai-ai-projects",
-      "foundry-toolbox-radar-lab"
+      "foundry-toolbox-radar-lab",
+      "rafter",
+      "gemini-omni-11-flash",
+      "understudy-scenario-testing-for-ai-agents",
+      "agentseed-mcp"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -40,7 +44,11 @@
       "course-ai-tools-list",
       "course-agentseed",
       "course-awesome-thai-ai-projects",
-      "course-foundry-toolbox-radar-lab"
+      "course-foundry-toolbox-radar-lab",
+      "course-rafter",
+      "course-gemini-omni-11-flash",
+      "course-understudy-scenario-testing-for-ai-agents",
+      "course-agentseed-mcp"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -130,7 +138,9 @@
       "canvasformusic",
       "a-daily-cartoon-contest-between-ai-models-judged-blind",
       "build-your-own-theme-park",
-      "ta"
+      "ta",
+      "google-flow",
+      "clipdrop-desktop-clipdrop-ai-tools-2026"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -138,7 +148,9 @@
       "course-canvasformusic",
       "course-a-daily-cartoon-contest-between-ai-models-judged-blind",
       "course-build-your-own-theme-park",
-      "course-ta"
+      "course-ta",
+      "course-google-flow",
+      "course-clipdrop-desktop-clipdrop-ai-tools-2026"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -230,7 +242,11 @@
       "why-ai-agents-need-persistent-browser-identities",
       "shelf-protocol",
       "bytedance-launches-ai-office-product-doubao-work",
-      "propose-and-dual-control-for-dns-changes"
+      "propose-and-dual-control-for-dns-changes",
+      "telem",
+      "backprompter",
+      "ai-game-playtester",
+      "openai-is-developing-a-persistent-ai-agent"
     ],
     "courses": [
       "course-headless-tools",
@@ -250,7 +266,11 @@
       "course-why-ai-agents-need-persistent-browser-identities",
       "course-shelf-protocol",
       "course-bytedance-launches-ai-office-product-doubao-work",
-      "course-propose-and-dual-control-for-dns-changes"
+      "course-propose-and-dual-control-for-dns-changes",
+      "course-telem",
+      "course-backprompter",
+      "course-ai-game-playtester",
+      "course-openai-is-developing-a-persistent-ai-agent"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -284,7 +304,11 @@
       "agents-should-be-durable-not-long-lived",
       "why-ai-agents-need-persistent-browser-identities",
       "serve-markdown-to-ai-agents-with-accept-headers",
-      "foundry-toolbox-radar-lab"
+      "foundry-toolbox-radar-lab",
+      "telem",
+      "backprompter",
+      "understudy-scenario-testing-for-ai-agents",
+      "terminal-bench-science-evaluating-ai-agents-on-scientific-re"
     ],
     "courses": [
       "course-headless-tools",
@@ -298,7 +322,11 @@
       "course-agents-should-be-durable-not-long-lived",
       "course-why-ai-agents-need-persistent-browser-identities",
       "course-serve-markdown-to-ai-agents-with-accept-headers",
-      "course-foundry-toolbox-radar-lab"
+      "course-foundry-toolbox-radar-lab",
+      "course-telem",
+      "course-backprompter",
+      "course-understudy-scenario-testing-for-ai-agents",
+      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -351,12 +379,18 @@
     "toolsTeaching": [
       "glm-53-open-weight-beat-anthropic-openai-models",
       "hermes-agent",
-      "designing-loops-for-production-grade-work"
+      "designing-loops-for-production-grade-work",
+      "rafter",
+      "gemini-omni-11-flash",
+      "ai-engineer-notebooks"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
       "course-hermes-agent",
-      "course-designing-loops-for-production-grade-work"
+      "course-designing-loops-for-production-grade-work",
+      "course-rafter",
+      "course-gemini-omni-11-flash",
+      "course-ai-engineer-notebooks"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -394,10 +428,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "glm-53-open-weight-beat-anthropic-openai-models"
+      "glm-53-open-weight-beat-anthropic-openai-models",
+      "gemini-omni-11-flash"
     ],
     "courses": [
-      "course-glm-53-open-weight-beat-anthropic-openai-models"
+      "course-glm-53-open-weight-beat-anthropic-openai-models",
+      "course-gemini-omni-11-flash"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -789,11 +825,15 @@
     "level": "intermediate",
     "toolsTeaching": [
       "coolplugz",
-      "agentseed"
+      "agentseed",
+      "rafter",
+      "agentseed-mcp"
     ],
     "courses": [
       "course-coolplugz",
-      "course-agentseed"
+      "course-agentseed",
+      "course-rafter",
+      "course-agentseed-mcp"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -976,10 +1016,14 @@
     "domain": "writing",
     "level": "beginner",
     "toolsTeaching": [
-      "try-to-beat-this-ai-writing-detector"
+      "try-to-beat-this-ai-writing-detector",
+      "backprompter",
+      "understudy-scenario-testing-for-ai-agents"
     ],
     "courses": [
-      "course-try-to-beat-this-ai-writing-detector"
+      "course-try-to-beat-this-ai-writing-detector",
+      "course-backprompter",
+      "course-understudy-scenario-testing-for-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1075,14 +1119,16 @@
       "limitless-library",
       "agenttrail",
       "abbs",
-      "ai-tools-list"
+      "ai-tools-list",
+      "rafter"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
       "course-limitless-library",
       "course-agenttrail",
       "course-abbs",
-      "course-ai-tools-list"
+      "course-ai-tools-list",
+      "course-rafter"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1106,11 +1152,15 @@
     "level": "advanced",
     "toolsTeaching": [
       "designing-loops-for-production-grade-work",
-      "ai-agent-hacking-writeups"
+      "ai-agent-hacking-writeups",
+      "chessrabbit",
+      "ai-engineer-notebooks"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
-      "course-ai-agent-hacking-writeups"
+      "course-ai-agent-hacking-writeups",
+      "course-chessrabbit",
+      "course-ai-engineer-notebooks"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1121,11 +1171,15 @@
     "level": "advanced",
     "toolsTeaching": [
       "designing-loops-for-production-grade-work",
-      "a-benchmark-for-safely-measuring-container-breakout-capabili"
+      "a-benchmark-for-safely-measuring-container-breakout-capabili",
+      "rafter",
+      "ai-engineer-notebooks"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
-      "course-a-benchmark-for-safely-measuring-container-breakout-capabili"
+      "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
+      "course-rafter",
+      "course-ai-engineer-notebooks"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1270,11 +1324,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "genbio-launches-a-virtual-biological-cell",
-      "launch-hn-risklytics-yc-s26"
+      "launch-hn-risklytics-yc-s26",
+      "terminal-bench-science-evaluating-ai-agents-on-scientific-re"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
-      "course-launch-hn-risklytics-yc-s26"
+      "course-launch-hn-risklytics-yc-s26",
+      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1351,12 +1407,14 @@
     "toolsTeaching": [
       "aristra-your-life-os",
       "text-editor-that-does-it-all",
-      "bytedance-launches-ai-office-product-doubao-work"
+      "bytedance-launches-ai-office-product-doubao-work",
+      "openai-is-developing-a-persistent-ai-agent"
     ],
     "courses": [
       "course-aristra-your-life-os",
       "course-text-editor-that-does-it-all",
-      "course-bytedance-launches-ai-office-product-doubao-work"
+      "course-bytedance-launches-ai-office-product-doubao-work",
+      "course-openai-is-developing-a-persistent-ai-agent"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1418,10 +1476,14 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "launch-hn-vendo-yc-s26"
+      "launch-hn-vendo-yc-s26",
+      "ai-game-playtester",
+      "openai-is-developing-a-persistent-ai-agent"
     ],
     "courses": [
-      "course-launch-hn-vendo-yc-s26"
+      "course-launch-hn-vendo-yc-s26",
+      "course-ai-game-playtester",
+      "course-openai-is-developing-a-persistent-ai-agent"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1587,10 +1649,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "agenttrail"
+      "agenttrail",
+      "telem"
     ],
     "courses": [
-      "course-agenttrail"
+      "course-agenttrail",
+      "course-telem"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1834,10 +1898,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "placeroot"
+      "placeroot",
+      "telem"
     ],
     "courses": [
-      "course-placeroot"
+      "course-placeroot",
+      "course-telem"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -1942,10 +2008,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "we-run-stateful-ai-agents-on-a-serverless-infra"
+      "we-run-stateful-ai-agents-on-a-serverless-infra",
+      "backprompter"
     ],
     "courses": [
-      "course-we-run-stateful-ai-agents-on-a-serverless-infra"
+      "course-we-run-stateful-ai-agents-on-a-serverless-infra",
+      "course-backprompter"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2007,10 +2075,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "a-benchmark-for-safely-measuring-container-breakout-capabili"
+      "a-benchmark-for-safely-measuring-container-breakout-capabili",
+      "terminal-bench-science-evaluating-ai-agents-on-scientific-re"
     ],
     "courses": [
-      "course-a-benchmark-for-safely-measuring-container-breakout-capabili"
+      "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
+      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2529,10 +2599,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "agentseed"
+      "agentseed",
+      "agentseed-mcp"
     ],
     "courses": [
-      "course-agentseed"
+      "course-agentseed",
+      "course-agentseed-mcp"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2678,5 +2750,501 @@
       "course-foundry-toolbox-radar-lab"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "skill-team memory",
+    "name": "team memory",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "rafter"
+    ],
+    "courses": [
+      "course-rafter"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-chess",
+    "name": "chess",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "chessrabbit"
+    ],
+    "courses": [
+      "course-chessrabbit"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-game analysis",
+    "name": "game analysis",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "chessrabbit"
+    ],
+    "courses": [
+      "course-chessrabbit"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-ai coaching",
+    "name": "ai coaching",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "chessrabbit"
+    ],
+    "courses": [
+      "course-chessrabbit"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-training",
+    "name": "training",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "chessrabbit"
+    ],
+    "courses": [
+      "course-chessrabbit"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-video generation",
+    "name": "video generation",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "google-flow"
+    ],
+    "courses": [
+      "course-google-flow"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-veo",
+    "name": "veo",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "google-flow"
+    ],
+    "courses": [
+      "course-google-flow"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-filmmaking",
+    "name": "filmmaking",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "google-flow"
+    ],
+    "courses": [
+      "course-google-flow"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-image generation",
+    "name": "image generation",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "google-flow"
+    ],
+    "courses": [
+      "course-google-flow"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-ai video",
+    "name": "ai video",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "google-flow"
+    ],
+    "courses": [
+      "course-google-flow"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-web search",
+    "name": "web search",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "telem"
+    ],
+    "courses": [
+      "course-telem"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-tracing",
+    "name": "tracing",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "telem"
+    ],
+    "courses": [
+      "course-telem"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-gemini",
+    "name": "gemini",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "gemini-omni-11-flash"
+    ],
+    "courses": [
+      "course-gemini-omni-11-flash"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-multimodal",
+    "name": "multimodal",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "gemini-omni-11-flash"
+    ],
+    "courses": [
+      "course-gemini-omni-11-flash"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-google",
+    "name": "google",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "gemini-omni-11-flash"
+    ],
+    "courses": [
+      "course-gemini-omni-11-flash"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-agent builder",
+    "name": "agent builder",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "backprompter"
+    ],
+    "courses": [
+      "course-backprompter"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-no-backend",
+    "name": "no backend",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "backprompter"
+    ],
+    "courses": [
+      "course-backprompter"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-game testing",
+    "name": "game testing",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-game-playtester"
+    ],
+    "courses": [
+      "course-ai-game-playtester"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-playtesting",
+    "name": "playtesting",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-game-playtester"
+    ],
+    "courses": [
+      "course-ai-game-playtester"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-qa",
+    "name": "qa",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-game-playtester"
+    ],
+    "courses": [
+      "course-ai-game-playtester"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-scenarios",
+    "name": "scenarios",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "understudy-scenario-testing-for-ai-agents"
+    ],
+    "courses": [
+      "course-understudy-scenario-testing-for-ai-agents"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-evaluation",
+    "name": "evaluation",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "understudy-scenario-testing-for-ai-agents",
+      "terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+    ],
+    "courses": [
+      "course-understudy-scenario-testing-for-ai-agents",
+      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-llmops",
+    "name": "llmops",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "understudy-scenario-testing-for-ai-agents"
+    ],
+    "courses": [
+      "course-understudy-scenario-testing-for-ai-agents"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-science",
+    "name": "science",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+    ],
+    "courses": [
+      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-research",
+    "name": "research",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+    ],
+    "courses": [
+      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-rag",
+    "name": "rag",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-engineer-notebooks"
+    ],
+    "courses": [
+      "course-ai-engineer-notebooks"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-evals",
+    "name": "evals",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-engineer-notebooks"
+    ],
+    "courses": [
+      "course-ai-engineer-notebooks"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-notebooks",
+    "name": "notebooks",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-engineer-notebooks"
+    ],
+    "courses": [
+      "course-ai-engineer-notebooks"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-openai",
+    "name": "openai",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "openai-is-developing-a-persistent-ai-agent"
+    ],
+    "courses": [
+      "course-openai-is-developing-a-persistent-ai-agent"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-persistent",
+    "name": "persistent",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "openai-is-developing-a-persistent-ai-agent"
+    ],
+    "courses": [
+      "course-openai-is-developing-a-persistent-ai-agent"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-code-verification",
+    "name": "code verification",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentseed-mcp"
+    ],
+    "courses": [
+      "course-agentseed-mcp"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-coding-agents",
+    "name": "coding agents",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentseed-mcp"
+    ],
+    "courses": [
+      "course-agentseed-mcp"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-slopsquatting",
+    "name": "slopsquatting",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentseed-mcp"
+    ],
+    "courses": [
+      "course-agentseed-mcp"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-background removal",
+    "name": "background removal",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "clipdrop-desktop-clipdrop-ai-tools-2026"
+    ],
+    "courses": [
+      "course-clipdrop-desktop-clipdrop-ai-tools-2026"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-image upscaling",
+    "name": "image upscaling",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "clipdrop-desktop-clipdrop-ai-tools-2026"
+    ],
+    "courses": [
+      "course-clipdrop-desktop-clipdrop-ai-tools-2026"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-photo editing",
+    "name": "photo editing",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "clipdrop-desktop-clipdrop-ai-tools-2026"
+    ],
+    "courses": [
+      "course-clipdrop-desktop-clipdrop-ai-tools-2026"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-relighting",
+    "name": "relighting",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "clipdrop-desktop-clipdrop-ai-tools-2026"
+    ],
+    "courses": [
+      "course-clipdrop-desktop-clipdrop-ai-tools-2026"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-text removal",
+    "name": "text removal",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "clipdrop-desktop-clipdrop-ai-tools-2026"
+    ],
+    "courses": [
+      "course-clipdrop-desktop-clipdrop-ai-tools-2026"
+    ],
+    "updatedAt": "2026-08-28T09:13:13.222Z"
   }
 ]

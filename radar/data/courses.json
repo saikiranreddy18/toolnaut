@@ -2470,5 +2470,664 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-08-27T06:10:30.704Z"
+  },
+  {
+    "id": "course-rafter",
+    "toolSlug": "rafter",
+    "title": "Master Rafter",
+    "objectives": [
+      "Understand what Rafter is for",
+      "Use Rafter on a real task",
+      "Know where Rafter fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Rafter for your real workflow, not the demo.",
+          "Say what Rafter does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Rafter.",
+          "Push Rafter to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Rafter into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-mcp",
+      "skill-agents",
+      "skill-team memory",
+      "skill-llm",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "course-chessrabbit",
+    "toolSlug": "chessrabbit",
+    "title": "Master ChessRabbit",
+    "objectives": [
+      "Understand what ChessRabbit is for",
+      "Use ChessRabbit on a real task",
+      "Know where ChessRabbit fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure ChessRabbit for your real workflow, not the demo.",
+          "Say what ChessRabbit does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through ChessRabbit.",
+          "Push ChessRabbit to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold ChessRabbit into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-chess",
+      "skill-game analysis",
+      "skill-ai coaching",
+      "skill-training"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "course-google-flow",
+    "toolSlug": "google-flow",
+    "title": "Master Google Flow",
+    "objectives": [
+      "Understand what Google Flow is for",
+      "Use Google Flow on a real task",
+      "Know where Google Flow fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Google Flow for your real workflow, not the demo.",
+          "Say what Google Flow does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Google Flow.",
+          "Push Google Flow to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Google Flow into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-video generation",
+      "skill-veo",
+      "skill-filmmaking",
+      "skill-image generation",
+      "skill-ai video"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "course-telem",
+    "toolSlug": "telem",
+    "title": "Master Telem",
+    "objectives": [
+      "Understand what Telem is for",
+      "Use Telem on a real task",
+      "Know where Telem fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Telem for your real workflow, not the demo.",
+          "Say what Telem does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Telem.",
+          "Push Telem to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Telem into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-web search",
+      "skill-routing",
+      "skill-tracing",
+      "skill-observability"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "course-gemini-omni-11-flash",
+    "toolSlug": "gemini-omni-11-flash",
+    "title": "Master Gemini Omni 1.1 Flash",
+    "objectives": [
+      "Understand what Gemini Omni 1.1 Flash is for",
+      "Use Gemini Omni 1.1 Flash on a real task",
+      "Know where Gemini Omni 1.1 Flash fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Gemini Omni 1.1 Flash for your real workflow, not the demo.",
+          "Say what Gemini Omni 1.1 Flash does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Gemini Omni 1.1 Flash.",
+          "Push Gemini Omni 1.1 Flash to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Gemini Omni 1.1 Flash into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-gemini",
+      "skill-llm",
+      "skill-api",
+      "skill-multimodal",
+      "skill-google"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "course-backprompter",
+    "toolSlug": "backprompter",
+    "title": "Master Backprompter",
+    "objectives": [
+      "Understand what Backprompter is for",
+      "Use Backprompter on a real task",
+      "Know where Backprompter fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Backprompter for your real workflow, not the demo.",
+          "Say what Backprompter does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Backprompter.",
+          "Push Backprompter to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Backprompter into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-agent builder",
+      "skill-no-backend",
+      "skill-deployment",
+      "skill-testing"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "course-ai-game-playtester",
+    "toolSlug": "ai-game-playtester",
+    "title": "Master AI Game Playtester",
+    "objectives": [
+      "Understand what AI Game Playtester is for",
+      "Use AI Game Playtester on a real task",
+      "Know where AI Game Playtester fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI Game Playtester for your real workflow, not the demo.",
+          "Say what AI Game Playtester does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Game Playtester.",
+          "Push AI Game Playtester to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Game Playtester into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-game testing",
+      "skill-playtesting",
+      "skill-qa",
+      "skill-ai agent"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "course-understudy-scenario-testing-for-ai-agents",
+    "toolSlug": "understudy-scenario-testing-for-ai-agents",
+    "title": "Master Understudy: Scenario Testing for AI Agents",
+    "objectives": [
+      "Understand what Understudy: Scenario Testing for AI Agents is for",
+      "Use Understudy: Scenario Testing for AI Agents on a real task",
+      "Know where Understudy: Scenario Testing for AI Agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Understudy: Scenario Testing for AI Agents for your real workflow, not the demo.",
+          "Say what Understudy: Scenario Testing for AI Agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Understudy: Scenario Testing for AI Agents.",
+          "Push Understudy: Scenario Testing for AI Agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Understudy: Scenario Testing for AI Agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-testing",
+      "skill-scenarios",
+      "skill-evaluation",
+      "skill-llmops"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
+    "toolSlug": "terminal-bench-science-evaluating-ai-agents-on-scientific-re",
+    "title": "Master Terminal-Bench-Science: Evaluating AI agents on scientific research workflows",
+    "objectives": [
+      "Understand what Terminal-Bench-Science: Evaluating AI agents on scientific research workflows is for",
+      "Use Terminal-Bench-Science: Evaluating AI agents on scientific research workflows on a real task",
+      "Know where Terminal-Bench-Science: Evaluating AI agents on scientific research workflows fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Terminal-Bench-Science: Evaluating AI agents on scientific research workflows for your real workflow, not the demo.",
+          "Say what Terminal-Bench-Science: Evaluating AI agents on scientific research workflows does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Terminal-Bench-Science: Evaluating AI agents on scientific research workflows.",
+          "Push Terminal-Bench-Science: Evaluating AI agents on scientific research workflows to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Terminal-Bench-Science: Evaluating AI agents on scientific research workflows into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-benchmark",
+      "skill-ai agents",
+      "skill-science",
+      "skill-evaluation",
+      "skill-research"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "course-ai-engineer-notebooks",
+    "toolSlug": "ai-engineer-notebooks",
+    "title": "Master AI Engineer Notebooks",
+    "objectives": [
+      "Understand what AI Engineer Notebooks is for",
+      "Use AI Engineer Notebooks on a real task",
+      "Know where AI Engineer Notebooks fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI Engineer Notebooks for your real workflow, not the demo.",
+          "Say what AI Engineer Notebooks does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Engineer Notebooks.",
+          "Push AI Engineer Notebooks to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Engineer Notebooks into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-rag",
+      "skill-agents",
+      "skill-evals",
+      "skill-notebooks",
+      "skill-llm"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "course-openai-is-developing-a-persistent-ai-agent",
+    "toolSlug": "openai-is-developing-a-persistent-ai-agent",
+    "title": "Master OpenAI Is Developing a 'Persistent' AI Agent",
+    "objectives": [
+      "Understand what OpenAI Is Developing a 'Persistent' AI Agent is for",
+      "Use OpenAI Is Developing a 'Persistent' AI Agent on a real task",
+      "Know where OpenAI Is Developing a 'Persistent' AI Agent fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure OpenAI Is Developing a 'Persistent' AI Agent for your real workflow, not the demo.",
+          "Say what OpenAI Is Developing a 'Persistent' AI Agent does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through OpenAI Is Developing a 'Persistent' AI Agent.",
+          "Push OpenAI Is Developing a 'Persistent' AI Agent to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold OpenAI Is Developing a 'Persistent' AI Agent into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-openai",
+      "skill-persistent",
+      "skill-productivity"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "course-agentseed-mcp",
+    "toolSlug": "agentseed-mcp",
+    "title": "Master agentseed-mcp",
+    "objectives": [
+      "Understand what agentseed-mcp is for",
+      "Use agentseed-mcp on a real task",
+      "Know where agentseed-mcp fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure agentseed-mcp for your real workflow, not the demo.",
+          "Say what agentseed-mcp does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through agentseed-mcp.",
+          "Push agentseed-mcp to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold agentseed-mcp into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-mcp",
+      "skill-anti-hallucination",
+      "skill-code-verification",
+      "skill-coding-agents",
+      "skill-slopsquatting"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "course-clipdrop-desktop-clipdrop-ai-tools-2026",
+    "toolSlug": "clipdrop-desktop-clipdrop-ai-tools-2026",
+    "title": "Master ClipDrop-Desktop---ClipDrop-AI-Tools-2026",
+    "objectives": [
+      "Remove and replace image backgrounds",
+      "Relight and upscale photos using AI tools",
+      "Erase text and unwanted objects from images"
+    ],
+    "modules": [
+      {
+        "title": "Install & Your First Background Removal",
+        "estMinutes": 12,
+        "steps": [
+          "Download ClipDrop Desktop from clipdrop.co, install it, and sign in with a free ClipDrop account",
+          "Drag a portrait or product photo into the app window and click the 'Remove Background' tool",
+          "Export the result as a transparent PNG to your Downloads folder using the export button"
+        ]
+      },
+      {
+        "title": "Replace Backgrounds with a New Scene",
+        "estMinutes": 10,
+        "steps": [
+          "Open your transparent PNG from Module 1 and choose the 'Replace Background' option",
+          "Type a short prompt like 'white studio backdrop' or pick a solid color background",
+          "Compare two different backgrounds side by side, then export the better version as a JPG"
+        ]
+      },
+      {
+        "title": "Relight a Flat Photo",
+        "estMinutes": 10,
+        "steps": [
+          "Load a dim or flat-lit photo and select the 'Relight' tool",
+          "Add one virtual light source, drag it to the upper left, and adjust intensity and color warmth",
+          "Toggle the before/after preview, then save the relit image"
+        ]
+      },
+      {
+        "title": "Upscale a Small Image Without Blur",
+        "estMinutes": 8,
+        "steps": [
+          "Import a small or low-resolution image (under 500px wide) into ClipDrop",
+          "Select 'Image Upscaler' and choose 2x enlargement; if the result is soft, run 4x instead",
+          "Zoom to 100% to check edge sharpness, then export the upscaled file"
+        ]
+      },
+      {
+        "title": "Remove Text and Unwanted Objects",
+        "estMinutes": 10,
+        "steps": [
+          "Open a photo containing a watermark, sign, or stray object and select the 'Cleanup' or 'Remove Text' tool",
+          "Brush over the text or object and let the AI fill the area; repeat with a smaller brush for leftovers",
+          "Inspect the cleaned area at full zoom for smudges, then export your finished image"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-background removal",
+      "skill-image upscaling",
+      "skill-photo editing",
+      "skill-relighting",
+      "skill-text removal"
+    ],
+    "prerequisites": [
+      "Windows or macOS computer with internet access",
+      "Free ClipDrop account (email sign-up)",
+      "3-4 sample photos: a portrait, a dimly lit shot, a small low-res image, and a photo with visible text"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-28T09:13:13.222Z"
   }
 ]
