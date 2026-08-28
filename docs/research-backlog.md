@@ -1501,3 +1501,92 @@ a client-side SPA with a static tool catalogue.
   props into the three existing filter rows. No backend, no new dependency, no
   new route, no new store.
 - **Found:** 2026-08-27 15:07 UTC
+
+### Tool "graveyard" page — deferred by the status-note gap, worth its own build
+- **Status:** OPEN
+- **Seen in:** studied fresh this run: `ToolDirectory.ai` (a 2026 AI-tool
+  directory competitor) runs a dedicated "graveyard" section listing 62
+  shutdown/discontinued tools with dated reasons, treated as a first-class
+  content surface rather than a quiet delisting — cited by Fast.io's 2026
+  directory comparison as one of that site's defining features alongside its
+  side-by-side comparison tool (already shipped here) and "published review
+  dates showing verification recency" (the same freshness signal the shipped
+  `discoveredAt`/Fresh-Finds gap already surfaces). The same comparison piece
+  also flagged Toolify.ai's dynamic "Most Saved"/"Most Used" ranking pages and
+  FutureTools.io's per-tool upvoting — both need real cross-visitor usage data
+  this local-only, no-backend SPA can't honestly produce (this app's own
+  favorites/stack stores are per-browser, not aggregated anywhere), so neither
+  is a buildable gap here; the graveyard pattern is the one from this sweep
+  that's genuinely closeable client-side.
+- **Gap:** this backlog's own already-OPEN "Tool status warning has no reason
+  attached" gap (found 2026-08-26, still unbuilt) explicitly named this and
+  deferred it: "no retroactive graveyard page listing all non-Active tools —
+  that's a bigger, distinct feature this gap doesn't require to be useful."
+  It was never logged as its own entry, so it's been sitting unbuilt and
+  untracked since. The data is exactly the same 52 already-written `status`/
+  `note` pairs on `toolsCatalog.js` entries (confirmed by direct grep: 52
+  `"status": "Uncertain"` entries, each carrying a `note` field with 47 of the
+  52 explaining why — e.g. Pi: `"Core team moved to Microsoft (2024); app in
+  maintenance"`, Sourcegraph Cody: `"Deprioritized as Sourcegraph pivoted to
+  Amp (2025)"`, Magic: `"No broadly available product yet"`) — real editorial
+  content already written, currently reachable only one tool at a time via
+  `ToolDetail.jsx`, and only once the (still-unbuilt) inline note gap ships.
+  There is no aggregate view anywhere a visitor — or a search crawler — can
+  see "here are the AI tools that stalled or pivoted away," even though
+  Toolnaut has already done the work of tracking which 52 of its 704 catalog
+  entries that applies to.
+- **Why it matters:** it's genuine, differentiated, crawlable content that
+  costs nothing new to produce (same "data exists, never surfaced" shape as
+  the shipped Fresh-Finds and the still-open popularity-signal gaps), and it
+  directly reinforces Toolnaut's own credibility angle — a directory that
+  visibly tracks and explains its own stale listings reads as more
+  trustworthy than one that just quietly keeps everything live, the same
+  trust argument the status-note gap already makes for the inline version.
+  It's also free top-of-funnel SEO surface in the same family as the shipped
+  category-landing pages ("AI tools that shut down" / "AI tools that
+  pivoted" are real, distinct long-tail searches neither `/tools/:domain` nor
+  the homepage currently answers) — this is the cheapest kind of new indexable
+  page this backlog has found: zero new data, one new template already proven
+  by `CategoryLanding.jsx`.
+- **Smallest useful version (what to actually build):**
+  - New public route `/graveyard` in `src/App.jsx`, alongside `/tools/:domain`
+    (`App.jsx:79`) — same tier as `SharedStack`/`CategoryLanding`, outside
+    `AppShell`, no session needed.
+  - New `src/pages/Graveyard.jsx`: filters `TOOLS` (same direct
+    `toolsCatalog.js` import `CategoryLanding.jsx:2` already uses) to
+    `status !== 'Active'`, sorted alphabetically (no recency data exists to
+    sort by — the `note` text itself often carries a year, that's enough).
+    Nearly line-for-line reuses `CategoryLanding.jsx`'s structure (heading,
+    one-line intro, card grid, "Build my own stack" CTA) rather than
+    inventing new page chrome — literally the same component shape with a
+    different filter predicate and copy, which is why this is small even
+    though it's a new route. Each card shows name, blurb, and the `note` text
+    directly (no separate detail click needed — the whole point of this page
+    is the reason, not just the list), skipping the 5 of 52 with no `note` by
+    just showing the status pill alone for those (never fabricate a reason,
+    same rule the status-note gap already commits to).
+  - One small text link to `/graveyard` from wherever the status-note gap's
+    inline "UNCERTAIN" badge ends up on `ToolDetail.jsx` (e.g. "See all
+    stalled/pivoted tools →") — only wire this if the status-note gap has
+    already shipped when this one is picked up; if not, this page still
+    stands alone with no inbound in-app link required, since its primary
+    value is as a standalone crawlable/shareable page, not in-app navigation.
+  - Add `/graveyard` to `public/sitemap.xml` (same one-line addition pattern
+    as the 6 category URLs) and to `scripts/smoke.mjs`'s route array — same
+    footgun flagged on every route-adding gap in this file.
+  - **What this would NOT include** (kept out to bound the diff): no new
+    catalog data or backfilled notes for the 5 `Uncertain` tools missing one
+    (same restraint the status-note gap already applies); no date-of-death
+    field or sorting by when a tool actually stopped being active (`note`
+    text is free-form prose, not a structured date — parsing one out is a
+    separate, riskier change, not required for this page to be useful as-is);
+    no separate `/graveyard/:slug` per-tool page (this is a listing page, the
+    same one-page-per-domain pattern `CategoryLanding` already established,
+    not a new detail-page type); no removal or archiving of these tools from
+    Discover/Compare/the main catalog — they stay fully live everywhere else,
+    this is purely an additional, honest way to browse the subset.
+- **Build size:** S — one new page (`Graveyard.jsx`, closely modeled on the
+  already-shipped `CategoryLanding.jsx`), one new public route in `App.jsx`,
+  one sitemap line, one smoke-route line. No backend, no new dependency, no
+  new store, no new util (reuses `TOOLS` directly, same as `CategoryLanding`).
+- **Found:** 2026-08-28 00:15 UTC
