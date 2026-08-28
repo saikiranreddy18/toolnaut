@@ -1590,3 +1590,91 @@ a client-side SPA with a static tool catalogue.
   one sitemap line, one smoke-route line. No backend, no new dependency, no
   new store, no new util (reuses `TOOLS` directly, same as `CategoryLanding`).
 - **Found:** 2026-08-28 00:15 UTC
+
+### Embeddable "Featured on Toolnaut" badge — the standard directory backlink loop, missing entirely
+- **Status:** OPEN
+- **Seen in:** studied fresh this run, a problem area rather than one
+  competitor. G2 badges (documentation.g2.com/docs/g2-badges) are embedded on
+  a vendor's own product page and G2 explicitly recommends footer placement
+  for single-product companies; Product Hunt badge embeds ("Featured on
+  Product Hunt") are one of the most copy-pasted growth artifacts in SaaS —
+  entire third-party tools (Poper, JustReview, Elfsight) exist purely to
+  package and re-embed these; LaunchLoop's 2026 "Featured Founder" badges are
+  the same pattern at a newer directory. The mechanism is identical everywhere:
+  a directory gives a listed vendor a small self-serve embed snippet that
+  links back to the directory, the vendor puts it on their own site because it
+  functions as social proof for their visitors, and the directory gets a free,
+  compounding backlink + referral-traffic stream for every vendor who embeds
+  it — zero outbound cost per embed, unlike any paid acquisition channel.
+- **Gap:** confirmed with `grep -rniE "badge|embed" src/pages src/components`
+  — the only "badge" hits in the whole codebase are unrelated UI (level-up
+  badges, pricing-plan ribbon copy, a canvas zoom-level readout in
+  `GalaxyExplorer.jsx`); nothing generates or displays a copyable
+  embed/backlink snippet anywhere. `ToolDetail.jsx` (the one page a vendor
+  would actually check to see how their tool is presented) has no "get embed
+  code," "share this listing," or "as seen on" affordance — its only outbound
+  action is the existing "VISIT WEBSITE" link at `ToolDetail.jsx:120-132`,
+  which points away from Toolnaut, not back to it. Toolnaut has zero mechanism
+  today that turns "a vendor is listed" into "a vendor links back."
+- **Why it matters:** every other growth-shaped gap already found in this file
+  (share-stack, category landing pages, the graveyard page above) drives
+  *visitors* to Toolnaut through Toolnaut's own surfaces. This is the one
+  pattern that drives *other websites* to link to Toolnaut voluntarily — real
+  backlinks from vendor marketing pages compound organic search authority in a
+  way no in-app feature can, and it costs the vendor nothing to add (a
+  three-line HTML snippet, no signup, no billing decision, no dependency on
+  the still-nonexistent multi-user/claiming system the Team-tier gap above
+  already rejected). It also sidesteps the login-wall problem the
+  per-route-meta gap flagged for `ToolDetail`/`Compare`: the badge should link
+  to the already-public, already-shipped `/s/:slug` route (`App.jsx:84`,
+  built for the share-stack gap) rather than the gated `/app/tools/:slug` —
+  `encodeStackSlugs([slug])` degrades cleanly to a single bare slug and
+  `SharedStack.jsx` already renders a clean read-only card for exactly one
+  tool with no session required, so a vendor's own visitor who clicks the
+  badge lands on real Toolnaut content immediately instead of a login screen.
+  This reuse is free: no new public route needed, no repeat of the
+  ToolDetail-is-gated problem this backlog already flagged as a separate,
+  larger fix.
+- **Smallest useful version (what to actually build):**
+  - New pure util `src/utils/embedBadge.js`: `buildEmbedSnippet(tool)` →
+    a single HTML string — an `<a>` tag wrapping styled inline text (no
+    external image, no iframe, no hosted badge-image endpoint this SPA has no
+    server to generate), e.g. `<a href="https://toolnaut.xyz/s/<slug>"
+    target="_blank" rel="noopener" style="...">🔭 Featured on Toolnaut</a>`
+    with the inline `style` attribute carrying enough of its own CSS (padding,
+    border-radius, background, font) to render correctly dropped into any
+    third-party site with zero dependency on Toolnaut's own stylesheet ever
+    loading. Pure function, easy to `node --test` like `shareStack.js`.
+    Deliberately not an `<img>`/SVG badge in v1 — that needs either a
+    checked-in static asset per style variant or a server-rendered badge
+    endpoint (a `functions` route this `vercel.json` doesn't have, the same
+    "no backend" wall the chat-assistant/digest-email gaps already hit) —
+    an inline-styled anchor is the honest zero-infrastructure version.
+  - `ToolDetail.jsx`: one small disclosure below the existing "VISIT WEBSITE"
+    button (`ToolDetail.jsx:120-132`), labelled "🏷️ Get embed badge," that
+    reveals a `<textarea readOnly>` containing `buildEmbedSnippet(tool)` plus
+    a "Copy" button — same copy-to-clipboard + "Copied!" transient-label
+    pattern already used twice in this codebase (`Stack.jsx:132-136`'s share
+    link, `Learning.jsx:243-250`'s share-badge string), so no new interaction
+    pattern, just a third call site of the same idea.
+  - A tiny live preview of the badge (rendering the same HTML string via
+    `dangerouslySetInnerHTML` inside a bordered "this is what it looks like"
+    box) so a vendor can see the badge before copying it — cheap to add since
+    the string itself is already fully self-styled.
+  - **What this would NOT include** (kept out to bound the diff): no
+    image/SVG badge variant or badge-generator endpoint (needs a backend, as
+    above); no vendor claiming/verification flow — any visitor can grab any
+    tool's badge, same open-by-default trust model this codebase already uses
+    for favorites/stack/reviews; no tracking of how many sites embed a given
+    badge or click-through analytics beyond the existing `useAnalytics`
+    pattern (a single `CTA_CLICK` event on reveal/copy is enough, no new
+    dashboard); no outreach/email to vendors telling them the badge exists —
+    that's a marketing/ops task, not a code gap, same distinction already
+    drawn for the Discord-community finding above; no per-plan gating (no
+    billing system to gate against, same reasoning as every other ungated
+    finding in this file).
+- **Build size:** S — one new pure util (`embedBadge.js`), one small
+  disclosure + textarea + copy button + live preview added to `ToolDetail.jsx`
+  reusing an existing copy-to-clipboard pattern. No backend, no new
+  dependency, no new route (reuses the already-public `/s/:slug`).
+- **Found:** 2026-08-28 03:15 UTC
