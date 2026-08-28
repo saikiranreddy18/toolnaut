@@ -1782,3 +1782,107 @@ a client-side SPA with a static tool catalogue.
   No backend, no new dependency, no new store, no new scoring logic — reuses
   the exact matching query `ToolDetail.jsx` already runs.
 - **Found:** 2026-08-28 06:10 UTC
+
+### Public "new tools" feed — the freshness data is real, but the only place it renders is behind the login wall
+- **Status:** OPEN
+- **Seen in:** Product Hunt's entire homepage *is* a chronological feed of
+  newly launched products — freshness is the whole product, not a side
+  panel; There's An AI For That runs a dedicated, publicly crawlable
+  "Newest AI Tools" page for the same reason (already cited for the shipped
+  Fresh-Finds gap below, but that citation was about an in-app strip — the
+  public-page half of the same competitor pattern was never actually built).
+  Futurepedia's "Newest" sort is likewise a public, unauthenticated view.
+  Every comparable directory treats "what got added recently" as content a
+  search engine and a cold visitor can both see without signing in first.
+- **Gap:** Toolnaut already has this data and already shipped an in-app
+  version of it — but the in-app version is gated, and no public version
+  exists. `radar/enrich.js` stamps a real `discoveredAt` on every
+  radar-discovered tool, `radar/scripts/sync-to-app.js` and
+  `src/utils/liveCatalog.js` both carry `'discoveredAt'` in their `FIELDS`
+  arrays (`liveCatalog.js:7`), and `src/utils/newTools.js` already exports
+  `getNewTools(days)` — a pure, tested, ready-to-reuse function that filters
+  and sorts `TOOLS` by that timestamp. The only place any of this renders is
+  `Discover.jsx:106,140-150`'s "🆕 New this week" strip, and `Discover.jsx`
+  is mounted at `/app/discover`, nested under `<Route path="/app"
+  element={<AppShell />}>` (`App.jsx:96-99`) — the exact same session wall
+  the per-route-meta gap's deepening already proved blocks crawlers and
+  cold social-link clicks alike (a Google crawler or a pasted link recipient
+  with no session hits the login screen, never the strip). Confirmed with
+  `grep -rn "getNewTools\|discoveredAt" src/pages src/components`: the only
+  call site anywhere is that one gated strip. `public/sitemap.xml` (checked
+  in full, 12 URLs) has no `/new`-shaped entry, and there is no public route
+  for this in `App.jsx` alongside the already-public `/tools/:domain`
+  (`App.jsx:85`), `/s/:slugs` (`App.jsx:84`), or the still-OPEN
+  `/graveyard`/`/alternatives/:slug` gaps above.
+- **Why it matters:** this is the cheapest possible gap in the file's own
+  terms — zero new data, zero new util (`newTools.js` already does the exact
+  query needed), and a page shape (`CategoryLanding.jsx`) already proven
+  twice as the template for "take `TOOLS`, filter it, render a public read-
+  only grid." It's also a distinct, real search surface from every other
+  SEO gap already open here: `/tools/:domain` targets topical intent ("best
+  AI writing tools"), `/alternatives/:slug` targets competitor-switch intent
+  ("chatgpt alternatives"), `/graveyard` targets a stale-listing/trust
+  query — none of them target *recency* intent ("new AI tools this week" /
+  "latest AI tools 2026"), which is one of the highest-churn query types in
+  this exact category precisely because the answer changes constantly and a
+  static competitor page can't keep up the way a page reading live
+  `discoveredAt` data every build can. It also closes the same "the feature
+  that's supposed to prove Toolnaut is alive undercuts itself by being
+  invisible to anyone who isn't already a user" problem the per-route-meta
+  gap already flagged for shared `ToolDetail` links — except here the fix
+  doesn't require moving an existing gated route, it just needs a new public
+  one next to it.
+- **Smallest useful version (what to actually build):**
+  - New public route `/new` in `src/App.jsx`, alongside `/tools/:domain`
+    (`App.jsx:85`) — outside `AppShell`, no session needed, same tier as
+    every other page in this public-SEO-page family.
+  - New `src/pages/NewTools.jsx`, structured identically to
+    `CategoryLanding.jsx` (heading, one-line intro, card grid, "Build my own
+    stack" CTA at top and bottom) rather than inventing new page chrome.
+    Calls `getNewTools(30)` directly from the existing `newTools.js` util —
+    30 days rather than the in-app strip's 7, since a public SEO page
+    benefits from not being empty most weeks the way a frequently-revisited
+    in-app strip can afford to be; sorted newest-first, which `getNewTools`
+    already does (`newTools.js:18`). Heading reads "NEWEST AI TOOLS ADDED TO
+    TOOLNAUT" with a one-line honest intro naming the count and window
+    ("{n} tools added in the last 30 days, discovered automatically — see
+    `radar/README.md`'s own framing for the honest one-liner to reuse").
+    Each card reuses the exact glass-card markup `CategoryLanding.jsx:46-57`
+    already renders (name, blurb, price/level pills, category dot) plus one
+    addition: a small relative-time caption ("Added 3 days ago") computed
+    from `tool.discoveredAt` — `communityData.js`'s existing `timeAgo()`
+    helper (already cited and reused by the still-open ratings gap above)
+    is the exact right tool for this, not a new date-formatting function.
+  - Empty state (a real possibility — radar can have a quiet week): "No new
+    tools in the last 30 days — check back soon," same honest-empty-state
+    pattern `CategoryLanding.jsx:41-42` already uses for a domain with zero
+    tools, not a hidden/blank page.
+  - Add `/new` to `public/sitemap.xml` (one line, `changefreq daily` rather
+    than `weekly` — this is the one public page whose content can change
+    every single day the radar pipeline runs, unlike every other static
+    catalog-subset page in the file) and to `scripts/smoke.mjs`'s route
+    array (`scripts/smoke.mjs:32`) — same footgun flagged on every
+    route-adding gap in this backlog.
+  - One small link from the existing gated `Discover.jsx` strip
+    (`Discover.jsx:140-150`) to `/new` ("See the full feed →") so a signed-in
+    user's 7-day strip has a path to the fuller 30-day public page — optional
+    polish, not required for the public page to stand alone.
+  - **What this would NOT include** (kept out to bound the diff): no RSS/Atom
+    feed (a real, cheap follow-up once this page proves out, but a second
+    output format is a separate, larger decision than this file's own S
+    sizing bias allows for a first cut); no per-source badges on this page
+    (GitHub vs. HN vs. Product Hunt vs. RSS) — that's what the still-OPEN
+    popularity-signal gap's source-specific labels are for, this page's job
+    is just "what's new," not "where it came from"; no pagination beyond a
+    30-day window (a hard cap, not an infinite-scroll/load-more control — if
+    the window is ever wide enough to need one, that's a follow-up, not a
+    v1 requirement); no daily/weekly email digest of this feed (the already-
+    REJECTED digest-email gap above covers exactly why that needs a backend
+    this SPA doesn't have — this page is the honest, backend-free substitute
+    for that promise, not an attempt to sneak the rejected feature back in).
+- **Build size:** S — one new page (`NewTools.jsx`, closely modeled on the
+  already-shipped `CategoryLanding.jsx`), one new public route in `App.jsx`,
+  one sitemap line, one smoke-route line, one optional link from the
+  existing gated strip. No backend, no new dependency, no new store, no new
+  util (`getNewTools()` already exists and is already tested).
+- **Found:** 2026-08-28 12:20 UTC
