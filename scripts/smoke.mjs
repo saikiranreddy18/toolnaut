@@ -29,7 +29,7 @@ for (;;) {
     await new Promise((r) => setTimeout(r, 400))
   }
 }
-const routes = ['/', '/goal', '/pricing', '/about', '/privacy', '/terms', '/app/stack', '/app/discover', '/app/favorites', '/app/compare?tools=chatgpt,claude', '/app/tools/chatgpt', '/app/learning', '/app/community', '/app/settings', '/office', '/s/chatgpt', '/tools/code']
+const routes = ['/', '/goal', '/pricing', '/about', '/privacy', '/terms', '/app/stack', '/app/discover', '/app/favorites', '/app/compare?tools=chatgpt,claude', '/app/tools/chatgpt', '/app/learning', '/app/community', '/app/settings', '/office', '/s/chatgpt', '/tools/code', '/new']
 // Playwright resolves one exact browser build id and refuses to launch if that
 // precise directory is missing, telling you to run `playwright install` — which
 // is not possible in a locked image. Sandboxes routinely ship a different build:

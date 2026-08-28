@@ -176,7 +176,12 @@ export default function Discover() {
 
       {freshTools.length > 0 && (
         <div className="mt-6">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500">🆕 New this week</h2>
+          <div className="flex items-center justify-between gap-2">
+            <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500">🆕 New this week</h2>
+            <Link to="/new" className="text-[10px] font-bold uppercase tracking-widest text-exus-lime hover:opacity-80">
+              See the full feed →
+            </Link>
+          </div>
           <div className="no-scrollbar -mx-5 mt-2 flex gap-3 overflow-x-auto px-5 sm:mx-0 sm:px-0">
             {freshTools.map((tool) => (
               <Link
