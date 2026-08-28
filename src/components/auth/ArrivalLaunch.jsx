@@ -3,6 +3,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { consumeLaunch } from '../../utils/launchFlag'
 import { loadSession } from '../../state/authStore'
 import Wordmark from '../ui/Wordmark'
+import PixelRocket from './PixelRocket'
 
 // The launch sequence, played on ARRIVAL.
 //
@@ -54,24 +55,46 @@ export default function ArrivalLaunch() {
           role="status"
           aria-label="Launching"
         >
-          {/* Star streaks. They accelerate downward, which is what sells the
-              rocket as RISING — the ship barely moves, the field does. */}
+          {/* The diamond grid the reference art sits on. Pure CSS gradients —
+              two crossed sets of lines — so it costs nothing to scroll. */}
+          <motion.div
+            className="absolute inset-0"
+            aria-hidden="true"
+            style={{
+              backgroundImage:
+                'repeating-linear-gradient(63deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 46px),' +
+                'repeating-linear-gradient(-63deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 46px)',
+            }}
+            animate={{ backgroundPositionY: ['0px', '92px'] }}
+            transition={{ duration: 1.1, repeat: Infinity, ease: 'linear' }}
+          />
+
+          {/* Pixel stars, square-edged to match the ship. They fall rather than
+              twinkle — the field moving downward is what sells the rocket as
+              rising, since the ship itself barely travels. */}
           <div className="absolute inset-0" aria-hidden="true">
-            {Array.from({ length: 34 }, (_, i) => {
+            {Array.from({ length: 26 }, (_, i) => {
               const left = (i * 37) % 100
-              const delay = (i % 11) * 0.09
+              const delay = (i % 9) * 0.11
+              const size = 4 + (i % 3) * 4
+              const star = i % 3 === 0
               return (
                 <motion.span
                   key={i}
-                  className="absolute w-px rounded-full"
+                  className="absolute"
                   style={{
                     left: `${left}%`,
-                    height: 18 + (i % 5) * 22,
-                    background: 'linear-gradient(transparent, rgba(255,255,255,0.75), transparent)',
+                    width: size,
+                    height: size,
+                    background: star ? 'var(--lime)' : 'rgba(255,255,255,0.55)',
+                    // a plus-shaped notch turns the square into a pixel star
+                    clipPath: star
+                      ? 'polygon(40% 0,60% 0,60% 40%,100% 40%,100% 60%,60% 60%,60% 100%,40% 100%,40% 60%,0 60%,0 40%,40% 40%)'
+                      : 'none',
                   }}
-                  initial={{ top: '-20%', opacity: 0 }}
-                  animate={{ top: '120%', opacity: [0, 1, 1, 0] }}
-                  transition={{ duration: 0.75, delay, repeat: Infinity, ease: 'linear' }}
+                  initial={{ top: '-10%', opacity: 0 }}
+                  animate={{ top: '115%', opacity: [0, 1, 1, 0] }}
+                  transition={{ duration: 0.9, delay, repeat: Infinity, ease: 'linear' }}
                 />
               )
             })}
@@ -97,34 +120,33 @@ export default function ArrivalLaunch() {
               transition={{ duration: 2.4, times: [0, 0.36, 1], ease: [0.5, 0, 0.3, 1] }}
               className="relative"
             >
-              {/* exhaust, drawn under the ship and flickering on its own clock
-                  so the flame never looks welded to the hull */}
+              {/* The plume, built from square bands rather than a blurred bar:
+                  lime core, orange, then blue at the edges, each row narrower
+                  and dimmer than the last. Blurring it would have undone the
+                  pixel work directly above it. */}
               <motion.div
-                className="absolute left-1/2 top-full h-36 w-12 -translate-x-1/2 rounded-b-full"
-                style={{
-                  background: 'linear-gradient(var(--lime), var(--hot-pink) 45%, transparent)',
-                  filter: 'blur(3px)',
-                }}
-                animate={{ scaleY: [0.7, 1.15, 0.85, 1.2], opacity: [0.85, 1, 0.9, 1] }}
-                transition={{ duration: 0.28, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute left-1/2 top-full flex -translate-x-1/2 flex-col items-center"
+                animate={{ scaleY: [0.82, 1.12, 0.9, 1.16], opacity: [0.9, 1, 0.93, 1] }}
+                transition={{ duration: 0.24, repeat: Infinity, ease: 'easeInOut' }}
+                style={{ transformOrigin: 'top center' }}
                 aria-hidden="true"
-              />
+              >
+                {Array.from({ length: 7 }, (_, i) => {
+                  const t = i / 6
+                  const core = 26 - i * 3
+                  const mid = core + 10
+                  const outer = mid + 10
+                  return (
+                    <div key={i} className="relative flex items-center justify-center" style={{ height: 9 }}>
+                      <span className="absolute" style={{ width: outer, height: 9, background: '#2f7fd6', opacity: 0.85 - t * 0.7 }} />
+                      <span className="absolute" style={{ width: mid, height: 9, background: '#f59a2e', opacity: 0.95 - t * 0.7 }} />
+                      <span className="absolute" style={{ width: core, height: 9, background: 'var(--lime)', opacity: 1 - t * 0.75 }} />
+                    </div>
+                  )
+                })}
+              </motion.div>
 
-              <svg width="132" height="196" viewBox="0 0 86 128" fill="none" aria-hidden="true">
-                {/* fins */}
-                <path d="M22 78 L6 106 L22 100 Z" fill="var(--hot-pink)" stroke="#000" strokeWidth="4" strokeLinejoin="round" />
-                <path d="M64 78 L80 106 L64 100 Z" fill="var(--hot-pink)" stroke="#000" strokeWidth="4" strokeLinejoin="round" />
-                {/* hull */}
-                <path
-                  d="M43 4 C60 24 68 50 68 74 L68 100 L18 100 L18 74 C18 50 26 24 43 4 Z"
-                  fill="#f5f1e8" stroke="#000" strokeWidth="5" strokeLinejoin="round"
-                />
-                {/* window */}
-                <circle cx="43" cy="52" r="12" fill="var(--cyan)" stroke="#000" strokeWidth="5" />
-                <circle cx="39" cy="48" r="3.4" fill="#fff" opacity="0.85" />
-                {/* nose band */}
-                <path d="M31 26 C36 18 50 18 55 26" stroke="var(--hot-pink)" strokeWidth="6" strokeLinecap="round" />
-              </svg>
+              <PixelRocket width={150} />
             </motion.div>
 
             <div className="absolute bottom-[14%] left-1/2 flex -translate-x-1/2 flex-col items-center gap-3">
