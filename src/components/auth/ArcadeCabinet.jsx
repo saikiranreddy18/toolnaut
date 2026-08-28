@@ -83,11 +83,31 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
     tiltRef.current = { x: 0, y: 0 }
   }
 
+  // Arrow keys nudge the stick and hold it there — a keyboard has no "release",
+  // so it stays where it was put until Space/Home or blur re-centres it.
+  function steer(e) {
+    const step = 0.34
+    const cur = tiltRef.current
+    let { x, y } = cur
+    if (e.key === 'ArrowLeft') x -= step
+    else if (e.key === 'ArrowRight') x += step
+    else if (e.key === 'ArrowUp') y += step
+    else if (e.key === 'ArrowDown') y -= step
+    // NOT Escape — that closes the dialog, and a dialog's Escape has to keep
+    // meaning "close" no matter what inside it has focus.
+    else if (e.key === ' ' || e.key === 'Home') { x = 0; y = 0 }
+    else return
+    e.preventDefault()
+    const c = (n) => Math.max(-1, Math.min(1, n))
+    x = c(x); y = c(y)
+    tiltRef.current = { x, y }
+    setTilt({ x: x * 13, y: -y * 9 })
+  }
+
   const grille = (
     <span
-      className="h-8 shrink-0 rounded-[3px] border-[5px] md:h-[46px]"
+      className="h-8 min-w-0 flex-1 rounded-[3px] border-[5px] md:h-[46px]"
       style={{
-        width: '23%',
         borderColor: '#050506',
         background: GRILLE,
         boxShadow: 'inset 0 0 0 3px #343439, 0 3px 0 #000',
@@ -127,7 +147,7 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
           <div
             className="flex min-h-[52px] shrink-0 items-center px-3 md:min-h-[72px] md:px-[18px]"
             style={{
-              width: '54%',
+              width: '52%',
               border: '7px solid #050506',
               outline: '5px solid var(--hot-pink)',
               background: 'linear-gradient(var(--lime), color-mix(in srgb, var(--lime) 78%, #000))',
@@ -225,7 +245,15 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
 
             {/* Joystick. The base is drawn first and the shaft pivots from its
                 centre, so leaning looks hinged rather than like a sliding stick. */}
-            <div className="relative h-20 w-20 shrink-0" aria-hidden="true">
+            <button
+            type="button"
+            onKeyDown={steer}
+            onBlur={releaseStick}
+            aria-label="Flight stick — arrow keys fly the galaxy, space re-centres"
+            title="Arrow keys fly the galaxy"
+            className="relative h-20 w-20 shrink-0 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+            style={{ outlineColor: 'var(--cyan)' }}
+          >
               <div
                 className="absolute bottom-0 left-1/2 h-4 w-16 -translate-x-1/2 rounded-[50%] border-[3px] border-black"
                 style={{ background: 'linear-gradient(#3a3a46, #1c1c24)' }}
@@ -244,7 +272,7 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
                   }}
                 />
               </div>
-            </div>
+            </button>
 
             {/* two cabinet buttons that actually travel */}
             <div className="flex gap-3 pb-1">
