@@ -18,6 +18,9 @@ import { myStanding } from '../../utils/communityStats'
 import { SEEDED } from '../../utils/communityStats'
 import { haptic } from '../../utils/haptics'
 import SkillGraph from '../../components/app/SkillGraph'
+import Avatar from '../../components/app/Avatar'
+import AvatarPicker from '../../components/app/AvatarPicker'
+import { loadAvatar } from '../../state/avatarStore'
 
 // ME — the control centre.
 //
@@ -59,6 +62,7 @@ export default function Settings() {
 
   const [theme, setThemeState] = useState(loadTheme)
   const [moon, setMoonState] = useState(loadMoon)
+  const [avatarId, setAvatarId] = useState(loadAvatar)
 
   const stats = useMemo(() => {
     const stackSlugs = loadStack()
@@ -129,7 +133,21 @@ export default function Settings() {
       <section className="mt-8">
         <h2 className="arcade-heading text-lg">WHO YOU ARE</h2>
         {persona ? (
-          <div className="sticker mt-4 p-5">
+          <div className="sticker mt-4 flex flex-wrap items-start gap-5 p-5">
+            <div className="shrink-0">
+              {avatarId ? (
+                <Avatar id={avatarId} size={84} />
+              ) : (
+                <div
+                  className="grid h-[84px] w-[84px] place-items-center rounded-full font-display text-3xl font-black text-black"
+                  style={{ background: 'var(--lime)', border: '5px solid #12131b' }}
+                  aria-hidden="true"
+                >
+                  {(session?.user.name || 'E').charAt(0).toUpperCase()}
+                </div>
+              )}
+            </div>
+            <div className="min-w-0 flex-1">
             <span className="arcade-chip on" style={{ fontSize: 10 }}>Persona</span>
             <p className="arcade-heading lime mt-3 text-2xl">{persona.name.toUpperCase()}</p>
             <p className="mt-2 font-display text-sm font-bold italic text-white">{persona.tagline}</p>
@@ -150,6 +168,7 @@ export default function Settings() {
               and writes your 4-week path. Change the answers below and all three
               change with it.
             </p>
+            </div>
           </div>
         ) : (
           <div className="sticker cyan mt-4 p-5">
@@ -166,6 +185,19 @@ export default function Settings() {
       </section>
 
       {/* ── WHAT YOU HAVE DONE ──────────────────────────────────────── */}
+      {/* Explorer avatar — the profile had no face at all, so the sidebar and
+          this page both fell back to a name string. */}
+      <section className="mt-10">
+        <h2 className="arcade-heading text-lg">YOUR EXPLORER</h2>
+        <p className="mt-2 max-w-lg text-sm text-slate-400">
+          Sixteen of the crew. Your pick shows here and in the sidebar — tap the
+          one you have chosen again to go back to your initial.
+        </p>
+        <div className="sticker mt-4 p-5">
+          <AvatarPicker onChange={setAvatarId} />
+        </div>
+      </section>
+
       <section className="mt-10">
         <h2 className="arcade-heading text-lg">WHAT YOU HAVE DONE</h2>
         <p className="mt-2 text-sm text-slate-400">

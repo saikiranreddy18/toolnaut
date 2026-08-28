@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link, Navigate, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { BRAND } from '../config'
@@ -9,6 +9,8 @@ import { generatePersona } from '../utils/personaGenerator'
 import { planLabel } from '../utils/planData'
 import ChatPanel from '../components/app/ChatPanel'
 import InstallPrompt from '../components/app/InstallPrompt'
+import Avatar from '../components/app/Avatar'
+import { loadAvatar, AVATAR_EVENT } from '../state/avatarStore'
 import { StackIcon, DiscoverIcon, LearningIcon, CommunityIcon, SettingsIcon, ChatIcon, HeartIcon } from '../components/app/icons'
 
 const NAV = [
@@ -21,6 +23,11 @@ const NAV = [
 ]
 
 const UI_KEY = 'exus_ui_v1'
+
+function subscribeAvatar(onChange) {
+  window.addEventListener(AVATAR_EVENT, onChange)
+  return () => window.removeEventListener(AVATAR_EVENT, onChange)
+}
 
 function loadChatOpen() {
   try { return !!JSON.parse(localStorage.getItem(UI_KEY))?.chatOpen } catch { return false }
@@ -60,6 +67,9 @@ export default function AppShell() {
 
   const quiz = loadQuiz()
   const persona = quiz.completed ? generatePersona(quiz.answers) : null
+  // An unpicked avatar renders as no portrait rather than a placeholder face
+  // nobody chose. Subscribed so picking one in ME updates the shell instantly.
+  const avatarId = useSyncExternalStore(subscribeAvatar, loadAvatar, () => null)
 
   function toggleChat(open) {
     setChatOpen(open)
@@ -92,7 +102,13 @@ export default function AppShell() {
           <BrandLogo size={30} />
         </Link>
 
-        <div className="sticker mt-6 p-4">
+        <div className="sticker mt-6 flex items-start gap-3 p-4">
+          {avatarId ? (
+            <Link to="/app/settings" className="shrink-0" aria-label="Your profile">
+              <Avatar id={avatarId} size={40} />
+            </Link>
+          ) : null}
+          <div className="min-w-0">
           <p className="font-display text-[10px] font-black uppercase tracking-widest text-lime-400">
             {persona ? '▸ Your persona' : '▸ No persona yet'}
           </p>
@@ -106,6 +122,7 @@ export default function AppShell() {
               60 seconds →
             </Link>
           )}
+          </div>
         </div>
 
         <nav className="mt-6 flex flex-col gap-1" aria-label="Sidebar">
@@ -129,11 +146,14 @@ export default function AppShell() {
           <Link to="/" aria-label={BRAND}>
             <BrandLogo size={26} />
           </Link>
-          {persona && (
-            <span className="rounded-full border border-exus-purple/50 bg-exus-purple/10 px-3 py-1 font-display text-xs text-cyan-300">
-              {persona.name}
-            </span>
-          )}
+          <Link to="/app/settings" className="flex items-center gap-2" aria-label="Your profile">
+            {persona && (
+              <span className="rounded-full border border-exus-purple/50 bg-exus-purple/10 px-3 py-1 font-display text-xs text-cyan-300">
+                {persona.name}
+              </span>
+            )}
+            {avatarId && <Avatar id={avatarId} size={32} title="" />}
+          </Link>
         </div>
         {/* warp-in: each screen arrives from deeper space */}
         <motion.div
