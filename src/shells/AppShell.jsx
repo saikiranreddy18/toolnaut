@@ -75,6 +75,15 @@ export default function AppShell() {
 
   return (
     <div className="relative flex min-h-dvh">
+      {/* keyboard/screen-reader users otherwise have to tab through the
+          sidebar persona card and 6 nav links (or the mobile top bar) on
+          every single page before reaching content — WCAG 2.4.1 */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-[var(--lime)] focus:px-4 focus:py-2 focus:font-display focus:text-sm focus:font-black focus:uppercase focus:text-black"
+      >
+        Skip to content
+      </a>
       <div className="starfield" aria-hidden="true" />
 
       {/* left sidebar — desktop */}
@@ -114,7 +123,7 @@ export default function AppShell() {
       </aside>
 
       {/* main content */}
-      <main className="relative z-10 min-w-0 flex-1 pb-24 lg:pb-0">
+      <main id="main-content" tabIndex={-1} className="relative z-10 min-w-0 flex-1 pb-24 lg:pb-0">
         {/* mobile top bar — respects the notch */}
         <div className="sticky top-0 z-30 flex items-center justify-between border-b border-white/10 bg-[#0a0a0f]/85 px-5 py-4 pt-[max(1rem,env(safe-area-inset-top))] backdrop-blur-md lg:hidden">
           <Link to="/" aria-label={BRAND}>
