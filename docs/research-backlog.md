@@ -1678,3 +1678,107 @@ a client-side SPA with a static tool catalogue.
   reusing an existing copy-to-clipboard pattern. No backend, no new
   dependency, no new route (reuses the already-public `/s/:slug`).
 - **Found:** 2026-08-28 03:15 UTC
+
+### Per-tool "Alternatives" SEO pages — the single highest-intent directory query has zero pages targeting it
+- **Status:** OPEN
+- **Seen in:** studied fresh this run (ToolChase.com's AI-tools guide, then
+  cross-checked against the pattern's general form): dedicated "alternatives
+  to X" pages are the load-bearing SEO surface for every tool directory that
+  ranks — SaaSHub and AlternativeTo exist almost entirely as this one page
+  type; G2 and Capterra both auto-generate an "X Alternatives & Competitors"
+  page for every listed product; ToolChase's own write-up specifically calls
+  out its "'alternatives' feature showing substitutes for specific solutions"
+  as distinct from its general comparison tool, because it targets a
+  different, much higher-commercial-intent search query — "chatgpt
+  alternatives," "notion ai alternatives," "jasper ai alternatives" are
+  some of the single highest-volume, highest-intent searches in the entire AI-
+  tools category (someone already uses or has decided against Product X and
+  is actively looking to switch), distinct from a generic "best AI writing
+  tools" query the existing category pages target.
+- **Gap:** confirmed with `grep -rn "alternative" src/` — the only hits are
+  ToolDetail.jsx's "RELATED TOOLS" section (`ToolDetail.jsx:189-205`), and
+  even that is gated: it only renders inside `/app/tools/:slug`, behind
+  `AppShell`'s session guard (`App.jsx:96-106`), invisible to a search
+  crawler or a signed-out visitor who searched "chatgpt alternatives" and
+  landed cold. Toolnaut's only public, crawlable listing pages are the 6
+  broad `/tools/:domain` category pages (`App.jsx:85`, `CategoryLanding.jsx`
+  — "Best AI Tools for Writing," etc.) — none of them target a specific
+  competitor tool by name, and `public/sitemap.xml` lists exactly those 6
+  plus 6 static routes, nothing per-tool. Toolnaut has 704 catalog entries
+  and the exact same-`sourceCategory` matching logic already proven at
+  `ToolDetail.jsx:29-34` (e.g. "LLMs & Chatbots" alone has 35 tools, confirmed
+  by counting `sourceCategory` values directly in `toolsCatalog.js`) — the
+  data and the matching logic both already exist, they're just never
+  exposed as a public page, and the one place they are rendered is behind a
+  login-equivalent wall.
+- **Why it matters:** this is the single biggest gap between what Toolnaut's
+  catalog could rank for and what it actually can. The already-shipped
+  category-landing pages target broad, high-competition queries ("best AI
+  writing tools" — every directory has one of these); "X alternatives" pages
+  target hundreds of specific, lower-competition, higher-conversion long-tail
+  queries simultaneously (one per catalog tool), and Toolnaut is uniquely
+  positioned to answer them honestly because — unlike a hand-curated
+  competitor list — every "alternative" shown is backed by the same
+  structured `sourceCategory`/`price`/`level` fields already used everywhere
+  else in the app, so there's no editorial content to invent. It's also a
+  direct extension of already-shipped work: `CategoryLanding.jsx` is the
+  exact page shape to clone (public, crawlable, reuses `TOOLS` directly), and
+  the matching logic is the exact query `ToolDetail.jsx` already runs — this
+  gap is "expose what's already built one level further," the same shape as
+  the Fresh-Finds and Skills-Graph gaps that shipped fastest in this backlog.
+- **Smallest useful version (what to actually build):**
+  - New public route `/alternatives/:slug` in `src/App.jsx`, alongside
+    `/tools/:domain` (`App.jsx:85`) — same tier as `CategoryLanding`/
+    `SharedStack`, outside `AppShell`, no session needed.
+  - New `src/pages/Alternatives.jsx`, closely modeled on
+    `CategoryLanding.jsx`'s structure (heading, one-line intro, card grid,
+    "Build my own stack" CTA) rather than inventing new page chrome. Reads
+    `slug` via `useParams()`, resolves the target tool with `getTool()`
+    (`toolsCatalog.js:757`), 404s to `<Navigate to="/" replace />` for an
+    unknown slug (same pattern `CategoryLanding` already uses for an unknown
+    domain). Computes alternatives with the *same* two-tier logic already
+    proven at `ToolDetail.jsx:29-34` (same `sourceCategory` first, same
+    `category` as fallback, excluding the target itself), capped at 12 rather
+    than 3 since this is a full page, not a detail-page sidebar. Heading
+    reads "BEST {TOOL NAME} ALTERNATIVES" — the literal search-query phrase —
+    with a one-line honest intro ("{n} other {sourceCategory} tools, ranked
+    the same way as everywhere else in Toolnaut — nothing here is sponsored
+    or invented.") Each card reuses the same price/level pill markup
+    `CategoryLanding.jsx:53-56` already renders, no new label maps.
+  - `ToolDetail.jsx`: the existing gated "RELATED TOOLS" section
+    (`ToolDetail.jsx:189-205`) gets one small addition — a "See all
+    alternatives to {tool.name} →" link under the grid, pointing to the new
+    public `/alternatives/{tool.slug}` page. This is the one place a signed-
+    in user's existing view feeds the new public page, but the new page does
+    not depend on it being wired — it stands alone as a crawlable/shareable
+    URL, same reasoning the graveyard-page gap above uses for its own inbound
+    link.
+  - `scripts/smoke.mjs`'s hardcoded route array needs one addition, e.g.
+    `/alternatives/chatgpt` — same footgun flagged on every route-adding gap
+    in this file.
+  - **What this would NOT include** (kept out to bound the diff): no
+    sitemap entries for all 704 possible `/alternatives/:slug` URLs in v1 —
+    `sitemap.xml` is a small hand-maintained static file today (no generator
+    script exists anywhere in `scripts/`), and writing one is a distinct,
+    separate build; ship the pages and add a small handful of the highest-
+    traffic slugs (chatgpt, claude, notion-ai, midjourney — whichever the
+    catalog's best-known entries are) by hand, the same manual way the 6
+    category URLs were added, and leave "generate the other ~700" as a
+    follow-up note rather than building a sitemap pipeline today. No
+    per-alternative editorial ("why switch from X to Y") — same restraint
+    the graveyard and category pages already apply, nothing invented beyond
+    the structured fields. No ranking/scoring of which alternative is
+    "best" beyond the existing same-source-category-first ordering — no new
+    scoring dimension (a competitor site's "8-parameter scoring framework"
+    was considered and rejected here: it would require subjective per-tool
+    ratings this catalog doesn't have and this backlog has consistently
+    avoided inventing numbers that aren't real, same principle as
+    `StatsSection.jsx`'s counted-vs-seeded split). No dedicated OG/social
+    preview image per tool (same restraint as the share-stack gap).
+- **Build size:** S/M — one new page (`Alternatives.jsx`, closely modeled on
+  the already-shipped `CategoryLanding.jsx`), one new public route in
+  `App.jsx`, one link added to `ToolDetail.jsx`'s existing related-tools
+  section, one smoke-route line, a handful of hand-picked sitemap entries.
+  No backend, no new dependency, no new store, no new scoring logic — reuses
+  the exact matching query `ToolDetail.jsx` already runs.
+- **Found:** 2026-08-28 06:10 UTC
