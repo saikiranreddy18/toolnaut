@@ -7,6 +7,7 @@ import { postAuthDestination } from '../../utils/postAuth'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
+import { TOOLS } from '../../utils/toolsCatalog'
 
 // The sign-in modal: arcade cabinet on the left, controls on the right.
 //
@@ -133,23 +134,62 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 18, scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 260, damping: 24 }}
-            className="relative my-auto w-full max-w-5xl"
-            style={{ background: 'transparent' }}
+            className="relative my-auto xl:aspect-[1360/810]"
+            style={{ width: 'min(1340px, 88vw)', background: 'transparent' }}
           >
+            {/* The contours stretch (preserveAspectRatio="none"), so the shell
+                carries the frame's own 1360:810 — without it every inset in the
+                SVG distorts and the marquee crosses the top rule. Only from md
+                up: below that the layout stacks into one column, and forcing a
+                landscape box there squashed the frame to a strip while the
+                cabinet spilled out the bottom of it. */}
             <CabinetContours />
 
-            {/* Insets read off the contour's innermost path. All four are a
-                fraction of WIDTH because that is what percentage padding
-                resolves against on every side — expressing the vertical ones
-                as a share of height is the bug that left a dead band at the
-                bottom. Inside that box the separator (741/1360) falls at
-                53.76%, not the 54.5% it occupies of the full frame. */}
+            {/* The rail furniture belongs to the FRAME. The contour draws the
+                rail at x=112/1360, so these are placed at that same fraction of
+                the shell and stay on it at any width — parented to the cabinet
+                they were offset from its left edge and fell outside the frame. */}
             <div
-              className="relative grid items-stretch gap-0 md:grid-cols-[53.76%_46.24%]"
-              style={{ padding: '4.85% 5.74% 4.56% 8.24%' }}
+              className="absolute z-[6] hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[7px] lg:flex"
+              style={{
+                left: '8.24%', top: '34%', width: 72, height: 72,
+                borderColor: '#050506',
+                background: '#151518',
+                boxShadow: 'inset 0 0 0 4px var(--hot-pink), 4px 4px 0 #050506',
+              }}
+              aria-hidden="true"
+            >
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--hot-pink)" strokeWidth="2.4">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18" />
+              </svg>
+            </div>
+
+            {/* the real catalogue size, read at render */}
+            <div
+              className="absolute z-[6] hidden -translate-x-1/2 rotate-[-8deg] rounded-lg border-[3px] border-black bg-white px-2.5 py-1.5 lg:block"
+              style={{ left: '8.24%', top: '62%', boxShadow: '3px 3px 0 #000' }}
+            >
+              <p className="font-display text-xs font-black uppercase leading-none text-black">
+                {TOOLS.length}+
+              </p>
+              <p className="font-display text-[9px] font-black uppercase leading-none text-black">AI tools</p>
+            </div>
+
+            {/* The frame does not box the content in — it OVERLAYS it. The
+                cabinet runs under the contours (z-1 vs z-4) and the panel over
+                them (z-5), so the padding here is a thin 38/34/33 gutter, not
+                the deep percentage inset earlier passes used to try to fit the
+                content inside the outline. That inset is what kept leaving a
+                dead margin no amount of stretching could close.
+
+                isolate keeps this z-stack from competing with the modal's. */}
+            <div
+              className="relative grid isolate h-full items-stretch gap-0 xl:grid-cols-[54.7%_45.3%]"
+              style={{ padding: '38px 34px 33px' }}
             >
               {/* left: the machine */}
-              <div className="h-full pr-5 md:pr-7">
+              <div className="h-full min-w-0">
                 <ArcadeCabinet
                   framed={false}
                   onButtonA={() => useProvider('google')}
@@ -159,8 +199,20 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
 
               {/* right: the controls */}
               <div
-                className="signin-panel relative overflow-hidden p-6 pb-5 md:p-7 md:pb-6"
-                style={{ background: '#f5f1e8', border: '8px solid #09090a' }}
+                className="signin-panel relative z-[5] flex min-w-0 flex-col overflow-hidden p-6 pb-5 md:py-10 md:pb-6 md:pl-[50px] md:pr-[50px]"
+                style={{
+                  background: '#f5f1e8',
+                  border: '8px solid #09090a',
+                  borderLeft: 0,
+                  // the notched corners: square top-left where it meets the
+                  // separator, clipped top-right and bottom-right to sit inside
+                  // the frame's cut corner instead of crossing it
+                  clipPath: 'polygon(0 0, 97% 0, 100% 3%, 100% 93%, 93% 100%, 0 100%)',
+                  // the panel carries its own pink rule rather than borrowing
+                  // the contour's, which is why it can sit above the frame
+                  boxShadow:
+                    'inset 0 0 0 5px var(--hot-pink), inset 0 0 0 10px #09090a, inset 0 0 0 14px #f5f1e8',
+                }}
               >
                 <button
                   ref={closeRef}

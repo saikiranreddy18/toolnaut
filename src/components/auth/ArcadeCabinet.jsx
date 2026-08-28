@@ -13,14 +13,19 @@ import Wordmark from '../ui/Wordmark'
 // now the real R3F component the landing page mounts, at reduced point count,
 // and it falls back to the CSS sky where WebGL is unavailable.
 //
-// Everything else still animates on transform and opacity: the tube boots, types
-// its status, and cycles real tool names out of the catalogue.
+// LAYOUT
+// Three rows — head, display bay, footer — with the bay taking the slack, and
+// the body running the full height of its column UNDER the contour frame. The
+// frame overlays the machine; it does not box it in from outside. Insetting the
+// body to sit inside the frame is what left the dead margin at the bottom.
 
 const BOOT_LINES = [
   'TOOLNAUT OS v2.1',
   'MEMORY OK',
   'LINKING CATALOGUE...',
 ]
+
+const GRILLE = 'repeating-linear-gradient(0deg, #1c1c1e 0 2px, #080809 2px 5px)'
 
 export default function ArcadeCabinet({ launching = false, framed = true, onButtonA, onButtonB }) {
   const [booted, setBooted] = useState(false)
@@ -78,191 +83,237 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
     tiltRef.current = { x: 0, y: 0 }
   }
 
+  const grille = (
+    <span
+      className="h-8 shrink-0 rounded-[3px] border-[5px] md:h-[46px]"
+      style={{
+        width: '23%',
+        borderColor: '#050506',
+        background: GRILLE,
+        boxShadow: 'inset 0 0 0 3px #343439, 0 3px 0 #000',
+      }}
+      aria-hidden="true"
+    />
+  )
+
   return (
     <div
       className="relative h-full select-none"
       onPointerMove={trackStick}
       onPointerLeave={releaseStick}
     >
-      {/* cabinet body */}
+      {/* The cabinet body, sitting under the contour frame (z-1 against the
+          frame's z-4) and filling its column top to bottom. */}
       <div
-        className={`relative flex h-full flex-col p-3 ${framed ? 'rounded-[26px] border-[3px] border-black' : ''}`}
-        style={framed ? { background: '#15151c', boxShadow: '7px 7px 0 #000' } : { background: 'transparent' }}
+        className={`relative z-[1] grid h-full min-w-0 grid-rows-[auto_1fr_auto] md:grid-rows-[114px_1fr_80px] ${framed ? 'rounded-[26px]' : ''}`}
+        style={{
+          border: '8px solid #050507',
+          borderRight: '7px solid var(--hot-pink)',
+          background: '#111114',
+          boxShadow: 'inset 0 0 0 4px #2c2c31, inset 0 0 0 8px #050506',
+          // clearance for the contour's rail and top rule, which are drawn
+          // over this box rather than around it
+          paddingLeft: '13%',
+          paddingTop: '2.3%',
+        }}
       >
-        {/* top bezel — two vents flanking the marquee, like a real cabinet head */}
-        <div className="mb-3 flex items-center gap-2">
-          <span
-            className="h-7 flex-1 rounded-md border-[3px] border-black"
-            style={{
-              background:
-                'repeating-linear-gradient(90deg, #24242e 0 3px, #15151c 3px 7px)',
-            }}
-            aria-hidden="true"
-          />
+        {/* ── head: two speaker grilles flanking the marquee ── */}
+        <div className="flex items-center justify-between gap-3 pl-0 pr-4 pt-2 md:pr-[18px]">
+          {grille}
+
+          {/* The marquee is sheared and outlined in pink — that shear is what
+              makes the head read as a cabinet rather than a label. The wordmark
+              inside is counter-sheared so the name itself stays upright. */}
           <div
-            className="w-fit shrink-0 rounded-lg border-[3px] border-black px-5 py-1.5"
-            style={{ background: 'var(--lime)', boxShadow: '3px 3px 0 #000' }}
+            className="flex min-h-[52px] shrink-0 items-center px-3 md:min-h-[72px] md:px-[18px]"
+            style={{
+              width: '54%',
+              border: '7px solid #050506',
+              outline: '5px solid var(--hot-pink)',
+              background: 'linear-gradient(var(--lime), color-mix(in srgb, var(--lime) 78%, #000))',
+              transform: 'skewX(-7deg)',
+              boxShadow: '5px 5px 0 #050506, inset 0 3px rgba(255,255,255,0.45)',
+            }}
           >
-            {/* On lime the glow would be invisible, so the mark runs flat here
-                and the infinity takes the marquee's black. */}
-            <span className="flex items-center gap-1.5 text-lg text-black md:text-xl" style={{ '--lime': '#000' }}>
-              <span aria-hidden="true" className="text-sm">✦</span>
-              <Wordmark glow={false} className="tracking-[0.02em]" />
-              <span aria-hidden="true" className="text-sm">✦</span>
+            <span
+              className="flex w-full items-center justify-between gap-2 text-black"
+              style={{ transform: 'skewX(7deg)', '--lime': '#000' }}
+            >
+              <span aria-hidden="true" className="text-sm font-black">✦</span>
+              <Wordmark glow={false} className="text-lg tracking-[0.02em] md:text-xl" />
+              <span aria-hidden="true" className="text-sm font-black">✦</span>
             </span>
           </div>
-          <span
-            className="h-7 flex-1 rounded-md border-[3px] border-black"
+
+          {grille}
+        </div>
+
+        {/* ── display bay: the tube takes the slack, the deck sits under it ── */}
+        <div className="flex min-h-0 flex-col gap-4 pb-2 pl-0 pr-4 pt-4 md:gap-[18px] md:pb-[9px] md:pr-[22px] md:pt-[29px]">
+          <div
+            className={`relative min-h-0 flex-1 overflow-hidden ${launching ? '' : 'crt-flicker'}`}
             style={{
-              background:
-                'repeating-linear-gradient(90deg, #24242e 0 3px, #15151c 3px 7px)',
+              border: '8px solid #050506',
+              borderRadius: '31px 31px 34px 34px',
+              background: '#020509',
+              boxShadow: 'inset 0 0 0 4px #29292d, 0 8px 0 #080809',
             }}
-            aria-hidden="true"
-          />
-        </div>
+          >
+            {/* The real galaxy, flown by the joystick. */}
+            <CabinetGalaxy tiltRef={tiltRef} />
 
-        {/* ── the screen, recessed into a bezel ── */}
-        <div
-          className="min-h-0 flex-1 rounded-[16px] border-[3px] border-black p-3"
-          style={{ background: '#1c1c24', boxShadow: 'inset 0 3px 12px rgba(0,0,0,0.8)' }}
-        >
-        <div
-          className={`relative h-full overflow-hidden rounded-[10px] border-[3px] border-black ${launching ? '' : 'crt-flicker'}`}
-          style={{ background: '#05070c' }}
-        >
-          {/* The real galaxy, flown by the joystick. */}
-          <CabinetGalaxy tiltRef={tiltRef} />
+            {/* HUD */}
+            <div className="absolute inset-0 flex flex-col justify-between p-3 font-mono text-[10px] leading-relaxed md:p-4 md:text-xs">
+              <div style={{ color: 'var(--lime)', textShadow: '0 0 8px rgba(163,255,46,0.55)' }}>
+                {!booted ? (
+                  BOOT_LINES.map((l) => <div key={l}>{l}</div>)
+                ) : (
+                  <>
+                    <div>STATUS:</div>
+                    <div>
+                      {typed}
+                      <span className="animate-pulse">_</span>
+                    </div>
+                  </>
+                )}
+              </div>
 
-          {/* HUD */}
-          <div className="absolute inset-0 flex flex-col justify-between p-3 font-mono text-[10px] leading-relaxed md:p-4 md:text-xs">
-            <div style={{ color: 'var(--lime)', textShadow: '0 0 8px rgba(163,255,46,0.55)' }}>
-              {!booted ? (
-                BOOT_LINES.map((l) => <div key={l}>{l}</div>)
-              ) : (
-                <>
-                  <div>STATUS:</div>
-                  <div>
-                    {typed}
-                    <span className="animate-pulse">_</span>
-                  </div>
-                </>
-              )}
+              <div className="flex items-end justify-between gap-2">
+                <span
+                  className="truncate rounded border-2 border-black bg-black/70 px-2 py-1"
+                  style={{ color: 'var(--cyan)' }}
+                >
+                  {toolName ? `◂ ${toolName}` : 'MISSION: BUILD YOUR STACK'}
+                </span>
+                <span className="shrink-0" style={{ color: 'var(--hot-pink)' }} aria-hidden="true">
+                  ♥♥♥
+                </span>
+              </div>
             </div>
 
-            <div className="flex items-end justify-between gap-2">
-              <span
-                className="truncate rounded border-2 border-black bg-black/70 px-2 py-1"
-                style={{ color: 'var(--cyan)' }}
-              >
-                {toolName ? `◂ ${toolName}` : 'MISSION: BUILD YOUR STACK'}
-              </span>
-              <span className="shrink-0" style={{ color: 'var(--hot-pink)' }} aria-hidden="true">
-                ♥♥♥
-              </span>
-            </div>
+            <div className="crt-rollbar" aria-hidden="true" />
+            <div className="crt-glass" aria-hidden="true" />
           </div>
 
-          <div className="crt-rollbar" aria-hidden="true" />
-          <div className="crt-glass" aria-hidden="true" />
-        </div>
-        </div>
-
-        {/* ── controls ── */}
-        <div className="mt-3 flex items-center justify-between rounded-xl border-[3px] border-black px-5 py-3" style={{ background: '#0d0d13' }}>
-          {/* Joystick. The base is drawn first and the shaft pivots from its
-              centre, so leaning looks hinged rather than like a sliding stick. */}
-          <div className="relative h-20 w-20 shrink-0" aria-hidden="true">
-            <div
-              className="absolute bottom-0 left-1/2 h-4 w-16 -translate-x-1/2 rounded-[50%] border-[3px] border-black"
-              style={{ background: 'linear-gradient(#3a3a46, #1c1c24)' }}
-            />
-            <div
-              className="joystick-shaft absolute bottom-[8px] left-1/2 h-11 w-3.5 rounded-full border-[3px] border-black"
-              style={{
-                background: 'linear-gradient(90deg, #c01f7b, var(--hot-pink) 55%, #ff7ac6)',
-                transform: `translateX(-50%) rotate(${tilt.x}deg)`,
-              }}
-            >
-              <span
-                className="absolute -top-5 left-1/2 h-9 w-9 -translate-x-1/2 rounded-full border-[3px] border-black"
-                style={{
-                  background: 'radial-gradient(circle at 32% 28%, #ff9ad4, var(--hot-pink) 58%, #a81a68)',
-                }}
-              />
-            </div>
-          </div>
-
-          {/* two cabinet buttons that actually travel */}
-          <div className="flex gap-3">
-            {/* These do something now. They were aria-hidden decoration, which
-                is fine for a picture of a cabinet and wrong for one you can
-                operate: A starts the sign-in, B jumps to the email field. Real
-                buttons, so they take keyboard focus and announce themselves. */}
+          {/* ── control deck ── */}
+          <div
+            className="relative flex shrink-0 items-end justify-between gap-6 px-4 py-3 md:gap-[31px] md:px-[31px]"
+            style={{
+              border: '6px solid #050506',
+              borderRadius: 8,
+              background: 'linear-gradient(150deg, #28282b, #0d0d0f 69%)',
+              boxShadow: 'inset 0 0 0 2px #424247',
+            }}
+          >
+            {/* deck screws, so the plate reads as bolted down */}
             {[
-              { id: 'a', color: 'var(--lime)', label: 'Start sign-in with Google', run: onButtonA },
-              { id: 'b', color: 'var(--cyan)', label: 'Sign in with email instead', run: onButtonB },
-            ].map((b) => (
-              <button
-                key={b.id}
-                type="button"
-                aria-label={b.label}
-                title={b.label}
-                onPointerDown={() => setPressed(b.id)}
-                onPointerUp={() => setPressed(null)}
-                onPointerLeave={() => setPressed(null)}
-                onClick={() => { haptic.tap(); b.run?.() }}
-                className="cab-btn h-11 w-11 rounded-full border-[3px] border-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+              { top: 7, left: 9 },
+              { top: 7, right: 9 },
+              { bottom: 7, left: 9 },
+            ].map((pos, i) => (
+              <span
+                key={i}
+                aria-hidden="true"
+                className="absolute h-2 w-2 rounded-full"
                 style={{
-                  background: b.color,
-                  boxShadow: pressed === b.id ? '0 0 0 #000' : '3px 3px 0 #000',
-                  filter: pressed === b.id ? 'brightness(0.85)' : 'none',
-                  outlineColor: 'var(--cyan)',
+                  ...pos,
+                  background: 'radial-gradient(circle at 35% 30%, #55555f, #17171b)',
+                  boxShadow: 'inset 0 0 0 1px #000',
                 }}
               />
             ))}
+
+            {/* Joystick. The base is drawn first and the shaft pivots from its
+                centre, so leaning looks hinged rather than like a sliding stick. */}
+            <div className="relative h-20 w-20 shrink-0" aria-hidden="true">
+              <div
+                className="absolute bottom-0 left-1/2 h-4 w-16 -translate-x-1/2 rounded-[50%] border-[3px] border-black"
+                style={{ background: 'linear-gradient(#3a3a46, #1c1c24)' }}
+              />
+              <div
+                className="joystick-shaft absolute bottom-[8px] left-1/2 h-11 w-3.5 rounded-full border-[3px] border-black"
+                style={{
+                  background: 'linear-gradient(90deg, #c01f7b, var(--hot-pink) 55%, #ff7ac6)',
+                  transform: `translateX(-50%) rotate(${tilt.x}deg)`,
+                }}
+              >
+                <span
+                  className="absolute -top-5 left-1/2 h-9 w-9 -translate-x-1/2 rounded-full border-[3px] border-black"
+                  style={{
+                    background: 'radial-gradient(circle at 32% 28%, #ff9ad4, var(--hot-pink) 58%, #a81a68)',
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* two cabinet buttons that actually travel */}
+            <div className="flex gap-3 pb-1">
+              {/* These do something. They were aria-hidden decoration, which is
+                  fine for a picture of a cabinet and wrong for one you can
+                  operate: A starts the sign-in, B jumps to the email field. Real
+                  buttons, so they take keyboard focus and announce themselves. */}
+              {[
+                { id: 'a', color: 'var(--lime)', label: 'Start sign-in with Google', run: onButtonA },
+                { id: 'b', color: 'var(--cyan)', label: 'Sign in with email instead', run: onButtonB },
+              ].map((b) => (
+                <button
+                  key={b.id}
+                  type="button"
+                  aria-label={b.label}
+                  title={b.label}
+                  onPointerDown={() => setPressed(b.id)}
+                  onPointerUp={() => setPressed(null)}
+                  onPointerLeave={() => setPressed(null)}
+                  onClick={() => { haptic.tap(); b.run?.() }}
+                  className="cab-btn h-11 w-11 rounded-full border-[3px] border-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+                  style={{
+                    background: b.color,
+                    boxShadow: pressed === b.id ? '0 0 0 #000' : '3px 3px 0 #000',
+                    filter: pressed === b.id ? 'brightness(0.85)' : 'none',
+                    outlineColor: 'var(--cyan)',
+                  }}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="mt-3 flex items-center justify-between rounded-xl border-[3px] border-black px-3 py-2" style={{ background: '#0d0d13' }}>
+        {/* ── footer ── */}
+        <div
+          className="flex items-center justify-between gap-3.5 py-3 pl-0 pr-4 md:pr-[27px]"
+          style={{
+            borderTop: '6px solid #000',
+            borderRadius: '0 0 0 21px',
+            background: '#080809',
+            boxShadow: 'inset 0 0 0 3px #242429',
+          }}
+        >
           <span
-            className="rounded-full border-2 border-black px-3 py-1 font-display text-[10px] font-black uppercase tracking-[0.14em]"
+            className="flex items-center gap-1.5 rounded-full border-2 border-black px-3 py-1 font-display text-[10px] font-black uppercase tracking-[0.14em]"
             style={{ background: '#15151c', color: 'var(--lime)' }}
           >
-            ⊕ CHART YOUR FUTURE
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18" />
+            </svg>
+            Chart your future
           </span>
-          <span className="flex gap-1" aria-hidden="true">
-            {[0, 1, 2].map((i) => (
-              <span key={i} className="h-1.5 w-3 rounded-sm" style={{ background: 'var(--lime)', opacity: 0.35 + i * 0.25 }} />
-            ))}
+
+          <span className="flex items-center gap-3" aria-hidden="true">
+            <span className="hidden gap-1 md:flex">
+              {[0, 1, 2].map((i) => (
+                <span key={i} className="h-5 w-1 rounded-sm" style={{ background: '#242429' }} />
+              ))}
+            </span>
+            <span className="flex gap-1">
+              {[0, 1, 2].map((i) => (
+                <span key={i} className="h-1.5 w-3 rounded-sm" style={{ background: 'var(--lime)', opacity: 0.35 + i * 0.25 }} />
+              ))}
+            </span>
           </span>
         </div>
       </div>
 
-      {/* sticker tag — the real catalogue size, read at render */}
-      <div
-        className="absolute -left-4 bottom-[16%] hidden rotate-[-8deg] rounded-lg border-[3px] border-black bg-white px-2.5 py-1.5 md:block"
-        style={{ boxShadow: '3px 3px 0 #000' }}
-      >
-        <p className="font-display text-xs font-black uppercase leading-none text-black">
-          {TOOLS.length}+
-        </p>
-        <p className="font-display text-[9px] font-black uppercase leading-none text-black">AI tools</p>
-      </div>
-
-      {/* globe badge, as in the reference — pure decoration, hidden from AT */}
-      <div
-        className="absolute -left-[13%] top-[34%] hidden h-16 w-16 items-center justify-center rounded-full border-[5px] border-black lg:flex"
-        style={{
-          background: '#151518',
-          boxShadow: 'inset 0 0 0 4px var(--hot-pink), 4px 4px 0 #050506',
-        }}
-        aria-hidden="true"
-      >
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--hot-pink)" strokeWidth="2.2">
-          <circle cx="12" cy="12" r="9" />
-          <path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18" />
-        </svg>
-      </div>
     </div>
   )
 }

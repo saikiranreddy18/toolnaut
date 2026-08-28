@@ -21,8 +21,9 @@
 export default function CabinetContours() {
   return (
     <svg
-      className="pointer-events-none absolute inset-0 h-full w-full"
+      className="pointer-events-none absolute inset-0 z-[4] h-full w-full"
       viewBox="0 0 1360 810"
+      style={{ filter: 'drop-shadow(0 22px 18px rgba(0,0,0,0.6))' }}
       preserveAspectRatio="none"
       aria-hidden="true"
     >
