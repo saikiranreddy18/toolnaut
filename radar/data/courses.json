@@ -3129,5 +3129,776 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "course-dipstick-alerts",
+    "toolSlug": "dipstick-alerts",
+    "title": "Master Dipstick Alerts",
+    "objectives": [
+      "Understand what Dipstick Alerts is for",
+      "Use Dipstick Alerts on a real task",
+      "Know where Dipstick Alerts fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Dipstick Alerts.",
+          "Say what Dipstick Alerts does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Dipstick Alerts.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Dipstick Alerts into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-automotive",
+      "skill-recalls",
+      "skill-search",
+      "skill-safety",
+      "skill-vehicles"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "course-how-i-design-with-ai",
+    "toolSlug": "how-i-design-with-ai",
+    "title": "Master How I Design with AI",
+    "objectives": [
+      "Map AI tools onto your existing design workflow without breaking it",
+      "Write design-specific prompts for ideation, wireframing, and UI copy",
+      "Run one real project brief through an AI-assisted workflow end to end"
+    ],
+    "modules": [
+      {
+        "title": "Audit Your Workflow for AI Insertion Points",
+        "estMinutes": 20,
+        "steps": [
+          "List your current process steps from brief intake to handoff in a doc (e.g., research, moodboard, wireframe, mockup, copy, handoff)",
+          "Tag each step as automate, accelerate, or keep-human based on how much judgment it requires",
+          "Pick 2 accelerate steps and 1 automate step to target first — avoid touching client-facing decision points"
+        ]
+      },
+      {
+        "title": "Build a Prompt Library for Design Tasks",
+        "estMinutes": 30,
+        "steps": [
+          "Write 3 reusable prompts in your notes app: one for UX research summaries, one for layout ideas, one for UI microcopy — each with role, context, constraints, and output format",
+          "Test the layout prompt by pasting in a real brief and asking Claude or ChatGPT for 3 distinct page structures with rationale",
+          "Refine each prompt once based on the weakest output and save versions as snippets you can paste mid-project"
+        ]
+      },
+      {
+        "title": "AI-Assisted Ideation and Moodboarding",
+        "estMinutes": 35,
+        "steps": [
+          "Generate 2 visual directions in Midjourney or Firefly using style keywords, aspect ratio flags, and a reference image from a past project",
+          "Pull 5 usable frames into Figma and annotate what works and what fails against the brief — treat AI output as a divergent sketch, not a deliverable",
+          "Combine elements from 2 AI directions into one original concept board you control"
+        ]
+      },
+      {
+        "title": "From AI Draft to Shipped Design",
+        "estMinutes": 40,
+        "steps": [
+          "Take one wireframe AI suggested and rebuild it properly in Figma with your spacing system, components, and type scale",
+          "Use an AI tool to generate 3 versions of button and empty-state copy, then edit them into your product's actual voice",
+          "Run your final screen through an AI critique prompt asking for accessibility and hierarchy issues, and fix the two most valid findings"
+        ]
+      },
+      {
+        "title": "Document and Defend Your Process",
+        "estMinutes": 20,
+        "steps": [
+          "Record which steps used AI and where you overrode it in your case study or project notes",
+          "Write a 3-sentence explanation of your AI use you can give a client or stakeholder, covering originality and data privacy",
+          "Set one rule for what you will never delegate to AI, and add it to your personal workflow checklist"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-ai workflow",
+      "skill-blog",
+      "skill-guide",
+      "skill-creativity"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "course-open-tool-for-testing-your-ai-agents-no-llm",
+    "toolSlug": "open-tool-for-testing-your-ai-agents-no-llm",
+    "title": "Master Open tool for testing your AI Agents (No LLM)",
+    "objectives": [
+      "Understand what Open tool for testing your AI Agents (No LLM) is for",
+      "Use Open tool for testing your AI Agents (No LLM) on a real task",
+      "Know where Open tool for testing your AI Agents (No LLM) fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Open tool for testing your AI Agents (No LLM) for your real workflow, not the demo.",
+          "Say what Open tool for testing your AI Agents (No LLM) does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Open tool for testing your AI Agents (No LLM).",
+          "Push Open tool for testing your AI Agents (No LLM) to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Open tool for testing your AI Agents (No LLM) into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-testing",
+      "skill-open source",
+      "skill-dev tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "course-trana",
+    "toolSlug": "trana",
+    "title": "Master Trana",
+    "objectives": [
+      "Understand what Trana is for",
+      "Use Trana on a real task",
+      "Know where Trana fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Trana.",
+          "Say what Trana does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Trana.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Trana into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-wellbeing",
+      "skill-mental-health",
+      "skill-ios",
+      "skill-companion",
+      "skill-safety"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "course-puppetflow-a-free-browser-automation-platform",
+    "toolSlug": "puppetflow-a-free-browser-automation-platform",
+    "title": "Master Puppetflow a free browser automation platform",
+    "objectives": [
+      "Understand what Puppetflow a free browser automation platform is for",
+      "Use Puppetflow a free browser automation platform on a real task",
+      "Know where Puppetflow a free browser automation platform fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Puppetflow a free browser automation platform for your real workflow, not the demo.",
+          "Say what Puppetflow a free browser automation platform does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Puppetflow a free browser automation platform.",
+          "Push Puppetflow a free browser automation platform to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Puppetflow a free browser automation platform into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-browser automation",
+      "skill-web scraping",
+      "skill-testing",
+      "skill-workflows",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "course-why-agentic-ai-needs-a-strong-identity-foundation",
+    "toolSlug": "why-agentic-ai-needs-a-strong-identity-foundation",
+    "title": "Master Why Agentic AI Needs a Strong Identity Foundation",
+    "objectives": [
+      "Understand what Why Agentic AI Needs a Strong Identity Foundation is for",
+      "Use Why Agentic AI Needs a Strong Identity Foundation on a real task",
+      "Know where Why Agentic AI Needs a Strong Identity Foundation fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Why Agentic AI Needs a Strong Identity Foundation for your real workflow, not the demo.",
+          "Say what Why Agentic AI Needs a Strong Identity Foundation does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Why Agentic AI Needs a Strong Identity Foundation.",
+          "Push Why Agentic AI Needs a Strong Identity Foundation to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Why Agentic AI Needs a Strong Identity Foundation into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-agentic ai",
+      "skill-identity",
+      "skill-cybersecurity",
+      "skill-nist",
+      "skill-zero trust"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "course-urml",
+    "toolSlug": "urml",
+    "title": "Master URML",
+    "objectives": [
+      "Understand what URML is for",
+      "Use URML on a real task",
+      "Know where URML fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure URML for your real workflow, not the demo.",
+          "Say what URML does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through URML.",
+          "Push URML to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold URML into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-safety",
+      "skill-evaluation",
+      "skill-ai agents",
+      "skill-robotics",
+      "skill-testing"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "course-marktwin",
+    "toolSlug": "marktwin",
+    "title": "Master Marktwin",
+    "objectives": [
+      "Understand what Marktwin is for",
+      "Use Marktwin on a real task",
+      "Know where Marktwin fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Marktwin for your real workflow, not the demo.",
+          "Say what Marktwin does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Marktwin.",
+          "Push Marktwin to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Marktwin into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-markdown",
+      "skill-collaboration",
+      "skill-docs",
+      "skill-workspaces",
+      "skill-editing"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "course-grith-is-live",
+    "toolSlug": "grith-is-live",
+    "title": "Master Grith is live",
+    "objectives": [
+      "Understand what Grith is live is for",
+      "Use Grith is live on a real task",
+      "Know where Grith is live fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Grith is live for your real workflow, not the demo.",
+          "Say what Grith is live does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Grith is live.",
+          "Push Grith is live to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Grith is live into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-security",
+      "skill-proxy",
+      "skill-ai coding agents",
+      "skill-developer tools",
+      "skill-access control"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "course-openinstinct",
+    "toolSlug": "openinstinct",
+    "title": "Master OpenInstinct",
+    "objectives": [
+      "Self-host the OpenInstinct server and connect it to an LLM backend",
+      "Integrate OpenInstinct with your editor for completions and chat",
+      "Configure indexing, models, and custom rules for your codebase"
+    ],
+    "modules": [
+      {
+        "title": "Self-Host the Server",
+        "estMinutes": 25,
+        "steps": [
+          "Clone the repo and copy .env.example to .env",
+          "Set your model backend: add an OpenAI/Anthropic key or point OLLAMA_BASE_URL at a local Ollama instance",
+          "Run `docker compose up -d` and verify the health endpoint at localhost:8787/health"
+        ]
+      },
+      {
+        "title": "Connect Your Editor",
+        "estMinutes": 15,
+        "steps": [
+          "Install the OpenInstinct VS Code extension from the marketplace or .vsix file",
+          "Set the server URL to http://localhost:8787 and paste in the auth token from your .env",
+          "Open a file and confirm inline completions appear and the chat panel responds"
+        ]
+      },
+      {
+        "title": "Index and Query Your Codebase",
+        "estMinutes": 20,
+        "steps": [
+          "Run 'Index Workspace' from the command palette to build embeddings in the local vector store",
+          "Add a .openinstinctignore file to exclude node_modules, build output, and secrets",
+          "Ask a cross-file question in chat (e.g. 'where is auth handled?') and verify cited file references"
+        ]
+      },
+      {
+        "title": "Customize Models and Rules",
+        "estMinutes": 20,
+        "steps": [
+          "Edit config.yaml to route completions to a fast local model and chat to a stronger remote model",
+          "Create a .openinstinct/rules.md with project conventions (style, frameworks, test patterns) and confirm chat follows it",
+          "Measure latency with `openinstinct bench` and adjust the completion debounce setting"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-open-source",
+      "skill-self-hosted",
+      "skill-ai-coding",
+      "skill-clone",
+      "skill-developer-tools"
+    ],
+    "prerequisites": [
+      "Docker and Docker Compose installed",
+      "Comfortable editing YAML/env files and using a terminal",
+      "VS Code (or Neovim) with extension-install permissions",
+      "An LLM API key or a machine capable of running Ollama locally"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "course-argus-open-source-ai-agents-for-testing-web-apps",
+    "toolSlug": "argus-open-source-ai-agents-for-testing-web-apps",
+    "title": "Master Argus, open-source AI agents for testing web apps",
+    "objectives": [
+      "Understand what Argus, open-source AI agents for testing web apps is for",
+      "Use Argus, open-source AI agents for testing web apps on a real task",
+      "Know where Argus, open-source AI agents for testing web apps fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Argus, open-source AI agents for testing web apps for your real workflow, not the demo.",
+          "Say what Argus, open-source AI agents for testing web apps does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Argus, open-source AI agents for testing web apps.",
+          "Push Argus, open-source AI agents for testing web apps to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Argus, open-source AI agents for testing web apps into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-web testing",
+      "skill-ai agents",
+      "skill-qa",
+      "skill-open source",
+      "skill-automation"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "course-grith",
+    "toolSlug": "grith",
+    "title": "Master Grith",
+    "objectives": [
+      "Understand what Grith is for",
+      "Use Grith on a real task",
+      "Know where Grith fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Grith for your real workflow, not the demo.",
+          "Say what Grith does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Grith.",
+          "Push Grith to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Grith into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-sandboxing",
+      "skill-security",
+      "skill-coding-agents",
+      "skill-linux",
+      "skill-supervision"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "course-coordination-layer-for-coding-agents",
+    "toolSlug": "coordination-layer-for-coding-agents",
+    "title": "Master Coordination Layer for Coding Agents",
+    "objectives": [
+      "Understand what Coordination Layer for Coding Agents is for",
+      "Use Coordination Layer for Coding Agents on a real task",
+      "Know where Coordination Layer for Coding Agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Coordination Layer for Coding Agents for your real workflow, not the demo.",
+          "Say what Coordination Layer for Coding Agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Coordination Layer for Coding Agents.",
+          "Push Coordination Layer for Coding Agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Coordination Layer for Coding Agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding agents",
+      "skill-multi-agent",
+      "skill-orchestration",
+      "skill-coordination",
+      "skill-dev tools"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "course-dmx",
+    "toolSlug": "dmx",
+    "title": "Master dmx",
+    "objectives": [
+      "Understand what dmx is for",
+      "Use dmx on a real task",
+      "Know where dmx fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure dmx for your real workflow, not the demo.",
+          "Say what dmx does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through dmx.",
+          "Push dmx to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold dmx into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-mcp server",
+      "skill-coding agents",
+      "skill-agent loops",
+      "skill-developer tools",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "course-ai-agent-guardrails-dont-work-safer-platforms-do",
+    "toolSlug": "ai-agent-guardrails-dont-work-safer-platforms-do",
+    "title": "Master AI Agent Guardrails Don't Work. Safer Platforms Do",
+    "objectives": [
+      "Understand what AI Agent Guardrails Don't Work. Safer Platforms Do is for",
+      "Use AI Agent Guardrails Don't Work. Safer Platforms Do on a real task",
+      "Know where AI Agent Guardrails Don't Work. Safer Platforms Do fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI Agent Guardrails Don't Work. Safer Platforms Do for your real workflow, not the demo.",
+          "Say what AI Agent Guardrails Don't Work. Safer Platforms Do does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Agent Guardrails Don't Work. Safer Platforms Do.",
+          "Push AI Agent Guardrails Don't Work. Safer Platforms Do to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Agent Guardrails Don't Work. Safer Platforms Do into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-guardrails",
+      "skill-platform engineering",
+      "skill-agent safety",
+      "skill-infrastructure"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-28T20:56:00.761Z"
   }
 ]

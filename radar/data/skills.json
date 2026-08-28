@@ -25,7 +25,13 @@
       "rafter",
       "gemini-omni-11-flash",
       "understudy-scenario-testing-for-ai-agents",
-      "agentseed-mcp"
+      "agentseed-mcp",
+      "grith-is-live",
+      "openinstinct",
+      "argus-open-source-ai-agents-for-testing-web-apps",
+      "grith",
+      "coordination-layer-for-coding-agents",
+      "dmx"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -48,7 +54,13 @@
       "course-rafter",
       "course-gemini-omni-11-flash",
       "course-understudy-scenario-testing-for-ai-agents",
-      "course-agentseed-mcp"
+      "course-agentseed-mcp",
+      "course-grith-is-live",
+      "course-openinstinct",
+      "course-argus-open-source-ai-agents-for-testing-web-apps",
+      "course-grith",
+      "course-coordination-layer-for-coding-agents",
+      "course-dmx"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -84,10 +96,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "ablo-make-your-ai-app-multiplayer"
+      "ablo-make-your-ai-app-multiplayer",
+      "marktwin"
     ],
     "courses": [
-      "course-ablo-make-your-ai-app-multiplayer"
+      "course-ablo-make-your-ai-app-multiplayer",
+      "course-marktwin"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -116,14 +130,16 @@
       "hermes-agent",
       "mrea",
       "shelf-protocol",
-      "web-game-player-vs-computer"
+      "web-game-player-vs-computer",
+      "openinstinct"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
       "course-hermes-agent",
       "course-mrea",
       "course-shelf-protocol",
-      "course-web-game-player-vs-computer"
+      "course-web-game-player-vs-computer",
+      "course-openinstinct"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -140,7 +156,8 @@
       "build-your-own-theme-park",
       "ta",
       "google-flow",
-      "clipdrop-desktop-clipdrop-ai-tools-2026"
+      "clipdrop-desktop-clipdrop-ai-tools-2026",
+      "how-i-design-with-ai"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -150,7 +167,8 @@
       "course-build-your-own-theme-park",
       "course-ta",
       "course-google-flow",
-      "course-clipdrop-desktop-clipdrop-ai-tools-2026"
+      "course-clipdrop-desktop-clipdrop-ai-tools-2026",
+      "course-how-i-design-with-ai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -246,7 +264,12 @@
       "telem",
       "backprompter",
       "ai-game-playtester",
-      "openai-is-developing-a-persistent-ai-agent"
+      "openai-is-developing-a-persistent-ai-agent",
+      "open-tool-for-testing-your-ai-agents-no-llm",
+      "puppetflow-a-free-browser-automation-platform",
+      "urml",
+      "argus-open-source-ai-agents-for-testing-web-apps",
+      "ai-agent-guardrails-dont-work-safer-platforms-do"
     ],
     "courses": [
       "course-headless-tools",
@@ -270,7 +293,12 @@
       "course-telem",
       "course-backprompter",
       "course-ai-game-playtester",
-      "course-openai-is-developing-a-persistent-ai-agent"
+      "course-openai-is-developing-a-persistent-ai-agent",
+      "course-open-tool-for-testing-your-ai-agents-no-llm",
+      "course-puppetflow-a-free-browser-automation-platform",
+      "course-urml",
+      "course-argus-open-source-ai-agents-for-testing-web-apps",
+      "course-ai-agent-guardrails-dont-work-safer-platforms-do"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -308,7 +336,11 @@
       "telem",
       "backprompter",
       "understudy-scenario-testing-for-ai-agents",
-      "terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+      "terminal-bench-science-evaluating-ai-agents-on-scientific-re",
+      "open-tool-for-testing-your-ai-agents-no-llm",
+      "urml",
+      "argus-open-source-ai-agents-for-testing-web-apps",
+      "ai-agent-guardrails-dont-work-safer-platforms-do"
     ],
     "courses": [
       "course-headless-tools",
@@ -326,7 +358,11 @@
       "course-telem",
       "course-backprompter",
       "course-understudy-scenario-testing-for-ai-agents",
-      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
+      "course-open-tool-for-testing-your-ai-agents-no-llm",
+      "course-urml",
+      "course-argus-open-source-ai-agents-for-testing-web-apps",
+      "course-ai-agent-guardrails-dont-work-safer-platforms-do"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -692,10 +728,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "gibson-adk-and-zero-trust-runtime"
+      "gibson-adk-and-zero-trust-runtime",
+      "why-agentic-ai-needs-a-strong-identity-foundation"
     ],
     "courses": [
-      "course-gibson-adk-and-zero-trust-runtime"
+      "course-gibson-adk-and-zero-trust-runtime",
+      "course-why-agentic-ai-needs-a-strong-identity-foundation"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -706,11 +744,15 @@
     "level": "advanced",
     "toolsTeaching": [
       "gibson-adk-and-zero-trust-runtime",
-      "foundry-toolbox-radar-lab"
+      "foundry-toolbox-radar-lab",
+      "grith-is-live",
+      "grith"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
-      "course-foundry-toolbox-radar-lab"
+      "course-foundry-toolbox-radar-lab",
+      "course-grith-is-live",
+      "course-grith"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -947,10 +989,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "hermes-agent"
+      "hermes-agent",
+      "openinstinct"
     ],
     "courses": [
-      "course-hermes-agent"
+      "course-hermes-agent",
+      "course-openinstinct"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -962,12 +1006,14 @@
     "toolsTeaching": [
       "try-to-beat-this-ai-writing-detector",
       "text-editor-that-does-it-all",
-      "handwrought"
+      "handwrought",
+      "marktwin"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
       "course-text-editor-that-does-it-all",
-      "course-handwrought"
+      "course-handwrought",
+      "course-marktwin"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1018,12 +1064,18 @@
     "toolsTeaching": [
       "try-to-beat-this-ai-writing-detector",
       "backprompter",
-      "understudy-scenario-testing-for-ai-agents"
+      "understudy-scenario-testing-for-ai-agents",
+      "open-tool-for-testing-your-ai-agents-no-llm",
+      "puppetflow-a-free-browser-automation-platform",
+      "urml"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
       "course-backprompter",
-      "course-understudy-scenario-testing-for-ai-agents"
+      "course-understudy-scenario-testing-for-ai-agents",
+      "course-open-tool-for-testing-your-ai-agents-no-llm",
+      "course-puppetflow-a-free-browser-automation-platform",
+      "course-urml"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1048,10 +1100,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "mrea"
+      "mrea",
+      "coordination-layer-for-coding-agents"
     ],
     "courses": [
-      "course-mrea"
+      "course-mrea",
+      "course-coordination-layer-for-coding-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1120,7 +1174,9 @@
       "agenttrail",
       "abbs",
       "ai-tools-list",
-      "rafter"
+      "rafter",
+      "grith-is-live",
+      "dmx"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -1128,7 +1184,9 @@
       "course-agenttrail",
       "course-abbs",
       "course-ai-tools-list",
-      "course-rafter"
+      "course-rafter",
+      "course-grith-is-live",
+      "course-dmx"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1154,13 +1212,17 @@
       "designing-loops-for-production-grade-work",
       "ai-agent-hacking-writeups",
       "chessrabbit",
-      "ai-engineer-notebooks"
+      "ai-engineer-notebooks",
+      "trana",
+      "why-agentic-ai-needs-a-strong-identity-foundation"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
       "course-ai-agent-hacking-writeups",
       "course-chessrabbit",
-      "course-ai-engineer-notebooks"
+      "course-ai-engineer-notebooks",
+      "course-trana",
+      "course-why-agentic-ai-needs-a-strong-identity-foundation"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1242,11 +1304,19 @@
     "level": "intermediate",
     "toolsTeaching": [
       "limitless-library",
-      "player-vs-computer"
+      "player-vs-computer",
+      "open-tool-for-testing-your-ai-agents-no-llm",
+      "puppetflow-a-free-browser-automation-platform",
+      "argus-open-source-ai-agents-for-testing-web-apps",
+      "dmx"
     ],
     "courses": [
       "course-limitless-library",
-      "course-player-vs-computer"
+      "course-player-vs-computer",
+      "course-open-tool-for-testing-your-ai-agents-no-llm",
+      "course-puppetflow-a-free-browser-automation-platform",
+      "course-argus-open-source-ai-agents-for-testing-web-apps",
+      "course-dmx"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1325,12 +1395,14 @@
     "toolsTeaching": [
       "genbio-launches-a-virtual-biological-cell",
       "launch-hn-risklytics-yc-s26",
-      "terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+      "terminal-bench-science-evaluating-ai-agents-on-scientific-re",
+      "dipstick-alerts"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
       "course-launch-hn-risklytics-yc-s26",
-      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
+      "course-dipstick-alerts"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1994,11 +2066,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "we-run-stateful-ai-agents-on-a-serverless-infra",
-      "propose-and-dual-control-for-dns-changes"
+      "propose-and-dual-control-for-dns-changes",
+      "ai-agent-guardrails-dont-work-safer-platforms-do"
     ],
     "courses": [
       "course-we-run-stateful-ai-agents-on-a-serverless-infra",
-      "course-propose-and-dual-control-for-dns-changes"
+      "course-propose-and-dual-control-for-dns-changes",
+      "course-ai-agent-guardrails-dont-work-safer-platforms-do"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2062,10 +2136,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "agents-should-be-durable-not-long-lived"
+      "agents-should-be-durable-not-long-lived",
+      "puppetflow-a-free-browser-automation-platform"
     ],
     "courses": [
-      "course-agents-should-be-durable-not-long-lived"
+      "course-agents-should-be-durable-not-long-lived",
+      "course-puppetflow-a-free-browser-automation-platform"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2181,10 +2257,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "why-ai-agents-need-persistent-browser-identities"
+      "why-ai-agents-need-persistent-browser-identities",
+      "puppetflow-a-free-browser-automation-platform"
     ],
     "courses": [
-      "course-why-ai-agents-need-persistent-browser-identities"
+      "course-why-ai-agents-need-persistent-browser-identities",
+      "course-puppetflow-a-free-browser-automation-platform"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2233,10 +2311,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "serve-markdown-to-ai-agents-with-accept-headers"
+      "serve-markdown-to-ai-agents-with-accept-headers",
+      "marktwin"
     ],
     "courses": [
-      "course-serve-markdown-to-ai-agents-with-accept-headers"
+      "course-serve-markdown-to-ai-agents-with-accept-headers",
+      "course-marktwin"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2532,10 +2612,14 @@
     "domain": "code",
     "level": "beginner",
     "toolsTeaching": [
-      "ai-tools-list"
+      "ai-tools-list",
+      "coordination-layer-for-coding-agents",
+      "dmx"
     ],
     "courses": [
-      "course-ai-tools-list"
+      "course-ai-tools-list",
+      "course-coordination-layer-for-coding-agents",
+      "course-dmx"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2573,10 +2657,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "agentseed"
+      "agentseed",
+      "ai-agent-guardrails-dont-work-safer-platforms-do"
     ],
     "courses": [
-      "course-agentseed"
+      "course-agentseed",
+      "course-ai-agent-guardrails-dont-work-safer-platforms-do"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3004,10 +3090,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "ai-game-playtester"
+      "ai-game-playtester",
+      "argus-open-source-ai-agents-for-testing-web-apps"
     ],
     "courses": [
-      "course-ai-game-playtester"
+      "course-ai-game-playtester",
+      "course-argus-open-source-ai-agents-for-testing-web-apps"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -3031,11 +3119,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "understudy-scenario-testing-for-ai-agents",
-      "terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+      "terminal-bench-science-evaluating-ai-agents-on-scientific-re",
+      "urml"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
-      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
+      "course-urml"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -3162,10 +3252,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "agentseed-mcp"
+      "agentseed-mcp",
+      "grith"
     ],
     "courses": [
-      "course-agentseed-mcp"
+      "course-agentseed-mcp",
+      "course-grith"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -3246,5 +3338,518 @@
       "course-clipdrop-desktop-clipdrop-ai-tools-2026"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
+  },
+  {
+    "id": "skill-automotive",
+    "name": "automotive",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "dipstick-alerts"
+    ],
+    "courses": [
+      "course-dipstick-alerts"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-recalls",
+    "name": "recalls",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "dipstick-alerts"
+    ],
+    "courses": [
+      "course-dipstick-alerts"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-search",
+    "name": "search",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "dipstick-alerts"
+    ],
+    "courses": [
+      "course-dipstick-alerts"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-safety",
+    "name": "safety",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "dipstick-alerts",
+      "trana",
+      "urml"
+    ],
+    "courses": [
+      "course-dipstick-alerts",
+      "course-trana",
+      "course-urml"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-vehicles",
+    "name": "vehicles",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "dipstick-alerts"
+    ],
+    "courses": [
+      "course-dipstick-alerts"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-ai workflow",
+    "name": "ai workflow",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "how-i-design-with-ai"
+    ],
+    "courses": [
+      "course-how-i-design-with-ai"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-blog",
+    "name": "blog",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "how-i-design-with-ai"
+    ],
+    "courses": [
+      "course-how-i-design-with-ai"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-guide",
+    "name": "guide",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "how-i-design-with-ai"
+    ],
+    "courses": [
+      "course-how-i-design-with-ai"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-creativity",
+    "name": "creativity",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "how-i-design-with-ai"
+    ],
+    "courses": [
+      "course-how-i-design-with-ai"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-dev tools",
+    "name": "dev tools",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "open-tool-for-testing-your-ai-agents-no-llm",
+      "coordination-layer-for-coding-agents"
+    ],
+    "courses": [
+      "course-open-tool-for-testing-your-ai-agents-no-llm",
+      "course-coordination-layer-for-coding-agents"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-wellbeing",
+    "name": "wellbeing",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "trana"
+    ],
+    "courses": [
+      "course-trana"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-mental-health",
+    "name": "mental health",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "trana"
+    ],
+    "courses": [
+      "course-trana"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-ios",
+    "name": "ios",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "trana"
+    ],
+    "courses": [
+      "course-trana"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-companion",
+    "name": "companion",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "trana"
+    ],
+    "courses": [
+      "course-trana"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-web scraping",
+    "name": "web scraping",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "puppetflow-a-free-browser-automation-platform"
+    ],
+    "courses": [
+      "course-puppetflow-a-free-browser-automation-platform"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-agentic ai",
+    "name": "agentic ai",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "why-agentic-ai-needs-a-strong-identity-foundation"
+    ],
+    "courses": [
+      "course-why-agentic-ai-needs-a-strong-identity-foundation"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-identity",
+    "name": "identity",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "why-agentic-ai-needs-a-strong-identity-foundation"
+    ],
+    "courses": [
+      "course-why-agentic-ai-needs-a-strong-identity-foundation"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-cybersecurity",
+    "name": "cybersecurity",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "why-agentic-ai-needs-a-strong-identity-foundation"
+    ],
+    "courses": [
+      "course-why-agentic-ai-needs-a-strong-identity-foundation"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-nist",
+    "name": "nist",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "why-agentic-ai-needs-a-strong-identity-foundation"
+    ],
+    "courses": [
+      "course-why-agentic-ai-needs-a-strong-identity-foundation"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-robotics",
+    "name": "robotics",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "urml"
+    ],
+    "courses": [
+      "course-urml"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-docs",
+    "name": "docs",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "marktwin"
+    ],
+    "courses": [
+      "course-marktwin"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-workspaces",
+    "name": "workspaces",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "marktwin"
+    ],
+    "courses": [
+      "course-marktwin"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-editing",
+    "name": "editing",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "marktwin"
+    ],
+    "courses": [
+      "course-marktwin"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-proxy",
+    "name": "proxy",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "grith-is-live"
+    ],
+    "courses": [
+      "course-grith-is-live"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-ai coding agents",
+    "name": "ai coding agents",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "grith-is-live"
+    ],
+    "courses": [
+      "course-grith-is-live"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-access control",
+    "name": "access control",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "grith-is-live"
+    ],
+    "courses": [
+      "course-grith-is-live"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-ai-coding",
+    "name": "ai coding",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "openinstinct"
+    ],
+    "courses": [
+      "course-openinstinct"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-clone",
+    "name": "clone",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "openinstinct"
+    ],
+    "courses": [
+      "course-openinstinct"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-developer-tools",
+    "name": "developer tools",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "openinstinct"
+    ],
+    "courses": [
+      "course-openinstinct"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-web testing",
+    "name": "web testing",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "argus-open-source-ai-agents-for-testing-web-apps"
+    ],
+    "courses": [
+      "course-argus-open-source-ai-agents-for-testing-web-apps"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-sandboxing",
+    "name": "sandboxing",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "grith"
+    ],
+    "courses": [
+      "course-grith"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-linux",
+    "name": "linux",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "grith"
+    ],
+    "courses": [
+      "course-grith"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-supervision",
+    "name": "supervision",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "grith"
+    ],
+    "courses": [
+      "course-grith"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-orchestration",
+    "name": "orchestration",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "coordination-layer-for-coding-agents"
+    ],
+    "courses": [
+      "course-coordination-layer-for-coding-agents"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-coordination",
+    "name": "coordination",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "coordination-layer-for-coding-agents"
+    ],
+    "courses": [
+      "course-coordination-layer-for-coding-agents"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-mcp server",
+    "name": "mcp server",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "dmx"
+    ],
+    "courses": [
+      "course-dmx"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-agent loops",
+    "name": "agent loops",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "dmx"
+    ],
+    "courses": [
+      "course-dmx"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-platform engineering",
+    "name": "platform engineering",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-agent-guardrails-dont-work-safer-platforms-do"
+    ],
+    "courses": [
+      "course-ai-agent-guardrails-dont-work-safer-platforms-do"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-agent safety",
+    "name": "agent safety",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-agent-guardrails-dont-work-safer-platforms-do"
+    ],
+    "courses": [
+      "course-ai-agent-guardrails-dont-work-safer-platforms-do"
+    ],
+    "updatedAt": "2026-08-28T20:56:00.761Z"
   }
 ]
