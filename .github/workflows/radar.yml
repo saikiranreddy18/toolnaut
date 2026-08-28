@@ -14,16 +14,19 @@ name: Radar
 
 on:
   schedule:
-    # 01:07 UTC / ~06:37 IST — deliberately away from the autonomous dev routine,
-    # which fires at 00:03, 06:03, 12:03 and 18:03 UTC. Two jobs pushing to
-    # master at the same moment race, and both hold Featherless capacity.
+    # 01:00 and then 01:07 UTC both silently no-showed on consecutive nights
+    # (2026-08-27, 2026-08-28) — no run, no failure, just silence. The other
+    # weekly-scheduled workflow in this repo (agent-maintainer.yml, 03:00 UTC)
+    # fired fine on its one sample, so this looks like congestion specific to
+    # the 00:00-02:00 UTC window (a lot of the internet's "nightly" cron jobs
+    # land there), not an account-wide scheduling problem.
     #
-    # Off the hour on purpose: the 2026-08-27 01:00 run never fired at all (no
-    # run, no failure — just silence), and GitHub's own docs warn that
-    # top-of-the-hour is the highest-load, highest-drop-risk moment for
-    # scheduled workflows. radar-health.mjs would catch a repeat of this, but
-    # avoiding it is cheaper than recovering from it.
-    - cron: "7 1 * * *"
+    # Two fixes: move off that window entirely, and run twice a day so one
+    # dropped trigger doesn't cost a full missed night. dedup.js makes the
+    # second run a harmless no-op on a day the first one succeeded — it only
+    # publishes candidates isKnown() hasn't seen yet.
+    - cron: "18 9 * * *"   # 09:18 UTC / ~14:48 IST
+    - cron: "42 21 * * *"  # 21:42 UTC / ~03:12 IST
   workflow_dispatch:
     inputs:
       max_candidates:
