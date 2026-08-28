@@ -1,0 +1,120 @@
+TOOLNAUT — SIGN-UP LAUNCH SEQUENCE
+Text-to-video prompt pack
+
+Use: replaces the coded launch animation in ArrivalLaunch.jsx with a rendered
+video. Plays full-screen for ~2.6s after sign-up, then fades to /goal.
+
+
+================================================================================
+1. MAIN PROMPT  (Veo / Sora / Kling / Runway Gen-3 / Hailuo)
+================================================================================
+
+16-bit pixel art animation, retro arcade game cutscene. A chunky pixel-art
+rocket launches straight upward through deep space, seen from the side, dead
+centre of frame.
+
+The rocket: a tall charcoal-grey metal hull with a crisp bright lime-green
+outline tracing its entire silhouette. Pointed dark-grey nose cone at the top
+with a lime seam where it meets the body. Two short swept-back fins low on the
+sides. A small flat nozzle at the base.
+
+Set into the middle of the hull is a large circular porthole with a thick
+light-blue-grey metal ring and dark navy glass. Behind the glass, a friendly
+little green alien with two antennae, large round white eyes with black pupils,
+and a small smile, looking out at the viewer. The alien bobs very slightly with
+the rocket's vibration.
+
+From the nozzle, a bright rainbow exhaust plume streams downward: a lime-green
+core, an orange middle band, and blue outer edges, all in hard-edged pixel
+blocks that flicker and pulse rapidly. Small pixel sparks scatter off the sides
+of the flame.
+
+Background: near-black deep space with a faint dark-grey diagonal diamond grid.
+Small lime-green pixel stars and tiny white pixel dots stream downward past the
+rocket at speed, creating the sense of fast upward flight. A couple of small
+green pixel planets drift by.
+
+Camera: locked off, no camera movement. The rocket stays centred and rises
+slowly while the star field rushes downward. Crisp hard pixel edges, no motion
+blur, no anti-aliasing, limited retro colour palette, high contrast.
+
+
+================================================================================
+2. NEGATIVE PROMPT
+================================================================================
+
+text, words, letters, numbers, logo, watermark, signature, UI, subtitles,
+captions, realistic, photorealistic, 3D render, smooth gradients, motion blur,
+depth of field, lens flare, anti-aliased edges, blurry, soft focus, film grain,
+camera shake, camera pan, camera zoom, human hands, live action, low contrast,
+muddy colours, extra rockets, distorted alien face, deformed eyes
+
+
+================================================================================
+3. SETTINGS
+================================================================================
+
+Aspect ratio ....... 16:9 for desktop. Render a 9:16 pass too — the launch is
+                     full-screen and phones are the majority of sign-ups.
+Duration ........... 4s (the app uses ~2.6s; the extra gives trim room)
+FPS ................ 24 is plenty. Pixel art reads worse at 60 — it smooths.
+Resolution ......... 1080p. Do NOT upscale with an AI enhancer afterwards;
+                     every one of them softens pixel edges, which is the whole
+                     look. If you must resize, use nearest-neighbour.
+Loop ............... not needed — it plays once and fades out.
+Seed ............... keep the seed of the take you like, so the 9:16 version
+                     can match the 16:9 one.
+
+NO TEXT IN THE VIDEO. The "T∞lnaut" wordmark and the IGNITION / LIFTOFF /
+WELCOME ABOARD beats stay as DOM text over the top. Video models render text
+badly, and keeping it in the DOM means it stays crisp, themeable, and readable
+to a screen reader.
+
+
+================================================================================
+4. SHORT VARIANT  (for models with tight prompt limits — Pika, Luma)
+================================================================================
+
+16-bit pixel art, retro arcade. A charcoal-grey rocket with a bright lime-green
+outline launches straight up, centred. Large round porthole with a blue-grey
+metal ring; a cute green alien with antennae, big white eyes and a smile looks
+out through it. Rainbow pixel exhaust below — lime core, orange middle, blue
+edges — flickering fast. Near-black space, faint diagonal grid, lime pixel
+stars streaming downward at speed. Locked camera, hard pixel edges, no blur.
+
+
+================================================================================
+5. FIRST-FRAME REFERENCE
+================================================================================
+
+Most models take an image as a start frame, which will hold the design far
+tighter than words alone. The coded rocket already renders exactly this — grab
+a still from the running app rather than describing it again:
+
+  1. Sign up with a fresh browser profile (or clear exus_quiz_v1)
+  2. Screenshot the launch screen during the first second
+  3. Feed it as the start/reference frame with the prompt above
+
+That keeps Naut on-model, since he is the existing mascot and not something the
+video model should be inventing.
+
+
+================================================================================
+6. WIRING IT IN
+================================================================================
+
+ArrivalLaunch.jsx already owns the full-screen overlay, the timing, the beats
+and the reduced-motion skip. Only the visual layer changes:
+
+  - drop the file in as public/launch.webm (plus an .mp4 fallback — Safari)
+  - swap <PixelRocket /> and the plume/grid/stars for one <video>:
+        autoPlay muted playsInline preload="auto"
+  - keep the wordmark and beat text where they are, over the video
+  - KEEP the reduced-motion branch. It skips the sequence entirely, and a
+    full-screen video of a rocket climbing is exactly what that setting is for.
+  - KEEP a still-image fallback on the <video> poster, so a failed or blocked
+    video load shows a frame rather than a black screen for 2.6 seconds.
+
+Budget note: 4s of video at 1080p is roughly 300-600KB as webm. That is
+comparable to the current three.js chunk, but it is a blocking first-paint asset
+on the sign-up path, so preload it on the sign-in screen rather than on arrival.
