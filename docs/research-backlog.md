@@ -1784,7 +1784,7 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-28 06:10 UTC
 
 ### Public "new tools" feed — the freshness data is real, but the only place it renders is behind the login wall
-- **Status:** OPEN
+- **Status:** SHIPPED f075d88
 - **Seen in:** Product Hunt's entire homepage *is* a chronological feed of
   newly launched products — freshness is the whole product, not a side
   panel; There's An AI For That runs a dedicated, publicly crawlable

@@ -9,6 +9,61 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-08-28
+
+**Radar health:** OK — 1 run in the last 26h, published 13 new tools. Feed
+sits at 60 tools in `public/tools.json`, last run 09:13 UTC. Catalogue is
+growing normally, no action needed.
+
+**Researched today:** three research-hour runs continued the backlog. Found
+the embeddable "Featured on Toolnaut" badge gap (03:15 UTC) — the standard
+directory backlink loop (G2 badges, Product Hunt embeds) is entirely
+missing, and the honest zero-backend version can link straight to the
+already-public `/s/:slug` route. Found and specced per-tool "Alternatives"
+SEO pages (06:10 UTC) — "chatgpt alternatives"-style queries are some of the
+highest-intent searches in this category and Toolnaut has zero pages
+targeting them, even though `ToolDetail.jsx`'s own related-tools logic
+already computes the exact same list behind a session wall. Found the public
+"new tools" feed gap (12:20 UTC) — the freshest-tools data and the util to
+query it (`getNewTools()`) both already exist and are already tested, but
+the only place either renders is `Discover.jsx`'s gated strip, invisible to
+a crawler or a cold shared link.
+
+**Shipped:** public `/new` feed —
+[`f075d88`](https://github.com/saikiranreddy18/toolnaut/commit/f075d88).
+Picked the freshest-found gap over the two older, larger ones because it
+was the cheapest in the file's own terms: zero new data, zero new store, and
+a page template (`CategoryLanding.jsx`) already proven twice this week for
+"take `TOOLS`, filter it, render a public read-only grid." New public
+`/new` route and `NewTools.jsx`, no session required, reusing the
+already-tested `getNewTools(30)` util (Discover's own strip calls the same
+function at a 7-day window). Each card now also shows a relative "Added Xd
+ago" caption via `communityData.js`'s existing `timeAgo()`. Added `/new` to
+`sitemap.xml` (`changefreq daily`, since this is the one public page whose
+content can change every time radar runs) and to `scripts/smoke.mjs`'s
+route list, plus a "See the full feed →" link from Discover's gated strip
+into the new public page. **Live on toolnaut.xyz** — pure client-side
+routing off the bundled + radar-hydrated catalog; smoke-tested it rendered
+41.5KB of real card content, confirming the 30-day window wasn't empty.
+Kept to this run's spec: no RSS/Atom feed, no per-source badges, no
+pagination beyond the 30-day window, no email digest — this page is the
+honest, backend-free substitute for the already-REJECTED "digest email"
+pricing claim, not an attempt to sneak it back in.
+
+**Queued next:** per-tool Alternatives SEO pages and the embeddable
+Featured-on-Toolnaut badge are both fresh, fully specced OPEN gaps and the
+natural picks for tomorrow. First-session onboarding checklist, per-tool
+ratings & reviews, community-submitted tools ("Suggest a tool"), PDF
+roadmap export, recently-viewed tools, the tool-status-note-reason gap, the
+tool graveyard page, command palette, Discover facet-counts, and the
+two-thirds-scoped per-route-meta-tags gap all remain OPEN. Pro chat
+assistant / Team tier, weekly digest email, and Discord community stay
+REJECTED-for-build, open only as copy-correction tasks for whoever owns
+pricing copy. PR #3 (community pill submit-fix, bot/claude branch) is still
+open and outside this routine's scope, same as noted previously.
+
+---
+
 ## 2026-08-27
 
 **Radar health:** OK — 1 run in the last 26h, published 21 new tools. Feed
