@@ -1,3 +1,5 @@
+import { CATEGORY_META } from './toolsCatalog'
+
 // Persona → tool fit score (20–99). Client-side stand-in for the real
 // recommendation service; the inputs (quiz answers) and output shape won't
 // change when the backend takes over.
@@ -79,4 +81,29 @@ export function matchReasons(tool, answers) {
   else if (levelBonus < 0) reasons.push('Steeper learning curve than your current level.')
 
   return reasons
+}
+
+// One short badge-sized reason for a card, where the full matchReasons() list
+// is too long to sit under a blurb. Ordered by how much the factor actually
+// moved the score, so the line explains the number the user is looking at.
+// Returns null when there is no persona — cards then show no reason at all
+// rather than an empty or generic one.
+export function matchReasonShort(tool, answers) {
+  if (!answers || !answers.domain) return null
+
+  const home = CATEGORY_META[answers.domain]?.name || answers.domain
+
+  if (tool.category === answers.domain) return `Core ${home} pick for you`
+  if ((ADJACENT[answers.domain] || []).includes(tool.category)) {
+    return `Pairs with your ${home} work`
+  }
+
+  const priceBonus = BUDGET_PRICE_BONUS[answers.budget]?.[tool.price] ?? 0
+  if (priceBonus >= 10) return 'Fits your budget'
+
+  const levelBonus = EXPERIENCE_LEVEL_BONUS[answers.experience]?.[tool.level] ?? 0
+  if (levelBonus >= 10) return 'Matches your level'
+  if (levelBonus < 0) return 'Steeper than your level'
+
+  return null
 }

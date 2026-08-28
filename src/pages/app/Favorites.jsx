@@ -1,24 +1,72 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getTool, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
-import { loadFavorites, removeFavorite } from '../../state/favoritesStore'
+import { getTool, TOOLS, CATEGORY_META } from '../../utils/toolsCatalog'
+import { matchScore, matchReasonShort } from '../../utils/matchScore'
+import { loadQuiz } from '../../state/quizStore'
+import { loadFavorites, addFavorite, removeFavorite } from '../../state/favoritesStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
-import { HeartIcon } from '../../components/app/icons'
+import ToolCard from '../../components/app/ToolCard'
 
-// Lightweight save-for-later list — separate from Stack's heavier
-// add-to-stack action, same shape stackStore already uses.
+const SORTS = [
+  { id: 'recent', label: 'Recently saved' },
+  { id: 'match', label: 'Best match' },
+  { id: 'name', label: 'A–Z' },
+]
+
+// Your AI shortlist. Separate from Stack's heavier add-to-stack action.
 export default function Favorites() {
   const [favoriteSlugs, setFavoriteSlugs] = useState(loadFavorites)
   const [stack, setStack] = useState(loadStack)
+  const [sort, setSort] = useState('recent')
+  const [cat, setCat] = useState('')
   const track = useAnalytics()
 
-  const tools = favoriteSlugs.map(getTool).filter(Boolean)
+  const quiz = loadQuiz()
+  const answers = quiz.completed ? quiz.answers : null
 
-  function unfavorite(slug) {
-    setFavoriteSlugs(removeFavorite(slug))
+  const tools = useMemo(() => {
+    const resolved = favoriteSlugs
+      .map(getTool)
+      .filter(Boolean)
+      .map((t) => ({ ...t, score: matchScore(t, answers) }))
+    // favoritesStore appends, so insertion order is oldest-first
+    const ordered = sort === 'recent' ? [...resolved].reverse()
+      : sort === 'name' ? [...resolved].sort((a, b) => a.name.localeCompare(b.name))
+        : [...resolved].sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
+    return cat ? ordered.filter((t) => t.category === cat) : ordered
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [favoriteSlugs, sort, cat, answers ? JSON.stringify(answers) : ''])
+
+  // Only the categories actually present in the shortlist — a filter row of
+  // mostly-empty chips is noise.
+  const presentCats = useMemo(() => {
+    const ids = new Set(favoriteSlugs.map(getTool).filter(Boolean).map((t) => t.category))
+    return Object.entries(CATEGORY_META).filter(([id]) => ids.has(id))
+  }, [favoriteSlugs])
+
+  // Empty-state suggestions. Real catalog tools scored by the real matcher when
+  // there is a persona; otherwise the genuinely newest arrivals. Nothing here
+  // is invented — there is no usage data, so there is no "popular" to claim.
+  const starterPicks = useMemo(() => {
+    if (!answers) return []
+    return TOOLS
+      .map((t) => ({ ...t, score: matchScore(t, answers) }))
+      .sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || a.name.localeCompare(b.name))
+      .slice(0, 3)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [answers ? JSON.stringify(answers) : ''])
+
+  function toggleFavorite(tool) {
+    if (favoriteSlugs.includes(tool.slug)) {
+      setFavoriteSlugs(removeFavorite(tool.slug))
+    } else {
+      haptic.select()
+      setFavoriteSlugs(addFavorite(tool.slug))
+      track(EVENTS.CTA_CLICK, { cta: 'add_favorite', tool: tool.slug, location: 'saved' })
+    }
   }
 
   function toggleStack(tool) {
@@ -27,70 +75,144 @@ export default function Favorites() {
     } else {
       haptic.select()
       setStack(addToStack(tool.slug))
-      track(EVENTS.CTA_CLICK, { cta: 'add_to_stack', tool: tool.slug, location: 'favorites' })
+      track(EVENTS.CTA_CLICK, { cta: 'add_to_stack', tool: tool.slug, location: 'saved' })
     }
   }
+
+  const total = favoriteSlugs.length
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-8 lg:py-10">
       <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ SAVED</p>
-      <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">
-        {tools.length > 0 ? `${tools.length} FAVORITE${tools.length === 1 ? '' : 'S'}` : 'NO FAVORITES YET'}
-      </h1>
+      <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR AI SHORTLIST</h1>
 
-      {tools.length === 0 ? (
-        <div className="mt-8">
-          <p className="max-w-md text-sm text-slate-400">
-            Tap the heart on any tool in Discover to shortlist it here — no
-            commitment, just a save for later.
+      {total === 0 ? (
+        <div className="mt-6">
+          <p className="max-w-md text-sm leading-relaxed text-slate-300">
+            Nothing saved yet. Tap the heart on any tool in <span className="font-bold text-white">FIND</span> to
+            park it here — no commitment, just a shortlist you can come back to
+            before you commit anything to your stack.
           </p>
-          <Link to="/app/discover" className="nb-btn mt-5 inline-block px-5 py-2.5 text-xs">
-            BROWSE TOOLS →
+          <Link to="/app/discover" className="nb-btn mt-5 inline-block min-h-11 px-5 py-2.5 text-xs">
+            FIND TOOLS →
           </Link>
+
+          {starterPicks.length > 0 && (
+            <div className="mt-12">
+              <h2 className="arcade-heading text-lg">STARTER PICKS</h2>
+              <p className="mt-2 max-w-md text-sm text-slate-400">
+                Your three highest-scoring tools right now. Save one to start the
+                shortlist.
+              </p>
+              <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {starterPicks.map((tool, i) => (
+                  <ToolCard
+                    key={tool.slug}
+                    tool={tool}
+                    index={i}
+                    reason={matchReasonShort(tool, answers)}
+                    inStack={stack.includes(tool.slug)}
+                    onToggleStack={toggleStack}
+                    isFavorite={favoriteSlugs.includes(tool.slug)}
+                    onToggleFavorite={toggleFavorite}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {starterPicks.length === 0 && (
+            <div className="sticker cyan mt-10 p-5">
+              <p className="arcade-heading lime text-base">◆ GET RANKED PICKS</p>
+              <p className="mt-2 text-sm leading-relaxed text-slate-300">
+                Answer nine questions and Toolnaut scores all {TOOLS.length} tools
+                against how you actually work — so this page can suggest, not just store.
+              </p>
+              <Link to="/goal" className="nb-btn cyan mt-4 inline-block min-h-11 px-4 py-2.5 text-xs">
+                TAKE THE 60-SECOND QUIZ
+              </Link>
+            </div>
+          )}
         </div>
       ) : (
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {tools.map((tool, i) => {
-            const added = stack.includes(tool.slug)
-            const meta = CATEGORY_META[tool.category] || { name: tool.category, color: 'var(--cyan)' }
-            const stickerColor = i % 3 === 0 ? '' : i % 3 === 1 ? 'pink' : 'cyan'
-            return (
-              <Link
-                key={tool.slug}
-                to={`/app/tools/${tool.slug}`}
-                className={`sticker ${stickerColor} group flex flex-col p-4`}
+        <>
+          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3">
+            <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+              {total} tool{total === 1 ? '' : 's'} saved
+            </p>
+            <div className="flex items-center gap-2">
+              <label htmlFor="saved-sort" className="text-xs uppercase tracking-widest text-slate-600">Sort</label>
+              <select
+                id="saved-sort"
+                value={sort}
+                onChange={(e) => setSort(e.target.value)}
+                className="min-h-9 cursor-pointer rounded-full px-3 py-1.5 text-xs font-bold text-white"
+                style={{ background: 'rgba(20,18,31,0.9)', border: '2px solid #000' }}
               >
-                <div className="flex items-start justify-between gap-3">
-                  <span className="flex min-w-0 items-center gap-1.5 text-[10px] font-bold uppercase text-slate-400">
-                    <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
-                    <span className="truncate">{tool.sourceCategory}</span>
-                  </span>
-                  <button
-                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); unfavorite(tool.slug) }}
-                    aria-label="Remove from favorites"
-                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[var(--hot-pink)]"
-                  >
-                    <HeartIcon filled />
-                  </button>
-                </div>
-                <p className="arcade-heading lime mt-3 text-base group-hover:opacity-80">
-                  {tool.name.toUpperCase()}
-                </p>
-                <p className="mt-2 flex-1 text-xs leading-relaxed text-slate-300">{tool.blurb}</p>
-                <div className="mt-3 flex items-center gap-2 text-[10px] font-bold uppercase text-slate-500">
-                  <span className="rounded-full border border-white/20 px-2 py-0.5">{PRICE_LABELS[tool.price]}</span>
-                  <span className="rounded-full border border-white/20 px-2 py-0.5">{LEVEL_LABELS[tool.level]}</span>
-                </div>
+                {SORTS.map((s) => (
+                  <option key={s.id} value={s.id}>{s.label}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {presentCats.length > 1 && (
+            <div className="no-scrollbar -mx-5 mt-3 flex gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
+              <button
+                onClick={() => setCat('')}
+                aria-pressed={!cat}
+                className={`arcade-chip press min-h-9 shrink-0 cursor-pointer ${!cat ? 'on' : ''}`}
+              >
+                All
+              </button>
+              {presentCats.map(([id, meta]) => (
                 <button
-                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleStack(tool) }}
-                  className={`nb-btn mt-4 px-4 py-2 text-xs ${added ? 'dark' : ''}`}
+                  key={id}
+                  onClick={() => setCat(cat === id ? '' : id)}
+                  aria-pressed={cat === id}
+                  className={`arcade-chip press min-h-9 shrink-0 cursor-pointer ${cat === id ? 'on' : ''}`}
                 >
-                  {added ? '✓ IN STACK' : '⚡ ADD TO STACK'}
+                  {meta.name}
                 </button>
-              </Link>
-            )
-          })}
-        </div>
+              ))}
+            </div>
+          )}
+
+          {tools.length === 0 ? (
+            <div className="mt-12">
+              <h2 className="arcade-heading text-lg">NOTHING IN THIS CATEGORY</h2>
+              <p className="mt-2 text-sm text-slate-400">
+                You have saved tools, just none filed under this one.
+              </p>
+              <button onClick={() => setCat('')} className="nb-btn dark mt-4 min-h-11 px-4 py-2 text-xs">
+                SHOW ALL SAVED
+              </button>
+            </div>
+          ) : (
+            <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {tools.map((tool, i) => (
+                <ToolCard
+                  key={tool.slug}
+                  tool={tool}
+                  index={i}
+                  reason={matchReasonShort(tool, answers)}
+                  inStack={stack.includes(tool.slug)}
+                  onToggleStack={toggleStack}
+                  isFavorite
+                  onToggleFavorite={toggleFavorite}
+                />
+              ))}
+            </div>
+          )}
+
+          <p className="mt-10 text-sm text-slate-400">
+            Ready to commit some of these?{' '}
+            <Link to="/app/stack" className="font-bold underline underline-offset-2" style={{ color: 'var(--lime)' }}>
+              Your stack
+            </Link>{' '}
+            is where the ones you actually use live.
+          </p>
+        </>
       )}
     </div>
   )

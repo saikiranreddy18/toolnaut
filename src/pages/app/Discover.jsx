@@ -1,19 +1,25 @@
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
-import { matchScore } from '../../utils/matchScore'
-import { isNewTool, getNewTools } from '../../utils/newTools'
+import { matchScore, matchReasonShort } from '../../utils/matchScore'
+import { getNewTools } from '../../utils/newTools'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { loadFavorites, addFavorite, removeFavorite } from '../../state/favoritesStore'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
-import { HeartIcon } from '../../components/app/icons'
+import ToolCard from '../../components/app/ToolCard'
 
 const PRICES = ['free', 'freemium', 'paid']
 const LEVELS = ['beginner', 'intermediate', 'advanced']
 const MAX_COMPARE = 4
+
+// The catalog is ~750 tools and every one of them used to render at once:
+// ~14,500 DOM nodes and a 58,000px-tall page on desktop, 167,000px on mobile,
+// re-created on every keystroke in the search box. Nobody scrolls 750 cards;
+// they search or filter. So render a screenful and let the rest be asked for.
+const PAGE_SIZE = 24
 
 function Pill({ active, onClick, children }) {
   return (
@@ -100,10 +106,33 @@ export default function Discover() {
       .sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || a.name.localeCompare(b.name))
   }, [q, cat, price, level, answersKey])
 
-  const hasFilters = q || cat || price || level
+  const hasFilters = !!(q || cat || price || level)
+
+  // Paging is derived, not an effect: storing the filter signature alongside
+  // the count resets the page during the same render that changes the filters,
+  // so a new result set never flashes the previous page length first.
+  const filterKey = `${q}|${cat}|${price}|${level}`
+  const [page, setPage] = useState({ key: filterKey, count: PAGE_SIZE })
+  const visibleCount = page.key === filterKey ? page.count : PAGE_SIZE
+  const visible = results.slice(0, visibleCount)
+  const remaining = results.length - visible.length
+
   // Computed once: TOOLS is fully hydrated with live (radar-discovered) tools
   // before first render (see main.jsx), and discoveredAt never changes after.
   const freshTools = useMemo(() => getNewTools(7).slice(0, 8), [])
+
+  // For the no-results state: the categories that actually still have tools,
+  // so every suggested escape route is guaranteed to lead somewhere.
+  const suggestedCats = useMemo(
+    () => Object.entries(CATEGORY_META).filter(([id]) => TOOLS.some((t) => t.category === id)).slice(0, 6),
+    [],
+  )
+
+  const gridHeading = hasFilters
+    ? `${results.length} RESULT${results.length === 1 ? '' : 'S'}`
+    : answers
+      ? 'RECOMMENDED FOR YOU'
+      : 'ALL TOOLS'
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-8 lg:py-10">
@@ -139,7 +168,7 @@ export default function Discover() {
 
       {freshTools.length > 0 && (
         <div className="mt-6">
-          <p className="text-xs font-bold uppercase tracking-widest text-slate-500">🆕 New this week</p>
+          <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500">🆕 New this week</h2>
           <div className="no-scrollbar -mx-5 mt-2 flex gap-3 overflow-x-auto px-5 sm:mx-0 sm:px-0">
             {freshTools.map((tool) => (
               <Link
@@ -147,8 +176,8 @@ export default function Discover() {
                 to={`/app/tools/${tool.slug}`}
                 className="sticker group flex w-40 shrink-0 flex-col p-3"
               >
-                <p className="arcade-heading lime text-xs group-hover:opacity-80">{tool.name.toUpperCase()}</p>
-                <p className="mt-1 line-clamp-2 text-[10px] leading-relaxed text-slate-300">{tool.blurb}</p>
+                <span className="arcade-heading lime text-xs group-hover:opacity-80">{tool.name.toUpperCase()}</span>
+                <span className="mt-1 line-clamp-2 text-[10px] leading-relaxed text-slate-300">{tool.blurb}</span>
               </Link>
             ))}
           </div>
@@ -181,100 +210,92 @@ export default function Discover() {
       </div>
 
       {results.length === 0 ? (
-        <div className="mt-16 text-center">
-          <p className="arcade-heading text-xl">NO TOOLS MATCH</p>
-          <p className="mt-3 text-sm text-slate-400">Try a broader search or clear the filters.</p>
+        /* A dead end is where people leave. Name what was searched, then hand
+           back routes that are known to have tools behind them. */
+        <div className="mt-12">
+          <h2 className="arcade-heading text-xl">NO TOOLS MATCH</h2>
+          <p className="mt-3 max-w-md text-sm text-slate-400">
+            {q ? <>Nothing in the catalog matches “<span className="font-bold text-white">{q}</span>”</> : 'Nothing matches these filters'}
+            {(cat || price || level) && ' with the filters you have on'}. Try a
+            broader search, or jump into a category that has tools waiting:
+          </p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {suggestedCats.map(([id, meta]) => (
+              <button
+                key={id}
+                onClick={() => { setSearchParams({ cat: id }); haptic.tap() }}
+                className="arcade-chip press min-h-11 cursor-pointer"
+              >
+                {meta.name}
+              </button>
+            ))}
+          </div>
           <button
             onClick={() => setSearchParams({})}
-            className="nb-btn dark mt-5 px-4 py-2 text-xs"
+            className="nb-btn dark mt-6 min-h-11 px-4 py-2 text-xs"
           >
-            CLEAR ALL
+            CLEAR ALL FILTERS
           </button>
         </div>
       ) : (
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {results.map((tool, i) => {
-            const added = stack.includes(tool.slug)
-            const meta = CATEGORY_META[tool.category] || { name: tool.category, color: 'var(--cyan)' }
-            const stickerColor = i % 3 === 0 ? '' : i % 3 === 1 ? 'pink' : 'cyan'
-            return (
-              <Link
-                key={tool.slug}
-                to={`/app/tools/${tool.slug}`}
-                className={`sticker ${stickerColor} group flex flex-col p-4`}
+        <>
+          <div className="mt-8 flex flex-wrap items-baseline justify-between gap-3">
+            <h2 className="arcade-heading text-lg">{gridHeading}</h2>
+            {hasFilters && (
+              <button
+                onClick={() => setSearchParams({})}
+                className="press font-display text-[10px] font-black uppercase tracking-widest text-slate-400 underline underline-offset-4 hover:text-white"
               >
-                <div className="flex items-start justify-between gap-3">
-                  <span className="flex min-w-0 items-center gap-1.5 text-[10px] font-bold uppercase text-slate-400">
-                    <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
-                    <span className="truncate">{tool.sourceCategory}</span>
-                  </span>
-                  <span className="flex shrink-0 items-center gap-1.5">
-                    {isNewTool(tool) && (
-                      <span
-                        className="rounded-full px-2 py-0.5 font-display text-[10px] font-black"
-                        style={{ background: 'var(--hot-pink)', color: '#000', border: '2px solid #000', boxShadow: '2px 2px 0 #000' }}
-                      >
-                        NEW
-                      </span>
-                    )}
-                    {tool.score != null && (
-                      <span
-                        className="rounded-full px-2 py-0.5 font-display text-xs font-black"
-                        style={{ background: 'var(--lime)', color: '#000', border: '2px solid #000', boxShadow: '2px 2px 0 #000' }}
-                      >
-                        {tool.score}%
-                      </span>
-                    )}
-                  </span>
-                </div>
-                <p className="arcade-heading lime mt-3 text-base group-hover:opacity-80">
-                  {tool.name.toUpperCase()}
-                </p>
-                <p className="mt-2 flex-1 text-xs leading-relaxed text-slate-300">{tool.blurb}</p>
-                <div className="mt-3 flex items-center gap-2 text-[10px] font-bold uppercase text-slate-500">
-                  <span className="rounded-full border border-white/20 px-2 py-0.5">{PRICE_LABELS[tool.price]}</span>
-                  <span className="rounded-full border border-white/20 px-2 py-0.5">{LEVEL_LABELS[tool.level]}</span>
-                </div>
-                <div className="mt-4 flex items-center gap-2">
-                  <button
-                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleStack(tool) }}
-                    className={`nb-btn px-4 py-2 text-xs ${added ? 'dark' : ''}`}
-                  >
-                    {added ? '✓ IN STACK' : '⚡ ADD'}
-                  </button>
-                  <button
-                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleFavorite(tool) }}
-                    aria-label={favorites.includes(tool.slug) ? 'Remove from favorites' : 'Save to favorites'}
-                    aria-pressed={favorites.includes(tool.slug)}
-                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 ${
-                      favorites.includes(tool.slug) ? 'text-[var(--hot-pink)]' : 'text-slate-400 hover:text-white'
-                    }`}
-                  >
-                    <HeartIcon filled={favorites.includes(tool.slug)} />
-                  </button>
-                  <label
-                    onClick={(e) => e.stopPropagation()}
-                    className="flex shrink-0 cursor-pointer items-center gap-1.5 rounded-full border border-white/20 px-2.5 py-2 text-[10px] font-bold uppercase text-slate-400 hover:text-white"
-                  >
-                    <input
-                      type="checkbox"
-                      checked={compare.includes(tool.slug)}
-                      disabled={!compare.includes(tool.slug) && compare.length >= MAX_COMPARE}
-                      onChange={(e) => { e.preventDefault(); toggleCompare(tool.slug) }}
-                      className="h-3.5 w-3.5 cursor-pointer accent-[var(--lime)] disabled:cursor-not-allowed"
-                    />
-                    Compare
-                  </label>
-                </div>
-              </Link>
-            )
-          })}
-        </div>
+                Clear filters
+              </button>
+            )}
+          </div>
+
+          <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {visible.map((tool, i) => (
+              <ToolCard
+                key={tool.slug}
+                tool={tool}
+                index={i}
+                reason={matchReasonShort(tool, answers)}
+                inStack={stack.includes(tool.slug)}
+                onToggleStack={toggleStack}
+                isFavorite={favorites.includes(tool.slug)}
+                onToggleFavorite={toggleFavorite}
+                compare={{
+                  checked: compare.includes(tool.slug),
+                  disabled: !compare.includes(tool.slug) && compare.length >= MAX_COMPARE,
+                  onToggle: toggleCompare,
+                }}
+              />
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col items-center gap-3 pb-4">
+            {/* aria-live so a screen reader hears the list grow after LOAD MORE
+                — the button stays put and nothing else announces the change. */}
+            <p aria-live="polite" className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              Showing {visible.length} of {results.length} tools
+            </p>
+            {remaining > 0 && (
+              <button
+                onClick={() => { haptic.tap(); setPage({ key: filterKey, count: visibleCount + PAGE_SIZE }) }}
+                className="nb-btn min-h-11 px-6 py-3 text-sm"
+              >
+                LOAD {Math.min(remaining, PAGE_SIZE)} MORE
+              </button>
+            )}
+          </div>
+        </>
       )}
 
       {compare.length >= 2 && (
         <div
-          className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-center gap-3 px-5 py-4"
+          role="region"
+          aria-label="Compare selection"
+          /* clears the mobile bottom nav, which it used to sit directly on top
+             of — the nav is 64px plus its 2px lime border plus the safe area */
+          className="fixed inset-x-0 bottom-[calc(4.125rem+env(safe-area-inset-bottom))] z-40 flex flex-wrap items-center justify-center gap-3 px-5 py-4 lg:bottom-0"
           style={{ background: 'rgba(10,9,16,0.96)', borderTop: '2px solid #000', boxShadow: '0 -3px 0 #000' }}
         >
           <p className="text-xs font-bold uppercase tracking-wider text-slate-300">
@@ -282,20 +303,14 @@ export default function Discover() {
           </p>
           <Link
             to={`/app/compare?tools=${compare.map(encodeURIComponent).join(',')}`}
-            className="nb-btn px-5 py-2.5 text-xs"
+            className="nb-btn min-h-11 px-5 py-2.5 text-xs"
           >
             COMPARE ({compare.length}) →
           </Link>
-          <button onClick={() => setCompare([])} className="nb-btn dark px-4 py-2.5 text-xs">
+          <button onClick={() => setCompare([])} className="nb-btn dark min-h-11 px-4 py-2.5 text-xs">
             CLEAR
           </button>
         </div>
-      )}
-
-      {hasFilters && results.length > 0 && (
-        <p className="mt-6 text-center text-xs font-bold uppercase tracking-wider text-slate-600">
-          {results.length} of {TOOLS.length} tools shown
-        </p>
       )}
     </div>
   )
