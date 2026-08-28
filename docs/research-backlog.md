@@ -399,6 +399,51 @@ a client-side SPA with a static tool catalogue.
   `communityStore.js`, ~10 lines wiring it into `Stack.jsx`. No backend, no
   new dependency, no new route.
 - **Found:** 2026-08-23 06:06 UTC
+- **Deepened 2026-08-28 21:20 UTC:** the original placement plan is now stale
+  and needs correcting before this gets built, not after — this run re-read
+  `Stack.jsx` as it exists today, not as it existed when this entry was
+  written. The plan said "wire into `Stack.jsx` directly under the streak
+  card... matches where the streak/skills-graph gap above is already planned
+  to live, so this and the skills-graph gap should not both ship in the same
+  run" — a hedge against a collision that has since become a certainty: the
+  Skills Graph gap shipped five days later (`bf156a0`) and that exact slot is
+  now occupied. Confirmed in the current file: the streak sticker renders at
+  `Stack.jsx:181-204`, and `<SkillGraph>` mounts immediately after it at
+  `Stack.jsx:207-210` ("Skills graph — coverage across the 6 galaxy domains"),
+  directly above the "⚡ your kit" tool grid at `Stack.jsx:221`. There is no
+  gap left between the streak card and the skills graph to insert a third
+  sticker into without pushing every returning user's actual stack further
+  down the page just to serve a nudge that stops applying to them after their
+  first session.
+  Also worth naming while re-reading this file: `Stack.jsx:319-353`'s existing
+  "NEXT UP" section already covers two of this gap's four proposed steps in
+  unconditional prose — "Add a tool in FIND" when `addedTools.length === 0`
+  (mirrors the `first_tool` step) and "Continue week N" / "Start your 4-week
+  path" (mirrors `roadmap_step`) — but it has no quiz-completion or
+  community-post awareness, no checkmarks, no dismiss state, and (being
+  unconditional per-bullet rather than an all-steps-done gate) never fully
+  disappears once "you're activated" the way a checklist should. This doesn't
+  make the checklist redundant — the two serve different jobs, "what to do
+  right now" (NEXT UP, permanent) vs. "are you activated yet" (checklist,
+  self-hiding) — but a builder should know NEXT UP exists and looks similar
+  before adding a second, overlapping nudge system in the same viewport.
+  **Corrected placement:** mount `OnboardingChecklist` between the persona
+  header (`Stack.jsx:158-178`, ends after the tagline `<p>`) and the streak
+  sticker (`Stack.jsx:181`) — above both the streak and the skills graph,
+  not between them. Reasoning: this component's entire job is orienting a
+  visitor before anything else on the page, so only the persona name/tagline
+  (who you are) belongs above it; the streak and skills graph are both
+  "status so far" widgets that only mean something once a user has an actual
+  session history, which is exactly what the checklist is helping a
+  brand-new user build. Placing it first also means it is the one card that
+  visually disappears (once all steps are done) rather than permanently
+  pushing the streak card down for every returning visit, which the original
+  "under the streak card" plan would have done — a returning user with the
+  checklist already complete sees the exact same page as today, unchanged.
+  No change to the rest of the original spec (steps, dismiss-flag key,
+  `communityStore.js` export) — this deepening only fixes the one paragraph
+  that had gone stale, and flags the NEXT UP overlap as something to be aware
+  of, not something to build a dedup for in this pass.
 
 ### Favorites / bookmarks (sold on the pricing page, absent from the app)
 - **Status:** SHIPPED 4fe402f
