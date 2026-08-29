@@ -16,8 +16,15 @@ import { TOOLS } from '../../utils/toolsCatalog'
 // was in. /auth/login renders this too, so the old route still works and
 // bookmarks survive.
 //
-// Wired to the real Supabase auth that is already live. Google and GitHub send
-// the browser away and back; the email path sends a magic link and says so.
+// Wired to the real Supabase auth that is already live. Google sends the
+// browser away and back; the email path sends a magic link and says so.
+//
+// ONLY OFFER PROVIDERS THAT ARE ACTUALLY ENABLED.
+// A "Continue with GitHub" button shipped here while GitHub was false in the
+// Supabase project's auth settings. Supabase rejects a disabled provider, the
+// catch below reported "Could not reach the sign-in provider. Try again.", and
+// retrying could never work — a dead CTA on the one screen every user must get
+// through. Check /auth/v1/settings before adding a provider back.
 //
 // ON THE LAUNCH SEQUENCE
 // The rocket cannot play between the click and Google — the browser leaves the
@@ -36,16 +43,6 @@ const PROVIDERS = [
         <path fill="#34A853" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.9-3c-1.1.7-2.4 1.2-4 1.2-3.1 0-5.7-2.1-6.6-4.9H1.4v3.1A12 12 0 0 0 12 24z" />
         <path fill="#FBBC05" d="M5.4 14.4a7.2 7.2 0 0 1 0-4.6V6.7H1.4a12 12 0 0 0 0 10.8l4-3.1z" />
         <path fill="#EA4335" d="M12 4.8c1.8 0 3.4.6 4.6 1.8l3.4-3.4A12 12 0 0 0 1.4 6.7l4 3.1C6.3 6.9 8.9 4.8 12 4.8z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'github',
-    label: 'Continue with GitHub',
-    dark: true,
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.2-.4-1.2.1-2.6 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.6.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z" />
       </svg>
     ),
   },
@@ -92,7 +89,7 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
       // nothing is going to arrive, so leave no armed flag behind to fire on
       // an unrelated navigation later in this tab
       clearLaunch()
-      setError('Could not reach the sign-in provider. Try again.')
+      setError('Sign-in is unavailable right now. Try the email link below.')
       setBusy(null)
     }
   }
