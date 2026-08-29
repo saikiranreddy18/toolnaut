@@ -1,10 +1,13 @@
 import { hydrateCatalog } from './toolsCatalog'
 
 // Content fields the app expects on a tool (mirrors the bundled catalog shape).
+// The radar-evaluation fields at the end are optional: a tool discovered before
+// the scorecard existed, or one nobody could gather evidence on, simply has no
+// `scorecard` — which the UI must read as "unrated", never as a score of zero.
 const FIELDS = [
   'slug', 'name', 'category', 'sourceCategory', 'price', 'pricing', 'level',
   'blurb', 'audience', 'dev', 'year', 'website', 'status', 'note', 'tags',
-  'discoveredAt',
+  'discoveredAt', 'scorecard', 'integration', 'verdict',
 ]
 
 function toCatalogShape(t) {

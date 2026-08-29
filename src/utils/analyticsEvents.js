@@ -14,6 +14,42 @@ export const EVENTS = {
   ROADMAP_STEP_COMPLETE: 'roadmap_step_complete',
   ROADMAP_CHECKPOINT_PASS: 'roadmap_checkpoint_pass',
   ROADMAP_COMPLETE: 'roadmap_complete',
+
+  // ── Funnel events from the product review's measurement plan (§10).
+  //
+  // The set above measured the landing page and the quiz and then stopped, so
+  // there was no way to answer the questions that actually matter: did the user
+  // reach a personalised stack, did they act on it, and did they come back.
+  //
+  // ACTIVATION is deliberately NOT account creation. An activated user has
+  // completed onboarding, seen a stack, AND done something with it — saved a
+  // tool, started a path, or opened a template. Counting signups instead
+  // flatters the number and hides the drop-off that matters.
+  ONBOARDING_STARTED: 'onboarding_started',
+  ONBOARDING_COMPLETED: 'onboarding_completed',
+  STACK_GENERATED: 'stack_generated',
+  ACTIVATED: 'activated',
+
+  // deep value — engagement past browsing
+  TOOL_SAVED: 'tool_saved',
+  COMPARISON_VIEWED: 'comparison_viewed',
+  PATH_STARTED: 'path_started',
+  STACK_UPDATED: 'stack_updated',
+  EXAMPLE_STACK_VIEWED: 'example_stack_viewed',
+
+  // Purchase intent and revenue. CHECKOUT_STARTED and SUBSCRIPTION_STARTED are
+  // defined but not emitted anywhere — there is no payment path in the product.
+  // They exist so the funnel is complete the day one is added, not so a
+  // dashboard can show a zero and imply a flow exists.
+  PRICING_VIEWED: 'pricing_viewed',
+  UPGRADE_CLICKED: 'upgrade_clicked',
+  CHECKOUT_STARTED: 'checkout_started',
+  SUBSCRIPTION_STARTED: 'subscription_started',
+  SUBSCRIPTION_CANCELLED: 'subscription_cancelled',
+
+  // retention
+  RETURNED_7D: 'returned_7d',
+  RETURNED_30D: 'returned_30d',
 }
 
 const GA_ID = import.meta.env.VITE_GA4_ID

@@ -1,11 +1,20 @@
 import { Link } from 'react-router-dom'
 import PricingSection from '../components/sections/PricingSection'
+import CapabilityMatrix from '../components/sections/CapabilityMatrix'
 import { BrandLogo } from '../components/ui/Mascot'
 import { BRAND } from '../config'
+import { useEffect } from 'react'
+import { useAnalytics } from '../hooks/useAnalytics'
+import { EVENTS } from '../utils/analyticsEvents'
 
 // Standalone pricing page — reuses the pillars/comparison section that was
 // removed from the landing flow. All plans are reservations while in beta.
 export default function Pricing() {
+  const track = useAnalytics()
+  // Purchase intent. Without it there is no way to tell whether people who
+  // never upgrade even reached the pricing page.
+  useEffect(() => { track(EVENTS.PRICING_VIEWED) }, [])
+
   return (
     <div className="relative z-10 min-h-screen bg-[#0a0a0f]">
       <div className="starfield" aria-hidden="true" />
@@ -24,6 +33,8 @@ export default function Pricing() {
       </div>
 
       <PricingSection />
+
+      <CapabilityMatrix />
 
       <p className="relative pb-16 text-center text-xs text-slate-500">
         <Link to="/" className="underline underline-offset-2 hover:text-white">← Back home</Link>

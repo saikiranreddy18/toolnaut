@@ -9,6 +9,8 @@ import CursorStars from './components/ui/CursorStars'
 import { track, EVENTS } from './utils/analyticsEvents'
 
 const GoalChat = lazy(() => import('./pages/GoalChat'))
+const ExampleStack = lazy(() => import('./pages/ExampleStack'))
+const Methodology = lazy(() => import('./pages/Methodology'))
 const QuizResult = lazy(() => import('./pages/QuizResult'))
 const Login = lazy(() => import('./pages/auth/Login'))
 const AppShell = lazy(() => import('./shells/AppShell'))
@@ -84,6 +86,10 @@ export default function App() {
             <Route path="/privacy" element={<Legal />} />
             <Route path="/terms" element={<Legal />} />
             <Route path="/pricing" element={<Pricing />} />
+            {/* Both reachable without an account, on purpose: they are the
+                "see the value before you commit" half of the funnel. */}
+            <Route path="/example" element={<ExampleStack />} />
+            <Route path="/methodology" element={<Methodology />} />
             <Route path="/s/:slugs" element={<SharedStack />} />
             <Route path="/tools/:domain" element={<CategoryLanding />} />
             <Route path="/new" element={<NewTools />} />

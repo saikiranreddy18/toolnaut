@@ -5,6 +5,7 @@ import { CHAT_QUESTIONS, GREETING, acknowledge, matchFreeText, saveNote, askServ
 import { loadQuiz, saveAnswer, completeQuiz } from '../state/quizStore'
 import { useAnalytics } from '../hooks/useAnalytics'
 import { EVENTS } from '../utils/analyticsEvents'
+import { markOnboarded } from '../utils/funnel'
 import { haptic } from '../utils/haptics'
 
 // Conversational intake. Replaces the one-question-per-screen quiz with a chat:
@@ -105,6 +106,7 @@ export default function GoalChat() {
           setMessages((m) => [...m, { from: 'bot', text: "That's everything. Charting your stack now…" }])
           completeQuiz()
           track(EVENTS.QUIZ_COMPLETE, { ...loadQuiz().answers, surface: 'goal_chat' })
+          markOnboarded(track)
           haptic.success()
           after(900, () => navigate('/quiz/result'))
         })
