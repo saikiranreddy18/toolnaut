@@ -12,6 +12,7 @@ import CTASection from '../components/sections/CTASection'
 import CometProgress from '../components/ui/CometProgress'
 import GalaxyExplorer from '../components/ui/GalaxyExplorer'
 import { BrandLogo } from '../components/ui/Mascot'
+import useSmoothScroll from '../hooks/useSmoothScroll'
 import { BRAND } from '../config'
 import { useAnalytics } from '../hooks/useAnalytics'
 import { useSpaceAudio } from '../hooks/useSpaceAudio'
@@ -36,6 +37,12 @@ function StaticSky() {
 }
 
 export default function Landing() {
+  // Eases the position between wheel notches. The wheel was raw: each notch
+  // jumped ~30px and decayed over five frames, which reads as stepping rather
+  // than gliding. scroll-behavior:smooth never touched this — it only applies
+  // to programmatic scrolls.
+  useSmoothScroll()
+
   const [booted, setBooted] = useState(false)
   const [explore, setExplore] = useState(false)
   const track = useAnalytics()

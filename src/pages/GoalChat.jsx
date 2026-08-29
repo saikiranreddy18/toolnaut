@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Wordmark from '../components/ui/Wordmark'
+import useSmoothScroll from '../hooks/useSmoothScroll'
 import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { CHAT_QUESTIONS, GREETING, acknowledge, matchFreeText, saveNote, askServer } from '../utils/goalChat'
@@ -61,6 +62,9 @@ export default function GoalChat() {
   const question = done ? null : CHAT_QUESTIONS[index]
 
   const scrollRef = useRef(null)
+  // The transcript is a fixed box the messages scroll inside, so the window
+  // has nothing to smooth — the inner scroller is the one you feel.
+  useSmoothScroll(true, scrollRef)
   const inputRef = useRef(null)
   const timers = useRef([])
   useEffect(() => () => timers.current.forEach(clearTimeout), [])
