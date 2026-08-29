@@ -206,7 +206,7 @@ export default function Stack() {
   const level = experienceLevels[quiz.answers?.experience] || 'STAR CADET'
 
   return (
-    <div className="relative mx-auto max-w-4xl px-5 py-6 lg:py-10">
+    <div className="relative mx-auto max-w-4xl px-5 py-6 lg:py-10 xl:max-w-6xl">
       <motion.div {...cardIn(0)} className="relative">
         <p className="font-display text-xs uppercase tracking-[0.2em] font-black capitalize" style={{ color: 'var(--lime)' }}>
           ▸ {greeting}
