@@ -18,7 +18,7 @@ export default function PricingSection({ titleAs = 'h2' }) {
 
   return (
     <SectionShell id="pricing" eyebrow="Pricing" titleAs={titleAs} title="Start solo. Scale with your team.">
-      <div className="grid items-start gap-8 md:grid-cols-3">
+      <div className="grid items-stretch gap-8 md:grid-cols-3">
         {PLANS.map((plan) => (
           <PricingPillar key={plan.id} plan={plan} />
         ))}
