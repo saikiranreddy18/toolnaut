@@ -1,0 +1,90 @@
+name: Daily report
+
+# Emails a report of what the autonomous routines ACTUALLY did in the last 24h.
+#
+# This exists because the routines were reporting nothing while doing nothing.
+# The research agent's cron had been commented out and it had never run once;
+# the bug-fix agent's had been commented out too and it had been silent for
+# eight days. Neither showed up as a failure, because a workflow that never
+# fires produces no failed runs. The report's "Routine health" section compares
+# the schedule each workflow DECLARES against when it actually last ran, so that
+# kind of silence becomes a line in an email instead of nothing at all.
+#
+# Runs after the other routines have had their turn for the day.
+
+on:
+  schedule:
+    - cron: "30 5 * * *"    # daily 05:30 UTC (11:00 IST)
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: "Window in hours"
+        required: false
+        default: "24"
+
+concurrency:
+  group: daily-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    # The `secrets` context is NOT readable from a step-level `if`, so the gate
+    # is computed once here where it IS readable, and the step tests this.
+    env:
+      MAIL_READY: ${{ secrets.MAIL_USERNAME != '' && secrets.MAIL_TO != '' && secrets.MAIL_PASSWORD != '' }}
+    permissions:
+      contents: read
+      issues: read
+      pull-requests: read
+      actions: read        # required: the report reads other workflows' run history
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0   # the tools delta is a git diff against the window start
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Build the report
+        id: report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/daily-report.mjs --hours "${{ inputs.hours || '24' }}" --out report.html
+
+      - name: Upload the report
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-report
+          path: report.html
+          retention-days: 14
+
+      # Sends only when the mail secrets are present, so a fork or a repo that
+      # has not set them still produces the artifact instead of failing.
+      - name: Email the report
+        if: env.MAIL_READY == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.MAIL_HOST || 'smtp.gmail.com' }}
+          server_port: ${{ secrets.MAIL_PORT || 465 }}
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          from: Toolnaut Autonomous Dev <${{ secrets.MAIL_USERNAME }}>
+          to: ${{ secrets.MAIL_TO }}
+          subject: ${{ steps.report.outputs.subject }}
+          html_body: file://report.html
+          convert_markdown: false
+
+      - name: Say what happened
+        if: always()
+        run: |
+          if [ "$MAIL_READY" != "true" ]; then
+            echo "::warning::Mail secrets not set - the report was built and uploaded as an artifact but NOT emailed. Set MAIL_USERNAME, MAIL_PASSWORD and MAIL_TO."
+          else
+            echo "Report emailed."
+          fi
