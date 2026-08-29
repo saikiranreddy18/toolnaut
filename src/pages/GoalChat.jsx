@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import Wordmark from '../components/ui/Wordmark'
 import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { CHAT_QUESTIONS, GREETING, acknowledge, matchFreeText, saveNote, askServer } from '../utils/goalChat'
@@ -49,6 +50,12 @@ export default function GoalChat() {
   const [typing, setTyping] = useState(true)
   const [draft, setDraft] = useState('')
   const [unmatched, setUnmatched] = useState(false)
+
+  // True until the first answer. The headline is a landing state, not chrome:
+  // on a fixed-height chat box it costs the transcript ~170px, which is worth
+  // paying to set expectations and not worth paying once the user is five
+  // questions deep and reading.
+  const atStart = index === 0 && !messages.some((m) => m.from === 'user')
 
   const done = index >= CHAT_QUESTIONS.length
   const question = done ? null : CHAT_QUESTIONS[index]
@@ -197,7 +204,7 @@ export default function GoalChat() {
     <div className="flex h-[100dvh] flex-col overflow-hidden px-4 pb-4 pt-5 sm:px-6">
       {/* OnboardingShell already renders the wordmark top-left; a second one
           here sat directly on top of it. Only the exit control belongs to this page. */}
-      <header className="mx-auto flex w-full max-w-2xl shrink-0 items-center justify-end pb-4">
+      <header className="mx-auto flex w-full max-w-2xl shrink-0 items-center justify-end pb-2">
         <button
           onClick={() => navigate('/')}
           aria-label="Leave and go back to the home page"
@@ -209,13 +216,40 @@ export default function GoalChat() {
         </button>
       </header>
 
+      {/* The opening. Direction A: the words carry it — a badge that answers
+          "what is this going to cost me", then one headline in two tones. No
+          decoration, because a nine-question form is a reading task and
+          ornament competes with the question. */}
+      {atStart && (
+        <div className="mx-auto w-full max-w-2xl shrink-0 pb-5 text-center">
+          {/* The mark itself opens the page, not a pill of small print. The
+              "no account" promise still gets said — it is the last line under
+              the chat, where someone looks before committing rather than
+              before reading. */}
+          <Wordmark className="justify-center text-3xl text-white sm:text-4xl" />
+
+          <h1 className="mt-5 font-display text-[clamp(1.5rem,4.4vw,2.35rem)] font-bold leading-[1.13] tracking-[-0.025em] text-white">
+            Tell Naut what you do.
+            <span className="block text-slate-500">
+              It maps your stack, your gaps, your next four weeks.
+            </span>
+          </h1>
+        </div>
+      )}
+
       {/* min-h-0 on both this and the transcript below. A flex item defaults to
           min-height:auto, which refuses to shrink below its content — so even
           inside a fixed-height parent the transcript would push the card taller
           than the frame and overflow-y-auto would still never fire. */}
-      <div className="mx-auto flex w-full min-h-0 max-w-2xl flex-1 flex-col overflow-hidden rounded-3xl border-[3px] border-black bg-[#12121c]/85" style={{ boxShadow: '6px 6px 0 #000' }}>
+      {/* Quieter than the rest of the app on purpose. The heavy black slab and
+          6px offset shadow shout, which is right on the landing page and wrong
+          around a form someone has to concentrate on. One hairline rule. */}
+      <div
+        className="mx-auto flex w-full min-h-0 max-w-2xl flex-1 flex-col overflow-hidden rounded-2xl"
+        style={{ background: '#0c0c13', border: '1px solid #23232f' }}
+      >
         {/* progress — chunky lime bars, same language as the rest of the app */}
-        <div className="flex shrink-0 gap-1.5 border-b-[3px] border-black bg-[#0c0c14] px-4 py-3" aria-hidden="true">
+        <div className="flex shrink-0 gap-1.5 px-4 py-3" style={{ borderBottom: '1px solid #23232f' }} aria-hidden="true">
           {CHAT_QUESTIONS.map((q, i) => (
             <span
               key={q.id}
@@ -229,12 +263,12 @@ export default function GoalChat() {
 
         <div
           ref={scrollRef}
-          className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-5 sm:px-5"
+          className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-5 sm:px-5"
           role="log"
           aria-live="polite"
           aria-label="Conversation"
         >
-          <div className="flex flex-col gap-3">
+          <div className="mt-auto flex flex-col gap-3">
             {messages.map((m, i) => (
               <motion.div
                 key={i}
@@ -283,7 +317,7 @@ export default function GoalChat() {
 
         {/* option chips for the current question */}
         {!done && !typing && question && (
-          <div className="shrink-0 border-t-[3px] border-black bg-[#0c0c14] px-4 py-3">
+          <div className="shrink-0 px-4 py-3" style={{ borderTop: '1px solid #23232f' }}>
             {unmatched && (
               <p className="mb-2 font-display text-[10px] font-black uppercase tracking-[0.18em]" style={{ color: 'var(--hot-pink)' }}>
                 ▸ pick the closest one
@@ -295,7 +329,7 @@ export default function GoalChat() {
                   key={opt.key}
                   data-testid="goal-chip"
                   onClick={() => answer(opt.key)}
-                  className="cursor-pointer rounded-full border-2 border-black bg-white/[0.06] px-3.5 py-1.5 text-xs font-bold text-slate-200 transition-colors hover:bg-[var(--lime)] hover:text-black"
+                  className="cursor-pointer rounded-full border border-[#2b2b3a] bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold text-slate-200 transition-colors hover:border-[var(--lime)] hover:bg-[var(--lime)] hover:text-black"
                   style={{ boxShadow: '2px 2px 0 #000' }}
                 >
                   {opt.label}
@@ -305,7 +339,7 @@ export default function GoalChat() {
           </div>
         )}
 
-        <form onSubmit={submitDraft} className="shrink-0 border-t-2 border-white/10 bg-[#0c0c14] px-4 py-3">
+        <form onSubmit={submitDraft} className="shrink-0 px-4 py-3" style={{ borderTop: '1px solid #23232f' }}>
           <label htmlFor="goal-reply" className="sr-only">Your answer</label>
           <div className="flex items-center gap-2">
             <input
@@ -317,13 +351,13 @@ export default function GoalChat() {
               disabled={done}
               autoComplete="off"
               placeholder={done ? 'Charting your stack…' : 'Or just tell me in your own words…'}
-              className="min-h-[44px] w-full rounded-full border-2 border-white/10 bg-white/[0.04] px-4 text-base text-white placeholder:text-slate-500 focus:border-[var(--lime)] focus:outline-none disabled:opacity-50"
+              className="min-h-[44px] w-full rounded-xl border border-[#2b2b3a] bg-[#0a0a10] px-4 text-base text-white placeholder:text-slate-500 focus:border-[var(--lime)] focus:outline-none disabled:opacity-50"
             />
             <button
               type="submit"
               disabled={done || !draft.trim()}
               aria-label="Send answer"
-              className="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full border-2 border-black text-black transition-opacity disabled:cursor-not-allowed disabled:opacity-30"
+              className="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full text-black transition-opacity disabled:cursor-not-allowed disabled:opacity-30"
               style={{ background: 'var(--lime)', boxShadow: '2px 2px 0 #000' }}
             >
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
