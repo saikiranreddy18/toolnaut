@@ -16,7 +16,7 @@
 // depends on that visitor's localStorage, so a shared static copy would be
 // wrong for everyone.
 import { spawn, execSync } from 'node:child_process'
-import { mkdirSync, writeFileSync, copyFileSync } from 'node:fs'
+import { mkdirSync, writeFileSync, copyFileSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { chromium } from 'playwright'
 
@@ -78,6 +78,26 @@ try {
 // content before React routed away from it.
 copyFileSync(join(DIST, 'index.html'), join(DIST, '_shell.html'))
 
+// Every prerendered page is THIS pristine shell with the rendered app dropped
+// into it — never the browser's hydrated <html> serialised back out. A live
+// document carries state the shipped file must not: Vite injects a
+// <link rel="modulepreload"> for each lazy chunk the route happened to touch,
+// so capturing outerHTML on the landing page baked an ~850KB three.js preload
+// into the entry HTML and put it on the critical path for every visitor.
+// Rebuilding from the shell keeps runtime DOM mutations out of static output by
+// construction, instead of maintaining a list of tags to strip after the fact.
+//
+// split() rather than replace(): it proves the marker is unique AND sidesteps
+// replace()'s $-patterns, which would corrupt rendered markup containing "$&".
+const ROOT_MARKER = '<div id="root"></div>'
+const shellParts = readFileSync(join(DIST, '_shell.html'), 'utf8').split(ROOT_MARKER)
+if (shellParts.length !== 2) {
+  note(`shell: FAILED — expected exactly one ${ROOT_MARKER}, found ${shellParts.length - 1}`)
+  note('RESULT: 0 routes prerendered — serving the SPA shell')
+  writeFileSync(join(DIST, '_prerender-status.txt'), status.join('\n') + '\n')
+  process.exit(0)
+}
+
 const server = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--host', '127.0.0.1', '--strictPort'], {
   stdio: 'ignore',
   shell: process.platform === 'win32',
@@ -113,7 +133,7 @@ for (const route of ROUTES) {
     // a beat past networkidle so lists are populated rather than mid-render.
     await page.waitForTimeout(900)
 
-    const html = await page.evaluate(() => '<!doctype html>\n' + document.documentElement.outerHTML)
+    const rendered = await page.$eval('#root', (el) => el.innerHTML)
     const bodyText = await page.evaluate(() => (document.getElementById('root')?.innerText || '').trim().length)
 
     if (bodyText < 200) {
@@ -122,6 +142,7 @@ for (const route of ROUTES) {
       continue
     }
 
+    const html = `${shellParts[0]}<div id="root">${rendered}</div>${shellParts[1]}`
     const out = route === '/' ? join(DIST, 'index.html') : join(DIST, route, 'index.html')
     mkdirSync(dirname(out), { recursive: true })
     writeFileSync(out, html)
