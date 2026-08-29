@@ -4,20 +4,21 @@
 // Lifted out of Stack.jsx because ME now shows the same numbers, and two
 // components reading the same localStorage key through two private copies of
 // the parsing logic is how they drift apart.
+import { read, write } from './scopedStorage'
 const KEY = 'exus_progress_v1'
 
 export const STATUSES = ['Not started', 'Exploring', 'Using weekly', 'Mastered']
 
 export function loadProgress() {
   try {
-    return JSON.parse(localStorage.getItem(KEY)) || {}
+    return read(KEY) || {}
   } catch {
     return {}
   }
 }
 
 export function saveProgress(progress) {
-  try { localStorage.setItem(KEY, JSON.stringify(progress)) } catch { /* storage blocked */ }
+  try { write(KEY, progress) } catch { /* storage blocked */ }
   return progress
 }
 

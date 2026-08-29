@@ -1,10 +1,11 @@
 // Lightweight "save for later" list, separate from stackStore's heavier
 // add-to-stack action. localStorage-backed until the backend owns it.
+import { read, write } from './scopedStorage'
 const KEY = 'exus_favorites_v1'
 
 export function loadFavorites() {
   try {
-    const s = JSON.parse(localStorage.getItem(KEY))
+    const s = read(KEY)
     return Array.isArray(s) ? s : []
   } catch {
     return []
@@ -12,7 +13,7 @@ export function loadFavorites() {
 }
 
 function save(slugs) {
-  try { localStorage.setItem(KEY, JSON.stringify(slugs)) } catch { /* storage blocked */ }
+  try { write(KEY, slugs) } catch { /* storage blocked */ }
 }
 
 export function addFavorite(slug) {

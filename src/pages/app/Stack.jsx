@@ -134,16 +134,43 @@ export default function Stack() {
   // (no persona to score against yet), never invented.
   if (!persona) {
     const picks = recognisableStarters(TOOLS, 3)
+    // This screen gates on PERSONA, but it was claiming the STACK was empty —
+    // two different things. Add tools as a guest, skip the quiz, and the page
+    // said "YOUR STACK IS EMPTY" above the tools you had just added. Worse
+    // after guest-import, where someone brings a stack to a new account and is
+    // told they have nothing. Say what is actually missing.
+    const started = addedSlugs.length > 0
 
     return (
       <div className="mx-auto max-w-4xl px-5 xl:max-w-6xl py-6 lg:py-10">
         <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ STACK</p>
-        <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR STACK<br />IS EMPTY</h1>
+        <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">
+          {started ? <>{addedSlugs.length} TOOL{addedSlugs.length === 1 ? '' : 'S'},<br />NO PROFILE YET</> : <>YOUR STACK<br />IS EMPTY</>}
+        </h1>
         <p className="mt-4 max-w-lg text-sm leading-relaxed text-slate-300">
-          A stack is the short list of AI tools you actually use. Toolnaut builds
-          yours from nine questions about how you work, then scores all{' '}
-          {TOOLS.length} tools in the catalog against that profile.
+          {started ? (
+            <>
+              Your tools are saved. What is missing is the profile that ranks
+              them — nine questions about how you work, scored against all{' '}
+              {TOOLS.length} tools in the catalog.
+            </>
+          ) : (
+            <>
+              A stack is the short list of AI tools you actually use. Toolnaut builds
+              yours from nine questions about how you work, then scores all{' '}
+              {TOOLS.length} tools in the catalog against that profile.
+            </>
+          )}
         </p>
+
+        {started && (
+          <div className="sticker mt-6 p-4" style={{ transform: 'rotate(0)' }}>
+            <p className="font-display text-[10px] font-black uppercase tracking-widest text-slate-400">In your stack</p>
+            <p className="mt-2 text-sm font-bold text-white">
+              {addedSlugs.map((s) => getTool(s)?.name).filter(Boolean).join(' · ')}
+            </p>
+          </div>
+        )}
 
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <Link to="/goal" className="nb-btn px-6 py-3 text-sm">⚡ BUILD MY STACK — 60 SECONDS</Link>

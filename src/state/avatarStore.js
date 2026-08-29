@@ -7,6 +7,7 @@
 // No default is assigned: an unpicked avatar renders as the initial-letter
 // badge instead. Auto-assigning one would put a face on a profile the person
 // never chose, and they would have no idea it was random rather than theirs.
+import { readRaw, writeRaw, remove } from './scopedStorage'
 import { AVATAR_IDS } from '../components/app/Avatar'
 
 const KEY = 'exus_avatar_v1'
@@ -20,7 +21,7 @@ export const AVATAR_EVENT = 'toolnaut:avatar'
 
 export function loadAvatar() {
   try {
-    const id = localStorage.getItem(KEY)
+    const id = readRaw(KEY)
     return AVATAR_IDS.includes(id) ? id : null
   } catch {
     return null
@@ -29,8 +30,8 @@ export function loadAvatar() {
 
 export function setAvatar(id) {
   try {
-    if (id && AVATAR_IDS.includes(id)) localStorage.setItem(KEY, id)
-    else localStorage.removeItem(KEY)
+    if (id && AVATAR_IDS.includes(id)) writeRaw(KEY, id)
+    else remove(KEY)
   } catch { /* storage blocked */ }
   const next = loadAvatar()
   try { window.dispatchEvent(new CustomEvent(AVATAR_EVENT, { detail: next })) } catch { /* SSR/no window */ }

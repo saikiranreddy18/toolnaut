@@ -1,4 +1,5 @@
 import { THREADS } from '../utils/communityData'
+import { read as scopedRead, write as scopedWrite } from './scopedStorage'
 
 // User-generated community content + upvotes, layered over the seed threads.
 // localStorage until the backend owns it.
@@ -8,14 +9,14 @@ const UPVOTES_KEY = 'exus_upvotes_v1'
 
 function read(key, fallback) {
   try {
-    const v = JSON.parse(localStorage.getItem(key))
+    const v = scopedRead(key)
     return v ?? fallback
   } catch {
     return fallback
   }
 }
 function write(key, value) {
-  try { localStorage.setItem(key, JSON.stringify(value)) } catch { /* storage blocked */ }
+  scopedWrite(key, value)
 }
 
 // Merge seed + user threads, newest first, with per-thread reply counts and

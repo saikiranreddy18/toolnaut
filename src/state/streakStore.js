@@ -16,6 +16,7 @@
 //           utils/communityStats.js reads { date, count } directly
 //   count — consecutive-day streak
 //   days  — ['YYYY-MM-DD', ...] local dates, trimmed to the last WINDOW days
+import { read, write } from './scopedStorage'
 const KEY = 'exus_streak_v1'
 
 // Four weeks is enough for the current week's dots plus room for a longer
@@ -40,7 +41,7 @@ function fromDateKey(k) {
 
 function readRaw() {
   try {
-    return JSON.parse(localStorage.getItem(KEY)) || {}
+    return read(KEY) || {}
   } catch {
     return {}
   }
@@ -85,13 +86,11 @@ export function recordVisit(now = new Date()) {
   const count = last && isNextCalendarDay(last, todayKey) ? (Number(raw.count) || 0) + 1 : 1
 
   const nextDays = [...days, todayKey].slice(-WINDOW)
-  try {
-    localStorage.setItem(KEY, JSON.stringify({
-      date: now.toDateString(), // legacy field, still read by communityStats
-      count,
-      days: nextDays,
-    }))
-  } catch { /* storage blocked — the streak is best-effort, never load-bearing */ }
+  write(KEY, {
+    date: now.toDateString(), // legacy field, still read by communityStats
+    count,
+    days: nextDays,
+  })
 
   return { count, days: nextDays }
 }

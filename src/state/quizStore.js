@@ -1,13 +1,14 @@
 // Guest-safe quiz state, persisted to localStorage after every answer so a
 // refresh mid-quiz never loses progress. On signup, this payload is what gets
 // synced to the server (see APP-FLOW.md §3.1).
+import { read, write } from './scopedStorage'
 import { resetRoadmapProgress } from './roadmapStore'
 
 const KEY = 'exus_quiz_v1'
 
 export function loadQuiz() {
   try {
-    const raw = JSON.parse(localStorage.getItem(KEY))
+    const raw = read(KEY)
     if (raw && typeof raw === 'object') {
       return { answers: raw.answers || {}, completed: !!raw.completed }
     }
@@ -16,7 +17,7 @@ export function loadQuiz() {
 }
 
 function save(state) {
-  try { localStorage.setItem(KEY, JSON.stringify(state)) } catch { /* storage full/blocked */ }
+  try { write(KEY, state) } catch { /* storage full/blocked */ }
 }
 
 export function saveAnswer(questionId, optionKey) {

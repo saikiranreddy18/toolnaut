@@ -9,6 +9,7 @@ import { generatePersona } from '../utils/personaGenerator'
 import { planLabel } from '../utils/planData'
 import ChatPanel from '../components/app/ChatPanel'
 import InstallPrompt from '../components/app/InstallPrompt'
+import GuestImportPrompt from '../components/app/GuestImportPrompt'
 import Avatar from '../components/app/Avatar'
 import { loadAvatar, AVATAR_EVENT } from '../state/avatarStore'
 import { StackIcon, DiscoverIcon, LearningIcon, CommunityIcon, SettingsIcon, ChatIcon, HeartIcon } from '../components/app/icons'
@@ -203,6 +204,7 @@ export default function AppShell() {
       </AnimatePresence>
 
       <InstallPrompt />
+      <GuestImportPrompt />
 
       {/* chat launcher (both breakpoints when closed) */}
       {!chatOpen && (
