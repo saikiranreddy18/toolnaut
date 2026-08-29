@@ -409,6 +409,25 @@ html[data-theme='synth'] {
     4px 4px 0 rgba(0,0,0,0.6);
 }
 
+/* Section headings (18-24px).
+
+   The RGB split above is sized for the 30-48px page titles, where a 2px colour
+   offset reads as chrome around a ~6px stroke. At text-lg the strokes are about
+   3px, so the lime and pink copies land INSIDE the letterform instead of beside
+   it and the word reads as a smear — "RECOMMENDED FOR YOU" and "STARTER PICKS"
+   were the two worst cases. Section headings keep the face, weight and italic;
+   they drop the split for a single hard shadow, and give back the -0.02em
+   tracking, which also works against legibility once the type is small. */
+.arcade-heading.section {
+  letter-spacing: 0.005em;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.9);
+}
+
+/* Lime labels at 12-16px: 3px of shadow is a fifth of the cap height there. */
+.arcade-heading.lime.compact {
+  text-shadow: 2px 2px 0 #000;
+}
+
 .arcade-heading.outline {
   color: transparent;
   -webkit-text-stroke: 2px var(--lime);

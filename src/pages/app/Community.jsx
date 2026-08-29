@@ -59,7 +59,7 @@ export default function Community() {
   }
 
   return (
-    <div className="mx-auto max-w-2xl px-5 py-6 lg:py-10">
+    <div className="mx-auto max-w-2xl px-5 xl:max-w-4xl py-6 lg:py-10">
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1">
           <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ SQUAD</p>
@@ -153,7 +153,7 @@ export default function Community() {
               </div>
 
               <Link to={`/app/community/${t.id}`} className="mt-3 block">
-                <h2 className="arcade-heading lime text-sm sm:text-base leading-tight">
+                <h2 className="arcade-heading lime compact text-base sm:text-lg leading-tight">
                   {t.title.toUpperCase()}
                 </h2>
                 <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-slate-300">{t.body}</p>

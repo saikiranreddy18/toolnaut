@@ -169,7 +169,7 @@ export default function ToolDetail() {
       </div>
 
       <div className="sticker mt-8 p-5" style={{ transform: 'rotate(0)' }}>
-        <p className="arcade-heading lime text-base">◆ WHY IT FITS</p>
+        <p className="arcade-heading lime compact text-lg">◆ WHY IT FITS</p>
         {reasons.length > 0 ? (
           <ul className="mt-3 space-y-2">
             {reasons.map((r) => (
@@ -191,7 +191,7 @@ export default function ToolDetail() {
 
       {related.length > 0 && (
         <div className="mt-10">
-          <p className="arcade-heading text-lg">RELATED TOOLS</p>
+          <h2 className="arcade-heading section text-xl sm:text-2xl">RELATED TOOLS</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-3">
             {related.map((r, i) => (
               <Link
@@ -199,7 +199,7 @@ export default function ToolDetail() {
                 to={`/app/tools/${r.slug}`}
                 className={`sticker ${i === 0 ? '' : i === 1 ? 'pink' : 'cyan'} p-4`}
               >
-                <p className="arcade-heading lime text-sm">{r.name.toUpperCase()}</p>
+                <p className="arcade-heading lime compact text-base">{r.name.toUpperCase()}</p>
                 <p className="mt-2 text-xs text-slate-300">{r.blurb}</p>
               </Link>
             ))}

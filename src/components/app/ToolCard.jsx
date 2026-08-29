@@ -58,7 +58,7 @@ export default function ToolCard({
         </span>
       </div>
 
-      <h3 className="arcade-heading lime mt-3 text-base">
+      <h3 className="arcade-heading lime compact mt-3 text-base">
         <Link
           to={`/app/tools/${tool.slug}`}
           className="after:absolute after:inset-0 after:content-[''] group-hover:opacity-80"

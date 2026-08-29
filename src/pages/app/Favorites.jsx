@@ -100,7 +100,7 @@ export default function Favorites() {
 
           {starterPicks.length > 0 && (
             <div className="mt-12">
-              <h2 className="arcade-heading text-lg">STARTER PICKS</h2>
+              <h2 className="arcade-heading section text-xl sm:text-2xl">STARTER PICKS</h2>
               <p className="mt-2 max-w-md text-sm text-slate-400">
                 Your three highest-scoring tools right now. Save one to start the
                 shortlist.
@@ -124,7 +124,7 @@ export default function Favorites() {
 
           {starterPicks.length === 0 && (
             <div className="sticker cyan mt-10 p-5">
-              <p className="arcade-heading lime text-base">◆ GET RANKED PICKS</p>
+              <p className="arcade-heading lime compact text-lg">◆ GET RANKED PICKS</p>
               <p className="mt-2 text-sm leading-relaxed text-slate-300">
                 Answer nine questions and Toolnaut scores all {TOOLS.length} tools
                 against how you actually work — so this page can suggest, not just store.
@@ -181,7 +181,7 @@ export default function Favorites() {
 
           {tools.length === 0 ? (
             <div className="mt-12">
-              <h2 className="arcade-heading text-lg">NOTHING IN THIS CATEGORY</h2>
+              <h2 className="arcade-heading section text-xl">NOTHING IN THIS CATEGORY</h2>
               <p className="mt-2 text-sm text-slate-400">
                 You have saved tools, just none filed under this one.
               </p>

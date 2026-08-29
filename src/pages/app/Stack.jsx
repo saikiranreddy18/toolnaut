@@ -125,7 +125,7 @@ export default function Stack() {
     const picks = recognisableStarters(TOOLS, 3)
 
     return (
-      <div className="mx-auto max-w-4xl px-5 py-6 lg:py-10">
+      <div className="mx-auto max-w-4xl px-5 xl:max-w-6xl py-6 lg:py-10">
         <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ STACK</p>
         <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR STACK<br />IS EMPTY</h1>
         <p className="mt-4 max-w-lg text-sm leading-relaxed text-slate-300">
@@ -370,7 +370,7 @@ export default function Stack() {
 
       {/* Next up — the one place that says what to do after this screen */}
       <section className="sticker cyan mt-8 p-5">
-        <h2 className="arcade-heading lime text-base">◆ NEXT UP</h2>
+        <h2 className="arcade-heading lime compact text-lg">◆ NEXT UP</h2>
         <ul className="mt-3 space-y-2.5 text-sm text-slate-300">
           {addedTools.length === 0 && (
             <li>

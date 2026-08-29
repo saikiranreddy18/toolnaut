@@ -189,7 +189,7 @@ export default function Discover() {
                 to={`/app/tools/${tool.slug}`}
                 className="sticker group flex w-40 shrink-0 flex-col p-3"
               >
-                <span className="arcade-heading lime text-xs group-hover:opacity-80">{tool.name.toUpperCase()}</span>
+                <span className="arcade-heading lime compact text-sm group-hover:opacity-80">{tool.name.toUpperCase()}</span>
                 <span className="mt-1 line-clamp-2 text-[10px] leading-relaxed text-slate-300">{tool.blurb}</span>
               </Link>
             ))}
@@ -253,7 +253,7 @@ export default function Discover() {
       ) : (
         <>
           <div className="mt-8 flex flex-wrap items-baseline justify-between gap-3">
-            <h2 className="arcade-heading text-lg">{gridHeading}</h2>
+            <h2 className="arcade-heading section text-xl sm:text-2xl">{gridHeading}</h2>
             {hasFilters && (
               <button
                 onClick={() => setSearchParams({})}

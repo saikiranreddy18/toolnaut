@@ -264,7 +264,7 @@ export default function Learning() {
   }
 
   return (
-    <div className="relative z-10 mx-auto max-w-2xl px-5 py-6 lg:py-10">
+    <div className="relative z-10 mx-auto max-w-2xl px-5 xl:max-w-3xl py-6 lg:py-10">
       <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ LEARN</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR 4-WEEK<br/>ORBIT</h1>
 
@@ -378,7 +378,7 @@ export default function Learning() {
                       </span>
                     )}
                   </div>
-                  <h2 className="arcade-heading lime mt-2 text-lg">{m.title.toUpperCase()}</h2>
+                  <h2 className="arcade-heading lime compact mt-2 text-xl">{m.title.toUpperCase()}</h2>
                   <p className="mt-2 text-sm leading-relaxed text-slate-300">{m.focus}</p>
 
                   {locked ? (
@@ -436,7 +436,7 @@ export default function Learning() {
             className="sticker mt-2 p-5 text-center backdrop-blur-sm bg-black/20"
             style={{ transform: 'rotate(-1deg)' }}
           >
-            <p className="arcade-heading lime text-lg">🏆 ORBIT CLEARED</p>
+            <p className="arcade-heading lime compact text-xl">🏆 ORBIT CLEARED</p>
             <p className="mt-2 text-sm text-slate-300">
               You've mastered your starter stack — steps done and every checkpoint passed.
             </p>

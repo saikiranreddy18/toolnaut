@@ -121,7 +121,7 @@ export default function Settings() {
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-5 py-8 lg:py-10">
+    <div className="mx-auto max-w-3xl px-5 py-8 lg:py-10 xl:max-w-6xl">
       <p className="font-display text-xs font-black uppercase tracking-[0.2em]" style={{ color: 'var(--lime)' }}>▸ ME</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR CONTROL CENTER</h1>
       <p className="mt-3 max-w-lg text-sm leading-relaxed text-slate-300">
@@ -131,7 +131,7 @@ export default function Settings() {
 
       {/* ── WHO YOU ARE ─────────────────────────────────────────────── */}
       <section className="mt-8">
-        <h2 className="arcade-heading text-lg">WHO YOU ARE</h2>
+        <h2 className="arcade-heading section text-xl sm:text-2xl">WHO YOU ARE</h2>
         {persona ? (
           <div className="sticker mt-4 flex flex-wrap items-start gap-5 p-5">
             <div className="shrink-0">
@@ -172,7 +172,7 @@ export default function Settings() {
           </div>
         ) : (
           <div className="sticker cyan mt-4 p-5">
-            <p className="arcade-heading lime text-base">◆ NO PERSONA YET</p>
+            <p className="arcade-heading lime compact text-lg">◆ NO PERSONA YET</p>
             <p className="mt-2 text-sm leading-relaxed text-slate-300">
               Without one, tools are listed but not scored, and there is no
               roadmap to follow. Nine questions fixes that.
@@ -184,11 +184,16 @@ export default function Settings() {
         )}
       </section>
 
+      {/* Self-contained cards below the persona: one column until xl, then
+          two, so a wide screen stops running a 768px ribbon down its middle.
+          break-inside-avoid keeps a card from splitting across the columns. */}
+      <div className="xl:columns-2 xl:gap-8">
+
       {/* ── WHAT YOU HAVE DONE ──────────────────────────────────────── */}
       {/* Explorer avatar — the profile had no face at all, so the sidebar and
           this page both fell back to a name string. */}
-      <section className="mt-10">
-        <h2 className="arcade-heading text-lg">YOUR EXPLORER</h2>
+      <section className="mt-10 xl:mt-0 xl:mb-8 xl:break-inside-avoid">
+        <h2 className="arcade-heading section text-xl sm:text-2xl">YOUR EXPLORER</h2>
         <p className="mt-2 max-w-lg text-sm text-slate-400">
           Sixteen of the crew. Your pick shows here and in the sidebar — tap the
           one you have chosen again to go back to your initial.
@@ -198,8 +203,8 @@ export default function Settings() {
         </div>
       </section>
 
-      <section className="mt-10">
-        <h2 className="arcade-heading text-lg">WHAT YOU HAVE DONE</h2>
+      <section className="mt-10 xl:mt-0 xl:mb-8 xl:break-inside-avoid">
+        <h2 className="arcade-heading section text-xl sm:text-2xl">WHAT YOU HAVE DONE</h2>
         <p className="mt-2 text-sm text-slate-400">
           Counted from this browser. Tap any tile to go where it changes.
         </p>
@@ -243,8 +248,8 @@ export default function Settings() {
 
       {/* ── WHAT TOOLNAUT KNOWS ─────────────────────────────────────── */}
       {persona && (
-        <section className="mt-10">
-          <h2 className="arcade-heading text-lg">WHAT TOOLNAUT KNOWS</h2>
+        <section className="mt-10 xl:mt-0 xl:mb-8 xl:break-inside-avoid">
+          <h2 className="arcade-heading section text-xl sm:text-2xl">WHAT TOOLNAUT KNOWS</h2>
           <p className="mt-2 max-w-lg text-sm text-slate-400">
             Your nine answers. Each one feeds a specific part of the product —
             this is the whole input, there is nothing hidden behind it.
@@ -275,8 +280,8 @@ export default function Settings() {
       )}
 
       {/* ── SKY SETTINGS ────────────────────────────────────────────── */}
-      <section className="mt-10">
-        <h2 className="arcade-heading text-lg">SKY SETTINGS</h2>
+      <section className="mt-10 xl:mt-0 xl:mb-8 xl:break-inside-avoid">
+        <h2 className="arcade-heading section text-xl sm:text-2xl">SKY SETTINGS</h2>
         <p className="mt-2 text-sm text-slate-400">
           Applies everywhere, saved to this browser.
         </p>
@@ -327,8 +332,8 @@ export default function Settings() {
       </section>
 
       {/* ── ACCOUNT ─────────────────────────────────────────────────── */}
-      <section className="mt-10">
-        <h2 className="arcade-heading text-lg">ACCOUNT</h2>
+      <section className="mt-10 xl:mt-0 xl:mb-8 xl:break-inside-avoid">
+        <h2 className="arcade-heading section text-xl sm:text-2xl">ACCOUNT</h2>
         <div className="sticker mt-4 p-5">
           <dl className="divide-y divide-white/10">
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 py-2.5 first:pt-0">
@@ -365,6 +370,8 @@ export default function Settings() {
       </section>
 
       {/* destructive action — visually separated per nav guidelines */}
+      </div>
+
       <div className="mt-10 border-t-2 border-white/10 pt-6">
         <button onClick={handleSignOut} className="nb-btn pink min-h-11 px-4 py-2.5 text-xs">
           Sign out
