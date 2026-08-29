@@ -1931,3 +1931,72 @@ a client-side SPA with a static tool catalogue.
   existing gated strip. No backend, no new dependency, no new store, no new
   util (`getNewTools()` already exists and is already tested).
 - **Found:** 2026-08-28 12:20 UTC
+
+### Structured data (JSON-LD) — zero schema.org markup on any crawlable page
+- **Status:** OPEN
+- **Seen in:** G2 and Capterra emit `SoftwareApplication`/`Product` JSON-LD
+  with `aggregateRating` and `offers` on every listing page, which is exactly
+  why their category pages show star ratings and price directly in Google
+  search results instead of a plain blue link; Product Hunt emits the same
+  pattern per launch page. This is the single most common SEO technique in
+  the tool-directory space precisely because a directory's whole value
+  proposition — "many structured things, each with a name/price/category" —
+  maps onto schema.org's vocabulary almost exactly.
+- **Gap:** grepped `application/ld+json|schema.org|JSON-LD|jsonld` across all
+  of `src/` — zero hits, on any page. This is a distinct gap from the
+  already-OPEN "Per-route page title & meta description" entry above, which
+  explicitly scoped structured data out as "a separate and larger SEO
+  project" (`docs/research-backlog.md:788`) — this entry is that separate
+  project, scoped down to what's actually buildable today. Three pages are
+  public/crawlable and tool-listing-shaped and would benefit immediately:
+  `CategoryLanding.jsx` (`/tools/:domain`, confirmed public at `App.jsx:88`,
+  its own comment says so — "Public, crawlable, no session required"),
+  `NewTools.jsx` (`/new`, same tier, `App.jsx:89`), and `SharedStack.jsx`
+  (`/s/:slugs`, `App.jsx:87`). All three already render a list of tools with
+  `name`, `blurb`, `price` (`free`/`freemium`/`paid`, confirmed enum at
+  `toolsCatalog.js:5`), and `category` — exactly the fields an `ItemList` of
+  `SoftwareApplication` entries needs. None of the three currently escapes
+  their own JSX to say so to a crawler.
+- **Why it matters:** free, and additive to the meta-description gap already
+  queued rather than competing with it — once `usePageMeta` ships a correct
+  `<title>`/description, JSON-LD is the next SEO layer, giving Google rich
+  results (name, price, category) directly in the search snippet instead of
+  a generic description. For a pre-revenue product whose growth channel is
+  organic discovery of a 700+ tool catalog, that's real, compounding upside
+  with no infra cost — it's markup, not a feature.
+- **Smallest useful version (what to actually build):**
+  - New pure util `src/utils/structuredData.js`: `buildItemListSchema(tools,
+    { name, description, url })` → a `{ '@context': 'https://schema.org',
+    '@type': 'ItemList', ... }` object whose `itemListElement` is one
+    `SoftwareApplication` per tool (`name`, `description: tool.blurb`,
+    `applicationCategory: 'AIApplication'`, and `offers: { '@type': 'Offer',
+    price: tool.price === 'free' ? '0' : undefined, priceCurrency: 'USD' }`
+    only when the price is unambiguous — `freemium`/`paid` tools have no
+    actual numeric price in the catalog, so their `offers` block is omitted
+    rather than inventing a number; an absent field is honest, a fabricated
+    one is the same trust risk this file's own SEEDED-stats section already
+    goes out of its way to avoid). Pure and unit-testable like `shareStack.js`/
+    `newTools.js`.
+  - A tiny shared component `src/components/seo/JsonLd.jsx`: renders
+    `<script type="application/ld+json">{JSON.stringify(schema)}</script>`
+    given a schema object — one line of JSX, reused by all three call sites.
+  - Wire into `CategoryLanding.jsx` (list of that domain's tools),
+    `NewTools.jsx` (list of tools from `getNewTools(30)`), and
+    `SharedStack.jsx` (list of the shared stack's resolved tools) — each
+    passes its own already-computed `tools` array straight to
+    `buildItemListSchema()`, no new data fetching.
+  - **What this would NOT include** (kept out to bound the diff): no
+    `aggregateRating` (the per-tool ratings/reviews gap above is still OPEN
+    — don't emit a rating schema with no rating data behind it, that's the
+    exact fabrication this file warns against elsewhere); no `Organization`/
+    `WebSite` sitewide schema on the homepage in v1 (a real separate addition,
+    smaller than this one, left for a follow-up rather than padding this
+    diff); no JSON-LD on `ToolDetail`/`Compare` (still behind `AppShell`'s
+    session guard per the meta-description gap's own deepening above — no
+    point marking up a page a crawler can't reach); no schema validation
+    tooling/CI check beyond manually checking output against Google's Rich
+    Results Test once shipped.
+- **Build size:** S — one pure util (`structuredData.js`), one tiny component
+  (`JsonLd.jsx`), three call sites (`CategoryLanding.jsx`, `NewTools.jsx`,
+  `SharedStack.jsx`). No backend, no new dependency, no new route.
+- **Found:** 2026-08-29 00:06 UTC
