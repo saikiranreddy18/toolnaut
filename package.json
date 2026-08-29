@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/stamp-sw.mjs",
+    "build": "vite build && node scripts/stamp-sw.mjs && npm run prerender",
+    "prerender": "playwright install chromium --only-shell >/dev/null 2>&1; node scripts/prerender.mjs || echo \"prerender skipped — serving SPA shell\"",
     "preview": "vite preview",
     "smoke": "node scripts/smoke.mjs",
     "test": "cd radar && node --test",
