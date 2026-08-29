@@ -48,6 +48,22 @@ const ROUTES = [
 const status = []
 function note(line) { status.push(line); console.log(line) }
 
+// The chromium binary installs fine on Vercel; it then dies the instant it is
+// launched, which is the signature of missing shared libraries rather than a
+// missing browser. `playwright install --with-deps` cannot help here: it shells
+// out to apt-get, and the build image is Amazon Linux. So ask dnf directly, and
+// treat the whole thing as best-effort — on a host that already has the libs,
+// or has no dnf at all, this is a no-op and the launch below still succeeds.
+if (process.env.VERCEL) {
+  const LIBS = 'nss nspr atk at-spi2-atk at-spi2-core cups-libs libdrm libX11 libXcomposite libXdamage libXext libXfixes libXrandr libxkbcommon libxshmfence mesa-libgbm pango cairo alsa-lib'
+  try {
+    execSync(`dnf install -y ${LIBS} 2>&1 | tail -2`, { encoding: 'utf8', timeout: 240000 })
+    note('deps: dnf ok')
+  } catch (err) {
+    note('deps: dnf FAILED — ' + String(err.message || err).split(/\r?\n/)[0])
+  }
+}
+
 try {
   const out = execSync('npx playwright install chromium --only-shell 2>&1', {
     encoding: 'utf8', timeout: 300000,
