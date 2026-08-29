@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import PricingSection from '../components/sections/PricingSection'
+import { useHead } from '../utils/head'
 import CapabilityMatrix from '../components/sections/CapabilityMatrix'
 import { BrandLogo } from '../components/ui/Mascot'
 import { BRAND } from '../config'
@@ -10,6 +11,11 @@ import { EVENTS } from '../utils/analyticsEvents'
 // Standalone pricing page — reuses the pillars/comparison section that was
 // removed from the landing flow. All plans are reservations while in beta.
 export default function Pricing() {
+  useHead({
+    title: 'Pricing — Toolnaut',
+    description: 'Toolnaut is free while it is in public beta. See what a paid tier will cover, and what stays free.',
+    path: '/pricing',
+  })
   const track = useAnalytics()
   // Purchase intent. Without it there is no way to tell whether people who
   // never upgrade even reached the pricing page.
@@ -32,7 +38,7 @@ export default function Pricing() {
         <span className="tape-label text-xs">✦ beta is free — plans open at launch ✦</span>
       </div>
 
-      <PricingSection />
+      <PricingSection titleAs="h1" />
 
       <CapabilityMatrix />
 
