@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useHead } from '../utils/head'
 import { PRICE_LABELS, LEVEL_LABELS } from '../utils/toolsCatalog'
 import { getNewTools } from '../utils/newTools'
 import { isCatalogNoise } from '../utils/prominence'
@@ -10,6 +11,13 @@ import { timeAgo } from '../utils/communityData'
 // 30-day window instead of 7 so a public SEO page isn't empty most weeks.
 export default function NewTools() {
   const tools = getNewTools(30).filter((t) => !isCatalogNoise(t))
+
+  useHead({
+    title: `New AI tools this month (${tools.length} added) — Toolnaut`,
+    description:
+      'AI tools added to Toolnaut in the last 30 days, found by the nightly radar. What each one does, what it costs, and how hard it is to pick up.',
+    path: '/new',
+  })
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-10 lg:py-16">

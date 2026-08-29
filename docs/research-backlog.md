@@ -2110,7 +2110,9 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-29 03:15 UTC
 
 ### A shared stack can only be viewed, never adopted — the receiving half of Share/Export was never built
-- **Status:** OPEN
+- **Status:** FIXED (this commit) — small, well-scoped defect in already-shipped
+  code, fixed in this run rather than left OPEN; entry kept for the record per
+  this backlog's own audit trail.
 - **Seen in:** not a competitor pattern — found re-reading the already-shipped
   Share/Export gap (`/s/:slugs`, shipped `42bdc994`) against its own stated
   goal: "Every visitor who finishes the quiz or curates a stack is a free
@@ -2204,3 +2206,98 @@ a client-side SPA with a static tool catalogue.
   from existing stores. No backend, no new dependency, no new route, no new
   store, no new util.
 - **Found:** 2026-08-29 06:20 UTC
+- **Fix shipped this run:** `SharedStack.jsx` now branches on `loadSession()`.
+  Signed-in visitors get a primary "⚡ Add all N to my stack" button (calls
+  `addToStack` for every shared slug, then navigates to `/app/stack`) plus a
+  "View my stack instead" link, or — if `loadStack()` already contains every
+  shared slug — an honest "You already have all N of these" message instead
+  of an add action with nothing left to add. Signed-out visitors keep the
+  original "take the quiz" destination, but the shared tools are now added to
+  `stackStore` first, so they carry forward into the starter-stack union
+  `Stack.jsx` already builds. Both branches show a brief "✓ Added!" state on
+  the button before navigating. Exactly as specced above — one file, no new
+  dependency, no new route. Verified via `npm test` (102/102), `npm run
+  build`, and `npm run smoke` (20/20 routes clean, including `/s/chatgpt`).
+
+### Tags are collected and searched on, but never clickable — no tag-based browsing exists
+- **Status:** OPEN
+- **Seen in:** Futurepedia (fetched fresh this run) renders a row of
+  topic tags under every tool card (`#ai-chatbots`, `#code-assistant`, etc.)
+  that are themselves links back into the directory, filtered to that tag —
+  its own description of the pattern is "tags... enable cross-reference
+  browsing and topic-based discovery." G2/Capterra's "related products by
+  feature tag" links and AlternativeTo's per-tag browse pages are the same
+  idea: a tag is treated as a first-class navigation surface, not just
+  decoration on a listing.
+- **Gap:** Toolnaut already has exactly this data, structured and complete —
+  every one of the 704 catalog entries carries a `tags` array (confirmed by
+  direct extraction from `toolsCatalog.js`: 43 distinct tags across all
+  entries, from broad ones like `design` (187 tools) and `code` (145) down to
+  narrow ones like `voice` (28) and `open-source` (33)) — and it's already
+  load-bearing for search: `Discover.jsx:107`'s free-text filter explicitly
+  ORs `tool.tags.some((tag) => tag.includes(needle))` into its match
+  predicate, so typing a tag name into the search box already works. But
+  nothing in the UI ever turns a tag into something a user can click.
+  `ToolDetail.jsx:133-135` renders up to 4 tags per tool as plain
+  `<span className="arcade-chip">` elements with no `onClick`, no `<Link>`,
+  no `href` — confirmed by reading the surrounding 10 lines in full, it's a
+  bare `.map()` producing static text. `Discover.jsx`'s own card grid never
+  renders `tags` at all (grepped `tag` case-sensitively across the file —
+  the only hit is the search-predicate line above). There is no `?tag=`
+  query param, no tag filter row alongside the existing category/price/level
+  chips, and no dedicated tag-browse page anywhere — grepped
+  `tag.{0,3}(filter|browse|chip|param)` across `src/pages` and
+  `src/components`, zero hits outside `ToolDetail.jsx`'s static rendering.
+  A user reading a tool's page and noticing it's tagged `voice` has no way
+  to see the other 27 `voice`-tagged tools short of guessing the word and
+  typing it into Discover's search box themselves.
+- **Why it matters:** this is the same "data already collected, never
+  surfaced" shape as the shipped Fresh-Finds and Skills-Graph gaps, except
+  cheaper than either — the matching logic Discover already runs for typed
+  search is the exact logic a clicked tag needs, so this doesn't even need a
+  new filter predicate, just a link. Tags are also a genuinely different cut
+  through the catalog than the 6 broad `CATEGORY_META` domains or the 26
+  `sourceCategory` values already exposed via category-landing pages: a tag
+  like `agent` (90 tools) or `open-source` (33) cuts across categories in a
+  way neither existing taxonomy does, so this closes a real, distinct
+  discovery path rather than duplicating the category-landing-page gap
+  already shipped.
+- **Smallest useful version (what to actually build):**
+  - `ToolDetail.jsx:133-135`: wrap each tag `<span>` in a `<Link
+    to={`/app/discover?q=${encodeURIComponent(tag)}`}>`, keeping the exact
+    same `arcade-chip` class/markup so no visual change beyond becoming
+    clickable (add a subtle hover state consistent with how other chip-links
+    behave elsewhere in the app, if any precedent exists — otherwise the
+    existing chip style alone is enough signal once it's a real link).
+    Reuses the already-existing `q` param and its already-existing
+    tags-inclusive search predicate — no new query param, no new filter
+    logic, no new util. This is the entire fix for the primary "tag is a
+    dead end" problem.
+  - `Discover.jsx`: optionally render up to 2-3 tags per card in the
+    existing card markup (below the blurb, same muted small-text style
+    `Discover.jsx:195`'s blurb line already uses), each also a `<Link
+    to="?q=<tag>">` — this extends the same clickable-tag pattern to the
+    page a user is most likely to be browsing multiple tools on already,
+    but is a smaller, separable addition to the primary `ToolDetail` fix and
+    can ship after it if it doesn't fit the same diff.
+  - **What this would NOT include** (kept out to bound the diff): no
+    dedicated tag filter chip row alongside the existing category/price/level
+    filters on `Discover.jsx` (that's a heavier, separate UI decision —
+    43 tags is too many for a chip row the way 6 categories or 4 price
+    tiers already work; reusing the free-text `q` param via a link is the
+    honest smallest version, not a new faceted-filter UI); no tag-browse
+    landing page (`/tags/:tag`) — the existing gated `/app/discover?q=` path
+    already serves this need for a signed-in user, and a public crawlable
+    version would need its own scoping decision closer to the still-open
+    `/alternatives/:slug` gap's shape, not assumed here; no change to how
+    tags are stored, generated, or normalized in the catalog or radar
+    pipeline; no exact-tag-only matching (clicking a tag reuses the existing
+    substring-across-multiple-fields search predicate as-is, which can
+    occasionally over-match on a short common word like `data` — a known,
+    accepted limitation of reusing `q` rather than adding a dedicated
+    exact-tag filter, flagged here rather than silently ignored).
+- **Build size:** S — a `<Link>` wrap around ~3 lines in `ToolDetail.jsx`
+  (no new component, no new store, no new util, no new route), plus an
+  optional small addition to `Discover.jsx`'s card markup. No backend, no
+  new dependency.
+- **Found:** 2026-08-29 09:20 UTC

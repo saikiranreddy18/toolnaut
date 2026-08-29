@@ -3998,5 +3998,419 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-08-29T03:23:03.469Z"
+  },
+  {
+    "id": "course-datazen",
+    "toolSlug": "datazen",
+    "title": "Master DataZen",
+    "objectives": [
+      "Connect and query multiple databases from one DataZen workspace",
+      "Build a cross-database workflow that moves and transforms data between sources",
+      "Schedule, parameterize, and share a reusable workflow locally"
+    ],
+    "modules": [
+      {
+        "title": "Connecting Your First Data Sources",
+        "estMinutes": 25,
+        "steps": [
+          "Open the Connections panel and add a PostgreSQL source with host, port, credentials, and an optional SSH tunnel",
+          "Add a SQLite file and a CSV folder as secondary sources, then run the built-in connection test on each",
+          "Use the schema explorer to preview tables and save a source alias so later queries stay portable"
+        ]
+      },
+      {
+        "title": "Cross-Database Queries",
+        "estMinutes": 35,
+        "steps": [
+          "Write a federated query joining a Postgres orders table to a SQLite customers table using DataZen's source-prefixed table syntax (e.g., pg.orders JOIN lite.customers)",
+          "Add a query parameter (like :start_date) and re-run the query with different values from the parameter bar",
+          "Save the query result to a local DataZen staging table so downstream steps can reference it without re-hitting the sources"
+        ]
+      },
+      {
+        "title": "Building a Multi-Step Workflow",
+        "estMinutes": 40,
+        "steps": [
+          "Create a new workflow, add your saved query as step one, then add a transform step that filters and renames columns using the visual editor",
+          "Add a load step that writes the transformed result into a target Postgres table with upsert-on-key conflict handling",
+          "Run the workflow end to end, inspect the per-step row counts and logs, and fix a deliberately introduced type-mismatch error"
+        ]
+      },
+      {
+        "title": "Scheduling, Versioning, and Sharing",
+        "estMinutes": 20,
+        "steps": [
+          "Attach a cron schedule to the workflow and enable the 'run only when source changed' option",
+          "Export the workflow as a versioned .dz file with connection secrets stripped, then re-import it into a fresh workspace",
+          "Review the local run history, compare two runs' outputs, and roll back the workflow to an earlier version"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-database",
+      "skill-sql",
+      "skill-local-first",
+      "skill-analytics",
+      "skill-cross-database"
+    ],
+    "prerequisites": [
+      "Comfort writing basic SQL (SELECT, JOIN, WHERE, GROUP BY)",
+      "At least two reachable data sources (e.g., a local Postgres instance plus a SQLite or CSV file)",
+      "DataZen desktop client installed and a workspace initialized"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "course-toolchestrator",
+    "toolSlug": "toolchestrator",
+    "title": "Master Toolchestrator",
+    "objectives": [
+      "Understand what Toolchestrator is for",
+      "Use Toolchestrator on a real task",
+      "Know where Toolchestrator fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Toolchestrator for your real workflow, not the demo.",
+          "Say what Toolchestrator does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Toolchestrator.",
+          "Push Toolchestrator to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Toolchestrator into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-tool orchestration",
+      "skill-internal tools",
+      "skill-ai tools",
+      "skill-team sharing"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "course-doodle-ai-open-source-photo-to-doodle-avatar-generator",
+    "toolSlug": "doodle-ai-open-source-photo-to-doodle-avatar-generator",
+    "title": "Master Doodle AI: open-source photo-to-doodle avatar generator",
+    "objectives": [
+      "Set up Doodle AI locally from the open-source repo",
+      "Turn a personal photo into a doodle-style avatar",
+      "Tweak style settings and export a finished PNG"
+    ],
+    "modules": [
+      {
+        "title": "Install and Launch Doodle AI",
+        "estMinutes": 15,
+        "steps": [
+          "Clone the repo: git clone https://github.com/doodle-ai/doodle-ai.git, then cd into the folder",
+          "Create a virtual environment (python -m venv venv, then activate it) and run pip install -r requirements.txt",
+          "Start the app with python app.py and open http://localhost:7860 in your browser to confirm the interface loads"
+        ]
+      },
+      {
+        "title": "Generate Your First Avatar",
+        "estMinutes": 10,
+        "steps": [
+          "Pick a clear, front-facing photo with good lighting and crop it to head-and-shoulders",
+          "Upload the photo in the web interface and click 'Generate', waiting for the doodle to render",
+          "Click 'Download' to save the resulting doodle avatar as a PNG file"
+        ]
+      },
+      {
+        "title": "Customize and Refine the Style",
+        "estMinutes": 10,
+        "steps": [
+          "Regenerate with different style presets (e.g., pencil sketch, bold outline, minimal line art) and compare results side by side",
+          "Adjust the line-weight and detail sliders until the doodle matches your preferred look",
+          "Export your favorite version at the highest available resolution and try it as a profile picture"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-doodle",
+      "skill-avatar",
+      "skill-image-generation",
+      "skill-open-source",
+      "skill-photo"
+    ],
+    "prerequisites": [
+      "A computer with Python 3.8+ installed and ~2 GB of free disk space",
+      "Basic command-line skills (opening a terminal, changing directories, running commands)",
+      "One or more clear portrait photos of yourself"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "course-agentbridge",
+    "toolSlug": "agentbridge",
+    "title": "Master AgentBridge",
+    "objectives": [
+      "Understand what AgentBridge is for",
+      "Use AgentBridge on a real task",
+      "Know where AgentBridge fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AgentBridge for your real workflow, not the demo.",
+          "Say what AgentBridge does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AgentBridge.",
+          "Push AgentBridge to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AgentBridge into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-multi-agent",
+      "skill-orchestration",
+      "skill-ai-coding",
+      "skill-open-source",
+      "skill-automation"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "course-itsuki",
+    "toolSlug": "itsuki",
+    "title": "Master Itsuki",
+    "objectives": [
+      "Understand what Itsuki is for",
+      "Use Itsuki on a real task",
+      "Know where Itsuki fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Itsuki for your real workflow, not the demo.",
+          "Say what Itsuki does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Itsuki.",
+          "Push Itsuki to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Itsuki into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-memory",
+      "skill-open-source",
+      "skill-mcp",
+      "skill-api"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "course-microsoft-publishes-ai-agent-shared-responsibility-model",
+    "toolSlug": "microsoft-publishes-ai-agent-shared-responsibility-model",
+    "title": "Master Microsoft publishes AI Agent Shared Responsibility Model",
+    "objectives": [
+      "Understand what Microsoft publishes AI Agent Shared Responsibility Model is for",
+      "Use Microsoft publishes AI Agent Shared Responsibility Model on a real task",
+      "Know where Microsoft publishes AI Agent Shared Responsibility Model fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Microsoft publishes AI Agent Shared Responsibility Model for your real workflow, not the demo.",
+          "Say what Microsoft publishes AI Agent Shared Responsibility Model does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Microsoft publishes AI Agent Shared Responsibility Model.",
+          "Push Microsoft publishes AI Agent Shared Responsibility Model to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Microsoft publishes AI Agent Shared Responsibility Model into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-security",
+      "skill-governance",
+      "skill-azure",
+      "skill-compliance"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "course-obsessing-over-ai-agent-harnesses",
+    "toolSlug": "obsessing-over-ai-agent-harnesses",
+    "title": "Master Obsessing over AI Agent Harnesses",
+    "objectives": [
+      "Understand what Obsessing over AI Agent Harnesses is for",
+      "Use Obsessing over AI Agent Harnesses on a real task",
+      "Know where Obsessing over AI Agent Harnesses fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Obsessing over AI Agent Harnesses for your real workflow, not the demo.",
+          "Say what Obsessing over AI Agent Harnesses does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Obsessing over AI Agent Harnesses.",
+          "Push Obsessing over AI Agent Harnesses to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Obsessing over AI Agent Harnesses into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-harness",
+      "skill-llm",
+      "skill-essay",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "course-my-free-code",
+    "toolSlug": "my-free-code",
+    "title": "Master my-free-code",
+    "objectives": [
+      "Understand what my-free-code is for",
+      "Use my-free-code on a real task",
+      "Know where my-free-code fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure my-free-code for your real workflow, not the demo.",
+          "Say what my-free-code does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through my-free-code.",
+          "Push my-free-code to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold my-free-code into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-open source",
+      "skill-llm gateway",
+      "skill-coding agents",
+      "skill-model routing",
+      "skill-claude code"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T14:30:52.619Z"
   }
 ]

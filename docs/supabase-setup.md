@@ -108,3 +108,32 @@ That migration is the next piece of work, and it is where these become real:
 Do the migration on first sign-in, so that someone who has already built a stack
 as a guest keeps it when they create an account. Signing in and finding an empty
 stack is how you lose the users who liked it enough to sign up.
+
+---
+
+## Real explorer count (optional, one-time)
+
+The landing page's "Explorers" figure is a live count of signed-up accounts.
+Until the table below exists it shows **nothing** — deliberately, because the
+alternative is inventing a number.
+
+Run `supabase/migrations/0001_explorers.sql` once in **Supabase → SQL Editor**.
+It creates:
+
+- `public.explorers` — one row per account, holding only the auth id and a
+  timestamp. No name, no email. A public counter is not a reason to store
+  anything about anyone.
+- An insert-only RLS policy checking `auth.uid() = id`, so an account can
+  register itself and nothing else.
+- **No select policy at all** — the rows are unreadable, even by their owner.
+- `public.explorer_count()`, a `security definer` aggregate, so the total is
+  public while membership stays private.
+- A backfill of existing `auth.users`, so switching over does not reset to zero.
+
+The app registers on every arrival through `watchSession`, which is the only
+place that sees the return trip from Google. The insert is idempotent on the
+primary key, so signing in repeatedly costs one rejected row and never
+double-counts.
+
+**Expect the number to be small.** `/app` is open to guests, so most visitors
+never sign in. That is the honest figure; the previous 1,300 was not.

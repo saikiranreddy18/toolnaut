@@ -22,6 +22,17 @@ import { computeScore } from './leaderboardData'
 
 export const SEEDED = true
 
+// EXPLORERS IS NO LONGER SHOWN AS A STATISTIC.
+//
+// The landing page now counts real sign-ups through utils/explorerCount.js
+// (public.explorer_count(), one row per account) and hides the tile when that
+// count cannot be read, rather than falling back to this number.
+//
+// It survives here for ONE job: anchoring the leaderboard's starting rank
+// below. That is a game mechanic, not a claim about how many people use the
+// product — a new explorer needs somewhere to enter the queue and something to
+// climb, and RankCard says "preview — leaderboard not live yet" on its face.
+// Do not reintroduce it as a displayed count.
 export const EXPLORERS = 1300
 export const SUBSCRIBERS = 84
 

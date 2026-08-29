@@ -12,12 +12,12 @@ function Cell({ value }) {
   return <span className="text-slate-200">{value}</span>
 }
 
-export default function PricingSection() {
+export default function PricingSection({ titleAs = 'h2' }) {
   const [compare, setCompare] = useState(false)
   const track = useAnalytics()
 
   return (
-    <SectionShell id="pricing" eyebrow="Pricing" title="Start solo. Scale with your team.">
+    <SectionShell id="pricing" eyebrow="Pricing" titleAs={titleAs} title="Start solo. Scale with your team.">
       <div className="grid items-start gap-8 md:grid-cols-3">
         {PLANS.map((plan) => (
           <PricingPillar key={plan.id} plan={plan} />

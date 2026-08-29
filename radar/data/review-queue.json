@@ -111,5 +111,34 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "lanegate",
+    "name": "LaneGate",
+    "category": "automation",
+    "sourceCategory": "Productivity & Meetings",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "LaneGate – Git-native worktree orchestrator for AI agents",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://github.com/sudheerdvn/lanegate",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "automation",
+      "agent"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49487178",
+    "discoveredAt": "2026-08-29T14:30:52.619Z",
+    "updatedAt": "2026-08-29T14:30:52.619Z",
+    "contentHash": "2b6d10d77ef50cd9",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]

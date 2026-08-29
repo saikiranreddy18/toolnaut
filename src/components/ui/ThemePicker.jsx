@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { THEMES, loadTheme, setTheme } from '../../state/themeStore'
 import { loadMoon, setMoon } from '../../state/moonStore'
 import MoonToggle from './MoonToggle'
+import { GALAXY_LEVELS, loadGalaxyQuality, setGalaxyQuality } from '../../state/galaxyQualityStore'
 import { haptic } from '../../utils/haptics'
 
 // Floating "play modes" switcher — a palette button (bottom-right) that expands
@@ -16,6 +17,7 @@ export default function ThemePicker() {
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState(loadTheme)
   const [moon, setMoonState] = useState(loadMoon)
+  const [gq, setGq] = useState(loadGalaxyQuality)
 
   function pick(id) {
     haptic.tap()
@@ -24,6 +26,11 @@ export default function ThemePicker() {
 
   function pickMoon(id) {
     setMoonState(setMoon(id))
+  }
+
+  function pickGalaxy(id) {
+    haptic.tap()
+    setGq(setGalaxyQuality(id))
   }
 
   return (
@@ -76,6 +83,37 @@ export default function ThemePicker() {
                 onChange={(on) => pickMoon(on ? 'full' : 'none')}
               />
             </div>
+
+            <div className="my-1 h-px bg-white/10" role="separator" />
+            <p className="px-3 pb-1 font-display text-[9px] font-black uppercase tracking-[0.16em] text-slate-500">
+              Galaxy
+            </p>
+            {/* The escape hatch for a machine the 3D is too heavy for. Every
+                automatic fix for that was measured and none of them moved the
+                number — turning WebGL off is the one that always works, and the
+                person at the keyboard knows better than a heuristic. */}
+            <div className="flex gap-1.5 px-3 pb-1" role="radiogroup" aria-label="Galaxy detail">
+              {GALAXY_LEVELS.map((l) => (
+                <button
+                  key={l.id}
+                  role="radio"
+                  aria-checked={gq === l.id}
+                  onClick={() => pickGalaxy(l.id)}
+                  title={l.hint}
+                  className="press flex-1 rounded-lg border-2 px-2 py-1.5 font-display text-[10px] font-black uppercase tracking-wider transition-colors"
+                  style={{
+                    borderColor: gq === l.id ? 'var(--lime)' : 'rgba(255,255,255,0.12)',
+                    background: gq === l.id ? 'var(--lime)' : 'transparent',
+                    color: gq === l.id ? '#000' : '#cbd5e1',
+                  }}
+                >
+                  {l.name}
+                </button>
+              ))}
+            </div>
+            <p className="px-3 pb-1 text-[10px] leading-snug text-slate-500">
+              {GALAXY_LEVELS.find((l) => l.id === gq)?.hint}
+            </p>
           </motion.div>
         )}
       </AnimatePresence>

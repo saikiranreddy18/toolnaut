@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useHead } from '../utils/head'
 import { TOOLS } from '../utils/toolsCatalog'
 import { lastUpdatedLabel } from '../utils/catalogFreshness'
 
@@ -28,6 +29,11 @@ function Block({ title, children }) {
 }
 
 export default function Methodology() {
+  useHead({
+    title: 'How Toolnaut chooses tools — methodology',
+    description: 'How tools enter the catalogue, how match scores are calculated, and what the numbers on this site do and do not claim.',
+    path: '/methodology',
+  })
   const updated = lastUpdatedLabel()
 
   return (

@@ -1,4 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
+import { useHead, SITE } from '../utils/head'
 import { TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../utils/toolsCatalog'
 
 // One-line, honest descriptions — no per-tool editorial content is invented,
@@ -18,9 +19,47 @@ const DOMAIN_BLURB = {
 export default function CategoryLanding() {
   const { domain } = useParams()
   const meta = CATEGORY_META[domain]
-  if (!meta) return <Navigate to="/" replace />
+  // Everything below runs for an unknown domain too. useHead is a hook, so it
+  // cannot sit after the redirect return — React requires the same hooks on
+  // every render, and a route change from /tools/design to /tools/nonsense
+  // would otherwise change the count and throw.
+  const tools = meta ? TOOLS.filter((t) => t.category === domain) : []
 
-  const tools = TOOLS.filter((t) => t.category === domain)
+  // These six pages are the strongest organic-search assets on the site —
+  // "best AI tools for design" is exactly what someone types — and every one of
+  // them was shipping the homepage's title and, worse, its canonical, which
+  // asks Google to treat them all as duplicates of the homepage and index none
+  // of them. ItemList so the tools are legible as a list rather than prose.
+  useHead(
+    meta
+      ? {
+          title: `Best AI tools for ${meta.name.toLowerCase()} (${tools.length} compared) — Toolnaut`,
+          description:
+            DOMAIN_BLURB[domain] ||
+            `${tools.length} AI tools for ${meta.name.toLowerCase()}, with pricing, difficulty and what each one is actually for.`,
+          path: `/tools/${domain}`,
+          jsonLd: {
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: `Best AI tools for ${meta.name}`,
+            url: `${SITE}/tools/${domain}`,
+            mainEntity: {
+              '@type': 'ItemList',
+              numberOfItems: tools.length,
+              itemListElement: tools.slice(0, 25).map((t, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                name: t.name,
+                description: t.blurb,
+                url: `${SITE}/app/tools/${t.slug}`,
+              })),
+            },
+          },
+        }
+      : {},
+  )
+
+  if (!meta) return <Navigate to="/" replace />
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-10 lg:py-16">

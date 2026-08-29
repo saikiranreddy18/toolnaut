@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useHead } from '../utils/head'
 import { motion } from 'framer-motion'
 import { BrandLogo } from '../components/ui/Mascot'
 import { BRAND } from '../config'
@@ -24,6 +25,11 @@ const SECTIONS = [
 ]
 
 export default function About() {
+  useHead({
+    title: 'About Toolnaut — the role-aware AI tool map',
+    description: 'Why Toolnaut exists: 780+ AI tools is not a shortlist. Nine questions turn the catalogue into the handful that fit how you actually work.',
+    path: '/about',
+  })
   return (
     <div className="relative z-10 min-h-screen bg-[#0a0a0f]">
       <div className="starfield" aria-hidden="true" />
