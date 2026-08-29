@@ -8,11 +8,13 @@ import { matchScore, matchReasonShort } from '../../utils/matchScore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { haptic } from '../../utils/haptics'
 import { encodeStackSlugs } from '../../utils/shareStack'
+import { recognisableStarters } from '../../utils/prominence'
 import { recordVisit, weekDots } from '../../state/streakStore'
 import { generateRoadmap } from '../../utils/roadmapGenerator'
 import { loadRoadmapProgress, milestoneComplete } from '../../state/roadmapStore'
 import { loadProgress, cycleProgress, STATUSES } from '../../state/progressStore'
 import SkillGraph from '../../components/app/SkillGraph'
+import ToolCard from '../../components/app/ToolCard'
 
 // Deterministic daily pick: same tool all day, a new one tomorrow — so every
 // open of the app has something unexplored in it.
@@ -113,20 +115,70 @@ export default function Stack() {
     } catch { /* clipboard blocked */ }
   }
 
+  // First run: signed in, no quiz yet. This is the app's front door and the
+  // single most-seen screen, so it has to do more than point at the quiz —
+  // it explains what a stack IS, offers a route for people who won't answer
+  // nine questions, and puts real, addable tools on the page so the screen is
+  // productive instead of a 70dvh void. Tools are ranked by prominence only
+  // (no persona to score against yet), never invented.
   if (!persona) {
+    const picks = recognisableStarters(TOOLS, 3)
+
     return (
-      <div className="flex min-h-[70dvh] flex-col items-center justify-center px-5 text-center">
-        <h1 className="font-display text-2xl font-bold text-white">Your stack starts with a chat</h1>
-        <p className="mt-3 max-w-md text-sm text-slate-400">
-          Sixty seconds, nine questions — and this dashboard fills itself with the
-          tools that fit how you actually work.
+      <div className="mx-auto max-w-4xl px-5 py-6 lg:py-10">
+        <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ STACK</p>
+        <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR STACK<br />IS EMPTY</h1>
+        <p className="mt-4 max-w-lg text-sm leading-relaxed text-slate-300">
+          A stack is the short list of AI tools you actually use. Toolnaut builds
+          yours from nine questions about how you work, then scores all{' '}
+          {TOOLS.length} tools in the catalog against that profile.
         </p>
-        <Link
-          to="/goal"
-          className="glow-btn mt-8 rounded-full bg-gradient-to-r from-exus-purple to-exus-cyan px-7 py-3 font-display text-sm font-semibold text-white"
-        >
-          Find my stack
-        </Link>
+
+        <div className="mt-6 flex flex-wrap items-center gap-3">
+          <Link to="/goal" className="nb-btn px-6 py-3 text-sm">⚡ BUILD MY STACK — 60 SECONDS</Link>
+          <Link to="/app/discover" className="nb-btn dark px-5 py-3 text-sm">BROWSE ALL TOOLS →</Link>
+        </div>
+
+        <div className="sticker mt-8 p-5" style={{ transform: 'rotate(0)' }}>
+          <span className="tape-label text-xs">◆ what the quiz unlocks</span>
+          <ul className="mt-4 space-y-2.5">
+            {[
+              ['A starter kit', 'three tools picked for your role, not a generic top-ten'],
+              ['A match score', `every one of the ${TOOLS.length} tools ranked against how you work`],
+              ['A 4-week path', 'a roadmap through the tools you end up with'],
+            ].map(([title, body]) => (
+              <li key={title} className="flex gap-2.5 text-sm leading-relaxed text-slate-300">
+                <span className="mt-0.5 shrink-0 font-black" style={{ color: 'var(--lime)' }} aria-hidden="true">◆</span>
+                <span><span className="font-bold text-white">{title}</span> — {body}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {picks.length > 0 && (
+          <div className="mt-10">
+            <div className="mb-4 flex flex-wrap items-center gap-3">
+              <span className="tape-label text-xs">⚡ start with a name you know</span>
+              <span className="font-display text-xs font-bold uppercase tracking-widest text-slate-500">
+                add now — these carry into your stack
+              </span>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {picks.map((tool, i) => (
+                <ToolCard
+                  key={tool.slug}
+                  tool={tool}
+                  index={i}
+                  inStack={addedSlugs.includes(tool.slug)}
+                  onToggleStack={() => {
+                    if (addedSlugs.includes(tool.slug)) setAddedSlugs(removeFromStack(tool.slug))
+                    else { haptic.select(); setAddedSlugs(addToStack(tool.slug)) }
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     )
   }

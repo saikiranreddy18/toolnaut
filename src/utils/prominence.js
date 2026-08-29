@@ -94,3 +94,24 @@ export function byProminence(domain) {
     looksLikeAProduct(b) - looksLikeAProduct(a) ||
     a.name.localeCompare(b.name)
 }
+
+// Starters for someone with no persona yet (the first-run STACK screen).
+//
+// byProminence(null) is wrong here: FLAGSHIP has no null key, so it ranks with
+// an empty flagship list and the tiebreaks alone put whatever obscure entry
+// radar found last week at the top. The source data carries no popularity
+// signal, so "most popular" would be a claim we cannot make — FLAGSHIP is a
+// curated list of RECOGNISABLE names, and that is all this promises.
+//
+// One per domain, in FLAGSHIP order, so the three cards span different kinds of
+// work instead of three coding tools.
+export function recognisableStarters(tools, limit = 3) {
+  const byName = new Map(tools.map((t) => [t.name, t]))
+  const picks = []
+  for (const names of Object.values(FLAGSHIP)) {
+    const hit = names.map((n) => byName.get(n)).find(Boolean)
+    if (hit && !picks.includes(hit)) picks.push(hit)
+    if (picks.length >= limit) break
+  }
+  return picks
+}
