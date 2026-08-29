@@ -231,6 +231,27 @@ export function assessmentFrom(record) {
   }
 }
 
+// Persistence policy for an offline re-score, kept here rather than in the
+// script so it is a tested rule instead of an `if` nobody reads.
+//
+// A record nobody ever assessed re-scores to a structurally valid but EMPTY
+// scorecard: label 'unrated', every score null, basis 'none'. Writing that is
+// worse than writing nothing. The app renders radar UI on the mere PRESENCE of
+// `tool.scorecard`, so persisting it would stamp every unassessed card in the
+// catalogue with "Unrated - 0% evidence", turning a deliberately quiet legacy
+// record into noise. That is the one thing the card-level design avoids.
+//
+// The reverse case is deliberately NOT symmetrical. If a record already carries
+// a scorecard and a re-score can no longer find the evidence behind it, the
+// empty result is the honest one and must be written: keeping the old numbers
+// would present a stale score as a current one, which is precisely the failure
+// this module exists to prevent. Absence of evidence gets reported; it never
+// silently falls back to the last good answer.
+export function shouldPersistRescore(before, after) {
+  if (after?.basis !== 'none') return true
+  return !!before
+}
+
 export function automationTestComplete(automation) {
   return AUTOMATION_REQUIRED.every((f) => typeof automation?.[f] === 'string' && automation[f].trim().length >= 3)
 }

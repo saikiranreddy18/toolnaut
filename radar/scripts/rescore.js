@@ -1,6 +1,6 @@
 import '../env.js'
 import { createStore } from '../store/index.js'
-import { assessmentFrom, scoreTool } from '../scorecard.js'
+import { assessmentFrom, scoreTool, shouldPersistRescore } from '../scorecard.js'
 import { log } from '../util/logger.js'
 
 // Re-scores every stored tool against the current clock. OFFLINE and pure: it
@@ -28,12 +28,21 @@ if (!tools.length) {
 const moved = []
 const labels = {}
 let changed = 0
+let untouched = 0
 
 for (const t of tools) {
   const before = t.scorecard
   const after = scoreTool({ signals: t.signals || null, assessment: assessmentFrom(t), now })
-  labels[after.label] = (labels[after.label] || 0) + 1
 
+  // A record nobody ever assessed must stay that way — see shouldPersistRescore.
+  // Counting it as "changed" would be as wrong as writing it: the run report is
+  // how anyone decides whether a re-score did anything.
+  if (!shouldPersistRescore(before, after)) {
+    untouched++
+    continue
+  }
+
+  labels[after.label] = (labels[after.label] || 0) + 1
   if (before?.label !== after.label) {
     moved.push({ slug: t.slug, from: before?.label || 'none', to: after.label })
   }
@@ -44,6 +53,7 @@ for (const t of tools) {
 }
 
 log.info(`re-scored ${tools.length} tools — ${changed} changed${dryRun ? ' (dry run, nothing written)' : ''}`)
+if (untouched) log.info(`  ${untouched} never assessed — left without a scorecard, not written as empty`)
 for (const [label, n] of Object.entries(labels).sort((a, b) => b[1] - a[1])) {
   log.info(`  ${label.padEnd(17)} ${n}`)
 }

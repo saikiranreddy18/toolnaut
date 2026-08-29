@@ -2,7 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
   automationSteps, basisSummary, caveats, coveragePercent, criteriaRows,
-  hasEstimateFootnote, labelText, radarOf, scoreText, showsNumericScores,
+  hasEstimateFootnote, labelText, radarOf, scoreText, showsEvidenceColumn, showsNumericScores,
 } from './radarDisplay.js'
 // Fixtures come from the real pipeline rather than hand-written objects, so
 // this doubles as the contract test: if publicScorecard's shape drifts, the
@@ -127,4 +127,37 @@ test('caveats name what was not verified, so a gap does not read as a fault', ()
   assert.equal(list.length, 8)
   assert.ok(list.some((c) => /retention, model-training use and deletion/i.test(c)))
   assert.ok(list.every((c) => /not |no /i.test(c)))
+})
+
+// An Evidence column of ten identical dashes reads as a broken table, not as a
+// deliberate omission - so when every row collapsed to the estimate footnote,
+// the column goes and the footnote carries the explanation.
+test('the evidence column is dropped only when every row collapsed to the footnote', () => {
+  const allEstimated = publicOf({
+    workflowImpact: 4, outputReliability: 3, integrationReadiness: 5, usability: 3,
+    dataControl: 2, costRoi: 3, maturity: 2, adoption: 2, differentiation: 3, momentum: 3,
+  })
+  assert.ok(criteriaRows(allEstimated).every((r) => r.evidence === '—'))
+  assert.equal(showsEvidenceColumn(allEstimated), false)
+  assert.equal(hasEstimateFootnote(allEstimated), true)
+})
+
+test('one measured fact is enough to keep the evidence column', () => {
+  const signals = {
+    source: 'github', stars: 1200, forks: 90, license: 'Apache-2.0', archived: false,
+    topics: ['api', 'docker'], daysSincePush: 2, ageDays: 940,
+  }
+  const mixed = publicOf({ workflowImpact: 4, usability: 3, costRoi: 3, differentiation: 3, outputReliability: 3 }, { signals })
+  assert.equal(showsEvidenceColumn(mixed), true)
+  assert.ok(criteriaRows(mixed).some((r) => r.basisText === 'Measured' && r.evidence !== '—'))
+})
+
+// The collapse must never swallow a genuine gap. An unscored criterion says so
+// in the evidence column, which is exactly the row a reader needs to see.
+test('a genuinely missing criterion keeps the column open rather than collapsing', () => {
+  const sparse = publicOf({ workflowImpact: 4 })
+  const rows = criteriaRows(sparse)
+  assert.equal(rows.find((r) => r.key === 'workflowImpact').evidence, '—')
+  assert.equal(rows.find((r) => r.key === 'usability').evidence, 'No evidence found')
+  assert.equal(showsEvidenceColumn(sparse), true)
 })

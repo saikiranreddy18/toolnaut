@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import {
   CRITERIA, RADAR_LABELS, assessmentFrom, isValidScorecard, labelFor, measureSignals,
   measuredScores, normalizeAssessment, publicScorecard, recommendationFor, scoreTool,
+  shouldPersistRescore,
 } from '../scorecard.js'
 
 const NOW = '2026-08-29T00:00:00Z'
@@ -294,6 +295,53 @@ test('re-scoring never fills a gap — an unscored criterion stays unscored', ()
   assert.equal(after.utility, before.utility)
   assert.equal(after.label, before.label)
   assert.ok(after.unscored.includes('outputReliability'))
+})
+
+// --- what a re-score is allowed to write --------------------------------------
+
+// The regression this guards: every one of the 77 catalogue records predates
+// the scorecard, so each re-scores to a valid but EMPTY result. Persisting that
+// would create `tool.scorecard` on all of them, and the app renders radar UI on
+// the presence of that field — turning the whole catalogue into
+// "Unrated - 0% evidence" overnight. Verified by rescore.js --dry-run before
+// the guard existed: "re-scored 77 tools - 77 changed".
+test('a never-assessed record is left alone rather than handed an empty scorecard', () => {
+  const legacy = { slug: 'chatgpt', name: 'ChatGPT' } // no signals, no assessment
+  const after = scoreTool({ signals: legacy.signals || null, assessment: assessmentFrom(legacy), now: NOW })
+
+  assert.equal(after.basis, 'none')
+  assert.equal(after.label, 'unrated')
+  assert.equal(after.utility, null)
+  assert.equal(shouldPersistRescore(legacy.scorecard, after), false)
+})
+
+// The guard must not be implemented as "drop unrated scorecards". A low-coverage
+// record backed by real measured evidence is worth keeping: the detail page
+// shows the evidence, and the UI gate already withholds the numbers.
+test('an unrated scorecard is still persisted when real evidence sits behind it', () => {
+  const after = scoreTool({ signals: measureSignals(ghCandidate(), NOW), now: NOW })
+
+  assert.equal(after.label, 'unrated')
+  assert.ok(after.coverage < 0.5)
+  assert.equal(after.basis, 'measured')
+  assert.equal(shouldPersistRescore(undefined, after), true)
+})
+
+// Stated as a policy so it cannot be decided by accident later: when the
+// evidence behind an assessed record goes away, the empty result is written.
+// The alternative - keeping the old scorecard - would show a stale score as a
+// current one, which is the failure the whole module exists to prevent.
+test('an assessed record whose evidence has gone is overwritten, never left showing the old score', () => {
+  const before = scoreTool({
+    signals: measureSignals(ghCandidate(), NOW),
+    assessment: assessmentWith({ workflowImpact: 4, outputReliability: 4, usability: 4, costRoi: 4, differentiation: 4 }),
+    now: NOW,
+  })
+  const after = scoreTool({ signals: null, assessment: null, now: NOW })
+
+  assert.ok(before.utility > 0)
+  assert.equal(after.basis, 'none')
+  assert.equal(shouldPersistRescore(before, after), true)
 })
 
 // --- the app boundary ---------------------------------------------------------
