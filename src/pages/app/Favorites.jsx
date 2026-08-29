@@ -83,7 +83,7 @@ export default function Favorites() {
   const total = favoriteSlugs.length
 
   return (
-    <div className="mx-auto max-w-5xl px-5 py-8 lg:py-10">
+    <div className="mx-auto max-w-5xl px-5 py-8 lg:py-10 xl:max-w-7xl">
       <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ SAVED</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR AI SHORTLIST</h1>
 
@@ -105,7 +105,7 @@ export default function Favorites() {
                 Your three highest-scoring tools right now. Save one to start the
                 shortlist.
               </p>
-              <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {starterPicks.map((tool, i) => (
                   <ToolCard
                     key={tool.slug}
@@ -190,7 +190,7 @@ export default function Favorites() {
               </button>
             </div>
           ) : (
-            <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {tools.map((tool, i) => (
                 <ToolCard
                   key={tool.slug}

@@ -143,7 +143,7 @@ export default function Discover() {
       : 'ALL TOOLS'
 
   return (
-    <div className="mx-auto max-w-5xl px-5 py-8 lg:py-10">
+    <div className="mx-auto max-w-5xl px-5 py-8 lg:py-10 xl:max-w-7xl">
       <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ FIND</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">
         {TOOLS.length} TOOLS,<br/>RANKED FOR YOU
@@ -178,7 +178,7 @@ export default function Discover() {
         <div className="mt-6">
           <div className="flex items-center justify-between gap-2">
             <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500">🆕 New this week</h2>
-            <Link to="/new" className="text-[10px] font-bold uppercase tracking-widest text-exus-lime hover:opacity-80">
+            <Link to="/new" className="flex min-h-11 items-center text-[10px] font-bold uppercase tracking-widest text-exus-lime hover:opacity-80">
               See the full feed →
             </Link>
           </div>
@@ -264,7 +264,7 @@ export default function Discover() {
             )}
           </div>
 
-          <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {visible.map((tool, i) => (
               <ToolCard
                 key={tool.slug}
