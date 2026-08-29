@@ -3900,5 +3900,103 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "course-slidex",
+    "toolSlug": "slidex",
+    "title": "Master SlideX",
+    "objectives": [
+      "Understand what SlideX is for",
+      "Use SlideX on a real task",
+      "Know where SlideX fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure SlideX for your real workflow, not the demo.",
+          "Say what SlideX does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through SlideX.",
+          "Push SlideX to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold SlideX into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-presentations",
+      "skill-mdx",
+      "skill-open-source",
+      "skill-slides",
+      "skill-developer-tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T03:23:03.469Z"
+  },
+  {
+    "id": "course-a2acast",
+    "toolSlug": "a2acast",
+    "title": "Master A2acast",
+    "objectives": [
+      "Understand what A2acast is for",
+      "Use A2acast on a real task",
+      "Know where A2acast fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure A2acast for your real workflow, not the demo.",
+          "Say what A2acast does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through A2acast.",
+          "Push A2acast to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold A2acast into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai-agents",
+      "skill-multi-agent",
+      "skill-a2a",
+      "skill-collaboration",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T03:23:03.469Z"
   }
 ]

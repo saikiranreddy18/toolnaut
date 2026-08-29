@@ -1794,5 +1794,53 @@
       "infrastructure"
     ],
     "discoveredAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "slug": "slidex",
+    "name": "SlideX",
+    "category": "design",
+    "sourceCategory": "Presentations, Design & Websites",
+    "price": "free",
+    "pricing": "Free (open source)",
+    "level": "intermediate",
+    "blurb": "Open-source presentation tool for building slide decks with MDX.",
+    "audience": "developers and technical presenters",
+    "dev": "",
+    "year": 2026,
+    "website": "https://www.slidexdeck.com/en/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "presentations",
+      "mdx",
+      "open-source",
+      "slides",
+      "developer-tools"
+    ],
+    "discoveredAt": "2026-08-29T03:23:03.469Z"
+  },
+  {
+    "slug": "a2acast",
+    "name": "A2acast",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free / open source",
+    "level": "advanced",
+    "blurb": "Lets AI agents on different computers discover each other and collaborate on tasks.",
+    "audience": "Developers building multi-agent systems",
+    "dev": "husker",
+    "year": 2026,
+    "website": "https://github.com/husker/a2acast",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai-agents",
+      "multi-agent",
+      "a2a",
+      "collaboration",
+      "open-source"
+    ],
+    "discoveredAt": "2026-08-29T03:23:03.469Z"
   }
 ]

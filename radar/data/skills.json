@@ -97,11 +97,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "ablo-make-your-ai-app-multiplayer",
-      "marktwin"
+      "marktwin",
+      "a2acast"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
-      "course-marktwin"
+      "course-marktwin",
+      "course-a2acast"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -131,7 +133,9 @@
       "mrea",
       "shelf-protocol",
       "web-game-player-vs-computer",
-      "openinstinct"
+      "openinstinct",
+      "slidex",
+      "a2acast"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -139,7 +143,9 @@
       "course-mrea",
       "course-shelf-protocol",
       "course-web-game-player-vs-computer",
-      "course-openinstinct"
+      "course-openinstinct",
+      "course-slidex",
+      "course-a2acast"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -157,7 +163,8 @@
       "ta",
       "google-flow",
       "clipdrop-desktop-clipdrop-ai-tools-2026",
-      "how-i-design-with-ai"
+      "how-i-design-with-ai",
+      "slidex"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -168,7 +175,8 @@
       "course-ta",
       "course-google-flow",
       "course-clipdrop-desktop-clipdrop-ai-tools-2026",
-      "course-how-i-design-with-ai"
+      "course-how-i-design-with-ai",
+      "course-slidex"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -269,7 +277,8 @@
       "puppetflow-a-free-browser-automation-platform",
       "urml",
       "argus-open-source-ai-agents-for-testing-web-apps",
-      "ai-agent-guardrails-dont-work-safer-platforms-do"
+      "ai-agent-guardrails-dont-work-safer-platforms-do",
+      "a2acast"
     ],
     "courses": [
       "course-headless-tools",
@@ -298,7 +307,8 @@
       "course-puppetflow-a-free-browser-automation-platform",
       "course-urml",
       "course-argus-open-source-ai-agents-for-testing-web-apps",
-      "course-ai-agent-guardrails-dont-work-safer-platforms-do"
+      "course-ai-agent-guardrails-dont-work-safer-platforms-do",
+      "course-a2acast"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1101,11 +1111,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "mrea",
-      "coordination-layer-for-coding-agents"
+      "coordination-layer-for-coding-agents",
+      "a2acast"
     ],
     "courses": [
       "course-mrea",
-      "course-coordination-layer-for-coding-agents"
+      "course-coordination-layer-for-coding-agents",
+      "course-a2acast"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1986,11 +1998,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "placeroot",
-      "shelf-protocol"
+      "shelf-protocol",
+      "a2acast"
     ],
     "courses": [
       "course-placeroot",
-      "course-shelf-protocol"
+      "course-shelf-protocol",
+      "course-a2acast"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3715,10 +3729,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "openinstinct"
+      "openinstinct",
+      "slidex"
     ],
     "courses": [
-      "course-openinstinct"
+      "course-openinstinct",
+      "course-slidex"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -3851,5 +3867,57 @@
       "course-ai-agent-guardrails-dont-work-safer-platforms-do"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
+  },
+  {
+    "id": "skill-presentations",
+    "name": "presentations",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "slidex"
+    ],
+    "courses": [
+      "course-slidex"
+    ],
+    "updatedAt": "2026-08-29T03:23:03.469Z"
+  },
+  {
+    "id": "skill-mdx",
+    "name": "mdx",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "slidex"
+    ],
+    "courses": [
+      "course-slidex"
+    ],
+    "updatedAt": "2026-08-29T03:23:03.469Z"
+  },
+  {
+    "id": "skill-slides",
+    "name": "slides",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "slidex"
+    ],
+    "courses": [
+      "course-slidex"
+    ],
+    "updatedAt": "2026-08-29T03:23:03.469Z"
+  },
+  {
+    "id": "skill-a2a",
+    "name": "a2a",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "a2acast"
+    ],
+    "courses": [
+      "course-a2acast"
+    ],
+    "updatedAt": "2026-08-29T03:23:03.469Z"
   }
 ]
