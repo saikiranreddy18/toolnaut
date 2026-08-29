@@ -145,7 +145,14 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
             exit={{ opacity: 0, y: 18, scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 260, damping: 24 }}
             className="relative my-auto xl:aspect-[1360/810]"
-            style={{ width: 'min(1340px, 88vw)', background: 'transparent' }}
+            style={{
+              // Was min(1340px, 88vw) — it filled the viewport and read as a
+              // page rather than a dialog. Also capped against height so the
+              // frame never runs past a short window: the aspect is fixed, so
+              // without the height cap a 700px-tall screen clipped the deck.
+              width: 'min(1040px, 76vw, calc((100vh - 88px) * 1.679))',
+              background: 'transparent',
+            }}
           >
             {/* The contours stretch (preserveAspectRatio="none"), so the shell
                 carries the frame's own 1360:810 — without it every inset in the
@@ -154,6 +161,35 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
                 landscape box there squashed the frame to a strip while the
                 cabinet spilled out the bottom of it. */}
             <CabinetContours />
+
+            {/* Close. It used to live inside .signin-panel, which carries a
+                clip-path that cuts the top-right corner — so the corner
+                diagonal sliced straight through the button. Out here on the
+                shell nothing clips it and nothing overlaps it. */}
+            <button
+              ref={closeRef}
+              onClick={onClose}
+              aria-label="Close sign in"
+              className="absolute z-[8] flex h-10 w-10 items-center justify-center rounded-full border-[3px] border-black text-white transition-transform hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+              style={{
+                // Inside the frame, not floating beside it. The clip-path cuts
+                // the panel above 3% and right of 97%, so this sits below and
+                // left of that corner — clear of the cut, still where a close
+                // button belongs. Parked outside the frame it read as a stray
+                // dot in empty space.
+                // Derived from the contour, not eyeballed: the frame's inner
+                // rules sit at 11.1% down and 94.3% across, so clearing them by
+                // the button's own size puts the safe corner at 12.8% / 6.9%.
+                top: '13%', right: '7%',
+                background: 'var(--hot-pink)',
+                boxShadow: '3px 3px 0 #000',
+                outlineColor: 'var(--cyan)',
+              }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
 
             {/* The rail furniture belongs to the FRAME. The contour draws the
                 rail at x=112/1360, so these are placed at that same fraction of
@@ -224,18 +260,6 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
                     'inset 0 0 0 5px var(--hot-pink), inset 0 0 0 10px #09090a, inset 0 0 0 14px #f5f1e8',
                 }}
               >
-                <button
-                  ref={closeRef}
-                  onClick={onClose}
-                  aria-label="Close sign in"
-                  className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-lg border-[3px] border-black bg-[#15151c] text-white transition-transform hover:scale-105"
-                  style={{ boxShadow: '3px 3px 0 #000' }}
-                >
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" aria-hidden="true">
-                    <path d="M6 6l12 12M18 6L6 18" />
-                  </svg>
-                </button>
-
                 <span className="absolute left-6 top-6 text-lg" style={{ color: "var(--cyan)" }} aria-hidden="true">✦</span>
                 <span className="absolute right-16 top-14 text-sm" style={{ color: "var(--hot-pink)" }} aria-hidden="true">✦</span>
 

@@ -34,9 +34,39 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
   const tiltRef = useRef({ x: 0, y: 0 })
   const [pressed, setPressed] = useState(null)
+  // Play mode: the stick flies the galaxy on its own until you take it back.
+  const [playing, setPlaying] = useState(false)
+  const [lamp, setLamp] = useState(0)
+  const dragging = useRef(false)
   const timers = useRef([])
 
   useEffect(() => () => timers.current.forEach(clearTimeout), [])
+
+  // Play mode flies the galaxy on a slow figure-of-eight. Driven by rAF rather
+  // than an interval so it stays in step with the render loop instead of
+  // fighting it, and it writes the same tiltRef a human hand would.
+  useEffect(() => {
+    if (!playing) return undefined
+    let raf = 0
+    const t0 = performance.now()
+    const loop = (now) => {
+      const t = (now - t0) / 1000
+      const x = Math.sin(t * 0.55)
+      const y = Math.sin(t * 0.9) * 0.45
+      tiltRef.current = { x, y }
+      setTilt({ x: x * 13, y: -y * 9 })
+      raf = requestAnimationFrame(loop)
+    }
+    raf = requestAnimationFrame(loop)
+    return () => cancelAnimationFrame(raf)
+  }, [playing])
+
+  // The marquee lamps chase while the machine is idle and hold steady in play
+  // mode, so the deck reads as attract-mode rather than as decoration.
+  useEffect(() => {
+    const id = setInterval(() => setLamp((n) => (n + 1) % 6), playing ? 140 : 420)
+    return () => clearInterval(id)
+  }, [playing])
   const after = (ms, fn) => { timers.current.push(setTimeout(fn, ms)) }
 
   // boot, then type the status line a character at a time
@@ -64,10 +94,12 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
     return () => clearInterval(id)
   }, [booted])
 
-  // The joystick follows the pointer while it is over the cabinet and springs
-  // back on leave. A stick that never moves reads as a picture of a cabinet;
-  // one that leans reads as a machine.
+  // The stick follows the pointer while the pointer is ON THE STICK, and
+  // springs back when it leaves. It used to track any movement anywhere over
+  // the whole cabinet, which meant the galaxy lurched when you were reaching
+  // for the email field — motion with no cause the user could see.
   function trackStick(e) {
+    if (playing) return
     const r = e.currentTarget.getBoundingClientRect()
     const dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2)
     const dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2)
@@ -117,11 +149,7 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
   )
 
   return (
-    <div
-      className="relative h-full select-none"
-      onPointerMove={trackStick}
-      onPointerLeave={releaseStick}
-    >
+    <div className="relative h-full select-none">
       {/* The cabinet body, sitting under the contour frame (z-1 against the
           frame's z-4) and filling its column top to bottom. */}
       <div
@@ -217,7 +245,7 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
 
           {/* ── control deck ── */}
           <div
-            className="relative flex shrink-0 items-end justify-between gap-6 px-4 py-3 md:gap-[31px] md:px-[31px]"
+            className="relative flex min-w-0 shrink-0 items-end justify-between gap-2 overflow-hidden px-3 py-2.5 md:gap-4 md:px-4"
             style={{
               border: '6px solid #050506',
               borderRadius: 8,
@@ -244,48 +272,90 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
             ))}
 
             {/* Joystick. The base is drawn first and the shaft pivots from its
-                centre, so leaning looks hinged rather than like a sliding stick. */}
+                centre, so leaning looks hinged rather than like a sliding stick.
+                Hover or drag to fly it; click to hand it to the machine. */}
+            <div className="flex shrink-0 flex-col items-center gap-1">
             <button
             type="button"
             onKeyDown={steer}
             onBlur={releaseStick}
-            aria-label="Flight stick — arrow keys fly the galaxy, space re-centres"
-            title="Arrow keys fly the galaxy"
-            className="relative h-20 w-20 shrink-0 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+            onPointerMove={trackStick}
+            onPointerLeave={releaseStick}
+            onClick={() => { haptic.tap(); setPlaying((v) => !v); if (playing) releaseStick() }}
+            aria-pressed={playing}
+            aria-label={playing ? 'Stop play mode' : 'Play mode — fly the galaxy automatically'}
+            title={playing ? 'Click to take back the stick' : 'Click for play mode · drag or arrow keys to fly'}
+            className="relative h-16 w-16 shrink-0 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
             style={{ outlineColor: 'var(--cyan)' }}
           >
               <div
-                className="absolute bottom-0 left-1/2 h-4 w-16 -translate-x-1/2 rounded-[50%] border-[3px] border-black"
+                className="absolute bottom-0 left-1/2 h-3.5 w-14 -translate-x-1/2 rounded-[50%] border-[3px] border-black"
                 style={{ background: 'linear-gradient(#3a3a46, #1c1c24)' }}
               />
               <div
-                className="joystick-shaft absolute bottom-[8px] left-1/2 h-11 w-3.5 rounded-full border-[3px] border-black"
+                className="joystick-shaft absolute bottom-[7px] left-1/2 h-9 w-3 rounded-full border-[3px] border-black"
                 style={{
                   background: 'linear-gradient(90deg, #c01f7b, var(--hot-pink) 55%, #ff7ac6)',
                   transform: `translateX(-50%) rotate(${tilt.x}deg)`,
                 }}
               >
                 <span
-                  className="absolute -top-5 left-1/2 h-9 w-9 -translate-x-1/2 rounded-full border-[3px] border-black"
+                  className="absolute -top-4 left-1/2 h-7 w-7 -translate-x-1/2 rounded-full border-[3px] border-black"
                   style={{
                     background: 'radial-gradient(circle at 32% 28%, #ff9ad4, var(--hot-pink) 58%, #a81a68)',
                   }}
                 />
               </div>
             </button>
+              <span
+                className="font-display text-[9px] font-black uppercase tracking-[0.16em]"
+                style={{ color: playing ? 'var(--lime)' : '#6b7280' }}
+              >
+                {playing ? '▶ Playing' : 'Play'}
+              </span>
+            </div>
+
+            {/* ── attract-mode furniture: a chasing lamp row and a credit
+                counter. Decoration, but the kind a real cabinet has — a deck
+                with nothing but two buttons on it reads as a mock-up. ── */}
+            <div className="hidden min-w-0 flex-col items-center gap-1.5 lg:flex" aria-hidden="true">
+              <span className="flex gap-1">
+                {[0, 1, 2, 3, 4, 5].map((i) => (
+                  <span
+                    key={i}
+                    className="flex h-4 w-4 items-center justify-center rounded-[2px] border border-black font-display text-[8px] font-black transition-colors duration-150"
+                    style={{
+                      background: lamp === i ? 'var(--lime)' : '#17171d',
+                      color: lamp === i ? '#000' : '#4b5563',
+                      boxShadow: lamp === i ? '0 0 8px rgba(163,255,46,0.7)' : 'none',
+                    }}
+                  >
+                    {i + 1}
+                  </span>
+                ))}
+              </span>
+              <span
+                className="rounded border border-black px-1.5 py-0.5 font-mono text-[8px] tracking-[0.14em]"
+                style={{ background: '#07070b', color: 'var(--cyan)' }}
+              >
+                CREDIT {playing ? 'FREE' : String(TOOLS.length).padStart(4, '0')}
+              </span>
+            </div>
 
             {/* two cabinet buttons that actually travel */}
-            <div className="flex gap-3 pb-1">
+            <div className="flex min-w-0 items-end gap-2.5 pb-0.5">
               {/* These do something. They were aria-hidden decoration, which is
                   fine for a picture of a cabinet and wrong for one you can
                   operate: A starts the sign-in, B jumps to the email field. Real
                   buttons, so they take keyboard focus and announce themselves. */}
+              {/* Named, because two coloured circles told nobody what they do.
+                  The label is the affordance; the colour is just the skin. */}
               {[
-                { id: 'a', color: 'var(--lime)', label: 'Start sign-in with Google', run: onButtonA },
-                { id: 'b', color: 'var(--cyan)', label: 'Sign in with email instead', run: onButtonB },
+                { id: 'a', color: 'var(--lime)', name: 'Start', label: 'Start sign-in with Google', run: onButtonA },
+                { id: 'b', color: 'var(--cyan)', name: 'Email', label: 'Sign in with email instead', run: onButtonB },
               ].map((b) => (
+                <span key={b.id} className="flex flex-col items-center gap-1">
                 <button
-                  key={b.id}
                   type="button"
                   aria-label={b.label}
                   title={b.label}
@@ -293,7 +363,7 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
                   onPointerUp={() => setPressed(null)}
                   onPointerLeave={() => setPressed(null)}
                   onClick={() => { haptic.tap(); b.run?.() }}
-                  className="cab-btn h-11 w-11 rounded-full border-[3px] border-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+                  className="cab-btn h-9 w-9 rounded-full border-[3px] border-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
                   style={{
                     background: b.color,
                     boxShadow: pressed === b.id ? '0 0 0 #000' : '3px 3px 0 #000',
@@ -301,6 +371,13 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
                     outlineColor: 'var(--cyan)',
                   }}
                 />
+                <span
+                  className="font-display text-[9px] font-black uppercase tracking-[0.16em]"
+                  style={{ color: b.color }}
+                >
+                  {b.name}
+                </span>
+                </span>
               ))}
             </div>
           </div>
