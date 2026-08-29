@@ -187,7 +187,14 @@ export default function GoalChat() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col px-4 pb-4 pt-5 sm:px-6">
+    // h-[100dvh], not min-h-screen. With a MINIMUM height the wrapper is free to
+    // grow past the viewport, so `flex-1` on the transcript resolved to its own
+    // content height, overflow-y-auto never had anything to clip, and the whole
+    // PAGE scrolled instead — 477px past the fold by the fourth answer, with the
+    // input pushed off-screen. A chat frame has to be a fixed box the transcript
+    // scrolls inside, the way every other chat UI behaves. dvh (not vh) so
+    // mobile browser chrome collapsing does not change the box height mid-answer.
+    <div className="flex h-[100dvh] flex-col overflow-hidden px-4 pb-4 pt-5 sm:px-6">
       {/* OnboardingShell already renders the wordmark top-left; a second one
           here sat directly on top of it. Only the exit control belongs to this page. */}
       <header className="mx-auto flex w-full max-w-2xl shrink-0 items-center justify-end pb-4">
@@ -202,7 +209,11 @@ export default function GoalChat() {
         </button>
       </header>
 
-      <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col overflow-hidden rounded-3xl border-[3px] border-black bg-[#12121c]/85" style={{ boxShadow: '6px 6px 0 #000' }}>
+      {/* min-h-0 on both this and the transcript below. A flex item defaults to
+          min-height:auto, which refuses to shrink below its content — so even
+          inside a fixed-height parent the transcript would push the card taller
+          than the frame and overflow-y-auto would still never fire. */}
+      <div className="mx-auto flex w-full min-h-0 max-w-2xl flex-1 flex-col overflow-hidden rounded-3xl border-[3px] border-black bg-[#12121c]/85" style={{ boxShadow: '6px 6px 0 #000' }}>
         {/* progress — chunky lime bars, same language as the rest of the app */}
         <div className="flex shrink-0 gap-1.5 border-b-[3px] border-black bg-[#0c0c14] px-4 py-3" aria-hidden="true">
           {CHAT_QUESTIONS.map((q, i) => (
@@ -218,7 +229,7 @@ export default function GoalChat() {
 
         <div
           ref={scrollRef}
-          className="flex-1 overflow-y-auto px-4 py-5 sm:px-5"
+          className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-5 sm:px-5"
           role="log"
           aria-live="polite"
           aria-label="Conversation"
