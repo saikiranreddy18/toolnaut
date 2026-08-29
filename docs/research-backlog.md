@@ -2110,7 +2110,9 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-29 03:15 UTC
 
 ### A shared stack can only be viewed, never adopted — the receiving half of Share/Export was never built
-- **Status:** OPEN
+- **Status:** FIXED (this commit) — small, well-scoped defect in already-shipped
+  code, fixed in this run rather than left OPEN; entry kept for the record per
+  this backlog's own audit trail.
 - **Seen in:** not a competitor pattern — found re-reading the already-shipped
   Share/Export gap (`/s/:slugs`, shipped `42bdc994`) against its own stated
   goal: "Every visitor who finishes the quiz or curates a stack is a free
@@ -2204,6 +2206,18 @@ a client-side SPA with a static tool catalogue.
   from existing stores. No backend, no new dependency, no new route, no new
   store, no new util.
 - **Found:** 2026-08-29 06:20 UTC
+- **Fix shipped this run:** `SharedStack.jsx` now branches on `loadSession()`.
+  Signed-in visitors get a primary "⚡ Add all N to my stack" button (calls
+  `addToStack` for every shared slug, then navigates to `/app/stack`) plus a
+  "View my stack instead" link, or — if `loadStack()` already contains every
+  shared slug — an honest "You already have all N of these" message instead
+  of an add action with nothing left to add. Signed-out visitors keep the
+  original "take the quiz" destination, but the shared tools are now added to
+  `stackStore` first, so they carry forward into the starter-stack union
+  `Stack.jsx` already builds. Both branches show a brief "✓ Added!" state on
+  the button before navigating. Exactly as specced above — one file, no new
+  dependency, no new route. Verified via `npm test` (102/102), `npm run
+  build`, and `npm run smoke` (20/20 routes clean, including `/s/chatgpt`).
 
 ### Tags are collected and searched on, but never clickable — no tag-based browsing exists
 - **Status:** OPEN

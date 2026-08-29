@@ -1,12 +1,26 @@
-import { Link, useParams } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getTool, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../utils/toolsCatalog'
 import { decodeStackSlugs } from '../utils/shareStack'
+import { loadSession } from '../state/authStore'
+import { addToStack, loadStack } from '../state/stackStore'
 
-// Public, read-only view of someone else's stack. No session, no localStorage
-// writes — a stale/renamed slug just quietly drops out instead of crashing.
+// Public, read-only view of someone else's stack — except the CTA below,
+// which does write to stackStore: adopting a shared stack is the entire
+// point of sharing one, and addToStack() already no-ops with no session.
 export default function SharedStack() {
   const { slugs } = useParams()
+  const navigate = useNavigate()
   const tools = decodeStackSlugs(slugs).map(getTool).filter(Boolean)
+  const session = loadSession()
+  const alreadyHasAll = tools.length > 0 && tools.every((t) => loadStack().includes(t.slug))
+  const [added, setAdded] = useState(false)
+
+  function adoptAndGo(destination) {
+    tools.forEach((t) => addToStack(t.slug))
+    setAdded(true)
+    setTimeout(() => navigate(destination), 500)
+  }
 
   return (
     <div className="mx-auto max-w-4xl px-5 py-10 lg:py-16">
@@ -44,12 +58,38 @@ export default function SharedStack() {
         </div>
       )}
 
-      <Link
-        to="/goal"
-        className="glow-btn mt-10 inline-block rounded-full bg-gradient-to-r from-exus-purple to-exus-cyan px-7 py-3 font-display text-sm font-semibold text-white"
-      >
-        Build my own stack
-      </Link>
+      {tools.length === 0 ? null : session ? (
+        <div className="mt-10 flex flex-wrap items-center gap-4">
+          {alreadyHasAll ? (
+            <p className="text-sm text-slate-400">You already have all {tools.length} of these.</p>
+          ) : (
+            <button
+              onClick={() => adoptAndGo('/app/stack')}
+              className="glow-btn inline-block rounded-full bg-gradient-to-r from-exus-purple to-exus-cyan px-7 py-3 font-display text-sm font-semibold text-white"
+            >
+              {added ? '✓ Added!' : `⚡ Add all ${tools.length} to my stack`}
+            </button>
+          )}
+          <Link to="/app/stack" className="text-sm text-slate-400 underline underline-offset-4">
+            View my stack instead
+          </Link>
+        </div>
+      ) : (
+        <button
+          onClick={() => adoptAndGo('/goal')}
+          className="glow-btn mt-10 inline-block rounded-full bg-gradient-to-r from-exus-purple to-exus-cyan px-7 py-3 font-display text-sm font-semibold text-white"
+        >
+          {added ? '✓ Added!' : 'Add these & take the quiz'}
+        </button>
+      )}
+      {tools.length === 0 && (
+        <Link
+          to="/goal"
+          className="glow-btn mt-10 inline-block rounded-full bg-gradient-to-r from-exus-purple to-exus-cyan px-7 py-3 font-display text-sm font-semibold text-white"
+        >
+          Build my own stack
+        </Link>
+      )}
     </div>
   )
 }
