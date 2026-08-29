@@ -7,6 +7,7 @@ import { getNewTools } from '../../utils/newTools'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { loadFavorites, addFavorite, removeFavorite } from '../../state/favoritesStore'
+import { markActed } from '../../utils/funnel'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
@@ -80,6 +81,7 @@ export default function Discover() {
     } else {
       haptic.select()
       setFavorites(addFavorite(tool.slug))
+      markActed(track, 'save', { slug: tool.slug, surface: 'discover' })
       track(EVENTS.CTA_CLICK, { cta: 'add_favorite', tool: tool.slug })
     }
   }
@@ -226,7 +228,7 @@ export default function Discover() {
         /* A dead end is where people leave. Name what was searched, then hand
            back routes that are known to have tools behind them. */
         <div className="mt-12">
-          <h2 className="arcade-heading text-xl">NO TOOLS MATCH</h2>
+          <h2 className="arcade-heading section text-xl sm:text-2xl">NO TOOLS MATCH</h2>
           <p className="mt-3 max-w-md text-sm text-slate-400">
             {q ? <>Nothing in the catalog matches “<span className="font-bold text-white">{q}</span>”</> : 'Nothing matches these filters'}
             {(cat || price || level) && ' with the filters you have on'}. Try a

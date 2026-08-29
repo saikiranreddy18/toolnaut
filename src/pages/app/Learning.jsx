@@ -209,7 +209,7 @@ export default function Learning() {
   if (!roadmap) {
     return (
       <div className="relative z-10 flex min-h-[70dvh] flex-col items-center justify-center px-5 text-center">
-        <h1 className="arcade-heading text-2xl">ROADMAP NEEDS A PERSONA</h1>
+        <h1 className="arcade-heading section text-2xl sm:text-3xl">ROADMAP NEEDS A PERSONA</h1>
         <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-300">
           Take the 60-second quiz and we'll chart a 4-week path through the exact
           tools that fit how you work.
@@ -281,7 +281,7 @@ export default function Learning() {
                 </span>
               )}
             </div>
-            <h2 className="arcade-heading lime mt-3 text-lg">
+            <h2 className="arcade-heading lime compact mt-3 text-xl">
               WEEK {current.week} · {current.title.toUpperCase()}
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-white">

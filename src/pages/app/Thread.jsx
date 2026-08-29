@@ -88,7 +88,7 @@ export default function Thread() {
 
       {/* replies */}
       <div className="mt-8 border-t-2 pt-6" style={{ borderColor: 'rgba(163,255,46,0.2)' }}>
-        <p className="arcade-heading text-lg">
+        <p className="arcade-heading section text-xl">
           {thread.replies.length} {thread.replies.length === 1 ? 'REPLY' : 'REPLIES'}
         </p>
         <div className="mt-4 flex flex-col gap-3">

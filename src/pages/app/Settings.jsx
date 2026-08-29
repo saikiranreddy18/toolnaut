@@ -187,7 +187,7 @@ export default function Settings() {
       {/* Self-contained cards below the persona: one column until xl, then
           two, so a wide screen stops running a 768px ribbon down its middle.
           break-inside-avoid keeps a card from splitting across the columns. */}
-      <div className="xl:columns-2 xl:gap-8">
+      <div className="xl:mt-10 xl:columns-2 xl:gap-8">
 
       {/* ── WHAT YOU HAVE DONE ──────────────────────────────────────── */}
       {/* Explorer avatar — the profile had no face at all, so the sidebar and
@@ -260,8 +260,12 @@ export default function Settings() {
               const option = question.options.find((o) => o.key === answerKey)
               return (
                 <div key={question.id} className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 py-2.5 first:pt-0 last:pb-0">
-                  <dt className="text-xs text-slate-400">{question.text}</dt>
-                  <dd className="font-display text-xs font-black uppercase tracking-wide" style={{ color: option ? 'var(--lime)' : '#6b6690' }}>
+                  {/* min-w-0 + a max on the value: without both, a long label
+                      ("Break it to learn it", "Too many tools to pick from")
+                      overflowed the card instead of wrapping, and the answer
+                      was clipped at the edge in the two-column layout. */}
+                  <dt className="min-w-0 flex-1 text-xs text-slate-400">{question.text}</dt>
+                  <dd className="min-w-0 max-w-[60%] text-right font-display text-xs font-black uppercase tracking-wide" style={{ color: option ? 'var(--lime)' : '#6b6690' }}>
                     {option ? option.label : 'Not answered'}
                   </dd>
                 </div>

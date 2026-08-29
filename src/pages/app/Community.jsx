@@ -185,7 +185,7 @@ export default function Community() {
       {shown.length === 0 && (
         /* Was a dead end: a headline, a sentence, and nothing to click. */
         <div className="mt-12">
-          <h2 className="arcade-heading text-xl">NOTHING HERE YET</h2>
+          <h2 className="arcade-heading section text-xl sm:text-2xl">NOTHING HERE YET</h2>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-slate-300">
             No one has posted in{' '}
             <span className="font-bold text-white">

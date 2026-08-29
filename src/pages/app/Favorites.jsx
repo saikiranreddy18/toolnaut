@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getTool, TOOLS, CATEGORY_META } from '../../utils/toolsCatalog'
 import { matchScore, matchReasonShort } from '../../utils/matchScore'
-import { byProminence } from '../../utils/prominence'
+import { byProminence, recognisableStarters } from '../../utils/prominence'
 import { loadQuiz } from '../../state/quizStore'
 import { loadFavorites, addFavorite, removeFavorite } from '../../state/favoritesStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
@@ -122,8 +122,14 @@ export default function Favorites() {
             </div>
           )}
 
+          {/* No persona: starterPicks needs a score to sort by, so it is empty
+              here and this screen used to be one stretched card above 400px of
+              nothing. Constrain the card to a readable measure and give the
+              page something to actually do — recognisable tools, savable right
+              now, which is the whole point of a shortlist page. */}
           {starterPicks.length === 0 && (
-            <div className="sticker cyan mt-10 p-5">
+            <>
+            <div className="sticker cyan mt-10 max-w-2xl p-5">
               <p className="arcade-heading lime compact text-lg">◆ GET RANKED PICKS</p>
               <p className="mt-2 text-sm leading-relaxed text-slate-300">
                 Answer nine questions and Toolnaut scores all {TOOLS.length} tools
@@ -133,6 +139,28 @@ export default function Favorites() {
                 TAKE THE 60-SECOND QUIZ
               </Link>
             </div>
+
+            <div className="mt-10">
+              <h2 className="arcade-heading section text-xl sm:text-2xl">START WITH A NAME YOU KNOW</h2>
+              <p className="mt-2 max-w-lg text-sm text-slate-400">
+                Recognisable tools across six kinds of work. Tap the heart to
+                shortlist one now — the quiz will rank it later.
+              </p>
+              <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {recognisableStarters(TOOLS, 4).map((tool, i) => (
+                  <ToolCard
+                    key={tool.slug}
+                    tool={tool}
+                    index={i}
+                    inStack={stack.includes(tool.slug)}
+                    onToggleStack={toggleStack}
+                    isFavorite={favoriteSlugs.includes(tool.slug)}
+                    onToggleFavorite={toggleFavorite}
+                  />
+                ))}
+              </div>
+            </div>
+            </>
           )}
         </div>
       ) : (

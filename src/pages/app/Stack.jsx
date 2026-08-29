@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { loadQuiz } from '../../state/quizStore'
@@ -15,6 +15,8 @@ import { loadRoadmapProgress, milestoneComplete } from '../../state/roadmapStore
 import { loadProgress, cycleProgress, STATUSES } from '../../state/progressStore'
 import SkillGraph from '../../components/app/SkillGraph'
 import ToolCard from '../../components/app/ToolCard'
+import { useAnalytics } from '../../hooks/useAnalytics'
+import { markStackSeen } from '../../utils/funnel'
 
 // Deterministic daily pick: same tool all day, a new one tomorrow — so every
 // open of the app has something unexplored in it.
@@ -61,8 +63,17 @@ function ProgressRing({ value }) {
 }
 
 export default function Stack() {
+  const track = useAnalytics()
   const quiz = loadQuiz()
   const persona = quiz.completed ? generatePersona(quiz.answers) : null
+
+  // The activation milestone the review cares about: a personalised stack
+  // was actually SEEN. Latched inside markStackSeen, so re-renders and
+  // revisits cannot re-fire it and inflate the rate past 100%.
+  useEffect(() => {
+    if (persona) markStackSeen(track, { role: quiz.answers?.role, goal: quiz.answers?.goal })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Boolean(persona)])
   const [progress, setProgress] = useState(loadProgress)
   const [addedSlugs, setAddedSlugs] = useState(loadStack)
   const [copied, setCopied] = useState(false)
@@ -285,7 +296,7 @@ export default function Stack() {
               <motion.article key={tool.name} {...cardIn(2 + Math.min(i, 6))} className={`sticker ${stickerColor} relative flex flex-col p-5`}>
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <h3 className="arcade-heading lime text-base sm:text-lg">
+                    <h3 className="arcade-heading lime compact text-base sm:text-lg">
                       {tool.slug ? (
                         <Link to={`/app/tools/${tool.slug}`} className="after:absolute after:inset-0 after:content-['']">
                           {tool.name.toUpperCase()}

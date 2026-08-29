@@ -4,9 +4,10 @@ import { matchScore } from '../../utils/matchScore'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { useAnalytics } from '../../hooks/useAnalytics'
+import { markActed } from '../../utils/funnel'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 
 // Comparison state lives entirely in the ?tools= query string, same pattern
 // as Discover's q/cat/price/level params — no persisted/named comparisons.
@@ -14,6 +15,10 @@ export default function Compare() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [stack, setStack] = useState(loadStack)
   const track = useAnalytics()
+
+  // Opening a comparison is itself the qualifying action — there is no
+  // later confirm step to hang it on.
+  useEffect(() => { markActed(track, 'compare') }, [])
 
   const quiz = loadQuiz()
   const answers = quiz.completed ? quiz.answers : null
@@ -91,7 +96,7 @@ export default function Compare() {
                       <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
                       <span className="truncate">{tool.sourceCategory}</span>
                     </span>
-                    <Link to={`/app/tools/${tool.slug}`} className="arcade-heading lime mt-2 text-sm hover:opacity-80">
+                    <Link to={`/app/tools/${tool.slug}`} className="arcade-heading lime compact mt-2 text-base hover:opacity-80">
                       {tool.name.toUpperCase()}
                     </Link>
                     <p className="mt-2 line-clamp-3 flex-1 text-xs leading-relaxed text-slate-300">{tool.blurb}</p>
@@ -142,7 +147,7 @@ export default function Compare() {
                       ✕
                     </button>
                   </div>
-                  <Link to={`/app/tools/${tool.slug}`} className="arcade-heading lime mt-2 block text-base hover:opacity-80">
+                  <Link to={`/app/tools/${tool.slug}`} className="arcade-heading lime compact mt-2 block text-base hover:opacity-80">
                     {tool.name.toUpperCase()}
                   </Link>
                   <p className="mt-2 text-xs leading-relaxed text-slate-300">{tool.blurb}</p>
