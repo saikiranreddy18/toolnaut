@@ -2108,3 +2108,99 @@ a client-side SPA with a static tool catalogue.
   gap's extraction if that ships first), one homepage/footer link, one line
   in `scripts/smoke.mjs`. No backend, no new dependency, no new store.
 - **Found:** 2026-08-29 03:15 UTC
+
+### A shared stack can only be viewed, never adopted — the receiving half of Share/Export was never built
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — found re-reading the already-shipped
+  Share/Export gap (`/s/:slugs`, shipped `42bdc994`) against its own stated
+  goal: "Every visitor who finishes the quiz or curates a stack is a free
+  acquisition channel the moment they can show it to someone else." That
+  sentence only describes the *sending* half. The receiving half — what
+  happens to the friend who actually clicks the link — was never checked
+  against the same bar the rest of this file holds every other gap to (does
+  the feature deliver on its own premise, end to end).
+- **Gap:** `src/pages/SharedStack.jsx:9` already resolves the shared slugs into
+  real `tool` objects via `decodeStackSlugs(slugs).map(getTool).filter(Boolean)`
+  — the exact data a recipient would need to adopt the stack — but the only
+  action on the page is a single CTA at `SharedStack.jsx:47-52`:
+  `<Link to="/goal">Build my own stack</Link>`, unconditional, regardless of
+  who's looking at it. Confirmed by reading the full 55-line file: no session
+  check, no `addToStack` import, no branch at all. Two concrete failure modes
+  result. (1) A **signed-in existing user** who already has a persona and a
+  stack (say, three tools) clicks a friend's `/s/notion-ai,perplexity,cursor`
+  link, sees three tools they don't have, and the only button sends them back
+  through the entire 60-second quiz from scratch — there is no way to just add
+  those three tools to the stack they already have. `stackStore.js`'s
+  `addToStack(slug)` (`stackStore.js:19-22`) is a trivial, already-deduping,
+  session-independent localStorage write — CTASection.jsx already proves the
+  session-branch pattern this page needs (`CTASection.jsx:8,17`:
+  `loadSession() ? '/app/stack' : '/goal'`), but `SharedStack.jsx` never
+  imports `loadSession` or `stackStore` at all. (2) A **first-time,
+  signed-out visitor** (the more common case, and the one the original gap's
+  own citation of StackShare's "whole growth loop is public stacks getting
+  shared" was written for) clicking the same link sees the tools their friend
+  picked, then the CTA discards that context entirely and drops them into
+  the generic 9-question quiz — the exact tools they just looked at and
+  presumably came here *because of* never carry forward into their own
+  stack, the persona-matching flow, or the roadmap. The share feature proves
+  its own premise only up to the click; nothing downstream of the click
+  honors what was shared.
+- **Why it matters:** this directly undercuts the ROI of the already-shipped
+  feature it completes — a share link is only a growth loop if the person who
+  receives it converts into someone who *keeps* what was shared, not someone
+  who has to start over. For the signed-in case, it's plain lost retention
+  value: an existing user with genuine intent (they clicked a friend's link)
+  is handed more friction than a first-time visitor gets, which is backwards.
+  For the signed-out case, it's a missed activation opportunity precisely
+  parallel to the still-open "First-session onboarding checklist" gap's own
+  framing — momentum (here, "I already know I want these three tools") that
+  the product fails to capitalize on the moment it exists.
+- **Smallest useful version (what to actually build):**
+  - `SharedStack.jsx`: import `loadSession` from `../state/authStore` (same
+    import CTASection.jsx already uses) and `addToStack`, `loadStack` from
+    `../state/stackStore` (same import Discover.jsx/Stack.jsx already use).
+  - **Signed-in branch** (`loadSession()` truthy): replace the unconditional
+    CTA with a primary button, "⚡ Add all N to my stack," that calls
+    `tools.forEach(t => addToStack(t.slug))` then navigates to `/app/stack`
+    via `useNavigate()` — `addToStack` already no-ops on a slug already
+    present (`stackStore.js:20`), so this is safe to click even on tools the
+    user already has, no pre-check needed. Keep a small secondary text link,
+    "View my stack instead," to `/app/stack` for a user who doesn't want to
+    merge. If every shared tool is already in the user's stack (check via
+    `loadStack()` once on mount), skip the primary button and show "You
+    already have all N of these" instead — never render an "add" action with
+    nothing left to add.
+  - **Signed-out branch** (no session): keep today's behavior as the
+    fallback, but make it carry the shared tools forward instead of
+    discarding them — the same `addToStack()` calls run first (the store
+    itself doesn't require a session, it's plain localStorage), *then*
+    navigate to `/goal` same as today. `personaGenerator.js`'s starter-stack
+    logic already unions with whatever's already in `stackStore` (confirmed
+    by re-reading how `Stack.jsx:116-119` already builds its resolved tool
+    list as starter ∪ added — this is the exact union the original share-stack
+    gap's spec called out at line 56 above), so a visitor who takes the quiz
+    after this lands on `Stack.jsx` with their friend's shared tools already
+    present alongside their new persona's starter picks, instead of losing
+    them. Button label changes from "Build my own stack" to "Add these & take
+    the quiz" so the action being taken is honestly described.
+  - Reuse the existing "Copied!"-style transient-label pattern already used
+    twice in this codebase (`Stack.jsx`'s share button, `Learning.jsx`'s share
+    badge) for a brief "Added!" confirmation before the navigate, so the
+    click doesn't feel instant/silent.
+  - **What this would NOT include** (kept out to bound the diff): no
+    per-tool selection checkboxes (all-or-nothing "add all," matching the
+    original share-stack gap's own "union of slugs, no partial state" design
+    — a selective-add UI is a real v2, not needed for this fix to close the
+    gap); no merging progress/status state (only slugs get added, same
+    restriction the original gap already committed to — a shared stack never
+    carried per-tool progress in the URL to begin with, so there is nothing
+    to merge there); no analytics/attribution on which shares convert (no
+    backend to aggregate it, same reasoning every other rejected-for-backend
+    gap in this file already gives); no change to the read-only card grid
+    itself — this only changes the one CTA block at the bottom of the page.
+- **Build size:** S — one import addition, one `useNavigate` hook, a
+  session-branched CTA block replacing the current unconditional `<Link>` in
+  `SharedStack.jsx`, reusing `addToStack`/`loadSession`/`loadStack` verbatim
+  from existing stores. No backend, no new dependency, no new route, no new
+  store, no new util.
+- **Found:** 2026-08-29 06:20 UTC
