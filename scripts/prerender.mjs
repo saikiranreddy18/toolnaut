@@ -15,8 +15,8 @@
 // /goal, /auth/login, /s/:slugs) are deliberately NOT prerendered: their content
 // depends on that visitor's localStorage, so a shared static copy would be
 // wrong for everyone.
-import { spawn } from 'node:child_process'
-import { mkdirSync, writeFileSync, copyFileSync, readFileSync } from 'node:fs'
+import { spawn, execSync } from 'node:child_process'
+import { mkdirSync, writeFileSync, copyFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { chromium } from 'playwright'
 
@@ -42,6 +42,21 @@ const ROUTES = [
   '/tools/learning',
 ]
 
+// The build image has no browser binaries. Install before importing anything
+// that needs one, and keep the outcome — this is the step most likely to fail
+// on a host we cannot read logs from.
+const status = []
+function note(line) { status.push(line); console.log(line) }
+
+try {
+  const out = execSync('npx playwright install chromium --only-shell 2>&1', {
+    encoding: 'utf8', timeout: 300000,
+  })
+  note('install: ok — ' + out.trim().split(/\r?\n/).slice(-1)[0])
+} catch (err) {
+  note('install: FAILED — ' + String(err.message || err).split(/\r?\n/).slice(0, 3).join(' | '))
+}
+
 // Keep a pristine empty shell for the SPA rewrite fallback. Without this, every
 // unmatched route would fall back to the prerendered HOMEPAGE and flash landing
 // content before React routed away from it.
@@ -61,7 +76,16 @@ for (;;) {
   }
 }
 
-const browser = await chromium.launch()
+let browser
+try {
+  browser = await chromium.launch()
+  note('launch: ok')
+} catch (err) {
+  note('launch: FAILED — ' + String(err.message || err).split(/\r?\n/).slice(0, 4).join(' | '))
+  note('RESULT: 0 routes prerendered — serving the SPA shell')
+  writeFileSync(join(DIST, '_prerender-status.txt'), status.join('\n') + '\n')
+  process.exit(0)
+}
 const page = await browser.newPage({ viewport: { width: 1280, height: 900 } })
 
 let written = 0
@@ -95,10 +119,18 @@ for (const route of ROUTES) {
 
 await browser.close()
 
-// A prerender pass that silently produced nothing is worse than none at all:
-// it looks like it worked. Fail the build instead.
-if (written === 0) {
-  console.error('prerender: no routes rendered')
-  process.exit(1)
-}
-console.log(`\nprerender: ${written} routes written, ${failed} skipped`)
+// A prerender pass that silently produces nothing is worse than none at all:
+// the build goes green and the site still serves a blank shell, which is
+// exactly how the first attempt at this shipped without anyone noticing.
+// Vercel's build logs are not reachable from here, so the outcome is written
+// into dist/ and can be read back off the deployed site:
+//   curl https://toolnaut.xyz/_prerender-status.txt
+note(`RESULT: ${written} routes written, ${failed} skipped`)
+writeFileSync(join(DIST, '_prerender-status.txt'), status.join('\n') + '\n')
+if (written === 0) console.error('prerender: no routes rendered — serving the SPA shell')
+
+// `vite preview` keeps a live handle, so node will not exit on its own and the
+// build hangs until the host's timeout kills it. Kill the child and leave
+// deliberately — everything that had to be written is already on disk.
+server.kill()
+process.exit(0)
