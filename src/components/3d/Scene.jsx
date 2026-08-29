@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { PerformanceMonitor } from '@react-three/drei'
+import { PerformanceMonitor } from '@react-three/drei/core/PerformanceMonitor'
 import ParticleField from './ParticleField'
 import Galaxy from './Galaxy'
 import CameraController from './CameraController'
