@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { galaxyState, GALAXY_CENTER } from '../../state/galaxyStore'
+import { scrollProgress } from '../../utils/scrollProgress'
 
 // Scroll-driven orbit flight. The one thing that makes this feel smooth:
 // scrollY arrives in discrete wheel steps, so we damp the PROGRESS value
@@ -14,7 +15,10 @@ const START_ELEV = 0.5 // ~28.6°, comfortable overview at the hero
 // edge-on (near-zero real thickness), verified empirically in explore mode.
 const END_ELEV = 0.09 // ~5.2°, near edge-on by the end of the scroll
 const TILT_EASE = 0.3 // <1 = front-loaded: opens toward edge-on quickly, not just at the very end
-const TURNS = Math.PI * 2 // one full orbit over the page
+// A full 2π brought the camera back to the azimuth it started from, so the
+// bottom of the page looked like the top — the journey visibly repeated. Just
+// over half a turn sweeps a long way round and ends somewhere new.
+const TURNS = Math.PI * 1.1 // ~198°, monotonic: never returns to the start
 
 export default function CameraController({ reduced }) {
   const { camera } = useThree()
@@ -38,12 +42,12 @@ export default function CameraController({ reduced }) {
     // Camera progress tracks the whole page. The landing is the only page that
     // mounts the galaxy; the scrollytelling variant this used to support belonged
     // to /starchart, which no longer exists.
-    let rawP
-    {
-      const doc = document.documentElement
-      const max = doc.scrollHeight - window.innerHeight
-      rawP = max > 0 ? Math.min(1, window.scrollY / max) : 0
-    }
+    // Read from the cached tracker. This used to read scrollHeight here —
+    // a layout property — on every frame, which forced a synchronous reflow
+    // each time the camera moved. Since the page animates sections in on
+    // scroll, the DOM was dirty on exactly those frames, so the camera was
+    // paying for a full layout 60 times a second. That was the stutter.
+    const rawP = scrollProgress()
 
     // Frame-rate-independent smoothing of scroll progress itself.
     // λ=2.2 ≈ cinematic half-second settle; wheel steps become a glide.

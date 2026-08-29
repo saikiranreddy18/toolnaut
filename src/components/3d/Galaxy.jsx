@@ -26,11 +26,15 @@ function makeCoreTexture() {
 }
 
 // Procedural spiral galaxy: dense golden core, violet mid-band, blue outer arms.
-export default function Galaxy({ reduced, spin = !reduced }) {
+// `count` overrides the reduced/full default so the scene can scale the point
+// budget to what the device actually sustains. Vertex count — not resolution —
+// is what costs here: hiding the canvas entirely and forcing dpr to 1 both left
+// frame time unchanged at 133ms, while a page with no WebGL held 16.7ms.
+export default function Galaxy({ reduced, spin = !reduced, count: countProp }) {
   const group = useRef()
 
   const { positions, colors } = useMemo(() => {
-    const count = reduced ? 24000 : 70000
+    const count = countProp ?? (reduced ? 24000 : 70000)
     const positions = new Float32Array(count * 3)
     const colors = new Float32Array(count * 3)
 
@@ -67,7 +71,7 @@ export default function Galaxy({ reduced, spin = !reduced }) {
       colors[i * 3 + 2] = c.b * b
     }
     return { positions, colors }
-  }, [reduced])
+  }, [reduced, countProp])
 
   const coreTex = useMemo(makeCoreTexture, [])
 
