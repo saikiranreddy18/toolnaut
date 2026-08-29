@@ -6,6 +6,7 @@ import Galaxy from './Galaxy'
 import CameraController from './CameraController'
 import { startScrollTracking, scrollProgress } from '../../utils/scrollProgress'
 import { weakRenderer } from '../../utils/webgl'
+import { loadGalaxyQuality, watchGalaxyQuality } from '../../state/galaxyQualityStore'
 
 // Quality tiers (mobile-first launch):
 //   full   — desktop: 70k-point galaxy, 2400 stars, pointer parallax, dpr 2
@@ -26,15 +27,24 @@ const DPR_FLOOR = 1
 // unchanged at 133ms, while a page with no WebGL at all held a clean 16.7ms.
 // The work is per-vertex, so the adaptive path scales the budget, not the
 // resolution — dropping dpr alone was pulling a lever wired to nothing.
+//
+// The desktop budget was 70,000 points. That is far more than the image needs:
+// the hero still read as a dense galaxy at a quarter of it, because the disc is
+// dominated by the bright core and the eye cannot resolve individual points in
+// the arms. Halving it halves the dominant per-frame cost for a difference you
+// have to look for.
 const BUDGET = {
-  full: { points: 70000, stars: 2400 },
-  mobile: { points: 24000, stars: 1200 },
-  calm: { points: 24000, stars: 700 },
+  full: { points: 34000, stars: 1500 },
+  mobile: { points: 18000, stars: 1000 },
+  calm: { points: 14000, stars: 600 },
 }
 const QUALITY_FLOOR = 0.18
 
 export default function Scene({ mode = 'full' }) {
   const wrapRef = useRef(null)
+  // The visitor's own call, and it wins over every heuristic here.
+  const [level, setLevel] = useState(loadGalaxyQuality)
+  useEffect(() => watchGalaxyQuality(setLevel), [])
   const calm = mode === 'calm'
   const mobile = mode === 'mobile'
   const [dpr, setDpr] = useState(DPR[mode])
@@ -46,8 +56,9 @@ export default function Scene({ mode = 'full' }) {
   const [quality, setQuality] = useState(() => (weakRenderer() ? 0.25 : 1))
 
   const budget = BUDGET[mode] || BUDGET.full
-  const points = Math.round(budget.points * quality)
-  const stars = Math.round(budget.stars * quality)
+  const factor = quality * (level === 'light' ? 0.4 : 1)
+  const points = Math.round(budget.points * factor)
+  const stars = Math.round(budget.stars * factor)
 
   function degrade() {
     setQuality((q) => Math.max(QUALITY_FLOOR, +(q * 0.5).toFixed(3)))
@@ -90,19 +101,43 @@ export default function Scene({ mode = 'full' }) {
     }
   }, [])
 
+  // "Off" unmounts WebGL entirely rather than hiding it. Hiding the canvas was
+  // measured to change nothing: the context still exists and still renders.
+  if (level === 'off') {
+    return (
+      <div className="fixed inset-0 z-0" aria-hidden="true">
+        <div className="starfield" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 90% 70% at 50% 40%, rgba(124,58,237,0.20), transparent 60%),' +
+              'radial-gradient(ellipse 70% 50% at 50% 45%, rgba(34,211,238,0.12), transparent 55%), #060609',
+          }}
+        />
+      </div>
+    )
+  }
+
+  const lightened = level === 'light'
+
   return (
     <div ref={wrapRef} className="fixed inset-0 z-0" aria-hidden="true">
       <Canvas
         camera={{ position: [0, 7.5, 14], fov: 52 }}
         dpr={dpr}
+        // demand = paint once, then only when something asks. Light dropped the
+        // point budget instead and measured identical to Full (66.6 vs 66.7ms),
+        // because the per-frame cost is the render itself, not the geometry.
+        frameloop={lightened ? 'demand' : 'always'}
         gl={{ antialias: !mobile && dpr >= 1.5, powerPreference: 'high-performance' }}
       >
         <color attach="background" args={['#060609']} />
         <Suspense fallback={null}>
           <ParticleField reduced={calm} mobile={mobile} count={stars} />
-          <Galaxy reduced={calm || mobile} spin={!calm} count={points} />
+          <Galaxy reduced={calm || mobile} spin={!calm && !lightened} count={points} />
         </Suspense>
-        <CameraController reduced={calm} />
+        {!lightened && <CameraController reduced={calm} />}
 
         {/* Halves the point budget when the device cannot hold the frame rate,
             and stops adjusting after a few reversals so it settles instead of
