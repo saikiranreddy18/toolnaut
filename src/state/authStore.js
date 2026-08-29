@@ -1,5 +1,6 @@
 import { supabase, isSupabaseConfigured } from '../utils/supabase'
 import { registerExplorer } from '../utils/explorerCount'
+import { syncOnSignIn } from './sync'
 
 // Session state, with two backends behind one unchanged surface.
 //
@@ -69,15 +70,20 @@ export function watchSession(onChange) {
   // listener. This is the only place that sees every arrival — first sign-up,
   // returning sign-in and token refresh alike. The insert is idempotent on the
   // auth id, so the repeats cost one rejected row and never double-count.
+  // ORDER MATTERS: write() before syncOnSignIn().
+  // sync.js reads the uid back out of the session mirror rather than taking it
+  // as an argument, so calling it first means it looks for a session that has
+  // not been stored yet, finds none, and silently does nothing on the one
+  // arrival that matters most — the first sign-in.
   supabase.auth.getSession().then(({ data }) => {
     const user = data?.session?.user
-    if (user?.id) registerExplorer(user.id)
     onChange?.(write(toSession(user)))
+    if (user?.id) { registerExplorer(user.id); syncOnSignIn() }
   })
 
   const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
-    if (session?.user?.id) registerExplorer(session.user.id)
     onChange?.(write(toSession(session?.user)))
+    if (session?.user?.id) { registerExplorer(session.user.id); syncOnSignIn() }
   })
 
   return () => sub?.subscription?.unsubscribe()

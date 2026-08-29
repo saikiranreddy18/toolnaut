@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { pendingImport, adoptGuestData, discardGuestData } from '../../state/scopedStorage'
+import { pushAll } from '../../state/sync'
 import { haptic } from '../../utils/haptics'
 
 // Offered once, the first time an account signs in on a browser that already
@@ -34,6 +35,10 @@ export default function GuestImportPrompt() {
     haptic.success()
     setBusy(true)
     adoptGuestData()
+    // Fire-and-forget: the import already succeeded locally, and a server that
+    // is unreachable must not turn a completed import into an error the user
+    // has to understand. pushAll reports through SyncStatus either way.
+    pushAll()
     // Full reload rather than a state nudge: every store read its data at mount
     // under the old key, so the cheapest correct way to show the imported data
     // is to let the app read it again from the top.
