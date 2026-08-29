@@ -31,7 +31,10 @@
       "argus-open-source-ai-agents-for-testing-web-apps",
       "grith",
       "coordination-layer-for-coding-agents",
-      "dmx"
+      "dmx",
+      "agentbridge",
+      "obsessing-over-ai-agent-harnesses",
+      "my-free-code"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -60,7 +63,10 @@
       "course-argus-open-source-ai-agents-for-testing-web-apps",
       "course-grith",
       "course-coordination-layer-for-coding-agents",
-      "course-dmx"
+      "course-dmx",
+      "course-agentbridge",
+      "course-obsessing-over-ai-agent-harnesses",
+      "course-my-free-code"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -135,7 +141,10 @@
       "web-game-player-vs-computer",
       "openinstinct",
       "slidex",
-      "a2acast"
+      "a2acast",
+      "doodle-ai-open-source-photo-to-doodle-avatar-generator",
+      "agentbridge",
+      "itsuki"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -145,7 +154,10 @@
       "course-web-game-player-vs-computer",
       "course-openinstinct",
       "course-slidex",
-      "course-a2acast"
+      "course-a2acast",
+      "course-doodle-ai-open-source-photo-to-doodle-avatar-generator",
+      "course-agentbridge",
+      "course-itsuki"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -164,7 +176,8 @@
       "google-flow",
       "clipdrop-desktop-clipdrop-ai-tools-2026",
       "how-i-design-with-ai",
-      "slidex"
+      "slidex",
+      "doodle-ai-open-source-photo-to-doodle-avatar-generator"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -176,7 +189,8 @@
       "course-google-flow",
       "course-clipdrop-desktop-clipdrop-ai-tools-2026",
       "course-how-i-design-with-ai",
-      "course-slidex"
+      "course-slidex",
+      "course-doodle-ai-open-source-photo-to-doodle-avatar-generator"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -278,7 +292,11 @@
       "urml",
       "argus-open-source-ai-agents-for-testing-web-apps",
       "ai-agent-guardrails-dont-work-safer-platforms-do",
-      "a2acast"
+      "a2acast",
+      "toolchestrator",
+      "agentbridge",
+      "itsuki",
+      "microsoft-publishes-ai-agent-shared-responsibility-model"
     ],
     "courses": [
       "course-headless-tools",
@@ -308,7 +326,11 @@
       "course-urml",
       "course-argus-open-source-ai-agents-for-testing-web-apps",
       "course-ai-agent-guardrails-dont-work-safer-platforms-do",
-      "course-a2acast"
+      "course-a2acast",
+      "course-toolchestrator",
+      "course-agentbridge",
+      "course-itsuki",
+      "course-microsoft-publishes-ai-agent-shared-responsibility-model"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -350,7 +372,10 @@
       "open-tool-for-testing-your-ai-agents-no-llm",
       "urml",
       "argus-open-source-ai-agents-for-testing-web-apps",
-      "ai-agent-guardrails-dont-work-safer-platforms-do"
+      "ai-agent-guardrails-dont-work-safer-platforms-do",
+      "itsuki",
+      "microsoft-publishes-ai-agent-shared-responsibility-model",
+      "obsessing-over-ai-agent-harnesses"
     ],
     "courses": [
       "course-headless-tools",
@@ -372,7 +397,10 @@
       "course-open-tool-for-testing-your-ai-agents-no-llm",
       "course-urml",
       "course-argus-open-source-ai-agents-for-testing-web-apps",
-      "course-ai-agent-guardrails-dont-work-safer-platforms-do"
+      "course-ai-agent-guardrails-dont-work-safer-platforms-do",
+      "course-itsuki",
+      "course-microsoft-publishes-ai-agent-shared-responsibility-model",
+      "course-obsessing-over-ai-agent-harnesses"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -428,7 +456,8 @@
       "designing-loops-for-production-grade-work",
       "rafter",
       "gemini-omni-11-flash",
-      "ai-engineer-notebooks"
+      "ai-engineer-notebooks",
+      "obsessing-over-ai-agent-harnesses"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -436,7 +465,8 @@
       "course-designing-loops-for-production-grade-work",
       "course-rafter",
       "course-gemini-omni-11-flash",
-      "course-ai-engineer-notebooks"
+      "course-ai-engineer-notebooks",
+      "course-obsessing-over-ai-agent-harnesses"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -475,11 +505,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "glm-53-open-weight-beat-anthropic-openai-models",
-      "gemini-omni-11-flash"
+      "gemini-omni-11-flash",
+      "itsuki"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
-      "course-gemini-omni-11-flash"
+      "course-gemini-omni-11-flash",
+      "course-itsuki"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -756,13 +788,15 @@
       "gibson-adk-and-zero-trust-runtime",
       "foundry-toolbox-radar-lab",
       "grith-is-live",
-      "grith"
+      "grith",
+      "microsoft-publishes-ai-agent-shared-responsibility-model"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
       "course-foundry-toolbox-radar-lab",
       "course-grith-is-live",
-      "course-grith"
+      "course-grith",
+      "course-microsoft-publishes-ai-agent-shared-responsibility-model"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -824,10 +858,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "a-daily-cartoon-contest-between-ai-models-judged-blind"
+      "a-daily-cartoon-contest-between-ai-models-judged-blind",
+      "doodle-ai-open-source-photo-to-doodle-avatar-generator"
     ],
     "courses": [
-      "course-a-daily-cartoon-contest-between-ai-models-judged-blind"
+      "course-a-daily-cartoon-contest-between-ai-models-judged-blind",
+      "course-doodle-ai-open-source-photo-to-doodle-avatar-generator"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -879,13 +915,15 @@
       "coolplugz",
       "agentseed",
       "rafter",
-      "agentseed-mcp"
+      "agentseed-mcp",
+      "itsuki"
     ],
     "courses": [
       "course-coolplugz",
       "course-agentseed",
       "course-rafter",
-      "course-agentseed-mcp"
+      "course-agentseed-mcp",
+      "course-itsuki"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -973,10 +1011,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "the-ai-health-agent-that-will-know-me-for-life"
+      "the-ai-health-agent-that-will-know-me-for-life",
+      "obsessing-over-ai-agent-harnesses"
     ],
     "courses": [
-      "course-the-ai-health-agent-that-will-know-me-for-life"
+      "course-the-ai-health-agent-that-will-know-me-for-life",
+      "course-obsessing-over-ai-agent-harnesses"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1096,11 +1136,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "mrea",
-      "foundry-toolbox-radar-lab"
+      "foundry-toolbox-radar-lab",
+      "microsoft-publishes-ai-agent-shared-responsibility-model"
     ],
     "courses": [
       "course-mrea",
-      "course-foundry-toolbox-radar-lab"
+      "course-foundry-toolbox-radar-lab",
+      "course-microsoft-publishes-ai-agent-shared-responsibility-model"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1112,12 +1154,14 @@
     "toolsTeaching": [
       "mrea",
       "coordination-layer-for-coding-agents",
-      "a2acast"
+      "a2acast",
+      "agentbridge"
     ],
     "courses": [
       "course-mrea",
       "course-coordination-layer-for-coding-agents",
-      "course-a2acast"
+      "course-a2acast",
+      "course-agentbridge"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1188,7 +1232,8 @@
       "ai-tools-list",
       "rafter",
       "grith-is-live",
-      "dmx"
+      "dmx",
+      "obsessing-over-ai-agent-harnesses"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -1198,7 +1243,8 @@
       "course-ai-tools-list",
       "course-rafter",
       "course-grith-is-live",
-      "course-dmx"
+      "course-dmx",
+      "course-obsessing-over-ai-agent-harnesses"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1320,7 +1366,8 @@
       "open-tool-for-testing-your-ai-agents-no-llm",
       "puppetflow-a-free-browser-automation-platform",
       "argus-open-source-ai-agents-for-testing-web-apps",
-      "dmx"
+      "dmx",
+      "my-free-code"
     ],
     "courses": [
       "course-limitless-library",
@@ -1328,7 +1375,8 @@
       "course-open-tool-for-testing-your-ai-agents-no-llm",
       "course-puppetflow-a-free-browser-automation-platform",
       "course-argus-open-source-ai-agents-for-testing-web-apps",
-      "course-dmx"
+      "course-dmx",
+      "course-my-free-code"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1408,13 +1456,15 @@
       "genbio-launches-a-virtual-biological-cell",
       "launch-hn-risklytics-yc-s26",
       "terminal-bench-science-evaluating-ai-agents-on-scientific-re",
-      "dipstick-alerts"
+      "dipstick-alerts",
+      "datazen"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
       "course-launch-hn-risklytics-yc-s26",
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
-      "course-dipstick-alerts"
+      "course-dipstick-alerts",
+      "course-datazen"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1943,10 +1993,12 @@
     "domain": "data",
     "level": "intermediate",
     "toolsTeaching": [
-      "launch-hn-risklytics-yc-s26"
+      "launch-hn-risklytics-yc-s26",
+      "datazen"
     ],
     "courses": [
-      "course-launch-hn-risklytics-yc-s26"
+      "course-launch-hn-risklytics-yc-s26",
+      "course-datazen"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2600,10 +2652,12 @@
     "domain": "code",
     "level": "beginner",
     "toolsTeaching": [
-      "ai-tools-list"
+      "ai-tools-list",
+      "toolchestrator"
     ],
     "courses": [
-      "course-ai-tools-list"
+      "course-ai-tools-list",
+      "course-toolchestrator"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2628,12 +2682,14 @@
     "toolsTeaching": [
       "ai-tools-list",
       "coordination-layer-for-coding-agents",
-      "dmx"
+      "dmx",
+      "my-free-code"
     ],
     "courses": [
       "course-ai-tools-list",
       "course-coordination-layer-for-coding-agents",
-      "course-dmx"
+      "course-dmx",
+      "course-my-free-code"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3703,10 +3759,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "openinstinct"
+      "openinstinct",
+      "agentbridge"
     ],
     "courses": [
-      "course-openinstinct"
+      "course-openinstinct",
+      "course-agentbridge"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -3796,10 +3854,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "coordination-layer-for-coding-agents"
+      "coordination-layer-for-coding-agents",
+      "agentbridge"
     ],
     "courses": [
-      "course-coordination-layer-for-coding-agents"
+      "course-coordination-layer-for-coding-agents",
+      "course-agentbridge"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -3919,5 +3979,226 @@
       "course-a2acast"
     ],
     "updatedAt": "2026-08-29T03:23:03.469Z"
+  },
+  {
+    "id": "skill-database",
+    "name": "database",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "datazen"
+    ],
+    "courses": [
+      "course-datazen"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-sql",
+    "name": "sql",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "datazen"
+    ],
+    "courses": [
+      "course-datazen"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-local-first",
+    "name": "local first",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "datazen"
+    ],
+    "courses": [
+      "course-datazen"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-cross-database",
+    "name": "cross database",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "datazen"
+    ],
+    "courses": [
+      "course-datazen"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-tool orchestration",
+    "name": "tool orchestration",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "toolchestrator"
+    ],
+    "courses": [
+      "course-toolchestrator"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-internal tools",
+    "name": "internal tools",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "toolchestrator"
+    ],
+    "courses": [
+      "course-toolchestrator"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-team sharing",
+    "name": "team sharing",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "toolchestrator"
+    ],
+    "courses": [
+      "course-toolchestrator"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-doodle",
+    "name": "doodle",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "doodle-ai-open-source-photo-to-doodle-avatar-generator"
+    ],
+    "courses": [
+      "course-doodle-ai-open-source-photo-to-doodle-avatar-generator"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-avatar",
+    "name": "avatar",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "doodle-ai-open-source-photo-to-doodle-avatar-generator"
+    ],
+    "courses": [
+      "course-doodle-ai-open-source-photo-to-doodle-avatar-generator"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-photo",
+    "name": "photo",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "doodle-ai-open-source-photo-to-doodle-avatar-generator"
+    ],
+    "courses": [
+      "course-doodle-ai-open-source-photo-to-doodle-avatar-generator"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-memory",
+    "name": "memory",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "itsuki"
+    ],
+    "courses": [
+      "course-itsuki"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-azure",
+    "name": "azure",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "microsoft-publishes-ai-agent-shared-responsibility-model"
+    ],
+    "courses": [
+      "course-microsoft-publishes-ai-agent-shared-responsibility-model"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-compliance",
+    "name": "compliance",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "microsoft-publishes-ai-agent-shared-responsibility-model"
+    ],
+    "courses": [
+      "course-microsoft-publishes-ai-agent-shared-responsibility-model"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-harness",
+    "name": "harness",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "obsessing-over-ai-agent-harnesses"
+    ],
+    "courses": [
+      "course-obsessing-over-ai-agent-harnesses"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-llm gateway",
+    "name": "llm gateway",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "my-free-code"
+    ],
+    "courses": [
+      "course-my-free-code"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-model routing",
+    "name": "model routing",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "my-free-code"
+    ],
+    "courses": [
+      "course-my-free-code"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-claude code",
+    "name": "claude code",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "my-free-code"
+    ],
+    "courses": [
+      "course-my-free-code"
+    ],
+    "updatedAt": "2026-08-29T14:30:52.619Z"
   }
 ]
