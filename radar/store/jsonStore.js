@@ -75,6 +75,18 @@ export function createJsonStore(dataDir) {
       return record
     },
 
+    // Patches an existing record in place. Unlike upsertTool this does NOT
+    // touch `lifecycle` or `version` — a re-score changes what we think of a
+    // tool, not what the tool is, so it must not promote an in-review record
+    // to published or inflate the version history of the whole catalog.
+    updateTool(slug, patch) {
+      const existing = bySlug.get(slug)
+      if (!existing) return null
+      Object.assign(existing, patch)
+      save(P.tools, tools)
+      return existing
+    },
+
     enqueueReview(record) {
       record.lifecycle = 'in_review'
       review.push(record)

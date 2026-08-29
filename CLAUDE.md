@@ -60,6 +60,16 @@ about whether the app renders.
   Everything else, `/tools.json` above all, must stay network-first.
 - **`src/state/*`** — every `localStorage` read must tolerate the API throwing
   (Safari private mode, blocked site data), not just returning null.
+- **`radar/scorecard.js`** — an unscored criterion must stay unscored. Do not
+  give it a default, a midpoint, or an average of its neighbours: the weights
+  renormalise over what was actually judged and `coverage` reports the gap. A
+  defaulted score turns "we have no evidence" into "we checked, it's average",
+  which is the one thing the scores must never say.
+- **`src/utils/radarDisplay.js`** — `showsNumericScores()` is the gate that keeps
+  a sparse scorecard from printing a headline number. A tool can score Utility
+  100 off a single signal at 41% coverage; that figure is true and misleading,
+  and people anchor on it whatever the badge beside it says. Never render
+  `utility`/`trust` without asking this function first.
 - **`radar/util/retry.js`** — 4xx other than 429 must not be retried.
 - **`radar/store/jsonStore.js`** — `load()` rethrows anything that is not
   ENOENT. A corrupt store must abort the run, never silently become `[]` and

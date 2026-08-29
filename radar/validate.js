@@ -1,4 +1,5 @@
 import { DOMAINS, PRICES, LEVELS, REQUIRED_TOOL_FIELDS, SOURCE_CATEGORY_IDS } from './schema.js'
+import { isValidScorecard } from './scorecard.js'
 
 // THE VALIDATE GATE — a pure, synchronous function (no I/O), so it runs and is
 // tested identically in any runtime. It decides one of three outcomes:
@@ -25,6 +26,10 @@ export function validate(record, { publishThreshold = 0.75, reviewThreshold = 0.
     if (record.blurb.length > 140) warnings.push('blurb-long')
   }
   if (!record.tags || record.tags.length === 0) warnings.push('no-tags')
+  // A CORRUPT scorecard is a warning; a low or absent one is not. Most records
+  // are unrated (no LLM key → no assessment), and gating publication on a score
+  // the pipeline cannot compute would silently empty the catalog.
+  if (record.scorecard && !isValidScorecard(record.scorecard)) warnings.push('scorecard-malformed')
 
   // Any hard error → reject, regardless of confidence.
   if (errors.length) {
