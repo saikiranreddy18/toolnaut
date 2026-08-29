@@ -2000,3 +2000,111 @@ a client-side SPA with a static tool catalogue.
   (`JsonLd.jsx`), three call sites (`CategoryLanding.jsx`, `NewTools.jsx`,
   `SharedStack.jsx`). No backend, no new dependency, no new route.
 - **Found:** 2026-08-29 00:06 UTC
+
+### No public search — every "type a keyword" path is behind the login wall
+- **Status:** OPEN
+- **Seen in:** a problem area rather than one competitor — checked directly
+  against the four public listing pages already shipped this week
+  (`/tools/:domain`, `/new`, `/s/:slugs`, plus the still-OPEN
+  `/alternatives/:slug` and `/graveyard`). Every one of them is a
+  *pre-filtered* list — pick a category, a recency window, a specific tool's
+  neighbours. None let a visitor type an arbitrary query. Futurepedia,
+  There's An AI For That and Toolify.ai all put a real search box on their
+  homepage, reachable with zero login — searching is the default entry point
+  to a tool directory, not a filtered subset of it.
+- **Gap:** confirmed by reading `src/App.jsx`'s full route table (`App.jsx:78-118`):
+  every public route (`/`, `/tools/:domain`, `/new`, `/s/:slugs`, `/pricing`,
+  `/about`) is either static or pre-filtered. The only page with a real
+  keyword search box is `Discover.jsx` (`Discover.jsx:160-175`, `q` query
+  param, full-text match over `name`/`blurb`/`sourceCategory`/`dev`/`tags` at
+  `Discover.jsx:93-112`) — and it's mounted at `/app/discover`, nested under
+  `<Route path="/app" element={<AppShell />}>` (`App.jsx:100-111`), the exact
+  session wall the per-route-meta gap's own deepening already proved
+  redirects any crawler or signed-out visitor to `/auth/login` before
+  anything renders. `CTASection.jsx`'s promise — "no signup wall to get your
+  first chart" — is true for the quiz (`/goal`, session-free) but not for
+  simply searching: a visitor who doesn't want to answer quiz questions and
+  just wants to type "notion" or "voice cloning" has no path that doesn't
+  first demand a fake Google/GitHub/email sign-in. Grepped `useSearchParams|
+  type="search"` across `src/pages/*.jsx` (excluding `src/pages/app/`) —
+  zero hits; every top-level public page is either static content or a fixed
+  filter, never free text.
+- **Why it matters:** search is the single most obvious thing a first-time
+  visitor expects to be able to do on a tool directory, and today Toolnaut's
+  only route to it is "answer the quiz first" or "already know the tool's
+  exact URL slug" (`/s/:slug`, `/alternatives/:slug` once shipped). That's a
+  real conversion cost: someone who lands on Toolnaut from a search engine or
+  a friend's link with one specific tool in mind (not a role/persona to
+  discover) bounces at the login wall instead of getting an answer in one
+  keystroke. It also complements every other public-page gap in this file
+  rather than duplicating one — `/tools/:domain` answers "what's good for
+  category X," `/alternatives/:slug` answers "what else is like tool Y,"
+  `/new` answers "what's fresh" — none of them answer "does Toolnaut have
+  something called Z," which is the search behavior every visitor already
+  expects from a search box.
+- **Smallest useful version (what to actually build):**
+  - New public route `/search` in `src/App.jsx`, alongside `/tools/:domain`
+    and `/new` (`App.jsx:88-89`) — outside `AppShell`, no session required,
+    same tier as every other public listing page in this file.
+  - New `src/pages/SearchTools.jsx`, modeled on `CategoryLanding.jsx`'s shape
+    (heading, card grid, "Build my own stack" CTA) but driven by `useSearchParams()`
+    reading `q` the same way `Discover.jsx` already does, so a URL like
+    `/search?q=voice+cloning` is itself shareable and bookmarkable — same
+    "state lives in the URL" principle this codebase already commits to
+    (`Discover.jsx:38` comment: "so results are shareable and the back
+    button restores them"). Reuses the *exact* filter predicate
+    `Discover.jsx:93-106` already has (name/blurb/sourceCategory/dev/tags
+    substring match) rather than writing a second one — factor it into a
+    small exported helper (e.g. `matchesQuery(tool, q)` in
+    `src/utils/toolsCatalog.js` or a new `src/utils/search.js`) that both
+    `Discover.jsx` and `SearchTools.jsx` call, so the two search
+    implementations can't silently drift apart. This is the same "two
+    call sites, one predicate" fix the still-open facet-counts gap already
+    plans for `Discover.jsx`'s filtering — if that gap ships first, this one
+    should reuse whatever helper it extracts rather than doing the
+    extraction twice.
+  - Text input at the top (same visual markup as `Discover.jsx:162-174`'s
+    search box, no new input styling needed), a real-text-input `<input
+    type="search">` bound to the `q` param exactly like `Discover.jsx` does.
+    No category/price/level filter chips in v1 — those are Discover's job
+    once a visitor is actually signed in; this page's only job is "does
+    Toolnaut have this," not a second full faceted-search UI outside the
+    login wall.
+  - Empty query (`q` unset or blank): show a short prompt ("Search 750+ AI
+    tools by name, category, or use case") plus the same six `suggestedCats`-
+    style category links `Discover.jsx:134-137,236-244` already computes, so
+    the page is never a bare blank input with nothing to do.
+  - Each result card is the same read-only glass-card markup
+    `CategoryLanding.jsx:46-57` already renders (name, blurb, price/level
+    pills, category dot) — no add-to-stack/favorite/compare actions, since
+    those require a session; clicking a card links to `/s/{tool.slug}`
+    (already-public, already-shipped single-tool view via
+    `encodeStackSlugs([slug])`) rather than the gated `/app/tools/:slug`,
+    the same reuse the embeddable-badge gap above already establishes as the
+    correct honest destination for a signed-out click.
+  - Wire a "🔎 Search all tools" link into `HeroSection.jsx`/`NexusLanding.jsx`
+    or the site footer so it's discoverable without already knowing the URL
+    — exact placement is a judgment call for whoever builds this, but it
+    should not ship as a URL nobody can find from the homepage.
+  - `scripts/smoke.mjs`'s hardcoded route array needs one addition, e.g.
+    `/search?q=chatgpt` — same footgun flagged on every route-adding gap in
+    this file.
+  - **What this would NOT include** (kept out to bound the diff): no
+    category/price/level filter chips on this page (Discover's job, once
+    signed in — this is a single-box lookup, not a second faceted-search UI);
+    no sitemap entries (a dynamic `?q=` page has no fixed set of URLs to
+    list, unlike the static category/graveyard/new pages — this page's value
+    is visitor usability, not incremental crawlable-URL count, and should be
+    scoped and described that way rather than oversold as an SEO play); no
+    autocomplete/instant-results-as-you-type beyond the existing debounce-free
+    `onChange` pattern `Discover.jsx` already uses; no merging this page with
+    `Discover.jsx` into one shared component — the session-gated version
+    keeps its filter chips, match scores and stack actions, this is a
+    deliberately smaller, public-only sibling, the same relationship
+    `CategoryLanding.jsx` already has to `Discover.jsx`'s category filter.
+- **Build size:** S — one new page (`SearchTools.jsx`, closely modeled on
+  `CategoryLanding.jsx`), one new public route in `App.jsx`, one small shared
+  predicate extracted from `Discover.jsx` (or reused from the facet-counts
+  gap's extraction if that ships first), one homepage/footer link, one line
+  in `scripts/smoke.mjs`. No backend, no new dependency, no new store.
+- **Found:** 2026-08-29 03:15 UTC
