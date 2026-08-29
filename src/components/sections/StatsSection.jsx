@@ -1,8 +1,10 @@
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import SectionShell, { fadeUp, stagger } from '../ui/SectionShell'
 import { TOOLS, SOURCE_CATEGORIES } from '../../utils/toolsCatalog'
 import { QUESTIONS } from '../../utils/quizLogic'
-import { EXPLORERS, SUBSCRIBERS, conversionLabel, SEEDED } from '../../utils/communityStats'
+import { SUBSCRIBERS, conversionLabel, SEEDED } from '../../utils/communityStats'
+import { explorerCount } from '../../utils/explorerCount'
 
 // Two rows, kept apart on purpose.
 //
@@ -12,11 +14,15 @@ import { EXPLORERS, SUBSCRIBERS, conversionLabel, SEEDED } from '../../utils/com
 // hardcoded number would. Same for categories and questions: change the source
 // files and these follow.
 //
-// The bottom row is SEEDED, and says so. There are no accounts and no payments
-// yet, so explorers and subscribers are placeholders from communityStats.js.
-// They are separated from the counted row rather than mixed into it, because a
-// real number standing next to an invented one inherits its credibility problem
-// — and the counted ones are the product's strongest honest claim.
+// The bottom row is mixed now, and each tile says which it is. Explorers is
+// COUNTED — public.explorer_count() over one row per signed-up account, marked
+// "live count" — and disappears entirely rather than guessing when the count
+// cannot be read. Subscribers and conversion are still seeded, because there is
+// no billing to count, and the "preview figures" chip is wired to whether any
+// seeded tile is actually on screen rather than to a constant.
+//
+// The two rows stay separate for the original reason: a real number standing
+// next to an invented one inherits its credibility problem.
 export default function StatsSection() {
   const counted = [
     { n: TOOLS.length.toLocaleString(), k: 'AI tools mapped' },
@@ -25,11 +31,27 @@ export default function StatsSection() {
     { n: '4', k: 'Week roadmap' },
   ]
 
+  // Explorers is now COUNTED, not seeded: public.explorer_count() over one row
+  // per signed-up account. null means the count is genuinely unknown — the
+  // migration has not been run, or the request failed — and it renders as
+  // nothing rather than falling back to the invented 1,300. A number on a
+  // landing page is a claim; an unavailable one is not a licence to make it up.
+  const [explorers, setExplorers] = useState(null)
+  useEffect(() => {
+    let alive = true
+    explorerCount().then((n) => { if (alive && n !== null) setExplorers(n) })
+    return () => { alive = false }
+  }, [])
+
   const community = [
-    { n: EXPLORERS.toLocaleString(), k: 'Explorers' },
+    explorers !== null && { n: explorers.toLocaleString(), k: 'Explorers', real: true },
     { n: SUBSCRIBERS.toLocaleString(), k: 'Subscribers' },
     { n: conversionLabel(), k: 'Conversion' },
-  ]
+  ].filter(Boolean)
+
+  // The preview chip belongs to whatever is still seeded. Once explorers is
+  // real, it must not sit over the top of it implying otherwise.
+  const anySeeded = SEEDED && community.some((s) => !s.real)
 
   return (
     <SectionShell id="numbers">
@@ -66,7 +88,7 @@ export default function StatsSection() {
             >
               The community
             </span>
-            {SEEDED && (
+            {anySeeded && (
               <span
                 className="rounded-full border-2 border-black px-2.5 py-0.5 font-display text-[9px] font-black uppercase tracking-[0.12em] text-black"
                 style={{ background: 'var(--hot-pink)' }}
@@ -76,7 +98,7 @@ export default function StatsSection() {
             )}
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className={`grid gap-4 ${community.length === 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
             {community.map((s) => (
               <div
                 key={s.k}
@@ -87,6 +109,11 @@ export default function StatsSection() {
                 <p className="mt-1.5 font-display text-[9px] font-black uppercase tracking-[0.14em] text-slate-400">
                   {s.k}
                 </p>
+                {s.real && (
+                  <p className="mt-1 font-display text-[8px] font-black uppercase tracking-[0.14em]" style={{ color: 'var(--lime)' }}>
+                    Live count
+                  </p>
+                )}
               </div>
             ))}
           </div>

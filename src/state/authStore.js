@@ -1,4 +1,5 @@
 import { supabase, isSupabaseConfigured } from '../utils/supabase'
+import { registerExplorer } from '../utils/explorerCount'
 
 // Session state, with two backends behind one unchanged surface.
 //
@@ -63,11 +64,19 @@ export function loadSession() {
 export function watchSession(onChange) {
   if (!isSupabaseConfigured) return () => {}
 
+  // Registering here rather than in signIn() is deliberate: the real OAuth path
+  // never returns to signIn(), it leaves for Google and comes back through this
+  // listener. This is the only place that sees every arrival — first sign-up,
+  // returning sign-in and token refresh alike. The insert is idempotent on the
+  // auth id, so the repeats cost one rejected row and never double-count.
   supabase.auth.getSession().then(({ data }) => {
-    onChange?.(write(toSession(data?.session?.user)))
+    const user = data?.session?.user
+    if (user?.id) registerExplorer(user.id)
+    onChange?.(write(toSession(user)))
   })
 
   const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+    if (session?.user?.id) registerExplorer(session.user.id)
     onChange?.(write(toSession(session?.user)))
   })
 
