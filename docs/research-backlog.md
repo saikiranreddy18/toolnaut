@@ -2301,3 +2301,121 @@ a client-side SPA with a static tool catalogue.
   optional small addition to `Discover.jsx`'s card markup. No backend, no
   new dependency.
 - **Found:** 2026-08-29 09:20 UTC
+
+### Pricing already got its honest fix written — it just never got wired in, so the false claims and their own correction now sit on the same pages
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — found reading every file under
+  `src/components/sections/` for the marketing-audit sweep this backlog has
+  run for a week (the same sweep that already produced the shipped
+  Compare/Fresh-Finds/Skills-Graph gaps and the REJECTED chat-assistant/
+  Team-tier/digest-email/Discord findings, all sourced from `planData.js`).
+  `CapabilityMatrix.jsx` + `src/utils/capabilityMatrix.js` had never been
+  checked by any prior entry in this file — it is not in the section list
+  any earlier finding names, and it turns out to be exactly the fix those
+  four earlier findings kept saying didn't exist yet.
+- **Gap:** `src/utils/capabilityMatrix.js` was built specifically to correct
+  the dishonest-pricing problem — its own header comment names the failure
+  mode outright: *"Most Pro and Team rows do not exist yet, and Toolnaut
+  takes no payment at all. `status` marks what is actually live so the page
+  can say so plainly. Shipping a pricing table that implies working paid
+  features would be a straightforward lie."* Every capability this backlog
+  already flagged as a false claim — AI chat assistant, PDF export, team
+  analytics/admin/collaboration — is correctly marked `status: 'planned'`
+  here (`capabilityMatrix.js:38-91`), and `CapabilityMatrix.jsx` renders
+  each one with a plain "planned" pill plus a closing line: *"Nothing is
+  charged today... rows marked planned are the intended shape of a paid
+  tier, not features you are being sold"* (`CapabilityMatrix.jsx:97-101`).
+  This component is real, already built, already wired into a route.
+  But the component it was meant to replace was never removed or corrected.
+  `PricingSection.jsx` (backed by `planData.js`'s `PLANS`/`COMPARISON`,
+  the exact source of the four earlier false-claim findings) still renders
+  three plan pillars with unqualified `✦`-bulleted feature lists —
+  `'AI-powered chat assistant (Claude-powered Q&A)'` (`planData.js:44`),
+  `'Export learning roadmaps as PDF'` (`planData.js:49`), `'Team analytics
+  dashboard'`, `'Admin controls + member management'`, `'API access for
+  integrations'` (`planData.js:68-74`) — and a "Compare all plans" table
+  with bare `✓`/`✕` checkmarks (`PricingSection.jsx:60-67`,
+  `COMPARISON` at `planData.js:80-94`), none of it carrying a single
+  "planned" or "coming soon" qualifier anywhere in `PricingPillar.jsx` or
+  `PricingSection.jsx`. Two concrete, different failures result:
+  1. **On `/pricing`** (`Pricing.jsx:41,43`): `PricingSection` and
+     `CapabilityMatrix` render back to back on the same page, in that
+     order, and directly contradict each other. A visitor reads unqualified
+     "$8/month, AI-powered chat assistant ✦" in the first section, scrolls
+     down, and reads "Toolnaut takes no payment at all right now" about the
+     very same feature in the second. That is a worse outcome than either
+     section alone — a single false claim is a trust problem; two adjacent
+     sections that can't agree on whether the product charges money today
+     reads as the page not knowing its own state.
+  2. **On `/` (the homepage)** — checked `Landing.jsx:130-139` directly:
+     `PricingSection` is mounted there too (`Landing.jsx:137`, comment in
+     `Pricing.jsx:11-12` claiming it "was removed from the landing flow" is
+     stale — confirmed by reading the current file, it was not), and
+     `CapabilityMatrix` is never rendered on the homepage at all. So the
+     first-time visitor most likely to see this — everyone who hasn't
+     clicked through to `/pricing` yet — gets the unqualified false claims
+     with zero correction anywhere on the page they're actually looking at.
+- **Why it matters:** this supersedes and ties together four separate
+  earlier findings in this file (the REJECTED chat-assistant/Team-tier
+  entry, the REJECTED digest-email entry, the REJECTED Discord entry, and
+  the still-OPEN PDF-export entry) — every one of them independently
+  concluded "the honest fix is a copy correction... no edit made, flagged
+  for whoever owns pricing copy." That copy correction already exists,
+  written and correct, sitting unused for exactly this purpose one file
+  over. This is not a new feature to design — it's wiring together two
+  pieces of already-built code that disagree, and it is strictly worse
+  left as-is than either piece would be alone, because the contradiction
+  itself is now visible to anyone who reads the whole `/pricing` page top
+  to bottom.
+- **Smallest useful version (what to actually build):**
+  - Decide `PricingSection`'s feature lists cannot keep rendering
+    unqualified — the exact `status: 'live' | 'planned'` split
+    `capabilityMatrix.js` already computed per-capability is the source of
+    truth to reuse, not a second one to invent. Cheapest correct fix:
+    replace `planData.js`'s bare `features` string arrays with objects
+    carrying the same `{ text, status }` shape `CAPABILITIES` already uses
+    (`capabilityMatrix.js:38-91`), or — smaller diff — cross-reference each
+    `PLANS[].features` string against `CAPABILITIES` by capability name at
+    render time in `PricingPillar.jsx` and append the same "planned" pill
+    `CapabilityMatrix.jsx:32-36` already renders wherever a feature isn't
+    live. Either way, `PricingPillar.jsx:61-69`'s `<ul>` map gets one
+    conditional badge per `<li>`, reusing the exact pill markup that
+    already exists rather than inventing new chrome.
+  - Same fix for `PricingSection.jsx`'s `COMPARISON` table
+    (`planData.js:80-94`): a bare `true` today renders a lime `✓`
+    (`PricingSection.jsx:10`) with no live/planned distinction at all —
+    `false` and `planned-but-shown-as-included` currently look identical
+    to a fabricated `true`. Smallest fix: extend `COMPARISON` rows to carry
+    a third state (`'planned'`) alongside `true`/`false`, and give `Cell`
+    (`PricingSection.jsx:9-13`) a third render branch — a muted "planned"
+    label matching `CapabilityMatrix`'s own styling — instead of only ever
+    showing included/excluded.
+  - Fix the stale comment at `Pricing.jsx:11-12` while touching this file —
+    it currently claims `PricingSection` "was removed from the landing
+    flow," which is false as of the current `Landing.jsx`; either correct
+    the comment or, if the intent really was to remove it from the
+    homepage, do that removal for real (a product decision for whoever
+    ships this, not assumed here — flagging the contradiction between the
+    comment and the code is this entry's job, not deciding which one is
+    wrong).
+  - Once `PricingSection` itself carries honest live/planned labels
+    end-to-end, `CapabilityMatrix` on `/pricing` becomes a second,
+    corroborating view rather than a contradicting one — no need to remove
+    either component, they just need to agree.
+  - **What this would NOT include** (kept out to bound the diff): no
+    change to `capabilityMatrix.js`'s own data (already correct, already
+    the source of truth this fix reuses); no removal of `PricingSection`
+    or `CapabilityMatrix` from either page — both stay, this is a
+    reconciliation, not a redesign; no pricing-amount changes ($3/$8/$50
+    stay as reservation prices, matching the already-honest "Reserve
+    {plan} at launch" CTA copy `PricingPillar.jsx:76` already uses); no
+    change to the plan-tier structure, ids, or `authStore.js` plan storage;
+    no backend/billing work — this is a display-only correction, same as
+    every other "false claim, honest fix is copy-shaped" finding already
+    logged in this file.
+- **Build size:** S — extend `planData.js`'s `features`/`COMPARISON` data
+  shape (or cross-reference `capabilityMatrix.js` at render time), a small
+  conditional badge added to `PricingPillar.jsx`'s existing `<li>` map, a
+  third render branch in `PricingSection.jsx`'s `Cell` component, one stale
+  comment fixed. No backend, no new dependency, no new route, no new store.
+- **Found:** 2026-08-29 15:20 UTC
