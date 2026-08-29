@@ -338,6 +338,25 @@ export default function Settings() {
       {/* ── ACCOUNT ─────────────────────────────────────────────────── */}
       <section className="mt-10 xl:mt-0 xl:mb-8 xl:break-inside-avoid">
         <h2 className="arcade-heading section text-xl sm:text-2xl">ACCOUNT</h2>
+        {/* /app is open to guests, so this card has to answer "am I signed in?"
+            rather than assume it. The guest copy names the real trade-off —
+            one browser, no server copy — instead of nagging. */}
+        {!session ? (
+          <div className="sticker mt-4 p-5">
+            <p className="text-sm leading-relaxed text-slate-300">
+              You are browsing as a guest. Everything you build — your stack,
+              shortlist, roadmap progress and streak — is saved to this browser
+              and nowhere else.
+            </p>
+            <Link to="/auth/login?next=/app/settings" className="nb-btn mt-4 inline-block min-h-11 px-5 py-2.5 text-xs">
+              SIGN IN →
+            </Link>
+            <p className="mt-3 text-xs leading-relaxed text-slate-500">
+              Signing in does not sync anything yet — there is no server copy of
+              your stack. It reserves your account for when there is.
+            </p>
+          </div>
+        ) : (
         <div className="sticker mt-4 p-5">
           <dl className="divide-y divide-white/10">
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 py-2.5 first:pt-0">
@@ -371,16 +390,19 @@ export default function Settings() {
             is no server copy yet, so clearing site data clears them.
           </p>
         </div>
+        )}
       </section>
 
       {/* destructive action — visually separated per nav guidelines */}
       </div>
 
-      <div className="mt-10 border-t-2 border-white/10 pt-6">
-        <button onClick={handleSignOut} className="nb-btn pink min-h-11 px-4 py-2.5 text-xs">
-          Sign out
-        </button>
-      </div>
+      {session && (
+        <div className="mt-10 border-t-2 border-white/10 pt-6">
+          <button onClick={handleSignOut} className="nb-btn pink min-h-11 px-4 py-2.5 text-xs">
+            Sign out
+          </button>
+        </div>
+      )}
     </div>
   )
 }

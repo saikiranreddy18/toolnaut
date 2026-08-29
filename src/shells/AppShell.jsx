@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Link, Navigate, NavLink, Outlet, useLocation } from 'react-router-dom'
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { BRAND } from '../config'
 import { BrandLogo } from '../components/ui/Mascot'
 import { loadSession } from '../state/authStore'
@@ -61,9 +61,17 @@ export default function AppShell() {
     }
   }, [chatOpen])
 
-  if (!session) {
-    return <Navigate to={`/auth/login?next=${encodeURIComponent(location.pathname)}`} replace />
-  }
+  // NO SIGN-IN GATE.
+  //
+  // Supabase is wired to authentication and nothing else. Stack, favourites,
+  // quiz, roadmap, progress, streak and avatar are all localStorage, and no
+  // table is ever read or written — grep for `.from(` and there is nothing.
+  // So the redirect that used to sit here guarded no data. What it did cost was
+  // every visitor, reviewer and crawler unwilling to sign in first, which is a
+  // steep price for a DISCOVERY product whose whole job is to be browsed.
+  //
+  // Sign-in stays available and becomes load-bearing the day state moves
+  // server-side. Until then it must not stand in the doorway.
 
   const quiz = loadQuiz()
   const persona = quiz.completed ? generatePersona(quiz.answers) : null
@@ -116,7 +124,7 @@ export default function AppShell() {
             {persona ? persona.name : 'Take the quiz'}
           </p>
           {persona ? (
-            <p className="mt-1 text-xs font-bold text-cyan-300">Plan: {planLabel(session.plan)}</p>
+            <p className="mt-1 text-xs font-bold text-cyan-300">Plan: {planLabel(session?.plan)}</p>
           ) : (
             <Link to="/goal" className="mt-1 inline-block text-xs font-bold text-cyan-300 underline decoration-2 underline-offset-2 hover:text-white">
               60 seconds →
@@ -134,8 +142,19 @@ export default function AppShell() {
           ))}
         </nav>
 
+        {/* Identity when there is one; otherwise say plainly that this browser
+            is where the stack lives, which is the honest reason to sign in. */}
         <div className="mt-auto px-4 text-xs text-slate-600">
-          Signed in as {session.user.name}
+          {session ? (
+            `Signed in as ${session.user.name}`
+          ) : (
+            <Link
+              to="/auth/login?next=/app/stack"
+              className="underline decoration-dotted underline-offset-2 hover:text-slate-400"
+            >
+              Browsing as guest — saved to this browser. Sign in →
+            </Link>
+          )}
         </div>
       </aside>
 
