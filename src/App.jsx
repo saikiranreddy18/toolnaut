@@ -6,6 +6,7 @@ import OnboardingShell from './shells/OnboardingShell'
 import ThemePicker from './components/ui/ThemePicker'
 import ArrivalLaunch from './components/auth/ArrivalLaunch'
 import CursorStars from './components/ui/CursorStars'
+import TestBuildBadge from './components/ui/TestBuildBadge'
 import { track, EVENTS } from './utils/analyticsEvents'
 
 const GoalChat = lazy(() => import('./pages/GoalChat'))
@@ -72,6 +73,7 @@ export default function App() {
     <BrowserRouter>
       <RouteEffects />
       <CursorStars />
+      <TestBuildBadge />
       <ThemePicker />
       <ArrivalLaunch />
       <Suspense fallback={<PageFallback />}>

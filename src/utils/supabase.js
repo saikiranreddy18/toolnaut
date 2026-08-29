@@ -19,7 +19,17 @@ import { createClient } from '@supabase/supabase-js'
 const url = import.meta.env.VITE_SUPABASE_URL || import.meta.env.NEXT_PUBLIC_SUPABASE_URL
 const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-export const isSupabaseConfigured = Boolean(url && anonKey)
+// ── STAGING BRANCH OVERRIDE — DO NOT MERGE TO MASTER ──────────────────────
+// Forced false so this build runs on the simulated local session the app
+// already supports when no project is configured. Sign-in resolves instantly
+// with no Google account, no real OAuth and no email.
+//
+// Since /app is now open to guests on production, this branch is no longer the
+// only way to review the app — it just removes the sign-in step entirely for a
+// tester who wants to exercise the signed-in paths too.
+export const isSupabaseConfigured = false
+// eslint-disable-next-line no-unused-vars
+const _productionValue = Boolean(url && anonKey)
 
 // One client for the tab. createClient sets up storage listeners and a refresh
 // timer, so building a second one silently doubles both.
