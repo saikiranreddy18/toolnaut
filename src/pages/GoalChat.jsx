@@ -232,34 +232,9 @@ export default function GoalChat() {
               is the one place the eye never starts. The shell hides its own
               copy on this route so there is still only ever one. */}
           <Link to="/" aria-label="Toolnaut home" className="mb-6 inline-block">
-            <BrandLogo {...LOGO.page} />
+            <BrandLogo size={76} textClass="text-3xl sm:text-4xl" />
           </Link>
 
-          {/* The badge answers "what is this going to cost me" before the
-              headline asks for anything — nine questions, a minute, no
-              account — which is the objection someone raises at a form. */}
-          <span
-            className="mx-auto inline-flex items-center gap-[7px] rounded-full px-[13px] py-[7px] text-[11px] font-medium leading-none"
-            style={{
-              background: 'rgba(163,255,46,.10)',
-              border: '1px solid rgba(163,255,46,.32)',
-              color: 'var(--lime)',
-            }}
-          >
-            <span aria-hidden="true">●</span>
-            Nine questions · about a minute · no account
-          </span>
-
-          {/* Sized to the reference: one heavy statement, one grey payoff,
-              each a single stroke. The old 37px/700 with a wrapping second
-              line read as body copy standing up straight — this is the page's
-              entire pitch and it carries the weight of one. */}
-          <h1 className="mt-5 max-w-3xl font-display text-[clamp(1.8rem,4.6vw,2.7rem)] font-black leading-[1.1] tracking-[-0.03em] text-white">
-            Tell Naut what you do.
-            <span className="block text-slate-500">
-              It builds it, plans it, grows it.
-            </span>
-          </h1>
         </div>
       )}
 
@@ -278,6 +253,40 @@ export default function GoalChat() {
         className="mx-auto flex w-full min-h-0 max-w-2xl flex-1 flex-col overflow-hidden rounded-2xl"
         style={{ background: '#0c0c13', border: '1px solid #23232f' }}
       >
+        {/* The badge and headline live INSIDE the box, as its head — the
+            user's sketch framed the pitch and the conversation as one object.
+            They mount only atStart and step aside with the rest of the
+            landing chrome once the first answer arrives. */}
+        {atStart && (
+          <div className="flex shrink-0 flex-col items-center px-5 pb-2 pt-7 text-center">
+              {/* The badge answers "what is this going to cost me" before the
+                  headline asks for anything — nine questions, a minute, no
+                  account — which is the objection someone raises at a form. */}
+              <span
+                className="mx-auto inline-flex items-center gap-[7px] rounded-full px-[13px] py-[7px] text-[11px] font-medium leading-none"
+                style={{
+                  background: 'rgba(163,255,46,.10)',
+                  border: '1px solid rgba(163,255,46,.32)',
+                  color: 'var(--lime)',
+                }}
+              >
+                <span aria-hidden="true">●</span>
+                Nine questions · about a minute · no account
+              </span>
+
+              {/* Sized to the reference: one heavy statement, one grey payoff,
+                  each a single stroke. The old 37px/700 with a wrapping second
+                  line read as body copy standing up straight — this is the page's
+                  entire pitch and it carries the weight of one. */}
+              <h1 className="mt-5 max-w-3xl font-display text-[clamp(1.8rem,4.6vw,2.7rem)] font-black leading-[1.1] tracking-[-0.03em] text-white">
+                Tell Naut what you do.
+                <span className="block text-slate-500">
+                  It builds it, plans it, grows it.
+                </span>
+              </h1>
+          </div>
+        )}
+
         <div
           ref={scrollRef}
           className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-5 sm:px-5"
@@ -285,7 +294,11 @@ export default function GoalChat() {
           aria-live="polite"
           aria-label="Conversation"
         >
-          <div className="mt-auto flex flex-col gap-3">
+          {/* mt-auto pins the thread to the input like every chat — but at the
+              start, with the headline living in the box above two messages, it
+              opened a hole between pitch and conversation. Until the first
+              answer the thread hangs from the heading instead. */}
+          <div className={`${atStart ? '' : 'mt-auto'} flex flex-col gap-3`}>
             {messages.map((m, i) => (
               <motion.div
                 key={i}
