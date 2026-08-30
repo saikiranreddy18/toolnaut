@@ -70,9 +70,9 @@ export default function ContactSection() {
           the links. Sitting in the left column it was a large blank area with
           an orphaned hint floating in it — an invisible element reads as a
           layout bug unless it owns enough space to be obviously deliberate. */}
-      <DottedWordmark className="mx-auto w-full max-w-3xl" />
+      <DottedWordmark className="mx-auto w-full max-w-2xl" />
 
-      <div className="mt-8 grid gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
+      <div className="mt-6 grid gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
         {/* ── socials and the standing facts ── */}
         <div>
           {SOCIALS.length > 0 && (

@@ -134,7 +134,7 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut' }) {
   const revealed = alwaysOn || active
   const mask = alwaysOn
     ? 'none'
-    : `radial-gradient(circle ${REVEAL_RADIUS}px at var(--mx, -999px) var(--my, -999px), #000 0%, rgba(0,0,0,0.55) 45%, transparent 72%)`
+    : `radial-gradient(circle ${REVEAL_RADIUS}px at var(--mx, -999px) var(--my, -999px), #000 0%, rgba(0,0,0,0.6) 45%, transparent 72%)`
 
   const textStyle = {
     fontFamily: "Bungee, 'Space Grotesk', system-ui, sans-serif",
@@ -142,9 +142,43 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut' }) {
     fontStyle: 'italic',
     letterSpacing: '0.01em',
   }
-  // 1px dot, 9px gap with round caps: the outline reads as dots rather than a
-  // dashed line, and the dots follow the curves of the glyphs.
-  const dots = { fill: 'none', strokeWidth: 2.4, strokeDasharray: '1 9', strokeLinecap: 'round' }
+
+  // SOLID, not dotted. The dotted outline was so faint that the whole band
+  // read as an empty hole with a stray hint floating in it — and it looked
+  // nothing like the mark itself. The reveal now shows the actual lockup:
+  // white glyphs, lime lemniscate, a soft glow. Same mask, same machinery;
+  // only what the beam uncovers changed.
+  const renderMark = (withRefs) => (
+    <>
+      <text
+        ref={withRefs ? headRef : undefined}
+        x={layout ? layout.headX : 0}
+        y={BASELINE}
+        textAnchor="start"
+        fill="#e8ecf4"
+        style={{ ...textStyle, visibility: layout ? 'visible' : 'hidden' }}
+      >
+        {head}
+      </text>
+      {layout && (
+        <g transform={`translate(${layout.lemX} ${layout.lemY}) scale(${layout.lemScale})`}>
+          <path d={LEMNISCATE} fill="none" stroke="var(--lime)" strokeWidth={13 / layout.lemScale} strokeLinecap="round" />
+        </g>
+      )}
+      {tail && (
+        <text
+          ref={withRefs ? tailRef : undefined}
+          x={layout ? layout.tailX : 0}
+          y={BASELINE}
+          textAnchor="start"
+          fill="#e8ecf4"
+          style={{ ...textStyle, visibility: layout ? 'visible' : 'hidden' }}
+        >
+          {tail}
+        </text>
+      )}
+    </>
+  )
 
   return (
     <div
@@ -164,6 +198,17 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut' }) {
       }}
       style={{ cursor: alwaysOn ? 'default' : 'crosshair' }}
     >
+      {/* Ghost layer: the mark at 6% opacity, always. Fully invisible idle
+          state made the band indistinguishable from a layout bug — a shape
+          you can just barely see invites the cursor; a void does not. */}
+      {!alwaysOn && (
+        <svg viewBox={`0 0 ${VB_W} ${VB_H}`} className="absolute inset-0 block w-full" aria-hidden="true" style={{ opacity: 0.06 }}>
+          {renderMark(false)}
+        </svg>
+      )}
+
+      {/* Reveal layer: the same mark, uncovered by the beam. Carries the refs
+          so the advance-width measurement runs on a rendered instance. */}
       <svg
         viewBox={`0 0 ${VB_W} ${VB_H}`}
         className="block w-full"
@@ -172,45 +217,15 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut' }) {
           WebkitMaskImage: mask,
           maskImage: mask,
           transition: 'opacity 320ms ease',
-          opacity: revealed ? 1 : 0.9,
+          opacity: revealed ? 1 : 0.92,
+          filter: 'drop-shadow(0 0 14px rgba(163,255,46,0.28)) drop-shadow(0 0 26px rgba(232,236,244,0.12))',
         }}
       >
-        <text
-          ref={headRef}
-          x={layout ? layout.headX : 0}
-          y={BASELINE}
-          textAnchor="start"
-          stroke="#c8cdd8"
-          style={{ ...textStyle, visibility: layout ? 'visible' : 'hidden' }}
-          {...dots}
-        >
-          {head}
-        </text>
-
-        {layout && (
-          <g transform={`translate(${layout.lemX} ${layout.lemY}) scale(${layout.lemScale})`}>
-            <path d={LEMNISCATE} stroke="var(--lime)" {...dots} strokeWidth={2.4 / layout.lemScale} />
-          </g>
-        )}
-
-        {tail && (
-          <text
-            ref={tailRef}
-            x={layout ? layout.tailX : 0}
-            y={BASELINE}
-            textAnchor="start"
-            stroke="#c8cdd8"
-            style={{ ...textStyle, visibility: layout ? 'visible' : 'hidden' }}
-            {...dots}
-          >
-            {tail}
-          </text>
-        )}
+        {renderMark(true)}
       </svg>
 
-      {/* The hint. Without it an invisible thing is indistinguishable from
-          nothing at all, and nobody discovers the effect. It fades the moment
-          the pointer arrives, so it never competes with the reveal. */}
+      {/* The hint. It fades the moment the pointer arrives, so it never
+          competes with the reveal. */}
       {!alwaysOn && (
         <span
           aria-hidden="true"
