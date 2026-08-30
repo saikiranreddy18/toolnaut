@@ -108,7 +108,7 @@ export default function Landing() {
       <header className={`fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-[#060609]/90 via-[#060609]/50 to-transparent pb-3 transition-opacity duration-500 ${explore ? 'pointer-events-none opacity-0' : ''}`}>
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
           <a href="#hero" aria-label={BRAND}>
-            <BrandLogo size={60} textClass="text-2xl sm:text-3xl" />
+            <BrandLogo size={68} textClass="text-3xl sm:text-4xl" />
           </a>
           <nav className="hidden items-center gap-6 text-sm text-slate-300 md:flex">
             <a href="#how-it-works" className="hover:text-white">How it works</a>

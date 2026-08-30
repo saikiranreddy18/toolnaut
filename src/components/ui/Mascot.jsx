@@ -104,7 +104,11 @@ export default function Mascot({ mood = 'happy', size = 32, className = '', titl
 // sit here was replaced by the infinity mark, and that glyph is now shared by
 // every surface that shows the name rather than being redrawn per component.
 
-export function BrandLogo({ size = 30, wordmark = true, className = '', textClass = 'text-sm' }) {
+// beta defaults ON: the product is a public beta, and the tag belongs to the
+// LOCKUP, not to one page. It used to ride only the hero's centre wordmark, so
+// the app shell, the intake and the nav all showed the name with no version —
+// and the one place that did say beta was the wordmark we removed.
+export function BrandLogo({ size = 30, wordmark = true, beta = true, className = '', textClass = 'text-sm' }) {
   const [hover, setHover] = useState(false)
   return (
     <span
@@ -115,6 +119,14 @@ export function BrandLogo({ size = 30, wordmark = true, className = '', textClas
       <Mascot mood={hover ? 'curious' : 'happy'} size={size} />
       {wordmark && (
         <Wordmark className={`tracking-[0.02em] text-white ${textClass}`} />
+      )}
+      {wordmark && beta && (
+        <span
+          className="-ml-0.5 self-start rounded-full border-2 border-black px-1.5 py-px font-display text-[8px] font-black uppercase tracking-[0.14em]"
+          style={{ background: 'var(--lime)', color: '#000' }}
+        >
+          beta
+        </span>
       )}
     </span>
   )

@@ -65,14 +65,14 @@ export default function ContactSection() {
   const linkClass = 'text-sm text-slate-400 transition-colors hover:text-white'
 
   return (
-    <div className="relative mx-auto max-w-6xl px-5 pb-14 pt-24">
+    <div className="relative mx-auto max-w-6xl px-5 pb-10 pt-14">
       {/* The mark, full width and centred, as the thing you walk into before
           the links. Sitting in the left column it was a large blank area with
           an orphaned hint floating in it — an invisible element reads as a
           layout bug unless it owns enough space to be obviously deliberate. */}
-      <DottedWordmark className="mx-auto w-full max-w-4xl" />
+      <DottedWordmark className="mx-auto w-full max-w-3xl" />
 
-      <div className="mt-12 grid gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
+      <div className="mt-8 grid gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
         {/* ── socials and the standing facts ── */}
         <div>
           {SOCIALS.length > 0 && (
@@ -132,6 +132,9 @@ export default function ContactSection() {
             <h3 className="font-display text-[11px] font-black uppercase tracking-[0.16em] text-white">
               Contact
             </h3>
+            {/* Just the address. The paragraph that lived under it made
+                CONTACT the tallest column in the row for the least content —
+                the invitation to send corrections now fits in four words. */}
             <ul className="mt-4 space-y-3">
               <li>
                 <a
@@ -142,11 +145,8 @@ export default function ContactSection() {
                   {CONTACT_EMAIL}
                 </a>
               </li>
+              <li className="text-xs text-slate-500">Corrections welcome.</li>
             </ul>
-            <p className="mt-4 text-xs leading-relaxed text-slate-500">
-              A missing tool, a wrong price, or a recommendation that made no
-              sense — corrections are how the catalogue stays honest.
-            </p>
           </div>
         </div>
       </div>
