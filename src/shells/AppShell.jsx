@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { BRAND } from '../config'
 import { BrandLogo, LOGO } from '../components/ui/Mascot'
+import StreakPoints from '../components/app/StreakPoints'
 import { loadSession } from '../state/authStore'
 import { loadQuiz } from '../state/quizStore'
 import { generatePersona } from '../utils/personaGenerator'
@@ -134,6 +135,11 @@ export default function AppShell() {
           )}
           </div>
         </div>
+
+        {/* What this browser has actually done: days returned, points earned.
+            Sits under the persona because it answers the same question — who
+            am I here — with the part that changes. */}
+        <StreakPoints />
 
         <SyncStatus />
 
