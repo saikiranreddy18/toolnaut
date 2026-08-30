@@ -73,9 +73,25 @@ export default function CTASection() {
             anyone being a mailto buried in that row. */}
         <div className="relative">
           <ContactSection />
-          <p className="pb-16 text-center font-display text-xs font-bold uppercase tracking-widest text-slate-500">
-            © {new Date().getFullYear()} {BRAND}. All rights reserved.
-          </p>
+          {/* Bottom bar: a rule, then copyright on one side and the legal
+              links on the other. Legal lives down here rather than in the
+              columns above because nobody is browsing for it — they are
+              looking for it, and only when they already want it. */}
+          {/* pb-28 clears the fixed controls anchored bottom-left and
+              bottom-right — at pb-14 the "explore the galaxy" button sat on
+              top of the copyright line. */}
+          <div className="mx-auto max-w-6xl px-5 pb-28 sm:pb-24">
+            <div className="flex flex-col items-center gap-4 border-t border-white/10 pt-7 text-xs text-slate-500 sm:flex-row sm:justify-between">
+              <p className="font-display font-bold uppercase tracking-widest">
+                © {new Date().getFullYear()} {BRAND}. All rights reserved.
+              </p>
+              <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+                <Link to="/privacy" className="transition-colors hover:text-white">Privacy</Link>
+                <Link to="/terms" className="transition-colors hover:text-white">Terms</Link>
+                <Link to="/methodology" className="transition-colors hover:text-white">Methodology</Link>
+              </nav>
+            </div>
+          </div>
         </div>
       </footer>
     </section>

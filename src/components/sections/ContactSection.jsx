@@ -1,24 +1,22 @@
 import { Link } from 'react-router-dom'
-import { BRAND, CONTACT_EMAIL, SOCIALS } from '../../config'
+import { CONTACT_EMAIL, SOCIALS } from '../../config'
 import DottedWordmark from '../ui/DottedWordmark'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { catalogSize, lastUpdatedLabel } from '../../utils/catalogFreshness'
 
-// The contact block.
+// The footer, on the four-column pattern: the mark and the social row on the
+// left, link columns across from it, a rule, then copyright and legal.
 //
-// There was no contact section — "Contact" in the nav jumped to a footer whose
-// only actual contact was a mailto buried in a row of links, under a giant
-// decorative wordmark. Someone wanting to reach a human had to hunt for it.
+// It replaced a centred stack, which reads fine with six links and badly with
+// sixteen — a single centred column forces the eye back to the middle after
+// every line, and there is no way to tell which links belong together. Columns
+// group by purpose and let someone scan straight down the one they want.
 //
-// The giant wordmark is still the centrepiece, but it is now the dotted
-// cursor-reveal: you paint the name in with the pointer instead of just
-// reading it.
-//
-// The social row renders nothing while SOCIALS is empty. Placeholder handles
-// would be dead links on a live page pointing at accounts that are not yours —
-// worse than an absent row, and precisely the kind of thing the methodology
-// page promises this product does not do.
+// EVERY DESTINATION HERE IS A ROUTE THAT EXISTS. Checked against the router
+// rather than written from memory: a footer full of confident links to 404s is
+// worse than a short one, and footers are exactly where dead links accumulate
+// because nobody scrolls this far to test them.
 
 const ICONS = {
   x: 'M18.2 2H21l-6.5 7.4L22 22h-6l-4.7-6.2L5.9 22H3l7-8L2 2h6.2l4.2 5.6L18.2 2Zm-1 18h1.6L7 3.9H5.3L17.2 20Z',
@@ -30,82 +28,124 @@ const ICONS = {
   discord: 'M19.3 5.3A16.9 16.9 0 0 0 15.1 4l-.2.4a15.7 15.7 0 0 1 3.7 1.2c-1.8-.85-3.6-1.25-5.6-1.25s-3.8.4-5.6 1.25A15.7 15.7 0 0 1 9.1 4.4L8.9 4a16.9 16.9 0 0 0-4.2 1.3C2.1 9.2 1.4 13 1.75 16.7A17 17 0 0 0 6.9 19.3l1-1.4c-.55-.2-1.08-.45-1.58-.75l.4-.3a12.1 12.1 0 0 0 10.56 0l.4.3c-.5.3-1.03.55-1.58.75l1 1.4a17 17 0 0 0 5.15-2.6c.42-4.3-.68-8.05-2.95-11.4ZM8.55 14.5c-1 0-1.83-.92-1.83-2.05s.8-2.06 1.83-2.06c1.03 0 1.85.93 1.83 2.06 0 1.13-.8 2.05-1.83 2.05Zm6.9 0c-1 0-1.83-.92-1.83-2.05s.8-2.06 1.83-2.06c1.03 0 1.85.93 1.83 2.06 0 1.13-.8 2.05-1.83 2.05Z',
 }
 
+// to: an internal route · href: an external or mailto destination
+const COLUMNS = [
+  {
+    title: 'Product',
+    links: [
+      { label: 'Build my AI stack', to: '/goal' },
+      { label: 'See an example stack', to: '/example' },
+      { label: 'Newest tools', to: '/new' },
+      { label: 'Pricing', to: '/pricing' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { label: 'How we choose', to: '/methodology' },
+      { label: 'How it works', href: '/#how-it-works' },
+      { label: 'Open the app', to: '/app/stack' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'About', to: '/about' },
+      { label: 'Privacy', to: '/privacy' },
+      { label: 'Terms', to: '/terms' },
+    ],
+  },
+]
+
 export default function ContactSection() {
   const track = useAnalytics()
   const count = catalogSize()
   const updated = lastUpdatedLabel()
 
+  const linkClass = 'text-sm text-slate-400 transition-colors hover:text-white'
+
   return (
-    <div className="relative mx-auto max-w-5xl px-5 pb-16 pt-28 text-center">
-      {/* Paint the name in with the cursor. */}
-      <DottedWordmark className="mx-auto max-w-3xl pb-6" />
+    <div className="relative mx-auto max-w-6xl px-5 pb-14 pt-24">
+      <div className="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,2fr)]">
+        {/* ── the mark, and the social row under it ── */}
+        <div>
+          <DottedWordmark className="max-w-md" />
 
-      <h2 className="arcade-heading section mt-10 text-2xl sm:text-3xl">GET IN TOUCH</h2>
-      <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-400">
-        A missing tool, a wrong price, a recommendation that made no sense, or an
-        idea for what {BRAND} should do next — all of it is worth sending.
-        Corrections are how the catalogue stays honest.
-      </p>
+          {SOCIALS.length > 0 && (
+            <ul className="mt-7 flex flex-wrap gap-2">
+              {SOCIALS.map((s) => (
+                <li key={s.id}>
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    title={s.label}
+                    onClick={() => track(EVENTS.CTA_CLICK, { cta: 'social', network: s.id })}
+                    className="flex h-9 w-9 items-center justify-center rounded-md border-2 border-black transition-transform hover:scale-110"
+                    style={{ background: '#1b1b24', color: 'var(--lime)', boxShadow: '2px 2px 0 #000' }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d={ICONS[s.id] || ICONS.github} />
+                    </svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
 
-      <a
-        href={`mailto:${CONTACT_EMAIL}`}
-        onClick={() => track(EVENTS.CTA_CLICK, { cta: 'contact_email', location: 'contact' })}
-        className="nb-btn mt-7 inline-block px-7 py-3.5 text-base"
-      >
-        ✉ {CONTACT_EMAIL}
-      </a>
+          {/* Kept from the trust row this replaced. Both figures are read from
+              the live catalogue, so the claim cannot go stale. */}
+          <p className="mt-6 text-xs text-slate-500">
+            {count.toLocaleString()} tools{updated ? ` · catalogue updated ${updated}` : ''}
+            <br />
+            Free public beta — no card, no payment taken.
+          </p>
+        </div>
 
-      {SOCIALS.length > 0 && (
-        <ul className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          {SOCIALS.map((s) => (
-            <li key={s.id}>
-              <a
-                href={s.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-                title={s.label}
-                onClick={() => track(EVENTS.CTA_CLICK, { cta: 'social', network: s.id })}
-                className="flex h-11 w-11 items-center justify-center rounded-full border-[3px] border-black transition-transform hover:scale-110"
-                style={{ background: '#15151c', color: 'var(--lime)', boxShadow: '3px 3px 0 #000' }}
-              >
-                <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d={ICONS[s.id] || ICONS.github} />
-                </svg>
-              </a>
-            </li>
+        {/* ── link columns ── */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {COLUMNS.map((col) => (
+            <nav key={col.title} aria-label={col.title}>
+              <h3 className="font-display text-[11px] font-black uppercase tracking-[0.16em] text-white">
+                {col.title}
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {col.links.map((l) => (
+                  <li key={l.label}>
+                    {l.to ? (
+                      <Link to={l.to} className={linkClass}>{l.label}</Link>
+                    ) : (
+                      <a href={l.href} className={linkClass}>{l.label}</a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
           ))}
-        </ul>
-      )}
 
-      {/* What someone actually wants to know before writing in. */}
-      <dl className="mx-auto mt-12 grid max-w-3xl gap-3 text-left sm:grid-cols-3">
-        {[
-          ['Catalogue', `${count.toLocaleString()} tools${updated ? ` · updated ${updated}` : ''}`],
-          ['Cost', 'Free public beta — no card, no payment taken'],
-          ['Your data', 'Stays in your browser; nothing sold, ever'],
-        ].map(([k, v]) => (
-          <div
-            key={k}
-            className="rounded-xl border-[3px] border-black p-4"
-            style={{ background: '#15151f', boxShadow: '4px 4px 0 #000' }}
-          >
-            <dt className="font-display text-[10px] font-black uppercase tracking-[0.16em]" style={{ color: 'var(--lime)' }}>
-              {k}
-            </dt>
-            <dd className="mt-1.5 text-sm leading-relaxed text-slate-300">{v}</dd>
+          <div>
+            <h3 className="font-display text-[11px] font-black uppercase tracking-[0.16em] text-white">
+              Contact
+            </h3>
+            <ul className="mt-4 space-y-3">
+              <li>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  onClick={() => track(EVENTS.CTA_CLICK, { cta: 'contact_email', location: 'footer' })}
+                  className={linkClass}
+                >
+                  {CONTACT_EMAIL}
+                </a>
+              </li>
+            </ul>
+            <p className="mt-4 text-xs leading-relaxed text-slate-500">
+              A missing tool, a wrong price, or a recommendation that made no
+              sense — corrections are how the catalogue stays honest.
+            </p>
           </div>
-        ))}
-      </dl>
-
-      <nav className="mt-10 flex flex-wrap justify-center gap-x-7 gap-y-2 text-sm font-semibold text-slate-300">
-        <Link to="/methodology" className="transition-colors hover:text-white">How we choose</Link>
-        <Link to="/example" className="transition-colors hover:text-white">Example stack</Link>
-        <Link to="/pricing" className="transition-colors hover:text-white">Pricing</Link>
-        <Link to="/about" className="transition-colors hover:text-white">About</Link>
-        <Link to="/privacy" className="transition-colors hover:text-white">Privacy</Link>
-        <Link to="/terms" className="transition-colors hover:text-white">Terms</Link>
-      </nav>
+        </div>
+      </div>
     </div>
   )
 }
