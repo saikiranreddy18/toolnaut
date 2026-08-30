@@ -225,7 +225,7 @@ export default function GoalChat() {
           decoration, because a nine-question form is a reading task and
           ornament competes with the question. */}
       {atStart && (
-        <div className="mx-auto flex w-full max-w-2xl shrink-0 flex-col items-center pb-5 text-center">
+        <div className="mx-auto flex w-full max-w-3xl shrink-0 flex-col items-center pb-5 text-center">
           {/* The mark leads, centred. It was pinned top-left by the shell,
               which is where a logo goes on a page you browse — but this is a
               single-purpose form with nothing else on screen, so the corner
@@ -250,10 +250,14 @@ export default function GoalChat() {
             Nine questions · about a minute · no account
           </span>
 
-          <h1 className="mt-5 font-display text-[clamp(1.5rem,4.4vw,2.35rem)] font-bold leading-[1.13] tracking-[-0.025em] text-white">
+          {/* Sized to the reference: one heavy statement, one grey payoff,
+              each a single stroke. The old 37px/700 with a wrapping second
+              line read as body copy standing up straight — this is the page's
+              entire pitch and it carries the weight of one. */}
+          <h1 className="mt-5 max-w-3xl font-display text-[clamp(1.8rem,4.6vw,2.7rem)] font-black leading-[1.1] tracking-[-0.03em] text-white">
             Tell Naut what you do.
             <span className="block text-slate-500">
-              It maps your stack, your gaps, your next four weeks.
+              It builds it, plans it, grows it.
             </span>
           </h1>
         </div>
