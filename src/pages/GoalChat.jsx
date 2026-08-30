@@ -258,24 +258,17 @@ export default function GoalChat() {
           than the frame and overflow-y-auto would still never fire. */}
       {/* Quieter than the rest of the app on purpose. The heavy black slab and
           6px offset shadow shout, which is right on the landing page and wrong
-          around a form someone has to concentrate on. One hairline rule. */}
+          around a form someone has to concentrate on.
+          Taken further: one outer hairline and nothing inside it. The progress
+          bar and the two internal rules that used to divide transcript from
+          chips from input made a single card read as a stack of four panels,
+          and the bar spent nine questions counting down at someone who was
+          told "nine questions" twice before they started. Spacing separates
+          the regions; the transcript itself shows the progress. */}
       <div
         className="mx-auto flex w-full min-h-0 max-w-2xl flex-1 flex-col overflow-hidden rounded-2xl"
-        style={{ background: '#0c0c13', border: '1px solid #23232f' }}
+        style={{ background: '#0b0b11', border: '1px solid rgba(255,255,255,0.07)' }}
       >
-        {/* progress — chunky lime bars, same language as the rest of the app */}
-        <div className="flex shrink-0 gap-1.5 px-4 py-3" style={{ borderBottom: '1px solid #23232f' }} aria-hidden="true">
-          {CHAT_QUESTIONS.map((q, i) => (
-            <span
-              key={q.id}
-              className="h-1.5 flex-1 rounded-full"
-              style={{
-                background: i < index ? 'var(--lime)' : i === index ? 'var(--hot-pink)' : 'rgba(255,255,255,0.09)',
-              }}
-            />
-          ))}
-        </div>
-
         <div
           ref={scrollRef}
           className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-5 sm:px-5"
@@ -295,8 +288,8 @@ export default function GoalChat() {
                 <div
                   className={
                     m.from === 'user'
-                      ? 'max-w-[85%] rounded-2xl rounded-br-md border-[3px] border-black px-4 py-2.5 text-sm font-bold text-black'
-                      : 'max-w-[88%] rounded-2xl rounded-bl-md border-2 border-white/10 bg-white/[0.05] px-4 py-2.5 text-sm leading-relaxed text-slate-200'
+                      ? 'max-w-[85%] rounded-2xl rounded-br-md px-4 py-3 text-sm font-semibold text-black'
+                      : 'max-w-[88%] rounded-2xl rounded-bl-md border border-white/[0.07] bg-white/[0.035] px-4 py-3 text-sm leading-relaxed text-slate-200'
                   }
                   style={m.from === 'user' ? { background: 'var(--lime)', boxShadow: '3px 3px 0 #000' } : undefined}
                 >
@@ -332,7 +325,7 @@ export default function GoalChat() {
 
         {/* option chips for the current question */}
         {!done && !typing && question && (
-          <div className="shrink-0 px-4 py-3" style={{ borderTop: '1px solid #23232f' }}>
+          <div className="shrink-0 px-4 py-3">
             {unmatched && (
               <p className="mb-2 font-display text-[10px] font-black uppercase tracking-[0.18em]" style={{ color: 'var(--hot-pink)' }}>
                 ▸ pick the closest one
@@ -344,8 +337,7 @@ export default function GoalChat() {
                   key={opt.key}
                   data-testid="goal-chip"
                   onClick={() => answer(opt.key)}
-                  className="cursor-pointer rounded-full border border-[#2b2b3a] bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold text-slate-200 transition-colors hover:border-[var(--lime)] hover:bg-[var(--lime)] hover:text-black"
-                  style={{ boxShadow: '2px 2px 0 #000' }}
+                  className="cursor-pointer rounded-full border border-white/[0.09] bg-white/[0.03] px-4 py-2 text-xs font-medium text-slate-300 transition-all hover:border-[var(--lime)]/60 hover:bg-[var(--lime)]/10 hover:text-white"
                 >
                   {opt.label}
                 </button>
@@ -354,7 +346,7 @@ export default function GoalChat() {
           </div>
         )}
 
-        <form onSubmit={submitDraft} className="shrink-0 px-4 py-3" style={{ borderTop: '1px solid #23232f' }}>
+        <form onSubmit={submitDraft} className="shrink-0 px-4 py-3">
           <label htmlFor="goal-reply" className="sr-only">Your answer</label>
           <div className="flex items-center gap-2">
             <input
@@ -366,14 +358,14 @@ export default function GoalChat() {
               disabled={done}
               autoComplete="off"
               placeholder={done ? 'Charting your stack…' : 'Tell us what you do…'}
-              className="min-h-[44px] w-full rounded-xl border border-[#2b2b3a] bg-[#0a0a10] px-4 text-base text-white placeholder:text-slate-500 focus:border-[var(--lime)] focus:outline-none disabled:opacity-50"
+              className="min-h-[46px] w-full rounded-full border border-white/[0.09] bg-white/[0.03] px-5 text-base text-white placeholder:text-slate-500 focus:border-[var(--lime)]/60 focus:bg-white/[0.05] focus:outline-none disabled:opacity-50"
             />
             <button
               type="submit"
               disabled={done || !draft.trim()}
               aria-label="Send answer"
               className="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full text-black transition-opacity disabled:cursor-not-allowed disabled:opacity-30"
-              style={{ background: 'var(--lime)', boxShadow: '2px 2px 0 #000' }}
+              style={{ background: 'var(--lime)' }}
             >
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M4 12h15M13 6l6 6-6 6" />
