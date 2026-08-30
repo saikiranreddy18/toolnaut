@@ -1,5 +1,6 @@
 import { useId } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
+import { LEMNISCATE, LEM_LENGTH } from './lemniscate'
 
 // The hero logo reveal: the mark draws itself.
 //
@@ -15,12 +16,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 //
 // Under prefers-reduced-motion the mark renders complete, with no motion.
 
-const LEMNISCATE =
-  'M100 60 C100 12 22 12 22 60 C22 108 100 108 100 60 C100 12 178 12 178 60 C178 108 100 108 100 60 Z'
 
-// Measured from the path above; used for the draw-on. Slightly over the true
-// length so the tail never leaves a visible gap at the join.
-const PATH_LEN = 660
 
 export default function AnimatedWordmark({ className = '' }) {
   const glowId = `hero-glow-${useId().replace(/:/g, '')}`
@@ -67,7 +63,7 @@ export default function AnimatedWordmark({ className = '' }) {
             strokeWidth="21"
             strokeLinecap="round"
             filter={`url(#${glowId})`}
-            initial={still ? false : { strokeDasharray: PATH_LEN, strokeDashoffset: PATH_LEN }}
+            initial={still ? false : { strokeDasharray: LEM_LENGTH, strokeDashoffset: LEM_LENGTH }}
             animate={still ? false : { strokeDashoffset: 0 }}
             transition={{ delay: 0.5, duration: 1.15, ease: 'easeInOut' }}
           />

@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import Wordmark from '../components/ui/Wordmark'
 import useSmoothScroll from '../hooks/useSmoothScroll'
 import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -225,12 +224,24 @@ export default function GoalChat() {
           decoration, because a nine-question form is a reading task and
           ornament competes with the question. */}
       {atStart && (
-        <div className="mx-auto w-full max-w-2xl shrink-0 pb-5 text-center">
-          {/* The mark itself opens the page, not a pill of small print. The
-              "no account" promise still gets said — it is the last line under
-              the chat, where someone looks before committing rather than
-              before reading. */}
-          <Wordmark className="justify-center text-3xl text-white sm:text-4xl" />
+        <div className="mx-auto flex w-full max-w-2xl shrink-0 flex-col pb-5 text-center">
+          {/* The badge from direction A. It answers "what is this going to
+              cost me" before the headline asks for anything — nine questions,
+              a minute, no account — which is the objection someone raises at
+              a form, in the place they raise it. The wordmark that used to sit
+              here is already top-left in OnboardingShell; two marks stacked
+              read as a logo, not an opening. */}
+          <span
+            className="mx-auto inline-flex items-center gap-[7px] rounded-full px-[13px] py-[7px] text-[11px] font-medium leading-none"
+            style={{
+              background: 'rgba(163,255,46,.10)',
+              border: '1px solid rgba(163,255,46,.32)',
+              color: 'var(--lime)',
+            }}
+          >
+            <span aria-hidden="true">●</span>
+            Nine questions · about a minute · no account
+          </span>
 
           <h1 className="mt-5 font-display text-[clamp(1.5rem,4.4vw,2.35rem)] font-bold leading-[1.13] tracking-[-0.025em] text-white">
             Tell Naut what you do.
@@ -354,7 +365,7 @@ export default function GoalChat() {
               onChange={(e) => setDraft(e.target.value)}
               disabled={done}
               autoComplete="off"
-              placeholder={done ? 'Charting your stack…' : 'Or just tell me in your own words…'}
+              placeholder={done ? 'Charting your stack…' : 'Tell us what you do…'}
               className="min-h-[44px] w-full rounded-xl border border-[#2b2b3a] bg-[#0a0a10] px-4 text-base text-white placeholder:text-slate-500 focus:border-[var(--lime)] focus:outline-none disabled:opacity-50"
             />
             <button

@@ -1,4 +1,5 @@
 import { useId } from 'react'
+import { LEMNISCATE } from './lemniscate'
 
 // The Toolnaut wordmark: T ∞ lnaut.
 //
@@ -14,8 +15,6 @@ import { useId } from 'react'
 // Sized in `em` throughout, so a single font-size on the parent sets the whole
 // lockup — nav, hero and footer all use the same component at different sizes.
 
-const LEMNISCATE =
-  'M100 60 C100 12 22 12 22 60 C22 108 100 108 100 60 C100 12 178 12 178 60 C178 108 100 108 100 60 Z'
 
 export default function Wordmark({ className = '', glow = true, style }) {
   // Filter ids must be unique — the wordmark renders more than once per page.

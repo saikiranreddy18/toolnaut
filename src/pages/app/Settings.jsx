@@ -9,6 +9,7 @@ import { loadStreak } from '../../state/streakStore'
 import { loadRoadmapProgress, milestoneComplete } from '../../state/roadmapStore'
 import { loadTheme, setTheme, THEMES } from '../../state/themeStore'
 import { loadMoon, setMoon, MOONS } from '../../state/moonStore'
+import { CURSOR_CHOICES, CURSOR_SIZES, loadCursor, setCursor } from '../../state/cursorStore'
 import { generatePersona } from '../../utils/personaGenerator'
 import { generateRoadmap } from '../../utils/roadmapGenerator'
 import { getTool } from '../../utils/toolsCatalog'
@@ -108,6 +109,12 @@ export default function Settings() {
   function handleRetake() {
     resetQuiz()
     navigate('/goal')
+  }
+
+  const [cursor, setCursorState] = useState(loadCursor)
+  function pickCursor(next) {
+    haptic.tap()
+    setCursorState(setCursor(next))
   }
 
   function pickTheme(id) {
@@ -328,6 +335,53 @@ export default function Settings() {
                 >
                   <span className="mr-1.5" aria-hidden="true">{m.icon}</span>
                   {m.name} — {m.hint}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+
+          {/* Applies the moment it's clicked — CursorStars listens for the
+              store's change event, so this section IS the live preview: pick
+              one and move the mouse. Desktop-pointer only; on touch devices
+              the harness never mounts a canvas, so the setting is honest about
+              being a desktop thing rather than silently doing nothing. */}
+          <fieldset className="mt-5">
+            <legend className="font-display text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">
+              Cursor effect — move your mouse to preview
+            </legend>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {CURSOR_CHOICES.map((c) => (
+                <button
+                  key={c.id}
+                  onClick={() => pickCursor({ effect: c.id })}
+                  aria-pressed={cursor.effect === c.id}
+                  className={`arcade-chip press min-h-11 cursor-pointer ${cursor.effect === c.id ? 'on' : ''}`}
+                >
+                  <span className="mr-1.5" aria-hidden="true">{c.icon}</span>
+                  {c.name}
+                </button>
+              ))}
+            </div>
+            <p className="mt-2 text-[11px] text-slate-500">
+              Shown on devices with a mouse or trackpad. Turned off automatically
+              when your system asks for reduced motion.
+            </p>
+          </fieldset>
+
+          <fieldset className="mt-5">
+            <legend className="font-display text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">
+              Effect size
+            </legend>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {CURSOR_SIZES.map((sz) => (
+                <button
+                  key={sz.id}
+                  onClick={() => pickCursor({ size: sz.id })}
+                  aria-pressed={cursor.size === sz.id}
+                  disabled={cursor.effect === 'off'}
+                  className={`arcade-chip press min-h-11 cursor-pointer disabled:cursor-not-allowed disabled:opacity-40 ${cursor.size === sz.id ? 'on' : ''}`}
+                >
+                  {sz.name}
                 </button>
               ))}
             </div>

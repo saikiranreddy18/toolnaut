@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom'
-import Wordmark from '../components/ui/Wordmark'
+import { BrandLogo } from '../components/ui/Mascot'
 
 // Shell for /quiz and /quiz/result (and later /auth/*): dimmed nebula ambience,
 // CSS-only — the WebGL galaxy lives on the landing page and never mounts here.
@@ -11,7 +11,7 @@ export default function OnboardingShell() {
       <header className="fixed inset-x-0 top-0 z-20 pt-[env(safe-area-inset-top)]">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
           <Link to="/" aria-label="Toolnaut home">
-            <Wordmark className="text-base text-white" />
+            <BrandLogo size={34} textClass="text-lg" />
           </Link>
         </div>
       </header>
