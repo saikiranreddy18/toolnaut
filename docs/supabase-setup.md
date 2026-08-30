@@ -155,3 +155,29 @@ sync RPC returns non-404 → owner read/write works → cross-account read is
 denied → guest import → second-device recovery → cleared-storage recovery →
 idempotent import retry → tool_claims publicly readable, browser writes
 rejected, duplicate current claim rejected.
+
+---
+
+## Deployment record (fill in when applying migrations)
+
+Freeze the exact state being deployed BEFORE running any SQL — autonomous
+routines commit to master, so "the repo" and "what was reviewed" can drift
+between reading a migration and applying it.
+
+```
+Application commit : <full SHA at time of application>
+Migration files    :
+  0001_explorers.sql   — sha256: <checksum>
+  0002_user_state.sql  — sha256: <checksum>
+  0003_tool_claims.sql — sha256: <checksum>
+Supabase project   : <project ref — not a secret, still not for the repo>
+Vercel environment : Production
+Applied by / at    : <name> / <timestamp>
+Validation result  : pending | passed | failed
+Rollback           : drop the three tables/functions — the app feature-detects
+                     and returns to local-only behaviour with no code change
+```
+
+Checksums: `sha256sum supabase/migrations/*.sql` (or `certutil -hashfile` on
+Windows). Before the first claim import, run the batch's names through
+`claimKeyCollisions()` in src/utils/claimKey.js and refuse on any hit.
