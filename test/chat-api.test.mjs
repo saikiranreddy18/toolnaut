@@ -112,3 +112,20 @@ describe('originAllowed — lookalike and hostile origins', async () => {
     assert.equal(originAllowed('http://toolnaut-abc.vercel.app'), false)
   })
 })
+
+describe('originAllowed — degenerate and full-host anchored cases', async () => {
+  const { originAllowed } = await import('../api/chat.js')
+
+  test('rejects the degenerate empty-hash preview host', () => {
+    assert.equal(originAllowed('https://toolnaut-.vercel.app'), false)
+  })
+  test('rejects preview-lookalikes with appended domains', () => {
+    assert.equal(originAllowed('https://toolnaut-abc.vercel.app.attacker.example'), false)
+    assert.equal(originAllowed('https://x-saikiranreddy18s-projects.vercel.app.attacker.example'), false)
+    assert.equal(originAllowed('https://toolnaut.vercel.app.evil.example'), false)
+  })
+  test('still allows real preview shapes', () => {
+    assert.equal(originAllowed('https://toolnaut-git-staging-saikiranreddy18s-projects.vercel.app'), true)
+    assert.equal(originAllowed('https://toolnaut-8fk2xq1zx.vercel.app'), true)
+  })
+})

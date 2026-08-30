@@ -137,3 +137,21 @@ double-counts.
 
 **Expect the number to be small.** `/app` is open to guests, so most visitors
 never sign in. That is the honest figure; the previous 1,300 was not.
+
+---
+
+## Applying the migrations (0001–0003)
+
+Preferred: Supabase CLI (`supabase db push`), which records migration history
+and prevents local/remote drift. If using the SQL Editor instead, apply in
+order — `0001_explorers.sql`, `0002_user_state.sql`, `0003_tool_claims.sql` —
+and note here which have been run so the repo's `supabase/migrations/` folder
+stays truthful about the live schema.
+
+Applied so far: (none — update this line when you run them)
+
+After applying, the validation ladder before any copy or feature changes:
+sync RPC returns non-404 → owner read/write works → cross-account read is
+denied → guest import → second-device recovery → cleared-storage recovery →
+idempotent import retry → tool_claims publicly readable, browser writes
+rejected, duplicate current claim rejected.

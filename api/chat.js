@@ -62,10 +62,14 @@ export function originAllowed(origin) {
     const u = new URL(origin)
     if (u.protocol !== 'https:') return false
     const h = u.hostname
+    // Anchored regexes over the PARSED hostname, not prefix/suffix string
+    // checks: startsWith('toolnaut-') accepted the degenerate
+    // "toolnaut-.vercel.app", and only a full-host match is immune to the
+    // "toolnaut.vercel.app.evil.example" family by construction.
     return (
       h === 'toolnaut.vercel.app' ||
-      (h.endsWith('.vercel.app') &&
-        (h.startsWith('toolnaut-') || h.endsWith('-saikiranreddy18s-projects.vercel.app')))
+      /^toolnaut-[a-z0-9]+(-[a-z0-9]+)*\.vercel\.app$/i.test(h) ||
+      /^[a-z0-9]+(-[a-z0-9]+)*-saikiranreddy18s-projects\.vercel\.app$/i.test(h)
     )
   } catch {
     return false

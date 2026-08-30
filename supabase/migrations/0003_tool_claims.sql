@@ -29,7 +29,12 @@ create table if not exists public.tool_claims (
   -- (slug, type, source_url) alone would block two integrations documented on
   -- the same page, and uniqueness on (slug, type) would allow only one
   -- pricing plan per tool. (slug, type, key) says exactly what a duplicate is.
-  claim_key    text not null default '',
+  -- Normalised at the database, not just the admin UI: without the CHECK,
+  -- 'Slack' and 'slack' become two separate "current" facts and the dedup
+  -- index cannot see it. Human-facing capitalisation goes in claim_display.
+  claim_key    text not null default ''
+    constraint tool_claims_key_format check (claim_key ~ '^[a-z0-9._-]*$'),
+  claim_display text,
   claim_type   text not null check (claim_type in (
     'pricing', 'free_tier', 'integration', 'api', 'webhook', 'self_hosting',
     'privacy', 'security', 'compliance', 'feature', 'availability', 'status'
