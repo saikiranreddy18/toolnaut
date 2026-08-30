@@ -23,6 +23,13 @@
 create table if not exists public.tool_claims (
   id           uuid primary key default gen_random_uuid(),
   tool_slug    text not null,
+  -- Identity of the specific fact WITHIN its type: the integration name
+  -- ('slack'), the plan name ('pro'), or '' for singleton types like status.
+  -- This is what makes the dedup index below precise — uniqueness on
+  -- (slug, type, source_url) alone would block two integrations documented on
+  -- the same page, and uniqueness on (slug, type) would allow only one
+  -- pricing plan per tool. (slug, type, key) says exactly what a duplicate is.
+  claim_key    text not null default '',
   claim_type   text not null check (claim_type in (
     'pricing', 'free_tier', 'integration', 'api', 'webhook', 'self_hosting',
     'privacy', 'security', 'compliance', 'feature', 'availability', 'status'
@@ -45,6 +52,15 @@ create table if not exists public.tool_claims (
 
 create index if not exists tool_claims_slug_idx on public.tool_claims (tool_slug);
 create index if not exists tool_claims_review_idx on public.tool_claims (review_due_at)
+  where status = 'current';
+
+-- One CURRENT claim per fact. A re-verification supersedes by flipping the old
+-- row to 'stale' first (or updating in place); an accidental double-insert of
+-- the same fact conflicts instead of creating two "current" truths that could
+-- disagree. Historical rows (stale/disputed/removed) are unconstrained — they
+-- are the audit trail.
+create unique index if not exists tool_claims_current_identity_idx
+  on public.tool_claims (tool_slug, claim_type, claim_key)
   where status = 'current';
 
 alter table public.tool_claims enable row level security;

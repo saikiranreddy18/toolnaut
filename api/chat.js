@@ -48,11 +48,28 @@ const ALLOWED_ORIGINS = new Set([
   'http://localhost:5173',
   'http://127.0.0.1:5173',
 ])
-function originAllowed(origin) {
+// Exported for the test suite.
+export function originAllowed(origin) {
   if (!origin) return true // curl, server-to-server, same-origin without header
+  if (origin === 'null') return false // file:// and sandboxed iframes send the literal string
   if (ALLOWED_ORIGINS.has(origin)) return true
-  // Vercel preview deployments get generated hostnames; block everything else.
-  try { return new URL(origin).hostname.endsWith('.vercel.app') } catch { return false }
+  // Only THIS project's Vercel preview deployments — not all of vercel.app,
+  // which is anyone's hosting: endsWith('.vercel.app') alone would let any
+  // Vercel user's page call this endpoint from a browser. Preview hostnames
+  // here are toolnaut-<hash>.vercel.app or <branch>-saikiranreddy18s-projects
+  // .vercel.app; exact-parse the origin and match the whole hostname shape.
+  try {
+    const u = new URL(origin)
+    if (u.protocol !== 'https:') return false
+    const h = u.hostname
+    return (
+      h === 'toolnaut.vercel.app' ||
+      (h.endsWith('.vercel.app') &&
+        (h.startsWith('toolnaut-') || h.endsWith('-saikiranreddy18s-projects.vercel.app')))
+    )
+  } catch {
+    return false
+  }
 }
 
 // Per-IP sliding window, in instance memory. HONEST LIMITS: a serverless
@@ -170,6 +187,9 @@ export default async function handler(req, res) {
   // prepends the real client IP; the first entry is the trustworthy one there.
   const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown'
   if (rateLimited(ip)) {
+    // Standard header so well-behaved clients know when to come back; the
+    // window is 60s, so the worst-case wait is one minute.
+    res.setHeader('Retry-After', '60')
     return res.status(429).json({ error: 'Too many requests' })
   }
 

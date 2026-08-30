@@ -80,3 +80,35 @@ describe('validateChatPayload', () => {
     assert.deepEqual(Object.keys(v.options[0]), ['key', 'label'])
   })
 })
+
+describe('originAllowed — lookalike and hostile origins', async () => {
+  const { originAllowed } = await import('../api/chat.js')
+
+  test('allows the production origins and absent header', () => {
+    assert.equal(originAllowed(undefined), true)
+    assert.equal(originAllowed('https://toolnaut.xyz'), true)
+    assert.equal(originAllowed('https://www.toolnaut.xyz'), true)
+    assert.equal(originAllowed('http://localhost:5173'), true)
+  })
+
+  test("allows only THIS project's Vercel previews", () => {
+    assert.equal(originAllowed('https://toolnaut-abc123.vercel.app'), true)
+    assert.equal(originAllowed('https://staging-saikiranreddy18s-projects.vercel.app'), true)
+    // any other Vercel user's site is someone else's hosting, not ours
+    assert.equal(originAllowed('https://evil.vercel.app'), false)
+    assert.equal(originAllowed('https://phishing-site.vercel.app'), false)
+  })
+
+  test('rejects lookalike hosts — substring matching would pass these', () => {
+    assert.equal(originAllowed('https://toolnaut.xyz.attacker.example'), false)
+    assert.equal(originAllowed('https://evil-toolnaut.xyz'), false)
+  })
+
+  test('rejects the literal "null" origin (file:// and sandboxed iframes)', () => {
+    assert.equal(originAllowed('null'), false)
+  })
+
+  test('rejects http downgrades of allowed-looking preview hosts', () => {
+    assert.equal(originAllowed('http://toolnaut-abc.vercel.app'), false)
+  })
+})
