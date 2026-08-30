@@ -22,6 +22,98 @@
 const FEATHERLESS_URL = 'https://api.featherless.ai/v1/chat/completions'
 const MODEL = process.env.FEATHERLESS_CHAT_MODEL || 'Qwen/Qwen2.5-7B-Instruct'
 
+// ── abuse limits ─────────────────────────────────────────────────────────────
+// This is a public endpoint that spends money per call, so every client-supplied
+// field is capped. The caps are sized from the real intake (9 questions, ≤6
+// options each, short labels) with slack — a legitimate request never hits
+// them, and a crafted one cannot inflate the prompt to run up token cost.
+const LIMITS = {
+  bodyBytes: 10_000,   // whole JSON payload; the real one is ~1KB
+  question: 300,
+  options: 12,         // real max is 6
+  optionField: 80,     // key or label
+  answered: 12,        // real max is 9 entries
+  answeredField: 120,
+  text: 500,           // already the historical cap
+}
+
+// Origins allowed to call this from a browser. A cross-origin JSON POST is
+// stopped by the preflight anyway (no CORS headers are served), so this is
+// defence in depth for the browser path; non-browser clients send no Origin
+// and fall through to the rate limit, which is the control that actually
+// binds them.
+const ALLOWED_ORIGINS = new Set([
+  'https://toolnaut.xyz',
+  'https://www.toolnaut.xyz',
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+])
+function originAllowed(origin) {
+  if (!origin) return true // curl, server-to-server, same-origin without header
+  if (ALLOWED_ORIGINS.has(origin)) return true
+  // Vercel preview deployments get generated hostnames; block everything else.
+  try { return new URL(origin).hostname.endsWith('.vercel.app') } catch { return false }
+}
+
+// Per-IP sliding window, in instance memory. HONEST LIMITS: a serverless
+// platform runs many instances and recycles them, so this bounds abuse per
+// warm instance rather than globally — a determined attacker across cold
+// starts needs a shared store (Upstash/KV) to stop. What it does reliably
+// stop is the cheap case: one client hammering one warm instance in a loop,
+// which is also the case that actually burns tokens fastest.
+const WINDOW_MS = 60_000
+const MAX_PER_WINDOW = 20
+const hits = new Map() // ip -> number[] of timestamps
+function rateLimited(ip) {
+  const now = Date.now()
+  const list = (hits.get(ip) || []).filter((t) => now - t < WINDOW_MS)
+  if (list.length >= MAX_PER_WINDOW) { hits.set(ip, list); return true }
+  list.push(now)
+  hits.set(ip, list)
+  // cap the map so an IP-rotating attacker cannot grow instance memory forever
+  if (hits.size > 5000) hits.clear()
+  return false
+}
+
+// Validates and NORMALISES the payload — the handler uses only what this
+// returns, so a field that skipped validation cannot reach the prompt.
+// Exported for the test suite.
+export function validateChatPayload(body) {
+  if (!body || typeof body !== 'object') return { ok: false }
+  const { question, options, text, answered } = body
+
+  if (typeof question !== 'string' || !question.trim() || question.length > LIMITS.question) return { ok: false }
+  if (typeof text !== 'string' || !text.trim()) return { ok: false }
+  if (!Array.isArray(options) || options.length === 0 || options.length > LIMITS.options) return { ok: false }
+
+  const safeOptions = []
+  for (const o of options) {
+    if (!o || typeof o.key !== 'string' || typeof o.label !== 'string') return { ok: false }
+    if (o.key.length > LIMITS.optionField || o.label.length > LIMITS.optionField) return { ok: false }
+    safeOptions.push({ key: o.key, label: o.label })
+  }
+
+  const safeAnswered = {}
+  if (answered && typeof answered === 'object' && !Array.isArray(answered)) {
+    const entries = Object.entries(answered)
+    if (entries.length > LIMITS.answered) return { ok: false }
+    for (const [k, v] of entries) {
+      if (k.length > LIMITS.answeredField) return { ok: false }
+      if (typeof v !== 'string' && typeof v !== 'number') return { ok: false }
+      if (String(v).length > LIMITS.answeredField) return { ok: false }
+      safeAnswered[k] = String(v)
+    }
+  }
+
+  return {
+    ok: true,
+    question: question.trim(),
+    options: safeOptions,
+    answered: safeAnswered,
+    text: text.slice(0, LIMITS.text),
+  }
+}
+
 // Hard ceiling. If the model is slow the visitor must not sit staring at a typing
 // indicator — the client falls back to keyword matching, which always answers.
 const TIMEOUT_MS = Number(process.env.FEATHERLESS_CHAT_TIMEOUT_MS) || 9000
@@ -62,18 +154,37 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'POST only' })
   }
 
+  // Reject oversize bodies before doing anything else with them. The client's
+  // askServer treats any non-OK status as "use the keyword fallback", so none
+  // of these rejections ever strands a visitor mid-conversation.
+  const contentLength = Number(req.headers['content-length'])
+  if (Number.isFinite(contentLength) && contentLength > LIMITS.bodyBytes) {
+    return res.status(413).json({ error: 'Request too large' })
+  }
+
+  if (!originAllowed(req.headers.origin)) {
+    return res.status(403).json({ error: 'Forbidden' })
+  }
+
+  // x-forwarded-for is client-settable in general, but on Vercel the platform
+  // prepends the real client IP; the first entry is the trustworthy one there.
+  const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown'
+  if (rateLimited(ip)) {
+    return res.status(429).json({ error: 'Too many requests' })
+  }
+
   const key = process.env.FEATHERLESS_API_KEY
   // No key configured is not an error the visitor should see. The client has a
   // deterministic fallback; tell it to use that.
   if (!key) return res.status(200).json({ key: null, reply: null, source: 'unconfigured' })
 
-  const { question, options, text, answered } = req.body || {}
-  if (!question || !Array.isArray(options) || !options.length || !text) {
-    return res.status(400).json({ error: 'question, options and text are required' })
+  const payload = validateChatPayload(req.body)
+  if (!payload.ok) {
+    return res.status(400).json({ error: 'Invalid request' })
   }
 
-  const validKeys = new Set(options.map((o) => o.key))
-  const prompt = buildPrompt({ question, options, answered, text })
+  const validKeys = new Set(payload.options.map((o) => o.key))
+  const prompt = buildPrompt(payload)
 
   try {
     const upstream = await fetch(FEATHERLESS_URL, {
