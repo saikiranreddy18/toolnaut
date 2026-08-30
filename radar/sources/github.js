@@ -22,7 +22,21 @@ export async function fetchGitHub({ token, limit = 40 } = {}) {
       description: repo.description || repo.name,
       source: 'github',
       sourceUrl: repo.html_url,
-      raw: { stars: repo.stargazers_count, lang: repo.language, owner: repo.owner?.login },
+      // Repo-health fields the scorecard measures. All of them already ride
+      // along in the search response, so carrying them costs no extra API
+      // call — and a measured signal beats a model's guess every time.
+      raw: {
+        stars: repo.stargazers_count,
+        lang: repo.language,
+        owner: repo.owner?.login,
+        forks: repo.forks_count,
+        openIssues: repo.open_issues_count,
+        license: repo.license?.spdx_id || null,
+        archived: !!repo.archived,
+        topics: repo.topics || [],
+        pushedAt: repo.pushed_at || null,
+        createdAt: repo.created_at || null,
+      },
     }))
   } catch (e) {
     log.warn('GitHub source failed', e.message)

@@ -9,6 +9,7 @@
     "dry-run": "node run.js --dry-run",
     "seed": "node seed.js",
     "sync": "node scripts/sync-to-app.js",
+    "rescore": "node scripts/rescore.js",
     "test": "node --test"
   }
 }

@@ -60,6 +60,13 @@ export function makeToolRecord(partial = {}) {
     // --- provenance envelope (pipeline-owned) ---
     source: '', sourceUrl: '', discoveredAt: null, updatedAt: null,
     contentHash: '', confidence: 0, enrichedBy: '', lifecycle: 'staged', version: 1,
+    // --- evaluation layer (shapes owned by scorecard.js) ---
+    // `signals` is what a source measured, kept so a re-score never re-fetches;
+    // `assessedBy` says whether the rest is a model's judgement or absent. All
+    // null on a record nobody has evaluated yet — never a zero, which would
+    // read as "scored badly" rather than "not scored".
+    signals: null, automation: null, integration: null, verdict: null,
+    scorecard: null, assessedBy: '',
     ...partial,
   }
 }

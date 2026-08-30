@@ -10,6 +10,9 @@ import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
 import { HeartIcon } from '../../components/app/icons'
 import TrustPanel from '../../components/app/TrustPanel'
+import RadarSummary from '../../components/app/RadarSummary'
+import AutomationFit from '../../components/app/AutomationFit'
+import RadarCriteriaTable from '../../components/app/RadarCriteriaTable'
 
 export default function ToolDetail() {
   const { slug } = useParams()
@@ -193,6 +196,17 @@ export default function ToolDetail() {
       {/* Reasoning sits with the decision, before the page moves on to other
           products. */}
       <TrustPanel tool={tool} answers={quiz.completed ? quiz.answers : null} />
+
+      {/* The radar's own evidence, kept separate from the personal fit above:
+          TrustPanel answers "why you", this answers "what do we actually know".
+          The summary renders for every tool — a bundled one honestly says it has
+          not been assessed — but the workflow chain and the rubric table only
+          appear where there is something in them to read. */}
+      <div className="mt-6 space-y-4">
+        <RadarSummary scorecard={tool.scorecard} />
+        {tool.scorecard && <AutomationFit scorecard={tool.scorecard} />}
+        <RadarCriteriaTable scorecard={tool.scorecard} />
+      </div>
 
       {related.length > 0 && (
         <div className="mt-10">

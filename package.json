@@ -9,7 +9,7 @@
     "prerender": "node scripts/prerender.mjs || echo prerender-step-failed",
     "preview": "vite preview",
     "smoke": "node scripts/smoke.mjs",
-    "test": "cd radar && node --test",
+    "test": "node --test \"src/**/*.test.js\" && cd radar && node --test",
     "radar:health": "node scripts/radar-health.mjs",
     "report": "node scripts/daily-report.mjs"
   },

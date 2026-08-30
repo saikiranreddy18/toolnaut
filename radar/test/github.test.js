@@ -14,7 +14,13 @@ async function withItems(items, fn) {
 }
 
 test('maps a repo, preferring homepage over html_url', async () => {
-  const items = [{ name: 'widgetly', description: 'An AI widget generator', homepage: 'https://widgetly.dev', html_url: 'https://github.com/x/widgetly', stargazers_count: 12, language: 'TypeScript', owner: { login: 'x' } }]
+  const items = [{
+    name: 'widgetly', description: 'An AI widget generator',
+    homepage: 'https://widgetly.dev', html_url: 'https://github.com/x/widgetly',
+    stargazers_count: 12, language: 'TypeScript', owner: { login: 'x' },
+    forks_count: 3, open_issues_count: 7, license: { spdx_id: 'MIT' }, archived: false,
+    topics: ['ai', 'cli'], pushed_at: '2026-08-20T00:00:00Z', created_at: '2026-01-02T00:00:00Z',
+  }]
   const out = await withItems(items, () => fetchGitHub({ limit: 1 }))
   assert.equal(out.length, 1)
   assert.equal(out[0].name, 'widgetly')
@@ -22,7 +28,24 @@ test('maps a repo, preferring homepage over html_url', async () => {
   assert.equal(out[0].description, 'An AI widget generator')
   assert.equal(out[0].source, 'github')
   assert.equal(out[0].sourceUrl, 'https://github.com/x/widgetly')
-  assert.deepEqual(out[0].raw, { stars: 12, lang: 'TypeScript', owner: 'x' })
+  assert.deepEqual(out[0].raw, {
+    stars: 12, lang: 'TypeScript', owner: 'x',
+    forks: 3, openIssues: 7, license: 'MIT', archived: false,
+    topics: ['ai', 'cli'], pushedAt: '2026-08-20T00:00:00Z', createdAt: '2026-01-02T00:00:00Z',
+  })
+})
+
+// The scorecard reads raw.pushedAt / license / topics. An older GitHub response
+// that omits them must map to nulls, not to undefined keys that read as
+// "archived: undefined" downstream.
+test('a repo with no license, topics or timestamps maps to explicit nulls', async () => {
+  const items = [{ name: 'bare', description: 'x', html_url: 'https://github.com/x/bare', stargazers_count: 0, owner: { login: 'x' } }]
+  const out = await withItems(items, () => fetchGitHub({ limit: 1 }))
+  assert.equal(out[0].raw.license, null)
+  assert.equal(out[0].raw.pushedAt, null)
+  assert.equal(out[0].raw.createdAt, null)
+  assert.equal(out[0].raw.archived, false)
+  assert.deepEqual(out[0].raw.topics, [])
 })
 
 test('falls back to html_url and repo name when homepage or description are missing', async () => {

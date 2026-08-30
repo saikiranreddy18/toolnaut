@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
 import { isNewTool } from '../../utils/newTools'
 import { HeartIcon } from './icons'
+import RadarSummary from './RadarSummary'
 
 // The one tool card, shared by Discover and Favorites.
 //
@@ -81,6 +82,12 @@ export default function ToolCard({
         <span className="rounded-full border border-white/20 px-2 py-0.5">{PRICE_LABELS[tool.price]}</span>
         <span className="rounded-full border border-white/20 px-2 py-0.5">{LEVEL_LABELS[tool.level]}</span>
       </div>
+
+      {/* Only radar-assessed tools get this line. Most of the catalogue predates
+          the scorecard, and stamping 700 cards with "Not yet assessed" would
+          turn an honest admission into visual noise — the detail page is where
+          that belongs. */}
+      {tool.scorecard && <RadarSummary scorecard={tool.scorecard} compact />}
 
       {/* z-10 lifts the controls above the stretched link's ::after overlay */}
       <div className="relative z-10 mt-4 flex items-center gap-2">
