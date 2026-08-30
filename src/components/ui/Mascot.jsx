@@ -121,7 +121,7 @@ export default function Mascot({ mood = 'happy', size = 32, className = '', titl
 //   compact dense bars and back-links, where the mark is a wayfinder
 export const LOGO = {
   page: { size: 60, textClass: 'text-2xl sm:text-3xl' },
-  chrome: { size: 38, textClass: 'text-lg' },
+  chrome: { size: 46, textClass: 'text-xl' },
   compact: { size: 30, textClass: 'text-base' },
 }
 

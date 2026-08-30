@@ -108,8 +108,8 @@ export default function AppShell() {
       <div className="starfield" aria-hidden="true" />
 
       {/* left sidebar — desktop */}
-      <aside className="sticky top-0 hidden h-dvh w-60 shrink-0 flex-col border-r border-white/10 px-4 py-5 lg:flex">
-        <Link to="/" className="px-4" aria-label={BRAND}>
+      <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-white/10 px-4 py-5 lg:flex">
+        <Link to="/" aria-label={BRAND}>
           <BrandLogo {...LOGO.chrome} />
         </Link>
 
