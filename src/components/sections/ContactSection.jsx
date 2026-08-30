@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { CONTACT_EMAIL, SOCIALS } from '../../config'
 import DottedWordmark from '../ui/DottedWordmark'
@@ -61,12 +62,22 @@ export default function ContactSection() {
   const track = useAnalytics()
   const count = catalogSize()
   const updated = lastUpdatedLabel()
+  const areaRef = useRef(null)
 
   const linkClass = 'text-sm text-slate-400 transition-colors hover:text-white'
 
   return (
-    <div className="relative mx-auto max-w-6xl px-5 pb-10 pt-14">
-      <div className="grid gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
+    <div ref={areaRef} className="relative mx-auto max-w-6xl px-5 pb-16 pt-20">
+      {/* The mark is the BACKGROUND of the information itself: its box wraps
+          the column grid exactly, so the letters sit BEHIND the links rather
+          than floating above them. Pointer tracking lives on areaRef (the
+          whole section) and the mark's own layer is pointer-events-none, so
+          the links stay clickable and sweeping anywhere in the footer pulls
+          the letters under the cursor into focus. */}
+      <div className="relative">
+        <DottedWordmark bg watchRef={areaRef} className="absolute -inset-y-6 inset-x-0" />
+
+        <div className="relative z-10 grid gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
         {/* ── socials and the standing facts ── */}
         <div>
           {SOCIALS.length > 0 && (
@@ -143,14 +154,8 @@ export default function ContactSection() {
             </ul>
           </div>
         </div>
+        </div>
       </div>
-
-      {/* The mark, centred in the MIDDLE of the contact section — below the
-          link columns, above whatever closes the page. It idles soft and out
-          of focus (the reference look) and the cursor pulls it sharp; sitting
-          at the top it read as a header for the links, which it is not. It is
-          the section's centrepiece, and centrepieces sit in the middle. */}
-      <DottedWordmark className="mx-auto mt-12 w-full max-w-2xl" />
     </div>
   )
 }

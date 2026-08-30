@@ -213,7 +213,12 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut', bg =
       ref={ref}
       role="img"
       aria-label={text}
-      className={`relative select-none ${bg ? 'pointer-events-none' : ''} ${className}`}
+      // bg passes its own `absolute inset-*` via className — the base class must
+      // not also say `relative`, because both end up on the element and which
+      // wins is stylesheet order, not intent. It resolved to relative: the
+      // insets became inert offsets, the root shrank to content height, and
+      // the mark sat ABOVE the grid it was supposed to sit behind.
+      className={`${bg ? 'pointer-events-none' : 'relative'} select-none ${className}`}
       onPointerMove={bg ? undefined : onMove}
       onPointerEnter={bg ? undefined : () => setActive(true)}
       onPointerLeave={bg ? undefined : () => {
