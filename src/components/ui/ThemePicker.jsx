@@ -1,31 +1,33 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { THEMES, loadTheme, setTheme } from '../../state/themeStore'
-import { loadMoon, setMoon } from '../../state/moonStore'
-import MoonToggle from './MoonToggle'
 import { GALAXY_LEVELS, loadGalaxyQuality, setGalaxyQuality } from '../../state/galaxyQualityStore'
 import { haptic } from '../../utils/haptics'
 
 // Floating "play modes" switcher — a palette button (bottom-right) that expands
 // the sky settings. Global: mounted once in App, fixed above all pages.
 //
-// Two independent axes live here, which is why they share one panel rather than
-// getting a second floating button: play modes change the accent colours, moon
-// changes how much light is in the sky behind them. Either can be set without
-// disturbing the other.
+// Play modes change the accent colours; the galaxy control is the escape hatch
+// for a machine the 3D is too heavy for. The galaxy rows only render on the
+// landing route, because that is the only page with a galaxy — a control that
+// governs nothing on the screen in front of you is worse than a missing one.
+//
+// Moonlight used to sit here too. It moved out because it is a preference, not
+// a play mode, and it still lives in ME -> Sky settings where preferences are
+// kept; this panel is the quick switch, not the settings screen.
 export default function ThemePicker() {
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState(loadTheme)
-  const [moon, setMoonState] = useState(loadMoon)
   const [gq, setGq] = useState(loadGalaxyQuality)
+  // The galaxy is the landing page's WebGL scene and nowhere else — the app
+  // routes draw a CSS starfield instead. Offering FULL / LIGHT / OFF there let
+  // someone turn a dial that governs nothing on the screen they are looking at.
+  const onLanding = useLocation().pathname === '/'
 
   function pick(id) {
     haptic.tap()
     setActive(setTheme(id))
-  }
-
-  function pickMoon(id) {
-    setMoonState(setMoon(id))
   }
 
   function pickGalaxy(id) {
@@ -62,28 +64,8 @@ export default function ThemePicker() {
               </button>
             ))}
 
-            <div className="my-1 h-px bg-white/10" role="separator" />
-            <div className="flex items-center gap-3 px-3 py-2">
-              <span className="flex flex-col">
-                <label
-                  htmlFor="moonlight-switch"
-                  className="font-display text-xs font-black uppercase tracking-wider text-white"
-                >
-                  Moonlight
-                </label>
-                {/* the hint has to say what changes, because the switch shows
-                    the moon and not the sky it is lighting */}
-                <span className="text-[10px] text-slate-400">
-                  {moon === 'full' ? 'Lit sky, softer stars' : 'Deep dark, more stars'}
-                </span>
-              </span>
-              <MoonToggle
-                id="moonlight-switch"
-                lit={moon === 'full'}
-                onChange={(on) => pickMoon(on ? 'full' : 'none')}
-              />
-            </div>
-
+            {onLanding && (
+              <>
             <div className="my-1 h-px bg-white/10" role="separator" />
             <p className="px-3 pb-1 font-display text-[9px] font-black uppercase tracking-[0.16em] text-slate-500">
               Galaxy
@@ -114,13 +96,15 @@ export default function ThemePicker() {
             <p className="px-3 pb-1 text-[10px] leading-snug text-slate-500">
               {GALAXY_LEVELS.find((l) => l.id === gq)?.hint}
             </p>
+              </>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
 
       <button
         onClick={() => { haptic.tap(); setOpen((v) => !v) }}
-        aria-label="Sky settings — theme and moonlight"
+        aria-label="Sky settings"
         aria-expanded={open}
         className="nb-btn dark flex h-11 w-11 items-center justify-center !rounded-full !p-0"
       >
