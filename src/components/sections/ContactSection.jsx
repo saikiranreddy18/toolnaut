@@ -67,14 +67,14 @@ export default function ContactSection() {
   const linkClass = 'text-sm text-slate-400 transition-colors hover:text-white'
 
   return (
-    // Full-bleed charcoal panel — the user's reference swaps the pinstriped
-    // near-black for a smooth mid-grey ground, which also lets the section
-    // read as its own closing surface rather than more of the same sky. The
-    // soft vertical ramp keeps it from looking like a flat sticker.
-    <div style={{ background: 'linear-gradient(180deg, #303034 0%, #3a3a3f 55%, #333338 100%)' }}>
-      <div ref={areaRef} className="relative mx-auto max-w-6xl px-5 pb-16 pt-20">
+    // ONE flat colour — Obsidian #020403, the user's swatch, full bleed. The
+    // earlier charcoal ramp mixed two tones; this is deliberately a single
+    // unbroken surface, and the section stays compact: a small, neat, purely
+    // informational close to the page.
+    <div style={{ background: '#020403' }}>
+      <div ref={areaRef} className="relative mx-auto max-w-6xl px-5 pb-6 pt-10">
       <div className="relative">
-        <div className="grid gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
+        <div className="grid gap-x-8 gap-y-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
         {/* ── socials and the standing facts ── */}
         <div>
           {SOCIALS.length > 0 && (
@@ -153,12 +153,10 @@ export default function ContactSection() {
         </div>
         </div>
 
-        {/* The mark, full width, in ITS OWN BAND below the columns — the
-            user's arrow pointed exactly here. Behind the links it competed
-            with them; down here it owns the space between the information
-            and the page's close. Flow-positioned, so its box is its drawing
-            and the reveal tracks the pointer over the mark itself. */}
-        <DottedWordmark className="mx-auto mt-12 w-full" />
+        {/* The mark: end to end, and AT the end — the last thing on the page,
+            after all the information. Flow-positioned, so its box is its
+            drawing and the reveal tracks the pointer over the mark itself. */}
+        <DottedWordmark className="mx-auto mt-6 w-full" />
         </div>
       </div>
     </div>
