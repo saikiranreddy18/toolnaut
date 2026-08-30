@@ -2301,6 +2301,70 @@ a client-side SPA with a static tool catalogue.
   optional small addition to `Discover.jsx`'s card markup. No backend, no
   new dependency.
 - **Found:** 2026-08-29 09:20 UTC
+- **Deepened 2026-08-30 21:06 UTC:** the `Discover.jsx` half of this plan is
+  now wrong, not just stale — `Discover.jsx` was refactored after this entry
+  was written (visible in its own file history: pagination + a `ToolCard`
+  extraction) and no longer contains any inline card markup at all. Re-read
+  the current file in full: results render via `<ToolCard tool={tool} .../>`
+  (`Discover.jsx:270-286`), a shared component now imported by **both**
+  `Discover.jsx` and `Favorites.jsx` (confirmed: `Favorites.jsx:12` imports
+  it and renders it at three call sites, `Favorites.jsx:110,151,223`) —
+  `ToolCard.jsx`'s own header comment says so explicitly: "The one tool
+  card, shared by Discover and Favorites." So "optionally render tags on
+  Discover's card grid" is actually one change in `ToolCard.jsx`, and it's a
+  strictly better target than originally scoped: fixing it there closes the
+  gap on Favorites too, for free, which didn't exist as a page when this
+  entry was first written.
+  There is a real technical trap here a builder needs to know before
+  touching this file, not just a line-number correction. `ToolCard.jsx`'s
+  own comment (`ToolCard.jsx:8-19`) explains why the card is NOT a `<Link>`
+  wrapping everything: the tool-name `<h3>` holds a `<Link>` with
+  `after:absolute after:inset-0` (`ToolCard.jsx:64`) that stretches
+  invisibly over the *entire* card so the whole card is clickable, and every
+  interactive control below it (the ADD button, the favorite heart, the
+  compare checkbox) is deliberately wrapped in `relative z-10`
+  (`ToolCard.jsx:86`) so it sits above that stretched overlay and stays
+  clickable — the comment calls out that the old design's
+  interactive-inside-interactive markup was actually broken for keyboard/
+  screen-reader users, which is exactly the failure mode a naively-added
+  tag `<Link>` would reintroduce if dropped in without the same treatment.
+  Concretely: tags would need to render inside that same
+  `relative z-10` control row (`ToolCard.jsx:86-119`, alongside the ADD/
+  favorite/compare controls) or in their own `relative z-10` wrapper — not
+  as a bare `<Link>` floating elsewhere in the card body — or they render
+  visually but are unreachable/unclickable underneath the stretched
+  whole-card link, the identical bug this component was rewritten to avoid
+  for its other controls. `ToolCard.jsx` doesn't render `tags` at all today
+  (confirmed reading the full 123-line file — `PRICE_LABELS`/`LEVEL_LABELS`
+  pills exist at `ToolCard.jsx:80-83`, no `tags` reference anywhere), so
+  this is new markup, not a tweak to something already half-there.
+  The `ToolDetail.jsx` half of the original plan is unaffected and still
+  exactly accurate — re-confirmed `ToolDetail.jsx:131-135` still renders
+  bare `arcade-chip` spans with no `onClick`/`href`, line numbers unchanged.
+  **Corrected smallest useful version for the `ToolCard.jsx` half:** add a
+  small tag row inside the existing `relative z-10` block at
+  `ToolCard.jsx:86-119`, after the existing button/heart/compare row (a new
+  wrapping `<div>` so it doesn't fight the `flex items-center gap-2` layout
+  those three controls already use) — up to 2 tags, each a small
+  `arcade-chip`-styled `<Link to={`/app/discover?q=${encodeURIComponent(tag)}`}>`,
+  matching `ToolDetail.jsx`'s own destination pattern exactly. No change to
+  `Favorites.jsx` itself required — it inherits the new row automatically
+  by rendering the same `ToolCard`.
+  Two other entries in this file plan to touch the *same* file
+  (`Discover.jsx`) and should be aware of this same staleness rather than
+  re-discovering it independently when picked up: the still-OPEN
+  "facet counts" gap's predicate-extraction target (`Discover.jsx:85-101`
+  in its own text) is now around `Discover.jsx:95-114` in the current file
+  (the `results` `useMemo`, shifted by the pagination code added above it —
+  same shape, just moved, not broken); and the still-OPEN
+  "Community-submitted tools" gap's empty-state insertion point
+  (`Discover.jsx:170-180` in its own text) is now the `results.length === 0`
+  block at `Discover.jsx:227-254`, which itself changed shape (it now
+  computes `suggestedCats` category buttons and a "clear all filters"
+  button that didn't exist when that gap was written) — whoever builds
+  either of those two should re-read the current file rather than trusting
+  the stale line numbers, same caution this deepening is logging here for
+  the tags gap.
 
 ### Pricing already got its honest fix written — it just never got wired in, so the false claims and their own correction now sit on the same pages
 - **Status:** SHIPPED c04149e
