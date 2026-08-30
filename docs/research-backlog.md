@@ -2419,3 +2419,49 @@ a client-side SPA with a static tool catalogue.
   third render branch in `PricingSection.jsx`'s `Cell` component, one stale
   comment fixed. No backend, no new dependency, no new route, no new store.
 - **Found:** 2026-08-29 15:20 UTC
+
+### Vendor deal / coupon codes — REJECTED, no vendor relationships exist to back it
+- **Status:** REJECTED — needs real, ongoing vendor partnerships this project
+  has none of; logged so a future research hour doesn't re-spend time on the
+  same dead end.
+- **Seen in:** studied fresh this run. 2026-vintage AI-tool directories
+  (BitDegree's AI deals page, GraBon's AI-tools coupon aggregator,
+  Layer3Labs' AI-discounts roundup, PoweredByAI's "Exclusive Deals" section)
+  all run a dedicated deals/coupon surface — lifetime-deal codes, percentage-
+  off promo codes, education/nonprofit discount programs — as a named,
+  separate section from the plain listing pages, because it converts
+  browsing intent into an immediate click a directory can track and monetise.
+- **Gap:** confirmed with `grep -rniE "coupon|discount|promo.?code|deal\b"
+  src/` — zero hits anywhere in the app (`price`/`pricing` fields on catalog
+  entries are Toolnaut's own tier labels — `free`/`freemium`/`paid` plus a
+  free-text string — never a vendor-issued code or percentage). Toolnaut has
+  no deals surface of any kind.
+- **Why this is REJECTED rather than logged OPEN:** every directory example
+  above sources its codes from a real, standing commercial relationship with
+  each vendor — negotiated discount percentages, tracked affiliate/referral
+  links, and codes that need to be checked periodically for expiry (GraBon's
+  own copy: "expired promotions removed as soon as they stop working"). None
+  of that exists for Toolnaut and none of it is a code change: it needs a
+  human to reach out to vendors, negotiate terms, and then keep the resulting
+  codes current by hand or via a partner API this project has no access to.
+  Inventing placeholder codes or claiming a discount Toolnaut has no
+  agreement to honour would be exactly the fabrication this file's own
+  ethos rules out elsewhere (`TrustPanel.jsx`'s own "Commercial ties: None.
+  No affiliate link, no referral code, no paid placement" line, rendered on
+  every tool page today, would become a live lie the moment a fake code
+  shipped next to it). This is the same shape of rejection as the Team-tier
+  and chat-assistant findings above — a real backend/ops dependency outside
+  a client-side SPA's reach — except here the missing piece is a business
+  relationship, not a database.
+- **What would actually be honest to ship, if this ever becomes real (not
+  proposed as a build — flagged for whoever owns vendor relationships):** if
+  Toolnaut ever negotiates even one real vendor discount, the honest minimum
+  is a single `dealUrl`/`dealCode` field added to that one catalog entry,
+  rendered as a labelled row on `ToolDetail.jsx` next to `TrustPanel`'s
+  existing "Commercial ties" disclosure (which would then need to say what
+  the relationship *is*, not "none") — no dedicated deals page or directory-
+  wide section is worth building for a single entry, and no code should be
+  written speculatively ahead of an actual agreement existing.
+- **Build size:** N/A — rejected, no code proposed. The blocker is a business
+  relationship, not an engineering task.
+- **Found:** 2026-08-30 12:20 UTC
