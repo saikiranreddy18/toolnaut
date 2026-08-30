@@ -59,7 +59,7 @@ export default function Community() {
   }
 
   return (
-    <div className="mx-auto max-w-2xl px-5 xl:max-w-4xl py-6 lg:py-10">
+    <div className="mx-auto max-w-2xl px-5 xl:max-w-4xl 2xl:max-w-6xl py-6 lg:py-10">
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1">
           <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ SQUAD</p>
