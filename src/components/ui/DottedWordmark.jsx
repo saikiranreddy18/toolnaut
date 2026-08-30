@@ -280,17 +280,6 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut', bg =
         {renderMark(true)}
       </svg>
 
-      {/* The hint. It fades the moment the pointer arrives, so it never
-          competes with the reveal. */}
-      {!alwaysOn && (
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 -bottom-1 text-center font-display text-[10px] font-black uppercase tracking-[0.28em] text-slate-600"
-          style={{ opacity: active ? 0 : 1, transition: 'opacity 260ms ease' }}
-        >
-          bring it into focus
-        </span>
-      )}
     </div>
   )
 }

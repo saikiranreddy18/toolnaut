@@ -71,8 +71,8 @@ export default function ContactSection() {
     // earlier charcoal ramp mixed two tones; this is deliberately a single
     // unbroken surface, and the section stays compact: a small, neat, purely
     // informational close to the page.
-    <div style={{ background: '#020403' }}>
-      <div ref={areaRef} className="relative mx-auto max-w-6xl px-5 pb-24 pt-10 sm:pb-20">
+    <div className="overflow-hidden" style={{ background: '#020403' }}>
+      <div ref={areaRef} className="relative mx-auto max-w-6xl px-5 pb-0 pt-8">
       <div className="relative">
         <div className="grid gap-x-8 gap-y-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
         {/* ── socials and the standing facts ── */}
@@ -156,10 +156,13 @@ export default function ContactSection() {
         </div>
         </div>
 
-        {/* The mark: end to end, and AT the end — the last thing on the page,
-            after all the information. Flow-positioned, so its box is its
-            drawing and the reveal tracks the pointer over the mark itself. */}
-        <DottedWordmark className="mx-auto mt-6 w-full" />
+        {/* The mark: end to end, and SUNK INTO the page's bottom edge — the
+            negative margin hangs its lower part past the section, and the
+            wrapper's overflow-hidden crops it there, so the letters run off
+            the bottom of the page ("semi fit", per the user) with zero gap
+            above or below. Crop scales with the drawing: shallow on phones
+            where the mark is short, deeper on desktop where it is tall. */}
+        <DottedWordmark className="mx-auto -mb-5 mt-2 w-full sm:-mb-10 lg:-mb-16" />
         </div>
       </div>
     </div>
