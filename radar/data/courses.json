@@ -4412,5 +4412,460 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "course-a-slm-optimized-for-tool-calling",
+    "toolSlug": "a-slm-optimized-for-tool-calling",
+    "title": "Master A SLM Optimized for Tool Calling",
+    "objectives": [
+      "Understand what A SLM Optimized for Tool Calling is for",
+      "Use A SLM Optimized for Tool Calling on a real task",
+      "Know where A SLM Optimized for Tool Calling fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure A SLM Optimized for Tool Calling for your real workflow, not the demo.",
+          "Say what A SLM Optimized for Tool Calling does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through A SLM Optimized for Tool Calling.",
+          "Push A SLM Optimized for Tool Calling to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold A SLM Optimized for Tool Calling into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-slm",
+      "skill-tool-calling",
+      "skill-function-calling",
+      "skill-llm",
+      "skill-agents"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "course-opencontext",
+    "toolSlug": "opencontext",
+    "title": "Master OpenContext",
+    "objectives": [
+      "Understand what OpenContext is for",
+      "Use OpenContext on a real task",
+      "Know where OpenContext fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure OpenContext for your real workflow, not the demo.",
+          "Say what OpenContext does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through OpenContext.",
+          "Push OpenContext to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold OpenContext into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-mcp",
+      "skill-memory",
+      "skill-coding agents",
+      "skill-context",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "course-i-might-have-built-the-best-linear-alternative",
+    "toolSlug": "i-might-have-built-the-best-linear-alternative",
+    "title": "Master I might have built the best Linear alternative",
+    "objectives": [
+      "Understand what I might have built the best Linear alternative is for",
+      "Use I might have built the best Linear alternative on a real task",
+      "Know where I might have built the best Linear alternative fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure I might have built the best Linear alternative for your real workflow, not the demo.",
+          "Say what I might have built the best Linear alternative does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through I might have built the best Linear alternative.",
+          "Push I might have built the best Linear alternative to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold I might have built the best Linear alternative into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-project management",
+      "skill-issue tracking",
+      "skill-linear alternative",
+      "skill-open source",
+      "skill-self-hosted"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "course-simurg",
+    "toolSlug": "simurg",
+    "title": "Master Simurg",
+    "objectives": [
+      "Understand what Simurg is for",
+      "Use Simurg on a real task",
+      "Know where Simurg fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Simurg for your real workflow, not the demo.",
+          "Say what Simurg does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Simurg.",
+          "Push Simurg to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Simurg into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-web search",
+      "skill-ai agents",
+      "skill-search api",
+      "skill-python",
+      "skill-anti-hallucination"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "course-ai-agents-for-osint-sigint",
+    "toolSlug": "ai-agents-for-osint-sigint",
+    "title": "Master AI Agents for Osint/Sigint",
+    "objectives": [
+      "Understand what AI Agents for Osint/Sigint is for",
+      "Use AI Agents for Osint/Sigint on a real task",
+      "Know where AI Agents for Osint/Sigint fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI Agents for Osint/Sigint for your real workflow, not the demo.",
+          "Say what AI Agents for Osint/Sigint does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Agents for Osint/Sigint.",
+          "Push AI Agents for Osint/Sigint to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Agents for Osint/Sigint into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-osint",
+      "skill-sigint",
+      "skill-ai agents",
+      "skill-intelligence",
+      "skill-reconnaissance"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "course-documentationaimd",
+    "toolSlug": "documentationaimd",
+    "title": "Master Documentation.ai.md",
+    "objectives": [
+      "Author a valid .ai.md file with required frontmatter",
+      "Mark up content using semantic @api/@example/@constraint blocks",
+      "Lint and publish a manifest AI agents can crawl"
+    ],
+    "modules": [
+      {
+        "title": "Anatomy of a .ai.md file",
+        "estMinutes": 12,
+        "steps": [
+          "Create guide.ai.md and add the required frontmatter: doc_id, title, version, last_verified, and a summary under 200 characters",
+          "Run ai-md lint to confirm the file passes the frontmatter schema",
+          "Compare an unstructured README against your file to identify which facts were previously unparsable"
+        ]
+      },
+      {
+        "title": "Semantic content blocks",
+        "estMinutes": 18,
+        "steps": [
+          "Wrap one endpoint description in ::api blocks with @method, @path, @params, and @returns fields",
+          "Add at least two ::example blocks with language-tagged fenced code and an expected-output section",
+          "Tag edge cases using ::constraint blocks with severity: warn or severity: error"
+        ]
+      },
+      {
+        "title": "Chunking and cross-references",
+        "estMinutes": 15,
+        "steps": [
+          "Split a long doc into one-topic-per-file using kebab-case doc_ids matching filenames",
+          "Add related and requires frontmatter links between at least three files",
+          "Verify every heading resolves to a stable anchor and no link points at a renamed section"
+        ]
+      },
+      {
+        "title": "Validation and publishing",
+        "estMinutes": 12,
+        "steps": [
+          "Run ai-md lint docs/ and fix at least one dangling related link and one missing doc_id error",
+          "Generate ai-manifest.json with ai-md build and inspect the chunk index it produces",
+          "Simulate an agent query by grepping the manifest for a topic and confirming it resolves to exactly one chunk"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-documentation",
+      "skill-ai agents",
+      "skill-standard",
+      "skill-open source",
+      "skill-developer tools"
+    ],
+    "prerequisites": [
+      "Comfortable writing Markdown and YAML frontmatter",
+      "Basic familiarity with JSON Schema concepts",
+      "Used a CLI linter or formatter on a docs or code repo"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "course-subs-the-cloud-native-agent-harness",
+    "toolSlug": "subs-the-cloud-native-agent-harness",
+    "title": "Master Subs, the cloud native agent harness",
+    "objectives": [
+      "Understand what Subs, the cloud native agent harness is for",
+      "Use Subs, the cloud native agent harness on a real task",
+      "Know where Subs, the cloud native agent harness fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Subs, the cloud native agent harness for your real workflow, not the demo.",
+          "Say what Subs, the cloud native agent harness does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Subs, the cloud native agent harness.",
+          "Push Subs, the cloud native agent harness to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Subs, the cloud native agent harness into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-agent harness",
+      "skill-cloud native",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "course-agents-are-generating-your-most-valuable-ip",
+    "toolSlug": "agents-are-generating-your-most-valuable-ip",
+    "title": "Master Agents are generating your most valuable IP",
+    "objectives": [
+      "Understand what Agents are generating your most valuable IP is for",
+      "Use Agents are generating your most valuable IP on a real task",
+      "Know where Agents are generating your most valuable IP fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Agents are generating your most valuable IP for your real workflow, not the demo.",
+          "Say what Agents are generating your most valuable IP does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Agents are generating your most valuable IP.",
+          "Push Agents are generating your most valuable IP to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Agents are generating your most valuable IP into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-knowledge capture",
+      "skill-ip management",
+      "skill-agent infrastructure"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "course-darwin-vm",
+    "toolSlug": "darwin-vm",
+    "title": "Master Darwin-VM",
+    "objectives": [
+      "Understand what Darwin-VM is for",
+      "Use Darwin-VM on a real task",
+      "Know where Darwin-VM fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Darwin-VM for your real workflow, not the demo.",
+          "Say what Darwin-VM does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Darwin-VM.",
+          "Push Darwin-VM to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Darwin-VM into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-virtualization",
+      "skill-qemu",
+      "skill-macos",
+      "skill-ios",
+      "skill-emulation"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-29T23:35:59.438Z"
   }
 ]
