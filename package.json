@@ -9,9 +9,11 @@
     "prerender": "node scripts/prerender.mjs || echo prerender-step-failed",
     "preview": "vite preview",
     "smoke": "node scripts/smoke.mjs",
-    "test": "cd radar && node --test",
+    "test": "npm run test:radar && npm run test:app",
     "radar:health": "node scripts/radar-health.mjs",
-    "report": "node scripts/daily-report.mjs"
+    "report": "node scripts/daily-report.mjs",
+    "test:radar": "cd radar && node --test",
+    "test:app": "node --import ./test/register.mjs --test \"test/*.test.mjs\""
   },
   "dependencies": {
     "@react-three/drei": "^10.0.0",

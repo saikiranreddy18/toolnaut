@@ -29,6 +29,7 @@ const Pricing = lazy(() => import('./pages/Pricing'))
 const Legal = lazy(() => import('./pages/Legal'))
 const SharedStack = lazy(() => import('./pages/SharedStack'))
 const CategoryLanding = lazy(() => import('./pages/CategoryLanding'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 const NewTools = lazy(() => import('./pages/NewTools'))
 
 // Scroll + analytics on route change. initAnalytics() already fires the first
@@ -121,7 +122,10 @@ export default function App() {
                 crawler; redirecting corrects the address bar and the bookmark. */}
             <Route path="/starchart" element={<Navigate to="/" replace />} />
 
-            <Route path="*" element={<Landing />} />
+            {/* A real not-found page, not the landing page in disguise. Rendering
+                Landing here made every dead link look like the homepage — no
+                signal to the person, duplicate content for crawlers. */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </MotionConfig>
       </Suspense>

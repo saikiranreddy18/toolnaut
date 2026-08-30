@@ -55,7 +55,7 @@ export function postAuthDestination(requested = '/app/stack') {
     // Sending them back to /goal is also the kinder outcome: the conversation
     // resumes at their first unanswered question rather than restarting.
     const { completed } = loadQuiz()
-    return completed ? requested : '/goal'
+    return completed ? safe : '/goal'
   } catch {
     // Storage blocked: the intake is the safer landing either way, since it
     // works without any stored state and the dashboard does not.
