@@ -1,8 +1,24 @@
 import { useEffect, useRef } from 'react'
+import { loadCursor, CURSOR_EVENT } from '../../state/cursorStore'
 
-// A cluster of little stars that orbit the cursor and leave a soft sparkle trail
-// as it moves — reinforces the "space" theme. Desktop pointers only; disabled
-// under reduced-motion. Canvas is pointer-events:none so it never blocks clicks.
+// Cursor-effect harness. The effect itself is one of ten pluggable modules
+// (utils/cursorEffects.js, chosen in ME → Sky settings); this component owns
+// everything they share — the canvas, DPR, pointer plumbing, the palette, and
+// the size scaling — so every effect runs under identical conditions and
+// switching one for another is a store write, not a remount.
+//
+// Desktop pointers only; disabled under reduced-motion; the canvas is
+// pointer-events:none so it can never sit between the person and a control.
+// The ~53KB effects module is dynamic-imported so it stays out of the entry
+// chunk and never loads at all for touch/reduced-motion visitors.
+//
+// SIZE, WITHOUT TOUCHING THE EFFECTS
+// The size setting scales the whole effect — particles, radii, trail widths —
+// by running the effect in a VIRTUAL coordinate space W/s × H/s and scaling
+// the canvas transform by s. The effect sees the cursor at x/s, draws around
+// it in its own units, and the transform maps that back so everything lands
+// exactly under the real pointer, s times bigger. No effect module knows the
+// setting exists.
 export default function CursorStars() {
   const canvasRef = useRef(null)
 
@@ -14,6 +30,11 @@ export default function CursorStars() {
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
     let w = 0, h = 0, dpr = 1
+    let scale = loadCursor().size
+    let effectId = loadCursor().effect
+    let inst = null
+    let effectsModule = null
+    let disposed = false
 
     function resize() {
       dpr = Math.min(window.devicePixelRatio || 1, 2)
@@ -23,89 +44,102 @@ export default function CursorStars() {
       canvas.height = h * dpr
       canvas.style.width = w + 'px'
       canvas.style.height = h + 'px'
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+      ctx.setTransform(dpr * scale, 0, 0, dpr * scale, 0, 0)
     }
     resize()
     window.addEventListener('resize', resize)
 
-    const mouse = { x: w / 2, y: h / 2 }
-    const center = { x: mouse.x, y: mouse.y }
-    let active = false
-
-    // stars that orbit the cursor
-    const orbit = Array.from({ length: 6 }, (_, i) => ({
-      angle: (i / 6) * Math.PI * 2,
-      radius: 16 + (i % 3) * 11,
-      speed: 0.018 + (i % 3) * 0.007,
-      size: 1.1 + (i % 2) * 0.8,
-      tw: (i / 6) * Math.PI * 2,
-    }))
-
-    // fading sparkle trail
-    const trail = []
-    function spawn() {
-      if (trail.length > 70) return
-      trail.push({
-        x: mouse.x + (Math.random() - 0.5) * 10,
-        y: mouse.y + (Math.random() - 0.5) * 10,
-        vx: (Math.random() - 0.5) * 0.7,
-        vy: (Math.random() - 0.5) * 0.7 + 0.35,
-        life: 1,
-        size: Math.random() * 1.5 + 0.5,
-      })
+    // Palette read from the live CSS variables, so the effect retints when the
+    // play mode changes — same rule the avatars follow. Re-read on data-theme
+    // mutations and the running effect is rebuilt with the new colours.
+    function readPalette() {
+      const css = getComputedStyle(document.documentElement)
+      const v = (name, fallback) => (css.getPropertyValue(name) || '').trim() || fallback
+      return {
+        lime: v('--lime', '#a3ff2e'),
+        pink: v('--hot-pink', '#ff2ea3'),
+        cyan: v('--cyan', '#22d3ee'),
+        gold: v('--arcade-yellow', '#ffde2e'),
+      }
     }
+
+    const env = {
+      ctx,
+      W: () => w / scale,
+      H: () => h / scale,
+      clear: () => {
+        ctx.setTransform(1, 0, 0, 1, 0, 0)
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        ctx.setTransform(dpr * scale, 0, 0, dpr * scale, 0, 0)
+      },
+      // rgba of the page ground (#060609) — effects use this for trail fades
+      fade: (a) => {
+        ctx.fillStyle = 'rgba(6,6,9,' + a + ')'
+        ctx.fillRect(0, 0, w / scale, h / scale)
+      },
+      palette: readPalette(),
+    }
+
+    async function build() {
+      env.clear()
+      inst = null
+      if (effectId === 'off') return
+      if (!effectsModule) {
+        try {
+          effectsModule = await import('../../utils/cursorEffects')
+        } catch { return } // chunk failed to load — no effect beats a crash
+        if (disposed) return
+      }
+      const def = effectsModule.CURSOR_EFFECTS.find((e) => e.id === effectId)
+        || effectsModule.CURSOR_EFFECTS[0]
+      env.palette = readPalette()
+      try { inst = def.make(env) } catch { inst = null }
+    }
+    build()
 
     function onMove(e) {
-      mouse.x = e.clientX
-      mouse.y = e.clientY
-      active = true
-      spawn()
+      try { inst && inst.move(e.clientX / scale, e.clientY / scale, e.movementX / scale, e.movementY / scale) } catch { /* effect fault */ }
+    }
+    function onDown(e) {
+      try { inst && inst.down && inst.down(e.clientX / scale, e.clientY / scale) } catch { /* effect fault */ }
     }
     window.addEventListener('pointermove', onMove)
+    window.addEventListener('pointerdown', onDown)
 
-    function dot(x, y, r, alpha, color) {
-      ctx.globalAlpha = alpha
-      ctx.fillStyle = color
-      ctx.shadowBlur = 8
-      ctx.shadowColor = color
-      ctx.beginPath()
-      ctx.arc(x, y, r, 0, Math.PI * 2)
-      ctx.fill()
+    // Live re-configuration from Settings — no remount, the next frame simply
+    // runs the new effect at the new size.
+    function onChange(e) {
+      const next = e.detail || loadCursor()
+      const sizeChanged = next.size !== scale
+      scale = next.size
+      effectId = next.effect
+      if (sizeChanged) resize()
+      build()
     }
+    window.addEventListener(CURSOR_EVENT, onChange)
+
+    // Rebuild on play-mode change so the palette follows the theme.
+    const themeWatch = new MutationObserver(() => build())
+    themeWatch.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
 
     let raf
-    function frame() {
-      ctx.clearRect(0, 0, w, h)
-      center.x += (mouse.x - center.x) * 0.16
-      center.y += (mouse.y - center.y) * 0.16
-
-      if (active) {
-        for (const s of orbit) {
-          s.angle += s.speed
-          s.tw += 0.08
-          const x = center.x + Math.cos(s.angle) * s.radius
-          const y = center.y + Math.sin(s.angle) * s.radius
-          dot(x, y, s.size, 0.5 + Math.sin(s.tw) * 0.35, '#cfe3ff')
-        }
-      }
-      for (let i = trail.length - 1; i >= 0; i--) {
-        const p = trail[i]
-        p.x += p.vx
-        p.y += p.vy
-        p.life -= 0.02
-        if (p.life <= 0) { trail.splice(i, 1); continue }
-        dot(p.x, p.y, p.size * p.life, p.life * 0.8, '#ffffff')
-      }
-      ctx.globalAlpha = 1
-      ctx.shadowBlur = 0
+    let last = performance.now()
+    function frame(now) {
+      const dt = Math.min(now - last, 50)
+      last = now
+      try { inst && inst.frame(dt) } catch { inst = null } // a faulting effect turns itself off
       raf = requestAnimationFrame(frame)
     }
-    frame()
+    raf = requestAnimationFrame(frame)
 
     return () => {
+      disposed = true
       cancelAnimationFrame(raf)
+      themeWatch.disconnect()
       window.removeEventListener('resize', resize)
       window.removeEventListener('pointermove', onMove)
+      window.removeEventListener('pointerdown', onDown)
+      window.removeEventListener(CURSOR_EVENT, onChange)
     }
   }, [])
 
