@@ -42,8 +42,8 @@ const COLUMNS = [
   {
     title: 'Resources',
     links: [
-      { label: 'How we choose', to: '/methodology' },
       { label: 'How it works', href: '/#how-it-works' },
+      { label: 'How we choose', to: '/methodology' },
       { label: 'Open the app', to: '/app/stack' },
     ],
   },
@@ -72,7 +72,7 @@ export default function ContactSection() {
           layout bug unless it owns enough space to be obviously deliberate. */}
       <DottedWordmark className="mx-auto w-full max-w-4xl" />
 
-      <div className="mt-16 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,2.1fr)]">
+      <div className="mt-12 grid gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
         {/* ── socials and the standing facts ── */}
         <div>
           {SOCIALS.length > 0 && (

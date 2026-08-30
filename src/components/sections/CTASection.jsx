@@ -85,11 +85,11 @@ export default function CTASection() {
               <p className="font-display font-bold uppercase tracking-widest">
                 © {new Date().getFullYear()} {BRAND}. All rights reserved.
               </p>
-              <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-                <Link to="/privacy" className="transition-colors hover:text-white">Privacy</Link>
-                <Link to="/terms" className="transition-colors hover:text-white">Terms</Link>
-                <Link to="/methodology" className="transition-colors hover:text-white">Methodology</Link>
-              </nav>
+              {/* Privacy, Terms and Methodology were here AND in the columns
+                  above — the same three destinations offered twice within one
+                  screen, which makes a footer feel padded rather than
+                  thorough. They live in the columns; this row is the notice. */}
+              <p>Built in the open. Corrections welcome.</p>
             </div>
           </div>
         </div>
