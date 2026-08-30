@@ -133,6 +133,29 @@ for (const route of ROUTES) {
     // a beat past networkidle so lists are populated rather than mid-render.
     await page.waitForTimeout(900)
 
+    // Settle the animation library before reading #root.
+    //
+    // Rebuilding from the shell already keeps runtime mutations out of <head>,
+    // but #root is still a snapshot of a LIVE tree, and every framer-motion
+    // element here starts at initial={{ opacity: 0 }}. Those inline styles were
+    // being frozen into the shipped HTML — 45 of them on the landing page — so
+    // what every visitor received was a page that is INVISIBLE until React
+    // hydrates and the animations run, and stays black permanently if either
+    // does not: a reduced-motion preference, slow or failed JS, a hydration
+    // mismatch. The static file has to represent the settled page.
+    //
+    // Only the properties the animation library owns are cleared; it reapplies
+    // them itself on hydration, so nothing here is styling that outlives the
+    // runtime.
+    await page.evaluate(() => {
+      for (const el of document.querySelectorAll('#root [style]')) {
+        const st = el.style
+        if (parseFloat(st.opacity) === 0) st.removeProperty('opacity')
+        if (/translate|scale|rotate/.test(st.transform || '')) st.removeProperty('transform')
+        if (st.visibility === 'hidden') st.removeProperty('visibility')
+      }
+    })
+
     const rendered = await page.$eval('#root', (el) => el.innerHTML)
     const bodyText = await page.evaluate(() => (document.getElementById('root')?.innerText || '').trim().length)
 
