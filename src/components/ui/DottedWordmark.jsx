@@ -240,11 +240,16 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut', bg =
       {!alwaysOn && (
         <svg
           viewBox={`0 0 ${VB_W} ${VB_H}`}
+        preserveAspectRatio={bg ? 'xMidYMid slice' : 'xMidYMid meet'}
           className={bg ? 'absolute inset-0 block h-full w-full' : 'absolute inset-0 block w-full'}
           aria-hidden="true"
           style={{
             filter: 'blur(14px) saturate(1.25)',
-            opacity: active ? 0.4 : 0.7,
+            // Quieter than over the old near-black: on the charcoal panel the
+            // blurred letters sit much closer to the link colour, and at 0.7
+            // the Company column washed out against the bright 'AU'. The
+            // links are content; the mark is atmosphere.
+            opacity: active ? 0.28 : 0.48,
             transition: 'opacity 320ms ease',
           }}
         >
@@ -256,6 +261,7 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut', bg =
           so the advance-width measurement runs on a rendered instance. */}
       <svg
         viewBox={`0 0 ${VB_W} ${VB_H}`}
+        preserveAspectRatio={bg ? 'xMidYMid slice' : 'xMidYMid meet'}
         className={bg ? 'block h-full w-full' : 'block w-full'}
         aria-hidden="true"
         style={{

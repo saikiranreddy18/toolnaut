@@ -67,7 +67,12 @@ export default function ContactSection() {
   const linkClass = 'text-sm text-slate-400 transition-colors hover:text-white'
 
   return (
-    <div ref={areaRef} className="relative mx-auto max-w-6xl px-5 pb-16 pt-20">
+    // Full-bleed charcoal panel — the user's reference swaps the pinstriped
+    // near-black for a smooth mid-grey ground, which also lets the section
+    // read as its own closing surface rather than more of the same sky. The
+    // soft vertical ramp keeps it from looking like a flat sticker.
+    <div style={{ background: 'linear-gradient(180deg, #303034 0%, #3a3a3f 55%, #333338 100%)' }}>
+      <div ref={areaRef} className="relative mx-auto max-w-6xl px-5 pb-16 pt-20">
       {/* The mark is the BACKGROUND of the information itself: its box wraps
           the column grid exactly, so the letters sit BEHIND the links rather
           than floating above them. Pointer tracking lives on areaRef (the
@@ -75,7 +80,7 @@ export default function ContactSection() {
           the links stay clickable and sweeping anywhere in the footer pulls
           the letters under the cursor into focus. */}
       <div className="relative">
-        <DottedWordmark bg watchRef={areaRef} className="absolute -inset-y-6 inset-x-0" />
+        <DottedWordmark bg watchRef={areaRef} className="absolute -inset-y-10 inset-x-0" />
 
         <div className="relative z-10 grid gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
         {/* ── socials and the standing facts ── */}
@@ -155,6 +160,7 @@ export default function ContactSection() {
           </div>
         </div>
         </div>
+      </div>
       </div>
     </div>
   )
