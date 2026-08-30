@@ -18,3 +18,4 @@ review-build.html
 # scripts/capture-evidence.mjs + capture-gallery.mjs — screenshots and video,
 # regenerated on demand and far too large to track
 evidence/
+.shots.json

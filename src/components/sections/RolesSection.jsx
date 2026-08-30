@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import SectionShell, { fadeUp } from '../ui/SectionShell'
 import Tilt from '../ui/Tilt'
@@ -36,24 +37,48 @@ function origin([x, y]) {
 function Constellation({ pts, color }) {
   const still = useReducedMotion()
 
-  // once:false so it replays whenever the section re-enters — scrolling back up
-  // should show the sky assemble again, not a diagram that already happened.
-  const view = { once: false, amount: 0.5 }
-  const LAND = 0.55 // seconds for a star to arrive
+  // THE OBSERVER WATCHES THE <svg>, NOT THE STARS.
+  // whileInView on each circle looked right and never fired: a circle whose
+  // start position is 150 units outside the viewBox is clipped, so
+  // IntersectionObserver never reports it entering the viewport, so the
+  // animation that would bring it on-screen waits for it to be on-screen.
+  // Variants on the parent svg propagate "in"/"out" to every child instead.
+  const LAND = 0.55
   const lastStar = LAND + (pts.length - 1) * 0.07
 
+  // useInView + animate, NOT whileInView. This svg sits inside SectionShell's
+  // own variant tree (initial="hidden" whileInView="show"), and a nested
+  // whileInView child inside an already-animated variant parent never received
+  // its "in" state — verified: stars stayed at the fly-in origin with the
+  // section fully centred in the viewport. An explicit observer on the svg and
+  // an explicit `animate` prop cannot be overridden by ancestry.
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: false, amount: 0.5 })
+
   return (
-    <svg viewBox="0 0 100 80" className="mt-4 h-24 w-full" aria-hidden="true">
+    <motion.svg
+      ref={ref}
+      viewBox="0 0 100 80"
+      className="mt-4 h-24 w-full"
+      aria-hidden="true"
+      initial={false}
+      animate={still ? 'in' : inView ? 'in' : 'out'}
+    >
       {pts.map((p, j) => j > 0 && (
         <motion.line
           key={`l${j}`}
           x1={pts[j - 1][0]} y1={pts[j - 1][1]}
           x2={p[0]} y2={p[1]}
           stroke={color} strokeWidth="0.7"
-          initial={still ? false : { pathLength: 0, opacity: 0 }}
-          whileInView={still ? undefined : { pathLength: 1, opacity: 0.4 }}
-          viewport={view}
-          transition={{ duration: 0.4, delay: lastStar + j * 0.06, ease: 'easeOut' }}
+          variants={still ? undefined : {
+            out: { pathLength: 0, opacity: 0 },
+            in: {
+              pathLength: 1, opacity: 0.4,
+              // lines draw only after the stars have landed — a line between
+              // two points that have not arrived reads as a rendering fault
+              transition: { duration: 0.4, delay: lastStar + j * 0.06, ease: 'easeOut' },
+            },
+          }}
           style={still ? { opacity: 0.4 } : undefined}
         />
       ))}
@@ -65,16 +90,19 @@ function Constellation({ pts, color }) {
             r="2.4"
             fill={color}
             style={{ filter: `drop-shadow(0 0 4px ${color})` }}
-            initial={still ? false : { cx: ox, cy: oy, opacity: 0 }}
-            whileInView={still ? undefined : { cx: p[0], cy: p[1], opacity: 1 }}
-            viewport={view}
-            transition={{ duration: LAND, delay: j * 0.07, ease: [0.16, 1, 0.3, 1] }}
+            variants={still ? undefined : {
+              out: { cx: ox, cy: oy, opacity: 0 },
+              in: {
+                cx: p[0], cy: p[1], opacity: 1,
+                transition: { duration: LAND, delay: j * 0.07, ease: [0.16, 1, 0.3, 1] },
+              },
+            }}
             cx={still ? p[0] : undefined}
             cy={still ? p[1] : undefined}
           />
         )
       })}
-    </svg>
+    </motion.svg>
   )
 }
 

@@ -86,6 +86,21 @@ export default function DottedWordmark({ className = '', text = BRAND }) {
     }
   }, [])
 
+  // The first run of consecutive O's is the lime part; everything else is
+  // neutral. Derived from the text so a rename does not silently drop the
+  // colour or paint the wrong letters.
+  const upper = text.toUpperCase()
+  const parts = (() => {
+    const m = upper.match(/O{2,}/)
+    if (!m) return [{ t: upper, lime: false }]
+    const at = m.index
+    return [
+      { t: upper.slice(0, at), lime: false },
+      { t: m[0], lime: true },
+      { t: upper.slice(at + m[0].length), lime: false },
+    ].filter((seg) => seg.t.length > 0)
+  })()
+
   const revealed = alwaysOn || active
   const mask = alwaysOn
     ? 'none'
@@ -120,12 +135,16 @@ export default function DottedWordmark({ className = '', text = BRAND }) {
           opacity: revealed ? 1 : 0.9,
         }}
       >
+        {/* Split so the OO carries the lime and the rest stays neutral — the
+            same emphasis as the small wordmark, where the infinity is the only
+            coloured part. Rendered as tspans inside ONE text element so the
+            centring still measures the whole word; three separate <text>
+            elements would each centre themselves and overlap. */}
         <text
           x="500"
           y="126"
           textAnchor="middle"
           fill="none"
-          stroke="var(--lime)"
           strokeWidth="2.4"
           // 1px dot, 9px gap: the outline reads as dots rather than a dashed
           // line. Round caps make them dots and not tiny rectangles.
@@ -138,7 +157,11 @@ export default function DottedWordmark({ className = '', text = BRAND }) {
             letterSpacing: '0.01em',
           }}
         >
-          {text.toUpperCase()}
+          {parts.map((seg, i) => (
+            <tspan key={i} stroke={seg.lime ? 'var(--lime)' : '#c8cdd8'}>
+              {seg.t}
+            </tspan>
+          ))}
         </text>
       </svg>
 
