@@ -12,7 +12,6 @@ export const PLANS = [
     badge: null,
     glow: 'rgba(251, 113, 133, 0.28)',
     accent: '#fb7185',
-    lift: 'md:mt-12',
     audience: 'Students, hobbyists, solo learners exploring AI',
     features: [
       'Personalized AI tool discovery (up to 5 categories)',
@@ -33,7 +32,6 @@ export const PLANS = [
     badge: 'Most Popular',
     glow: 'rgba(124, 58, 237, 0.5)',
     accent: '#7c3aed',
-    lift: 'md:-mt-2',
     featured: true,
     audience: 'Freelancers, professionals, serious learners',
     plus: 'Everything in Student, plus:',
@@ -58,7 +56,6 @@ export const PLANS = [
     badge: 'Up to 5 seats · $10/seat',
     glow: 'rgba(6, 182, 212, 0.4)',
     accent: '#06b6d4',
-    lift: 'md:mt-12',
     audience: 'Startups, agencies, research teams, enterprise pods',
     plus: 'Everything in Pro, plus:',
     features: [

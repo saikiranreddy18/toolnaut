@@ -85,7 +85,17 @@ for (const r of routes) {
     })
   }
   try {
-    await page.goto(base + r, { waitUntil: 'networkidle', timeout: 25000 })
+    // One retry on a goto timeout. Measured on this machine: the same route
+    // that times out in a full run loads in <100ms in isolation, and WHICH
+    // route fails changes run to run — first-load contention, not the app.
+    // A retry distinguishes "machine was busy" from "route is broken": a real
+    // breakage fails twice, and that still fails the run.
+    try {
+      await page.goto(base + r, { waitUntil: 'networkidle', timeout: 25000 })
+    } catch (e) {
+      if (!/Timeout/i.test(String(e))) throw e
+      await page.goto(base + r, { waitUntil: 'networkidle', timeout: 25000 })
+    }
     await page.waitForTimeout(1200)
     const rootHtml = await page.$eval('#root', el => el.innerHTML.length).catch(() => 0)
     const real = errs.filter(e => !/favicon|fonts.googleapis|fonts.gstatic|ERR_INTERNET|net::ERR|WebGL|Failed to load resource.*tools\.json/i.test(e))
