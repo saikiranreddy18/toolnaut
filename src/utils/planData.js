@@ -1,6 +1,13 @@
 // Map a stored plan id (shishya|guru|pandava) to its current display name.
 // Session/authStore still stores the legacy ids; the UI shows Student/Pro/Team.
-export const planLabel = (id) => PLANS.find((p) => p.id === id)?.name || id
+//
+// A GUEST HAS NO PLAN, and both call sites pass session?.plan straight in.
+// With no session that is undefined, and returning it rendered a bare "Plan:"
+// in the sidebar and a stray "· free public beta" in Settings — a label with
+// nothing after it reads as data that failed to load. Everyone without a plan
+// is on the free public beta, so say that. The raw-id passthrough stays ahead
+// of it, so an unknown-but-present plan still shows itself.
+export const planLabel = (id) => PLANS.find((p) => p.id === id)?.name || id || 'Free beta'
 
 // Every feature is { text, status }. status: 'live' works today for anyone,
 // no plan needed; 'planned' is the intended shape of a paid tier and must
