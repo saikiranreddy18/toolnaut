@@ -136,11 +136,6 @@ export default function AppShell() {
           </div>
         </div>
 
-        {/* What this browser has actually done: days returned, points earned.
-            Sits under the persona because it answers the same question — who
-            am I here — with the part that changes. */}
-        <StreakPoints />
-
         <SyncStatus />
 
         <nav className="mt-6 flex flex-col gap-1" aria-label="Sidebar">
@@ -152,9 +147,18 @@ export default function AppShell() {
           ))}
         </nav>
 
+        {/* What this browser has actually done: days returned, points earned.
+            Below the nav, not above it — the links are what someone came to
+            the rail to use, and a stat block sitting between the persona and
+            the navigation pushed them down for something nobody clicks.
+            mt-auto moves here so the pair sits at the foot of the rail. */}
+        <div className="mt-auto">
+          <StreakPoints />
+        </div>
+
         {/* Identity when there is one; otherwise say plainly that this browser
             is where the stack lives, which is the honest reason to sign in. */}
-        <div className="mt-auto px-4 text-xs text-slate-600">
+        <div className="px-4 pt-4 text-xs text-slate-600">
           {session ? (
             `Signed in as ${session.user.name}`
           ) : (
