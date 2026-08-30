@@ -72,10 +72,22 @@ export default function CursorStars() {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         ctx.setTransform(dpr * scale, 0, 0, dpr * scale, 0, 0)
       },
-      // rgba of the page ground (#060609) — effects use this for trail fades
+      // Trail fade by ERASING alpha, never by painting dark.
+      //
+      // The contract's demo page painted rgba(6,6,9,a) here — fine there,
+      // because its canvas sat BELOW the content. This canvas sits at z-70
+      // ABOVE the whole app, and a painted fade accumulates to a fully opaque
+      // sheet within a second: the entire product went black behind it in
+      // production. destination-out multiplies existing alpha down instead,
+      // so trails decay identically while every untouched pixel stays
+      // transparent. Verified by measuring the canvas's own alpha: 100%
+      // opaque before, ~0% outside the trail after.
       fade: (a) => {
-        ctx.fillStyle = 'rgba(6,6,9,' + a + ')'
+        const prev = ctx.globalCompositeOperation
+        ctx.globalCompositeOperation = 'destination-out'
+        ctx.fillStyle = 'rgba(0,0,0,' + a + ')'
         ctx.fillRect(0, 0, w / scale, h / scale)
+        ctx.globalCompositeOperation = prev
       },
       palette: readPalette(),
     }
