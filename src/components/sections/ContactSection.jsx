@@ -72,7 +72,7 @@ export default function ContactSection() {
     // unbroken surface, and the section stays compact: a small, neat, purely
     // informational close to the page.
     <div style={{ background: '#020403' }}>
-      <div ref={areaRef} className="relative mx-auto max-w-6xl px-5 pb-6 pt-10">
+      <div ref={areaRef} className="relative mx-auto max-w-6xl px-5 pb-24 pt-10 sm:pb-20">
       <div className="relative">
         <div className="grid gap-x-8 gap-y-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
         {/* ── socials and the standing facts ── */}
@@ -106,6 +106,9 @@ export default function ContactSection() {
             {count.toLocaleString()} tools{updated ? ` · catalogue updated ${updated}` : ''}
             <br />
             Free public beta — no card, no payment taken.
+          </p>
+          <p className="mt-3 font-display text-[10px] font-bold uppercase tracking-widest text-slate-600">
+            © {new Date().getFullYear()} Toolnaut · built in the open
           </p>
         </div>
 
