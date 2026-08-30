@@ -72,10 +72,22 @@ export default function CursorStars() {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         ctx.setTransform(dpr * scale, 0, 0, dpr * scale, 0, 0)
       },
-      // rgba of the page ground (#060609) — effects use this for trail fades
+      // Trail fade. This canvas is an OVERLAY at z-index 70, so the fade has to
+      // ERASE its own pixels — destination-out keeps only what the new fill
+      // does not cover, leaving older trail pixels progressively transparent.
+      //
+      // It used to paint the page ground (rgba(6,6,9,a)) across the full
+      // viewport instead. On a canvas sitting behind the app that is the same
+      // picture; on one sitting in front of it, every frame laid another film
+      // of near-black over the whole site. Seven of the ten effects call this
+      // at alpha 0.28-0.5, so at 60fps the entire app — every route, not just
+      // the landing page — went solid black inside a second.
       fade: (a) => {
-        ctx.fillStyle = 'rgba(6,6,9,' + a + ')'
+        ctx.save()
+        ctx.globalCompositeOperation = 'destination-out'
+        ctx.fillStyle = 'rgba(0,0,0,' + a + ')'
         ctx.fillRect(0, 0, w / scale, h / scale)
+        ctx.restore()
       },
       palette: readPalette(),
     }
