@@ -39,7 +39,13 @@ const VB_H = 210
 const FONT_SIZE = 132
 const BASELINE = 150
 
-export default function DottedWordmark({ className = '', text = 'Toolnaut' }) {
+// bg mode: the mark is the BACKGROUND of a whole section — absolutely
+// positioned by the caller, content stacked above it. Its own root is
+// pointer-events-none so links stay clickable, which means it cannot hear the
+// pointer itself: pass watchRef (the section's ref) and the listeners attach
+// there instead. Coordinates are still resolved against this component's own
+// rect, so the mask lands under the real cursor wherever the section scrolls.
+export default function DottedWordmark({ className = '', text = 'Toolnaut', bg = false, watchRef = null }) {
   const ref = useRef(null)
   const headRef = useRef(null)
   const tailRef = useRef(null)
@@ -120,6 +126,28 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut' }) {
     el.style.setProperty('--my', `${e.clientY - r.top}px`)
   }, [])
 
+  // bg mode: hear the pointer through the watched section, since this root is
+  // pointer-events-none and would otherwise never get a single event.
+  useEffect(() => {
+    if (!bg || !watchRef?.current) return
+    const el = watchRef.current
+    const move = (e) => { setActive(true); onMove(e) }
+    const leave = () => {
+      setActive(false)
+      const root = ref.current
+      if (root) {
+        root.style.setProperty('--mx', '-999px')
+        root.style.setProperty('--my', '-999px')
+      }
+    }
+    el.addEventListener('pointermove', move, { passive: true })
+    el.addEventListener('pointerleave', leave, { passive: true })
+    return () => {
+      el.removeEventListener('pointermove', move)
+      el.removeEventListener('pointerleave', leave)
+    }
+  }, [bg, watchRef, onMove])
+
   // The cached rect goes stale when the page moves under it.
   useEffect(() => {
     const drop = () => { rect.current = null }
@@ -185,10 +213,10 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut' }) {
       ref={ref}
       role="img"
       aria-label={text}
-      className={`relative select-none ${className}`}
-      onPointerMove={onMove}
-      onPointerEnter={() => setActive(true)}
-      onPointerLeave={() => {
+      className={`relative select-none ${bg ? 'pointer-events-none' : ''} ${className}`}
+      onPointerMove={bg ? undefined : onMove}
+      onPointerEnter={bg ? undefined : () => setActive(true)}
+      onPointerLeave={bg ? undefined : () => {
         setActive(false)
         const el = ref.current
         if (el) {
@@ -196,7 +224,7 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut' }) {
           el.style.setProperty('--my', '-999px')
         }
       }}
-      style={{ cursor: alwaysOn ? 'default' : 'crosshair' }}
+      style={{ cursor: bg || alwaysOn ? 'default' : 'crosshair' }}
     >
       {/* Idle layer: the mark OUT OF FOCUS — the reference image is exactly
           this, a heavy soft blur with the lime infinity glowing through. It is
@@ -207,7 +235,7 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut' }) {
       {!alwaysOn && (
         <svg
           viewBox={`0 0 ${VB_W} ${VB_H}`}
-          className="absolute inset-0 block w-full"
+          className={bg ? 'absolute inset-0 block h-full w-full' : 'absolute inset-0 block w-full'}
           aria-hidden="true"
           style={{
             filter: 'blur(14px) saturate(1.25)',
@@ -223,13 +251,16 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut' }) {
           so the advance-width measurement runs on a rendered instance. */}
       <svg
         viewBox={`0 0 ${VB_W} ${VB_H}`}
-        className="block w-full"
+        className={bg ? 'block h-full w-full' : 'block w-full'}
         aria-hidden="true"
         style={{
           WebkitMaskImage: mask,
           maskImage: mask,
           transition: 'opacity 320ms ease',
-          opacity: revealed ? 1 : 0.92,
+          // Behind live content (bg + touch/reduced-motion, where the mark is
+          // shown plainly with no mask), full strength would fight the links
+          // for legibility — it is a backdrop there, not the subject.
+          opacity: bg && alwaysOn ? 0.16 : revealed ? 1 : 0.92,
           filter: 'drop-shadow(0 0 14px rgba(163,255,46,0.28)) drop-shadow(0 0 26px rgba(232,236,244,0.12))',
         }}
       >

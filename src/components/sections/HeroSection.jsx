@@ -33,7 +33,18 @@ export default function HeroSection({ onEnter }) {
   const updated = lastUpdatedLabel()
 
   return (
-    <section id="hero" ref={ref} className="pointer-events-none relative z-10 flex min-h-screen flex-col items-center justify-center px-5 text-center">
+    <section
+      id="hero"
+      ref={ref}
+      // Top padding, because the block is centred in the viewport and the nav
+      // is fixed over it: with nothing reserved, the headline crept up under
+      // the bar as the viewport got shorter. Measured before adding it — 193px
+      // of clearance at 1920x1080, 103px at 1440x900, and 10px at 390x844,
+      // where the first line was all but touching the nav. Padding reserves the
+      // space at every height instead of leaving it to whatever the centring
+      // happens to give.
+      className="pointer-events-none relative z-10 flex min-h-screen flex-col items-center justify-center px-5 pt-24 text-center sm:pt-28 md:pt-32"
+    >
       {/* No centre wordmark. The name already sits top-left in the nav —
           repeating it here, larger, one viewport-height below itself, spent the
           hero's strongest position saying the thing the corner already says.
