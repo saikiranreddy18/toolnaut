@@ -5,14 +5,20 @@
 // and this mouse, not of the account; it would be strange for signing in on a
 // work laptop to change how the cursor behaves there.
 //
-// Default is plasma-ribbon (the user-picked winner of the ten-variant
-// Cursor Lab). 'off' is a first-class choice, not an absence — some people
-// find any pointer effect distracting, and that choice must survive reloads.
+// Default is OFF. It was plasma-ribbon — the picked winner of the ten-variant
+// Cursor Lab — until that default took the whole site down: the harness's
+// trail fade painted the page ground across a canvas sitting IN FRONT of the
+// app, so every route went solid black about a second after load. The fade is
+// fixed (see CursorStars.jsx), but the default does not go back to an effect
+// until someone has watched each of the ten run against real content.
+//
+// 'off' is a first-class choice, not an absence — some people find any pointer
+// effect distracting, and that choice must survive reloads.
 
 const KEY = 'exus_cursor_v1'
 export const CURSOR_EVENT = 'exus:cursor-changed'
 
-export const DEFAULT_CURSOR = { effect: 'plasma-ribbon', size: 1 }
+export const DEFAULT_CURSOR = { effect: 'off', size: 1 }
 
 // Choice metadata for the Settings UI. The MODULES live in
 // utils/cursorEffects.js (lazy-loaded, ~53KB) — only names are needed to
