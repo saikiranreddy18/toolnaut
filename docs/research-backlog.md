@@ -2303,7 +2303,7 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-29 09:20 UTC
 
 ### Pricing already got its honest fix written — it just never got wired in, so the false claims and their own correction now sit on the same pages
-- **Status:** OPEN
+- **Status:** SHIPPED c04149e
 - **Seen in:** not a competitor pattern — found reading every file under
   `src/components/sections/` for the marketing-audit sweep this backlog has
   run for a week (the same sweep that already produced the shipped
