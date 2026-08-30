@@ -19,3 +19,6 @@ review-build.html
 # regenerated on demand and far too large to track
 evidence/
 .shots.json
+
+# Intermediate render source for the PDFs in reports/ — the PDF is the artifact.
+reports/*.html
