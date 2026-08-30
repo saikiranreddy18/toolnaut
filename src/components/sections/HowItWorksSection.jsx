@@ -27,7 +27,10 @@ export default function HowItWorksSection() {
             strokeDasharray="5 9"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
+            // once:false — the line is the section's explanation of itself, and it
+          // should draw whether you arrive scrolling down or back up. With once:true
+          // it fired a single time and every later visit got a static line.
+          viewport={{ once: false, amount: 0.4 }}
             transition={{ duration: 2, ease: 'easeInOut' }}
           />
           <defs>

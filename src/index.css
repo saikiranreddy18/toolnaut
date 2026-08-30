@@ -407,6 +407,16 @@ html[data-theme='synth'] {
 .sticker:nth-child(even) { transform: rotate(1.5deg); }
 .sticker:hover { transform: rotate(0deg) translate(-1px, -1px); }
 
+/* Pricing is a COMPARISON, and a comparison has to line up.
+   The scattered rotation above is right where cards are browsed one at a time
+   (Find, Saved, Stack) — it reads as a pinboard. In a three-column price table
+   the same rotation puts each card's baseline at a different height, so the eye
+   cannot run across a row to compare a figure. .flat opts that row out and
+   nothing else. Declared after :nth-child(even) deliberately: both selectors
+   are specificity (0,2,0), so source order is what decides. */
+.sticker.flat { transform: none; }
+.sticker.flat:hover { transform: translate(-1px, -1px); }
+
 /* Chunky italic arcade display heading */
 .arcade-heading {
   font-family: 'Space Grotesk', system-ui, sans-serif;

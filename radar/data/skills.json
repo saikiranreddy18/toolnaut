@@ -34,7 +34,13 @@
       "dmx",
       "agentbridge",
       "obsessing-over-ai-agent-harnesses",
-      "my-free-code"
+      "my-free-code",
+      "a-slm-optimized-for-tool-calling",
+      "opencontext",
+      "i-might-have-built-the-best-linear-alternative",
+      "simurg",
+      "documentationaimd",
+      "darwin-vm"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -66,7 +72,13 @@
       "course-dmx",
       "course-agentbridge",
       "course-obsessing-over-ai-agent-harnesses",
-      "course-my-free-code"
+      "course-my-free-code",
+      "course-a-slm-optimized-for-tool-calling",
+      "course-opencontext",
+      "course-i-might-have-built-the-best-linear-alternative",
+      "course-simurg",
+      "course-documentationaimd",
+      "course-darwin-vm"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -296,7 +308,10 @@
       "toolchestrator",
       "agentbridge",
       "itsuki",
-      "microsoft-publishes-ai-agent-shared-responsibility-model"
+      "microsoft-publishes-ai-agent-shared-responsibility-model",
+      "ai-agents-for-osint-sigint",
+      "subs-the-cloud-native-agent-harness",
+      "agents-are-generating-your-most-valuable-ip"
     ],
     "courses": [
       "course-headless-tools",
@@ -330,7 +345,10 @@
       "course-toolchestrator",
       "course-agentbridge",
       "course-itsuki",
-      "course-microsoft-publishes-ai-agent-shared-responsibility-model"
+      "course-microsoft-publishes-ai-agent-shared-responsibility-model",
+      "course-ai-agents-for-osint-sigint",
+      "course-subs-the-cloud-native-agent-harness",
+      "course-agents-are-generating-your-most-valuable-ip"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -375,7 +393,12 @@
       "ai-agent-guardrails-dont-work-safer-platforms-do",
       "itsuki",
       "microsoft-publishes-ai-agent-shared-responsibility-model",
-      "obsessing-over-ai-agent-harnesses"
+      "obsessing-over-ai-agent-harnesses",
+      "simurg",
+      "ai-agents-for-osint-sigint",
+      "documentationaimd",
+      "subs-the-cloud-native-agent-harness",
+      "agents-are-generating-your-most-valuable-ip"
     ],
     "courses": [
       "course-headless-tools",
@@ -400,7 +423,12 @@
       "course-ai-agent-guardrails-dont-work-safer-platforms-do",
       "course-itsuki",
       "course-microsoft-publishes-ai-agent-shared-responsibility-model",
-      "course-obsessing-over-ai-agent-harnesses"
+      "course-obsessing-over-ai-agent-harnesses",
+      "course-simurg",
+      "course-ai-agents-for-osint-sigint",
+      "course-documentationaimd",
+      "course-subs-the-cloud-native-agent-harness",
+      "course-agents-are-generating-your-most-valuable-ip"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -457,7 +485,8 @@
       "rafter",
       "gemini-omni-11-flash",
       "ai-engineer-notebooks",
-      "obsessing-over-ai-agent-harnesses"
+      "obsessing-over-ai-agent-harnesses",
+      "a-slm-optimized-for-tool-calling"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -466,7 +495,8 @@
       "course-rafter",
       "course-gemini-omni-11-flash",
       "course-ai-engineer-notebooks",
-      "course-obsessing-over-ai-agent-harnesses"
+      "course-obsessing-over-ai-agent-harnesses",
+      "course-a-slm-optimized-for-tool-calling"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -916,14 +946,16 @@
       "agentseed",
       "rafter",
       "agentseed-mcp",
-      "itsuki"
+      "itsuki",
+      "opencontext"
     ],
     "courses": [
       "course-coolplugz",
       "course-agentseed",
       "course-rafter",
       "course-agentseed-mcp",
-      "course-itsuki"
+      "course-itsuki",
+      "course-opencontext"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1040,11 +1072,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "hermes-agent",
-      "openinstinct"
+      "openinstinct",
+      "i-might-have-built-the-best-linear-alternative"
     ],
     "courses": [
       "course-hermes-agent",
-      "course-openinstinct"
+      "course-openinstinct",
+      "course-i-might-have-built-the-best-linear-alternative"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1233,7 +1267,10 @@
       "rafter",
       "grith-is-live",
       "dmx",
-      "obsessing-over-ai-agent-harnesses"
+      "obsessing-over-ai-agent-harnesses",
+      "opencontext",
+      "documentationaimd",
+      "subs-the-cloud-native-agent-harness"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -1244,7 +1281,10 @@
       "course-rafter",
       "course-grith-is-live",
       "course-dmx",
-      "course-obsessing-over-ai-agent-harnesses"
+      "course-obsessing-over-ai-agent-harnesses",
+      "course-opencontext",
+      "course-documentationaimd",
+      "course-subs-the-cloud-native-agent-harness"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1293,13 +1333,15 @@
       "designing-loops-for-production-grade-work",
       "a-benchmark-for-safely-measuring-container-breakout-capabili",
       "rafter",
-      "ai-engineer-notebooks"
+      "ai-engineer-notebooks",
+      "a-slm-optimized-for-tool-calling"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
       "course-rafter",
-      "course-ai-engineer-notebooks"
+      "course-ai-engineer-notebooks",
+      "course-a-slm-optimized-for-tool-calling"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1367,7 +1409,9 @@
       "puppetflow-a-free-browser-automation-platform",
       "argus-open-source-ai-agents-for-testing-web-apps",
       "dmx",
-      "my-free-code"
+      "my-free-code",
+      "i-might-have-built-the-best-linear-alternative",
+      "documentationaimd"
     ],
     "courses": [
       "course-limitless-library",
@@ -1376,7 +1420,9 @@
       "course-puppetflow-a-free-browser-automation-platform",
       "course-argus-open-source-ai-agents-for-testing-web-apps",
       "course-dmx",
-      "course-my-free-code"
+      "course-my-free-code",
+      "course-i-might-have-built-the-best-linear-alternative",
+      "course-documentationaimd"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2683,13 +2729,15 @@
       "ai-tools-list",
       "coordination-layer-for-coding-agents",
       "dmx",
-      "my-free-code"
+      "my-free-code",
+      "opencontext"
     ],
     "courses": [
       "course-ai-tools-list",
       "course-coordination-layer-for-coding-agents",
       "course-dmx",
-      "course-my-free-code"
+      "course-my-free-code",
+      "course-opencontext"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2756,11 +2804,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "agentseed",
-      "agentseed-mcp"
+      "agentseed-mcp",
+      "simurg"
     ],
     "courses": [
       "course-agentseed",
-      "course-agentseed-mcp"
+      "course-agentseed-mcp",
+      "course-simurg"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2822,10 +2872,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "ta"
+      "ta",
+      "darwin-vm"
     ],
     "courses": [
-      "course-ta"
+      "course-ta",
+      "course-darwin-vm"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3043,10 +3095,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "telem"
+      "telem",
+      "simurg"
     ],
     "courses": [
-      "course-telem"
+      "course-telem",
+      "course-simurg"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -3577,10 +3631,12 @@
     "domain": "learning",
     "level": "beginner",
     "toolsTeaching": [
-      "trana"
+      "trana",
+      "darwin-vm"
     ],
     "courses": [
-      "course-trana"
+      "course-trana",
+      "course-darwin-vm"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -4116,10 +4172,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "itsuki"
+      "itsuki",
+      "opencontext"
     ],
     "courses": [
-      "course-itsuki"
+      "course-itsuki",
+      "course-opencontext"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -4200,5 +4258,304 @@
       "course-my-free-code"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
+  },
+  {
+    "id": "skill-slm",
+    "name": "slm",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "a-slm-optimized-for-tool-calling"
+    ],
+    "courses": [
+      "course-a-slm-optimized-for-tool-calling"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-tool-calling",
+    "name": "tool calling",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "a-slm-optimized-for-tool-calling"
+    ],
+    "courses": [
+      "course-a-slm-optimized-for-tool-calling"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-function-calling",
+    "name": "function calling",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "a-slm-optimized-for-tool-calling"
+    ],
+    "courses": [
+      "course-a-slm-optimized-for-tool-calling"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-context",
+    "name": "context",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "opencontext"
+    ],
+    "courses": [
+      "course-opencontext"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-project management",
+    "name": "project management",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "i-might-have-built-the-best-linear-alternative"
+    ],
+    "courses": [
+      "course-i-might-have-built-the-best-linear-alternative"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-issue tracking",
+    "name": "issue tracking",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "i-might-have-built-the-best-linear-alternative"
+    ],
+    "courses": [
+      "course-i-might-have-built-the-best-linear-alternative"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-linear alternative",
+    "name": "linear alternative",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "i-might-have-built-the-best-linear-alternative"
+    ],
+    "courses": [
+      "course-i-might-have-built-the-best-linear-alternative"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-search api",
+    "name": "search api",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "simurg"
+    ],
+    "courses": [
+      "course-simurg"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-python",
+    "name": "python",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "simurg"
+    ],
+    "courses": [
+      "course-simurg"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-osint",
+    "name": "osint",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-agents-for-osint-sigint"
+    ],
+    "courses": [
+      "course-ai-agents-for-osint-sigint"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-sigint",
+    "name": "sigint",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-agents-for-osint-sigint"
+    ],
+    "courses": [
+      "course-ai-agents-for-osint-sigint"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-intelligence",
+    "name": "intelligence",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-agents-for-osint-sigint"
+    ],
+    "courses": [
+      "course-ai-agents-for-osint-sigint"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-reconnaissance",
+    "name": "reconnaissance",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-agents-for-osint-sigint"
+    ],
+    "courses": [
+      "course-ai-agents-for-osint-sigint"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-documentation",
+    "name": "documentation",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "documentationaimd"
+    ],
+    "courses": [
+      "course-documentationaimd"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-standard",
+    "name": "standard",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "documentationaimd"
+    ],
+    "courses": [
+      "course-documentationaimd"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-agent harness",
+    "name": "agent harness",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "subs-the-cloud-native-agent-harness"
+    ],
+    "courses": [
+      "course-subs-the-cloud-native-agent-harness"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-cloud native",
+    "name": "cloud native",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "subs-the-cloud-native-agent-harness"
+    ],
+    "courses": [
+      "course-subs-the-cloud-native-agent-harness"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-knowledge capture",
+    "name": "knowledge capture",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "agents-are-generating-your-most-valuable-ip"
+    ],
+    "courses": [
+      "course-agents-are-generating-your-most-valuable-ip"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-ip management",
+    "name": "ip management",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "agents-are-generating-your-most-valuable-ip"
+    ],
+    "courses": [
+      "course-agents-are-generating-your-most-valuable-ip"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-agent infrastructure",
+    "name": "agent infrastructure",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "agents-are-generating-your-most-valuable-ip"
+    ],
+    "courses": [
+      "course-agents-are-generating-your-most-valuable-ip"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-virtualization",
+    "name": "virtualization",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "darwin-vm"
+    ],
+    "courses": [
+      "course-darwin-vm"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-qemu",
+    "name": "qemu",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "darwin-vm"
+    ],
+    "courses": [
+      "course-darwin-vm"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-emulation",
+    "name": "emulation",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "darwin-vm"
+    ],
+    "courses": [
+      "course-darwin-vm"
+    ],
+    "updatedAt": "2026-08-29T23:35:59.438Z"
   }
 ]

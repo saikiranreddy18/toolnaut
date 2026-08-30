@@ -33,9 +33,20 @@ export default function PricingPillar({ plan }) {
   const track = useAnalytics()
 
   return (
-    <motion.div variants={fadeUp} className={`relative ${plan.lift}`}>
+    // h-full so the grid's items-stretch actually reaches the card: without it
+    // this wrapper sizes to its own content and the card's h-full resolves
+    // against that, leaving three different heights. plan.lift is dropped — it
+    // was a negative top margin that raised the featured plan out of the very
+    // row it exists to be compared across.
+    <motion.div variants={fadeUp} className="relative h-full">
       <div
-        className={`sticker ${STICKER_VARIANT[plan.id] ?? ''} relative flex h-full flex-col p-7 ${plan.featured ? 'md:scale-[1.03]' : ''}`}
+        className={`sticker flat ${STICKER_VARIANT[plan.id] ?? ''} relative flex h-full flex-col p-7 ${
+          // No scale on the featured plan. scale() grows from the centre, so it
+          // pushed PRO's top edge above STUDENT and TEAM and broke the row it is
+          // meant to be compared across. The MOST POPULAR tape and the pink edge
+          // already mark it, and neither moves it.
+          plan.featured ? 'md:z-10' : ''
+        }`}
         onMouseEnter={() => track(EVENTS.PLAN_HOVER, { plan: plan.id })}
       >
         {plan.badge && (
