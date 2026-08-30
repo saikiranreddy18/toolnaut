@@ -249,7 +249,9 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut', bg =
             // blurred letters sit much closer to the link colour, and at 0.7
             // the Company column washed out against the bright 'AU'. The
             // links are content; the mark is atmosphere.
-            opacity: active ? 0.28 : 0.48,
+            // In its own band (flow mode) the mark owns the space and can sit
+            // richer; behind live content (bg) it stays quiet so links win.
+            opacity: bg ? (active ? 0.28 : 0.48) : active ? 0.35 : 0.62,
             transition: 'opacity 320ms ease',
           }}
         >

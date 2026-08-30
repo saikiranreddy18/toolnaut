@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import useSmoothScroll from '../hooks/useSmoothScroll'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { CHAT_QUESTIONS, GREETING, acknowledge, matchFreeText, saveNote, askServer } from '../utils/goalChat'
+import { BrandLogo } from '../components/ui/Mascot'
 import { loadQuiz, saveAnswer, completeQuiz } from '../state/quizStore'
 import { useAnalytics } from '../hooks/useAnalytics'
 import { EVENTS } from '../utils/analyticsEvents'
@@ -224,13 +225,19 @@ export default function GoalChat() {
           decoration, because a nine-question form is a reading task and
           ornament competes with the question. */}
       {atStart && (
-        <div className="mx-auto flex w-full max-w-2xl shrink-0 flex-col pb-5 text-center">
-          {/* The badge from direction A. It answers "what is this going to
-              cost me" before the headline asks for anything — nine questions,
-              a minute, no account — which is the objection someone raises at
-              a form, in the place they raise it. The wordmark that used to sit
-              here is already top-left in OnboardingShell; two marks stacked
-              read as a logo, not an opening. */}
+        <div className="mx-auto flex w-full max-w-2xl shrink-0 flex-col items-center pb-5 text-center">
+          {/* The mark leads, centred. It was pinned top-left by the shell,
+              which is where a logo goes on a page you browse — but this is a
+              single-purpose form with nothing else on screen, so the corner
+              is the one place the eye never starts. The shell hides its own
+              copy on this route so there is still only ever one. */}
+          <Link to="/" aria-label="Toolnaut home" className="mb-6 inline-block">
+            <BrandLogo size={40} textClass="text-xl" />
+          </Link>
+
+          {/* The badge answers "what is this going to cost me" before the
+              headline asks for anything — nine questions, a minute, no
+              account — which is the objection someone raises at a form. */}
           <span
             className="mx-auto inline-flex items-center gap-[7px] rounded-full px-[13px] py-[7px] text-[11px] font-medium leading-none"
             style={{
@@ -259,23 +266,14 @@ export default function GoalChat() {
       {/* Quieter than the rest of the app on purpose. The heavy black slab and
           6px offset shadow shout, which is right on the landing page and wrong
           around a form someone has to concentrate on. One hairline rule. */}
+      {/* The progress bar is gone. Nine segments of chrome above a chat that
+          already says "nine questions" in its first line told the reader
+          nothing they had not just read, and it sat between the headline and
+          the conversation — the one place nothing should. */}
       <div
         className="mx-auto flex w-full min-h-0 max-w-2xl flex-1 flex-col overflow-hidden rounded-2xl"
         style={{ background: '#0c0c13', border: '1px solid #23232f' }}
       >
-        {/* progress — chunky lime bars, same language as the rest of the app */}
-        <div className="flex shrink-0 gap-1.5 px-4 py-3" style={{ borderBottom: '1px solid #23232f' }} aria-hidden="true">
-          {CHAT_QUESTIONS.map((q, i) => (
-            <span
-              key={q.id}
-              className="h-1.5 flex-1 rounded-full"
-              style={{
-                background: i < index ? 'var(--lime)' : i === index ? 'var(--hot-pink)' : 'rgba(255,255,255,0.09)',
-              }}
-            />
-          ))}
-        </div>
-
         <div
           ref={scrollRef}
           className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-5 sm:px-5"
