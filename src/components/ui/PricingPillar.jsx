@@ -72,9 +72,14 @@ export default function PricingPillar({ plan }) {
         <ul className="mt-6 flex-1 space-y-2.5 text-sm text-slate-200">
           {plan.plus && <li className="font-display font-black uppercase text-cyan-300">{plan.plus}</li>}
           {plan.features.map((f) => (
-            <li key={f} className="flex gap-2">
+            <li key={f.text} className="flex flex-wrap items-center gap-2">
               <span aria-hidden="true" style={{ color: plan.accent }}>✦</span>
-              {f}
+              {f.text}
+              {f.status === 'planned' && (
+                <span className="whitespace-nowrap rounded-full border border-slate-600 px-1.5 py-0.5 font-display text-[9px] font-black uppercase text-slate-500">
+                  planned
+                </span>
+              )}
             </li>
           ))}
         </ul>

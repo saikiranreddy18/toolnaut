@@ -2,6 +2,13 @@
 // Session/authStore still stores the legacy ids; the UI shows Student/Pro/Team.
 export const planLabel = (id) => PLANS.find((p) => p.id === id)?.name || id
 
+// Every feature is { text, status }. status: 'live' works today for anyone,
+// no plan needed; 'planned' is the intended shape of a paid tier and must
+// render with a qualifier — see capabilityMatrix.js's own honesty constraint,
+// which this file now follows instead of contradicting.
+const live = (text) => ({ text, status: 'live' })
+const planned = (text) => ({ text, status: 'planned' })
+
 export const PLANS = [
   {
     id: 'shishya',
@@ -14,13 +21,13 @@ export const PLANS = [
     accent: '#fb7185',
     audience: 'Students, hobbyists, solo learners exploring AI',
     features: [
-      'Personalized AI tool discovery (up to 5 categories)',
-      'Basic learning paths (beginner to intermediate)',
-      'Community access (Discord & forum)',
-      'Weekly discovery digest email',
-      'Save up to 10 favorite tools',
-      'Basic chat support',
-      '1 user profile',
+      live('Personalized AI tool discovery (up to 5 categories)'),
+      live('Basic learning paths (beginner to intermediate)'),
+      live('Community access (in-app forum)'),
+      planned('Weekly discovery digest email'),
+      live('Save up to 10 favorite tools'),
+      planned('Basic chat support'),
+      live('1 user profile'),
     ],
   },
   {
@@ -36,15 +43,15 @@ export const PLANS = [
     audience: 'Freelancers, professionals, serious learners',
     plus: 'Everything in Student, plus:',
     features: [
-      'Unlimited tool discovery (all categories)',
-      'Advanced learning paths (beginner → senior)',
-      'Custom tool stack builder with save & share',
-      'AI-powered chat assistant (Claude-powered Q&A)',
-      'Weekly trending tools + personalized alerts',
-      'Unlimited favorite tools',
-      'Progress tracking + skill badges',
-      'Priority email support',
-      'Export learning roadmaps as PDF',
+      live('Unlimited tool discovery (all categories)'),
+      live('Advanced learning paths (beginner → senior)'),
+      live('Custom tool stack builder with save & share'),
+      planned('AI-powered chat assistant (Claude-powered Q&A)'),
+      planned('Weekly trending tools + personalized alerts'),
+      live('Unlimited favorite tools'),
+      live('Progress tracking + skill badges'),
+      planned('Priority email support'),
+      planned('Export learning roadmaps as PDF'),
     ],
   },
   {
@@ -59,33 +66,35 @@ export const PLANS = [
     audience: 'Startups, agencies, research teams, enterprise pods',
     plus: 'Everything in Pro, plus:',
     features: [
-      'Up to 5 team members (5 seats included)',
-      'Team stack standardization',
-      'Role-based team onboarding',
-      'Team analytics dashboard',
-      'Collaborative tool-evaluation workspace',
-      'Admin controls + member management',
-      'Shared progress + team leaderboards',
-      'Dedicated support channel (48hr response)',
-      'Quarterly AI stack audit reports',
-      'API access for integrations',
+      planned('Up to 5 team members (5 seats included)'),
+      planned('Team stack standardization'),
+      planned('Role-based team onboarding'),
+      planned('Team analytics dashboard'),
+      planned('Collaborative tool-evaluation workspace'),
+      planned('Admin controls + member management'),
+      planned('Shared progress + team leaderboards'),
+      planned('Dedicated support channel (48hr response)'),
+      planned('Quarterly AI stack audit reports'),
+      planned('API access for integrations'),
     ],
   },
 ]
 
-// Rows for the "Compare All" table: [label, shishya, guru, pandava]
+// Rows for the "Compare All" table: [label, shishya, guru, pandava].
+// Each cell is true (live, included), false (not included at this tier), or
+// 'planned' (designed, not built — must never render as an included check).
 export const COMPARISON = [
   ['Tool discovery', '5 categories', 'Unlimited', 'Unlimited'],
   ['Learning paths', 'Basic', 'Advanced', 'Advanced'],
   ['Saved favorites', '10', 'Unlimited', 'Unlimited'],
-  ['AI chat assistant', false, true, true],
+  ['AI chat assistant', false, 'planned', 'planned'],
   ['Stack builder + share', false, true, true],
   ['Progress tracking + badges', false, true, true],
-  ['PDF roadmap export', false, true, true],
+  ['PDF roadmap export', false, 'planned', 'planned'],
   ['Seats', '1', '1', 'Up to 5'],
-  ['Team analytics dashboard', false, false, true],
-  ['Admin controls', false, false, true],
-  ['Quarterly stack audits', false, false, true],
-  ['API access', false, false, true],
-  ['Support', 'Basic chat', 'Priority email', 'Dedicated (48hr)'],
+  ['Team analytics dashboard', false, false, 'planned'],
+  ['Admin controls', false, false, 'planned'],
+  ['Quarterly stack audits', false, false, 'planned'],
+  ['API access', false, false, 'planned'],
+  ['Support', 'Basic chat (planned)', 'Priority email (planned)', 'Dedicated 48hr (planned)'],
 ]

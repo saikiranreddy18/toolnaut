@@ -9,6 +9,16 @@ import { EVENTS } from '../../utils/analyticsEvents'
 function Cell({ value }) {
   if (value === true) return <span className="text-exus-lime" aria-label="included">✓</span>
   if (value === false) return <span className="text-slate-600" aria-label="not included">✕</span>
+  if (value === 'planned') {
+    return (
+      <span
+        className="whitespace-nowrap rounded-full border border-slate-600 px-1.5 py-0.5 font-display text-[9px] font-black uppercase text-slate-500"
+        aria-label="planned, not yet built"
+      >
+        planned
+      </span>
+    )
+  }
   return <span className="text-slate-200">{value}</span>
 }
 

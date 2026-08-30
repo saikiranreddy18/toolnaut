@@ -8,8 +8,9 @@ import { useEffect } from 'react'
 import { useAnalytics } from '../hooks/useAnalytics'
 import { EVENTS } from '../utils/analyticsEvents'
 
-// Standalone pricing page — reuses the pillars/comparison section that was
-// removed from the landing flow. All plans are reservations while in beta.
+// Standalone pricing page — reuses the same pillars/comparison section that
+// is also mounted on the landing page. All plans are reservations while in
+// beta; CapabilityMatrix below is the corroborating live/planned breakdown.
 export default function Pricing() {
   useHead({
     title: 'Pricing — Toolnaut',
