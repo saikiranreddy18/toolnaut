@@ -66,13 +66,7 @@ export default function ContactSection() {
 
   return (
     <div className="relative mx-auto max-w-6xl px-5 pb-10 pt-14">
-      {/* The mark, full width and centred, as the thing you walk into before
-          the links. Sitting in the left column it was a large blank area with
-          an orphaned hint floating in it — an invisible element reads as a
-          layout bug unless it owns enough space to be obviously deliberate. */}
-      <DottedWordmark className="mx-auto w-full max-w-2xl" />
-
-      <div className="mt-6 grid gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
+      <div className="grid gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
         {/* ── socials and the standing facts ── */}
         <div>
           {SOCIALS.length > 0 && (
@@ -150,6 +144,13 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
+
+      {/* The mark, centred in the MIDDLE of the contact section — below the
+          link columns, above whatever closes the page. It idles soft and out
+          of focus (the reference look) and the cursor pulls it sharp; sitting
+          at the top it read as a header for the links, which it is not. It is
+          the section's centrepiece, and centrepieces sit in the middle. */}
+      <DottedWordmark className="mx-auto mt-12 w-full max-w-2xl" />
     </div>
   )
 }

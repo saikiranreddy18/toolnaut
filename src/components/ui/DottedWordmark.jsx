@@ -198,11 +198,23 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut' }) {
       }}
       style={{ cursor: alwaysOn ? 'default' : 'crosshair' }}
     >
-      {/* Ghost layer: the mark at 6% opacity, always. Fully invisible idle
-          state made the band indistinguishable from a layout bug — a shape
-          you can just barely see invites the cursor; a void does not. */}
+      {/* Idle layer: the mark OUT OF FOCUS — the reference image is exactly
+          this, a heavy soft blur with the lime infinity glowing through. It is
+          always visible, so the section owns its centrepiece instead of a
+          hole; what the cursor adds is FOCUS, not existence. The blur eases
+          back a touch while the beam is in, so the sharp reveal reads against
+          a calmer ground. */}
       {!alwaysOn && (
-        <svg viewBox={`0 0 ${VB_W} ${VB_H}`} className="absolute inset-0 block w-full" aria-hidden="true" style={{ opacity: 0.06 }}>
+        <svg
+          viewBox={`0 0 ${VB_W} ${VB_H}`}
+          className="absolute inset-0 block w-full"
+          aria-hidden="true"
+          style={{
+            filter: 'blur(14px) saturate(1.25)',
+            opacity: active ? 0.4 : 0.7,
+            transition: 'opacity 320ms ease',
+          }}
+        >
           {renderMark(false)}
         </svg>
       )}
@@ -232,7 +244,7 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut' }) {
           className="pointer-events-none absolute inset-x-0 -bottom-1 text-center font-display text-[10px] font-black uppercase tracking-[0.28em] text-slate-600"
           style={{ opacity: active ? 0 : 1, transition: 'opacity 260ms ease' }}
         >
-          move your cursor here
+          bring it into focus
         </span>
       )}
     </div>
