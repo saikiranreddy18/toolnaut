@@ -66,13 +66,17 @@ export default function ContactSection() {
 
   return (
     <div className="relative mx-auto max-w-6xl px-5 pb-14 pt-24">
-      <div className="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,2fr)]">
-        {/* ── the mark, and the social row under it ── */}
-        <div>
-          <DottedWordmark className="max-w-md" />
+      {/* The mark, full width and centred, as the thing you walk into before
+          the links. Sitting in the left column it was a large blank area with
+          an orphaned hint floating in it — an invisible element reads as a
+          layout bug unless it owns enough space to be obviously deliberate. */}
+      <DottedWordmark className="mx-auto w-full max-w-4xl" />
 
+      <div className="mt-16 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,2.1fr)]">
+        {/* ── socials and the standing facts ── */}
+        <div>
           {SOCIALS.length > 0 && (
-            <ul className="mt-7 flex flex-wrap gap-2">
+            <ul className="flex flex-wrap gap-2">
               {SOCIALS.map((s) => (
                 <li key={s.id}>
                   <a

@@ -35,20 +35,21 @@ export default function HeroSection({ onEnter }) {
 
   return (
     <section id="hero" ref={ref} className="pointer-events-none relative z-10 flex min-h-screen flex-col items-center justify-center px-5 text-center">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.6, rotate: -18 }}
-        animate={{ opacity: 1, scale: 1, rotate: -6 }}
-        transition={{ delay: 0.9, type: 'spring', stiffness: 260, damping: 18 }}
-        className="mb-5"
-      >
-        <span className="tape-label" style={{ fontSize: 11 }}>✦ FREE PUBLIC BETA ✦</span>
-      </motion.div>
-
       {/* The wordmark draws itself and Naut lands on it. This replaced a
           letter-by-letter fade of the name in spaced cyan caps — which spelled
           the brand without ever showing the mark. */}
-      <div className="mb-7 mt-6 flex justify-center">
+      {/* The beta note rides the wordmark instead of standing on its own.
+          As a separate tape label above the mark it was the first thing on the
+          page — the loudest element saying the least. Attached here it still
+          sets expectations without competing with the headline. */}
+      <div className="mb-7 mt-6 flex items-start justify-center gap-2">
         <AnimatedWordmark className="text-4xl text-white sm:text-5xl md:text-6xl" />
+        <span
+          className="mt-1 rounded-full border-2 border-black px-2 py-0.5 font-display text-[9px] font-black uppercase tracking-[0.14em] sm:text-[10px]"
+          style={{ background: 'var(--lime)', color: '#000' }}
+        >
+          beta
+        </span>
       </div>
 
       <motion.h1
