@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { useHead } from '../utils/head'
 import { TOOLS } from '../utils/toolsCatalog'
 import { lastUpdatedLabel } from '../utils/catalogFreshness'
@@ -38,9 +39,18 @@ export default function Methodology() {
 
   return (
     <div className="relative z-10 mx-auto max-w-3xl px-5 py-10 lg:py-14">
-      <Link to="/" className="font-display text-xs font-black uppercase tracking-[0.18em] text-slate-400 hover:text-white">
-        ← Back
-      </Link>
+      {/* These pages are linked to directly and shared, so they can be
+          someone's first screen — a bare "← Back" told them nothing about
+          whose product they had landed on. Same header the other standalone
+          pages use, at the same LOGO.page scale. */}
+      <header className="mb-8 flex items-center justify-between gap-4">
+        <Link to="/" aria-label="Toolnaut home">
+          <BrandLogo {...LOGO.page} />
+        </Link>
+        <Link to="/goal" className="nb-btn px-4 py-2 text-xs">
+          ⚡ Find your stack
+        </Link>
+      </header>
 
       <p className="mt-6 font-display text-xs font-black uppercase tracking-[0.2em]" style={{ color: 'var(--lime)' }}>
         ▸ Trust

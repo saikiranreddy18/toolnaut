@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { BRAND } from '../config'
-import { BrandLogo } from '../components/ui/Mascot'
+import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { loadSession } from '../state/authStore'
 import { loadQuiz } from '../state/quizStore'
 import { generatePersona } from '../utils/personaGenerator'
@@ -109,7 +109,7 @@ export default function AppShell() {
       {/* left sidebar — desktop */}
       <aside className="sticky top-0 hidden h-dvh w-60 shrink-0 flex-col border-r border-white/10 px-4 py-5 lg:flex">
         <Link to="/" className="px-4" aria-label={BRAND}>
-          <BrandLogo size={38} textClass="text-lg" />
+          <BrandLogo {...LOGO.chrome} />
         </Link>
 
         <div className="sticker mt-6 flex items-start gap-3 p-4">
@@ -167,7 +167,7 @@ export default function AppShell() {
         {/* mobile top bar — respects the notch */}
         <div className="sticky top-0 z-30 flex items-center justify-between border-b border-white/10 bg-[#0a0a0f]/85 px-5 py-4 pt-[max(1rem,env(safe-area-inset-top))] backdrop-blur-md lg:hidden">
           <Link to="/" aria-label={BRAND}>
-            <BrandLogo size={32} textClass="text-base" />
+            <BrandLogo {...LOGO.compact} />
           </Link>
           <Link to="/app/settings" className="flex items-center gap-2" aria-label="Your profile">
             {persona && (

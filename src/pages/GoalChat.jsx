@@ -3,7 +3,7 @@ import useSmoothScroll from '../hooks/useSmoothScroll'
 import { Link, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { CHAT_QUESTIONS, GREETING, acknowledge, matchFreeText, saveNote, askServer } from '../utils/goalChat'
-import { BrandLogo } from '../components/ui/Mascot'
+import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { loadQuiz, saveAnswer, completeQuiz } from '../state/quizStore'
 import { useAnalytics } from '../hooks/useAnalytics'
 import { EVENTS } from '../utils/analyticsEvents'
@@ -232,7 +232,7 @@ export default function GoalChat() {
               is the one place the eye never starts. The shell hides its own
               copy on this route so there is still only ever one. */}
           <Link to="/" aria-label="Toolnaut home" className="mb-6 inline-block">
-            <BrandLogo size={40} textClass="text-xl" />
+            <BrandLogo {...LOGO.page} />
           </Link>
 
           {/* The badge answers "what is this going to cost me" before the

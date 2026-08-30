@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { useHead } from '../utils/head'
 import { PRICE_LABELS, LEVEL_LABELS } from '../utils/toolsCatalog'
 import { getNewTools } from '../utils/newTools'
@@ -21,6 +22,19 @@ export default function NewTools() {
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-10 lg:py-16">
+      {/* /new is a radar landing page — people arrive here from search and
+          shared links, so it can be someone's first screen. It had no mark at
+          all. Same header and same LOGO.page scale as the other standalone
+          pages. */}
+      <header className="mb-8 flex items-center justify-between gap-4">
+        <Link to="/" aria-label="Toolnaut home">
+          <BrandLogo {...LOGO.page} />
+        </Link>
+        <Link to="/goal" className="nb-btn px-4 py-2 text-xs">
+          ⚡ Find your stack
+        </Link>
+      </header>
+
       <p className="font-display text-xs uppercase tracking-[0.2em] font-black text-exus-lime">
         ▸ FRESH FROM THE RADAR
       </p>
