@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { loadQuiz } from '../../state/quizStore'
 import { generatePersona } from '../../utils/personaGenerator'
 import { getTool, TOOLS, CATEGORY_META } from '../../utils/toolsCatalog'
-import { matchScore, matchReasonShort } from '../../utils/matchScore'
+import { matchScore, matchReasonShort, fitBand } from '../../utils/matchScore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { haptic } from '../../utils/haptics'
 import { encodeStackSlugs } from '../../utils/shareStack'
@@ -376,8 +376,9 @@ export default function Stack() {
             <span className="tape-label text-xs" style={{ transform: 'rotate(-4deg)' }}>
               ✦ today's drop
             </span>
-            <span className="font-display text-lg font-black" style={{ color: 'var(--lime)', textShadow: '2px 2px 0 #000' }}>
-              {daily.score}%
+            {/* Band, not a percentage — see fitBand in matchScore.js. */}
+            <span className="font-display text-sm font-black uppercase tracking-wide" style={{ color: 'var(--lime)', textShadow: '2px 2px 0 #000' }}>
+              {fitBand(daily.score)?.label || ''}
             </span>
           </div>
           <div className="mt-5">

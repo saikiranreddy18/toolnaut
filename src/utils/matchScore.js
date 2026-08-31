@@ -61,6 +61,31 @@ export function matchScore(tool, answers) {
   return Math.max(20, Math.min(99, score))
 }
 
+// A qualitative band for a tool's fit, for display INSTEAD of a percentage.
+//
+// The raw number is a heuristic sum of at most four bonuses off a baseline of
+// 50. Rendering it as "87%" invites the reading "87% likely to be right", which
+// is a claim about calibration against outcome data that does not exist — no
+// recommendation has ever been scored against whether the person kept the tool.
+// A band says what the number can honestly support: a rank ordering.
+//
+// Deliberately NOT confidence.js's BANDS. Those describe how complete the
+// PROFILE is; this describes how well one TOOL fits. Sharing a scale would
+// merge two different claims into one vocabulary.
+//
+// Below 'possible' there is no badge at all. A "weak fit" label on a tool
+// someone is already looking at is noise, not information.
+const FIT_BANDS = [
+  { min: 85, key: 'strong', label: 'Strong fit' },
+  { min: 70, key: 'good', label: 'Good fit' },
+  { min: 55, key: 'possible', label: 'Possible fit' },
+]
+
+export function fitBand(score) {
+  if (score == null) return null
+  return FIT_BANDS.find((b) => score >= b.min) || null
+}
+
 // Human-readable reasons behind a score — powers "Why this fits you".
 export function matchReasons(tool, answers) {
   if (!answers || !answers.domain) return []

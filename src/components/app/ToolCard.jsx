@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
 import { isNewTool } from '../../utils/newTools'
 import { HeartIcon } from './icons'
+import { fitBand } from '../../utils/matchScore'
 
 // The one tool card, shared by Discover and Favorites.
 //
@@ -46,13 +47,17 @@ export default function ToolCard({
               NEW
             </span>
           )}
-          {tool.score != null && (
+          {/* A BAND, not a percentage. "87%" reads as a calibrated probability;
+              the number behind it is a heuristic sum of at most four bonuses
+              off a baseline of 50, never validated against whether anyone kept
+              the tool. The band says exactly what it can support: an ordering. */}
+          {fitBand(tool.score) && (
             <span
-              className="rounded-full px-2 py-0.5 font-display text-xs font-black"
+              className="rounded-full px-2 py-0.5 font-display text-[10px] font-black uppercase tracking-wide"
               style={{ background: 'var(--lime)', color: '#000', border: '2px solid #000', boxShadow: '2px 2px 0 #000' }}
-              title={`${tool.score}% match with your persona`}
+              title={`${fitBand(tool.score).label} for your persona — based on your field, budget and experience`}
             >
-              {tool.score}%
+              {fitBand(tool.score).label}
             </span>
           )}
         </span>

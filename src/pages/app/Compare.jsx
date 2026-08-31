@@ -1,6 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom'
 import { getTool, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
-import { matchScore } from '../../utils/matchScore'
+import { matchScore, fitBand } from '../../utils/matchScore'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { useAnalytics } from '../../hooks/useAnalytics'
@@ -53,7 +53,8 @@ export default function Compare() {
     { label: 'Tags', get: (t) => (t.tags && t.tags.length > 0 ? t.tags.join(', ') : '—') },
   ]
   if (answers) {
-    rows.unshift({ label: 'Match', get: (t) => `${matchScore(t, answers)}%` })
+    // Band, not a percentage — see fitBand's note in matchScore.js.
+    rows.unshift({ label: 'Fit', get: (t) => fitBand(matchScore(t, answers))?.label || '—' })
   }
 
   return (

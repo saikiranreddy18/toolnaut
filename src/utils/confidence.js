@@ -35,12 +35,26 @@ const SIGNALS = [
 
 const STRONG_MATCH = 78 // a score matchScore only awards on real alignment
 
+// Eligibility for the POOL, not for the ranking. matchScore treats budget as a
+// soft penalty on purpose — the product surfaces "heads up: pricier than your
+// budget" rather than hiding tools — but a COVERAGE measure must count only
+// what the person could actually adopt. Verified against the live catalogue:
+// under budget=free, 16 paid tools still cleared the threshold on domain
+// alignment alone and inflated the pool. A freemium tool is usable at $0, so
+// it stays eligible.
+function eligibleForPool(tool, answers) {
+  if (answers.budget === 'free' && tool.price === 'paid') return false
+  return true
+}
+
 export const BANDS = [
   { min: 85, key: 'tailored', label: 'Highly tailored' },
   { min: 65, key: 'strong', label: 'Strong fit' },
   { min: 40, key: 'good', label: 'Good start' },
   { min: 0, key: 'basic', label: 'Basic' },
 ]
+
+export { eligibleForPool }
 
 export function recommendationConfidence(answers = {}) {
   let score = 0
@@ -55,6 +69,7 @@ export function recommendationConfidence(answers = {}) {
   let constrained = false
   if (answers.domain) {
     pool = TOOLS.reduce((n, t) => {
+      if (!eligibleForPool(t, answers)) return n
       const m = matchScore(t, answers)
       return m != null && m >= STRONG_MATCH ? n + 1 : n
     }, 0)

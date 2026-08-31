@@ -32,6 +32,9 @@ export function completeQuiz() {
   s.completed = true
   save(s)
   return s
+  // A new kit deserves a fresh "does this fit?" — the stored answer rated the
+  // PREVIOUS kit, and leaving it in place meant a retake never re-asked.
+  try { localStorage.removeItem('exus_stack_feedback_v1') } catch { /* blocked */ }
 }
 
 export function resetQuiz() {
