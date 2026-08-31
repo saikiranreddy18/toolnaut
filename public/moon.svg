@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Full moon">
+  <!--
+    The near side of the Moon, drawn to the real layout rather than to taste.
+    Three soft blobs read as a golf ball; what makes a moon recognisable is the
+    specific arrangement of the maria — Imbrium high on the left, Crisium alone
+    out near the eastern limb, Procellarum running down the western edge — plus
+    Tycho's ray system in the south. Those are the shapes people know without
+    knowing they know them.
+
+    Positions are approximate but in the right places relative to each other.
+    North is up, as seen from Earth.
+  -->
+  <defs>
+    <!-- The lit surface, deliberately almost flat. At full phase the Sun is
+         behind the observer, so there is no terminator and barely any shading:
+         a bright disc, not a shaded ball. An offset hotspot here is crescent
+         lighting and is the thing that makes most drawn moons look wrong. -->
+    <radialGradient id="body" cx="48%" cy="45%" r="72%">
+      <stop offset="0%"   stop-color="#f6f6f5"/>
+      <stop offset="62%"  stop-color="#eaeae8"/>
+      <stop offset="86%"  stop-color="#d8d8d5"/>
+      <stop offset="100%" stop-color="#b9b9b7"/>
+    </radialGradient>
+
+    <!-- Limb darkening: a real full moon is brightest at the centre and dims
+         toward the edge, which is the opposite of a shaded ball and the detail
+         most CSS moons get wrong. -->
+    <radialGradient id="limb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#000" stop-opacity="0"/>
+      <stop offset="80%"  stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#12121a" stop-opacity="0.3"/>
+    </radialGradient>
+
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.2"/>
+    </filter>
+    <filter id="softer" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+    <filter id="rays" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+
+    <clipPath id="disc">
+      <circle cx="100" cy="100" r="98"/>
+    </clipPath>
+  </defs>
+
+  <circle cx="100" cy="100" r="98" fill="url(#body)"/>
+
+  <g clip-path="url(#disc)">
+    <!-- MARIA. Grey-blue basalt, softened, at roughly 0.30-0.40 opacity so the
+         surface underneath still shows through the way it does in a photograph. -->
+    <g fill="#5f6470" filter="url(#soft)">
+      <!-- Oceanus Procellarum — the long western plain -->
+      <ellipse cx="47" cy="96" rx="25" ry="44" opacity="0.60" transform="rotate(-8 47 96)"/>
+      <!-- Mare Imbrium — the big circular basin, upper west -->
+      <ellipse cx="66" cy="57" rx="28" ry="24" opacity="0.73"/>
+      <!-- Mare Frigoris — the thin arc along the north -->
+      <ellipse cx="97" cy="28" rx="42" ry="7" opacity="0.49" transform="rotate(-6 97 28)"/>
+      <!-- Mare Serenitatis -->
+      <ellipse cx="119" cy="62" rx="19" ry="17" opacity="0.77"/>
+      <!-- Mare Tranquillitatis -->
+      <ellipse cx="137" cy="88" rx="21" ry="18" opacity="0.73" transform="rotate(18 137 88)"/>
+      <!-- Mare Crisium — isolated near the eastern limb, the giveaway feature -->
+      <ellipse cx="167" cy="69" rx="13" ry="11" opacity="0.78" transform="rotate(-12 167 69)"/>
+      <!-- Mare Fecunditatis -->
+      <ellipse cx="150" cy="116" rx="14" ry="17" opacity="0.63"/>
+      <!-- Mare Nectaris -->
+      <ellipse cx="133" cy="129" rx="10" ry="10" opacity="0.60"/>
+      <!-- Mare Nubium -->
+      <ellipse cx="83" cy="133" rx="17" ry="14" opacity="0.56"/>
+      <!-- Mare Humorum -->
+      <ellipse cx="57" cy="139" rx="11" ry="11" opacity="0.60"/>
+      <!-- Mare Vaporum, small, centre -->
+      <ellipse cx="103" cy="80" rx="8" ry="6" opacity="0.3"/>
+    </g>
+
+    <!-- Tycho's ray system: bright streaks fanning from the southern highlands.
+         The single most recognisable thing on a full moon, and the reason a
+         full moon does not look like a crescent moon lit differently. -->
+    <g stroke="#f2f5f9" stroke-linecap="round" filter="url(#rays)" opacity="0.5">
+      <path d="M88 158 L60 196" stroke-width="2.4"/>
+      <path d="M88 158 L108 198" stroke-width="2.2"/>
+      <path d="M88 158 L36 178" stroke-width="2"/>
+      <path d="M88 158 L146 186" stroke-width="1.8"/>
+      <path d="M88 158 L70 108" stroke-width="1.8"/>
+      <path d="M88 158 L120 118" stroke-width="1.6"/>
+      <path d="M88 158 L26 140" stroke-width="1.5"/>
+      <path d="M88 158 L158 148" stroke-width="1.4"/>
+    </g>
+    <circle cx="88" cy="158" r="4.5" fill="#f7f9fc" opacity="0.85"/>
+    <circle cx="88" cy="158" r="2" fill="#aab4c6" opacity="0.6"/>
+
+    <!-- Copernicus and Kepler — bright ejecta blankets on the western plain -->
+    <circle cx="79" cy="99" r="6" fill="#f0f3f8" opacity="0.4" filter="url(#rays)"/>
+    <circle cx="79" cy="99" r="2.6" fill="#fbfcfe" opacity="0.7"/>
+    <circle cx="56" cy="88" r="3.6" fill="#eef2f7" opacity="0.35" filter="url(#rays)"/>
+
+    <!-- Scattered highland cratering, so the lit areas are not flat white -->
+    <g fill="#a8b2c4" opacity="0.3" filter="url(#softer)">
+      <circle cx="120" cy="152" r="9"/>
+      <circle cx="146" cy="46" r="7"/>
+      <circle cx="40" cy="52" r="6"/>
+      <circle cx="164" cy="104" r="6"/>
+      <circle cx="104" cy="176" r="7"/>
+      <circle cx="30" cy="118" r="5"/>
+    </g>
+
+    <circle cx="100" cy="100" r="98" fill="url(#limb)"/>
+  </g>
+</svg>
