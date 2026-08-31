@@ -48,8 +48,13 @@ export default function GoalChat() {
     })
     return out
   })
-  const [typing, setTyping] = useState(true)
-  const [draft, setDraft] = useState('')
+  // The first question is HELD BACK. A fresh visitor sees only Naut's
+  // one-line hello and a pretyped "Hi" in the input — the conversation
+  // starts when THEY send it (or tap a chip, which answers Q1 directly).
+  // A returning visitor with answers resumes exactly as before.
+  const [started, setStarted] = useState(startIndex > 0)
+  const [typing, setTyping] = useState(startIndex > 0)
+  const [draft, setDraft] = useState(startIndex > 0 ? '' : 'Hi')
   const [unmatched, setUnmatched] = useState(false)
 
   // True until the first answer. The headline is a landing state, not chrome:
@@ -79,14 +84,14 @@ export default function GoalChat() {
   // Ask the current question after a short beat, so it reads as a reply rather
   // than a wall of text appearing at once.
   useEffect(() => {
-    if (done) return
+    if (done || !started) return
     setTyping(true)
     after(TYPING_MS, () => {
       setTyping(false)
       setMessages((m) => (m.some((x) => x.text === question.ask) ? m : [...m, { from: 'bot', text: question.ask, hint: question.hint }]))
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [index, done])
+  }, [index, done, started])
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' })
@@ -94,6 +99,7 @@ export default function GoalChat() {
 
   function answer(optionKey, spokenText, botReply) {
     if (done || typing) return
+    if (!started) setStarted(true)
     haptic.tap()
     const q = CHAT_QUESTIONS[index]
     const chosen = q.options.find((o) => o.key === optionKey)
@@ -160,6 +166,16 @@ export default function GoalChat() {
     const text = draft.trim()
     if (!text || done || typing) return
 
+    // The opener. Whatever they send first — the pretyped Hi or their own
+    // words — echoes into the thread and wakes Naut's first question; it is
+    // a greeting, not an answer, so it never goes near the classifier.
+    if (!started) {
+      setDraft('')
+      setMessages((m) => [...m, { from: 'user', text }])
+      setStarted(true)
+      return
+    }
+
     const q = question
     setDraft('')
     setMessages((m) => [...m, { from: 'user', text }])
@@ -224,19 +240,20 @@ export default function GoalChat() {
           "what is this going to cost me", then one headline in two tones. No
           decoration, because a nine-question form is a reading task and
           ornament competes with the question. */}
-      {atStart && (
-        <div className="mx-auto flex w-full max-w-3xl shrink-0 flex-col items-center pb-5 text-center">
+      {/* Persistent — the user: "after conversation also, that all should
+          be there. It will be scroll just." Only the thread scrolls. */}
+      <div className="mx-auto flex w-full max-w-4xl shrink-0 flex-col items-center pb-5 text-center">
           {/* The mark leads, centred. It was pinned top-left by the shell,
               which is where a logo goes on a page you browse — but this is a
               single-purpose form with nothing else on screen, so the corner
               is the one place the eye never starts. The shell hides its own
               copy on this route so there is still only ever one. */}
           <Link to="/" aria-label="Toolnaut home" className="mb-6 inline-block">
-            <BrandLogo size={76} textClass="text-3xl sm:text-4xl" />
+            <BrandLogo size={92} textClass="text-4xl sm:text-5xl" />
           </Link>
 
         </div>
-      )}
+
 
       {/* min-h-0 on both this and the transcript below. A flex item defaults to
           min-height:auto, which refuses to shrink below its content — so even
@@ -250,15 +267,14 @@ export default function GoalChat() {
           nothing they had not just read, and it sat between the headline and
           the conversation — the one place nothing should. */}
       <div
-        className="mx-auto flex w-full min-h-0 max-w-2xl flex-1 flex-col overflow-hidden rounded-2xl"
+        className="mx-auto flex w-full min-h-0 max-w-3xl flex-1 flex-col overflow-hidden rounded-2xl"
         style={{ background: '#0c0c13', border: '1px solid #23232f' }}
       >
         {/* The badge and headline live INSIDE the box, as its head — the
             user's sketch framed the pitch and the conversation as one object.
             They mount only atStart and step aside with the rest of the
             landing chrome once the first answer arrives. */}
-        {atStart && (
-          <div className="flex shrink-0 flex-col items-center px-5 pb-2 pt-7 text-center">
+<div className="flex shrink-0 flex-col items-center px-5 pb-2 pt-7 text-center">
               {/* The badge answers "what is this going to cost me" before the
                   headline asks for anything — nine questions, a minute, no
                   account — which is the objection someone raises at a form. */}
@@ -285,7 +301,7 @@ export default function GoalChat() {
                 </span>
               </h1>
           </div>
-        )}
+
 
         <div
           ref={scrollRef}
