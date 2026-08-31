@@ -4867,5 +4867,396 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "course-cogram-studio",
+    "toolSlug": "cogram-studio",
+    "title": "Master Cogram Studio",
+    "objectives": [
+      "Understand what Cogram Studio is for",
+      "Use Cogram Studio on a real task",
+      "Know where Cogram Studio fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Cogram Studio for your real workflow, not the demo.",
+          "Say what Cogram Studio does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Cogram Studio.",
+          "Push Cogram Studio to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Cogram Studio into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-cad",
+      "skill-bim",
+      "skill-ai agents",
+      "skill-architecture",
+      "skill-3d modeling"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "course-civitas",
+    "toolSlug": "civitas",
+    "title": "Master Civitas",
+    "objectives": [
+      "Understand what Civitas is for",
+      "Use Civitas on a real task",
+      "Know where Civitas fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Civitas for your real workflow, not the demo.",
+          "Say what Civitas does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Civitas.",
+          "Push Civitas to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Civitas into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-multi-agent",
+      "skill-simulation",
+      "skill-open source",
+      "skill-autonomous agents"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "course-manage-coding-norms-across-your-ai-agents",
+    "toolSlug": "manage-coding-norms-across-your-ai-agents",
+    "title": "Master Manage coding norms across your AI agents",
+    "objectives": [
+      "Understand what Manage coding norms across your AI agents is for",
+      "Use Manage coding norms across your AI agents on a real task",
+      "Know where Manage coding norms across your AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Manage coding norms across your AI agents for your real workflow, not the demo.",
+          "Say what Manage coding norms across your AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Manage coding norms across your AI agents.",
+          "Push Manage coding norms across your AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Manage coding norms across your AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding standards",
+      "skill-ai agents",
+      "skill-open source",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "course-experiments-with-ai",
+    "toolSlug": "experiments-with-ai",
+    "title": "Master Experiments with AI",
+    "objectives": [
+      "Understand what Experiments with AI is for",
+      "Use Experiments with AI on a real task",
+      "Know where Experiments with AI fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Experiments with AI for your real workflow, not the demo.",
+          "Say what Experiments with AI does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Experiments with AI.",
+          "Push Experiments with AI to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Experiments with AI into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai agents",
+      "skill-agentic apps",
+      "skill-architecture",
+      "skill-tutorial",
+      "skill-llm"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "course-claude-skills-starter-kit",
+    "toolSlug": "claude-skills-starter-kit",
+    "title": "Master Claude Skills Starter Kit",
+    "objectives": [
+      "Understand what Claude Skills Starter Kit is for",
+      "Use Claude Skills Starter Kit on a real task",
+      "Know where Claude Skills Starter Kit fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Claude Skills Starter Kit for your real workflow, not the demo.",
+          "Say what Claude Skills Starter Kit does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Claude Skills Starter Kit.",
+          "Push Claude Skills Starter Kit to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Claude Skills Starter Kit into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-claude",
+      "skill-ai agents",
+      "skill-skills",
+      "skill-open source",
+      "skill-starter kit"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "course-piqt-ios",
+    "toolSlug": "piqt-ios",
+    "title": "Master Piqt (iOS)",
+    "objectives": [
+      "Understand what Piqt (iOS) is for",
+      "Use Piqt (iOS) on a real task",
+      "Know where Piqt (iOS) fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Piqt (iOS).",
+          "Say what Piqt (iOS) does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Piqt (iOS).",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Piqt (iOS) into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-photos",
+      "skill-video",
+      "skill-curation",
+      "skill-on-device",
+      "skill-ios"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "course-observational-reconstruction-then-the-inverse-problem",
+    "toolSlug": "observational-reconstruction-then-the-inverse-problem",
+    "title": "Master Observational reconstruction, then the inverse problem",
+    "objectives": [
+      "Understand what Observational reconstruction, then the inverse problem is for",
+      "Use Observational reconstruction, then the inverse problem on a real task",
+      "Know where Observational reconstruction, then the inverse problem fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Observational reconstruction, then the inverse problem for your real workflow, not the demo.",
+          "Say what Observational reconstruction, then the inverse problem does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Observational reconstruction, then the inverse problem.",
+          "Push Observational reconstruction, then the inverse problem to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Observational reconstruction, then the inverse problem into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-observability",
+      "skill-agentic workflows",
+      "skill-tracing",
+      "skill-llmops",
+      "skill-reconstruction"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "course-what-agent-skills-are-made-of-programming-languages",
+    "toolSlug": "what-agent-skills-are-made-of-programming-languages",
+    "title": "Master What agent skills are made of: programming languages",
+    "objectives": [
+      "Understand what What agent skills are made of: programming languages is for",
+      "Use What agent skills are made of: programming languages on a real task",
+      "Know where What agent skills are made of: programming languages fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure What agent skills are made of: programming languages for your real workflow, not the demo.",
+          "Say what What agent skills are made of: programming languages does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through What agent skills are made of: programming languages.",
+          "Push What agent skills are made of: programming languages to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold What agent skills are made of: programming languages into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-agent skills",
+      "skill-programming languages",
+      "skill-ai agents",
+      "skill-research",
+      "skill-analysis"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-08-30T23:53:08.057Z"
   }
 ]

@@ -40,7 +40,10 @@
       "i-might-have-built-the-best-linear-alternative",
       "simurg",
       "documentationaimd",
-      "darwin-vm"
+      "darwin-vm",
+      "manage-coding-norms-across-your-ai-agents",
+      "claude-skills-starter-kit",
+      "what-agent-skills-are-made-of-programming-languages"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -78,7 +81,10 @@
       "course-i-might-have-built-the-best-linear-alternative",
       "course-simurg",
       "course-documentationaimd",
-      "course-darwin-vm"
+      "course-darwin-vm",
+      "course-manage-coding-norms-across-your-ai-agents",
+      "course-claude-skills-starter-kit",
+      "course-what-agent-skills-are-made-of-programming-languages"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -189,7 +195,8 @@
       "clipdrop-desktop-clipdrop-ai-tools-2026",
       "how-i-design-with-ai",
       "slidex",
-      "doodle-ai-open-source-photo-to-doodle-avatar-generator"
+      "doodle-ai-open-source-photo-to-doodle-avatar-generator",
+      "cogram-studio"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -202,7 +209,8 @@
       "course-clipdrop-desktop-clipdrop-ai-tools-2026",
       "course-how-i-design-with-ai",
       "course-slidex",
-      "course-doodle-ai-open-source-photo-to-doodle-avatar-generator"
+      "course-doodle-ai-open-source-photo-to-doodle-avatar-generator",
+      "course-cogram-studio"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -311,7 +319,9 @@
       "microsoft-publishes-ai-agent-shared-responsibility-model",
       "ai-agents-for-osint-sigint",
       "subs-the-cloud-native-agent-harness",
-      "agents-are-generating-your-most-valuable-ip"
+      "agents-are-generating-your-most-valuable-ip",
+      "civitas",
+      "piqt-ios"
     ],
     "courses": [
       "course-headless-tools",
@@ -348,7 +358,9 @@
       "course-microsoft-publishes-ai-agent-shared-responsibility-model",
       "course-ai-agents-for-osint-sigint",
       "course-subs-the-cloud-native-agent-harness",
-      "course-agents-are-generating-your-most-valuable-ip"
+      "course-agents-are-generating-your-most-valuable-ip",
+      "course-civitas",
+      "course-piqt-ios"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -398,7 +410,13 @@
       "ai-agents-for-osint-sigint",
       "documentationaimd",
       "subs-the-cloud-native-agent-harness",
-      "agents-are-generating-your-most-valuable-ip"
+      "agents-are-generating-your-most-valuable-ip",
+      "cogram-studio",
+      "civitas",
+      "manage-coding-norms-across-your-ai-agents",
+      "experiments-with-ai",
+      "claude-skills-starter-kit",
+      "what-agent-skills-are-made-of-programming-languages"
     ],
     "courses": [
       "course-headless-tools",
@@ -428,7 +446,13 @@
       "course-ai-agents-for-osint-sigint",
       "course-documentationaimd",
       "course-subs-the-cloud-native-agent-harness",
-      "course-agents-are-generating-your-most-valuable-ip"
+      "course-agents-are-generating-your-most-valuable-ip",
+      "course-cogram-studio",
+      "course-civitas",
+      "course-manage-coding-norms-across-your-ai-agents",
+      "course-experiments-with-ai",
+      "course-claude-skills-starter-kit",
+      "course-what-agent-skills-are-made-of-programming-languages"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -486,7 +510,8 @@
       "gemini-omni-11-flash",
       "ai-engineer-notebooks",
       "obsessing-over-ai-agent-harnesses",
-      "a-slm-optimized-for-tool-calling"
+      "a-slm-optimized-for-tool-calling",
+      "experiments-with-ai"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -496,7 +521,8 @@
       "course-gemini-omni-11-flash",
       "course-ai-engineer-notebooks",
       "course-obsessing-over-ai-agent-harnesses",
-      "course-a-slm-optimized-for-tool-calling"
+      "course-a-slm-optimized-for-tool-calling",
+      "course-experiments-with-ai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -761,10 +787,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "canvasformusic"
+      "canvasformusic",
+      "piqt-ios"
     ],
     "courses": [
-      "course-canvasformusic"
+      "course-canvasformusic",
+      "course-piqt-ios"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -929,10 +957,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "coolplugz"
+      "coolplugz",
+      "claude-skills-starter-kit"
     ],
     "courses": [
-      "course-coolplugz"
+      "course-coolplugz",
+      "course-claude-skills-starter-kit"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1189,13 +1219,15 @@
       "mrea",
       "coordination-layer-for-coding-agents",
       "a2acast",
-      "agentbridge"
+      "agentbridge",
+      "civitas"
     ],
     "courses": [
       "course-mrea",
       "course-coordination-layer-for-coding-agents",
       "course-a2acast",
-      "course-agentbridge"
+      "course-agentbridge",
+      "course-civitas"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1270,7 +1302,8 @@
       "obsessing-over-ai-agent-harnesses",
       "opencontext",
       "documentationaimd",
-      "subs-the-cloud-native-agent-harness"
+      "subs-the-cloud-native-agent-harness",
+      "manage-coding-norms-across-your-ai-agents"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -1284,7 +1317,8 @@
       "course-obsessing-over-ai-agent-harnesses",
       "course-opencontext",
       "course-documentationaimd",
-      "course-subs-the-cloud-native-agent-harness"
+      "course-subs-the-cloud-native-agent-harness",
+      "course-manage-coding-norms-across-your-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1312,7 +1346,8 @@
       "chessrabbit",
       "ai-engineer-notebooks",
       "trana",
-      "why-agentic-ai-needs-a-strong-identity-foundation"
+      "why-agentic-ai-needs-a-strong-identity-foundation",
+      "experiments-with-ai"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1320,7 +1355,8 @@
       "course-chessrabbit",
       "course-ai-engineer-notebooks",
       "course-trana",
-      "course-why-agentic-ai-needs-a-strong-identity-foundation"
+      "course-why-agentic-ai-needs-a-strong-identity-foundation",
+      "course-experiments-with-ai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1377,10 +1413,12 @@
     "domain": "learning",
     "level": "advanced",
     "toolsTeaching": [
-      "designing-loops-for-production-grade-work"
+      "designing-loops-for-production-grade-work",
+      "experiments-with-ai"
     ],
     "courses": [
-      "course-designing-loops-for-production-grade-work"
+      "course-designing-loops-for-production-grade-work",
+      "course-experiments-with-ai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1411,7 +1449,10 @@
       "dmx",
       "my-free-code",
       "i-might-have-built-the-best-linear-alternative",
-      "documentationaimd"
+      "documentationaimd",
+      "civitas",
+      "manage-coding-norms-across-your-ai-agents",
+      "claude-skills-starter-kit"
     ],
     "courses": [
       "course-limitless-library",
@@ -1422,7 +1463,10 @@
       "course-dmx",
       "course-my-free-code",
       "course-i-might-have-built-the-best-linear-alternative",
-      "course-documentationaimd"
+      "course-documentationaimd",
+      "course-civitas",
+      "course-manage-coding-norms-across-your-ai-agents",
+      "course-claude-skills-starter-kit"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1503,14 +1547,16 @@
       "launch-hn-risklytics-yc-s26",
       "terminal-bench-science-evaluating-ai-agents-on-scientific-re",
       "dipstick-alerts",
-      "datazen"
+      "datazen",
+      "observational-reconstruction-then-the-inverse-problem"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
       "course-launch-hn-risklytics-yc-s26",
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
       "course-dipstick-alerts",
-      "course-datazen"
+      "course-datazen",
+      "course-observational-reconstruction-then-the-inverse-problem"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1546,10 +1592,12 @@
     "domain": "data",
     "level": "advanced",
     "toolsTeaching": [
-      "genbio-launches-a-virtual-biological-cell"
+      "genbio-launches-a-virtual-biological-cell",
+      "civitas"
     ],
     "courses": [
-      "course-genbio-launches-a-virtual-biological-cell"
+      "course-genbio-launches-a-virtual-biological-cell",
+      "course-civitas"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1830,11 +1878,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "agenttrail",
-      "telem"
+      "telem",
+      "observational-reconstruction-then-the-inverse-problem"
     ],
     "courses": [
       "course-agenttrail",
-      "course-telem"
+      "course-telem",
+      "course-observational-reconstruction-then-the-inverse-problem"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2222,10 +2272,14 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "agents-should-be-durable-not-long-lived"
+      "agents-should-be-durable-not-long-lived",
+      "cogram-studio",
+      "experiments-with-ai"
     ],
     "courses": [
-      "course-agents-should-be-durable-not-long-lived"
+      "course-agents-should-be-durable-not-long-lived",
+      "course-cogram-studio",
+      "course-experiments-with-ai"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3110,10 +3164,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "telem"
+      "telem",
+      "observational-reconstruction-then-the-inverse-problem"
     ],
     "courses": [
-      "course-telem"
+      "course-telem",
+      "course-observational-reconstruction-then-the-inverse-problem"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -3259,10 +3315,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "understudy-scenario-testing-for-ai-agents"
+      "understudy-scenario-testing-for-ai-agents",
+      "observational-reconstruction-then-the-inverse-problem"
     ],
     "courses": [
-      "course-understudy-scenario-testing-for-ai-agents"
+      "course-understudy-scenario-testing-for-ai-agents",
+      "course-observational-reconstruction-then-the-inverse-problem"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -3285,10 +3343,12 @@
     "domain": "data",
     "level": "advanced",
     "toolsTeaching": [
-      "terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+      "terminal-bench-science-evaluating-ai-agents-on-scientific-re",
+      "what-agent-skills-are-made-of-programming-languages"
     ],
     "courses": [
-      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
+      "course-what-agent-skills-are-made-of-programming-languages"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -3632,11 +3692,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "trana",
-      "darwin-vm"
+      "darwin-vm",
+      "piqt-ios"
     ],
     "courses": [
       "course-trana",
-      "course-darwin-vm"
+      "course-darwin-vm",
+      "course-piqt-ios"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -4557,5 +4619,213 @@
       "course-darwin-vm"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
+  },
+  {
+    "id": "skill-cad",
+    "name": "cad",
+    "domain": "design",
+    "level": "advanced",
+    "toolsTeaching": [
+      "cogram-studio"
+    ],
+    "courses": [
+      "course-cogram-studio"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-bim",
+    "name": "bim",
+    "domain": "design",
+    "level": "advanced",
+    "toolsTeaching": [
+      "cogram-studio"
+    ],
+    "courses": [
+      "course-cogram-studio"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-3d modeling",
+    "name": "3d modeling",
+    "domain": "design",
+    "level": "advanced",
+    "toolsTeaching": [
+      "cogram-studio"
+    ],
+    "courses": [
+      "course-cogram-studio"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-autonomous agents",
+    "name": "autonomous agents",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "civitas"
+    ],
+    "courses": [
+      "course-civitas"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-coding standards",
+    "name": "coding standards",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "manage-coding-norms-across-your-ai-agents"
+    ],
+    "courses": [
+      "course-manage-coding-norms-across-your-ai-agents"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-agentic apps",
+    "name": "agentic apps",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "experiments-with-ai"
+    ],
+    "courses": [
+      "course-experiments-with-ai"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-skills",
+    "name": "skills",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "claude-skills-starter-kit"
+    ],
+    "courses": [
+      "course-claude-skills-starter-kit"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-starter kit",
+    "name": "starter kit",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "claude-skills-starter-kit"
+    ],
+    "courses": [
+      "course-claude-skills-starter-kit"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-photos",
+    "name": "photos",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "piqt-ios"
+    ],
+    "courses": [
+      "course-piqt-ios"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-curation",
+    "name": "curation",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "piqt-ios"
+    ],
+    "courses": [
+      "course-piqt-ios"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-on-device",
+    "name": "on device",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "piqt-ios"
+    ],
+    "courses": [
+      "course-piqt-ios"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-agentic workflows",
+    "name": "agentic workflows",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "observational-reconstruction-then-the-inverse-problem"
+    ],
+    "courses": [
+      "course-observational-reconstruction-then-the-inverse-problem"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-reconstruction",
+    "name": "reconstruction",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "observational-reconstruction-then-the-inverse-problem"
+    ],
+    "courses": [
+      "course-observational-reconstruction-then-the-inverse-problem"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-agent skills",
+    "name": "agent skills",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "what-agent-skills-are-made-of-programming-languages"
+    ],
+    "courses": [
+      "course-what-agent-skills-are-made-of-programming-languages"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-programming languages",
+    "name": "programming languages",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "what-agent-skills-are-made-of-programming-languages"
+    ],
+    "courses": [
+      "course-what-agent-skills-are-made-of-programming-languages"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-analysis",
+    "name": "analysis",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "what-agent-skills-are-made-of-programming-languages"
+    ],
+    "courses": [
+      "course-what-agent-skills-are-made-of-programming-languages"
+    ],
+    "updatedAt": "2026-08-30T23:53:08.057Z"
   }
 ]
