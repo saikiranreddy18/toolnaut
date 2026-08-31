@@ -1609,6 +1609,37 @@ a client-side SPA with a static tool catalogue.
   props into the three existing filter rows. No backend, no new dependency, no
   new route, no new store.
 - **Found:** 2026-08-27 15:07 UTC
+- **Deepened 2026-08-31 03:20 UTC:** every line reference in this entry is now
+  stale — flagged as likely by the tags-clickable gap's own 2026-08-30
+  deepening above, confirmed here by reading the current 333-line
+  `Discover.jsx` in full. The page picked up pagination and a `ToolCard`
+  extraction since this entry was written (both visible in the file: a
+  `PAGE_SIZE`/`visible`/`remaining` block and an imported `ToolCard`
+  component that replaced inline card markup). Corrected locations:
+  `Pill` is now `Discover.jsx:26-36` (was `:18-28`); the filter predicate to
+  extract is the `.filter(...)` call inside the `results` `useMemo` at
+  `Discover.jsx:97-108` (was `:85-101` — the `useMemo` itself now spans
+  `:95-114` because a `.map()` for `matchScore` and a `.sort()` for
+  prominence tiebreak run after the filter, so the util extraction should
+  pull out only the `.filter()` predicate, not the whole memo body); the
+  category/price/level pill rows are now `:204-210`, `:213-218`, `:219-224`
+  (was `:161-165`, `:170-174`, `:176-180`); the zero-results block referenced
+  for "only shows after a filter is already applied" is now `:227-254` (was
+  `:183-193`) and, like the tags gap already noted for the community-
+  submission gap's empty state, now computes `suggestedCats` and a "clear all
+  filters" button that didn't exist when this entry was first written.
+  Substance is unaffected — `Pill` still takes only `active`/`onClick`/
+  `children` (confirmed, no `count` slot today), and no shared search
+  predicate util exists yet anywhere in `src/` (checked `src/utils/` for a
+  `search.js`/`facetCounts.js` file and grepped for `matchesQuery` — zero
+  hits), so the plan to extract the filter predicate into a reusable pure
+  function is still exactly the right shape, just pointed at the right
+  lines now. Worth naming for whoever builds this: the still-OPEN "No public
+  search" gap (`docs/research-backlog.md:2099`) independently proposes
+  extracting the *same* predicate into a shared `matchesQuery()` helper for
+  its own `SearchTools.jsx` page — if either gap ships first, the other
+  should reuse its extracted helper rather than factoring the predicate out
+  twice into two slightly different utils.
 
 ### Tool "graveyard" page — deferred by the status-note gap, worth its own build
 - **Status:** OPEN
