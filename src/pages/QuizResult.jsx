@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { generatePersona } from '../utils/personaGenerator'
+import { recommendationConfidence } from '../utils/confidence'
+import { read as readScoped, write as writeScoped } from '../state/scopedStorage'
 import { loadQuiz, resetQuiz } from '../state/quizStore'
 import { haptic } from '../utils/haptics'
 
@@ -46,6 +48,8 @@ export default function QuizResult() {
   }
 
   const persona = generatePersona(quiz.answers)
+  const confidence = recommendationConfidence(quiz.answers)
+  const [fit, setFit] = useState(() => readScoped('exus_stack_feedback_v1', null))
 
   function retake() {
     resetQuiz()
@@ -140,6 +144,23 @@ export default function QuizResult() {
           <div className="mb-5 flex justify-center">
             <span className="arcade-chip on">🎯 your starter kit</span>
           </div>
+
+          {/* Honest confidence: a BAND from signal completeness plus the size
+              of the candidate pool the scorer actually found — never a fake
+              percent. Says what it knows, and the one thing that would
+              sharpen it. When the pool is thin the constraint is named
+              instead of pretending a perfect stack was found. */}
+          <div className="mx-auto mb-6 max-w-xl rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center">
+            <p className="font-display text-[10px] font-black uppercase tracking-[0.18em]" style={{ color: confidence.constrained ? 'var(--hot-pink)' : 'var(--lime)' }}>
+              Recommendation quality: {confidence.constrained ? 'Limited by your answers' : confidence.label}
+            </p>
+            <p className="mt-1.5 text-xs leading-relaxed text-slate-400">
+              {confidence.constrained
+                ? `Your combination of answers narrows the field — only ${confidence.pool} tools score highly for it. The picks below are the best of a small pool; relaxing budget or level widens it.`
+                : `Built from ${confidence.known.length} things you told us — ${confidence.known.slice(0, 3).join(', ')}${confidence.known.length > 3 ? '…' : ''}.`}
+              {!confidence.constrained && confidence.nextSignal && ` Telling us ${confidence.nextSignal} would sharpen it further.`}
+            </p>
+          </div>
           <div className="grid gap-4 sm:grid-cols-3">
             {persona.stack.map((t, i) => (
               <motion.div
@@ -159,6 +180,43 @@ export default function QuizResult() {
               </motion.div>
             ))}
           </div>
+        </div>
+
+        {/* One light question, once. The three answers map to the three
+            actions the funnel cares about: fits -> proceed, mostly -> refine
+            in Find, not really -> retake. Far more useful from a newcomer
+            than rating unfamiliar tools out of five. */}
+        <div className="mt-8 text-center">
+          {fit ? (
+            <p className="text-xs font-bold uppercase tracking-widest text-slate-500">
+              {fit === 'yes' ? '✓ Noted — glad it fits.' : fit === 'mostly' ? '✓ Noted — tune it in FIND.' : '✓ Noted — a retake takes a minute.'}
+            </p>
+          ) : (
+            <>
+              <p className="font-display text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">
+                Does this kit fit what you need?
+              </p>
+              <div className="mt-2.5 flex flex-wrap items-center justify-center gap-2">
+                {[
+                  ['yes', 'Yes, it fits'],
+                  ['mostly', 'Mostly — I want changes'],
+                  ['no', 'Not really'],
+                ].map(([key, label]) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setFit(key)
+                      writeScoped('exus_stack_feedback_v1', key)
+                      track(EVENTS.STACK_FEEDBACK, { fit: key, band: confidence.band, pool: confidence.pool })
+                    }}
+                    className="cursor-pointer rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold text-slate-200 transition-colors hover:border-[var(--lime)] hover:text-white"
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
         </div>
 
         {/* Suggested plan — chip */}
