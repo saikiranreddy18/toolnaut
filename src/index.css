@@ -776,3 +776,14 @@ html[data-theme='synth'] {
   .enter-heading strong { -webkit-text-stroke-width: 2px; text-shadow: 4px 4px #080809; }
   .signin-panel::after { width: 48px; height: 48px; }
 }
+
+/* Holographic sweep for the ticket's persona name: the gradient slides through
+   the clipped glyphs like light across foil. Guarded for reduced motion. */
+.holo-sweep { animation: holo-slide 5.5s ease-in-out infinite; }
+@keyframes holo-slide {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .holo-sweep { animation: none; }
+}

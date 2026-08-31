@@ -101,25 +101,54 @@ export default function QuizResult() {
             barcode. Every field is REAL: the badge is the earned level, the
             passenger is the persona, and the ticket id is a deterministic
             hash of the answers — same answers, same ticket. */}
+        {/* nebula environment behind the ticket, like the reference's sky */}
+        <div className="pointer-events-none absolute inset-x-0 top-24 -z-10 mx-auto h-[560px] max-w-5xl" aria-hidden="true" style={{
+          background: 'radial-gradient(42% 55% at 22% 30%, rgba(45,212,191,0.16), transparent 70%), radial-gradient(38% 50% at 80% 65%, rgba(124,58,237,0.18), transparent 70%), radial-gradient(30% 40% at 60% 20%, rgba(236,72,153,0.10), transparent 70%)',
+          filter: 'blur(6px)',
+        }} />
+
         <motion.div
-          initial={{ opacity: 0, y: 40, rotate: 0 }}
-          animate={{ opacity: 1, y: 0, rotate: -1.2 }}
+          initial={{ opacity: 0, y: 46 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, type: 'spring', stiffness: 120, damping: 16 }}
-          className="mx-auto mt-2 max-w-4xl overflow-hidden rounded-[26px] text-left"
-          style={{
-            background: 'linear-gradient(135deg, #121220 0%, #0d0d17 55%, #10101c 100%)',
-            border: '1px solid rgba(255,255,255,0.10)',
-            boxShadow: '0 30px 80px -20px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.06)',
-          }}
+          className="mx-auto mt-2 max-w-4xl text-left"
+          style={{ perspective: '1500px' }}
         >
+          {/* The physical ticket. Tilted in space like the render — and it
+              STRAIGHTENS when the pointer comes to read it, which a printed
+              ticket cannot do and a good screen one should. Flat on mobile. */}
+          <div
+            className="group relative overflow-hidden rounded-[26px] transition-transform duration-700 ease-out md:[transform:rotateX(9deg)_rotateY(-13deg)_rotate(-2.5deg)] md:hover:[transform:rotateX(0deg)_rotateY(0deg)_rotate(0deg)]"
+            style={{
+              background: 'linear-gradient(135deg, #161626 0%, #0d0d17 55%, #131322 100%)',
+              border: '1px solid rgba(255,255,255,0.12)',
+              boxShadow: '0 45px 90px -18px rgba(0,0,0,0.92), 0 12px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08)',
+              transformStyle: 'preserve-3d',
+            }}
+          >
+          {/* leather grain + diagonal sheen, the reference's materiality */}
+          <div className="pointer-events-none absolute inset-0" aria-hidden="true" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")`,
+            opacity: 0.07,
+            mixBlendMode: 'overlay',
+          }} />
+          <div className="pointer-events-none absolute inset-0" aria-hidden="true" style={{
+            background: 'linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.05) 44%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.05) 56%, transparent 70%)',
+          }} />
+          {/* perforation punch-holes where the stub tears */}
+          <div className="pointer-events-none absolute -top-3 right-[230px] hidden h-6 w-6 rounded-full md:block" aria-hidden="true" style={{ background: '#060609', boxShadow: 'inset 0 -2px 4px rgba(0,0,0,0.8)' }} />
+          <div className="pointer-events-none absolute -bottom-3 right-[230px] hidden h-6 w-6 rounded-full md:block" aria-hidden="true" style={{ background: '#060609', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.8)' }} />
+
           <div className="grid md:grid-cols-[minmax(0,1fr)_230px]">
             <div className="px-6 py-8 text-center sm:px-10">
               <span
-                className="inline-flex items-center gap-2 rounded-lg px-4 py-1.5 font-display text-xs font-black uppercase tracking-[0.2em] text-black"
+                className="inline-flex -rotate-2 items-center gap-2 rounded-md px-5 py-2 font-display text-xs font-black uppercase tracking-[0.22em]"
                 style={{
-                  background: 'linear-gradient(180deg, #f6e27a, #d4af37 55%, #b8860b)',
-                  border: '1px solid #8a6d1a',
-                  boxShadow: '0 2px 10px rgba(212,175,55,0.45), inset 0 1px 0 rgba(255,255,255,0.5)',
+                  background: 'linear-gradient(180deg, #f9ecae 0%, #e8c96a 30%, #c9a23a 60%, #9a7a1e 100%)',
+                  border: '1px solid #7c621a',
+                  color: '#3a2e08',
+                  textShadow: '0 1px 0 rgba(255,255,255,0.45)',
+                  boxShadow: '0 6px 16px rgba(0,0,0,0.55), 0 2px 8px rgba(212,175,55,0.35), inset 0 2px 2px rgba(255,255,255,0.65), inset 0 -3px 4px rgba(122,90,20,0.55)',
                 }}
               >
                 ★ {level}
@@ -133,9 +162,10 @@ export default function QuizResult() {
                   {persona.name.toUpperCase()}
                 </span>
                 <span
-                  className="relative"
+                  className="holo-sweep relative"
                   style={{
-                    background: 'linear-gradient(100deg, #bfeee2 0%, #ffffff 40%, #a3ffd8 65%, #d8f7ff 100%)',
+                    background: 'linear-gradient(100deg, #9fe8d8 0%, #ffffff 30%, #8fffd0 48%, #e6fbff 62%, #bfeee2 80%, #ffffff 100%)',
+                    backgroundSize: '220% 100%',
                     WebkitBackgroundClip: 'text',
                     backgroundClip: 'text',
                     color: 'transparent',
@@ -176,9 +206,10 @@ export default function QuizResult() {
                       transition={{ delay: 0.7 + i * 0.14, type: 'spring', stiffness: 200, damping: 16 }}
                       className="rounded-2xl p-4 text-left"
                       style={{
-                        border: `2px solid ${frame}`,
-                        background: 'rgba(6,6,12,0.55)',
-                        boxShadow: `0 0 18px -6px ${frame}, inset 0 0 22px rgba(0,0,0,0.5)`,
+                        border: `3px solid ${frame}`,
+                        background: 'linear-gradient(160deg, rgba(20,20,32,0.9), rgba(6,6,12,0.85))',
+                        boxShadow: `0 10px 24px rgba(0,0,0,0.55), 0 0 22px -6px ${frame}, inset 0 2px 0 rgba(255,255,255,0.22), inset 0 -6px 14px rgba(0,0,0,0.6)`,
+                        transform: `rotate(${i === 0 ? -1.6 : i === 1 ? 0.8 : -0.6}deg)`,
                       }}
                     >
                       <div className="flex items-start justify-between gap-2">
@@ -194,7 +225,11 @@ export default function QuizResult() {
               </div>
             </div>
 
-            <div className="relative px-5 py-6 md:py-8" style={{ borderTop: '2px dashed rgba(255,255,255,0.16)' }}>
+            <div className="relative overflow-hidden px-5 py-6 md:py-8" style={{ borderTop: '2px dashed rgba(255,255,255,0.16)', background: 'rgba(5,5,10,0.45)' }}>
+              <div className="pointer-events-none absolute inset-0 opacity-60" aria-hidden="true" style={{
+                background: 'radial-gradient(70% 55% at 65% 72%, rgba(45,212,191,0.35), rgba(124,58,237,0.30) 40%, rgba(236,72,153,0.16) 62%, transparent 78%)',
+                filter: 'blur(2px)',
+              }} />
               <div className="absolute inset-y-3 left-0 hidden border-l-2 border-dashed border-white/15 md:block" aria-hidden="true" />
               <dl className="space-y-2 text-left">
                 {[
@@ -229,6 +264,7 @@ export default function QuizResult() {
                 }}
               />
             </div>
+          </div>
           </div>
         </motion.div>
 
