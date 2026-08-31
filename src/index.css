@@ -203,6 +203,60 @@ button, a, input, select, textarea {
   opacity: 0.34;
 }
 
+/* THE MOON ITSELF.
+   Until now "full moon" was only a glow — a radial-gradient wash at 84% 12%
+   with no body in it, so the setting lit the sky from a light source that was
+   not there.
+
+   It hangs off body::after rather than .starfield because both of that
+   element's pseudo-elements are already spent on the two star layers, and
+   .starfield is rendered in seven separate places (AppShell, OnboardingShell,
+   About, Pricing, Legal, NotFound, Scene) — one rule here reaches all of them
+   without touching a single component.
+
+   Everything inside is a percentage of the moon's own 116px box, so the craters
+   stay welded to the disc at any viewport size. Positioned to sit under the
+   existing glow at 84% 12%, because a light source and its halo disagreeing
+   about where they are is worse than no moon at all. */
+[data-moon='full'] body::after {
+  content: '';
+  position: fixed;
+  top: 84px;
+  right: 168px;
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  /* Behind every surface: .starfield is z-0 and app content sits at z-10, so
+     the moon shares the sky's layer and never lands on top of text. */
+  z-index: 0;
+  pointer-events: none;
+  background:
+    /* maria — three, uneven, because a symmetrical moon reads as a button */
+    radial-gradient(circle 10px at 63% 31%, rgba(120, 132, 154, 0.5), transparent 100%),
+    radial-gradient(circle 7px at 39% 60%, rgba(120, 132, 154, 0.45), transparent 100%),
+    radial-gradient(circle 14px at 47% 44%, rgba(126, 138, 160, 0.3), transparent 100%),
+    /* the body. The gradient centre is offset up-left so the far limb darkens,
+       which is what makes a flat circle read as a lit sphere. */
+    radial-gradient(circle at 37% 31%, #f8fafc 0%, #e6ebf3 44%, #c9d2e0 72%, #a9b4c8 100%);
+  box-shadow: 0 0 70px 18px rgba(226, 232, 240, 0.14);
+}
+
+/* Phones: smaller, and tucked in from the edge so it does not collide with the
+   header controls that live in that corner. */
+@media (max-width: 640px) {
+  [data-moon='full'] body::after {
+    top: 64px;
+    right: 26px;
+    width: 76px;
+    height: 76px;
+  }
+}
+
+/* No moon means no moon. */
+[data-moon='none'] body::after {
+  content: none;
+}
+
 /* No moon: the sky drops away and the field comes forward. */
 [data-moon='none'] .starfield {
   background:
