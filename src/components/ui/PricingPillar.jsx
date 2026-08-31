@@ -29,7 +29,7 @@ function PlanIcon({ type, color }) {
   )
 }
 
-export default function PricingPillar({ plan }) {
+export default function PricingPillar({ plan, currency = 'USD' }) {
   const track = useAnalytics()
 
   return (
@@ -63,7 +63,7 @@ export default function PricingPillar({ plan }) {
         </div>
         <p className="mt-3 flex items-baseline gap-1">
           <span className="font-display text-5xl font-black italic text-white" style={{ textShadow: '3px 3px 0 #000' }}>
-            ${plan.price}
+            {currency === 'INR' ? `₹${plan.priceINR.toLocaleString('en-IN')}` : `$${plan.price}`}
           </span>
           <span className="text-sm font-bold text-slate-400">/month</span>
         </p>

@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import SectionShell, { fadeUp } from '../ui/SectionShell'
 import PricingPillar from '../ui/PricingPillar'
 import { PLANS, COMPARISON } from '../../utils/planData'
+import { initialCurrency, fetchCountry, savedCurrency, saveCurrency } from '../../utils/region'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 
@@ -23,14 +24,45 @@ function Cell({ value }) {
 }
 
 export default function PricingSection({ titleAs = 'h2' }) {
+  // Regional pricing: India pays in rupees, everyone else in dollars.
+  // First paint uses the synchronous answer (saved choice, else timezone);
+  // the edge country then confirms or corrects it — but never overrides a
+  // choice the person made themselves, because detection is a guess and a
+  // VPN or an NRI's card proves it wrong. The ₹/$ switch is that escape.
+  const [currency, setCurrency] = useState(initialCurrency)
+  useEffect(() => {
+    if (savedCurrency()) return
+    let alive = true
+    fetchCountry().then((c) => {
+      if (alive && c) setCurrency(c === 'IN' ? 'INR' : 'USD')
+    })
+    return () => { alive = false }
+  }, [])
+  const pick = (cur) => { setCurrency(cur); saveCurrency(cur) }
+
   const [compare, setCompare] = useState(false)
   const track = useAnalytics()
 
   return (
     <SectionShell id="pricing" eyebrow="Pricing" titleAs={titleAs} title="Start solo. Scale with your team.">
+      <div className="mb-6 flex items-center justify-center gap-2">
+        <span className="font-display text-[10px] font-black uppercase tracking-[0.18em] text-slate-500">Prices in</span>
+        {[['INR', '₹ INR'], ['USD', '$ USD']].map(([cur, label]) => (
+          <button
+            key={cur}
+            onClick={() => pick(cur)}
+            aria-pressed={currency === cur}
+            className={`arcade-chip press min-h-8 cursor-pointer ${currency === cur ? 'on' : ''}`}
+            style={{ fontSize: 10 }}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
       <div className="grid items-stretch gap-8 md:grid-cols-3">
         {PLANS.map((plan) => (
-          <PricingPillar key={plan.id} plan={plan} />
+          <PricingPillar key={plan.id} plan={plan} currency={currency} />
         ))}
       </div>
 
