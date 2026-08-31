@@ -58,7 +58,7 @@ export default function Compare() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-5 py-8 lg:py-10">
+    <div className="mx-auto max-w-5xl px-5 xl:max-w-6xl py-8 lg:py-10">
       <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ COMPARE</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">
         {tools.length > 0 ? `${tools.length} TOOLS SIDE BY SIDE` : 'NOTHING TO COMPARE'}
