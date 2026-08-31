@@ -5,6 +5,8 @@ import { loadQuiz } from '../../state/quizStore'
 import { generatePersona } from '../../utils/personaGenerator'
 import { getTool, TOOLS, CATEGORY_META } from '../../utils/toolsCatalog'
 import { matchScore, matchReasonShort } from '../../utils/matchScore'
+import { hardFilterCount } from '../../utils/stackConfidence'
+import StackConfidence from '../../components/app/StackConfidence'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { haptic } from '../../utils/haptics'
 import { encodeStackSlugs } from '../../utils/shareStack'
@@ -292,6 +294,18 @@ export default function Stack() {
             {dots.filter((d) => d.visited).length} of 7 days this week
           </p>
         </div>
+      </motion.div>
+
+      {/* What Toolnaut actually knows about this Stack. Sits directly under the
+          persona because that is where someone decides how much to trust it —
+          and it is where the one refinement question can still change the
+          answer rather than arriving after they have already scrolled past. */}
+      <motion.div {...cardIn(0.45)}>
+        <StackConfidence
+          answers={quiz.answers}
+          candidateCount={hardFilterCount(TOOLS, quiz.answers)}
+          scores={allStackTools.map((t) => matchScore(t, quiz.answers) ?? 50)}
+        />
       </motion.div>
 
       {/* Skills graph — coverage across the 6 galaxy domains */}
