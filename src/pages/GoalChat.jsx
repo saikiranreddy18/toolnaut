@@ -3,7 +3,7 @@ import useSmoothScroll from '../hooks/useSmoothScroll'
 import { Link, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { CHAT_QUESTIONS, GREETING, acknowledge, matchFreeText, saveNote, askServer } from '../utils/goalChat'
-import { BrandLogo, LOGO } from '../components/ui/Mascot'
+import Mascot, { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { loadQuiz, saveAnswer, completeQuiz } from '../state/quizStore'
 import { useAnalytics } from '../hooks/useAnalytics'
 import { EVENTS } from '../utils/analyticsEvents'
@@ -274,12 +274,12 @@ export default function GoalChat() {
             user's sketch framed the pitch and the conversation as one object.
             They mount only atStart and step aside with the rest of the
             landing chrome once the first answer arrives. */}
-<div className="flex shrink-0 flex-col items-center px-5 pb-2 pt-7 text-center">
+<div className={`flex shrink-0 flex-col items-center px-5 text-center ${atStart ? 'pb-2 pt-7' : 'pb-1 pt-4'}`}>
               {/* The badge answers "what is this going to cost me" before the
                   headline asks for anything — nine questions, a minute, no
                   account — which is the objection someone raises at a form. */}
               <span
-                className="mx-auto inline-flex items-center gap-[7px] rounded-full px-[13px] py-[7px] text-[11px] font-medium leading-none"
+                className={`mx-auto inline-flex items-center gap-[7px] rounded-full font-medium leading-none ${atStart ? 'px-[13px] py-[7px] text-[11px]' : 'px-2.5 py-1 text-[9px]'}`}
                 style={{
                   background: 'rgba(163,255,46,.10)',
                   border: '1px solid rgba(163,255,46,.32)',
@@ -294,7 +294,11 @@ export default function GoalChat() {
                   each a single stroke. The old 37px/700 with a wrapping second
                   line read as body copy standing up straight — this is the page's
                   entire pitch and it carries the weight of one. */}
-              <h1 className="mt-5 max-w-3xl font-display text-[clamp(1.8rem,4.6vw,2.7rem)] font-black leading-[1.1] tracking-[-0.03em] text-white">
+              <h1 className={`max-w-3xl font-display font-black tracking-[-0.03em] text-white ${
+            atStart
+              ? 'mt-5 text-[clamp(1.8rem,4.6vw,2.7rem)] leading-[1.1]'
+              : 'mt-2 text-xl leading-tight'
+          }`}>
                 Tell Naut what you do.
                 <span className="block text-slate-500">
                   It builds it, plans it, grows it.
@@ -303,9 +307,17 @@ export default function GoalChat() {
           </div>
 
 
+        {/* The conversation zone — thread, chips, input — sits on its own
+            darker surface, framed off from the card head. The user's pink
+            box drew exactly this: where the talking happens is one object,
+            distinct from where the pitch stands. */}
+        <div
+          className="mx-2.5 mb-2.5 flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl"
+          style={{ background: '#07070d', border: '1px solid #1c1c28' }}
+        >
         <div
           ref={scrollRef}
-          className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-5 sm:px-5"
+          className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-4 sm:px-5"
           role="log"
           aria-live="polite"
           aria-label="Conversation"
@@ -321,8 +333,13 @@ export default function GoalChat() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.22 }}
-                className={m.from === 'user' ? 'flex justify-end' : 'flex justify-start'}
+                className={m.from === 'user' ? 'flex justify-end' : 'flex items-end gap-2'}
               >
+                {m.from !== 'user' && (
+                  <span className="shrink-0 pb-0.5" aria-hidden="true">
+                    <Mascot mood="happy" size={26} />
+                  </span>
+                )}
                 <div
                   className={
                     m.from === 'user'
@@ -343,8 +360,11 @@ export default function GoalChat() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="flex justify-start"
+                  className="flex items-end gap-2"
                 >
+                  <span className="shrink-0 pb-0.5" aria-hidden="true">
+                    <Mascot mood="curious" size={26} />
+                  </span>
                   <div className="flex gap-1.5 rounded-2xl rounded-bl-md border-2 border-white/10 bg-white/[0.05] px-4 py-3">
                     {[0, 1, 2].map((d) => (
                       <motion.span
@@ -362,7 +382,10 @@ export default function GoalChat() {
         </div>
 
         {/* option chips for the current question */}
-        {!done && !typing && question && (
+        {/* Blank until the Hi: chips answer question one, and question one
+            has not been asked yet — six category buttons under a greeting
+            looked like a menu for a question nobody heard. */}
+        {started && !done && !typing && question && (
           <div className="shrink-0 px-4 py-3" style={{ borderTop: '1px solid #23232f' }}>
             {unmatched && (
               <p className="mb-2 font-display text-[10px] font-black uppercase tracking-[0.18em]" style={{ color: 'var(--hot-pink)' }}>
@@ -412,6 +435,7 @@ export default function GoalChat() {
             </button>
           </div>
         </form>
+        </div>
       </div>
 
       <p className="mx-auto mt-3 max-w-2xl text-center text-xs text-slate-500">
