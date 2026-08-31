@@ -34,7 +34,11 @@ const SIGNALS = [
   { id: 'blocker', weight: 4, label: 'what blocks you' },
 ]
 
-const STRONG_MATCH = 78 // a score matchScore only awards on real alignment
+// Retuned with matchScore's baseline: 78 was calibrated against a scale whose
+// baseline was 50, and would now admit almost nothing to the pool. 60 is the
+// "Good fit" line, which is the honest reading of "a tool this profile could
+// actually adopt".
+const STRONG_MATCH = 60
 
 // Eligibility for the POOL. Coverage must count only what the person could
 // actually adopt: under budget=free, 16 paid tools cleared the threshold on

@@ -27,6 +27,10 @@ export default function ToolCard({
   onToggleFavorite,
   reason,
   compare,
+  // The band is redundant in a list already sorted by score — the order is
+  // the ranking, and a badge that reads the same on every row teaches the
+  // reader to ignore badges. Ranked surfaces pass showFit={false}.
+  showFit = true,
 }) {
   const meta = CATEGORY_META[tool.category] || { name: tool.category, color: 'var(--cyan)' }
   const stickerColor = index % 3 === 0 ? '' : index % 3 === 1 ? 'pink' : 'cyan'
@@ -51,7 +55,7 @@ export default function ToolCard({
               the number behind it is a heuristic sum of at most four bonuses
               off a baseline of 50, never validated against whether anyone kept
               the tool. The band says exactly what it can support: an ordering. */}
-          {fitBand(tool.score) && (
+          {showFit && fitBand(tool.score) && (
             <span
               className="rounded-full px-2 py-0.5 font-display text-[10px] font-black uppercase tracking-wide"
               style={{ background: 'var(--lime)', color: '#000', border: '2px solid #000', boxShadow: '2px 2px 0 #000' }}

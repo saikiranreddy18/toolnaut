@@ -107,9 +107,11 @@ export default function Discover() {
           tool.tags.some((tag) => tag.includes(needle))),
       )
       .map((tool) => ({ ...tool, score: matchScore(tool, answers) }))
-      // Score first, then prominence. matchScore caps at 99 and dozens of tools
-      // tie there, so without a real tiebreak the top of the list was whatever
-      // sorted first alphabetically — scraped repo names, not tools.
+      // Score first, then prominence. The tiebreak used to carry most of the
+      // weight here: matchScore's baseline overflowed its own ceiling, so
+      // dozens of tools pinned at 99 and the real ordering was alphabetical.
+      // The baseline is fixed and scores now spread, but prominence still
+      // breaks the genuine ties.
       .sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || tieBreak(a, b))
   }, [q, cat, price, level, answersKey, tieBreak])
 
@@ -268,7 +270,7 @@ export default function Discover() {
 
           <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {visible.map((tool, i) => (
-              <ToolCard
+              <ToolCard showFit={false}
                 key={tool.slug}
                 tool={tool}
                 index={i}

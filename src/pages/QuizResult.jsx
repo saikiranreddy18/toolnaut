@@ -83,17 +83,8 @@ export default function QuizResult() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="relative w-full max-w-4xl py-16 text-center"
+        className="relative w-full max-w-4xl py-6 text-center"
       >
-        {/* Tape label — "level unlocked" tilted diagonal */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.6, rotate: -20 }}
-          animate={{ opacity: 1, scale: 1, rotate: -6 }}
-          transition={{ delay: 0.2, type: 'spring', stiffness: 260, damping: 18 }}
-          className="mb-6 flex justify-center"
-        >
-          <span className="tape-label text-xs">✦ level unlocked ✦</span>
-        </motion.div>
 
         {/* THE TICKET — the user's reference render, rebuilt live: main body
             (tier badge, holographic persona name, tagline, three colour-framed
@@ -269,7 +260,7 @@ export default function QuizResult() {
         </motion.div>
 
         {/* Honest confidence, now beneath the ticket it grades. */}
-        <div className="mx-auto mt-6 max-w-xl rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center">
+        <div className="mx-auto mt-4 max-w-xl rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center">
           <p className="font-display text-[10px] font-black uppercase tracking-[0.18em]" style={{ color: confidence.constrained ? 'var(--hot-pink)' : 'var(--lime)' }}>
             Recommendation quality: {confidence.constrained ? 'Limited by your answers' : confidence.label}
           </p>
@@ -285,7 +276,7 @@ export default function QuizResult() {
             actions the funnel cares about: fits -> proceed, mostly -> refine
             in Find, not really -> retake. Far more useful from a newcomer
             than rating unfamiliar tools out of five. */}
-        <div className="mt-8 text-center">
+        <div className="mt-4 text-center">
           {fit ? (
             <p className="text-xs font-bold uppercase tracking-widest text-slate-500">
               {fit === 'yes' ? '✓ Noted — glad it fits.' : fit === 'mostly' ? '✓ Noted — tune it in FIND.' : '✓ Noted — a retake takes a minute.'}
@@ -323,7 +314,7 @@ export default function QuizResult() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
-          className="mt-8 font-display text-sm font-bold uppercase tracking-wider text-slate-400"
+          className="mt-4 font-display text-sm font-bold uppercase tracking-wider text-slate-400"
         >
           plan match:{' '}
           <span className="rounded-full bg-white/10 px-3 py-1 text-white" style={{ boxShadow: '2px 2px 0 #000' }}>
@@ -336,7 +327,7 @@ export default function QuizResult() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.4 }}
-          className="mt-10 flex flex-col items-center gap-5"
+          className="mt-5 flex flex-col items-center gap-4"
         >
           <Link
             to="/auth/login?next=/app/stack"
