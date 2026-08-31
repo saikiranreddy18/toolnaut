@@ -6,6 +6,7 @@ import { PLANS, COMPARISON } from '../../utils/planData'
 import { initialCurrency, fetchCountry, savedCurrency, saveCurrency } from '../../utils/region'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
+import FounderPayButton from './FounderPayButton'
 
 function Cell({ value }) {
   if (value === true) return <span className="text-exus-lime" aria-label="included">✓</span>
@@ -65,6 +66,13 @@ export default function PricingSection({ titleAs = 'h2' }) {
           <PricingPillar key={plan.id} plan={plan} currency={currency} />
         ))}
       </div>
+
+      {/* Founder lifetime offer. Separate from the pillars above on purpose:
+          Razorpay Standard Checkout takes a ONE-TIME payment, so attaching it
+          to a monthly plan would charge once and imply forever. */}
+      <motion.div variants={fadeUp} className="mt-10 flex flex-col items-center text-center">
+        <FounderPayButton />
+      </motion.div>
 
       <motion.div variants={fadeUp} className="mt-10 text-center">
         <button
