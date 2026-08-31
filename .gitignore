@@ -22,3 +22,6 @@ evidence/
 
 # Intermediate render source for the PDFs in reports/ — the PDF is the artifact.
 reports/*.html
+
+# Supabase CLI scratch state
+supabase/.temp/
