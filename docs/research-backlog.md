@@ -745,9 +745,10 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-25 03:20 UTC
 
 ### Per-route page title & meta description (SEO/social, every page shares one)
-- **Status:** OPEN — mostly SHIPPED since this was written; a real bug in the
-  ship path found and fixed this run (see deepening below), one call site
-  remains.
+- **Status:** SHIPPED (this run, sha to follow the DEVLOG-visible fix commit)
+  — the hook, its prerender bug fix, and all five originally-scoped call
+  sites (plus the two blocked ones' own resolution) are now done; see the
+  2026-08-31 12:22 UTC deepening below for the closing piece.
 - **Seen in:** every directory competitor treats per-listing metadata as
   table stakes because it's their primary organic-search channel — G2 and
   Capterra generate a unique `<title>`/description per product page keyed off
@@ -941,6 +942,19 @@ a client-side SPA with a static tool catalogue.
   `useHead()` call (e.g. title naming the shared tools: "My AI stack: Notion
   AI, Cursor, Perplexity — Toolnaut"), not a prerender change. One import,
   one hook call, using data the page already has resolved.
+- **Deepened 2026-08-31 12:22 UTC — the last call site shipped; closing this
+  gap.** `SharedStack.jsx` now calls `useHead()` (title naming up to 5 tools
+  by name plus a "+N more" tail, a description listing all of them, `path:
+  /s/:slugs`, and an `ItemList` JSON-LD of the shared tools) when the link
+  resolves to at least one real tool, and just a bare `path` (site defaults)
+  for a stale/unrecognized link — never a fabricated title for zero tools.
+  Confirmed via `npm run smoke`: `/s/chatgpt` still renders clean (0 console
+  errors); this route is client-only per the design above, so there's no
+  `dist/` output to grep the way the prerendered routes were checked. All
+  five of this gap's originally-scoped call sites are now done, and the two
+  routes this deepening's own earlier note found blocked (`ToolDetail`,
+  `Compare`) remain the one open follow-up — still gated behind `AppShell`,
+  still a separate, larger routing decision, not part of this gap's scope.
 
 ### Pro chat assistant & the entire Team tier are unbacked and unbuildable client-side
 - **Status:** REJECTED — needs a backend/multi-user system; logged so future
@@ -2056,9 +2070,10 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-28 12:20 UTC
 
 ### Structured data (JSON-LD) — zero schema.org markup on any crawlable page
-- **Status:** OPEN — partially SHIPPED since this was written, and what did
-  ship had a real bug (found and fixed this run — see the "per-route page
-  title" gap's 2026-08-31 deepening for the full story, not repeated here).
+- **Status:** SHIPPED (this run) — all three originally-scoped call sites
+  now emit real `ItemList` JSON-LD, and the prerender bug that dropped it
+  from every static page is fixed (see the "per-route page title" gap's
+  2026-08-31 deepening for the full story, not repeated here).
 - **Seen in:** G2 and Capterra emit `SoftwareApplication`/`Product` JSON-LD
   with `aggregateRating` and `offers` on every listing page, which is exactly
   why their category pages show star ratings and price directly in Google
@@ -2155,6 +2170,22 @@ a client-side SPA with a static tool catalogue.
   `jsonLd`) into `SharedStack.jsx` once that page gets the hook at all. Both
   are now one-line-shaped additions to plumbing that already exists and is
   now verified to actually reach a crawler, not new infrastructure.
+- **Deepened 2026-08-31 12:22 UTC — both remaining call sites shipped;
+  closing this gap.** `NewTools.jsx`'s existing `useHead()` call now passes a
+  `CollectionPage`/`ItemList` `jsonLd` (one `ListItem` per tool in the 30-day
+  window, same shape `CategoryLanding.jsx` already builds) — confirmed in the
+  prerendered output, `dist/new/index.html` now carries a real
+  `application/ld+json` block with `numberOfItems` matching the page's own
+  tool count. `SharedStack.jsx` now calls `useHead()` with an `ItemList` too
+  (full detail in the per-route-meta gap's own closing deepening above, not
+  repeated here) — that route is client-only, not in `prerender.mjs`, so its
+  markup reaches a crawler only if one somehow lands on a specific share
+  link directly, which is the honest limit of what a URL-param-keyed page can
+  offer without server rendering; still strictly better than emitting
+  nothing. All three originally-scoped call sites (`CategoryLanding`,
+  `NewTools`, `SharedStack`) are done. Verified with `npm test` (76/76),
+  `npm run build` + prerender, and `npm run smoke` (20/20 routes, 0 console
+  errors).
 
 ### No public search — every "type a keyword" path is behind the login wall
 - **Status:** OPEN

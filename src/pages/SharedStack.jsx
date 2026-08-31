@@ -4,6 +4,7 @@ import { getTool, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../utils/too
 import { decodeStackSlugs } from '../utils/shareStack'
 import { loadSession } from '../state/authStore'
 import { addToStack, loadStack } from '../state/stackStore'
+import { useHead, SITE } from '../utils/head'
 
 // Public, read-only view of someone else's stack — except the CTA below,
 // which does write to stackStore: adopting a shared stack is the entire
@@ -15,6 +16,34 @@ export default function SharedStack() {
   const session = loadSession()
   const alreadyHasAll = tools.length > 0 && tools.every((t) => loadStack().includes(t.slug))
   const [added, setAdded] = useState(false)
+
+  // Not in scripts/prerender.mjs's ROUTES — content is keyed off the :slugs
+  // param, not a fixed route, so this only ever reaches a client-side visitor
+  // (someone who clicked a shared link), never a static crawl. Still worth
+  // setting: it fixes the tab title and the pasted-link preview, which is the
+  // whole reason this page exists.
+  const names = tools.map((t) => t.name)
+  useHead(
+    tools.length > 0
+      ? {
+          title: `My AI stack: ${names.slice(0, 5).join(', ')}${names.length > 5 ? ` +${names.length - 5} more` : ''} — Toolnaut`,
+          description: `A shared AI tool stack from Toolnaut — ${tools.length} tool${tools.length === 1 ? '' : 's'}: ${names.join(', ')}.`,
+          path: `/s/${slugs}`,
+          jsonLd: {
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            numberOfItems: tools.length,
+            itemListElement: tools.map((t, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              name: t.name,
+              description: t.blurb,
+              url: `${SITE}/app/tools/${t.slug}`,
+            })),
+          },
+        }
+      : { path: `/s/${slugs}` },
+  )
 
   function adoptAndGo(destination) {
     tools.forEach((t) => addToStack(t.slug))

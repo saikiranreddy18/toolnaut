@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { BrandLogo, LOGO } from '../components/ui/Mascot'
-import { useHead } from '../utils/head'
+import { useHead, SITE } from '../utils/head'
 import { PRICE_LABELS, LEVEL_LABELS } from '../utils/toolsCatalog'
 import { getNewTools } from '../utils/newTools'
 import { isCatalogNoise } from '../utils/prominence'
@@ -18,6 +18,23 @@ export default function NewTools() {
     description:
       'AI tools added to Toolnaut in the last 30 days, found by the nightly radar. What each one does, what it costs, and how hard it is to pick up.',
     path: '/new',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: `New AI tools this month (${tools.length} added)`,
+      url: `${SITE}/new`,
+      mainEntity: {
+        '@type': 'ItemList',
+        numberOfItems: tools.length,
+        itemListElement: tools.slice(0, 25).map((t, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: t.name,
+          description: t.blurb,
+          url: `${SITE}/app/tools/${t.slug}`,
+        })),
+      },
+    },
   })
 
   return (
