@@ -1,9 +1,12 @@
+// Lives in test/ with the rest of the app suite rather than beside the module:
+// npm run test:app targets test/*.test.mjs, so a test file under src/ is a test
+// file CI never runs.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
   UNKNOWN, constraintConflicts, coverageBand, needsTeamRefinement, profileCompleteness,
   hardFilterCount, rankingSeparation, stackConfidence, teamContext, teamPenalty, teamRelevance,
-} from './stackConfidence.js'
+} from '../src/utils/stackConfidence.js'
 
 const FULL = { goal: 'time', role: 'analyst', experience: 'regular', blocker: 'toomany', domain: 'data', budget: 'low' }
 const ok = (over = {}) => ({ ...FULL, ...over })
