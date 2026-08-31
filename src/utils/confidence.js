@@ -1,5 +1,6 @@
 import { TOOLS } from './toolsCatalog'
 import { matchScore } from './matchScore'
+import { passesHardConstraints } from './eligibility'
 
 // Recommendation confidence = how complete and decision-relevant the signals
 // are — NOT a claim that the system "knows" anyone. Two honest inputs:
@@ -35,17 +36,17 @@ const SIGNALS = [
 
 const STRONG_MATCH = 78 // a score matchScore only awards on real alignment
 
-// Eligibility for the POOL, not for the ranking. matchScore treats budget as a
-// soft penalty on purpose — the product surfaces "heads up: pricier than your
-// budget" rather than hiding tools — but a COVERAGE measure must count only
-// what the person could actually adopt. Verified against the live catalogue:
-// under budget=free, 16 paid tools still cleared the threshold on domain
-// alignment alone and inflated the pool. A freemium tool is usable at $0, so
-// it stays eligible.
-function eligibleForPool(tool, answers) {
-  if (answers.budget === 'free' && tool.price === 'paid') return false
-  return true
-}
+// Eligibility for the POOL. Coverage must count only what the person could
+// actually adopt: under budget=free, 16 paid tools cleared the threshold on
+// domain alignment alone and inflated the pool.
+//
+// The rule itself lives in eligibility.js so there is ONE definition of what a
+// declared budget excludes. It was briefly implemented here as well, and two
+// copies of a constraint drift the moment one of them learns about self-hosting
+// or required integrations.
+const eligibleForPool = passesHardConstraints
+
+export { eligibleForPool }
 
 export const BANDS = [
   { min: 85, key: 'tailored', label: 'Highly tailored' },
@@ -53,8 +54,6 @@ export const BANDS = [
   { min: 40, key: 'good', label: 'Good start' },
   { min: 0, key: 'basic', label: 'Basic' },
 ]
-
-export { eligibleForPool }
 
 export function recommendationConfidence(answers = {}) {
   let score = 0

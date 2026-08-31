@@ -34,7 +34,9 @@ export function completeQuiz() {
   return s
   // A new kit deserves a fresh "does this fit?" — the stored answer rated the
   // PREVIOUS kit, and leaving it in place meant a retake never re-asked.
-  try { localStorage.removeItem('exus_stack_feedback_v1') } catch { /* blocked */ }
+  // Through scopedStorage, not raw localStorage: a signed-in account stores
+  // this under exus_stack_feedback_v1::<uid>, which a bare removeItem misses.
+  removeScoped('exus_stack_feedback_v1')
 }
 
 export function resetQuiz() {
