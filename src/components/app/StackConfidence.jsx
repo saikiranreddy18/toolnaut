@@ -112,7 +112,7 @@ export default function StackConfidence({ answers, candidateCount, scores, onAns
               <button
                 key={t.key}
                 onClick={() => answerTeam(t.key)}
-                className="cursor-pointer rounded-full border border-white/[0.12] bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold text-slate-200 transition-colors hover:border-[var(--lime)] hover:bg-[var(--lime)] hover:text-black"
+                className="min-h-11 cursor-pointer rounded-full border border-white/[0.12] bg-white/[0.04] px-4 text-xs font-semibold text-slate-200 transition-colors hover:border-[var(--lime)] hover:bg-[var(--lime)] hover:text-black"
               >
                 {t.label}
               </button>
@@ -131,7 +131,7 @@ export default function StackConfidence({ answers, candidateCount, scores, onAns
           <p className="mt-1.5 text-xs leading-relaxed text-slate-400">
             {c.missing.map((m) => MISSING_LABEL[m]).filter(Boolean).join(' · ')}
           </p>
-          <Link to="/goal" className="nb-btn mt-3 inline-flex px-4 py-2 text-xs">
+          <Link to="/goal" className="nb-btn mt-3 inline-flex min-h-11 items-center px-4 text-xs">
             {c.cta.toUpperCase()} →
           </Link>
         </div>
