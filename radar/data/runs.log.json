@@ -102,5 +102,31 @@
       "rejected": 0,
       "courses": 9
     }
+  },
+  {
+    "at": "2026-08-30T14:25:49.215Z",
+    "counts": {
+      "candidates": 73,
+      "filtered": 11,
+      "new": 13,
+      "skipped": 12,
+      "published": 0,
+      "review": 13,
+      "rejected": 0,
+      "courses": 0
+    }
+  },
+  {
+    "at": "2026-08-30T23:53:08.057Z",
+    "counts": {
+      "candidates": 76,
+      "filtered": 11,
+      "new": 8,
+      "skipped": 17,
+      "published": 8,
+      "review": 0,
+      "rejected": 0,
+      "courses": 8
+    }
   }
 ]

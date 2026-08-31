@@ -1,5 +1,6 @@
 import { TOOLS, CATEGORY_META } from './toolsCatalog'
 import { FLAGSHIP, starterScore } from './prominence'
+import { partitionByEligibility } from './eligibility'
 
 const DOMAIN_NOUN = {
   code: 'Builder',
@@ -86,10 +87,25 @@ export function generatePersona(answers) {
   const career = careerLine(answers?.role, answers?.career_stage)
 
   const flagships = FLAGSHIP[domain] || []
-  const stack = TOOLS
-    .filter((t) => t.category === domain)
-    .sort((a, b) => starterScore(b, flagships) - starterScore(a, flagships) || a.name.localeCompare(b.name))
-    .slice(0, 3)
+  const byProminence = (a, b) =>
+    starterScore(b, flagships) - starterScore(a, flagships) || a.name.localeCompare(b.name)
+
+  // Budget is a HARD constraint, applied before prominence rather than as a
+  // score penalty afterwards. This path never called matchScore, so a
+  // "$0 - free only" answer was previously ignored outright here: three of six
+  // domains put a paid tool in the starter three, with Midjourney the top pick
+  // for design. The starter stack is the first thing a new visitor sees, so it
+  // is the worst possible place to contradict what they just told us.
+  const inDomain = TOOLS.filter((t) => t.category === domain)
+  const { eligible, excluded } = partitionByEligibility(inDomain, answers)
+
+  const stack = [...eligible].sort(byProminence).slice(0, 3)
+
+  // Surfaced, not silently dropped: the caller can show these as clearly
+  // labelled alternatives. Re-adding them to `stack` would defeat the filter,
+  // and hiding them entirely would leave the person wondering where the
+  // well-known tool went.
+  const excludedByBudget = [...excluded].sort(byProminence).slice(0, 3)
 
   const stage = answers?.career_stage
   const seniorish = stage === 'senior' || stage === 'founder' || answers?.role === 'founder' || answers?.role === 'manager'
@@ -101,6 +117,10 @@ export function generatePersona(answers) {
     career, // e.g. "Mid-level Developer" — null if role/stage unanswered
     category: { id: domain, name: meta.name, color: meta.color },
     stack,
+    excludedByBudget,
+    // True when the filter actually bit, so the UI can explain the gap instead
+    // of rendering an unexplained empty section.
+    constrained: excludedByBudget.length > 0,
     suggestedPlan:
       answers?.budget === 'free' || answers?.budget === 'low'
         ? 'Student'

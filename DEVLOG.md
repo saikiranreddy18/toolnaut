@@ -9,6 +9,64 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-08-30
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h,
+but 0 tools published in the most recent one; last actual publish was
+2026-08-29 23:35 UTC (~19h before this run), feed holds 94 tools. Not a
+false-positive miss (below the health script's threshold), but worth
+watching tomorrow if a full day passes with nothing new landing.
+
+**No 2026-08-29 digest found:** GitHub issue #9, "Dev digest 2026-08-28,"
+is still open — there is no "Dev digest 2026-08-29" issue and no DEVLOG
+entry for that date. Issue #12 ("master is red: prerender bakes a runtime
+three.js modulepreload into dist/index.html," opened and closed 2026-08-29)
+suggests that day's run went into fixing a red build rather than finishing
+the digest step. Flagging rather than reconstructing a day this run wasn't
+present for — closing #9 now and starting today's digest fresh.
+
+**This run:** CI on master was green, `radar:health` returned OK, and no
+`agent-fixable` issues were open, so no urgent work took priority — went
+straight to the feature run.
+
+**Shipped:** pricing-page honesty reconciliation —
+[`c04149e`](https://github.com/saikiranreddy18/toolnaut/commit/c04149e).
+Picked the highest-value OPEN gap in the backlog: `CapabilityMatrix.jsx`
+already says plainly, right below `PricingSection` on `/pricing`, that
+Toolnaut takes no payment and most Pro/Team rows are `planned`, not live —
+but `PricingSection` itself (also mounted on the homepage, with no
+corroborating section there) still listed "AI-powered chat assistant,"
+the entire Team tier, PDF export, digest email/alerts and tiered human
+support as unqualified, live features. The two sections contradicted each
+other on the same page. Reused `CapabilityMatrix`'s own `live`/`planned`
+vocabulary instead of inventing a second one: `planData.js`'s
+`PLANS[].features` are now `{ text, status }` objects and `COMPARISON`
+cells can be `'planned'` as well as `true`/`false`, both rendered with the
+same dimmed "planned" pill `CapabilityMatrix.jsx` already uses (in
+`PricingPillar.jsx` and `PricingSection.jsx`'s `Cell`). Also swapped
+"Discord" out of "Community access" (no Discord server exists; the in-app
+forum does) and fixed a stale `Pricing.jsx` comment claiming
+`PricingSection` was removed from the landing flow, which it wasn't.
+**Live on toolnaut.xyz** now that it's on master — pure display-layer
+change, no backend, no new dependency, no new route. `npm test` (60/60),
+`npm run build`, and `npm run smoke` (20/20 routes, 0 console errors,
+`/pricing` included) all green before push.
+
+**Queued next:** per-tool ratings & reviews, community-submitted tools
+("Suggest a tool"), PDF roadmap export, per-route page title/meta
+description, recently-viewed tools, the tool-status-note-reason gap, the
+tool graveyard page, embeddable "Featured on Toolnaut" badge, per-tool
+Alternatives SEO pages, structured data (JSON-LD), public search, tags as
+clickable filters, first-session onboarding checklist, command palette,
+Discover facet-counts, and the popularity-signal (GitHub stars/HN points)
+pipeline gap all remain OPEN. Weekly digest email/alerts, Pro chat
+assistant/Team tier, Discord community, and vendor deal codes stay
+REJECTED-for-build (no backend, or need a standing external commitment) —
+their honest-copy fixes are now largely covered by today's ship, since the
+pricing page no longer sells any of them as live.
+
+---
+
 ## 2026-08-28
 
 **Radar health:** OK — 1 run in the last 26h, published 13 new tools. Feed

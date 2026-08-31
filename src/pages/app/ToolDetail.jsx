@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getTool, TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
-import { matchScore, matchReasons } from '../../utils/matchScore'
+import { matchScore, matchReasons, fitBand } from '../../utils/matchScore'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { loadFavorites, addFavorite, removeFavorite } from '../../state/favoritesStore'
@@ -106,7 +106,7 @@ export default function ToolDetail() {
             className="rounded-full px-3 py-1 font-display text-xs font-black uppercase"
             style={{ background: 'var(--lime)', color: '#000', border: '2px solid #000', boxShadow: '2px 2px 0 #000' }}
           >
-            {score}% MATCH
+            {fitBand(score)?.label || 'MATCH'}
           </span>
         )}
         {tool.status && tool.status !== 'Active' && (

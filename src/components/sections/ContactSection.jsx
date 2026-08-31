@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { CONTACT_EMAIL, SOCIALS } from '../../config'
 import DottedWordmark from '../ui/DottedWordmark'
@@ -61,12 +62,19 @@ export default function ContactSection() {
   const track = useAnalytics()
   const count = catalogSize()
   const updated = lastUpdatedLabel()
+  const areaRef = useRef(null)
 
   const linkClass = 'text-sm text-slate-400 transition-colors hover:text-white'
 
   return (
-    <div className="relative mx-auto max-w-6xl px-5 pb-10 pt-14">
-      <div className="grid gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
+    // ONE flat colour — Obsidian #020403, the user's swatch, full bleed. The
+    // earlier charcoal ramp mixed two tones; this is deliberately a single
+    // unbroken surface, and the section stays compact: a small, neat, purely
+    // informational close to the page.
+    <div className="overflow-hidden" style={{ background: '#020403' }}>
+      <div ref={areaRef} className="relative mx-auto max-w-6xl px-5 pb-0 pt-8">
+      <div className="relative">
+        <div className="grid gap-x-8 gap-y-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.4fr)]">
         {/* ── socials and the standing facts ── */}
         <div>
           {SOCIALS.length > 0 && (
@@ -98,6 +106,9 @@ export default function ContactSection() {
             {count.toLocaleString()} tools{updated ? ` · catalogue updated ${updated}` : ''}
             <br />
             Free public beta — no card, no payment taken.
+          </p>
+          <p className="mt-3 font-display text-[10px] font-bold uppercase tracking-widest text-slate-600">
+            © {new Date().getFullYear()} Toolnaut · built in the open
           </p>
         </div>
 
@@ -143,14 +154,17 @@ export default function ContactSection() {
             </ul>
           </div>
         </div>
-      </div>
+        </div>
 
-      {/* The mark, centred in the MIDDLE of the contact section — below the
-          link columns, above whatever closes the page. It idles soft and out
-          of focus (the reference look) and the cursor pulls it sharp; sitting
-          at the top it read as a header for the links, which it is not. It is
-          the section's centrepiece, and centrepieces sit in the middle. */}
-      <DottedWordmark className="mx-auto mt-12 w-full max-w-2xl" />
+        {/* The mark: end to end, and SUNK INTO the page's bottom edge — the
+            negative margin hangs its lower part past the section, and the
+            wrapper's overflow-hidden crops it there, so the letters run off
+            the bottom of the page ("semi fit", per the user) with zero gap
+            above or below. Crop scales with the drawing: shallow on phones
+            where the mark is short, deeper on desktop where it is tall. */}
+        <DottedWordmark className="mx-auto -mb-5 mt-2 w-full sm:-mb-10 lg:-mb-16" />
+        </div>
+      </div>
     </div>
   )
 }

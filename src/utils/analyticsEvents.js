@@ -14,6 +14,7 @@ export const EVENTS = {
   ROADMAP_STEP_COMPLETE: 'roadmap_step_complete',
   ROADMAP_CHECKPOINT_PASS: 'roadmap_checkpoint_pass',
   ROADMAP_COMPLETE: 'roadmap_complete',
+  STACK_FEEDBACK: 'stack_feedback',
 
   // ── Funnel events from the product review's measurement plan (§10).
   //

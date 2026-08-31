@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import useSmoothScroll from '../hooks/useSmoothScroll'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { CHAT_QUESTIONS, GREETING, acknowledge, matchFreeText, saveNote, askServer } from '../utils/goalChat'
+import Mascot, { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { loadQuiz, saveAnswer, completeQuiz } from '../state/quizStore'
 import { useAnalytics } from '../hooks/useAnalytics'
 import { EVENTS } from '../utils/analyticsEvents'
@@ -47,8 +48,13 @@ export default function GoalChat() {
     })
     return out
   })
-  const [typing, setTyping] = useState(true)
-  const [draft, setDraft] = useState('')
+  // The first question is HELD BACK. A fresh visitor sees only Naut's
+  // one-line hello and a pretyped "Hi" in the input — the conversation
+  // starts when THEY send it (or tap a chip, which answers Q1 directly).
+  // A returning visitor with answers resumes exactly as before.
+  const [started, setStarted] = useState(startIndex > 0)
+  const [typing, setTyping] = useState(startIndex > 0)
+  const [draft, setDraft] = useState(startIndex > 0 ? '' : 'Hi')
   const [unmatched, setUnmatched] = useState(false)
 
   // True until the first answer. The headline is a landing state, not chrome:
@@ -78,14 +84,14 @@ export default function GoalChat() {
   // Ask the current question after a short beat, so it reads as a reply rather
   // than a wall of text appearing at once.
   useEffect(() => {
-    if (done) return
+    if (done || !started) return
     setTyping(true)
     after(TYPING_MS, () => {
       setTyping(false)
       setMessages((m) => (m.some((x) => x.text === question.ask) ? m : [...m, { from: 'bot', text: question.ask, hint: question.hint }]))
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [index, done])
+  }, [index, done, started])
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' })
@@ -93,6 +99,7 @@ export default function GoalChat() {
 
   function answer(optionKey, spokenText, botReply) {
     if (done || typing) return
+    if (!started) setStarted(true)
     haptic.tap()
     const q = CHAT_QUESTIONS[index]
     const chosen = q.options.find((o) => o.key === optionKey)
@@ -159,6 +166,16 @@ export default function GoalChat() {
     const text = draft.trim()
     if (!text || done || typing) return
 
+    // The opener. Whatever they send first — the pretyped Hi or their own
+    // words — echoes into the thread and wakes Naut's first question; it is
+    // a greeting, not an answer, so it never goes near the classifier.
+    if (!started) {
+      setDraft('')
+      setMessages((m) => [...m, { from: 'user', text }])
+      setStarted(true)
+      return
+    }
+
     const q = question
     setDraft('')
     setMessages((m) => [...m, { from: 'user', text }])
@@ -223,34 +240,20 @@ export default function GoalChat() {
           "what is this going to cost me", then one headline in two tones. No
           decoration, because a nine-question form is a reading task and
           ornament competes with the question. */}
-      {atStart && (
-        <div className="mx-auto flex w-full max-w-2xl shrink-0 flex-col pb-5 text-center">
-          {/* The badge from direction A. It answers "what is this going to
-              cost me" before the headline asks for anything — nine questions,
-              a minute, no account — which is the objection someone raises at
-              a form, in the place they raise it. The wordmark that used to sit
-              here is already top-left in OnboardingShell; two marks stacked
-              read as a logo, not an opening. */}
-          <span
-            className="mx-auto inline-flex items-center gap-[7px] rounded-full px-[13px] py-[7px] text-[11px] font-medium leading-none"
-            style={{
-              background: 'rgba(163,255,46,.10)',
-              border: '1px solid rgba(163,255,46,.32)',
-              color: 'var(--lime)',
-            }}
-          >
-            <span aria-hidden="true">●</span>
-            Nine questions · about a minute · no account
-          </span>
+      {/* Persistent — the user: "after conversation also, that all should
+          be there. It will be scroll just." Only the thread scrolls. */}
+      <div className="mx-auto flex w-full max-w-4xl shrink-0 flex-col items-center pb-5 text-center">
+          {/* The mark leads, centred. It was pinned top-left by the shell,
+              which is where a logo goes on a page you browse — but this is a
+              single-purpose form with nothing else on screen, so the corner
+              is the one place the eye never starts. The shell hides its own
+              copy on this route so there is still only ever one. */}
+          <Link to="/" aria-label="Toolnaut home" className="mb-6 inline-block">
+            <BrandLogo size={92} textClass="text-4xl sm:text-5xl" />
+          </Link>
 
-          <h1 className="mt-5 font-display text-[clamp(1.5rem,4.4vw,2.35rem)] font-bold leading-[1.13] tracking-[-0.025em] text-white">
-            Tell Naut what you do.
-            <span className="block text-slate-500">
-              It maps your stack, your gaps, your next four weeks.
-            </span>
-          </h1>
         </div>
-      )}
+
 
       {/* min-h-0 on both this and the transcript below. A flex item defaults to
           min-height:auto, which refuses to shrink below its content — so even
@@ -259,39 +262,88 @@ export default function GoalChat() {
       {/* Quieter than the rest of the app on purpose. The heavy black slab and
           6px offset shadow shout, which is right on the landing page and wrong
           around a form someone has to concentrate on. One hairline rule. */}
+      {/* The progress bar is gone. Nine segments of chrome above a chat that
+          already says "nine questions" in its first line told the reader
+          nothing they had not just read, and it sat between the headline and
+          the conversation — the one place nothing should. */}
       <div
-        className="mx-auto flex w-full min-h-0 max-w-2xl flex-1 flex-col overflow-hidden rounded-2xl"
+        className="mx-auto flex w-full min-h-0 max-w-3xl flex-1 flex-col overflow-hidden rounded-2xl"
         style={{ background: '#0c0c13', border: '1px solid #23232f' }}
       >
-        {/* progress — chunky lime bars, same language as the rest of the app */}
-        <div className="flex shrink-0 gap-1.5 px-4 py-3" style={{ borderBottom: '1px solid #23232f' }} aria-hidden="true">
-          {CHAT_QUESTIONS.map((q, i) => (
-            <span
-              key={q.id}
-              className="h-1.5 flex-1 rounded-full"
-              style={{
-                background: i < index ? 'var(--lime)' : i === index ? 'var(--hot-pink)' : 'rgba(255,255,255,0.09)',
-              }}
-            />
-          ))}
-        </div>
+        {/* The badge and headline live INSIDE the box, as its head — the
+            user's sketch framed the pitch and the conversation as one object.
+            They mount only atStart and step aside with the rest of the
+            landing chrome once the first answer arrives. */}
+<div className={`flex shrink-0 flex-col items-center px-5 text-center ${atStart ? 'pb-2 pt-7' : 'pb-0.5 pt-2.5'}`}>
+              {/* The badge answers "what is this going to cost me" before the
+                  headline asks for anything — nine questions, a minute, no
+                  account — which is the objection someone raises at a form. */}
+              {atStart && (
+              <span
+                className={`mx-auto inline-flex items-center gap-[7px] rounded-full font-medium leading-none ${atStart ? 'px-[13px] py-[7px] text-[11px]' : 'px-2.5 py-1 text-[9px]'}`}
+                style={{
+                  background: 'rgba(163,255,46,.10)',
+                  border: '1px solid rgba(163,255,46,.32)',
+                  color: 'var(--lime)',
+                }}
+              >
+                <span aria-hidden="true">●</span>
+                Nine questions · about a minute · no account
+              </span>
+              )}
 
+              {/* Sized to the reference: one heavy statement, one grey payoff,
+                  each a single stroke. The old 37px/700 with a wrapping second
+                  line read as body copy standing up straight — this is the page's
+                  entire pitch and it carries the weight of one. */}
+              <h1 className={`max-w-3xl font-display font-black tracking-[-0.03em] text-white ${
+            atStart
+              ? 'mt-5 text-[clamp(1.8rem,4.6vw,2.7rem)] leading-[1.1]'
+              : 'mt-0 text-sm leading-tight'
+          }`}>
+                Tell Naut what you do.
+                {atStart && (
+                  <span className="block text-slate-500">
+                    It builds it, plans it, grows it.
+                  </span>
+                )}
+              </h1>
+          </div>
+
+
+        {/* The conversation zone — thread, chips, input — sits on its own
+            darker surface, framed off from the card head. The user's pink
+            box drew exactly this: where the talking happens is one object,
+            distinct from where the pitch stands. */}
+        <div
+          className="mx-2.5 mb-2.5 flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl"
+          style={{ background: '#07070d', border: '1px solid #1c1c28' }}
+        >
         <div
           ref={scrollRef}
-          className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-5 sm:px-5"
+          className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-4 sm:px-5"
           role="log"
           aria-live="polite"
           aria-label="Conversation"
         >
-          <div className="mt-auto flex flex-col gap-3">
+          {/* mt-auto pins the thread to the input like every chat — but at the
+              start, with the headline living in the box above two messages, it
+              opened a hole between pitch and conversation. Until the first
+              answer the thread hangs from the heading instead. */}
+          <div className={`${atStart ? '' : 'mt-auto'} flex flex-col gap-3`}>
             {messages.map((m, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.22 }}
-                className={m.from === 'user' ? 'flex justify-end' : 'flex justify-start'}
+                className={m.from === 'user' ? 'flex justify-end' : 'flex items-end gap-2'}
               >
+                {m.from !== 'user' && (
+                  <span className="shrink-0 pb-0.5" aria-hidden="true">
+                    <Mascot mood="happy" size={26} />
+                  </span>
+                )}
                 <div
                   className={
                     m.from === 'user'
@@ -312,8 +364,11 @@ export default function GoalChat() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="flex justify-start"
+                  className="flex items-end gap-2"
                 >
+                  <span className="shrink-0 pb-0.5" aria-hidden="true">
+                    <Mascot mood="curious" size={26} />
+                  </span>
                   <div className="flex gap-1.5 rounded-2xl rounded-bl-md border-2 border-white/10 bg-white/[0.05] px-4 py-3">
                     {[0, 1, 2].map((d) => (
                       <motion.span
@@ -331,7 +386,10 @@ export default function GoalChat() {
         </div>
 
         {/* option chips for the current question */}
-        {!done && !typing && question && (
+        {/* Blank until the Hi: chips answer question one, and question one
+            has not been asked yet — six category buttons under a greeting
+            looked like a menu for a question nobody heard. */}
+        {started && !done && !typing && question && (
           <div className="shrink-0 px-4 py-3" style={{ borderTop: '1px solid #23232f' }}>
             {unmatched && (
               <p className="mb-2 font-display text-[10px] font-black uppercase tracking-[0.18em]" style={{ color: 'var(--hot-pink)' }}>
@@ -381,6 +439,7 @@ export default function GoalChat() {
             </button>
           </div>
         </form>
+        </div>
       </div>
 
       <p className="mx-auto mt-3 max-w-2xl text-center text-xs text-slate-500">

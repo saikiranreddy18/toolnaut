@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { THEMES, loadTheme, setTheme } from '../../state/themeStore'
 import { loadMoon, setMoon } from '../../state/moonStore'
@@ -13,7 +14,23 @@ import { haptic } from '../../utils/haptics'
 // getting a second floating button: play modes change the accent colours, moon
 // changes how much light is in the sky behind them. Either can be set without
 // disturbing the other.
+//
+// The panel is CONTEXTUAL, because two of its controls only mean something on
+// one side of the app:
+//
+//   Galaxy detail is read by exactly one component, components/3d/Scene.jsx,
+//   which renders on the landing page. Inside /app there is no galaxy to set
+//   the detail of, so the control there offered Full / Light / Off over
+//   nothing at all.
+//
+//   Moonlight lights the in-app sky and already has a labelled home in
+//   ME -> settings. On the landing page the galaxy is the sky, so the toggle
+//   was a second control for a thing the visitor cannot see changing.
+//
+// Themes stay in both: accent colours apply everywhere.
 export default function ThemePicker() {
+  // /app/* is the in-app shell; everything else is the public site.
+  const inApp = useLocation().pathname.startsWith('/app')
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState(loadTheme)
   const [moon, setMoonState] = useState(loadMoon)
@@ -62,6 +79,8 @@ export default function ThemePicker() {
               </button>
             ))}
 
+            {inApp && (
+            <>
             <div className="my-1 h-px bg-white/10" role="separator" />
             <div className="flex items-center gap-3 px-3 py-2">
               <span className="flex flex-col">
@@ -83,7 +102,11 @@ export default function ThemePicker() {
                 onChange={(on) => pickMoon(on ? 'full' : 'none')}
               />
             </div>
+            </>
+            )}
 
+            {!inApp && (
+            <>
             <div className="my-1 h-px bg-white/10" role="separator" />
             <p className="px-3 pb-1 font-display text-[9px] font-black uppercase tracking-[0.16em] text-slate-500">
               Galaxy
@@ -114,13 +137,15 @@ export default function ThemePicker() {
             <p className="px-3 pb-1 text-[10px] leading-snug text-slate-500">
               {GALAXY_LEVELS.find((l) => l.id === gq)?.hint}
             </p>
+            </>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
 
       <button
         onClick={() => { haptic.tap(); setOpen((v) => !v) }}
-        aria-label="Sky settings — theme and moonlight"
+        aria-label={inApp ? 'Sky settings — theme and moonlight' : 'Sky settings — theme and galaxy detail'}
         aria-expanded={open}
         className="nb-btn dark flex h-11 w-11 items-center justify-center !rounded-full !p-0"
       >

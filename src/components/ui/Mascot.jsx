@@ -108,6 +108,23 @@ export default function Mascot({ mood = 'happy', size = 32, className = '', titl
 // LOCKUP, not to one page. It used to ride only the hero's centre wordmark, so
 // the app shell, the intake and the nav all showed the name with no version —
 // and the one place that did say beta was the wordmark we removed.
+// Logo scale, in one place.
+//
+// Seven call sites each hard-coded their own size and they drifted: the landing
+// nav rendered the mark at 68px while Pricing and About used 44 and the quiz
+// used 40, so the same brand shrank by a third depending on which page you
+// landed on. Sizes live here now, named by ROLE rather than by number, so a new
+// page picks a role instead of inventing a size.
+//
+//   page    a standalone page's own header — the brand moment
+//   chrome  persistent navigation that sits alongside content all session
+//   compact dense bars and back-links, where the mark is a wayfinder
+export const LOGO = {
+  page: { size: 60, textClass: 'text-2xl sm:text-3xl' },
+  chrome: { size: 46, textClass: 'text-xl' },
+  compact: { size: 30, textClass: 'text-base' },
+}
+
 export function BrandLogo({ size = 30, wordmark = true, beta = true, className = '', textClass = 'text-sm' }) {
   const [hover, setHover] = useState(false)
   return (

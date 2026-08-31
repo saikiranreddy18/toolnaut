@@ -2,14 +2,15 @@ import { Link } from 'react-router-dom'
 import PricingSection from '../components/sections/PricingSection'
 import { useHead } from '../utils/head'
 import CapabilityMatrix from '../components/sections/CapabilityMatrix'
-import { BrandLogo } from '../components/ui/Mascot'
+import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { BRAND } from '../config'
 import { useEffect } from 'react'
 import { useAnalytics } from '../hooks/useAnalytics'
 import { EVENTS } from '../utils/analyticsEvents'
 
-// Standalone pricing page — reuses the pillars/comparison section that was
-// removed from the landing flow. All plans are reservations while in beta.
+// Standalone pricing page — reuses the same pillars/comparison section that
+// is also mounted on the landing page. All plans are reservations while in
+// beta; CapabilityMatrix below is the corroborating live/planned breakdown.
 export default function Pricing() {
   useHead({
     title: 'Pricing — Toolnaut',
@@ -27,7 +28,7 @@ export default function Pricing() {
 
       <header className="relative mx-auto flex max-w-6xl items-center justify-between px-5 py-6">
         <Link to="/" aria-label={BRAND}>
-          <BrandLogo size={44} textClass="text-xl" />
+          <BrandLogo {...LOGO.page} />
         </Link>
         <Link to="/goal" className="nb-btn px-4 py-2 text-xs">
           ⚡ Find your stack

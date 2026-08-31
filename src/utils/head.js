@@ -51,7 +51,7 @@ function setLink(rel, href) {
  * @param {string} [o.path]         route path, e.g. '/tools/code' — drives canonical + og:url
  * @param {object} [o.jsonLd]       structured data, emitted as application/ld+json
  */
-export function useHead({ title, description, path, jsonLd } = {}) {
+export function useHead({ title, description, path, jsonLd, noindex = false } = {}) {
   // Serialised so a fresh object literal on every render does not re-run this.
   const ld = jsonLd ? JSON.stringify(jsonLd) : null
 
@@ -69,6 +69,14 @@ export function useHead({ title, description, path, jsonLd } = {}) {
     setMeta('meta[name="twitter:description"]', 'name', 'twitter:description', d)
     setLink('canonical', url)
 
+    // Routes that exist but should not be found. The tag is REMOVED rather than
+    // set to "index" when a page does not ask for it: this is a SPA, so the
+    // element persists across navigation and a stale noindex left behind by one
+    // route would quietly delist the next one.
+    const robots = document.querySelector('meta[name="robots"]')
+    if (noindex) setMeta('meta[name="robots"]', 'name', 'robots', 'noindex, nofollow')
+    else if (robots) robots.remove()
+
     // One managed block, replaced rather than appended, so navigating between
     // routes cannot leave a previous page's structured data behind describing
     // something the visitor is no longer looking at.
@@ -81,7 +89,7 @@ export function useHead({ title, description, path, jsonLd } = {}) {
       s.textContent = ld
       document.head.appendChild(s)
     }
-  }, [title, description, path, ld])
+  }, [title, description, path, ld, noindex])
 }
 
 export { SITE }

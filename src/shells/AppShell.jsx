@@ -2,7 +2,8 @@ import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { BRAND } from '../config'
-import { BrandLogo } from '../components/ui/Mascot'
+import { BrandLogo, LOGO } from '../components/ui/Mascot'
+import StreakPoints from '../components/app/StreakPoints'
 import { loadSession } from '../state/authStore'
 import { loadQuiz } from '../state/quizStore'
 import { generatePersona } from '../utils/personaGenerator'
@@ -107,9 +108,9 @@ export default function AppShell() {
       <div className="starfield" aria-hidden="true" />
 
       {/* left sidebar — desktop */}
-      <aside className="sticky top-0 hidden h-dvh w-60 shrink-0 flex-col border-r border-white/10 px-4 py-5 lg:flex">
-        <Link to="/" className="px-4" aria-label={BRAND}>
-          <BrandLogo size={38} textClass="text-lg" />
+      <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-white/10 px-4 py-5 lg:flex">
+        <Link to="/" aria-label={BRAND}>
+          <BrandLogo {...LOGO.chrome} />
         </Link>
 
         <div className="sticker mt-6 flex items-start gap-3 p-4">
@@ -146,9 +147,18 @@ export default function AppShell() {
           ))}
         </nav>
 
+        {/* What this browser has actually done: days returned, points earned.
+            Below the nav, not above it — the links are what someone came to
+            the rail to use, and a stat block sitting between the persona and
+            the navigation pushed them down for something nobody clicks.
+            mt-auto moves here so the pair sits at the foot of the rail. */}
+        <div className="mt-auto">
+          <StreakPoints />
+        </div>
+
         {/* Identity when there is one; otherwise say plainly that this browser
             is where the stack lives, which is the honest reason to sign in. */}
-        <div className="mt-auto px-4 text-xs text-slate-600">
+        <div className="px-4 pt-4 text-xs text-slate-600">
           {session ? (
             `Signed in as ${session.user.name}`
           ) : (
@@ -167,7 +177,7 @@ export default function AppShell() {
         {/* mobile top bar — respects the notch */}
         <div className="sticky top-0 z-30 flex items-center justify-between border-b border-white/10 bg-[#0a0a0f]/85 px-5 py-4 pt-[max(1rem,env(safe-area-inset-top))] backdrop-blur-md lg:hidden">
           <Link to="/" aria-label={BRAND}>
-            <BrandLogo size={32} textClass="text-base" />
+            <BrandLogo {...LOGO.compact} />
           </Link>
           <Link to="/app/settings" className="flex items-center gap-2" aria-label="Your profile">
             {persona && (

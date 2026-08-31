@@ -29,7 +29,7 @@ function PlanIcon({ type, color }) {
   )
 }
 
-export default function PricingPillar({ plan }) {
+export default function PricingPillar({ plan, currency = 'USD' }) {
   const track = useAnalytics()
 
   return (
@@ -51,7 +51,7 @@ export default function PricingPillar({ plan }) {
       >
         {plan.badge && (
           <span className="tape-label absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap" style={{ fontSize: 10, padding: '5px 14px' }}>
-            {plan.badge}
+            {currency === 'INR' && plan.badgeINR ? plan.badgeINR : plan.badge}
           </span>
         )}
         <div className="flex items-start justify-between">
@@ -63,7 +63,7 @@ export default function PricingPillar({ plan }) {
         </div>
         <p className="mt-3 flex items-baseline gap-1">
           <span className="font-display text-5xl font-black italic text-white" style={{ textShadow: '3px 3px 0 #000' }}>
-            ${plan.price}
+            {currency === 'INR' ? `₹${plan.priceINR.toLocaleString('en-IN')}` : `$${plan.price}`}
           </span>
           <span className="text-sm font-bold text-slate-400">/month</span>
         </p>
@@ -72,9 +72,14 @@ export default function PricingPillar({ plan }) {
         <ul className="mt-6 flex-1 space-y-2.5 text-sm text-slate-200">
           {plan.plus && <li className="font-display font-black uppercase text-cyan-300">{plan.plus}</li>}
           {plan.features.map((f) => (
-            <li key={f} className="flex gap-2">
+            <li key={f.text} className="flex flex-wrap items-center gap-2">
               <span aria-hidden="true" style={{ color: plan.accent }}>✦</span>
-              {f}
+              {f.text}
+              {f.status === 'planned' && (
+                <span className="whitespace-nowrap rounded-full border border-slate-600 px-1.5 py-0.5 font-display text-[9px] font-black uppercase text-slate-500">
+                  planned
+                </span>
+              )}
             </li>
           ))}
         </ul>

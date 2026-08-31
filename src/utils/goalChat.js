@@ -200,8 +200,11 @@ export const CHAT_QUESTIONS = QUESTIONS.map((q) => ({
   hint: SCRIPT[q.id]?.hint ?? '',
 }))
 
+// One line. The long version repeated the badge ("nine questions", "about a
+// minute", "no account") word for word one inch above itself — the intro's
+// job is to introduce, and everything else already has a place on screen.
 export const GREETING =
-  "Hey — I'm Naut. Nine questions and I'll chart an AI stack that actually fits you, plus a four-week plan to learn it. No account, no email. Takes about a minute."
+  "Hey — I'm Naut. I'll chart an AI stack that actually fits you."
 
 export function acknowledge(questionId, optionKey) {
   return SCRIPT[questionId]?.ack?.[optionKey] ?? ''

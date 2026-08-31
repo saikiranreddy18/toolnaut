@@ -646,6 +646,35 @@ a client-side SPA with a static tool catalogue.
   state, one link on `Settings.jsx`. No backend, no new dependency, no new
   route.
 - **Found:** 2026-08-25 00:15 UTC
+- **Deepened 2026-08-31 06:20 UTC:** the tags-clickable deepening (below)
+  already flagged that `Discover.jsx`'s empty state had "changed shape" since
+  this entry was written and left it for whoever picks this up to re-check —
+  did that re-check this run, and it clears the plan rather than blocking it.
+  Re-read the current `Discover.jsx` in full: the empty state now lives at
+  `Discover.jsx:227-254` (was `170-180`), and it's grown two things this plan
+  didn't originally account for — a `suggestedCats` row of category buttons
+  (up to 6, only categories that actually have tools) and a "CLEAR ALL
+  FILTERS" button, both added by the pagination/faceting work that landed
+  after this entry was written. Neither changes the plan's shape, only its
+  exact insertion point: the "🔭 Don't see it? Suggest a tool" form still
+  fits as one more block inside the same `results.length === 0` branch
+  (`Discover.jsx:227-254`), placed after the `suggestedCats` buttons and the
+  clear-filters button — a user has already been offered the two "maybe you
+  just filtered too hard" escape routes by that point, so the submission
+  form reads as the last resort for someone who tried both and still found
+  nothing, not a distraction competing with them for attention first.
+  Also resolved the one open uncertainty this entry flagged instead of
+  assuming: confirmed via `git remote -v` that the actual repo slug is
+  `saikiranreddy18/toolnaut` (`https://github.com/saikiranreddy18/toolnaut`)
+  — whoever builds this can hardcode `GITHUB_REPO_URL =
+  'https://github.com/saikiranreddy18/toolnaut'` in `src/config.js` directly,
+  no verification step left to do. Confirmed `src/config.js` still has no
+  such constant and `src/utils/suggestTool.js` still doesn't exist, so this
+  gap is exactly as unbuilt and exactly as buildable as when it was first
+  logged — only the target line numbers and the repo-URL blank needed
+  filling in. `ToolDetail.jsx:143-145`'s "VISIT WEBSITE" `nb-btn dark` link,
+  cited above as the style to reuse for the `Settings.jsx` link, is also
+  still at that exact location, unchanged.
 
 ### PDF roadmap export (sold on Pro, does not exist)
 - **Status:** OPEN
@@ -716,7 +745,10 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-25 03:20 UTC
 
 ### Per-route page title & meta description (SEO/social, every page shares one)
-- **Status:** OPEN
+- **Status:** SHIPPED (this run, sha to follow the DEVLOG-visible fix commit)
+  — the hook, its prerender bug fix, and all five originally-scoped call
+  sites (plus the two blocked ones' own resolution) are now done; see the
+  2026-08-31 12:22 UTC deepening below for the closing piece.
 - **Seen in:** every directory competitor treats per-listing metadata as
   table stakes because it's their primary organic-search channel — G2 and
   Capterra generate a unique `<title>`/description per product page keyed off
@@ -849,6 +881,80 @@ a client-side SPA with a static tool catalogue.
   right after the base `usePageMeta` gap, not as a separate backlog line —
   same feature, one more file (`App.jsx`'s route table) than originally
   scoped.
+- **Deepened 2026-08-31 00:20 UTC — the hook shipped, and it shipped with a
+  bug that undid most of its own point; found and fixed this run.** This gap
+  was written before `src/utils/head.js` existed. Re-reading the current
+  repo: a `useHead({ title, description, path, jsonLd })` hook (hand-rolled,
+  not `react-helmet` — exactly what this gap's own "smallest useful version"
+  proposed) is real and already wired into six pages — `CategoryLanding.jsx`,
+  `NewTools.jsx`, `Pricing.jsx`, `About.jsx`, `Methodology.jsx`,
+  `NotFound.jsx` — none of which are recorded in DEVLOG or this backlog under
+  this gap's name, so it shipped as part of some other, unlogged piece of
+  work (most likely the prerender effort below, same commit per `git log`).
+  Of this gap's original five call sites: `Pricing`/`About` done;
+  `ToolDetail`/`Compare` still correctly blocked on the session-gate problem
+  the previous deepening above already named; `SharedStack.jsx` — public,
+  ungated, no blocker at all — was simply never wired and is the one real
+  remaining gap here (see below).
+  The bigger finding is a real, shipped bug, not a scoping gap. A second new
+  file, `scripts/prerender.mjs` (also unlogged under any gap), runs the
+  `vite build` output through a headless browser per public route and writes
+  the rendered HTML back into `dist/` so crawlers get real content instead of
+  an empty `<div id="root">` — necessary, and it correctly names the exact
+  problem this gap's own "why it matters" predicted (a shared canonical
+  "asks Google to treat them all as duplicates of the homepage and index
+  none of them"). But it deliberately rebuilds every route from the
+  **pristine, pre-hydration shell** captured before any route mounts, to keep
+  Vite's per-route `<link rel="modulepreload">` tags out of the static
+  output (the three.js-preload bug this repo's CLAUDE.md warns about,
+  `prerender.mjs`'s own comment names it explicitly). Side effect:
+  `useHead()`'s `document.head` writes — title, description, canonical,
+  `og:*`/`twitter:*`, the JSON-LD script — all happen inside the exact
+  browser session `prerender.mjs` throws away. **Verified by building it**:
+  before this run's fix, `dist/tools/design/index.html` shipped the
+  homepage's `<title>`, a canonical pointing at `https://toolnaut.xyz/` (not
+  `/tools/design`), and zero `application/ld+json` — identical across all 14
+  prerendered routes, the exact "every page shares one" failure this gap is
+  named for, just moved one layer below where it was originally written
+  against. `scripts/verify-prerender.mjs` (a real, purpose-built
+  crawler-view checker) never caught it — it only asserts body text length
+  and h1 content, no `<title>`/canonical assertion at all — and it isn't
+  wired into `npm test` or CI regardless (checked `package.json` and
+  `.github/workflows/`).
+  **Fixed this run**, in `scripts/prerender.mjs` (already built and
+  verified, not a proposal): after rendering each route, `page.evaluate()`
+  reads back what `useHead()` just wrote (`document.title`, the live
+  description/canonical/og/twitter tag content, `#route-jsonld`'s text), and
+  a small `patchHead()` applies those as string substitutions onto the
+  pristine shell's already-declared static tags — no live DOM is
+  serialised, so the modulepreload bug this design exists to avoid stays
+  avoided. Verified by rebuilding and grepping `dist/tools/design/index.html`,
+  `dist/new/index.html`, `dist/pricing/index.html`: each now carries its own
+  title/description/canonical/`og:*`, `/tools/design` carries a real
+  `CollectionPage`/`ItemList` JSON-LD block, and `dist/index.html` (no
+  `useHead()` call) is unchanged — confirmed via `npm test` (162/162),
+  `npm run build`, and `npm run smoke`, all green.
+  **What's still open, now correctly scoped to one item:** wire `useHead()`
+  into `SharedStack.jsx` — public, ungated, on the same tier as the pages
+  already done, but not in `prerender.mjs`'s `ROUTES` list (correctly —
+  `/s/:slugs`' content depends on the URL param, and that file's own comment
+  already excludes it for that reason), so this is a client-side-only
+  `useHead()` call (e.g. title naming the shared tools: "My AI stack: Notion
+  AI, Cursor, Perplexity — Toolnaut"), not a prerender change. One import,
+  one hook call, using data the page already has resolved.
+- **Deepened 2026-08-31 12:22 UTC — the last call site shipped; closing this
+  gap.** `SharedStack.jsx` now calls `useHead()` (title naming up to 5 tools
+  by name plus a "+N more" tail, a description listing all of them, `path:
+  /s/:slugs`, and an `ItemList` JSON-LD of the shared tools) when the link
+  resolves to at least one real tool, and just a bare `path` (site defaults)
+  for a stale/unrecognized link — never a fabricated title for zero tools.
+  Confirmed via `npm run smoke`: `/s/chatgpt` still renders clean (0 console
+  errors); this route is client-only per the design above, so there's no
+  `dist/` output to grep the way the prerendered routes were checked. All
+  five of this gap's originally-scoped call sites are now done, and the two
+  routes this deepening's own earlier note found blocked (`ToolDetail`,
+  `Compare`) remain the one open follow-up — still gated behind `AppShell`,
+  still a separate, larger routing decision, not part of this gap's scope.
 
 ### Pro chat assistant & the entire Team tier are unbacked and unbuildable client-side
 - **Status:** REJECTED — needs a backend/multi-user system; logged so future
@@ -1546,6 +1652,37 @@ a client-side SPA with a static tool catalogue.
   props into the three existing filter rows. No backend, no new dependency, no
   new route, no new store.
 - **Found:** 2026-08-27 15:07 UTC
+- **Deepened 2026-08-31 03:20 UTC:** every line reference in this entry is now
+  stale — flagged as likely by the tags-clickable gap's own 2026-08-30
+  deepening above, confirmed here by reading the current 333-line
+  `Discover.jsx` in full. The page picked up pagination and a `ToolCard`
+  extraction since this entry was written (both visible in the file: a
+  `PAGE_SIZE`/`visible`/`remaining` block and an imported `ToolCard`
+  component that replaced inline card markup). Corrected locations:
+  `Pill` is now `Discover.jsx:26-36` (was `:18-28`); the filter predicate to
+  extract is the `.filter(...)` call inside the `results` `useMemo` at
+  `Discover.jsx:97-108` (was `:85-101` — the `useMemo` itself now spans
+  `:95-114` because a `.map()` for `matchScore` and a `.sort()` for
+  prominence tiebreak run after the filter, so the util extraction should
+  pull out only the `.filter()` predicate, not the whole memo body); the
+  category/price/level pill rows are now `:204-210`, `:213-218`, `:219-224`
+  (was `:161-165`, `:170-174`, `:176-180`); the zero-results block referenced
+  for "only shows after a filter is already applied" is now `:227-254` (was
+  `:183-193`) and, like the tags gap already noted for the community-
+  submission gap's empty state, now computes `suggestedCats` and a "clear all
+  filters" button that didn't exist when this entry was first written.
+  Substance is unaffected — `Pill` still takes only `active`/`onClick`/
+  `children` (confirmed, no `count` slot today), and no shared search
+  predicate util exists yet anywhere in `src/` (checked `src/utils/` for a
+  `search.js`/`facetCounts.js` file and grepped for `matchesQuery` — zero
+  hits), so the plan to extract the filter predicate into a reusable pure
+  function is still exactly the right shape, just pointed at the right
+  lines now. Worth naming for whoever builds this: the still-OPEN "No public
+  search" gap (`docs/research-backlog.md:2099`) independently proposes
+  extracting the *same* predicate into a shared `matchesQuery()` helper for
+  its own `SearchTools.jsx` page — if either gap ships first, the other
+  should reuse its extracted helper rather than factoring the predicate out
+  twice into two slightly different utils.
 
 ### Tool "graveyard" page — deferred by the status-note gap, worth its own build
 - **Status:** OPEN
@@ -1933,7 +2070,10 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-28 12:20 UTC
 
 ### Structured data (JSON-LD) — zero schema.org markup on any crawlable page
-- **Status:** OPEN
+- **Status:** SHIPPED (this run) — all three originally-scoped call sites
+  now emit real `ItemList` JSON-LD, and the prerender bug that dropped it
+  from every static page is fixed (see the "per-route page title" gap's
+  2026-08-31 deepening for the full story, not repeated here).
 - **Seen in:** G2 and Capterra emit `SoftwareApplication`/`Product` JSON-LD
   with `aggregateRating` and `offers` on every listing page, which is exactly
   why their category pages show star ratings and price directly in Google
@@ -2000,6 +2140,52 @@ a client-side SPA with a static tool catalogue.
   (`JsonLd.jsx`), three call sites (`CategoryLanding.jsx`, `NewTools.jsx`,
   `SharedStack.jsx`). No backend, no new dependency, no new route.
 - **Found:** 2026-08-29 00:06 UTC
+- **Deepened 2026-08-31 00:20 UTC:** this shipped for one of its three named
+  call sites, not zero — `CategoryLanding.jsx` passes a real `jsonLd` object
+  (`CollectionPage`/`ItemList`, one entry per tool in that domain) into the
+  `useHead()` hook this backlog's per-route-meta gap's own deepening just
+  documented in full. `NewTools.jsx` calls the same `useHead()` hook but
+  without a `jsonLd` argument — the plumbing exists on that page, it's a
+  one-line addition to wire it up, not a new capability. `SharedStack.jsx`
+  doesn't call `useHead()` at all yet (same gap the per-route-meta deepening
+  names as its own one remaining item). The `JsonLd.jsx` component this
+  entry proposed was never needed and shouldn't be built now — `useHead()`
+  already does the `<script type="application/ld+json">` injection/cleanup
+  itself (`head.js:75-83`), a second mechanism would just be two ways to do
+  the same thing.
+  The bigger news is the one this run actually spent its time on: whatever
+  JSON-LD *does* get passed to `useHead()` was silently never reaching the
+  shipped HTML at all, on any route, until this run's fix —
+  `scripts/prerender.mjs` rebuilt every prerendered page from a pristine,
+  pre-hydration shell that never carried the `#route-jsonld` script React
+  injects at runtime, so `CategoryLanding`'s schema, despite being real,
+  correct code, shipped to exactly zero crawlers before today. Fixed in
+  `prerender.mjs` this run (full detail in the per-route-meta gap's
+  deepening above); re-verified by rebuilding and grepping
+  `dist/tools/design/index.html` for `application/ld+json`, present and
+  correct post-fix.
+  **What's still genuinely open:** add `jsonLd` to `NewTools.jsx`'s existing
+  `useHead()` call (an `ItemList` of the 30-day tool set, same shape
+  `CategoryLanding.jsx` already builds) and wire `useHead()` (title +
+  `jsonLd`) into `SharedStack.jsx` once that page gets the hook at all. Both
+  are now one-line-shaped additions to plumbing that already exists and is
+  now verified to actually reach a crawler, not new infrastructure.
+- **Deepened 2026-08-31 12:22 UTC — both remaining call sites shipped;
+  closing this gap.** `NewTools.jsx`'s existing `useHead()` call now passes a
+  `CollectionPage`/`ItemList` `jsonLd` (one `ListItem` per tool in the 30-day
+  window, same shape `CategoryLanding.jsx` already builds) — confirmed in the
+  prerendered output, `dist/new/index.html` now carries a real
+  `application/ld+json` block with `numberOfItems` matching the page's own
+  tool count. `SharedStack.jsx` now calls `useHead()` with an `ItemList` too
+  (full detail in the per-route-meta gap's own closing deepening above, not
+  repeated here) — that route is client-only, not in `prerender.mjs`, so its
+  markup reaches a crawler only if one somehow lands on a specific share
+  link directly, which is the honest limit of what a URL-param-keyed page can
+  offer without server rendering; still strictly better than emitting
+  nothing. All three originally-scoped call sites (`CategoryLanding`,
+  `NewTools`, `SharedStack`) are done. Verified with `npm test` (76/76),
+  `npm run build` + prerender, and `npm run smoke` (20/20 routes, 0 console
+  errors).
 
 ### No public search — every "type a keyword" path is behind the login wall
 - **Status:** OPEN
@@ -2108,6 +2294,68 @@ a client-side SPA with a static tool catalogue.
   gap's extraction if that ships first), one homepage/footer link, one line
   in `scripts/smoke.mjs`. No backend, no new dependency, no new store.
 - **Found:** 2026-08-29 03:15 UTC
+- **Deepened 2026-08-31 15:20 UTC:** re-read the current 332-line `Discover.jsx`
+  and confirmed the other two still-OPEN gaps this entry cross-references
+  (`/alternatives/:slug`, `/graveyard`) remain unbuilt — `git grep -n
+  "alternatives\|graveyard" src/App.jsx` and a directory listing of
+  `src/pages/` both still show no such route or file, so the "four public
+  listing pages already shipped" framing this entry opened with is unchanged
+  in shape, just one page further along (`CategoryLanding.jsx`, `NewTools.jsx`,
+  `SharedStack.jsx` plus now `Checkout.jsx`, which is public but noindexed and
+  irrelevant to this gap).
+  Two corrections, both line-reference drift from the same pagination/
+  `ToolCard`-extraction commit the facet-counts gap's own 2026-08-31 03:20
+  deepening already found and fixed for its part of this file:
+  1. The search `<input type="search">` this entry's plan says to copy the
+     markup of is no longer at `Discover.jsx:162-175` — it's now
+     `Discover.jsx:162-170` (still correct enough to not have been flagged
+     before, off by five lines, not worth a full re-cite, noted here so
+     whoever builds this checks the live file rather than trusting either
+     number blindly).
+  2. The filter predicate this entry says to extract into a shared
+     `matchesQuery()` is now the `.filter(...)` at `Discover.jsx:98-108`
+     inside the `results` `useMemo` (was cited as `:93-112` — the memo body
+     grew a `.map()` for `matchScore` and a `.sort()` for prominence
+     tiebreak after the filter, exactly as the facet-counts gap's deepening
+     already documented for its own extraction of the same block). Confirmed
+     again this run: no `matchesQuery`/`search.js`/`facetCounts.js` exists
+     anywhere in `src/utils/` yet, so this extraction is still un-done and
+     still needed by both gaps — whichever ships first should factor the
+     predicate out once, not twice, per this entry's own original note.
+  One real addition, not just a correction: this entry's original plan never
+  mentions `useHead()` because the per-route-meta gap it depends on was still
+  mid-build when this was written (2026-08-29) — it only finished shipping
+  its last two call sites today (`docs/research-backlog.md:945`, 2026-08-31
+  12:22 UTC). That hook is now the established, load-bearing pattern for
+  every public page's `<title>`/description/canonical — eight call sites
+  confirmed via `grep -rl "useHead(" src/pages/`: `NewTools.jsx`,
+  `CategoryLanding.jsx`, `Pricing.jsx`, `SharedStack.jsx`, `Checkout.jsx`,
+  `About.jsx`, `NotFound.jsx`, `Methodology.jsx`. `SearchTools.jsx` should
+  call it too, same as every sibling public page — a static title/description
+  when `q` is empty ("Search 750+ AI tools — Toolnaut" / "Search Toolnaut's
+  AI tool catalog by name, category or use case"), and a dynamic one when a
+  query is present (e.g. `` `"${q}" — AI tool search results — Toolnaut` ``),
+  `path: '/search'` either way. This doesn't reopen the "no sitemap entries"
+  exclusion already in this plan — a `<title>` costs nothing and matches
+  every other public page's baseline, a sitemap entry for an infinite `?q=`
+  space is the thing correctly staying out of scope. Also confirmed
+  `src/utils/head.js`'s own header comment: the prerenderer snapshots
+  `document.documentElement.outerHTML` after render, so `useHead()`'s effect
+  output is exactly what a crawler sees for this route too, same mechanism
+  as every already-shipped call site.
+  `scripts/smoke.mjs:32`'s current route array (confirmed by reading the
+  live file) is `['/', '/goal', '/example', '/methodology', '/pricing',
+  '/about', '/privacy', '/terms', '/app/stack', '/app/discover',
+  '/app/favorites', '/app/compare?tools=chatgpt,claude', '/app/tools/chatgpt',
+  '/app/learning', '/app/community', '/app/settings', '/office', '/s/chatgpt',
+  '/tools/code', '/new']` — no `/search` entry, confirming the plan's own
+  footgun note still applies; the addition should be `/search?q=chatgpt`
+  (matching the existing `?tools=chatgpt,claude` precedent of exercising the
+  query-driven branch, not just the empty-state one).
+  No other part of the plan needs correction — `CategoryLanding.jsx`'s shape
+  (heading, `useHead`, card grid keyed off `CATEGORY_META`, no
+  add-to-stack/favorite actions on a public page) is confirmed unchanged and
+  remains the right model to copy.
 
 ### A shared stack can only be viewed, never adopted — the receiving half of Share/Export was never built
 - **Status:** FIXED (this commit) — small, well-scoped defect in already-shipped
@@ -2301,9 +2549,73 @@ a client-side SPA with a static tool catalogue.
   optional small addition to `Discover.jsx`'s card markup. No backend, no
   new dependency.
 - **Found:** 2026-08-29 09:20 UTC
+- **Deepened 2026-08-30 21:06 UTC:** the `Discover.jsx` half of this plan is
+  now wrong, not just stale — `Discover.jsx` was refactored after this entry
+  was written (visible in its own file history: pagination + a `ToolCard`
+  extraction) and no longer contains any inline card markup at all. Re-read
+  the current file in full: results render via `<ToolCard tool={tool} .../>`
+  (`Discover.jsx:270-286`), a shared component now imported by **both**
+  `Discover.jsx` and `Favorites.jsx` (confirmed: `Favorites.jsx:12` imports
+  it and renders it at three call sites, `Favorites.jsx:110,151,223`) —
+  `ToolCard.jsx`'s own header comment says so explicitly: "The one tool
+  card, shared by Discover and Favorites." So "optionally render tags on
+  Discover's card grid" is actually one change in `ToolCard.jsx`, and it's a
+  strictly better target than originally scoped: fixing it there closes the
+  gap on Favorites too, for free, which didn't exist as a page when this
+  entry was first written.
+  There is a real technical trap here a builder needs to know before
+  touching this file, not just a line-number correction. `ToolCard.jsx`'s
+  own comment (`ToolCard.jsx:8-19`) explains why the card is NOT a `<Link>`
+  wrapping everything: the tool-name `<h3>` holds a `<Link>` with
+  `after:absolute after:inset-0` (`ToolCard.jsx:64`) that stretches
+  invisibly over the *entire* card so the whole card is clickable, and every
+  interactive control below it (the ADD button, the favorite heart, the
+  compare checkbox) is deliberately wrapped in `relative z-10`
+  (`ToolCard.jsx:86`) so it sits above that stretched overlay and stays
+  clickable — the comment calls out that the old design's
+  interactive-inside-interactive markup was actually broken for keyboard/
+  screen-reader users, which is exactly the failure mode a naively-added
+  tag `<Link>` would reintroduce if dropped in without the same treatment.
+  Concretely: tags would need to render inside that same
+  `relative z-10` control row (`ToolCard.jsx:86-119`, alongside the ADD/
+  favorite/compare controls) or in their own `relative z-10` wrapper — not
+  as a bare `<Link>` floating elsewhere in the card body — or they render
+  visually but are unreachable/unclickable underneath the stretched
+  whole-card link, the identical bug this component was rewritten to avoid
+  for its other controls. `ToolCard.jsx` doesn't render `tags` at all today
+  (confirmed reading the full 123-line file — `PRICE_LABELS`/`LEVEL_LABELS`
+  pills exist at `ToolCard.jsx:80-83`, no `tags` reference anywhere), so
+  this is new markup, not a tweak to something already half-there.
+  The `ToolDetail.jsx` half of the original plan is unaffected and still
+  exactly accurate — re-confirmed `ToolDetail.jsx:131-135` still renders
+  bare `arcade-chip` spans with no `onClick`/`href`, line numbers unchanged.
+  **Corrected smallest useful version for the `ToolCard.jsx` half:** add a
+  small tag row inside the existing `relative z-10` block at
+  `ToolCard.jsx:86-119`, after the existing button/heart/compare row (a new
+  wrapping `<div>` so it doesn't fight the `flex items-center gap-2` layout
+  those three controls already use) — up to 2 tags, each a small
+  `arcade-chip`-styled `<Link to={`/app/discover?q=${encodeURIComponent(tag)}`}>`,
+  matching `ToolDetail.jsx`'s own destination pattern exactly. No change to
+  `Favorites.jsx` itself required — it inherits the new row automatically
+  by rendering the same `ToolCard`.
+  Two other entries in this file plan to touch the *same* file
+  (`Discover.jsx`) and should be aware of this same staleness rather than
+  re-discovering it independently when picked up: the still-OPEN
+  "facet counts" gap's predicate-extraction target (`Discover.jsx:85-101`
+  in its own text) is now around `Discover.jsx:95-114` in the current file
+  (the `results` `useMemo`, shifted by the pagination code added above it —
+  same shape, just moved, not broken); and the still-OPEN
+  "Community-submitted tools" gap's empty-state insertion point
+  (`Discover.jsx:170-180` in its own text) is now the `results.length === 0`
+  block at `Discover.jsx:227-254`, which itself changed shape (it now
+  computes `suggestedCats` category buttons and a "clear all filters"
+  button that didn't exist when that gap was written) — whoever builds
+  either of those two should re-read the current file rather than trusting
+  the stale line numbers, same caution this deepening is logging here for
+  the tags gap.
 
 ### Pricing already got its honest fix written — it just never got wired in, so the false claims and their own correction now sit on the same pages
-- **Status:** OPEN
+- **Status:** SHIPPED c04149e
 - **Seen in:** not a competitor pattern — found reading every file under
   `src/components/sections/` for the marketing-audit sweep this backlog has
   run for a week (the same sweep that already produced the shipped

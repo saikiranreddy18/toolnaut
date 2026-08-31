@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { useHead } from '../utils/head'
+import { BrandLogo, LOGO } from '../components/ui/Mascot'
+import { useHead, SITE } from '../utils/head'
 import { PRICE_LABELS, LEVEL_LABELS } from '../utils/toolsCatalog'
 import { getNewTools } from '../utils/newTools'
 import { isCatalogNoise } from '../utils/prominence'
@@ -17,10 +18,40 @@ export default function NewTools() {
     description:
       'AI tools added to Toolnaut in the last 30 days, found by the nightly radar. What each one does, what it costs, and how hard it is to pick up.',
     path: '/new',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: `New AI tools this month (${tools.length} added)`,
+      url: `${SITE}/new`,
+      mainEntity: {
+        '@type': 'ItemList',
+        numberOfItems: tools.length,
+        itemListElement: tools.slice(0, 25).map((t, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: t.name,
+          description: t.blurb,
+          url: `${SITE}/app/tools/${t.slug}`,
+        })),
+      },
+    },
   })
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-10 lg:py-16">
+      {/* /new is a radar landing page — people arrive here from search and
+          shared links, so it can be someone's first screen. It had no mark at
+          all. Same header and same LOGO.page scale as the other standalone
+          pages. */}
+      <header className="mb-8 flex items-center justify-between gap-4">
+        <Link to="/" aria-label="Toolnaut home">
+          <BrandLogo {...LOGO.page} />
+        </Link>
+        <Link to="/goal" className="nb-btn px-4 py-2 text-xs">
+          ⚡ Find your stack
+        </Link>
+      </header>
+
       <p className="font-display text-xs uppercase tracking-[0.2em] font-black text-exus-lime">
         ▸ FRESH FROM THE RADAR
       </p>

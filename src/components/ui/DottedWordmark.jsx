@@ -213,7 +213,12 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut', bg =
       ref={ref}
       role="img"
       aria-label={text}
-      className={`relative select-none ${bg ? 'pointer-events-none' : ''} ${className}`}
+      // bg passes its own `absolute inset-*` via className — the base class must
+      // not also say `relative`, because both end up on the element and which
+      // wins is stylesheet order, not intent. It resolved to relative: the
+      // insets became inert offsets, the root shrank to content height, and
+      // the mark sat ABOVE the grid it was supposed to sit behind.
+      className={`${bg ? 'pointer-events-none' : 'relative'} select-none ${className}`}
       onPointerMove={bg ? undefined : onMove}
       onPointerEnter={bg ? undefined : () => setActive(true)}
       onPointerLeave={bg ? undefined : () => {
@@ -235,11 +240,18 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut', bg =
       {!alwaysOn && (
         <svg
           viewBox={`0 0 ${VB_W} ${VB_H}`}
+        preserveAspectRatio={bg ? 'xMidYMid slice' : 'xMidYMid meet'}
           className={bg ? 'absolute inset-0 block h-full w-full' : 'absolute inset-0 block w-full'}
           aria-hidden="true"
           style={{
             filter: 'blur(14px) saturate(1.25)',
-            opacity: active ? 0.4 : 0.7,
+            // Quieter than over the old near-black: on the charcoal panel the
+            // blurred letters sit much closer to the link colour, and at 0.7
+            // the Company column washed out against the bright 'AU'. The
+            // links are content; the mark is atmosphere.
+            // In its own band (flow mode) the mark owns the space and can sit
+            // richer; behind live content (bg) it stays quiet so links win.
+            opacity: bg ? (active ? 0.28 : 0.48) : active ? 0.35 : 0.62,
             transition: 'opacity 320ms ease',
           }}
         >
@@ -251,6 +263,7 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut', bg =
           so the advance-width measurement runs on a rendered instance. */}
       <svg
         viewBox={`0 0 ${VB_W} ${VB_H}`}
+        preserveAspectRatio={bg ? 'xMidYMid slice' : 'xMidYMid meet'}
         className={bg ? 'block h-full w-full' : 'block w-full'}
         aria-hidden="true"
         style={{
@@ -267,17 +280,6 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut', bg =
         {renderMark(true)}
       </svg>
 
-      {/* The hint. It fades the moment the pointer arrives, so it never
-          competes with the reveal. */}
-      {!alwaysOn && (
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 -bottom-1 text-center font-display text-[10px] font-black uppercase tracking-[0.28em] text-slate-600"
-          style={{ opacity: active ? 0 : 1, transition: 'opacity 260ms ease' }}
-        >
-          bring it into focus
-        </span>
-      )}
     </div>
   )
 }

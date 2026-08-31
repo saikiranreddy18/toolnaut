@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useHead } from '../utils/head'
 import { motion } from 'framer-motion'
-import { BrandLogo } from '../components/ui/Mascot'
+import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { BRAND } from '../config'
 
 // The story/pitch page — the accelerator-application answers, public.
@@ -36,7 +36,7 @@ export default function About() {
 
       <header className="relative mx-auto flex max-w-3xl items-center justify-between px-5 py-6">
         <Link to="/" aria-label={BRAND}>
-          <BrandLogo size={44} textClass="text-xl" />
+          <BrandLogo {...LOGO.page} />
         </Link>
         <Link to="/goal" className="nb-btn px-4 py-2 text-xs">
           ⚡ Find your stack
