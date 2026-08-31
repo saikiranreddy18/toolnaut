@@ -716,7 +716,9 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-25 03:20 UTC
 
 ### Per-route page title & meta description (SEO/social, every page shares one)
-- **Status:** OPEN
+- **Status:** OPEN — mostly SHIPPED since this was written; a real bug in the
+  ship path found and fixed this run (see deepening below), one call site
+  remains.
 - **Seen in:** every directory competitor treats per-listing metadata as
   table stakes because it's their primary organic-search channel — G2 and
   Capterra generate a unique `<title>`/description per product page keyed off
@@ -849,6 +851,67 @@ a client-side SPA with a static tool catalogue.
   right after the base `usePageMeta` gap, not as a separate backlog line —
   same feature, one more file (`App.jsx`'s route table) than originally
   scoped.
+- **Deepened 2026-08-31 00:20 UTC — the hook shipped, and it shipped with a
+  bug that undid most of its own point; found and fixed this run.** This gap
+  was written before `src/utils/head.js` existed. Re-reading the current
+  repo: a `useHead({ title, description, path, jsonLd })` hook (hand-rolled,
+  not `react-helmet` — exactly what this gap's own "smallest useful version"
+  proposed) is real and already wired into six pages — `CategoryLanding.jsx`,
+  `NewTools.jsx`, `Pricing.jsx`, `About.jsx`, `Methodology.jsx`,
+  `NotFound.jsx` — none of which are recorded in DEVLOG or this backlog under
+  this gap's name, so it shipped as part of some other, unlogged piece of
+  work (most likely the prerender effort below, same commit per `git log`).
+  Of this gap's original five call sites: `Pricing`/`About` done;
+  `ToolDetail`/`Compare` still correctly blocked on the session-gate problem
+  the previous deepening above already named; `SharedStack.jsx` — public,
+  ungated, no blocker at all — was simply never wired and is the one real
+  remaining gap here (see below).
+  The bigger finding is a real, shipped bug, not a scoping gap. A second new
+  file, `scripts/prerender.mjs` (also unlogged under any gap), runs the
+  `vite build` output through a headless browser per public route and writes
+  the rendered HTML back into `dist/` so crawlers get real content instead of
+  an empty `<div id="root">` — necessary, and it correctly names the exact
+  problem this gap's own "why it matters" predicted (a shared canonical
+  "asks Google to treat them all as duplicates of the homepage and index
+  none of them"). But it deliberately rebuilds every route from the
+  **pristine, pre-hydration shell** captured before any route mounts, to keep
+  Vite's per-route `<link rel="modulepreload">` tags out of the static
+  output (the three.js-preload bug this repo's CLAUDE.md warns about,
+  `prerender.mjs`'s own comment names it explicitly). Side effect:
+  `useHead()`'s `document.head` writes — title, description, canonical,
+  `og:*`/`twitter:*`, the JSON-LD script — all happen inside the exact
+  browser session `prerender.mjs` throws away. **Verified by building it**:
+  before this run's fix, `dist/tools/design/index.html` shipped the
+  homepage's `<title>`, a canonical pointing at `https://toolnaut.xyz/` (not
+  `/tools/design`), and zero `application/ld+json` — identical across all 14
+  prerendered routes, the exact "every page shares one" failure this gap is
+  named for, just moved one layer below where it was originally written
+  against. `scripts/verify-prerender.mjs` (a real, purpose-built
+  crawler-view checker) never caught it — it only asserts body text length
+  and h1 content, no `<title>`/canonical assertion at all — and it isn't
+  wired into `npm test` or CI regardless (checked `package.json` and
+  `.github/workflows/`).
+  **Fixed this run**, in `scripts/prerender.mjs` (already built and
+  verified, not a proposal): after rendering each route, `page.evaluate()`
+  reads back what `useHead()` just wrote (`document.title`, the live
+  description/canonical/og/twitter tag content, `#route-jsonld`'s text), and
+  a small `patchHead()` applies those as string substitutions onto the
+  pristine shell's already-declared static tags — no live DOM is
+  serialised, so the modulepreload bug this design exists to avoid stays
+  avoided. Verified by rebuilding and grepping `dist/tools/design/index.html`,
+  `dist/new/index.html`, `dist/pricing/index.html`: each now carries its own
+  title/description/canonical/`og:*`, `/tools/design` carries a real
+  `CollectionPage`/`ItemList` JSON-LD block, and `dist/index.html` (no
+  `useHead()` call) is unchanged — confirmed via `npm test` (162/162),
+  `npm run build`, and `npm run smoke`, all green.
+  **What's still open, now correctly scoped to one item:** wire `useHead()`
+  into `SharedStack.jsx` — public, ungated, on the same tier as the pages
+  already done, but not in `prerender.mjs`'s `ROUTES` list (correctly —
+  `/s/:slugs`' content depends on the URL param, and that file's own comment
+  already excludes it for that reason), so this is a client-side-only
+  `useHead()` call (e.g. title naming the shared tools: "My AI stack: Notion
+  AI, Cursor, Perplexity — Toolnaut"), not a prerender change. One import,
+  one hook call, using data the page already has resolved.
 
 ### Pro chat assistant & the entire Team tier are unbacked and unbuildable client-side
 - **Status:** REJECTED — needs a backend/multi-user system; logged so future
@@ -1933,7 +1996,9 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-28 12:20 UTC
 
 ### Structured data (JSON-LD) — zero schema.org markup on any crawlable page
-- **Status:** OPEN
+- **Status:** OPEN — partially SHIPPED since this was written, and what did
+  ship had a real bug (found and fixed this run — see the "per-route page
+  title" gap's 2026-08-31 deepening for the full story, not repeated here).
 - **Seen in:** G2 and Capterra emit `SoftwareApplication`/`Product` JSON-LD
   with `aggregateRating` and `offers` on every listing page, which is exactly
   why their category pages show star ratings and price directly in Google
@@ -2000,6 +2065,36 @@ a client-side SPA with a static tool catalogue.
   (`JsonLd.jsx`), three call sites (`CategoryLanding.jsx`, `NewTools.jsx`,
   `SharedStack.jsx`). No backend, no new dependency, no new route.
 - **Found:** 2026-08-29 00:06 UTC
+- **Deepened 2026-08-31 00:20 UTC:** this shipped for one of its three named
+  call sites, not zero — `CategoryLanding.jsx` passes a real `jsonLd` object
+  (`CollectionPage`/`ItemList`, one entry per tool in that domain) into the
+  `useHead()` hook this backlog's per-route-meta gap's own deepening just
+  documented in full. `NewTools.jsx` calls the same `useHead()` hook but
+  without a `jsonLd` argument — the plumbing exists on that page, it's a
+  one-line addition to wire it up, not a new capability. `SharedStack.jsx`
+  doesn't call `useHead()` at all yet (same gap the per-route-meta deepening
+  names as its own one remaining item). The `JsonLd.jsx` component this
+  entry proposed was never needed and shouldn't be built now — `useHead()`
+  already does the `<script type="application/ld+json">` injection/cleanup
+  itself (`head.js:75-83`), a second mechanism would just be two ways to do
+  the same thing.
+  The bigger news is the one this run actually spent its time on: whatever
+  JSON-LD *does* get passed to `useHead()` was silently never reaching the
+  shipped HTML at all, on any route, until this run's fix —
+  `scripts/prerender.mjs` rebuilt every prerendered page from a pristine,
+  pre-hydration shell that never carried the `#route-jsonld` script React
+  injects at runtime, so `CategoryLanding`'s schema, despite being real,
+  correct code, shipped to exactly zero crawlers before today. Fixed in
+  `prerender.mjs` this run (full detail in the per-route-meta gap's
+  deepening above); re-verified by rebuilding and grepping
+  `dist/tools/design/index.html` for `application/ld+json`, present and
+  correct post-fix.
+  **What's still genuinely open:** add `jsonLd` to `NewTools.jsx`'s existing
+  `useHead()` call (an `ItemList` of the 30-day tool set, same shape
+  `CategoryLanding.jsx` already builds) and wire `useHead()` (title +
+  `jsonLd`) into `SharedStack.jsx` once that page gets the hook at all. Both
+  are now one-line-shaped additions to plumbing that already exists and is
+  now verified to actually reach a crawler, not new infrastructure.
 
 ### No public search — every "type a keyword" path is behind the login wall
 - **Status:** OPEN

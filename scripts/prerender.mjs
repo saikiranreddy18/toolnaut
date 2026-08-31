@@ -124,6 +124,37 @@ try {
 }
 const page = await browser.newPage({ viewport: { width: 1280, height: 900 } })
 
+// src/utils/head.js mutates document.head per route (title, description,
+// canonical, og:*/twitter:*, and an optional #route-jsonld script) — but this
+// script rebuilds every page from the PRISTINE shell (see ROOT_MARKER comment
+// above), so none of that ever reached the shipped HTML: every prerendered
+// route shipped the homepage's <title>, description and canonical, and the
+// JSON-LD tag never existed at all. Verified by building and grepping
+// dist/tools/design/index.html before this fix landed. Re-apply the same
+// handful of tags useHead() sets, read straight off the live page, as string
+// patches on the shell — the one part of the live document safe to reuse,
+// unlike the full outerHTML this file already explains why it avoids.
+function escapeHtml(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+}
+function patchHead(head, m) {
+  let out = head
+  const swapText = (re, value) => { if (value) out = out.replace(re, () => `<title>${escapeHtml(value)}</title>`) }
+  const swapAttr = (re, value) => { if (value) out = out.replace(re, (_, pre, post) => `${pre}${escapeHtml(value)}${post}`) }
+  swapText(/<title>[^<]*<\/title>/, m.title)
+  swapAttr(/(<meta name="description" content=")[^"]*(")/, m.description)
+  swapAttr(/(<link rel="canonical" href=")[^"]*(")/, m.canonical)
+  swapAttr(/(<meta property="og:title" content=")[^"]*(")/, m.ogTitle)
+  swapAttr(/(<meta property="og:description" content=")[^"]*(")/, m.ogDescription)
+  swapAttr(/(<meta property="og:url" content=")[^"]*(")/, m.ogUrl)
+  swapAttr(/(<meta name="twitter:title" content=")[^"]*(")/, m.twitterTitle)
+  swapAttr(/(<meta name="twitter:description" content=")[^"]*(")/, m.twitterDescription)
+  // </script> inside the JSON string would close the tag early; escaping "<"
+  // as \u003c is the standard way to embed arbitrary JSON in a script body.
+  if (m.jsonLd) out = out.replace('</head>', () => `<script type="application/ld+json">${m.jsonLd.replace(/</g, '\\u003c')}</script>\n  </head>`)
+  return out
+}
+
 let written = 0
 let failed = 0
 for (const route of ROUTES) {
@@ -142,7 +173,19 @@ for (const route of ROUTES) {
       continue
     }
 
-    const html = `${shellParts[0]}<div id="root">${rendered}</div>${shellParts[1]}`
+    const head = await page.evaluate(() => ({
+      title: document.title,
+      description: document.querySelector('meta[name="description"]')?.content || '',
+      canonical: document.querySelector('link[rel="canonical"]')?.href || '',
+      ogTitle: document.querySelector('meta[property="og:title"]')?.content || '',
+      ogDescription: document.querySelector('meta[property="og:description"]')?.content || '',
+      ogUrl: document.querySelector('meta[property="og:url"]')?.content || '',
+      twitterTitle: document.querySelector('meta[name="twitter:title"]')?.content || '',
+      twitterDescription: document.querySelector('meta[name="twitter:description"]')?.content || '',
+      jsonLd: document.getElementById('route-jsonld')?.textContent || '',
+    }))
+
+    const html = `${patchHead(shellParts[0], head)}<div id="root">${rendered}</div>${shellParts[1]}`
     const out = route === '/' ? join(DIST, 'index.html') : join(DIST, route, 'index.html')
     mkdirSync(dirname(out), { recursive: true })
     writeFileSync(out, html)
