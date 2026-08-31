@@ -49,6 +49,17 @@ export default function QuizResult() {
 
   const persona = generatePersona(quiz.answers)
   const confidence = recommendationConfidence(quiz.answers)
+  // Deterministic: the same answers always print the same ticket. FNV-1a over
+  // the serialised answers, base36 — a stable id with no randomness, no server.
+  const ticketId = (() => {
+    const str = JSON.stringify(quiz.answers)
+    let h = 0x811c9dc5
+    for (let i = 0; i < str.length; i++) {
+      h ^= str.charCodeAt(i)
+      h = Math.imul(h, 0x01000193)
+    }
+    return (h >>> 0).toString(36).toUpperCase().padStart(7, '0')
+  })()
   const [fit, setFit] = useState(() => readScoped('exus_stack_feedback_v1', null))
 
   function retake() {
@@ -72,7 +83,7 @@ export default function QuizResult() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="relative w-full max-w-xl py-20 text-center"
+        className="relative w-full max-w-4xl py-16 text-center"
       >
         {/* Tape label — "level unlocked" tilted diagonal */}
         <motion.div
@@ -84,102 +95,154 @@ export default function QuizResult() {
           <span className="tape-label text-xs">✦ level unlocked ✦</span>
         </motion.div>
 
-        {/* Level badge — chunky orange/yellow pixel style */}
+        {/* THE TICKET — the user's reference render, rebuilt live: main body
+            (tier badge, holographic persona name, tagline, three colour-framed
+            tool cards) plus a perforated stub with passenger data and a
+            barcode. Every field is REAL: the badge is the earned level, the
+            passenger is the persona, and the ticket id is a deterministic
+            hash of the answers — same answers, same ticket. */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.35, type: 'spring', stiffness: 300, damping: 15 }}
-          className="mb-8 inline-block"
+          initial={{ opacity: 0, y: 40, rotate: 0 }}
+          animate={{ opacity: 1, y: 0, rotate: -1.2 }}
+          transition={{ delay: 0.35, type: 'spring', stiffness: 120, damping: 16 }}
+          className="mx-auto mt-2 max-w-4xl overflow-hidden rounded-[26px] text-left"
+          style={{
+            background: 'linear-gradient(135deg, #121220 0%, #0d0d17 55%, #10101c 100%)',
+            border: '1px solid rgba(255,255,255,0.10)',
+            boxShadow: '0 30px 80px -20px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.06)',
+          }}
         >
-          <div className="level-badge inline-flex items-center gap-2 px-5 py-2.5">
-            <span className="text-xl">⭐</span>
-            <span className="font-display text-sm font-black tracking-wider">{level}</span>
+          <div className="grid md:grid-cols-[minmax(0,1fr)_230px]">
+            <div className="px-6 py-8 text-center sm:px-10">
+              <span
+                className="inline-flex items-center gap-2 rounded-lg px-4 py-1.5 font-display text-xs font-black uppercase tracking-[0.2em] text-black"
+                style={{
+                  background: 'linear-gradient(180deg, #f6e27a, #d4af37 55%, #b8860b)',
+                  border: '1px solid #8a6d1a',
+                  boxShadow: '0 2px 10px rgba(212,175,55,0.45), inset 0 1px 0 rgba(255,255,255,0.5)',
+                }}
+              >
+                ★ {level}
+              </span>
+
+              <h1 className="relative mt-5 font-display text-4xl font-black uppercase leading-[1.05] sm:text-5xl">
+                {/* glow layer: same text, blurred, BEHIND the gradient — a
+                    drop-shadow filter on background-clip text rasterises at
+                    the element box and amputated the last glyphs. */}
+                <span aria-hidden="true" className="absolute inset-0 select-none" style={{ color: 'rgba(163,255,216,0.45)', filter: 'blur(12px)' }}>
+                  {persona.name.toUpperCase()}
+                </span>
+                <span
+                  className="relative"
+                  style={{
+                    background: 'linear-gradient(100deg, #bfeee2 0%, #ffffff 40%, #a3ffd8 65%, #d8f7ff 100%)',
+                    WebkitBackgroundClip: 'text',
+                    backgroundClip: 'text',
+                    color: 'transparent',
+                  }}
+                >
+                  {persona.name.toUpperCase()}
+                </span>
+              </h1>
+
+              {persona.career && (
+                <p className="mt-3 font-display text-[11px] font-black uppercase tracking-[0.24em]" style={{ color: '#39d5c8' }}>
+                  {persona.career} / {persona.category.name}
+                </p>
+              )}
+
+              <p className="mt-4 font-display text-sm font-bold text-white sm:text-base">{persona.tagline}</p>
+              <p className="mt-1.5 text-xs text-slate-400">
+                We picked just {persona.stack.length} tools so you skip the endless search.
+              </p>
+
+              <div className="mt-6 flex justify-center">
+                <span
+                  className="rounded-full px-4 py-1 font-display text-[10px] font-black uppercase tracking-[0.18em] text-black"
+                  style={{ background: 'var(--lime)', boxShadow: '0 0 16px rgba(163,255,46,0.45)' }}
+                >
+                  🎯 your starter kit
+                </span>
+              </div>
+
+              <div className="mt-5 grid gap-4 sm:grid-cols-3">
+                {persona.stack.map((t, i) => {
+                  const frame = i === 0 ? 'var(--lime)' : i === 1 ? 'var(--hot-pink)' : 'var(--cyan)'
+                  return (
+                    <motion.div
+                      key={t.name}
+                      initial={{ opacity: 0, y: 26 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.7 + i * 0.14, type: 'spring', stiffness: 200, damping: 16 }}
+                      className="rounded-2xl p-4 text-left"
+                      style={{
+                        border: `2px solid ${frame}`,
+                        background: 'rgba(6,6,12,0.55)',
+                        boxShadow: `0 0 18px -6px ${frame}, inset 0 0 22px rgba(0,0,0,0.5)`,
+                      }}
+                    >
+                      <div className="flex items-start justify-between gap-2">
+                        <p className="font-display text-sm font-black uppercase leading-tight" style={{ color: frame }}>
+                          {t.name}
+                        </p>
+                        <span className="font-display text-xs font-black" style={{ color: frame }}>#{i + 1}</span>
+                      </div>
+                      <p className="mt-2 text-xs leading-relaxed text-slate-300">{t.blurb}</p>
+                    </motion.div>
+                  )
+                })}
+              </div>
+            </div>
+
+            <div className="relative px-5 py-6 md:py-8" style={{ borderTop: '2px dashed rgba(255,255,255,0.16)' }}>
+              <div className="absolute inset-y-3 left-0 hidden border-l-2 border-dashed border-white/15 md:block" aria-hidden="true" />
+              <dl className="space-y-2 text-left">
+                {[
+                  ['Passenger', persona.name],
+                  ['Flight', `COSMIC PATH ${ticketId.slice(0, 3)}`],
+                  ['Origin', 'Ideation Station'],
+                  ['Destination', 'Shipped Projects'],
+                  ['Depart', 'Now'],
+                  ['Seat', 'AI (Cosmic Class)'],
+                  ['Ticket ID', `#${ticketId}`],
+                ].map(([k, v]) => (
+                  <div key={k}>
+                    <dt className="font-display text-[8px] font-black uppercase tracking-[0.2em]" style={{ color: '#39d5c8' }}>{k}</dt>
+                    <dd className="font-display text-[11px] font-black uppercase leading-tight text-white">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+              <div
+                className="mt-4 h-14 w-full rounded-sm"
+                aria-hidden="true"
+                style={{
+                  background: 'repeating-linear-gradient(90deg, #e8ecf4 0 2px, transparent 2px 5px, #e8ecf4 5px 6px, transparent 6px 11px, #e8ecf4 11px 14px, transparent 14px 17px)',
+                  opacity: 0.85,
+                }}
+              />
+              <div
+                className="mt-4 h-20 w-full rounded-lg"
+                aria-hidden="true"
+                style={{
+                  background: 'radial-gradient(circle at 60% 45%, rgba(163,255,216,0.5), rgba(124,58,237,0.45) 35%, rgba(34,211,238,0.25) 60%, transparent 75%), radial-gradient(circle at 30% 70%, rgba(255,46,163,0.3), transparent 60%), #0a0a12',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                }}
+              />
+            </div>
           </div>
         </motion.div>
 
-        {/* Persona name — chunky italic hero heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-          className="arcade-heading text-5xl sm:text-6xl"
-        >
-          {persona.name.toUpperCase()}
-        </motion.h1>
-
-        {persona.career && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.62 }}
-            className="mt-4 font-display text-xs font-black uppercase tracking-[0.2em]"
-            style={{ color: persona.category.color }}
-          >
-            {persona.career} · {persona.category.name}
-          </motion.p>
-        )}
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-          className="mt-5 font-display text-base font-bold italic text-white sm:text-lg"
-        >
-          {persona.tagline}
-        </motion.p>
-
-        {persona.subline && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="mt-3 text-sm leading-relaxed text-slate-300"
-          >
-            {persona.subline}
-          </motion.p>
-        )}
-
-        {/* Starter stack — sticker cards on alternating tilt */}
-        <div className="mt-12 text-left">
-          <div className="mb-5 flex justify-center">
-            <span className="arcade-chip on">🎯 your starter kit</span>
-          </div>
-
-          {/* Honest confidence: a BAND from signal completeness plus the size
-              of the candidate pool the scorer actually found — never a fake
-              percent. Says what it knows, and the one thing that would
-              sharpen it. When the pool is thin the constraint is named
-              instead of pretending a perfect stack was found. */}
-          <div className="mx-auto mb-6 max-w-xl rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center">
-            <p className="font-display text-[10px] font-black uppercase tracking-[0.18em]" style={{ color: confidence.constrained ? 'var(--hot-pink)' : 'var(--lime)' }}>
-              Recommendation quality: {confidence.constrained ? 'Limited by your answers' : confidence.label}
-            </p>
-            <p className="mt-1.5 text-xs leading-relaxed text-slate-400">
-              {confidence.constrained
-                ? `Your combination of answers narrows the field — only ${confidence.pool} tools score highly for it. The picks below are the best of a small pool; relaxing budget or level widens it.`
-                : `Built from ${confidence.known.length} things you told us — ${confidence.known.slice(0, 3).join(', ')}${confidence.known.length > 3 ? '…' : ''}.`}
-              {!confidence.constrained && confidence.nextSignal && ` Telling us ${confidence.nextSignal} would sharpen it further.`}
-            </p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {persona.stack.map((t, i) => (
-              <motion.div
-                key={t.name}
-                initial={{ opacity: 0, y: 40, rotate: 0 }}
-                animate={{ opacity: 1, y: 0, rotate: i % 2 === 0 ? -1.5 : 1.5 }}
-                transition={{ delay: 0.9 + i * 0.12, type: 'spring', stiffness: 200, damping: 15 }}
-                className={`sticker ${i === 0 ? '' : i === 1 ? 'pink' : 'cyan'} p-4`}
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <p className="font-display text-base font-black uppercase text-white leading-tight">
-                    {t.name}
-                  </p>
-                  <span className="font-display text-xs font-black text-lime-400">#{i + 1}</span>
-                </div>
-                <p className="mt-2 text-xs leading-relaxed text-slate-300">{t.blurb}</p>
-              </motion.div>
-            ))}
-          </div>
+        {/* Honest confidence, now beneath the ticket it grades. */}
+        <div className="mx-auto mt-6 max-w-xl rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center">
+          <p className="font-display text-[10px] font-black uppercase tracking-[0.18em]" style={{ color: confidence.constrained ? 'var(--hot-pink)' : 'var(--lime)' }}>
+            Recommendation quality: {confidence.constrained ? 'Limited by your answers' : confidence.label}
+          </p>
+          <p className="mt-1.5 text-xs leading-relaxed text-slate-400">
+            {confidence.constrained
+              ? `Your combination of answers narrows the field — only ${confidence.pool} tools score highly for it. The picks above are the best of a small pool; relaxing budget or level widens it.`
+              : `Built from ${confidence.known.length} things you told us — ${confidence.known.slice(0, 3).join(', ')}${confidence.known.length > 3 ? '…' : ''}.`}
+            {!confidence.constrained && confidence.nextSignal && ` Telling us ${confidence.nextSignal} would sharpen it further.`}
+          </p>
         </div>
 
         {/* One light question, once. The three answers map to the three
