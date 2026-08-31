@@ -2797,3 +2797,109 @@ a client-side SPA with a static tool catalogue.
 - **Build size:** N/A — rejected, no code proposed. The blocker is a business
   relationship, not an engineering task.
 - **Found:** 2026-08-30 12:20 UTC
+
+### No tool has a visual identity — 704 catalog entries, zero logos or favicons anywhere
+- **Status:** OPEN
+- **Seen in:** a problem area rather than one competitor, checked directly
+  against every directory this file already studies. Futurepedia, There's An
+  AI For That, Product Hunt and G2/Capterra all render a tool's actual logo
+  or app icon next to its name on every single surface — the result grid, the
+  detail page, comparison tables — because in a text-dense list of 700+ nearly
+  identical two-sentence blurbs, a recognizable logo is the fastest scan cue a
+  visitor has for "oh, I know that one" or "that looks unfamiliar, worth a
+  closer look." None of them ship a text-only card at this catalog size.
+- **Gap:** confirmed with `grep -rn "<img" src/` (excluding `InstallPrompt.jsx`,
+  whose one hit is the PWA install icon, unrelated) and by reading
+  `ToolCard.jsx` (the shared card for Discover + Favorites, its own header
+  comment says so) and `ToolDetail.jsx` in full: zero `<img>` tags anywhere a
+  tool is rendered, on any of the now seven-plus card-shaped surfaces
+  (`ToolCard.jsx`, `ToolDetail.jsx`, `CategoryLanding.jsx`, `NewTools.jsx`,
+  `SharedStack.jsx`, `Compare.jsx`, `Graveyard.jsx`/`Alternatives.jsx` if
+  either still-open gap ships). Every card's only visual identity is a 2x2px
+  colored dot keyed off `CATEGORY_META[tool.category].color`
+  (`ToolCard.jsx:42`, repeated near-verbatim in `CategoryLanding.jsx:87`) —
+  the *category* is color-coded, but nothing distinguishes ChatGPT from
+  Claude from Grok beyond the name text itself, even though `toolsCatalog.js`
+  already carries a real `website` URL on 662 of 704 entries (confirmed by
+  direct extraction: `grep -o '"website": "[^"]*"'` over the whole file,
+  704 matches, 42 empty), which is exactly the one piece of data a favicon
+  needs and Toolnaut already stores. `ToolDetail.jsx:138-149` already uses
+  that same `website` field for a "VISIT WEBSITE" link — the field is
+  trusted and rendered today, just never turned into an image.
+- **Why it matters:** this is the starkest "every competitor has it, we don't"
+  gap this file has found, because it isn't a missing feature so much as a
+  missing table-stakes visual convention — a directory whose entire value
+  proposition is "browse 700+ tools quickly" is currently asking a visitor to
+  read every single name character-by-character with no logo to shortcut
+  recognition, on the exact page (`Discover.jsx`, via `ToolCard`) that gets
+  the most traffic in the app. It also compounds every other Discover-page
+  gap already in this file (facet counts, clickable tags, popularity badges)
+  — all of them make the *filtering* faster, none of them make the *scanning*
+  of a results grid faster, which is the more fundamental UX cost at 700+
+  entries.
+- **Smallest useful version (what to actually build):**
+  - New pure util `src/utils/faviconUrl.js`: `getFaviconUrl(tool, size = 32)`
+    — returns `null` immediately if `tool.website` is empty or fails `new
+    URL(tool.website)` (42 of 704 entries, plus any malformed radar-sourced
+    URL — never guess a domain from the tool name), otherwise returns
+    `https://www.google.com/s2/favicons?domain=${hostname}&sz=${size}`.
+    Google's favicon service is the pragmatic zero-infrastructure choice
+    here — it needs no API key, resolves a real icon (or a generic globe
+    placeholder, never a broken image) for effectively any domain regardless
+    of that site's own favicon path/format, and is exactly the same service
+    Chrome's own new-tab page and countless directories already rely on for
+    this — building a `/favicon.ico`-guessing fallback chain ourselves would
+    be more code for a strictly worse hit rate. Pure function, easy to `node
+    --test` like `shareStack.js`/`newTools.js`.
+  - **Explicit, honest tradeoff to name rather than bury** (this file holds
+    itself to naming tradeoffs, not hiding them — same spirit as
+    `TrustPanel.jsx`'s "no affiliate link, no referral code" line): rendering
+    this image means every tool card sends that tool's bare domain name to
+    Google's favicon endpoint on every page load. That's a real, minor
+    third-party data flow this app doesn't have today — not a privacy
+    disaster (a domain name, not a user identifier, and the same request any
+    browser already makes by visiting the tool's own site), but worth stating
+    plainly rather than shipping silently, especially given how much of this
+    backlog's own credibility argument rests on disclosure. If whoever builds
+    this wants zero third-party calls instead, the fallback is trying
+    `${origin}/favicon.ico` directly against the tool's own domain (one
+    fewer party involved, but a materially worse hit rate and no size
+    control) — a judgment call to make at build time, not decided here.
+  - `ToolCard.jsx`: a small (28-32px) rounded `<img>` next to the tool-name
+    `<h3>` (`ToolCard.jsx:70-77`) — outside the stretched `::after` link
+    overlay this component's own header comment already explains
+    (`ToolCard.jsx:9-20`), so it needs no `relative z-10` treatment unlike
+    the interactive controls below it, since an image needs no click target
+    of its own. `loading="lazy"`, `alt=""` (decorative — the adjacent heading
+    already names the tool, an `alt` here would be a redundant screen-reader
+    announcement), and an `onError` handler that hides the `<img>` (sets a
+    local `useState` broken flag) rather than leaving a broken-image icon,
+    same "never show something fabricated or broken" instinct as the
+    zero-rating/zero-count-badge decisions already made elsewhere in this
+    file. When `getFaviconUrl` returns `null` (42 tools, or any future
+    catalog entry with a bad URL), render nothing — no placeholder square,
+    no generic icon, since a blank space reads as "no logo available" while
+    a fabricated placeholder implies data that isn't there.
+  - `ToolDetail.jsx`: a larger (48-56px) version of the same `<img>` next to
+    the `<h1>` (`ToolDetail.jsx:122`), same `getFaviconUrl`/`onError` pattern,
+    reusing `faviconUrl.js` rather than a second implementation.
+  - **What this would NOT include** (kept out to bound the diff): no rollout
+    to `CategoryLanding.jsx`/`NewTools.jsx`/`SharedStack.jsx`/`Compare.jsx`
+    in v1 — those all clone a near-identical card shape (per this backlog's
+    own repeated notes on `CategoryLanding.jsx` being copied for `NewTools`
+    and `SharedStack`), so once the pattern is proven on the two
+    highest-traffic surfaces above, adding the same three-line `<img>` to
+    each clone is a cheap, obvious, and separately-shippable follow-up, not
+    a reason to hold this diff open across five files at once; no self-hosted
+    favicon caching/proxy (would need a backend or a build-time fetch step
+    for 662 URLs, real infrastructure this file's own ranking rule rejects);
+    no per-tool manual logo upload/curation (a maintenance burden with no
+    tooling behind it — a computed favicon URL needs zero upkeep as the
+    catalog grows via radar, a hand-curated logo set does not); no change to
+    `radar/` — this reads the `website` field radar already writes, it
+    doesn't need radar to fetch or store anything new.
+- **Build size:** S — one new pure util (`faviconUrl.js`), a small `<img>`
+  addition to two existing components (`ToolCard.jsx`, `ToolDetail.jsx`) with
+  an error-hiding handler in each. No backend, no new dependency, no new
+  route, no new store, no radar change.
+- **Found:** 2026-08-31 21:15 UTC
