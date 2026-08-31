@@ -274,10 +274,11 @@ export default function GoalChat() {
             user's sketch framed the pitch and the conversation as one object.
             They mount only atStart and step aside with the rest of the
             landing chrome once the first answer arrives. */}
-<div className={`flex shrink-0 flex-col items-center px-5 text-center ${atStart ? 'pb-2 pt-7' : 'pb-1 pt-4'}`}>
+<div className={`flex shrink-0 flex-col items-center px-5 text-center ${atStart ? 'pb-2 pt-7' : 'pb-0.5 pt-2.5'}`}>
               {/* The badge answers "what is this going to cost me" before the
                   headline asks for anything — nine questions, a minute, no
                   account — which is the objection someone raises at a form. */}
+              {atStart && (
               <span
                 className={`mx-auto inline-flex items-center gap-[7px] rounded-full font-medium leading-none ${atStart ? 'px-[13px] py-[7px] text-[11px]' : 'px-2.5 py-1 text-[9px]'}`}
                 style={{
@@ -289,6 +290,7 @@ export default function GoalChat() {
                 <span aria-hidden="true">●</span>
                 Nine questions · about a minute · no account
               </span>
+              )}
 
               {/* Sized to the reference: one heavy statement, one grey payoff,
                   each a single stroke. The old 37px/700 with a wrapping second
@@ -297,12 +299,14 @@ export default function GoalChat() {
               <h1 className={`max-w-3xl font-display font-black tracking-[-0.03em] text-white ${
             atStart
               ? 'mt-5 text-[clamp(1.8rem,4.6vw,2.7rem)] leading-[1.1]'
-              : 'mt-2 text-xl leading-tight'
+              : 'mt-0 text-sm leading-tight'
           }`}>
                 Tell Naut what you do.
-                <span className="block text-slate-500">
-                  It builds it, plans it, grows it.
-                </span>
+                {atStart && (
+                  <span className="block text-slate-500">
+                    It builds it, plans it, grows it.
+                  </span>
+                )}
               </h1>
           </div>
 
