@@ -111,7 +111,7 @@ export default function QuizResult() {
           initial={{ opacity: 0, y: 46 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, type: 'spring', stiffness: 120, damping: 16 }}
-          className="mx-auto mt-2 max-w-4xl text-left"
+          className="mx-auto mt-2 max-w-2xl text-left"
           style={{ perspective: '1500px' }}
         >
           {/* The physical ticket. Tilted in space like the render — and it
@@ -136,13 +136,13 @@ export default function QuizResult() {
             background: 'linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.05) 44%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.05) 56%, transparent 70%)',
           }} />
           {/* perforation punch-holes where the stub tears */}
-          <div className="pointer-events-none absolute -top-3 right-[230px] hidden h-6 w-6 rounded-full md:block" aria-hidden="true" style={{ background: '#060609', boxShadow: 'inset 0 -2px 4px rgba(0,0,0,0.8)' }} />
-          <div className="pointer-events-none absolute -bottom-3 right-[230px] hidden h-6 w-6 rounded-full md:block" aria-hidden="true" style={{ background: '#060609', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.8)' }} />
+          <div className="pointer-events-none absolute -top-3 right-[168px] hidden h-5 w-5 rounded-full md:block" aria-hidden="true" style={{ background: '#060609', boxShadow: 'inset 0 -2px 4px rgba(0,0,0,0.8)' }} />
+          <div className="pointer-events-none absolute -bottom-3 right-[168px] hidden h-5 w-5 rounded-full md:block" aria-hidden="true" style={{ background: '#060609', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.8)' }} />
 
-          <div className="grid md:grid-cols-[minmax(0,1fr)_230px]">
-            <div className="px-6 py-8 text-center sm:px-10">
+          <div className="grid md:grid-cols-[minmax(0,1fr)_168px]">
+            <div className="px-5 py-6 text-center sm:px-7">
               <span
-                className="inline-flex -rotate-2 items-center gap-2 rounded-md px-5 py-2 font-display text-xs font-black uppercase tracking-[0.22em]"
+                className="inline-flex -rotate-2 items-center gap-1.5 rounded-md px-3.5 py-1.5 font-display text-[10px] font-black uppercase tracking-[0.2em]"
                 style={{
                   background: 'linear-gradient(180deg, #f9ecae 0%, #e8c96a 30%, #c9a23a 60%, #9a7a1e 100%)',
                   border: '1px solid #7c621a',
@@ -154,7 +154,7 @@ export default function QuizResult() {
                 ★ {level}
               </span>
 
-              <h1 className="relative mt-5 font-display text-4xl font-black uppercase leading-[1.05] sm:text-5xl">
+              <h1 className="relative mt-4 font-display text-2xl font-black uppercase leading-[1.05] sm:text-3xl">
                 {/* glow layer: same text, blurred, BEHIND the gradient — a
                     drop-shadow filter on background-clip text rasterises at
                     the element box and amputated the last glyphs. */}
@@ -176,26 +176,26 @@ export default function QuizResult() {
               </h1>
 
               {persona.career && (
-                <p className="mt-3 font-display text-[11px] font-black uppercase tracking-[0.24em]" style={{ color: '#39d5c8' }}>
+                <p className="mt-2 font-display text-[9px] font-black uppercase tracking-[0.22em]" style={{ color: '#39d5c8' }}>
                   {persona.career} / {persona.category.name}
                 </p>
               )}
 
-              <p className="mt-4 font-display text-sm font-bold text-white sm:text-base">{persona.tagline}</p>
-              <p className="mt-1.5 text-xs text-slate-400">
+              <p className="mt-3 font-display text-xs font-bold text-white sm:text-sm">{persona.tagline}</p>
+              <p className="mt-1 text-[11px] text-slate-400">
                 We picked just {persona.stack.length} tools so you skip the endless search.
               </p>
 
-              <div className="mt-6 flex justify-center">
+              <div className="mt-4 flex justify-center">
                 <span
-                  className="rounded-full px-4 py-1 font-display text-[10px] font-black uppercase tracking-[0.18em] text-black"
+                  className="rounded-full px-3 py-0.5 font-display text-[9px] font-black uppercase tracking-[0.16em] text-black"
                   style={{ background: 'var(--lime)', boxShadow: '0 0 16px rgba(163,255,46,0.45)' }}
                 >
                   🎯 your starter kit
                 </span>
               </div>
 
-              <div className="mt-5 grid gap-4 sm:grid-cols-3">
+              <div className="mt-4 grid gap-2.5 sm:grid-cols-3">
                 {persona.stack.map((t, i) => {
                   const frame = i === 0 ? 'var(--lime)' : i === 1 ? 'var(--hot-pink)' : 'var(--cyan)'
                   return (
@@ -204,34 +204,34 @@ export default function QuizResult() {
                       initial={{ opacity: 0, y: 26 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.7 + i * 0.14, type: 'spring', stiffness: 200, damping: 16 }}
-                      className="rounded-2xl p-4 text-left"
+                      className="rounded-xl p-3 text-left"
                       style={{
-                        border: `3px solid ${frame}`,
+                        border: `2px solid ${frame}`,
                         background: 'linear-gradient(160deg, rgba(20,20,32,0.9), rgba(6,6,12,0.85))',
                         boxShadow: `0 10px 24px rgba(0,0,0,0.55), 0 0 22px -6px ${frame}, inset 0 2px 0 rgba(255,255,255,0.22), inset 0 -6px 14px rgba(0,0,0,0.6)`,
                         transform: `rotate(${i === 0 ? -1.6 : i === 1 ? 0.8 : -0.6}deg)`,
                       }}
                     >
                       <div className="flex items-start justify-between gap-2">
-                        <p className="font-display text-sm font-black uppercase leading-tight" style={{ color: frame }}>
+                        <p className="font-display text-[11px] font-black uppercase leading-tight" style={{ color: frame }}>
                           {t.name}
                         </p>
                         <span className="font-display text-xs font-black" style={{ color: frame }}>#{i + 1}</span>
                       </div>
-                      <p className="mt-2 text-xs leading-relaxed text-slate-300">{t.blurb}</p>
+                      <p className="mt-1.5 line-clamp-2 text-[10px] leading-relaxed text-slate-300">{t.blurb}</p>
                     </motion.div>
                   )
                 })}
               </div>
             </div>
 
-            <div className="relative overflow-hidden px-5 py-6 md:py-8" style={{ borderTop: '2px dashed rgba(255,255,255,0.16)', background: 'rgba(5,5,10,0.45)' }}>
+            <div className="relative overflow-hidden px-4 py-5 md:py-6" style={{ borderTop: '2px dashed rgba(255,255,255,0.16)', background: 'rgba(5,5,10,0.45)' }}>
               <div className="pointer-events-none absolute inset-0 opacity-60" aria-hidden="true" style={{
                 background: 'radial-gradient(70% 55% at 65% 72%, rgba(45,212,191,0.35), rgba(124,58,237,0.30) 40%, rgba(236,72,153,0.16) 62%, transparent 78%)',
                 filter: 'blur(2px)',
               }} />
               <div className="absolute inset-y-3 left-0 hidden border-l-2 border-dashed border-white/15 md:block" aria-hidden="true" />
-              <dl className="space-y-2 text-left">
+              <dl className="space-y-1.5 text-left">
                 {[
                   ['Passenger', persona.name],
                   ['Flight', `COSMIC PATH ${ticketId.slice(0, 3)}`],
@@ -242,13 +242,13 @@ export default function QuizResult() {
                   ['Ticket ID', `#${ticketId}`],
                 ].map(([k, v]) => (
                   <div key={k}>
-                    <dt className="font-display text-[8px] font-black uppercase tracking-[0.2em]" style={{ color: '#39d5c8' }}>{k}</dt>
-                    <dd className="font-display text-[11px] font-black uppercase leading-tight text-white">{v}</dd>
+                    <dt className="font-display text-[7px] font-black uppercase tracking-[0.18em]" style={{ color: '#39d5c8' }}>{k}</dt>
+                    <dd className="font-display text-[9px] font-black uppercase leading-tight text-white">{v}</dd>
                   </div>
                 ))}
               </dl>
               <div
-                className="mt-4 h-14 w-full rounded-sm"
+                className="mt-3 h-9 w-full rounded-sm"
                 aria-hidden="true"
                 style={{
                   background: 'repeating-linear-gradient(90deg, #e8ecf4 0 2px, transparent 2px 5px, #e8ecf4 5px 6px, transparent 6px 11px, #e8ecf4 11px 14px, transparent 14px 17px)',
@@ -256,7 +256,7 @@ export default function QuizResult() {
                 }}
               />
               <div
-                className="mt-4 h-20 w-full rounded-lg"
+                className="mt-3 h-12 w-full rounded-lg"
                 aria-hidden="true"
                 style={{
                   background: 'radial-gradient(circle at 60% 45%, rgba(163,255,216,0.5), rgba(124,58,237,0.45) 35%, rgba(34,211,238,0.25) 60%, transparent 75%), radial-gradient(circle at 30% 70%, rgba(255,46,163,0.3), transparent 60%), #0a0a12',
