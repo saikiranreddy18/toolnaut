@@ -646,6 +646,35 @@ a client-side SPA with a static tool catalogue.
   state, one link on `Settings.jsx`. No backend, no new dependency, no new
   route.
 - **Found:** 2026-08-25 00:15 UTC
+- **Deepened 2026-08-31 06:20 UTC:** the tags-clickable deepening (below)
+  already flagged that `Discover.jsx`'s empty state had "changed shape" since
+  this entry was written and left it for whoever picks this up to re-check —
+  did that re-check this run, and it clears the plan rather than blocking it.
+  Re-read the current `Discover.jsx` in full: the empty state now lives at
+  `Discover.jsx:227-254` (was `170-180`), and it's grown two things this plan
+  didn't originally account for — a `suggestedCats` row of category buttons
+  (up to 6, only categories that actually have tools) and a "CLEAR ALL
+  FILTERS" button, both added by the pagination/faceting work that landed
+  after this entry was written. Neither changes the plan's shape, only its
+  exact insertion point: the "🔭 Don't see it? Suggest a tool" form still
+  fits as one more block inside the same `results.length === 0` branch
+  (`Discover.jsx:227-254`), placed after the `suggestedCats` buttons and the
+  clear-filters button — a user has already been offered the two "maybe you
+  just filtered too hard" escape routes by that point, so the submission
+  form reads as the last resort for someone who tried both and still found
+  nothing, not a distraction competing with them for attention first.
+  Also resolved the one open uncertainty this entry flagged instead of
+  assuming: confirmed via `git remote -v` that the actual repo slug is
+  `saikiranreddy18/toolnaut` (`https://github.com/saikiranreddy18/toolnaut`)
+  — whoever builds this can hardcode `GITHUB_REPO_URL =
+  'https://github.com/saikiranreddy18/toolnaut'` in `src/config.js` directly,
+  no verification step left to do. Confirmed `src/config.js` still has no
+  such constant and `src/utils/suggestTool.js` still doesn't exist, so this
+  gap is exactly as unbuilt and exactly as buildable as when it was first
+  logged — only the target line numbers and the repo-URL blank needed
+  filling in. `ToolDetail.jsx:143-145`'s "VISIT WEBSITE" `nb-btn dark` link,
+  cited above as the style to reuse for the `Settings.jsx` link, is also
+  still at that exact location, unchanged.
 
 ### PDF roadmap export (sold on Pro, does not exist)
 - **Status:** OPEN
