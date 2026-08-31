@@ -2188,7 +2188,7 @@ a client-side SPA with a static tool catalogue.
   errors).
 
 ### No public search — every "type a keyword" path is behind the login wall
-- **Status:** OPEN
+- **Status:** SHIPPED (this run — sha in DEVLOG)
 - **Seen in:** a problem area rather than one competitor — checked directly
   against the four public listing pages already shipped this week
   (`/tools/:domain`, `/new`, `/s/:slugs`, plus the still-OPEN
@@ -2356,6 +2356,26 @@ a client-side SPA with a static tool catalogue.
   (heading, `useHead`, card grid keyed off `CATEGORY_META`, no
   add-to-stack/favorite actions on a public page) is confirmed unchanged and
   remains the right model to copy.
+- **Shipped this run:** built exactly to the deepened spec. Extracted
+  `matchesQuery(tool, q)` into new `src/utils/search.js` (7 unit tests) and
+  switched `Discover.jsx`'s inline predicate to call it — same behaviour,
+  one definition. New public `src/pages/SearchTools.jsx` at `/search`
+  (`App.jsx`), modeled on `CategoryLanding.jsx`'s read-only card grid,
+  `useHead()`-driven title/description (static when `q` is empty, dynamic
+  per-query otherwise), empty state and no-results state both offering the
+  same guaranteed-non-empty category links Discover's own empty state uses.
+  Each result links to the already-public `/s/:slug` (via `encodeStackSlugs`)
+  rather than the gated `/app/tools/:slug`. Added a `RESULT_CAP` of 60 with a
+  "narrow your search" hint for broad queries — not in the original spec, but
+  the same DOM-explosion problem `Discover.jsx`'s own `PAGE_SIZE` comment
+  already documents applies here too, so an unbounded render was not a
+  reasonable default. Added a "Search" link to the landing page nav
+  (`Landing.jsx`) so the page is reachable without knowing the URL, `/search`
+  to `scripts/smoke.mjs` and `scripts/prerender.mjs`'s `ROUTES` (bare route —
+  the SEO value of the static page itself, not the infinite `?q=` space,
+  matching this entry's own sitemap exclusion reasoning), and a matching
+  `/search` entry in `public/sitemap.xml` (monthly, 0.7 — same tier as
+  `/about`, since unlike `/new` its content doesn't change on its own).
 
 ### A shared stack can only be viewed, never adopted — the receiving half of Share/Export was never built
 - **Status:** FIXED (this commit) — small, well-scoped defect in already-shipped

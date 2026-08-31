@@ -32,6 +32,7 @@ const SharedStack = lazy(() => import('./pages/SharedStack'))
 const CategoryLanding = lazy(() => import('./pages/CategoryLanding'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 const NewTools = lazy(() => import('./pages/NewTools'))
+const SearchTools = lazy(() => import('./pages/SearchTools'))
 
 // Scroll + analytics on route change. initAnalytics() already fires the first
 // page_view, so skip the initial render to avoid double counting. Hash links
@@ -98,6 +99,7 @@ export default function App() {
             <Route path="/s/:slugs" element={<SharedStack />} />
             <Route path="/tools/:domain" element={<CategoryLanding />} />
             <Route path="/new" element={<NewTools />} />
+            <Route path="/search" element={<SearchTools />} />
 
             <Route element={<OnboardingShell />}>
               <Route path="/goal" element={<GoalChat />} />
