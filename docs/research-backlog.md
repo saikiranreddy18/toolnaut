@@ -2294,6 +2294,68 @@ a client-side SPA with a static tool catalogue.
   gap's extraction if that ships first), one homepage/footer link, one line
   in `scripts/smoke.mjs`. No backend, no new dependency, no new store.
 - **Found:** 2026-08-29 03:15 UTC
+- **Deepened 2026-08-31 15:20 UTC:** re-read the current 332-line `Discover.jsx`
+  and confirmed the other two still-OPEN gaps this entry cross-references
+  (`/alternatives/:slug`, `/graveyard`) remain unbuilt — `git grep -n
+  "alternatives\|graveyard" src/App.jsx` and a directory listing of
+  `src/pages/` both still show no such route or file, so the "four public
+  listing pages already shipped" framing this entry opened with is unchanged
+  in shape, just one page further along (`CategoryLanding.jsx`, `NewTools.jsx`,
+  `SharedStack.jsx` plus now `Checkout.jsx`, which is public but noindexed and
+  irrelevant to this gap).
+  Two corrections, both line-reference drift from the same pagination/
+  `ToolCard`-extraction commit the facet-counts gap's own 2026-08-31 03:20
+  deepening already found and fixed for its part of this file:
+  1. The search `<input type="search">` this entry's plan says to copy the
+     markup of is no longer at `Discover.jsx:162-175` — it's now
+     `Discover.jsx:162-170` (still correct enough to not have been flagged
+     before, off by five lines, not worth a full re-cite, noted here so
+     whoever builds this checks the live file rather than trusting either
+     number blindly).
+  2. The filter predicate this entry says to extract into a shared
+     `matchesQuery()` is now the `.filter(...)` at `Discover.jsx:98-108`
+     inside the `results` `useMemo` (was cited as `:93-112` — the memo body
+     grew a `.map()` for `matchScore` and a `.sort()` for prominence
+     tiebreak after the filter, exactly as the facet-counts gap's deepening
+     already documented for its own extraction of the same block). Confirmed
+     again this run: no `matchesQuery`/`search.js`/`facetCounts.js` exists
+     anywhere in `src/utils/` yet, so this extraction is still un-done and
+     still needed by both gaps — whichever ships first should factor the
+     predicate out once, not twice, per this entry's own original note.
+  One real addition, not just a correction: this entry's original plan never
+  mentions `useHead()` because the per-route-meta gap it depends on was still
+  mid-build when this was written (2026-08-29) — it only finished shipping
+  its last two call sites today (`docs/research-backlog.md:945`, 2026-08-31
+  12:22 UTC). That hook is now the established, load-bearing pattern for
+  every public page's `<title>`/description/canonical — eight call sites
+  confirmed via `grep -rl "useHead(" src/pages/`: `NewTools.jsx`,
+  `CategoryLanding.jsx`, `Pricing.jsx`, `SharedStack.jsx`, `Checkout.jsx`,
+  `About.jsx`, `NotFound.jsx`, `Methodology.jsx`. `SearchTools.jsx` should
+  call it too, same as every sibling public page — a static title/description
+  when `q` is empty ("Search 750+ AI tools — Toolnaut" / "Search Toolnaut's
+  AI tool catalog by name, category or use case"), and a dynamic one when a
+  query is present (e.g. `` `"${q}" — AI tool search results — Toolnaut` ``),
+  `path: '/search'` either way. This doesn't reopen the "no sitemap entries"
+  exclusion already in this plan — a `<title>` costs nothing and matches
+  every other public page's baseline, a sitemap entry for an infinite `?q=`
+  space is the thing correctly staying out of scope. Also confirmed
+  `src/utils/head.js`'s own header comment: the prerenderer snapshots
+  `document.documentElement.outerHTML` after render, so `useHead()`'s effect
+  output is exactly what a crawler sees for this route too, same mechanism
+  as every already-shipped call site.
+  `scripts/smoke.mjs:32`'s current route array (confirmed by reading the
+  live file) is `['/', '/goal', '/example', '/methodology', '/pricing',
+  '/about', '/privacy', '/terms', '/app/stack', '/app/discover',
+  '/app/favorites', '/app/compare?tools=chatgpt,claude', '/app/tools/chatgpt',
+  '/app/learning', '/app/community', '/app/settings', '/office', '/s/chatgpt',
+  '/tools/code', '/new']` — no `/search` entry, confirming the plan's own
+  footgun note still applies; the addition should be `/search?q=chatgpt`
+  (matching the existing `?tools=chatgpt,claude` precedent of exercising the
+  query-driven branch, not just the empty-state one).
+  No other part of the plan needs correction — `CategoryLanding.jsx`'s shape
+  (heading, `useHead`, card grid keyed off `CATEGORY_META`, no
+  add-to-stack/favorite actions on a public page) is confirmed unchanged and
+  remains the right model to copy.
 
 ### A shared stack can only be viewed, never adopted — the receiving half of Share/Export was never built
 - **Status:** FIXED (this commit) — small, well-scoped defect in already-shipped
