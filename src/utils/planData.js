@@ -71,6 +71,9 @@ export const PLANS = [
     price: 50,
     priceINR: 4999,
     badge: 'Up to 5 seats · $10/seat',
+    // ₹999 follows the same ~×100 PPP ratio as the tiers ($50 -> ₹4,999);
+    // adjust here if the seat price should differ.
+    badgeINR: 'Up to 5 seats · ₹999/seat',
     glow: 'rgba(6, 182, 212, 0.4)',
     accent: '#06b6d4',
     audience: 'Startups, agencies, research teams, enterprise pods',

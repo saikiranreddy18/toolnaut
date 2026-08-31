@@ -51,7 +51,7 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
       >
         {plan.badge && (
           <span className="tape-label absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap" style={{ fontSize: 10, padding: '5px 14px' }}>
-            {plan.badge}
+            {currency === 'INR' && plan.badgeINR ? plan.badgeINR : plan.badge}
           </span>
         )}
         <div className="flex items-start justify-between">
