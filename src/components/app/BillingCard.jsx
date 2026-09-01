@@ -76,17 +76,30 @@ export default function BillingCard({ session }) {
           </dd>
         </div>
         {ent?.active && ent.endsAt && (
-          <div className="flex flex-wrap items-baseline justify-between gap-x-4 py-2.5">
-            <dt className="text-xs text-slate-400">Paid until</dt>
-            <dd className="text-xs font-bold text-white">{day(ent.endsAt)}</dd>
-          </div>
+          <>
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4 py-2.5">
+              <dt className="text-xs text-slate-400">Access ends</dt>
+              <dd className="text-xs font-bold text-white">{day(ent.endsAt)}</dd>
+            </div>
+            {/* The two rows a payer actually worries about. Both are facts, not
+                reassurance: no Razorpay Subscription exists, so there is
+                genuinely no future charge to disclose. */}
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4 py-2.5">
+              <dt className="text-xs text-slate-400">Auto-renewal</dt>
+              <dd className="text-xs font-bold text-white">Off — this pass does not renew</dd>
+            </div>
+            <div className="flex flex-wrap items-baseline justify-between gap-x-4 py-2.5">
+              <dt className="text-xs text-slate-400">Next charge</dt>
+              <dd className="text-xs font-bold text-white">None</dd>
+            </div>
+          </>
         )}
       </dl>
 
-      {/* Upgrade path only when there is genuinely something to buy. */}
+      {/* Buy path only when there is genuinely something to buy. */}
       {ent && !ent.active && ent.paymentsEnabled && (
         <Link to="/pay" className="nb-btn mt-4 inline-block min-h-11 px-5 py-2.5 text-xs">
-          UPGRADE →
+          GET A 30-DAY PASS →
         </Link>
       )}
       {ent && !ent.active && !ent.paymentsEnabled && (

@@ -66,11 +66,20 @@ export default function Pay() {
         ▸ one step before your universe
       </p>
       <h1 className="mt-2 text-center font-display text-3xl font-black uppercase text-white">
-        Pick your plan
+        Pick your pass
       </h1>
       <p className="mt-2 max-w-md text-center text-sm text-slate-400">
         {session?.user?.name ? `Signed in as ${session.user.name}. ` : ''}
-        Your stack, roadmap and monitoring unlock the moment the payment confirms.
+        Your stack and roadmap unlock the moment the payment confirms.
+      </p>
+      {/* Stated BEFORE the buttons, not buried in terms. Each payment buys one
+          flat 30-day entitlement; there is no Razorpay Subscription behind it,
+          so promising a monthly plan would be selling something that does not
+          exist. */}
+      <p className="mt-3 max-w-md text-center text-xs leading-relaxed text-slate-500">
+        Each pass is a <span className="font-bold text-slate-300">one-time payment for 30 days</span> of
+        access. Nothing renews automatically and you are never charged again —
+        when the 30 days end, access simply stops.
       </p>
 
       {paymentsOff && (
@@ -98,7 +107,10 @@ export default function Pay() {
             <p className="mt-1 font-display text-lg font-black uppercase text-white">{p.name}</p>
             <p className="mt-1 font-display text-2xl font-black text-white">
               ₹{p.priceINR}
-              <span className="text-xs font-bold text-slate-400"> / month</span>
+              <span className="text-xs font-bold text-slate-400"> for 30 days</span>
+            </p>
+            <p className="mt-1 font-display text-[9px] font-black uppercase tracking-[0.12em] text-slate-500">
+              One-time · no auto-renewal
             </p>
             <p className="mt-2 text-[11px] leading-relaxed text-slate-400">{p.audience}</p>
             <span

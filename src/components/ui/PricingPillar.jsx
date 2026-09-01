@@ -65,7 +65,14 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
           <span className="font-display text-5xl font-black italic text-white" style={{ textShadow: '3px 3px 0 #000' }}>
             {currency === 'INR' ? `₹${plan.priceINR.toLocaleString('en-IN')}` : `$${plan.price}`}
           </span>
-          <span className="text-sm font-bold text-slate-400">/month</span>
+          <span className="text-sm font-bold text-slate-400">for 30 days</span>
+        </p>
+        {/* NOT "/month". The system grants a flat 30-day entitlement per
+            payment and creates no Razorpay Subscription — nothing renews and
+            there is nothing to cancel. Saying "per month" sold a recurring
+            agreement that does not exist. */}
+        <p className="mt-1 font-display text-[10px] font-black uppercase tracking-[0.14em] text-slate-500">
+          One-time payment · does not auto-renew
         </p>
         <p className="mt-3 text-xs text-slate-400">{plan.audience}</p>
 
