@@ -1683,6 +1683,43 @@ a client-side SPA with a static tool catalogue.
   its own `SearchTools.jsx` page — if either gap ships first, the other
   should reuse its extracted helper rather than factoring the predicate out
   twice into two slightly different utils.
+- **Deepened 2026-09-01 06:20 UTC:** the "No public search" gap shipped
+  first (`a16375691`, `/search`), and it extracted exactly the helper this
+  entry's own note predicted — `src/utils/search.js` now exports
+  `matchesQuery(tool, q)`, and `Discover.jsx` already imports and calls it
+  (`Discover.jsx:7,102`) instead of an inline text-match condition. Re-read
+  both files in full to check what that leaves for this gap to build, since
+  the note above assumed a single shared predicate covering all four filter
+  conditions and that is not quite what shipped.
+  Two corrections. First, line numbers again (the pagination/`ToolCard`
+  refactor cited in the last deepening is now joined by this search
+  extraction): the current 329-line `Discover.jsx` has `Pill` at
+  `Discover.jsx:27-37`, the `results` `useMemo` at `Discover.jsx:96-111`
+  with the filter predicate at `Discover.jsx:98-103`, the category pill row
+  at `Discover.jsx:200-207`, and the price/level pill row at
+  `Discover.jsx:209-222`.
+  Second, and more useful than a line fix: `matchesQuery()` only covers the
+  free-text half of the filter — name/blurb/sourceCategory/dev/tags
+  substring matching (`search.js:6-16`). The `cat`/`price`/`level`
+  conditions this gap's own plan also needs are still three inline equality
+  checks at `Discover.jsx:99-101` (`tool.category === cat`, `tool.price ===
+  price`, `tool.level === level`), never extracted anywhere, because
+  `matchesQuery()` was built only for `SearchTools.jsx`'s use case, which
+  has no category/price/level filters at all (confirmed: `SearchTools.jsx`
+  has no `cat`/`price`/`level` param — it's `q`-only per its own spec above).
+  So the "factor the predicate out of Discover.jsx" step this entry
+  originally planned is now **smaller than specced, not already done**:
+  `getFacetCounts()` should import and call `matchesQuery(tool, q)` for the
+  text half (no second implementation of that substring logic, matching
+  this file's own no-duplicate-predicates principle), then apply its own
+  three equality checks for `cat`/`price`/`level` inline — those three
+  one-line comparisons are simple enough that duplicating them in the new
+  util isn't a real drift risk the way the five-field substring match was,
+  so no further extraction of `Discover.jsx:99-101` into a shared helper is
+  needed before this gap can be built. Net effect: this gap's build size
+  shrinks slightly (one fewer extraction step, one function to import
+  instead of write), and whoever picks it up should start from
+  `matchesQuery()` rather than re-deriving the text-match logic.
 
 ### Tool "graveyard" page — deferred by the status-note gap, worth its own build
 - **Status:** OPEN
