@@ -2903,3 +2903,88 @@ a client-side SPA with a static tool catalogue.
   an error-hiding handler in each. No backend, no new dependency, no new
   route, no new store, no radar change.
 - **Found:** 2026-08-31 21:15 UTC
+
+### Discover has filters but no sort control — the 700+ result grid has exactly one fixed order
+
+- **Status:** OPEN
+- **Seen in:** FutureTools.io (fetched fresh this run, 4,000+ tools across 29
+  categories) lets a visitor sort its grid by most-upvoted, date-added, or
+  name; the same three-way sort (relevance/newest/name, sometimes plus
+  price) is standard across directory and e-commerce UX generally — Amazon,
+  G2 and Capterra all pair their filter sidebar with an explicit sort
+  dropdown separate from the filters themselves, because filtering narrows
+  the set but a visitor still wants control over what order they see it in
+  once narrowed.
+- **Gap:** confirmed by reading `Discover.jsx` in full (330 lines) — the
+  page has three real filters (category pills, price pills, level pills,
+  `Discover.jsx:201-222`) plus free-text search, all correctly URL-backed via
+  `searchParams` so they're shareable and back-button-safe. But the result
+  order itself is not a user choice anywhere: `results` (`Discover.jsx:96-111`)
+  is unconditionally `.sort((a, b) => (b.score ?? 0) - (a.score ?? 0) ||
+  tieBreak(a, b))` — `matchScore` first, `byProminence` as the only tiebreak
+  — with no branch, no UI control, and no second code path. Grepped
+  `sort|Sort` across `src/pages` and `src/components`: the only other sort
+  call sites are `getNewTools()` (`newTools.js:16`, used solely for the
+  separate "New this week" strip and the `/new` feed, not Discover's main
+  grid) and the identical match-score sort duplicated for category-landing
+  pages (`Discover.jsx`'s own comment at the `tieBreak` line points at this
+  file's earlier "prominence" entry, which documents the same sort existing
+  in exactly one place with exactly one order). A visitor with no completed
+  quiz (`answers` null, so `matchScore` returns a flat baseline for every
+  tool) filters down to, say, 40 "design" tools and gets them back in
+  whatever order the prominence tiebreak happens to produce — not
+  alphabetical, not newest-first, not any order the visitor chose or can
+  change. There is no `sort` URL param, no dropdown, no button, anywhere on
+  the page.
+- **Why it matters:** this is a different axis than every other still-open
+  Discover gap in this file (facet counts, clickable tags, visual identity)
+  — those all make *narrowing* the grid faster or more informative; this is
+  the one gap about *ordering* it, and at 700+ entries even a well-filtered
+  category can still return dozens of results a visitor has to scan
+  top-to-bottom in an order they never asked for. It's also cheaper than it
+  looks precisely because of two pieces of infrastructure this file has
+  already tracked: `discoveredAt` is already populated on every
+  radar-discovered tool and already has a working comparator in
+  `getNewTools()` (just unused outside the "New this week" strip), and plain
+  alphabetical needs nothing new at all. The one sort a visitor might
+  reasonably expect most — "most popular" — is the one this file's own
+  still-open "Popularity signal" gap above has not yet made possible
+  (GitHub stars/HN points are collected but not yet written onto published
+  records), so that option is a natural, cheap follow-up the moment that gap
+  ships, not a blocker to shipping the other two now.
+- **Smallest useful version (what to actually build):**
+  - Add a `sort` URL param (`Discover.jsx`'s existing `setParam`/
+    `searchParams` pattern handles this identically to `cat`/`price`/`level`
+    — no new state-management approach needed) with three values: `match`
+    (today's behavior, and the default so an existing shared/bookmarked URL
+    with no `sort` param is unaffected), `newest`, `name`.
+  - A small dropdown or pill row next to the existing filter rows
+    (`Discover.jsx:199-222`), reusing the same `Pill` component already
+    defined in this file (`Discover.jsx:27-37`) for visual consistency
+    rather than introducing a `<select>` with different chrome.
+  - Extend the `results` `useMemo` (`Discover.jsx:96-111`) with a branch on
+    `sort`: `newest` sorts by `discoveredAt` descending, tools with no
+    `discoveredAt` (the bundled 704-entry baseline) sorted after every
+    radar-discovered tool and alphabetically among themselves as a stable
+    fallback — exactly mirroring `isNewTool`'s own "only live-hydrated tools
+    qualify" rule so this never contradicts the already-shipped Fresh-Finds
+    gap's definition of "new"; `name` is a plain
+    `a.name.localeCompare(b.name)`; `match` keeps the current
+    score-then-prominence chain unchanged.
+  - **What this would NOT include** (kept out to bound the diff): no
+    "popularity" sort option yet — its data doesn't exist on published
+    records until the still-open Popularity-signal gap ships; adding it now
+    would mean either faking an order or silently no-op'ing a visible
+    control, both worse than waiting. No sort control on the public,
+    unauthenticated pages (`CategoryLanding.jsx`, `/new`, `/search`) — those
+    are intentionally simpler, single-purpose views per this file's own
+    earlier notes on that boundary, and adding a stateful sort control to a
+    crawlable page raises its own SEO/canonicalization questions not
+    scoped here. No multi-key sort (e.g. "newest, then by name") — a single
+    active sort key is the honest smallest version matching every
+    competitor example above, which likewise offer one sort at a time.
+- **Build size:** S — one new URL param following the existing filter-param
+  pattern, a small pill/dropdown control reusing the existing `Pill`
+  component, and one added branch in the existing `results` sort chain. No
+  backend, no new dependency, no new route, no new store, no radar change.
+- **Found:** 2026-09-01 00:20 UTC
