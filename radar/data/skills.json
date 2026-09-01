@@ -47,7 +47,10 @@
       "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
       "kiso",
       "pipy-semantic-search-mcp-for-ai-agents",
-      "claude-codex-cursor-token-saver"
+      "claude-codex-cursor-token-saver",
+      "verb-authority",
+      "ai-can-make-you-suck-faster-too",
+      "unitpost-email"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -92,7 +95,10 @@
       "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
       "course-kiso",
       "course-pipy-semantic-search-mcp-for-ai-agents",
-      "course-claude-codex-cursor-token-saver"
+      "course-claude-codex-cursor-token-saver",
+      "course-verb-authority",
+      "course-ai-can-make-you-suck-faster-too",
+      "course-unitpost-email"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -115,10 +121,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "ablo-make-your-ai-app-multiplayer"
+      "ablo-make-your-ai-app-multiplayer",
+      "i-built-a-real-time-translator-for-google-meet"
     ],
     "courses": [
-      "course-ablo-make-your-ai-app-multiplayer"
+      "course-ablo-make-your-ai-app-multiplayer",
+      "course-i-built-a-real-time-translator-for-google-meet"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -172,7 +180,8 @@
       "agentbridge",
       "itsuki",
       "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
-      "open-source-thinking-orb-animations-for-ai-agents"
+      "open-source-thinking-orb-animations-for-ai-agents",
+      "unitpost-email"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -187,7 +196,8 @@
       "course-agentbridge",
       "course-itsuki",
       "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
-      "course-open-source-thinking-orb-animations-for-ai-agents"
+      "course-open-source-thinking-orb-animations-for-ai-agents",
+      "course-unitpost-email"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -340,7 +350,10 @@
       "piqt-ios",
       "saccade",
       "open-agent-forum",
-      "memory-compaction-for-agents-has-an-information-theoretic-fl"
+      "memory-compaction-for-agents-has-an-information-theoretic-fl",
+      "i-built-a-real-time-translator-for-google-meet",
+      "managing-ai-agents-is-still-a-full-time-job",
+      "calprep"
     ],
     "courses": [
       "course-headless-tools",
@@ -382,7 +395,10 @@
       "course-piqt-ios",
       "course-saccade",
       "course-open-agent-forum",
-      "course-memory-compaction-for-agents-has-an-information-theoretic-fl"
+      "course-memory-compaction-for-agents-has-an-information-theoretic-fl",
+      "course-i-built-a-real-time-translator-for-google-meet",
+      "course-managing-ai-agents-is-still-a-full-time-job",
+      "course-calprep"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -441,7 +457,10 @@
       "what-agent-skills-are-made-of-programming-languages",
       "saccade",
       "kiso",
-      "pipy-semantic-search-mcp-for-ai-agents"
+      "pipy-semantic-search-mcp-for-ai-agents",
+      "verb-authority",
+      "managing-ai-agents-is-still-a-full-time-job",
+      "the-thinking-wattage-of-ai-agents-vs-the-human-brain"
     ],
     "courses": [
       "course-headless-tools",
@@ -480,7 +499,10 @@
       "course-what-agent-skills-are-made-of-programming-languages",
       "course-saccade",
       "course-kiso",
-      "course-pipy-semantic-search-mcp-for-ai-agents"
+      "course-pipy-semantic-search-mcp-for-ai-agents",
+      "course-verb-authority",
+      "course-managing-ai-agents-is-still-a-full-time-job",
+      "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -576,11 +598,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "glm-53-open-weight-beat-anthropic-openai-models",
-      "agenttrail"
+      "agenttrail",
+      "ai-can-make-you-suck-faster-too"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
-      "course-agenttrail"
+      "course-agenttrail",
+      "course-ai-can-make-you-suck-faster-too"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -879,14 +903,16 @@
       "foundry-toolbox-radar-lab",
       "grith-is-live",
       "grith",
-      "microsoft-publishes-ai-agent-shared-responsibility-model"
+      "microsoft-publishes-ai-agent-shared-responsibility-model",
+      "verb-authority"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
       "course-foundry-toolbox-radar-lab",
       "course-grith-is-live",
       "course-grith",
-      "course-microsoft-publishes-ai-agent-shared-responsibility-model"
+      "course-microsoft-publishes-ai-agent-shared-responsibility-model",
+      "course-verb-authority"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1383,7 +1409,10 @@
       "ai-engineer-notebooks",
       "trana",
       "why-agentic-ai-needs-a-strong-identity-foundation",
-      "experiments-with-ai"
+      "experiments-with-ai",
+      "the-thinking-wattage-of-ai-agents-vs-the-human-brain",
+      "aicademy",
+      "keeplea"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1392,7 +1421,10 @@
       "course-ai-engineer-notebooks",
       "course-trana",
       "course-why-agentic-ai-needs-a-strong-identity-foundation",
-      "course-experiments-with-ai"
+      "course-experiments-with-ai",
+      "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain",
+      "course-aicademy",
+      "course-keeplea"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1494,7 +1526,8 @@
       "manage-coding-norms-across-your-ai-agents",
       "claude-skills-starter-kit",
       "saccade",
-      "kiso"
+      "kiso",
+      "verb-authority"
     ],
     "courses": [
       "course-limitless-library",
@@ -1510,7 +1543,8 @@
       "course-manage-coding-norms-across-your-ai-agents",
       "course-claude-skills-starter-kit",
       "course-saccade",
-      "course-kiso"
+      "course-kiso",
+      "course-verb-authority"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1680,13 +1714,19 @@
       "aristra-your-life-os",
       "text-editor-that-does-it-all",
       "bytedance-launches-ai-office-product-doubao-work",
-      "openai-is-developing-a-persistent-ai-agent"
+      "openai-is-developing-a-persistent-ai-agent",
+      "ai-can-make-you-suck-faster-too",
+      "managing-ai-agents-is-still-a-full-time-job",
+      "calprep"
     ],
     "courses": [
       "course-aristra-your-life-os",
       "course-text-editor-that-does-it-all",
       "course-bytedance-launches-ai-office-product-doubao-work",
-      "course-openai-is-developing-a-persistent-ai-agent"
+      "course-openai-is-developing-a-persistent-ai-agent",
+      "course-ai-can-make-you-suck-faster-too",
+      "course-managing-ai-agents-is-still-a-full-time-job",
+      "course-calprep"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1750,12 +1790,14 @@
     "toolsTeaching": [
       "launch-hn-vendo-yc-s26",
       "ai-game-playtester",
-      "openai-is-developing-a-persistent-ai-agent"
+      "openai-is-developing-a-persistent-ai-agent",
+      "calprep"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
       "course-ai-game-playtester",
-      "course-openai-is-developing-a-persistent-ai-agent"
+      "course-openai-is-developing-a-persistent-ai-agent",
+      "course-calprep"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1843,10 +1885,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "ai-resume-screening"
+      "ai-resume-screening",
+      "ai-can-make-you-suck-faster-too"
     ],
     "courses": [
-      "course-ai-resume-screening"
+      "course-ai-resume-screening",
+      "course-ai-can-make-you-suck-faster-too"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2029,10 +2073,12 @@
     "domain": "writing",
     "level": "beginner",
     "toolsTeaching": [
-      "text-editor-that-does-it-all"
+      "text-editor-that-does-it-all",
+      "keeplea"
     ],
     "courses": [
-      "course-text-editor-that-does-it-all"
+      "course-text-editor-that-does-it-all",
+      "course-keeplea"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2961,10 +3007,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "ta"
+      "ta",
+      "i-built-a-real-time-translator-for-google-meet"
     ],
     "courses": [
-      "course-ta"
+      "course-ta",
+      "course-i-built-a-real-time-translator-for-google-meet"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4288,12 +4336,14 @@
     "toolsTeaching": [
       "itsuki",
       "opencontext",
-      "memory-compaction-for-agents-has-an-information-theoretic-fl"
+      "memory-compaction-for-agents-has-an-information-theoretic-fl",
+      "keeplea"
     ],
     "courses": [
       "course-itsuki",
       "course-opencontext",
-      "course-memory-compaction-for-agents-has-an-information-theoretic-fl"
+      "course-memory-compaction-for-agents-has-an-information-theoretic-fl",
+      "course-keeplea"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -4786,10 +4836,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "piqt-ios"
+      "piqt-ios",
+      "keeplea"
     ],
     "courses": [
-      "course-piqt-ios"
+      "course-piqt-ios",
+      "course-keeplea"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
   },
@@ -4877,10 +4929,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "what-agent-skills-are-made-of-programming-languages"
+      "what-agent-skills-are-made-of-programming-languages",
+      "the-thinking-wattage-of-ai-agents-vs-the-human-brain"
     ],
     "courses": [
-      "course-what-agent-skills-are-made-of-programming-languages"
+      "course-what-agent-skills-are-made-of-programming-languages",
+      "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
   },
@@ -5195,5 +5249,317 @@
       "course-ai-old-video-restoration-tool"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-google-meet",
+    "name": "google meet",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-built-a-real-time-translator-for-google-meet"
+    ],
+    "courses": [
+      "course-i-built-a-real-time-translator-for-google-meet"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-meetings",
+    "name": "meetings",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-built-a-real-time-translator-for-google-meet"
+    ],
+    "courses": [
+      "course-i-built-a-real-time-translator-for-google-meet"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-language",
+    "name": "language",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-built-a-real-time-translator-for-google-meet"
+    ],
+    "courses": [
+      "course-i-built-a-real-time-translator-for-google-meet"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-authorization",
+    "name": "authorization",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "verb-authority"
+    ],
+    "courses": [
+      "course-verb-authority"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-tool calls",
+    "name": "tool calls",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "verb-authority"
+    ],
+    "courses": [
+      "course-verb-authority"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-opinion",
+    "name": "opinion",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-can-make-you-suck-faster-too"
+    ],
+    "courses": [
+      "course-ai-can-make-you-suck-faster-too"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-engineering",
+    "name": "engineering",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-can-make-you-suck-faster-too"
+    ],
+    "courses": [
+      "course-ai-can-make-you-suck-faster-too"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-ai management",
+    "name": "ai management",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "managing-ai-agents-is-still-a-full-time-job"
+    ],
+    "courses": [
+      "course-managing-ai-agents-is-still-a-full-time-job"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-burnout",
+    "name": "burnout",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "managing-ai-agents-is-still-a-full-time-job"
+    ],
+    "courses": [
+      "course-managing-ai-agents-is-still-a-full-time-job"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-energy efficiency",
+    "name": "energy efficiency",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "the-thinking-wattage-of-ai-agents-vs-the-human-brain"
+    ],
+    "courses": [
+      "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-human brain",
+    "name": "human brain",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "the-thinking-wattage-of-ai-agents-vs-the-human-brain"
+    ],
+    "courses": [
+      "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-compute",
+    "name": "compute",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "the-thinking-wattage-of-ai-agents-vs-the-human-brain"
+    ],
+    "courses": [
+      "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-ai learning",
+    "name": "ai learning",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "aicademy"
+    ],
+    "courses": [
+      "course-aicademy"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-upskilling",
+    "name": "upskilling",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "aicademy"
+    ],
+    "courses": [
+      "course-aicademy"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-hands-on learning",
+    "name": "hands on learning",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "aicademy"
+    ],
+    "courses": [
+      "course-aicademy"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-education",
+    "name": "education",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "aicademy"
+    ],
+    "courses": [
+      "course-aicademy"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-workplace skills",
+    "name": "workplace skills",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "aicademy"
+    ],
+    "courses": [
+      "course-aicademy"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-capture",
+    "name": "capture",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "keeplea"
+    ],
+    "courses": [
+      "course-keeplea"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-calendar",
+    "name": "calendar",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "calprep"
+    ],
+    "courses": [
+      "course-calprep"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-scheduling",
+    "name": "scheduling",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "calprep"
+    ],
+    "courses": [
+      "course-calprep"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-email",
+    "name": "email",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "unitpost-email"
+    ],
+    "courses": [
+      "course-unitpost-email"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-components",
+    "name": "components",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "unitpost-email"
+    ],
+    "courses": [
+      "course-unitpost-email"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-layouts",
+    "name": "layouts",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "unitpost-email"
+    ],
+    "courses": [
+      "course-unitpost-email"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-templates",
+    "name": "templates",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "unitpost-email"
+    ],
+    "courses": [
+      "course-unitpost-email"
+    ],
+    "updatedAt": "2026-09-01T14:10:39.887Z"
   }
 ]

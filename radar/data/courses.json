@@ -5697,5 +5697,470 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "course-i-built-a-real-time-translator-for-google-meet",
+    "toolSlug": "i-built-a-real-time-translator-for-google-meet",
+    "title": "Master I built a real-time translator for Google Meet",
+    "objectives": [
+      "Understand what I built a real-time translator for Google Meet is for",
+      "Use I built a real-time translator for Google Meet on a real task",
+      "Know where I built a real-time translator for Google Meet fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for I built a real-time translator for Google Meet.",
+          "Say what I built a real-time translator for Google Meet does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through I built a real-time translator for Google Meet.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold I built a real-time translator for Google Meet into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-translation",
+      "skill-google-meet",
+      "skill-real-time",
+      "skill-meetings",
+      "skill-language"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "course-verb-authority",
+    "toolSlug": "verb-authority",
+    "title": "Master Verb Authority",
+    "objectives": [
+      "Understand what Verb Authority is for",
+      "Use Verb Authority on a real task",
+      "Know where Verb Authority fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Verb Authority for your real workflow, not the demo.",
+          "Say what Verb Authority does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Verb Authority.",
+          "Push Verb Authority to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Verb Authority into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-authorization",
+      "skill-ai agents",
+      "skill-tool calls",
+      "skill-security",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "course-ai-can-make-you-suck-faster-too",
+    "toolSlug": "ai-can-make-you-suck-faster-too",
+    "title": "Master AI Can Make You Suck Faster Too",
+    "objectives": [
+      "Understand what AI Can Make You Suck Faster Too is for",
+      "Use AI Can Make You Suck Faster Too on a real task",
+      "Know where AI Can Make You Suck Faster Too fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI Can Make You Suck Faster Too for your real workflow, not the demo.",
+          "Say what AI Can Make You Suck Faster Too does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Can Make You Suck Faster Too.",
+          "Push AI Can Make You Suck Faster Too to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Can Make You Suck Faster Too into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai",
+      "skill-coding",
+      "skill-opinion",
+      "skill-productivity",
+      "skill-engineering"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "course-managing-ai-agents-is-still-a-full-time-job",
+    "toolSlug": "managing-ai-agents-is-still-a-full-time-job",
+    "title": "Master Managing AI agents is still a full-time job",
+    "objectives": [
+      "Understand what Managing AI agents is still a full-time job is for",
+      "Use Managing AI agents is still a full-time job on a real task",
+      "Know where Managing AI agents is still a full-time job fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Managing AI agents is still a full-time job for your real workflow, not the demo.",
+          "Say what Managing AI agents is still a full-time job does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Managing AI agents is still a full-time job.",
+          "Push Managing AI agents is still a full-time job to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Managing AI agents is still a full-time job into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-productivity",
+      "skill-ai management",
+      "skill-burnout"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain",
+    "toolSlug": "the-thinking-wattage-of-ai-agents-vs-the-human-brain",
+    "title": "Master The Thinking Wattage of AI Agents vs. the Human Brain",
+    "objectives": [
+      "Understand what The Thinking Wattage of AI Agents vs. the Human Brain is for",
+      "Use The Thinking Wattage of AI Agents vs. the Human Brain on a real task",
+      "Know where The Thinking Wattage of AI Agents vs. the Human Brain fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure The Thinking Wattage of AI Agents vs. the Human Brain for your real workflow, not the demo.",
+          "Say what The Thinking Wattage of AI Agents vs. the Human Brain does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through The Thinking Wattage of AI Agents vs. the Human Brain.",
+          "Push The Thinking Wattage of AI Agents vs. the Human Brain to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold The Thinking Wattage of AI Agents vs. the Human Brain into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai agents",
+      "skill-energy efficiency",
+      "skill-human brain",
+      "skill-compute",
+      "skill-analysis"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "course-aicademy",
+    "toolSlug": "aicademy",
+    "title": "Master AICademy",
+    "objectives": [
+      "Understand what AICademy is for",
+      "Use AICademy on a real task",
+      "Know where AICademy fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for AICademy.",
+          "Say what AICademy does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AICademy.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AICademy into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai learning",
+      "skill-upskilling",
+      "skill-hands-on learning",
+      "skill-education",
+      "skill-workplace skills"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "course-keeplea",
+    "toolSlug": "keeplea",
+    "title": "Master Keeplea",
+    "objectives": [
+      "Capture clear, context-rich photos with Keeplea",
+      "Organize snaps with notes and tags for easy retrieval",
+      "Build a daily review habit to lock in what you snap"
+    ],
+    "modules": [
+      {
+        "title": "Set Up and Take Your First Snap",
+        "estMinutes": 6,
+        "steps": [
+          "Install Keeplea, create an account, and grant camera and notification permissions",
+          "Snap your first photo of something you just learned, like a book passage, product label, or whiteboard",
+          "Review the card Keeplea auto-generates from the photo, then tap Save to add it to your library"
+        ]
+      },
+      {
+        "title": "Capture Photos You'll Actually Remember",
+        "estMinutes": 5,
+        "steps": [
+          "Frame one clear subject per snap: fill the frame, avoid glare, and hold steady before shooting",
+          "Add a one-line note in your own words explaining why this fact matters to you",
+          "Attach at least one tag, such as #work or #spanish, so the snap is searchable later"
+        ]
+      },
+      {
+        "title": "Review to Make It Stick",
+        "estMinutes": 5,
+        "steps": [
+          "Open the Review tab and work through today's due cards one by one",
+          "Rate how easily you recalled each item so Keeplea schedules its next review correctly",
+          "Edit any weak card: split a card with multiple facts into separate single-fact cards"
+        ]
+      },
+      {
+        "title": "Build a Lasting Habit",
+        "estMinutes": 4,
+        "steps": [
+          "Turn on a daily review reminder at a fixed time, like your morning coffee or commute",
+          "Snap three real items this week, such as a receipt, a meeting slide, and a handwritten note",
+          "After seven days, check your streak and delete or archive snaps you no longer need"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-memory",
+      "skill-photos",
+      "skill-notes",
+      "skill-capture"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "course-calprep",
+    "toolSlug": "calprep",
+    "title": "Master CalPrep",
+    "objectives": [
+      "Connect your calendar and set core scheduling preferences",
+      "Review, edit, and approve AI-proposed schedule changes",
+      "Tune autonomy levels so routine changes need less oversight"
+    ],
+    "modules": [
+      {
+        "title": "Connect Your Calendar",
+        "estMinutes": 8,
+        "steps": [
+          "Sign in to CalPrep and open Settings > Connected Calendars",
+          "Link your Google or Outlook account and grant read/write access",
+          "Pick your primary calendar and confirm your events appear in the CalPrep timeline"
+        ]
+      },
+      {
+        "title": "Set Scheduling Preferences",
+        "estMinutes": 7,
+        "steps": [
+          "Define working hours, time zone, and no-meeting focus blocks under Preferences > Availability",
+          "Set default meeting length and buffer time between meetings",
+          "Add 2-3 priority rules, e.g. 'never move 1:1s with my manager'"
+        ]
+      },
+      {
+        "title": "Approve Your First AI Proposal",
+        "estMinutes": 10,
+        "steps": [
+          "Ask CalPrep to 'find 30 minutes for a project sync this week' and wait for a proposal",
+          "Open the Approval Queue, review the suggested slot, and check for conflicts it flagged",
+          "Click Approve (or Edit to adjust the time), then verify the event appears on your real calendar"
+        ]
+      },
+      {
+        "title": "Tune Autonomy & Notifications",
+        "estMinutes": 6,
+        "steps": [
+          "In Settings > Autonomy, choose which change types auto-apply vs. require your approval",
+          "Enable Slack or email notifications for pending approvals and set quiet hours",
+          "Use the Activity Log to undo one recent change so you know how to recover from mistakes"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-calendar",
+      "skill-ai agent",
+      "skill-scheduling",
+      "skill-productivity"
+    ],
+    "prerequisites": [
+      "A Google or Outlook calendar account",
+      "A CalPrep account (free tier is fine)"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "course-unitpost-email",
+    "toolSlug": "unitpost-email",
+    "title": "Master Unitpost/email",
+    "objectives": [
+      "Understand what Unitpost/email is for",
+      "Use Unitpost/email on a real task",
+      "Know where Unitpost/email fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Unitpost/email for your real workflow, not the demo.",
+          "Say what Unitpost/email does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Unitpost/email.",
+          "Push Unitpost/email to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Unitpost/email into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-email",
+      "skill-components",
+      "skill-layouts",
+      "skill-open-source",
+      "skill-templates"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T14:10:39.887Z"
   }
 ]
