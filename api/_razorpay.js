@@ -110,8 +110,33 @@ export function bodyTooLarge(req) {
 // Both endpoints need the same credential check, and neither should ever hint
 // at whether the secret specifically is the missing one.
 export function credentials() {
-  const keyId = process.env.RAZORPAY_KEY_ID
-  const keySecret = process.env.RAZORPAY_KEY_SECRET
+  // TRIMMED. A value pasted into a Vercel env var very often carries a trailing
+  // newline or space, and neither is visible in the dashboard. The SDK builds
+  // Basic auth as base64(id + ':' + secret), so one stray byte corrupts the
+  // header and Razorpay answers 401 - which reads exactly like a wrong key and
+  // sends you looking in the wrong place.
+  const keyId = (process.env.RAZORPAY_KEY_ID || '').trim()
+  const keySecret = (process.env.RAZORPAY_KEY_SECRET || '').trim()
   if (!keyId || !keySecret) return null
-  return { keyId, keySecret }
+  return { keyId, keySecret, mode: keyMode(keyId) }
+}
+
+// 'test' | 'live' | null. Razorpay key ids are rzp_test_* or rzp_live_*, and
+// the secret must come from the SAME pair - a live id with a test secret is a
+// 401 that looks identical to a typo.
+export function keyMode(keyId) {
+  const m = /^rzp_(test|live)_[A-Za-z0-9]+$/.exec(keyId || '')
+  return m ? m[1] : null
+}
+
+// A non-sensitive description of what is wrong, safe to log and to return.
+// Never includes either credential.
+export function credentialShapeProblem(keyId, keySecret) {
+  if (!keyId || !keySecret) return 'missing'
+  if (keyId !== keyId.trim() || keySecret !== keySecret.trim()) return 'whitespace'
+  if (!keyMode(keyId)) return 'key id is not in the rzp_test_/rzp_live_ format'
+  // Razorpay secrets are opaque, but they are never the key id and never short.
+  if (keySecret.length < 16) return 'secret looks too short'
+  if (keySecret.startsWith('rzp_')) return 'secret field contains a key id'
+  return null
 }
