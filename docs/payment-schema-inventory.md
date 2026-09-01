@@ -100,14 +100,51 @@ Once both are done, delete it in a follow-up and remove the mention from
 
 ## Verification
 
-`test/payment-schema.test.mjs` enforces, in CI:
+Two layers, both in CI, both runnable with `npm run test:app`.
+
+### 1. Static — `test/payment-schema.test.mjs`
 
 1. Every table the API writes to is created by some file in `supabase/migrations/`.
-2. `plans` is created by a migration, not only by the bootstrap file.
+2. Migration filename prefixes are unique (a competing PR shipped a second `0004`).
 3. Every status literal the API code writes is permitted by that table's CHECK.
-4. `supabase/payments.sql` carries its obsolete marker and is not referenced as
-   a setup step by any doc or script.
+4. `supabase/payments.sql` carries its obsolete marker and no doc instructs
+   running it.
 
-What CI **cannot** prove is that production matches the migrations. That needs
-either a shadow-database rebuild or a periodic live probe like the one that
-produced this document.
+### 2. Real database — `test/fresh-schema.test.mjs`
+
+Applies every migration, in order, to an **empty PostgreSQL 18 database** and
+then inspects what came out. It uses PGlite — Postgres compiled to WASM — so it
+needs no Docker, no local server and no credentials, and behaves identically in
+CI and on a laptop. Supabase's platform objects (`auth.users`, `auth.uid()`, the
+anon/authenticated/service roles) are stubbed first, faithfully enough that
+`0001`'s backfill of `explorers` from `auth.users.created_at` still runs.
+
+It asserts, against the live catalog rather than the file text:
+
+- every migration applies cleanly from scratch;
+- all four payment tables exist, with the columns production has;
+- the three plans are seeded, active, at `period_days = 30`;
+- **`plans.period_days` equals the `periodDays` default in `api/_supabase.js`** —
+  the drift guard for making the plans row the single source of grant length;
+- `update ... set status = 'refunded'` on an active entitlement actually
+  succeeds (the refund-revocation bug, executed rather than pattern-matched);
+- RLS is enabled on all four tables;
+- `webhook_events` has **zero** policies, so no ordinary user can read it;
+- `payment_transactions` and `user_entitlements` each have an own-row SELECT policy;
+- `plans` is publicly readable, or the pricing page renders empty signed-out;
+- `current_entitlement()` exists and is `security invoker`;
+- a second **active** entitlement for one user is rejected by the partial unique index;
+- a duplicate `razorpay_order_id` is rejected;
+- a duplicate `razorpay_event_id` is rejected — webhook idempotency proven in
+  the database, not assumed from the handler.
+
+**Negative control.** With `0005` removed, 7 of the 15 assertions fail — every
+one of them `plans`-related — and they pass again once it is restored. The test
+demonstrably catches the bug it was written for.
+
+### What CI still cannot prove
+
+That **production** matches the migrations. CI proves a *fresh* database does.
+Confirming production needs either a shadow-database rebuild or a periodic live
+probe like the one that produced this document. Re-run that probe after applying
+`0005`.
