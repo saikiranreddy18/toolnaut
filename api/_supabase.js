@@ -64,13 +64,36 @@ export async function getUserFromRequest(req) {
 // extends from the CURRENT end when it is still in the future, so paying
 // early never eats days.
 export async function activateEntitlement({ userId, planCode, transactionId, periodDays = 30 }) {
+  // Ask for the ACTIVE row specifically, not "any row for this user, take the
+  // first". PostgREST returns no guaranteed order, so an unfiltered query on a
+  // user with history could hand back an expired row — which this would then
+  // PATCH to 'active' while their real active row still existed, colliding with
+  // user_entitlements_one_active_idx. The write fails, and a customer who just
+  // paid gets nothing. Filtering to status=active makes the partial unique
+  // index a guarantee rather than a hazard: there is at most one such row.
   const existing = await rest(
-    `user_entitlements?user_id=eq.${userId}&select=id,ends_at,status`,
+    `user_entitlements?user_id=eq.${userId}&status=eq.active&select=id,ends_at,status,payment_transaction_id&limit=1`,
   )
   const row = Array.isArray(existing.json) ? existing.json[0] : null
 
+  // ONE PAYMENT, ONE PERIOD.
+  //
+  // Both settle paths call this for the same payment: verify-payment when the
+  // browser comes back, and the webhook when Razorpay reports the capture. The
+  // extend-from-current-end rule below is correct for a genuine renewal, but it
+  // cannot tell a second PURCHASE from a second SETTLEMENT of the same one — so
+  // a single payment was granting two periods, thirty days of access nobody
+  // paid for, every time both paths ran.
+  //
+  // The transaction id is what distinguishes them. If the active row already
+  // points at this payment, the work is done; return the end date already
+  // stored rather than pushing it further out.
+  if (row && transactionId && row.payment_transaction_id === transactionId) {
+    return row.ends_at
+  }
+
   const now = Date.now()
-  const base = row?.status === 'active' && row?.ends_at && new Date(row.ends_at).getTime() > now
+  const base = row?.ends_at && new Date(row.ends_at).getTime() > now
     ? new Date(row.ends_at).getTime()
     : now
   const endsAt = new Date(base + periodDays * 86_400_000).toISOString()

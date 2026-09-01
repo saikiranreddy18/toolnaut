@@ -125,11 +125,29 @@ export default async function handler(req, res) {
         })
         const tx = Array.isArray(upd.json) ? upd.json[0] : null
         if (tx?.user_id) {
-          await rest(`user_entitlements?user_id=eq.${tx.user_id}`, {
-            method: 'PATCH',
-            headers: { prefer: 'return=minimal' },
-            body: { status: 'revoked', updated_at: stamp },
-          })
+          // 'refunded', NOT 'revoked'. The status check constraint allows
+          // active/expired/cancelled/refunded, so 'revoked' was rejected with a
+          // constraint violation on every refund — and because the result was
+          // never inspected, the webhook reported success while the refunded
+          // customer kept their paid access indefinitely.
+          //
+          // Scoped to the active row too: an unfiltered PATCH would rewrite
+          // every historical row for this user, and those rows are the audit
+          // trail of what they were entitled to and when.
+          const rev = await rest(
+            `user_entitlements?user_id=eq.${tx.user_id}&status=eq.active`,
+            {
+              method: 'PATCH',
+              headers: { prefer: 'return=minimal' },
+              body: { status: 'refunded', updated_at: stamp },
+            },
+          )
+          // Raise rather than log. A refund that does not remove access is the
+          // one failure here that costs real money every day it goes unnoticed,
+          // so it must retry and stay visible instead of reporting success.
+          if (!rev.ok) {
+            throw new Error(`refund did not revoke access: ${rev.status} ${(rev.text || '').slice(0, 200)}`)
+          }
         }
       }
     }
