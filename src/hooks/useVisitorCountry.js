@@ -12,10 +12,25 @@ import { useEffect, useState } from 'react'
 // lookup, and from everyone whose request for it fails.
 let cached = null
 
+// ?preview_country=US overrides what this reports, so the team can see a
+// geo-restricted offer from a country that cannot buy it. Presentation only,
+// and safe precisely because this hook decides nothing: /api/create-order reads
+// the real edge header and refuses the plan regardless of what the URL claims.
+// Without this, whoever asked for the founder ribbon cannot see it from India.
+function previewOverride() {
+  try {
+    const v = new URLSearchParams(window.location.search).get('preview_country')
+    return v ? v.toUpperCase().slice(0, 2) : null
+  } catch {
+    return null
+  }
+}
+
 export function useVisitorCountry() {
-  const [country, setCountry] = useState(cached)
+  const [country, setCountry] = useState(() => previewOverride() ?? cached)
 
   useEffect(() => {
+    if (previewOverride()) return
     if (cached !== null) return
     let alive = true
     fetch('/api/geo')
