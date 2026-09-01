@@ -1,4 +1,21 @@
--- Payment-to-entitlement pipeline (run in Supabase -> SQL Editor).
+-- ############################################################################
+-- OBSOLETE — DO NOT RUN. RETIRED 2026-09-01.
+--
+-- The canonical payment schema is supabase/migrations/. Apply those instead:
+--   0004_payments.sql  — the three payment tables
+--   0005_reconcile_payment_schema.sql — the plans table this file used to own
+--
+-- Running THIS file on a fresh database produces a subtly weaker schema whose
+-- user_entitlements CHECK allows only (active, expired, revoked). The webhook
+-- writes 'refunded' on every refund, so that write fails, the webhook retries
+-- forever, and the refunded customer keeps paid access indefinitely.
+--
+-- Kept only as the historical record of where the production `plans` table
+-- came from. Delete once 0005 is applied in production and a fresh-database
+-- rebuild has been verified. See docs/payment-schema-inventory.md.
+-- ############################################################################
+
+-- Payment-to-entitlement pipeline (historical bootstrap script).
 --
 -- THE CORE RULE (docs/razorpay.md, and the architecture note this implements):
 --   Razorpay confirms payment, these tables record and verify it, entitlements

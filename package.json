@@ -13,7 +13,8 @@
     "radar:health": "node scripts/radar-health.mjs",
     "report": "node scripts/daily-report.mjs",
     "test:radar": "cd radar && node --test",
-    "test:app": "node --import ./test/register.mjs --test \"test/*.test.mjs\""
+    "test:app": "node --import ./test/register.mjs --test \"test/*.test.mjs\"",
+    "verify:live": "node scripts/verify-live-schema.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.0.0",
@@ -28,6 +29,7 @@
     "three": "^0.177.0"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
     "@tailwindcss/vite": "^4.0.0",
     "@vitejs/plugin-react": "^4.3.4",
     "pdfjs-dist": "^4.10.38",

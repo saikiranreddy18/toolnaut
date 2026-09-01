@@ -1,0 +1,29 @@
+-- 0006 — index the column every entitlement lookup filters on.
+--
+-- An RLS policy is a WHERE clause the database adds to every query. If the
+-- column it filters on is unindexed, each read scans the table, and the cost
+-- grows with total rows across ALL users rather than with the caller's own.
+-- That is a scaling cliff that only shows up once there are enough customers
+-- to make it expensive to fix.
+--
+-- Audited every table whose policy filters by owner. Only one was missing an
+-- index; the rest were already covered, and adding more would be redundant
+-- write cost for no read benefit:
+--
+--   profiles              policy uses id  -> covered by the PRIMARY KEY
+--   roadmap_progress      user_id         -> covered by PK (user_id, step_key),
+--                                            whose LEADING column is user_id
+--   tool_refs             user_id         -> covered by tool_refs_user_kind_idx
+--                                            (user_id, kind), leading column
+--   payment_transactions  user_id         -> covered by payment_transactions_user_idx
+--                                            (user_id, created_at desc)
+--   user_entitlements     user_id         -> NOT covered. See below.
+--
+-- user_entitlements has only user_entitlements_one_active_idx, which is a
+-- PARTIAL unique index (where status = 'active'). It enforces one active pass
+-- per user, and it serves the hot path — but Postgres can only use it for
+-- queries that also filter status = 'active'. Anything reading a user's
+-- entitlement HISTORY (an expired or refunded row, a reconciliation sweep, a
+-- support lookup) matches no index at all.
+create index if not exists user_entitlements_user_idx
+  on public.user_entitlements (user_id, created_at desc);
