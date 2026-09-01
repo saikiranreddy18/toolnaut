@@ -957,9 +957,15 @@ a client-side SPA with a static tool catalogue.
   still a separate, larger routing decision, not part of this gap's scope.
 
 ### Pro chat assistant & the entire Team tier are unbacked and unbuildable client-side
-- **Status:** REJECTED — needs a backend/multi-user system; logged so future
-  research hours don't re-spend an hour rediscovering this, and so it's
-  visible to a human rather than silently sitting on the pricing page.
+- **Status:** OPEN (Gap 1 only) — PARTIALLY REOPENED 2026-09-01 15:20 UTC. Gap
+  1's blocking reason ("no `api/` directory, no serverless function, no
+  server-held key") is now false — see the deepening below. **Gap 2 (the
+  Team tier) is unaffected and stays REJECTED**: re-checked `authStore.js`
+  this run, still zero team/org/seat modeling.
+- **Original rejection (now stale for Gap 1 only, kept for history):**
+  REJECTED — needs a backend/multi-user system; logged so future research
+  hours don't re-spend an hour rediscovering this, and so it's visible to a
+  human rather than silently sitting on the pricing page.
 - **Seen in:** not a competitor pattern — this entry exists because
   re-auditing `planData.js` for other unbacked rows (after the favorites and
   PDF-export gaps, both found the same way) turned up two more categories of
@@ -1014,6 +1020,64 @@ a client-side SPA with a static tool catalogue.
   config outside this repo's reach; Team tier: needs full multi-user
   accounts) — out of scope for this backlog's client-only SPA model.
 - **Found:** 2026-08-25 15:35 UTC
+- **Deepened 2026-09-01 15:20 UTC — Gap 1's own blocker no longer exists:**
+  the payments work that reopened the weekly-alerts gap above (same
+  precedent, different feature) also built an `api/` directory — it has 12
+  serverless functions now, not zero — and one of them, `api/chat.js`, is a
+  live, working Vercel function that calls an LLM server-side with a secret
+  key (`FEATHERLESS_API_KEY`) that is already configured in production,
+  since the `/goal` onboarding flow depends on it today (`src/utils/
+  goalChat.js` calls it to classify free-text quiz replies). Read
+  `api/chat.js` in full: it already has everything Gap 1 was rejected for
+  lacking — origin allowlisting scoped to this project's own domains
+  (`originAllowed()`), a per-IP sliding-window rate limit, strict payload-size
+  and field-length caps, a hard timeout with a graceful `source: 'unconfigured'
+  | 'upstream_error' | 'timeout'` fallback so a slow/broken model never
+  strands the caller, and a JSON-only prompt contract. That is a proven,
+  production-hardened template for "expose an LLM call to the browser
+  safely" — reusing it is materially smaller than building the same safety
+  scaffolding from zero, which is what made this an "L" in the original
+  entry.
+  **What `api/chat.js` is NOT, so this isn't already done:** it's scoped
+  narrowly to one job — classify a free-text quiz reply into one of that
+  question's option keys ("you are not choosing tools, only understanding
+  the person," per its own system prompt) — and is called from nowhere but
+  `GoalChat.jsx`. `ChatPanel.jsx` (the Pro-tier "AI Copilot," confirmed still
+  self-labelled "Preview — replies are canned" at `ChatPanel.jsx:53`, its
+  `send()` still a hardcoded string with zero `fetch` calls) is a completely
+  separate, unwired component. Building Gap 1 means a **second**, differently
+  -prompted endpoint, not flipping a switch on the first one.
+  **Smallest useful version:** new `api/copilot.js`, copying `api/chat.js`'s
+  security scaffolding verbatim (origin allowlist, rate limiter, size caps,
+  timeout+fallback) but with its own prompt: given the caller's resolved
+  stack (tool names + categories, sourced the same way `Stack.jsx` already
+  builds that list at `Stack.jsx:116-119` — slugs only, resolved server-side
+  or client-side via `getTool()`, never trust free-text tool names from the
+  client) plus a short message history, answer a freeform question in 1-3
+  sentences; return `{ reply, source }` (`source` mirrors `api/chat.js`'s
+  vocabulary) instead of a classification key. New `src/utils/copilotChat.js`
+  mirroring `goalChat.js`'s `askServer` shape (POST, catch network errors,
+  return a typed result). Wire `ChatPanel.jsx`'s `send()` to call it,
+  appending the real reply on `source: 'llm'` and falling back to a plain
+  "I'm not able to answer that right now" message on anything else — same
+  never-strand-the-user contract `api/chat.js` already guarantees for the
+  quiz flow. Drop the "Preview — replies are canned" header once wired.
+  **One thing this does NOT fix, flagged so nobody assumes it does:** the
+  pricing copy specifically says "Claude-powered Q&A" (`planData.js:44`), but
+  the only LLM path proven to exist and work in this codebase — `api/chat.js`
+  — calls Featherless-hosted open models (Qwen2.5-7B-Instruct), the same
+  choice `radar/`'s own enrichment made for cost/latency reasons documented
+  in that file. Building this gap with the same provider makes the feature
+  real but leaves "Claude-powered" still false; that's a one-line copy fix
+  for whoever ships this, not a reason to hold the build, and not something
+  this research pass is doing unasked (same stance this file already took on
+  the Team-tier copy below).
+  **Build size, corrected:** M — one new serverless function (largely copied
+  scaffolding, new prompt + response shape), one new client util, wiring
+  `ChatPanel.jsx`'s existing `send()` to it. Down from the original "L": the
+  hard parts (secret management, abuse limits, origin checks, a Vercel
+  function that actually works in production) are now a proven pattern in
+  this exact repo, not new infrastructure.
 
 ### Recently viewed tools
 - **Status:** OPEN
