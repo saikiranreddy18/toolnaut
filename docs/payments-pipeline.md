@@ -37,7 +37,7 @@ Razorpay → POST /api/razorpay-webhook          raw-body HMAC, idempotent by
   refund.processed                             settles the same records
 ```
 
-## Step 1 — tables (`supabase/payments.sql`)
+## Step 1 — tables (`supabase/migrations/`)
 
 Run once in Supabase → SQL Editor. Creates:
 
@@ -122,7 +122,10 @@ events, set `RAZORPAY_WEBHOOK_SECRET`.
 ## Switching it on
 
 ```text
-1. Run supabase/payments.sql            (Supabase → SQL Editor)
+1. Apply supabase/migrations/ in order   (Supabase → SQL Editor)
+   0004_payments.sql then 0005_reconcile_payment_schema.sql.
+   NOT supabase/payments.sql — it is retired and builds a schema
+   where refunds cannot revoke access. See docs/payment-schema-inventory.md.
 2. Vercel env:
    PAYMENTS_ENABLED=true                 exact string, anything else = off
    RAZORPAY_KEY_ID / RAZORPAY_KEY_SECRET rzp_test_* pair first
