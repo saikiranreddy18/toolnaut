@@ -148,7 +148,10 @@ order — `0001_explorers.sql`, `0002_user_state.sql`, `0003_tool_claims.sql` �
 and note here which have been run so the repo's `supabase/migrations/` folder
 stays truthful about the live schema.
 
-Applied so far: (none — update this line when you run them)
+Applied so far: 0001, 0002, 0003, 0004 — applied 2026-09-01 against project
+xhoyxbayukionqmbhdpj at commit 104d9939. Verified with
+`node scripts/supabase-verify.mjs`: all objects present, anonymous reads denied
+on every private table, payment tables reject browser writes with 401.
 
 After applying, the validation ladder before any copy or feature changes:
 sync RPC returns non-404 → owner read/write works → cross-account read is

@@ -59,6 +59,9 @@ const objects = [
   ['tool_refs', 'table'],
   ['roadmap_progress', 'table'],
   ['tool_claims', 'table'],
+  ['payment_transactions', 'table'],
+  ['user_entitlements', 'table'],
+  ['webhook_events', 'table'],
 ]
 let missing = 0
 for (const [name] of objects) {
@@ -85,7 +88,7 @@ if (missing) {
 // is a pass; actual rows coming back is a critical failure.
 console.log('\nStep 4 — anonymous cannot read protected state')
 let failures = 0
-for (const table of ['profiles', 'tool_refs', 'roadmap_progress']) {
+for (const table of ['profiles', 'tool_refs', 'roadmap_progress', 'payment_transactions', 'user_entitlements', 'webhook_events']) {
   const r = await get(`${table}?select=*&limit=5`)
   const body = await r.json().catch(() => null)
   const leaked = Array.isArray(body) && body.length > 0
@@ -112,6 +115,29 @@ const write = await fetch(`${URL}/rest/v1/tool_claims`, {
 })
 if (write.ok) { failures++; row('tool_claims (write)', write.status, 'CRITICAL — browser can write claims') }
 else row('tool_claims (write)', write.status, 'rejected — correct')
+
+// ── the money tables must be unwritable from a browser ──────────────────────
+// A user who can insert their own entitlement row simply grants themselves the
+// paid plan, and one who can insert a payment_transactions row fabricates a
+// purchase. This is the most important check on the page.
+console.log('\nPayment tables reject browser writes')
+const ZERO_UUID = '00000000-0000-0000-0000-000000000000'
+const writes = [
+  ['user_entitlements', { user_id: ZERO_UUID, plan_code: 'guru' }],
+  ['payment_transactions', {
+    user_id: ZERO_UUID, plan_code: 'guru', amount_paise: 100, razorpay_order_id: '__probe__',
+  }],
+  ['webhook_events', { razorpay_event_id: '__probe__', event_type: 'probe', payload: {} }],
+]
+for (const [table, body] of writes) {
+  const w = await fetch(`${URL}/rest/v1/${table}`, {
+    method: 'POST',
+    headers: { ...H, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+    body: JSON.stringify(body),
+  })
+  if (w.ok) { failures++; row(`${table} (write)`, w.status, 'CRITICAL — a browser can write this') }
+  else row(`${table} (write)`, w.status, 'rejected — correct')
+}
 
 console.log(failures ? `\nRESULT: ${failures} CRITICAL failure(s). Do not ship sync.\n`
                      : '\nRESULT: automated checks passed.\n')
