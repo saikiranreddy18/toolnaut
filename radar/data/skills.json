@@ -43,7 +43,11 @@
       "darwin-vm",
       "manage-coding-norms-across-your-ai-agents",
       "claude-skills-starter-kit",
-      "what-agent-skills-are-made-of-programming-languages"
+      "what-agent-skills-are-made-of-programming-languages",
+      "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
+      "kiso",
+      "pipy-semantic-search-mcp-for-ai-agents",
+      "claude-codex-cursor-token-saver"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -84,7 +88,11 @@
       "course-darwin-vm",
       "course-manage-coding-norms-across-your-ai-agents",
       "course-claude-skills-starter-kit",
-      "course-what-agent-skills-are-made-of-programming-languages"
+      "course-what-agent-skills-are-made-of-programming-languages",
+      "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
+      "course-kiso",
+      "course-pipy-semantic-search-mcp-for-ai-agents",
+      "course-claude-codex-cursor-token-saver"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -162,7 +170,9 @@
       "a2acast",
       "doodle-ai-open-source-photo-to-doodle-avatar-generator",
       "agentbridge",
-      "itsuki"
+      "itsuki",
+      "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
+      "open-source-thinking-orb-animations-for-ai-agents"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -175,7 +185,9 @@
       "course-a2acast",
       "course-doodle-ai-open-source-photo-to-doodle-avatar-generator",
       "course-agentbridge",
-      "course-itsuki"
+      "course-itsuki",
+      "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
+      "course-open-source-thinking-orb-animations-for-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -196,7 +208,9 @@
       "how-i-design-with-ai",
       "slidex",
       "doodle-ai-open-source-photo-to-doodle-avatar-generator",
-      "cogram-studio"
+      "cogram-studio",
+      "open-source-thinking-orb-animations-for-ai-agents",
+      "ai-old-video-restoration-tool"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -210,7 +224,9 @@
       "course-how-i-design-with-ai",
       "course-slidex",
       "course-doodle-ai-open-source-photo-to-doodle-avatar-generator",
-      "course-cogram-studio"
+      "course-cogram-studio",
+      "course-open-source-thinking-orb-animations-for-ai-agents",
+      "course-ai-old-video-restoration-tool"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -321,7 +337,10 @@
       "subs-the-cloud-native-agent-harness",
       "agents-are-generating-your-most-valuable-ip",
       "civitas",
-      "piqt-ios"
+      "piqt-ios",
+      "saccade",
+      "open-agent-forum",
+      "memory-compaction-for-agents-has-an-information-theoretic-fl"
     ],
     "courses": [
       "course-headless-tools",
@@ -360,7 +379,10 @@
       "course-subs-the-cloud-native-agent-harness",
       "course-agents-are-generating-your-most-valuable-ip",
       "course-civitas",
-      "course-piqt-ios"
+      "course-piqt-ios",
+      "course-saccade",
+      "course-open-agent-forum",
+      "course-memory-compaction-for-agents-has-an-information-theoretic-fl"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -416,7 +438,10 @@
       "manage-coding-norms-across-your-ai-agents",
       "experiments-with-ai",
       "claude-skills-starter-kit",
-      "what-agent-skills-are-made-of-programming-languages"
+      "what-agent-skills-are-made-of-programming-languages",
+      "saccade",
+      "kiso",
+      "pipy-semantic-search-mcp-for-ai-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -452,7 +477,10 @@
       "course-manage-coding-norms-across-your-ai-agents",
       "course-experiments-with-ai",
       "course-claude-skills-starter-kit",
-      "course-what-agent-skills-are-made-of-programming-languages"
+      "course-what-agent-skills-are-made-of-programming-languages",
+      "course-saccade",
+      "course-kiso",
+      "course-pipy-semantic-search-mcp-for-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -511,7 +539,8 @@
       "ai-engineer-notebooks",
       "obsessing-over-ai-agent-harnesses",
       "a-slm-optimized-for-tool-calling",
-      "experiments-with-ai"
+      "experiments-with-ai",
+      "memory-compaction-for-agents-has-an-information-theoretic-fl"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -522,7 +551,8 @@
       "course-ai-engineer-notebooks",
       "course-obsessing-over-ai-agent-harnesses",
       "course-a-slm-optimized-for-tool-calling",
-      "course-experiments-with-ai"
+      "course-experiments-with-ai",
+      "course-memory-compaction-for-agents-has-an-information-theoretic-fl"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -629,10 +659,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "edify"
+      "edify",
+      "claude-codex-cursor-token-saver"
     ],
     "courses": [
-      "course-edify"
+      "course-edify",
+      "course-claude-codex-cursor-token-saver"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -977,7 +1009,8 @@
       "rafter",
       "agentseed-mcp",
       "itsuki",
-      "opencontext"
+      "opencontext",
+      "pipy-semantic-search-mcp-for-ai-agents"
     ],
     "courses": [
       "course-coolplugz",
@@ -985,7 +1018,8 @@
       "course-rafter",
       "course-agentseed-mcp",
       "course-itsuki",
-      "course-opencontext"
+      "course-opencontext",
+      "course-pipy-semantic-search-mcp-for-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1303,7 +1337,8 @@
       "opencontext",
       "documentationaimd",
       "subs-the-cloud-native-agent-harness",
-      "manage-coding-norms-across-your-ai-agents"
+      "manage-coding-norms-across-your-ai-agents",
+      "pipy-semantic-search-mcp-for-ai-agents"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -1318,7 +1353,8 @@
       "course-opencontext",
       "course-documentationaimd",
       "course-subs-the-cloud-native-agent-harness",
-      "course-manage-coding-norms-across-your-ai-agents"
+      "course-manage-coding-norms-across-your-ai-agents",
+      "course-pipy-semantic-search-mcp-for-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1370,14 +1406,18 @@
       "a-benchmark-for-safely-measuring-container-breakout-capabili",
       "rafter",
       "ai-engineer-notebooks",
-      "a-slm-optimized-for-tool-calling"
+      "a-slm-optimized-for-tool-calling",
+      "open-agent-forum",
+      "memory-compaction-for-agents-has-an-information-theoretic-fl"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
       "course-rafter",
       "course-ai-engineer-notebooks",
-      "course-a-slm-optimized-for-tool-calling"
+      "course-a-slm-optimized-for-tool-calling",
+      "course-open-agent-forum",
+      "course-memory-compaction-for-agents-has-an-information-theoretic-fl"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1452,7 +1492,9 @@
       "documentationaimd",
       "civitas",
       "manage-coding-norms-across-your-ai-agents",
-      "claude-skills-starter-kit"
+      "claude-skills-starter-kit",
+      "saccade",
+      "kiso"
     ],
     "courses": [
       "course-limitless-library",
@@ -1466,7 +1508,9 @@
       "course-documentationaimd",
       "course-civitas",
       "course-manage-coding-norms-across-your-ai-agents",
-      "course-claude-skills-starter-kit"
+      "course-claude-skills-starter-kit",
+      "course-saccade",
+      "course-kiso"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2147,12 +2191,14 @@
     "toolsTeaching": [
       "placeroot",
       "shelf-protocol",
-      "a2acast"
+      "a2acast",
+      "open-source-thinking-orb-animations-for-ai-agents"
     ],
     "courses": [
       "course-placeroot",
       "course-shelf-protocol",
-      "course-a2acast"
+      "course-a2acast",
+      "course-open-source-thinking-orb-animations-for-ai-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2424,11 +2470,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "why-ai-agents-need-persistent-browser-identities",
-      "puppetflow-a-free-browser-automation-platform"
+      "puppetflow-a-free-browser-automation-platform",
+      "saccade"
     ],
     "courses": [
       "course-why-ai-agents-need-persistent-browser-identities",
-      "course-puppetflow-a-free-browser-automation-platform"
+      "course-puppetflow-a-free-browser-automation-platform",
+      "course-saccade"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3300,12 +3348,14 @@
     "toolsTeaching": [
       "understudy-scenario-testing-for-ai-agents",
       "terminal-bench-science-evaluating-ai-agents-on-scientific-re",
-      "urml"
+      "urml",
+      "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
-      "course-urml"
+      "course-urml",
+      "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -3747,10 +3797,12 @@
     "domain": "learning",
     "level": "intermediate",
     "toolsTeaching": [
-      "why-agentic-ai-needs-a-strong-identity-foundation"
+      "why-agentic-ai-needs-a-strong-identity-foundation",
+      "open-agent-forum"
     ],
     "courses": [
-      "course-why-agentic-ai-needs-a-strong-identity-foundation"
+      "course-why-agentic-ai-needs-a-strong-identity-foundation",
+      "course-open-agent-forum"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -4235,11 +4287,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "itsuki",
-      "opencontext"
+      "opencontext",
+      "memory-compaction-for-agents-has-an-information-theoretic-fl"
     ],
     "courses": [
       "course-itsuki",
-      "course-opencontext"
+      "course-opencontext",
+      "course-memory-compaction-for-agents-has-an-information-theoretic-fl"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -4496,10 +4550,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "documentationaimd"
+      "documentationaimd",
+      "kiso"
     ],
     "courses": [
-      "course-documentationaimd"
+      "course-documentationaimd",
+      "course-kiso"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -4827,5 +4883,317 @@
       "course-what-agent-skills-are-made-of-programming-languages"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "skill-tts",
+    "name": "tts",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals"
+    ],
+    "courses": [
+      "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-voice-ai",
+    "name": "voice ai",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals"
+    ],
+    "courses": [
+      "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-benchmarking",
+    "name": "benchmarking",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals"
+    ],
+    "courses": [
+      "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-semantic web",
+    "name": "semantic web",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "saccade"
+    ],
+    "courses": [
+      "course-saccade"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-forum",
+    "name": "forum",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "open-agent-forum"
+    ],
+    "courses": [
+      "course-open-agent-forum"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-community",
+    "name": "community",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "open-agent-forum"
+    ],
+    "courses": [
+      "course-open-agent-forum"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-knowledge base",
+    "name": "knowledge base",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "kiso"
+    ],
+    "courses": [
+      "course-kiso"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-okf",
+    "name": "okf",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "kiso"
+    ],
+    "courses": [
+      "course-kiso"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-semantic search",
+    "name": "semantic search",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "pipy-semantic-search-mcp-for-ai-agents"
+    ],
+    "courses": [
+      "course-pipy-semantic-search-mcp-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-package search",
+    "name": "package search",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "pipy-semantic-search-mcp-for-ai-agents"
+    ],
+    "courses": [
+      "course-pipy-semantic-search-mcp-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-information theory",
+    "name": "information theory",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "memory-compaction-for-agents-has-an-information-theoretic-fl"
+    ],
+    "courses": [
+      "course-memory-compaction-for-agents-has-an-information-theoretic-fl"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-compression",
+    "name": "compression",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "memory-compaction-for-agents-has-an-information-theoretic-fl"
+    ],
+    "courses": [
+      "course-memory-compaction-for-agents-has-an-information-theoretic-fl"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-animation",
+    "name": "animation",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "open-source-thinking-orb-animations-for-ai-agents"
+    ],
+    "courses": [
+      "course-open-source-thinking-orb-animations-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-ui",
+    "name": "ui",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "open-source-thinking-orb-animations-for-ai-agents"
+    ],
+    "courses": [
+      "course-open-source-thinking-orb-animations-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-orb",
+    "name": "orb",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "open-source-thinking-orb-animations-for-ai-agents"
+    ],
+    "courses": [
+      "course-open-source-thinking-orb-animations-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-token optimization",
+    "name": "token optimization",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "claude-codex-cursor-token-saver"
+    ],
+    "courses": [
+      "course-claude-codex-cursor-token-saver"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-context compression",
+    "name": "context compression",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "claude-codex-cursor-token-saver"
+    ],
+    "courses": [
+      "course-claude-codex-cursor-token-saver"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-cost reduction",
+    "name": "cost reduction",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "claude-codex-cursor-token-saver"
+    ],
+    "courses": [
+      "course-claude-codex-cursor-token-saver"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-prompt optimization",
+    "name": "prompt optimization",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "claude-codex-cursor-token-saver"
+    ],
+    "courses": [
+      "course-claude-codex-cursor-token-saver"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-video restoration",
+    "name": "video restoration",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-old-video-restoration-tool"
+    ],
+    "courses": [
+      "course-ai-old-video-restoration-tool"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-vhs",
+    "name": "vhs",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-old-video-restoration-tool"
+    ],
+    "courses": [
+      "course-ai-old-video-restoration-tool"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-upscaling",
+    "name": "upscaling",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-old-video-restoration-tool"
+    ],
+    "courses": [
+      "course-ai-old-video-restoration-tool"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-denoise",
+    "name": "denoise",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-old-video-restoration-tool"
+    ],
+    "courses": [
+      "course-ai-old-video-restoration-tool"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "skill-offline",
+    "name": "offline",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-old-video-restoration-tool"
+    ],
+    "courses": [
+      "course-ai-old-video-restoration-tool"
+    ],
+    "updatedAt": "2026-09-01T00:47:42.422Z"
   }
 ]

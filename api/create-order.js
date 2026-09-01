@@ -14,6 +14,8 @@ import {
   clientIp,
   bodyTooLarge,
   credentials,
+  credentialShapeProblem,
+  paymentsEnabled,
 } from './_razorpay.js'
 
 export default async function handler(req, res) {
@@ -25,6 +27,15 @@ export default async function handler(req, res) {
   if (bodyTooLarge(req)) return res.status(413).json({ error: 'Request too large' })
   if (!originAllowed(req.headers.origin)) return res.status(403).json({ error: 'Forbidden' })
   if (rateLimited(clientIp(req))) return res.status(429).json({ error: 'Too many requests' })
+
+  // Refused BEFORE credentials are even read: no order can be created, so no
+  // new charge can begin, whatever the browser sends. Hiding the button is not
+  // enough - anyone can POST here directly.
+  if (!paymentsEnabled()) {
+    return res.status(503).json({
+      error: 'Payments are not available yet. Toolnaut Pro is currently in early access.',
+    })
+  }
 
   const creds = credentials()
   if (!creds) {
@@ -66,9 +77,31 @@ export default async function handler(req, res) {
     // makes a misconfigured deployment obvious instead of looking like an
     // outage, but the visitor still gets no detail.
     const status = e?.statusCode === 401 ? 401 : 500
-    console.error('razorpay create-order', e?.statusCode || '', e?.error?.description || e?.message || e)
-    return res.status(status).json({
-      error: status === 401 ? 'Payment gateway rejected our credentials' : 'Could not create order',
-    })
+    const detail = e?.error?.description || e?.message || String(e)
+    console.error('razorpay create-order', e?.statusCode || '', detail)
+
+    if (status === 401) {
+      // A 401 has several causes that look identical from the outside, and
+      // guessing between them wastes hours. Report the mode and any shape
+      // problem - neither reveals a credential - so the next step is obvious.
+      const shape = credentialShapeProblem(
+        process.env.RAZORPAY_KEY_ID || '',
+        process.env.RAZORPAY_KEY_SECRET || '',
+      )
+      console.error('razorpay auth diagnostics', {
+        mode: creds.mode || 'unrecognised',
+        shape: shape || 'looks well-formed',
+        hint: creds.mode === 'live'
+          ? 'live keys only work once Razorpay has activated the account (KYC complete)'
+          : 'check the id and secret are from the SAME key pair',
+      })
+      return res.status(401).json({
+        error: 'Payment gateway rejected our credentials',
+        mode: creds.mode || 'unrecognised',
+        reason: shape || 'rejected_by_gateway',
+      })
+    }
+
+    return res.status(500).json({ error: 'Could not create order' })
   }
 }

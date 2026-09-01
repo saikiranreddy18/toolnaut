@@ -9,6 +9,76 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-08-31
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h,
+but 0 tools published in the most recent one; last actual publish was
+2026-08-30 23:53 UTC (~18.5h before this run), feed holds 102 tools. Same
+"healthy but flat" shape flagged yesterday — not below the health script's
+threshold, but two runs in a row with nothing landing is worth a look
+tomorrow if it continues.
+
+**Researched today:** the three research-hour runs both closed out an
+in-flight gap and set up the one this run picked. The per-route page
+title/meta gap (`usePageMeta`/`useHead`) reached its last call site
+(`SharedStack.jsx`, 12:22 UTC) and is now fully shipped across all five
+originally-scoped pages — closing it also surfaced and fixed a real bug in
+`scripts/prerender.mjs`, where every prerendered route's `<title>`/canonical/
+JSON-LD were silently discarded because the script rebuilds each page from a
+pristine pre-hydration shell (by design, to keep the three.js modulepreload
+bug this repo's CLAUDE.md warns about out of the static output) — `useHead()`
+was writing into a DOM the prerenderer then threw away. Fixed by reading the
+live head back and patching it onto the shell as string substitutions. The
+"no public search" gap was re-deepened against the current `Discover.jsx`
+(15:08–15:20 UTC) with corrected line numbers and confirmation that
+`useHead()` is now the established pattern every public page should use —
+leaving it fully concrete and ready to build.
+
+**Shipped:** a public `/search` page —
+[`a163756`](https://github.com/saikiranreddy18/toolnaut/commit/a163756).
+Picked it over the other OPEN gaps (onboarding checklist, ratings/reviews,
+suggest-a-tool, PDF export, recently-viewed, the status-note-reason gap,
+command palette, facet counts, tool graveyard, embeddable badge,
+alternatives pages, clickable tags) because it was the freshest and most
+concretely specced entry in the backlog, and it closes a real, obvious gap:
+every "type a keyword" path in the app — Discover's own search box included
+— sat behind the fake login wall, so a visitor who landed with one specific
+tool in mind had no way to just ask "does Toolnaut have X" without first
+sitting through a sign-in screen.
+
+Extracted `matchesQuery(tool, q)` into new `src/utils/search.js` (7 unit
+tests) so Discover's search box and the new public page share one
+definition instead of two that could drift. New `src/pages/SearchTools.jsx`
+at `/search` — modeled on the already-shipped `CategoryLanding.jsx` — reads
+`?q=` from the URL (shareable/bookmarkable, same as Discover), shows a real
+empty state and no-results state (both pointing at guaranteed-non-empty
+category links), and links each result to the public `/s/:slug` view rather
+than the session-gated tool page. Added a `useHead()` call (dynamic title
+per query), a "Search" link in the landing page nav, `/search` in
+`scripts/smoke.mjs` and `scripts/prerender.mjs`'s route list, and a matching
+`/search` entry in `sitemap.xml`. One deviation from the original spec: a
+60-result render cap with a "narrow your search" hint, since an unbounded
+grid has the same DOM-explosion problem `Discover.jsx`'s own `PAGE_SIZE`
+comment already documents.
+
+**Live on toolnaut.xyz** now that it's on master. `npm test` (203/203 — 102
+radar + 101 app), `npm run build` (all 15 public routes prerendered, 0
+skipped — the bare `/search` page needed slightly more empty-state copy to
+clear the prerenderer's 200-character content floor), and `npm run smoke`
+(21/21 routes, 0 console errors) all green before push.
+
+**Queued next:** first-session onboarding checklist, per-tool ratings &
+reviews, community-submitted tools ("Suggest a tool"), PDF roadmap export,
+recently-viewed tools, the tool-status-note-reason gap, command palette,
+Discover facet-counts, tool graveyard page, embeddable "Featured on
+Toolnaut" badge, per-tool Alternatives SEO pages, the popularity-signal
+(GitHub stars/HN points) pipeline gap, and clickable tags all remain OPEN.
+Pro chat assistant/Team tier, weekly digest email, Discord community, and
+vendor deal codes stay REJECTED-for-build (no backend, or need a standing
+external commitment).
+
+---
+
 ## 2026-08-30
 
 **Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h,

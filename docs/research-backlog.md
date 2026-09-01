@@ -2188,7 +2188,7 @@ a client-side SPA with a static tool catalogue.
   errors).
 
 ### No public search — every "type a keyword" path is behind the login wall
-- **Status:** OPEN
+- **Status:** SHIPPED (this run — sha in DEVLOG)
 - **Seen in:** a problem area rather than one competitor — checked directly
   against the four public listing pages already shipped this week
   (`/tools/:domain`, `/new`, `/s/:slugs`, plus the still-OPEN
@@ -2356,6 +2356,26 @@ a client-side SPA with a static tool catalogue.
   (heading, `useHead`, card grid keyed off `CATEGORY_META`, no
   add-to-stack/favorite actions on a public page) is confirmed unchanged and
   remains the right model to copy.
+- **Shipped this run:** built exactly to the deepened spec. Extracted
+  `matchesQuery(tool, q)` into new `src/utils/search.js` (7 unit tests) and
+  switched `Discover.jsx`'s inline predicate to call it — same behaviour,
+  one definition. New public `src/pages/SearchTools.jsx` at `/search`
+  (`App.jsx`), modeled on `CategoryLanding.jsx`'s read-only card grid,
+  `useHead()`-driven title/description (static when `q` is empty, dynamic
+  per-query otherwise), empty state and no-results state both offering the
+  same guaranteed-non-empty category links Discover's own empty state uses.
+  Each result links to the already-public `/s/:slug` (via `encodeStackSlugs`)
+  rather than the gated `/app/tools/:slug`. Added a `RESULT_CAP` of 60 with a
+  "narrow your search" hint for broad queries — not in the original spec, but
+  the same DOM-explosion problem `Discover.jsx`'s own `PAGE_SIZE` comment
+  already documents applies here too, so an unbounded render was not a
+  reasonable default. Added a "Search" link to the landing page nav
+  (`Landing.jsx`) so the page is reachable without knowing the URL, `/search`
+  to `scripts/smoke.mjs` and `scripts/prerender.mjs`'s `ROUTES` (bare route —
+  the SEO value of the static page itself, not the infinite `?q=` space,
+  matching this entry's own sitemap exclusion reasoning), and a matching
+  `/search` entry in `public/sitemap.xml` (monthly, 0.7 — same tier as
+  `/about`, since unlike `/new` its content doesn't change on its own).
 
 ### A shared stack can only be viewed, never adopted — the receiving half of Share/Export was never built
 - **Status:** FIXED (this commit) — small, well-scoped defect in already-shipped
@@ -2777,3 +2797,194 @@ a client-side SPA with a static tool catalogue.
 - **Build size:** N/A — rejected, no code proposed. The blocker is a business
   relationship, not an engineering task.
 - **Found:** 2026-08-30 12:20 UTC
+
+### No tool has a visual identity — 704 catalog entries, zero logos or favicons anywhere
+- **Status:** OPEN
+- **Seen in:** a problem area rather than one competitor, checked directly
+  against every directory this file already studies. Futurepedia, There's An
+  AI For That, Product Hunt and G2/Capterra all render a tool's actual logo
+  or app icon next to its name on every single surface — the result grid, the
+  detail page, comparison tables — because in a text-dense list of 700+ nearly
+  identical two-sentence blurbs, a recognizable logo is the fastest scan cue a
+  visitor has for "oh, I know that one" or "that looks unfamiliar, worth a
+  closer look." None of them ship a text-only card at this catalog size.
+- **Gap:** confirmed with `grep -rn "<img" src/` (excluding `InstallPrompt.jsx`,
+  whose one hit is the PWA install icon, unrelated) and by reading
+  `ToolCard.jsx` (the shared card for Discover + Favorites, its own header
+  comment says so) and `ToolDetail.jsx` in full: zero `<img>` tags anywhere a
+  tool is rendered, on any of the now seven-plus card-shaped surfaces
+  (`ToolCard.jsx`, `ToolDetail.jsx`, `CategoryLanding.jsx`, `NewTools.jsx`,
+  `SharedStack.jsx`, `Compare.jsx`, `Graveyard.jsx`/`Alternatives.jsx` if
+  either still-open gap ships). Every card's only visual identity is a 2x2px
+  colored dot keyed off `CATEGORY_META[tool.category].color`
+  (`ToolCard.jsx:42`, repeated near-verbatim in `CategoryLanding.jsx:87`) —
+  the *category* is color-coded, but nothing distinguishes ChatGPT from
+  Claude from Grok beyond the name text itself, even though `toolsCatalog.js`
+  already carries a real `website` URL on 662 of 704 entries (confirmed by
+  direct extraction: `grep -o '"website": "[^"]*"'` over the whole file,
+  704 matches, 42 empty), which is exactly the one piece of data a favicon
+  needs and Toolnaut already stores. `ToolDetail.jsx:138-149` already uses
+  that same `website` field for a "VISIT WEBSITE" link — the field is
+  trusted and rendered today, just never turned into an image.
+- **Why it matters:** this is the starkest "every competitor has it, we don't"
+  gap this file has found, because it isn't a missing feature so much as a
+  missing table-stakes visual convention — a directory whose entire value
+  proposition is "browse 700+ tools quickly" is currently asking a visitor to
+  read every single name character-by-character with no logo to shortcut
+  recognition, on the exact page (`Discover.jsx`, via `ToolCard`) that gets
+  the most traffic in the app. It also compounds every other Discover-page
+  gap already in this file (facet counts, clickable tags, popularity badges)
+  — all of them make the *filtering* faster, none of them make the *scanning*
+  of a results grid faster, which is the more fundamental UX cost at 700+
+  entries.
+- **Smallest useful version (what to actually build):**
+  - New pure util `src/utils/faviconUrl.js`: `getFaviconUrl(tool, size = 32)`
+    — returns `null` immediately if `tool.website` is empty or fails `new
+    URL(tool.website)` (42 of 704 entries, plus any malformed radar-sourced
+    URL — never guess a domain from the tool name), otherwise returns
+    `https://www.google.com/s2/favicons?domain=${hostname}&sz=${size}`.
+    Google's favicon service is the pragmatic zero-infrastructure choice
+    here — it needs no API key, resolves a real icon (or a generic globe
+    placeholder, never a broken image) for effectively any domain regardless
+    of that site's own favicon path/format, and is exactly the same service
+    Chrome's own new-tab page and countless directories already rely on for
+    this — building a `/favicon.ico`-guessing fallback chain ourselves would
+    be more code for a strictly worse hit rate. Pure function, easy to `node
+    --test` like `shareStack.js`/`newTools.js`.
+  - **Explicit, honest tradeoff to name rather than bury** (this file holds
+    itself to naming tradeoffs, not hiding them — same spirit as
+    `TrustPanel.jsx`'s "no affiliate link, no referral code" line): rendering
+    this image means every tool card sends that tool's bare domain name to
+    Google's favicon endpoint on every page load. That's a real, minor
+    third-party data flow this app doesn't have today — not a privacy
+    disaster (a domain name, not a user identifier, and the same request any
+    browser already makes by visiting the tool's own site), but worth stating
+    plainly rather than shipping silently, especially given how much of this
+    backlog's own credibility argument rests on disclosure. If whoever builds
+    this wants zero third-party calls instead, the fallback is trying
+    `${origin}/favicon.ico` directly against the tool's own domain (one
+    fewer party involved, but a materially worse hit rate and no size
+    control) — a judgment call to make at build time, not decided here.
+  - `ToolCard.jsx`: a small (28-32px) rounded `<img>` next to the tool-name
+    `<h3>` (`ToolCard.jsx:70-77`) — outside the stretched `::after` link
+    overlay this component's own header comment already explains
+    (`ToolCard.jsx:9-20`), so it needs no `relative z-10` treatment unlike
+    the interactive controls below it, since an image needs no click target
+    of its own. `loading="lazy"`, `alt=""` (decorative — the adjacent heading
+    already names the tool, an `alt` here would be a redundant screen-reader
+    announcement), and an `onError` handler that hides the `<img>` (sets a
+    local `useState` broken flag) rather than leaving a broken-image icon,
+    same "never show something fabricated or broken" instinct as the
+    zero-rating/zero-count-badge decisions already made elsewhere in this
+    file. When `getFaviconUrl` returns `null` (42 tools, or any future
+    catalog entry with a bad URL), render nothing — no placeholder square,
+    no generic icon, since a blank space reads as "no logo available" while
+    a fabricated placeholder implies data that isn't there.
+  - `ToolDetail.jsx`: a larger (48-56px) version of the same `<img>` next to
+    the `<h1>` (`ToolDetail.jsx:122`), same `getFaviconUrl`/`onError` pattern,
+    reusing `faviconUrl.js` rather than a second implementation.
+  - **What this would NOT include** (kept out to bound the diff): no rollout
+    to `CategoryLanding.jsx`/`NewTools.jsx`/`SharedStack.jsx`/`Compare.jsx`
+    in v1 — those all clone a near-identical card shape (per this backlog's
+    own repeated notes on `CategoryLanding.jsx` being copied for `NewTools`
+    and `SharedStack`), so once the pattern is proven on the two
+    highest-traffic surfaces above, adding the same three-line `<img>` to
+    each clone is a cheap, obvious, and separately-shippable follow-up, not
+    a reason to hold this diff open across five files at once; no self-hosted
+    favicon caching/proxy (would need a backend or a build-time fetch step
+    for 662 URLs, real infrastructure this file's own ranking rule rejects);
+    no per-tool manual logo upload/curation (a maintenance burden with no
+    tooling behind it — a computed favicon URL needs zero upkeep as the
+    catalog grows via radar, a hand-curated logo set does not); no change to
+    `radar/` — this reads the `website` field radar already writes, it
+    doesn't need radar to fetch or store anything new.
+- **Build size:** S — one new pure util (`faviconUrl.js`), a small `<img>`
+  addition to two existing components (`ToolCard.jsx`, `ToolDetail.jsx`) with
+  an error-hiding handler in each. No backend, no new dependency, no new
+  route, no new store, no radar change.
+- **Found:** 2026-08-31 21:15 UTC
+
+### Discover has filters but no sort control — the 700+ result grid has exactly one fixed order
+
+- **Status:** OPEN
+- **Seen in:** FutureTools.io (fetched fresh this run, 4,000+ tools across 29
+  categories) lets a visitor sort its grid by most-upvoted, date-added, or
+  name; the same three-way sort (relevance/newest/name, sometimes plus
+  price) is standard across directory and e-commerce UX generally — Amazon,
+  G2 and Capterra all pair their filter sidebar with an explicit sort
+  dropdown separate from the filters themselves, because filtering narrows
+  the set but a visitor still wants control over what order they see it in
+  once narrowed.
+- **Gap:** confirmed by reading `Discover.jsx` in full (330 lines) — the
+  page has three real filters (category pills, price pills, level pills,
+  `Discover.jsx:201-222`) plus free-text search, all correctly URL-backed via
+  `searchParams` so they're shareable and back-button-safe. But the result
+  order itself is not a user choice anywhere: `results` (`Discover.jsx:96-111`)
+  is unconditionally `.sort((a, b) => (b.score ?? 0) - (a.score ?? 0) ||
+  tieBreak(a, b))` — `matchScore` first, `byProminence` as the only tiebreak
+  — with no branch, no UI control, and no second code path. Grepped
+  `sort|Sort` across `src/pages` and `src/components`: the only other sort
+  call sites are `getNewTools()` (`newTools.js:16`, used solely for the
+  separate "New this week" strip and the `/new` feed, not Discover's main
+  grid) and the identical match-score sort duplicated for category-landing
+  pages (`Discover.jsx`'s own comment at the `tieBreak` line points at this
+  file's earlier "prominence" entry, which documents the same sort existing
+  in exactly one place with exactly one order). A visitor with no completed
+  quiz (`answers` null, so `matchScore` returns a flat baseline for every
+  tool) filters down to, say, 40 "design" tools and gets them back in
+  whatever order the prominence tiebreak happens to produce — not
+  alphabetical, not newest-first, not any order the visitor chose or can
+  change. There is no `sort` URL param, no dropdown, no button, anywhere on
+  the page.
+- **Why it matters:** this is a different axis than every other still-open
+  Discover gap in this file (facet counts, clickable tags, visual identity)
+  — those all make *narrowing* the grid faster or more informative; this is
+  the one gap about *ordering* it, and at 700+ entries even a well-filtered
+  category can still return dozens of results a visitor has to scan
+  top-to-bottom in an order they never asked for. It's also cheaper than it
+  looks precisely because of two pieces of infrastructure this file has
+  already tracked: `discoveredAt` is already populated on every
+  radar-discovered tool and already has a working comparator in
+  `getNewTools()` (just unused outside the "New this week" strip), and plain
+  alphabetical needs nothing new at all. The one sort a visitor might
+  reasonably expect most — "most popular" — is the one this file's own
+  still-open "Popularity signal" gap above has not yet made possible
+  (GitHub stars/HN points are collected but not yet written onto published
+  records), so that option is a natural, cheap follow-up the moment that gap
+  ships, not a blocker to shipping the other two now.
+- **Smallest useful version (what to actually build):**
+  - Add a `sort` URL param (`Discover.jsx`'s existing `setParam`/
+    `searchParams` pattern handles this identically to `cat`/`price`/`level`
+    — no new state-management approach needed) with three values: `match`
+    (today's behavior, and the default so an existing shared/bookmarked URL
+    with no `sort` param is unaffected), `newest`, `name`.
+  - A small dropdown or pill row next to the existing filter rows
+    (`Discover.jsx:199-222`), reusing the same `Pill` component already
+    defined in this file (`Discover.jsx:27-37`) for visual consistency
+    rather than introducing a `<select>` with different chrome.
+  - Extend the `results` `useMemo` (`Discover.jsx:96-111`) with a branch on
+    `sort`: `newest` sorts by `discoveredAt` descending, tools with no
+    `discoveredAt` (the bundled 704-entry baseline) sorted after every
+    radar-discovered tool and alphabetically among themselves as a stable
+    fallback — exactly mirroring `isNewTool`'s own "only live-hydrated tools
+    qualify" rule so this never contradicts the already-shipped Fresh-Finds
+    gap's definition of "new"; `name` is a plain
+    `a.name.localeCompare(b.name)`; `match` keeps the current
+    score-then-prominence chain unchanged.
+  - **What this would NOT include** (kept out to bound the diff): no
+    "popularity" sort option yet — its data doesn't exist on published
+    records until the still-open Popularity-signal gap ships; adding it now
+    would mean either faking an order or silently no-op'ing a visible
+    control, both worse than waiting. No sort control on the public,
+    unauthenticated pages (`CategoryLanding.jsx`, `/new`, `/search`) — those
+    are intentionally simpler, single-purpose views per this file's own
+    earlier notes on that boundary, and adding a stateful sort control to a
+    crawlable page raises its own SEO/canonicalization questions not
+    scoped here. No multi-key sort (e.g. "newest, then by name") — a single
+    active sort key is the honest smallest version matching every
+    competitor example above, which likewise offer one sort at a time.
+- **Build size:** S — one new URL param following the existing filter-param
+  pattern, a small pill/dropdown control reusing the existing `Pill`
+  component, and one added branch in the existing `results` sort chain. No
+  backend, no new dependency, no new route, no new store, no radar change.
+- **Found:** 2026-09-01 00:20 UTC

@@ -10,6 +10,7 @@
   <url><loc>https://toolnaut.xyz/tools/automation</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://toolnaut.xyz/tools/learning</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://toolnaut.xyz/new</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://toolnaut.xyz/search</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://toolnaut.xyz/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://toolnaut.xyz/privacy</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://toolnaut.xyz/terms</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>

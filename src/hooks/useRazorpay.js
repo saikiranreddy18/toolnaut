@@ -88,7 +88,28 @@ export function useRazorpay() {
         name: 'Toolnaut',
         description: `${order.plan?.name || 'Plan'} — Toolnaut`,
         prefill,
-        theme: { color: '#a3ff2e' },
+
+        // The mascot, in the one slot Razorpay actually gives us.
+        //
+        // WHAT CAN AND CANNOT BE BRANDED HERE
+        // Standard Checkout renders Razorpay's own template. The illustration on
+        // the coloured panel is theirs and cannot be replaced, animated, or
+        // hidden - there is no option for it. What IS ours: this logo, the
+        // merchant name, the description, and the theme colours. Without `image`
+        // that square falls back to the first letter of `name`, which is why it
+        // was showing a bare "T".
+        //
+        // Absolute HTTPS, because Razorpay's page fetches it, not ours. PNG
+        // rather than the SVG at /icon.svg: their modal renders SVG
+        // inconsistently. Regenerate with scripts/make-checkout-logo.mjs.
+        image: 'https://toolnaut.xyz/checkout-logo.png',
+
+        theme: {
+          color: '#a3ff2e',
+          // The panel behind the modal, so the arcade dark carries through
+          // instead of Razorpay's default grey wash.
+          backdrop_color: 'rgba(10, 10, 18, 0.92)',
+        },
 
         // Dismissing the modal is a normal thing to do, not an error. Saying
         // "nothing was charged" is the entire point of the message.

@@ -5258,5 +5258,444 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-08-30T23:53:08.057Z"
+  },
+  {
+    "id": "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
+    "toolSlug": "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
+    "title": "Master Inworld TTS Open Evaluation Toolkit: Reproducible TTS Evals",
+    "objectives": [
+      "Understand what Inworld TTS Open Evaluation Toolkit: Reproducible TTS Evals is for",
+      "Use Inworld TTS Open Evaluation Toolkit: Reproducible TTS Evals on a real task",
+      "Know where Inworld TTS Open Evaluation Toolkit: Reproducible TTS Evals fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Inworld TTS Open Evaluation Toolkit: Reproducible TTS Evals for your real workflow, not the demo.",
+          "Say what Inworld TTS Open Evaluation Toolkit: Reproducible TTS Evals does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Inworld TTS Open Evaluation Toolkit: Reproducible TTS Evals.",
+          "Push Inworld TTS Open Evaluation Toolkit: Reproducible TTS Evals to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Inworld TTS Open Evaluation Toolkit: Reproducible TTS Evals into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-tts",
+      "skill-evaluation",
+      "skill-voice-ai",
+      "skill-benchmarking",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "course-saccade",
+    "toolSlug": "saccade",
+    "title": "Master Saccade",
+    "objectives": [
+      "Understand what Saccade is for",
+      "Use Saccade on a real task",
+      "Know where Saccade fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Saccade for your real workflow, not the demo.",
+          "Say what Saccade does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Saccade.",
+          "Push Saccade to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Saccade into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-browser automation",
+      "skill-semantic web",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "course-open-agent-forum",
+    "toolSlug": "open-agent-forum",
+    "title": "Master Open Agent Forum",
+    "objectives": [
+      "Understand what Open Agent Forum is for",
+      "Use Open Agent Forum on a real task",
+      "Know where Open Agent Forum fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Open Agent Forum for your real workflow, not the demo.",
+          "Say what Open Agent Forum does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Open Agent Forum.",
+          "Push Open Agent Forum to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Open Agent Forum into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-forum",
+      "skill-community",
+      "skill-identity"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "course-kiso",
+    "toolSlug": "kiso",
+    "title": "Master Kiso",
+    "objectives": [
+      "Understand what Kiso is for",
+      "Use Kiso on a real task",
+      "Know where Kiso fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Kiso for your real workflow, not the demo.",
+          "Say what Kiso does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Kiso.",
+          "Push Kiso to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Kiso into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-knowledge base",
+      "skill-okf",
+      "skill-documentation",
+      "skill-ai agents",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "course-pipy-semantic-search-mcp-for-ai-agents",
+    "toolSlug": "pipy-semantic-search-mcp-for-ai-agents",
+    "title": "Master PiPy semantic search MCP for AI agents",
+    "objectives": [
+      "Understand what PiPy semantic search MCP for AI agents is for",
+      "Use PiPy semantic search MCP for AI agents on a real task",
+      "Know where PiPy semantic search MCP for AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure PiPy semantic search MCP for AI agents for your real workflow, not the demo.",
+          "Say what PiPy semantic search MCP for AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through PiPy semantic search MCP for AI agents.",
+          "Push PiPy semantic search MCP for AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold PiPy semantic search MCP for AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-mcp",
+      "skill-semantic search",
+      "skill-ai agents",
+      "skill-package search",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "course-memory-compaction-for-agents-has-an-information-theoretic-fl",
+    "toolSlug": "memory-compaction-for-agents-has-an-information-theoretic-fl",
+    "title": "Master Memory compaction for agents has an information-theoretic floor",
+    "objectives": [
+      "Understand what Memory compaction for agents has an information-theoretic floor is for",
+      "Use Memory compaction for agents has an information-theoretic floor on a real task",
+      "Know where Memory compaction for agents has an information-theoretic floor fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Memory compaction for agents has an information-theoretic floor for your real workflow, not the demo.",
+          "Say what Memory compaction for agents has an information-theoretic floor does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Memory compaction for agents has an information-theoretic floor.",
+          "Push Memory compaction for agents has an information-theoretic floor to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Memory compaction for agents has an information-theoretic floor into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-memory",
+      "skill-information theory",
+      "skill-compression",
+      "skill-llm"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "course-open-source-thinking-orb-animations-for-ai-agents",
+    "toolSlug": "open-source-thinking-orb-animations-for-ai-agents",
+    "title": "Master Open Source thinking-orb animations for AI agents",
+    "objectives": [
+      "Understand what Open Source thinking-orb animations for AI agents is for",
+      "Use Open Source thinking-orb animations for AI agents on a real task",
+      "Know where Open Source thinking-orb animations for AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Open Source thinking-orb animations for AI agents for your real workflow, not the demo.",
+          "Say what Open Source thinking-orb animations for AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Open Source thinking-orb animations for AI agents.",
+          "Push Open Source thinking-orb animations for AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Open Source thinking-orb animations for AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-open-source",
+      "skill-animation",
+      "skill-ui",
+      "skill-ai-agents",
+      "skill-orb"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "course-claude-codex-cursor-token-saver",
+    "toolSlug": "claude-codex-cursor-token-saver",
+    "title": "Master Claude-Codex-Cursor-Token-Saver",
+    "objectives": [
+      "Understand what Claude-Codex-Cursor-Token-Saver is for",
+      "Use Claude-Codex-Cursor-Token-Saver on a real task",
+      "Know where Claude-Codex-Cursor-Token-Saver fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Claude-Codex-Cursor-Token-Saver for your real workflow, not the demo.",
+          "Say what Claude-Codex-Cursor-Token-Saver does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Claude-Codex-Cursor-Token-Saver.",
+          "Push Claude-Codex-Cursor-Token-Saver to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Claude-Codex-Cursor-Token-Saver into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-token optimization",
+      "skill-context compression",
+      "skill-cost reduction",
+      "skill-prompt optimization",
+      "skill-windows"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T00:47:42.422Z"
+  },
+  {
+    "id": "course-ai-old-video-restoration-tool",
+    "toolSlug": "ai-old-video-restoration-tool",
+    "title": "Master AI-Old-Video-Restoration-Tool",
+    "objectives": [
+      "Understand what AI-Old-Video-Restoration-Tool is for",
+      "Use AI-Old-Video-Restoration-Tool on a real task",
+      "Know where AI-Old-Video-Restoration-Tool fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for AI-Old-Video-Restoration-Tool.",
+          "Say what AI-Old-Video-Restoration-Tool does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI-Old-Video-Restoration-Tool.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI-Old-Video-Restoration-Tool into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-video restoration",
+      "skill-vhs",
+      "skill-upscaling",
+      "skill-denoise",
+      "skill-offline"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T00:47:42.422Z"
   }
 ]

@@ -136,6 +136,10 @@ export default function Methodology() {
           after.
         </p>
         <p>
+          {/* TIED TO PAYMENTS_ENABLED. If that flag is ever switched on, this
+              paragraph becomes false and must change in the SAME commit —
+              along with the footer line in ContactSection.jsx and the pricing
+              copy. See docs/razorpay.md. */}
           Toolnaut is in free public beta and does not currently take payment of
           any kind.
         </p>

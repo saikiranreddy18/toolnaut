@@ -59,6 +59,28 @@ Note the origin allow-list accepts `localhost:5173` and `127.0.0.1:5173` only.
 Serving the app on another port returns **403** from both endpoints — that is
 the guard working, not a bug.
 
+## The kill switch
+
+Payments are OFF unless `PAYMENTS_ENABLED` is exactly the string `true`. Unset,
+empty, `TRUE`, `1` and `yes` all mean off — a payment system that switches
+itself on when a variable goes missing is the wrong way round.
+
+`/api/create-order` refuses with **503** before it even reads the credentials,
+so no charge can begin however the endpoint is called. Hiding the button is not
+enough; anyone can POST directly.
+
+`/api/verify-payment` is deliberately NOT gated. Blocking it would strand anyone
+whose payment was in flight when the switch was thrown — their money has moved,
+and refusing to confirm it produces exactly the "charged with no access" outcome
+the switch exists to prevent. Verification cannot create a charge.
+
+`VITE_PAYMENTS_ENABLED` mirrors the flag in the browser so the page does not
+offer a button the API will refuse. The server is the control that binds.
+
+Turning it on makes copy claims false in the same instant. The footer line reads
+the flag and switches itself; **the `/methodology` paragraph and the pricing
+copy do not** and must be changed in the same commit.
+
 ## Going live
 
 Not automatic. All of this is deliberate:

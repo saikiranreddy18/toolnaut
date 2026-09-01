@@ -940,5 +940,34 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "ai-agents-are-fundamentally-restructuring-the-software-parad",
+    "name": "AI Agents Are Fundamentally Restructuring the Software Paradigm",
+    "category": "automation",
+    "sourceCategory": "Productivity & Meetings",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "AI Agents Are Fundamentally Restructuring the Software Paradigm",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://arxiv.org/abs/2606.05608",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "automation",
+      "agent"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49513989",
+    "discoveredAt": "2026-09-01T00:47:42.422Z",
+    "updatedAt": "2026-09-01T00:47:42.422Z",
+    "contentHash": "226dc1507b8fe8af",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]

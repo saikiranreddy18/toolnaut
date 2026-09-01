@@ -32,6 +32,7 @@ const ROUTES = [
   '/methodology',
   '/example',
   '/new',
+  '/search',
   '/privacy',
   '/terms',
   '/tools/code',

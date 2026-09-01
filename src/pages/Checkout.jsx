@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom'
 import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import PayButton from '../components/app/PayButton'
 import { PLANS } from '../utils/planData'
+
+// Mirrors the server's PAYMENTS_ENABLED gate so the page does not offer a
+// button that the API will refuse. The SERVER is the control that binds -
+// this only stops us showing a dead end.
+const PAYMENTS_ON = import.meta.env.VITE_PAYMENTS_ENABLED === 'true'
 import { useHead } from '../utils/head'
 
 // The Razorpay checkout flow, on its own route.
@@ -56,7 +61,29 @@ export default function Checkout() {
         </p>
       </div>
 
-      <div className="mt-8 grid gap-5 sm:grid-cols-3">
+      {!PAYMENTS_ON && (
+        <div
+          className="mt-6 rounded-2xl border-[3px] border-black p-5"
+          style={{ background: '#15151f', boxShadow: '5px 5px 0 #000' }}
+        >
+          <h2 className="font-display text-lg font-black italic" style={{ color: 'var(--lime)' }}>
+            Payments are not available yet
+          </h2>
+          <p className="mt-2 text-sm text-slate-300">
+            Toolnaut Pro is in early access. Billing, order records and
+            cancellation are still being built, so checkout is switched off —
+            on the server, not just here. Nothing can be charged.
+          </p>
+          <Link
+            to="/pricing"
+            className="nb-btn mt-4 inline-block px-4 py-2 text-xs"
+          >
+            ← See the plans
+          </Link>
+        </div>
+      )}
+
+      <div className={`mt-8 grid gap-5 sm:grid-cols-3 ${PAYMENTS_ON ? '' : 'pointer-events-none opacity-40'}`}>
         {PLANS.map((plan) => (
           <div
             key={plan.id}
@@ -78,7 +105,7 @@ export default function Checkout() {
             </p>
             <p className="mt-1 text-xs text-slate-500">one-time, test mode</p>
 
-            <PayButton
+            {PAYMENTS_ON && <PayButton
               className="mt-4"
               planId={plan.id}
               label={`Pay ₹${plan.priceINR}`}
@@ -89,7 +116,7 @@ export default function Checkout() {
                 // anyone could set by hand.
                 console.info('payment verified', result)
               }}
-            />
+            />}
           </div>
         ))}
       </div>

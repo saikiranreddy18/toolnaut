@@ -35,7 +35,7 @@ const server = createServer(async (req, res) => {
 
 await new Promise((r) => server.listen(PORT, r))
 
-const PUBLIC = ['/', '/about', '/pricing', '/methodology', '/example', '/new',
+const PUBLIC = ['/', '/about', '/pricing', '/methodology', '/example', '/new', '/search',
   '/privacy', '/terms', '/tools/code', '/tools/design', '/tools/writing',
   '/tools/data', '/tools/automation', '/tools/learning']
 const SPA = ['/app/stack', '/app/discover', '/goal', '/auth/login']

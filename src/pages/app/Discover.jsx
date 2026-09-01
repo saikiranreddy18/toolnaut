@@ -4,6 +4,7 @@ import { TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/to
 import { matchScore, matchReasonShort } from '../../utils/matchScore'
 import { byProminence, isCatalogNoise } from '../../utils/prominence'
 import { getNewTools } from '../../utils/newTools'
+import { matchesQuery } from '../../utils/search'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { loadFavorites, addFavorite, removeFavorite } from '../../state/favoritesStore'
@@ -93,18 +94,12 @@ export default function Discover() {
   const answersKey = answers ? JSON.stringify(answers) : ''
   const tieBreak = useMemo(() => byProminence(answers?.domain), [answers?.domain])
   const results = useMemo(() => {
-    const needle = q.trim().toLowerCase()
     return TOOLS
       .filter((tool) =>
         (!cat || tool.category === cat) &&
         (!price || tool.price === price) &&
         (!level || tool.level === level) &&
-        (!needle ||
-          tool.name.toLowerCase().includes(needle) ||
-          tool.blurb.toLowerCase().includes(needle) ||
-          tool.sourceCategory.toLowerCase().includes(needle) ||
-          (tool.dev && tool.dev.toLowerCase().includes(needle)) ||
-          tool.tags.some((tag) => tag.includes(needle))),
+        matchesQuery(tool, q),
       )
       .map((tool) => ({ ...tool, score: matchScore(tool, answers) }))
       // Score first, then prominence. The tiebreak used to carry most of the
