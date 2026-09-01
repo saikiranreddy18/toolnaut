@@ -94,7 +94,9 @@ export function useRazorpay() {
         amount: order.amount,
         currency: order.currency,
         name: 'Toolnaut',
-        description: `${order.plan?.name || 'Plan'} — Toolnaut`,
+        // The last thing a payer reads before authorising. It has to carry the
+        // same terms as /pay: one payment, thirty days, no renewal.
+        description: `${order.plan?.name || 'Plan'} — 30-day pass, one-time, no auto-renewal`,
         prefill,
 
         // The mascot, in the one slot Razorpay actually gives us.

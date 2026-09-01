@@ -111,10 +111,13 @@ export const PLANS = [
     tier: 'Team',
     price: 50,
     priceINR: 4999,
-    badge: 'Up to 5 seats · $10/seat',
+    // "$10/seat" alone reads as a recurring per-seat rate. Every plan here is
+    // a single 30-day pass, so the badge states the division of the one-off
+    // price rather than implying a monthly seat licence.
+    badge: 'Up to 5 seats · $10 per seat for 30 days',
     // ₹999 follows the same ~×100 PPP ratio as the tiers ($50 -> ₹4,999);
     // adjust here if the seat price should differ.
-    badgeINR: 'Up to 5 seats · ₹999/seat',
+    badgeINR: 'Up to 5 seats · ₹999 per seat for 30 days',
     glow: 'rgba(6, 182, 212, 0.4)',
     accent: '#06b6d4',
     audience: 'Startups, agencies, research teams, enterprise pods',
