@@ -74,6 +74,9 @@ export default function App() {
     <BrowserRouter>
       <RouteEffects />
       <CursorStars />
+      {/* On every route — the picker itself decides what it offers per
+          surface: Moonlight on the intake pages and in-app, Galaxy detail
+          only where the 3D galaxy actually renders (the landing side). */}
       <ThemePicker />
       <ArrivalLaunch />
       <Suspense fallback={<PageFallback />}>

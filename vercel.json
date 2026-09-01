@@ -1,4 +1,5 @@
 {
+  "crons": [{ "path": "/api/alerts-send", "schedule": "30 3 * * *" }],
   "rewrites": [{ "source": "/((?!api/).*)", "destination": "/_shell.html" }],
   "headers": [
     {

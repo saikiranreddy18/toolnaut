@@ -57,10 +57,9 @@ export default function GoalChat() {
   const [draft, setDraft] = useState(startIndex > 0 ? '' : 'Hi')
   const [unmatched, setUnmatched] = useState(false)
 
-  // True until the first answer. The headline is a landing state, not chrome:
-  // on a fixed-height chat box it costs the transcript ~170px, which is worth
-  // paying to set expectations and not worth paying once the user is five
-  // questions deep and reading.
+  // True until the first answer. Only the thread's pin-to-bottom behaviour
+  // keys off this now — the headline itself stays constant for the whole
+  // conversation (shrinking it after the first answer read as it vanishing).
   const atStart = index === 0 && !messages.some((m) => m.from === 'user')
 
   const done = index >= CHAT_QUESTIONS.length
@@ -222,37 +221,26 @@ export default function GoalChat() {
     // scrolls inside, the way every other chat UI behaves. dvh (not vh) so
     // mobile browser chrome collapsing does not change the box height mid-answer.
     <div className="flex h-[100dvh] flex-col overflow-hidden px-4 pb-4 pt-5 sm:px-6">
-      {/* OnboardingShell already renders the wordmark top-left; a second one
-          here sat directly on top of it. Only the exit control belongs to this page. */}
-      <header className="mx-auto flex w-full max-w-2xl shrink-0 items-center justify-end pb-2">
+      {/* One slim top strip: the mark centred at the very top of the page
+          (the user's sketch put it on the top line, above the chat frame,
+          never overlapped by it) with the exit control on the right. Folding
+          the old standalone logo block into this row returns ~150px of
+          height to the chat box, which is what lets the whole frame fit the
+          viewport below. */}
+      <header className="relative mx-auto flex w-full max-w-4xl shrink-0 items-center justify-center pb-3">
+        <Link to="/" aria-label="Toolnaut home" className="inline-block">
+          <BrandLogo size={52} textClass="text-2xl sm:text-3xl" />
+        </Link>
         <button
           onClick={() => navigate('/')}
           aria-label="Leave and go back to the home page"
-          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-slate-400 hover:bg-white/10 hover:text-white"
+          className="absolute right-0 top-1/2 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full text-slate-400 hover:bg-white/10 hover:text-white"
         >
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
             <path d="M6 6l12 12M18 6L6 18" />
           </svg>
         </button>
       </header>
-
-      {/* The opening. Direction A: the words carry it — a badge that answers
-          "what is this going to cost me", then one headline in two tones. No
-          decoration, because a nine-question form is a reading task and
-          ornament competes with the question. */}
-      {/* Persistent — the user: "after conversation also, that all should
-          be there. It will be scroll just." Only the thread scrolls. */}
-      <div className="mx-auto flex w-full max-w-4xl shrink-0 flex-col items-center pb-5 text-center">
-          {/* The mark leads, centred. It was pinned top-left by the shell,
-              which is where a logo goes on a page you browse — but this is a
-              single-purpose form with nothing else on screen, so the corner
-              is the one place the eye never starts. The shell hides its own
-              copy on this route so there is still only ever one. */}
-          <Link to="/" aria-label="Toolnaut home" className="mb-6 inline-block">
-            <BrandLogo size={92} textClass="text-4xl sm:text-5xl" />
-          </Link>
-
-        </div>
 
 
       {/* min-h-0 on both this and the transcript below. A flex item defaults to
@@ -267,20 +255,21 @@ export default function GoalChat() {
           nothing they had not just read, and it sat between the headline and
           the conversation — the one place nothing should. */}
       <div
-        className="mx-auto flex w-full min-h-0 max-w-3xl flex-1 flex-col overflow-hidden rounded-2xl"
+        className="mx-auto flex w-full min-h-0 max-w-4xl flex-1 flex-col overflow-hidden rounded-2xl"
         style={{ background: '#0c0c13', border: '1px solid #23232f' }}
       >
         {/* The badge and headline live INSIDE the box, as its head — the
             user's sketch framed the pitch and the conversation as one object.
-            They mount only atStart and step aside with the rest of the
-            landing chrome once the first answer arrives. */}
-<div className={`flex shrink-0 flex-col items-center px-5 text-center ${atStart ? 'pb-2 pt-7' : 'pb-0.5 pt-2.5'}`}>
+            CONSTANT for the whole conversation: an earlier version shrank this
+            to a one-line text-sm after the first answer, and the user flagged
+            the headline "going off" — the head stays put and only the thread
+            scrolls beneath it. */}
+<div className="flex shrink-0 flex-col items-center px-5 pb-2 pt-6 text-center">
               {/* The badge answers "what is this going to cost me" before the
                   headline asks for anything — nine questions, a minute, no
                   account — which is the objection someone raises at a form. */}
-              {atStart && (
               <span
-                className={`mx-auto inline-flex items-center gap-[7px] rounded-full font-medium leading-none ${atStart ? 'px-[13px] py-[7px] text-[11px]' : 'px-2.5 py-1 text-[9px]'}`}
+                className="mx-auto inline-flex items-center gap-[7px] rounded-full px-[13px] py-[7px] text-[11px] font-medium leading-none"
                 style={{
                   background: 'rgba(163,255,46,.10)',
                   border: '1px solid rgba(163,255,46,.32)',
@@ -290,23 +279,16 @@ export default function GoalChat() {
                 <span aria-hidden="true">●</span>
                 Nine questions · about a minute · no account
               </span>
-              )}
 
               {/* Sized to the reference: one heavy statement, one grey payoff,
                   each a single stroke. The old 37px/700 with a wrapping second
                   line read as body copy standing up straight — this is the page's
                   entire pitch and it carries the weight of one. */}
-              <h1 className={`max-w-3xl font-display font-black tracking-[-0.03em] text-white ${
-            atStart
-              ? 'mt-5 text-[clamp(1.8rem,4.6vw,2.7rem)] leading-[1.1]'
-              : 'mt-0 text-sm leading-tight'
-          }`}>
+              <h1 className="mt-4 max-w-3xl font-display font-black tracking-[-0.03em] text-white text-[clamp(1.8rem,4.6vw,2.7rem)] leading-[1.1]">
                 Tell Naut what you do.
-                {atStart && (
-                  <span className="block text-slate-500">
-                    It builds it, plans it, grows it.
-                  </span>
-                )}
+                <span className="block text-slate-500">
+                  It builds it, plans it, grows it.
+                </span>
               </h1>
           </div>
 

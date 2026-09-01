@@ -30,7 +30,15 @@ import { haptic } from '../../utils/haptics'
 // Themes stay in both: accent colours apply everywhere.
 export default function ThemePicker() {
   // /app/* is the in-app shell; everything else is the public site.
-  const inApp = useLocation().pathname.startsWith('/app')
+  const pathname = useLocation().pathname
+  const inApp = pathname.startsWith('/app')
+  // The intake surfaces — the Naut chat and the quiz/result pages. They render
+  // no 3D galaxy (that lives on the landing page), but they DO mount the
+  // starfield sky that data-moon lights, so they get the Moonlight toggle and
+  // not a Galaxy detail control over nothing.
+  const isIntake = pathname.startsWith('/goal') || pathname.startsWith('/quiz')
+  const showMoon = inApp || isIntake
+  const showGalaxy = !inApp && !isIntake
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState(loadTheme)
   const [moon, setMoonState] = useState(loadMoon)
@@ -79,7 +87,7 @@ export default function ThemePicker() {
               </button>
             ))}
 
-            {inApp && (
+            {showMoon && (
             <>
             <div className="my-1 h-px bg-white/10" role="separator" />
             <div className="flex items-center gap-3 px-3 py-2">
@@ -105,7 +113,7 @@ export default function ThemePicker() {
             </>
             )}
 
-            {!inApp && (
+            {showGalaxy && (
             <>
             <div className="my-1 h-px bg-white/10" role="separator" />
             <p className="px-3 pb-1 font-display text-[9px] font-black uppercase tracking-[0.16em] text-slate-500">
@@ -145,7 +153,7 @@ export default function ThemePicker() {
 
       <button
         onClick={() => { haptic.tap(); setOpen((v) => !v) }}
-        aria-label={inApp ? 'Sky settings — theme and moonlight' : 'Sky settings — theme and galaxy detail'}
+        aria-label={showMoon ? 'Sky settings — theme and moonlight' : 'Sky settings — theme and galaxy detail'}
         aria-expanded={open}
         className="nb-btn dark flex h-11 w-11 items-center justify-center !rounded-full !p-0"
       >

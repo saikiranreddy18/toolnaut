@@ -102,7 +102,7 @@ export default function QuizResult() {
           initial={{ opacity: 0, y: 46 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, type: 'spring', stiffness: 120, damping: 16 }}
-          className="mx-auto mt-2 max-w-2xl text-left"
+          className="mx-auto mt-2 max-w-xl text-left"
           style={{ perspective: '1500px' }}
         >
           {/* The physical ticket. Tilted in space like the render — and it
@@ -130,7 +130,7 @@ export default function QuizResult() {
           <div className="pointer-events-none absolute -top-3 right-[168px] hidden h-5 w-5 rounded-full md:block" aria-hidden="true" style={{ background: '#060609', boxShadow: 'inset 0 -2px 4px rgba(0,0,0,0.8)' }} />
           <div className="pointer-events-none absolute -bottom-3 right-[168px] hidden h-5 w-5 rounded-full md:block" aria-hidden="true" style={{ background: '#060609', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.8)' }} />
 
-          <div className="grid md:grid-cols-[minmax(0,1fr)_168px]">
+          <div className="grid md:grid-cols-[minmax(0,1fr)_148px]">
             <div className="px-5 py-6 text-center sm:px-7">
               <span
                 className="inline-flex -rotate-2 items-center gap-1.5 rounded-md px-3.5 py-1.5 font-display text-[10px] font-black uppercase tracking-[0.2em]"
