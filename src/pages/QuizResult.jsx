@@ -102,7 +102,7 @@ export default function QuizResult() {
           initial={{ opacity: 0, y: 46 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, type: 'spring', stiffness: 120, damping: 16 }}
-          className="mx-auto mt-2 max-w-xl text-left"
+          className="mx-auto mt-2 max-w-2xl text-left"
           style={{ perspective: '1500px' }}
         >
           {/* The physical ticket. Tilted in space like the render — and it
