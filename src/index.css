@@ -259,6 +259,15 @@ button, a, input, select, textarea {
   content: none;
 }
 
+/* ...and neither does the landing page, whatever the setting says. The disc
+   lands at the top right, in the corner already holding the nav, the BETA badge
+   and the headline's upper edge. The headline is why anyone is on this page;
+   the moon is scenery, so the moon gives way. The stored setting is untouched
+   and every other surface still honours it. */
+[data-page='landing'] body::after {
+  content: none;
+}
+
 /* No moon: the sky drops away and the field comes forward. */
 [data-moon='none'] .starfield {
   background:

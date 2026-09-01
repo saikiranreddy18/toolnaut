@@ -50,6 +50,20 @@ export default function Landing() {
   const audio = useSpaceAudio()
   const navigate = useNavigate()
 
+  // The moon is off HERE and only here. It is a real setting (moonStore, with a
+  // toggle in the theme picker) and it stays available on every other surface —
+  // but on the landing hero its disc sits at the top right, right where the
+  // nav, the BETA badge and the headline's upper corner already are. Three
+  // competing focal points in one corner, and the moon loses: it is scenery,
+  // and the headline is the reason the page exists.
+  //
+  // Marked on <html> rather than toggling the user's stored setting, so their
+  // choice survives the visit and comes back intact on the next page.
+  useEffect(() => {
+    document.documentElement.setAttribute('data-page', 'landing')
+    return () => document.documentElement.removeAttribute('data-page')
+  }, [])
+
   const hasWebGL = useMemo(webglAvailable, [])
   // calm = accessibility (static scene); mobile keeps the LIVE galaxy at
   // phone-safe quality — this is a mobile-first launch, immersion included.
