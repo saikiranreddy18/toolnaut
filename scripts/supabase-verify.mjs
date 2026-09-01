@@ -49,10 +49,15 @@ console.log(`\nSUPABASE MIGRATION CHECK  (project ${PROJECT})\n`)
 
 // ── step 1: do the objects exist at all? ────────────────────────────────────
 console.log('Step 1 — schema exists')
+// Read from what the migrations ACTUALLY create, not from their file names.
+// 0002 is called 0002_user_state.sql but creates profiles/tool_refs/
+// roadmap_progress - there is no user_state table, and checking for one
+// reported a false MISSING that would have looked like a failed migration.
 const objects = [
   ['explorers', 'table'],
   ['profiles', 'table'],
-  ['user_state', 'table'],
+  ['tool_refs', 'table'],
+  ['roadmap_progress', 'table'],
   ['tool_claims', 'table'],
 ]
 let missing = 0
@@ -61,9 +66,11 @@ for (const [name] of objects) {
   if (r.status === 404) { missing++; row(name, 404, 'MISSING — migration not applied') }
   else row(name, r.status, 'exists')
 }
-const rpcRes = await rpc('explorer_count')
-if (rpcRes.status === 404) { missing++; row('rpc/explorer_count', 404, 'MISSING') }
-else row('rpc/explorer_count', rpcRes.status, 'exists')
+for (const fn of ['explorer_count', 'sync_available']) {
+  const r = await rpc(fn)
+  if (r.status === 404) { missing++; row(`rpc/${fn}`, 404, 'MISSING') }
+  else row(`rpc/${fn}`, r.status, 'exists')
+}
 
 if (missing) {
   console.log(`\n  ${missing} object(s) missing. Apply the migrations in order:`)
@@ -78,7 +85,7 @@ if (missing) {
 // is a pass; actual rows coming back is a critical failure.
 console.log('\nStep 4 — anonymous cannot read protected state')
 let failures = 0
-for (const table of ['user_state', 'profiles']) {
+for (const table of ['profiles', 'tool_refs', 'roadmap_progress']) {
   const r = await get(`${table}?select=*&limit=5`)
   const body = await r.json().catch(() => null)
   const leaked = Array.isArray(body) && body.length > 0
@@ -111,13 +118,13 @@ console.log(failures ? `\nRESULT: ${failures} CRITICAL failure(s). Do not ship s
 
 console.log(`Still to do by hand (needs two real accounts):
   Step 2  User A can create/read/update/delete their own state.
-  Step 3  User B cannot read User A's row, even given its exact id.
+  Step 3  User B cannot read User A's profile row, even given its exact id.
   Step 5  Guest builds a stack, signs in, imports it.
   Step 6  A second browser restores the same stack.
   Step 7  Clearing local storage does not lose it.
   Step 8  Importing twice does not duplicate anything.
 
 Step 3 is the one that matters: sign in as B, then request
-  ${URL}/rest/v1/user_state?id=eq.<A's row id>
+  ${URL}/rest/v1/profiles?id=eq.<A's user id>
 with B's access token. It must return an empty array, not A's row.\n`)
 process.exit(failures ? 1 : 0)
