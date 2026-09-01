@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { PLANS } from '../utils/planData'
+import { useVisitorCountry } from '../hooks/useVisitorCountry'
 import { loadSession, signOut } from '../state/authStore'
 import { fetchEntitlement, getAccessToken } from '../utils/entitlement'
 import useRazorpay from '../hooks/useRazorpay'
@@ -18,6 +19,13 @@ export default function Pay() {
   const navigate = useNavigate()
   const session = loadSession()
   const { startCheckout, status, error, busy } = useRazorpay()
+  const country = useVisitorCountry()
+  // Restricted plans are dropped for visitors who cannot buy them. Undetermined
+  // country shows everything: the server is the real gate, and hiding plans
+  // during a slow geo lookup would cost sales to protect nothing.
+  const plans = PLANS.filter(
+    (p) => !(country && p.excludeCountries?.includes(country)),
+  )
   const [chosen, setChosen] = useState('guru')
   const [ent, setEnt] = useState(null)
 
@@ -80,7 +88,7 @@ export default function Pay() {
       )}
 
       <div className="mt-8 grid w-full gap-4 sm:grid-cols-3">
-        {PLANS.map((p) => (
+        {plans.map((p) => (
           <motion.button
             key={p.id}
             initial={{ opacity: 0, y: 16 }}
@@ -97,8 +105,10 @@ export default function Pay() {
             )}
             <p className="mt-1 font-display text-lg font-black uppercase text-white">{p.name}</p>
             <p className="mt-1 font-display text-2xl font-black text-white">
-              ₹{p.priceINR}
-              <span className="text-xs font-bold text-slate-400"> / month</span>
+              {p.currency === 'USD' ? `$${p.price}` : `₹${p.priceINR}`}
+              <span className="text-xs font-bold text-slate-400">
+                {p.lifetime ? ' one time · lifetime' : ' / 30 days'}
+              </span>
             </p>
             <p className="mt-2 text-[11px] leading-relaxed text-slate-400">{p.audience}</p>
             <span
@@ -110,6 +120,17 @@ export default function Pay() {
           </motion.button>
         ))}
       </div>
+
+      {/* Stated at the point of payment, not buried in the terms. Someone who
+          believes this renews will not come back to re-buy, and will treat the
+          lapse as a bug or a broken charge. */}
+      <p className="mt-5 text-[11px] leading-relaxed text-slate-400">
+        Every plan here is a one-time payment. Nothing auto-renews and your card
+        is never stored or charged again.{' '}
+        {plans.some((p) => p.lifetime)
+          ? 'The 30-day plans end when the 30 days are up unless you buy again; the Founder plan never expires.'
+          : 'When the 30 days are up, access simply ends unless you choose to buy again.'}
+      </p>
 
       {status === 'verifying' && (
         <p className="mt-5 text-xs font-bold uppercase tracking-widest text-slate-300">Confirming your payment…</p>

@@ -20,12 +20,41 @@ import { PLANS } from '../src/utils/planData.js'
 const PAISE = 100
 export const MIN_PAISE = 100 // Razorpay rejects anything under ₹1
 
-export function planToAmount(planId) {
+// The visitor's country, as Vercel resolved it at the edge.
+//
+// Read from x-vercel-ip-country, NOT from anything the page sends. A browser
+// can claim any country it likes; this header is set by the platform before our
+// code runs and is not reachable from client JavaScript. Unknown ('') is
+// treated as "not excluded" — failing the other way would block every buyer
+// whenever geo lookup hiccups, and the offer is a discount, not a permission.
+export function countryOf(req) {
+  return String(req?.headers?.['x-vercel-ip-country'] || '').toUpperCase()
+}
+
+export function planToAmount(planId, country = '') {
   const plan = PLANS.find((p) => p.id === planId)
   if (!plan) return null
-  const paise = Math.round(Number(plan.priceINR) * PAISE)
+  // Geo-restricted plans are refused server-side. Hiding the card in the UI is
+  // presentation; this is the rule.
+  if (Array.isArray(plan.excludeCountries) && country &&
+      plan.excludeCountries.includes(country)) {
+    return null
+  }
+  // Most plans are INR; the founder plan is USD. The minor unit is 100 of the
+  // major in both, so one calculation covers them — but the currency must
+  // travel with the amount, because handing Razorpay 29900 without saying USD
+  // charges ₹299 for something priced at $299.
+  const currency = plan.currency === 'USD' ? 'USD' : 'INR'
+  const major = currency === 'USD' ? plan.price : plan.priceINR
+  const paise = Math.round(Number(major) * PAISE)
   if (!Number.isFinite(paise) || paise < MIN_PAISE) return null
-  return { paise, currency: 'INR', name: plan.name, planId: plan.id }
+  // lifetime rides along so the settle paths never have to guess. Read from
+  // PLANS, which is also what renders the pricing page — one source, so a plan
+  // cannot be lifetime on the page and 30 days in the database.
+  return {
+    paise, currency, name: plan.name, planId: plan.id,
+    lifetime: Boolean(plan.lifetime),
+  }
 }
 
 // ── origin allow-list ────────────────────────────────────────────────────────

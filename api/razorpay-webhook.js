@@ -16,6 +16,7 @@
 //   event, so Razorpay's retries and duplicates are no-ops.
 // - The user comes from the order notes written by create-order, never from
 //   the payload's own claims about who to upgrade.
+import { PLANS } from '../src/utils/planData.js'
 import {
   supabaseConfigured,
   rest,
@@ -105,7 +106,13 @@ export default async function handler(req, res) {
       const userId = tx?.user_id || (typeof payment?.notes?.user_id === 'string' && payment.notes.user_id) || null
       const planCode = tx?.plan_code || payment?.notes?.plan || null
       if (userId && planCode) {
-        await activateEntitlement({ userId, planCode, transactionId: tx?.id || null })
+        // Lifetime comes from PLANS, the same list the pricing page renders, so
+        // the promise on the page and the grant in the database cannot diverge.
+        const lifetime = Boolean(PLANS.find((pl) => pl.id === planCode)?.lifetime)
+        await activateEntitlement({
+          userId, planCode, transactionId: tx?.id || null,
+          periodDays: lifetime ? null : 30,
+        })
       } else {
         console.error('webhook captured but no user/plan to activate', { orderId })
       }

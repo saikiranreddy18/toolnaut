@@ -81,12 +81,40 @@ test('a wrong-length signature is rejected, not thrown on', () => {
 // ── pricing is decided by the server ─────────────────────────────────────────
 
 test('every real plan prices from the catalogue, above the Razorpay minimum', () => {
+  // Currency is per-plan now: the founder plan is billed in USD, everything
+  // else in INR. The amount must be derived from the price in THAT currency —
+  // charging 29900 while telling Razorpay 'INR' would take ₹299 for something
+  // sold at $299.
   for (const plan of PLANS) {
     const priced = planToAmount(plan.id)
     assert.ok(priced, `${plan.id} should be priceable`)
-    assert.equal(priced.currency, 'INR')
-    assert.equal(priced.paise, Math.round(plan.priceINR * 100))
+    const expectedCurrency = plan.currency === 'USD' ? 'USD' : 'INR'
+    assert.equal(priced.currency, expectedCurrency, `${plan.id} currency`)
+    const major = expectedCurrency === 'USD' ? plan.price : plan.priceINR
+    assert.equal(priced.paise, Math.round(major * 100), `${plan.id} amount`)
     assert.ok(priced.paise >= MIN_PAISE, `${plan.id} is under the minimum`)
+  }
+})
+
+test('a plan restricted by country is refused from that country', () => {
+  // The founder plan is not sold in India. This is the server-side rule — the
+  // UI also hides it, but a hidden button is decoration and anyone can POST to
+  // the API directly.
+  const restricted = PLANS.filter((p) => Array.isArray(p.excludeCountries) && p.excludeCountries.length)
+  assert.ok(restricted.length, 'expected at least one geo-restricted plan')
+  for (const plan of restricted) {
+    for (const cc of plan.excludeCountries) {
+      assert.equal(planToAmount(plan.id, cc), null, `${plan.id} must not price from ${cc}`)
+    }
+    // Everyone else, and an undetermined country, can still buy it.
+    assert.ok(planToAmount(plan.id, 'US'), `${plan.id} should price from US`)
+    assert.ok(planToAmount(plan.id, ''), `${plan.id} should price when country is unknown`)
+  }
+})
+
+test('an unrestricted plan is unaffected by country', () => {
+  for (const cc of ['IN', 'US', 'GB', '']) {
+    assert.ok(planToAmount('guru', cc), `guru should price from ${cc || 'unknown'}`)
   }
 })
 

@@ -63,6 +63,9 @@ export async function getUserFromRequest(req) {
 // the webhook (authoritative path) — both are idempotent through it. Renewal
 // extends from the CURRENT end when it is still in the future, so paying
 // early never eats days.
+// periodDays === null grants access that never expires — the founder plan.
+// current_entitlement() already reads a null ends_at as "still active"
+// ("ends_at is null or ends_at > now()"), so nothing downstream needs to change.
 export async function activateEntitlement({ userId, planCode, transactionId, periodDays = 30 }) {
   // Ask for the ACTIVE row specifically, not "any row for this user, take the
   // first". PostgREST returns no guaranteed order, so an unfiltered query on a
@@ -96,7 +99,16 @@ export async function activateEntitlement({ userId, planCode, transactionId, per
   const base = row?.ends_at && new Date(row.ends_at).getTime() > now
     ? new Date(row.ends_at).getTime()
     : now
-  const endsAt = new Date(base + periodDays * 86_400_000).toISOString()
+  // null, not a date far in the future. A sentinel date is a promise with an
+  // expiry hidden in it, and "lifetime" that quietly ends in 2124 is still a
+  // lie — just one nobody is around to catch.
+  const endsAt = periodDays === null
+    ? null
+    : new Date(base + periodDays * 86_400_000).toISOString()
+
+  // Never downgrade a lifetime entitlement. If someone with permanent access
+  // buys anything else, their existing null ends_at must survive it.
+  if (row && row.ends_at === null) return null
 
   const record = {
     user_id: userId,

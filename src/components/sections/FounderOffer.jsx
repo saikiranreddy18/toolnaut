@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { explorerCount } from '../../utils/explorerCount'
+import { PLANS } from '../../utils/planData'
+import { useVisitorCountry } from '../../hooks/useVisitorCountry'
 
 // Founder discount — the golden ribbon on the landing page.
 //
@@ -11,7 +13,9 @@ import { explorerCount } from '../../utils/explorerCount'
 // visitor sees is the same number everybody else sees. Move the sale by editing
 // this one line.
 export const FOUNDER_DEADLINE = '2026-09-10T00:00:00Z'
-export const FOUNDER_PRICE = 299
+// Price is no longer a constant here. It lives on the founder plan in
+// planData.js, which is also what /api/create-order charges — a number typed
+// twice is a number that will eventually disagree with itself.
 
 // Whole units left until `to`, or null once it has passed.
 function timeLeft(to, now) {
@@ -29,6 +33,8 @@ function timeLeft(to, now) {
 const pad = (n) => String(n).padStart(2, '0')
 
 export default function FounderOffer() {
+  const plan = PLANS.find((p) => p.id === 'founder')
+  const country = useVisitorCountry()
   const [left, setLeft] = useState(() => timeLeft(FOUNDER_DEADLINE, Date.now()))
   const [explorers, setExplorers] = useState(null)
 
@@ -48,7 +54,10 @@ export default function FounderOffer() {
 
   // An expired sale renders nothing rather than a dead banner counting 00:00:00
   // — the offer is over, and saying so forever is worse than saying nothing.
-  if (!left) return null
+  if (!left || !plan) return null
+  // Not sold in India, so not advertised there. The server refuses it either
+  // way; this just avoids showing a price nobody local can act on.
+  if (country && plan.excludeCountries?.includes(country)) return null
 
   const units = [
     { v: left.days, k: 'days' },
@@ -93,8 +102,8 @@ export default function FounderOffer() {
               Lifetime access — pay once, keep it.
             </p>
             <p className="mt-3 flex items-baseline gap-2">
-              <span className="font-display text-4xl font-black text-white sm:text-5xl">${FOUNDER_PRICE}</span>
-              <span className="font-display text-xs font-black uppercase tracking-widest text-slate-400">one time</span>
+              <span className="font-display text-4xl font-black text-white sm:text-5xl">${plan.price}</span>
+              <span className="font-display text-xs font-black uppercase tracking-widest text-slate-400">one time · lifetime</span>
             </p>
           </div>
 
@@ -127,12 +136,15 @@ export default function FounderOffer() {
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
-          <Link to="/goal" className="nb-btn px-6 py-3 text-sm">
+          {/* This used to point at /goal, so the founder price could not
+              actually be paid — the offer was a poster. It now goes to the
+              paywall with the plan preselected. */}
+          <Link to="/pay?plan=founder" className="nb-btn px-6 py-3 text-sm">
             CLAIM FOUNDER PRICE →
           </Link>
-          <span className="text-[11px] text-slate-400">
-            No account needed to see your stack first.
-          </span>
+          <Link to="/goal" className="text-[11px] text-slate-300 underline underline-offset-2">
+            Or see your stack first — no account needed
+          </Link>
         </div>
       </div>
     </section>

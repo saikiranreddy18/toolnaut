@@ -852,3 +852,14 @@ html[data-theme='synth'] {
 @media (prefers-reduced-motion: reduce) {
   .holo-sweep { animation: none; }
 }
+
+/* The founder ribbon's marquee. Two copies of the strip sit side by side and
+   both slide left by exactly one copy's width, so as the first leaves the
+   second is already in its place — the seam never shows.
+   motion-reduce disables it in the component: a permanently scrolling strip is
+   a real problem for vestibular disorders, and the offer still reads fine
+   standing still. */
+@keyframes founder-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
