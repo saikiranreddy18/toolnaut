@@ -81,6 +81,63 @@ Turning it on makes copy claims false in the same instant. The footer line reads
 the flag and switches itself; **the `/methodology` paragraph and the pricing
 copy do not** and must be changed in the same commit.
 
+## The webhook
+
+`api/razorpay-webhook.js` is the authoritative record. `verify-payment` runs
+only if the payer's browser survives the redirect; this arrives
+server-to-server and does not care what the browser did.
+
+**Only the webhook grants entitlement.** Both it and `verify-payment` run for a
+successful payment. If both could grant, the user would get two entitlements —
+or they would race and the partial unique index would fail one at random. So
+`verify-payment` moves the transaction to `authorized` and the webhook decides
+what that is worth.
+
+**Raw body.** `export const config = { api: { bodyParser: false } }`. The
+signature is over the exact bytes Razorpay sent; re-serialising parsed JSON
+changes key order and whitespace, so every signature would fail. A test asserts
+bodyParser stays off.
+
+**Idempotency** is the unique constraint on `webhook_events.razorpay_event_id`.
+Razorpay retries until it gets a 2xx, so the same event WILL arrive twice; the
+duplicate loses the insert race and exits without touching money. A duplicate
+answers 200 so retries stop.
+
+**Amount reconciliation.** A captured payment whose amount or currency differs
+from the order we created is marked `verification_failed` and grants nothing,
+however well-signed the webhook was.
+
+Events handled: `payment.captured` (grants), `payment.failed` (marks failed),
+`refund.processed` (revokes). Everything else is recorded and acknowledged.
+
+## Environment for the full pipeline
+
+```
+RAZORPAY_KEY_ID
+RAZORPAY_KEY_SECRET
+RAZORPAY_WEBHOOK_SECRET      # from the Razorpay webhook setup screen
+SUPABASE_URL
+SUPABASE_SERVICE_ROLE_KEY    # bypasses RLS - server only, never VITE_
+PAYMENTS_ENABLED             # 'true' to switch payments on
+VITE_PAYMENTS_ENABLED        # browser mirror of the flag
+```
+
+The service role key is the only credential that can write
+`payment_transactions`, `user_entitlements` and `webhook_events` — those tables
+have no INSERT policy at all, so no browser can reach them.
+
+## Sign-in is required to pay
+
+`payment_transactions.user_id` is NOT NULL. `/api/create-order` validates the
+caller's Supabase token (against the auth service, not by decoding it) and
+returns **401 `auth_required`** without one. An anonymous payment cannot be
+attributed, cannot grant access, and cannot be supported.
+
+## Reading entitlement
+
+`src/utils/entitlement.js` calls `current_entitlement()`. Never gate a feature
+on `profiles.plan` or localStorage — those are labels the browser controls.
+
 ## Going live
 
 Not automatic. All of this is deliberate:

@@ -23,6 +23,7 @@ import {
   bodyTooLarge,
   credentials,
 } from './_razorpay.js'
+import { admin, isServiceConfigured } from './_supabase.js'
 
 // DELIBERATELY NOT GATED BY PAYMENTS_ENABLED.
 //
@@ -93,6 +94,32 @@ export default async function handler(req, res) {
         paymentAmount: payment?.amount, orderAmount: order?.amount,
       })
       return res.status(400).json({ verified: false, error: 'Payment could not be confirmed' })
+    }
+
+    // Mark it paid, but do NOT grant the entitlement here.
+    //
+    // THE WEBHOOK IS THE ONLY THING THAT GRANTS ACCESS. Both this and the
+    // webhook will run for a successful payment, and if both could create an
+    // entitlement the user would get two — or worse, they would race and the
+    // partial unique index would fail one of them at random. So this records
+    // that the browser confirmed, and the webhook decides what it is worth.
+    //
+    // The status only moves forward: a webhook that already wrote 'captured'
+    // must not be dragged back by a slower browser callback.
+    if (isServiceConfigured) {
+      const { error: txnError } = await admin
+        .from('payment_transactions')
+        .update({
+          status: 'authorized',
+          razorpay_payment_id: paymentId,
+          updated_at: new Date().toISOString(),
+        })
+        .eq('razorpay_order_id', orderId)
+        .in('status', ['created', 'pending'])
+      // Not fatal. The payment is real and verified; failing the response here
+      // would tell the payer something went wrong when nothing did, and the
+      // webhook is still coming.
+      if (txnError) console.error('verify: could not update transaction', txnError.message)
     }
 
     return res.status(200).json({

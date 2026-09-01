@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from 'react'
+import { supabase } from '../utils/supabase'
 
 // Razorpay Standard Checkout, as a hook.
 //
@@ -60,10 +61,19 @@ export function useRazorpay() {
     setStatus('loading')
 
     try {
+      // The access token goes with the order request: the server attaches the
+      // payment to this account, and a payment with nobody attached cannot
+      // grant anything or be supported later.
+      const { data: sessionData } = (await supabase?.auth.getSession()) || { data: null }
+      const token = sessionData?.session?.access_token
+
       const [orderRes] = await Promise.all([
         fetch('/api/create-order', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+          },
           body: JSON.stringify({ planId }),
         }),
         loadCheckoutScript(),
@@ -74,7 +84,9 @@ export function useRazorpay() {
         throw new Error(
           orderRes.status === 503
             ? 'Payments are not available right now.'
-            : body.error || GENERIC_ERROR,
+            : orderRes.status === 401
+              ? 'Please sign in first — we attach the plan to your account.'
+              : body.error || GENERIC_ERROR,
         )
       }
 
