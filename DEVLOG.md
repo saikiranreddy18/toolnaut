@@ -9,6 +9,69 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-01
+
+**Radar health:** OK per `npm run radar:health` — 3 runs in the last 26h,
+last run 2026-09-01 14:10 UTC (3.9h before this run), published 9 tools in
+that run, feed holds 120 tools. Healthy and growing, no action needed.
+
+**Researched today:** three research-hour runs, all deepening/correcting
+rather than adding a fresh gap. 00:24 UTC logged Discover's missing sort
+control as a new, fully-specced gap (the one this run picked). 06:16 UTC
+fixed a stale line-number/status detail in the facet-counts gap's plan.
+09:16 UTC and 15:21 UTC re-opened the "weekly alerts" and "Pro chat
+assistant" gaps respectively — both were previously REJECTED for needing a
+server-held API key and a serverless function that didn't exist yet;
+`api/chat.js` now exists (a production-hardened Vercel function backing the
+`/goal` quiz flow) and proves that exact pattern is now buildable, dropping
+both gaps' build size from L to M. Neither is concrete enough to build yet
+(no call site chosen, no UI spec) — they're OPEN for a future research hour
+to deepen, not ready for a feature run today.
+
+**Shipped:** a sort control for `/app/discover` —
+[`a59e253`](https://github.com/saikiranreddy18/toolnaut/commit/a59e253).
+Picked it over the other OPEN gaps (onboarding checklist, ratings/reviews,
+suggest-a-tool, PDF export, clickable tags, tool visual identity/favicons,
+the two newly-reopened backend-dependent gaps) because it was the freshest
+and most concretely specced entry — found and fully deepened against the
+current 330-line `Discover.jsx` just hours before this run — and because
+Discover is the single highest-traffic page in the app: every visitor
+filtering the 700+ tool catalog was stuck with one fixed order (score, then
+a prominence tiebreak) with no way to ask for newest-first or alphabetical,
+even before completing the quiz.
+
+New `src/utils/sortResults.js` exports `compareByNewest`/`compareByName` as
+pure, independently-tested comparators (6 unit tests) — pulled out of
+`Discover.jsx` rather than left inline because, unlike the existing "match"
+order, they don't need the per-render prominence-tiebreak closure. Added a
+`sort` URL param (`match` is the default and never appears in the URL, so
+every existing shared/bookmarked Discover link keeps today's order
+unchanged) and a "Sort" pill row next to the existing Price/Level filters,
+reusing the same `Pill` component — no new UI primitive. The pagination
+reset key now includes `sort` so switching orders snaps back to page one
+instead of showing a stale page length from the previous order.
+
+**Live on toolnaut.xyz** now that it's on master — pure client-side
+addition, no backend, no new dependency, no new route, no new store.
+`npm test` (237/237: 102 radar + 135 app, up from 231), `npm run build`
+(15/15 routes prerendered), and `npm run smoke` (21/21 routes, 0 console
+errors) all green before push.
+
+**Queued next:** first-session onboarding checklist, per-tool ratings &
+reviews, community-submitted tools ("Suggest a tool"), PDF roadmap export,
+clickable tags (with the corrected `ToolCard.jsx` insertion point from
+2026-08-30's deepening), tool visual identity/favicons, recently-viewed
+tools, the tool-status-note-reason gap, command palette, Discover
+facet-counts, tool graveyard page, embeddable "Featured on Toolnaut" badge,
+per-tool Alternatives SEO pages, and the popularity-signal (GitHub
+stars/HN points) pipeline gap all remain OPEN. Weekly alerts and Pro chat
+assistant are OPEN-but-not-yet-concrete (reopened today, need a research
+hour to spec a call site before they're buildable). Team tier, Discord
+community, and vendor deal codes stay REJECTED-for-build (no backend, or
+need a standing external commitment).
+
+---
+
 ## 2026-08-31
 
 **Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h,

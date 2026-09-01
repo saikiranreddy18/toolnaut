@@ -8,6 +8,7 @@
 // amount the server decided, and the PUBLIC key id — nothing else.
 import Razorpay from 'razorpay'
 import {
+  countryOf,
   planToAmount,
   originAllowed,
   rateLimited,
@@ -50,7 +51,7 @@ export default async function handler(req, res) {
   const planId = typeof req.body?.planId === 'string' ? req.body.planId : null
   if (!planId) return res.status(400).json({ error: 'planId is required' })
 
-  const priced = planToAmount(planId)
+  const priced = planToAmount(planId, countryOf(req))
   // One message for both "no such plan" and "plan is not purchasable", so this
   // cannot be used to enumerate internal plan ids.
   if (!priced) return res.status(400).json({ error: 'Unknown plan' })

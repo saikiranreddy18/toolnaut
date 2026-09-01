@@ -9,6 +9,7 @@ import PricingSection from '../components/sections/PricingSection'
 import FeaturesSection from '../components/sections/FeaturesSection'
 import StatsSection from '../components/sections/StatsSection'
 import FounderOffer from '../components/sections/FounderOffer'
+import FounderRibbon from '../components/ui/FounderRibbon'
 import CTASection from '../components/sections/CTASection'
 import CometProgress from '../components/ui/CometProgress'
 import GalaxyExplorer from '../components/ui/GalaxyExplorer'
@@ -120,7 +121,12 @@ export default function Landing() {
         )}
       </AnimatePresence>
 
+      {/* The ribbon sits above the nav inside the same fixed header, so it
+          travels with it instead of scrolling away — the countdown is only
+          useful while it is visible. Hidden during galaxy exploration along
+          with the rest of the chrome. */}
       <header className={`fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-[#060609]/90 via-[#060609]/50 to-transparent pb-3 transition-opacity duration-500 ${explore ? 'pointer-events-none opacity-0' : ''}`}>
+        <FounderRibbon />
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
           <a href="#hero" aria-label={BRAND}>
             <BrandLogo {...LOGO.page} />
@@ -152,12 +158,15 @@ export default function Landing() {
 
       <main className={`transition-opacity duration-500 ${explore ? 'pointer-events-none opacity-0' : ''}`}>
         <HeroSection onEnter={openQuiz} />
-        <FounderOffer />
         <StatsSection />
         <HowItWorksSection />
         <RolesSection />
         <AudienceSection />
         <FeaturesSection />
+        {/* The founder offer belongs WITH the prices it undercuts, not stranded
+            under the hero. Someone reading the pricing table is mid-decision;
+            that is the moment the discount is worth something. */}
+        <FounderOffer />
         <PricingSection />
         <CTASection />
       </main>

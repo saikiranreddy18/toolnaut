@@ -14,6 +14,7 @@
 // visitor's browser surviving the redirect. That is noted rather than built:
 // this project takes no real payments yet, and there is no orders table to
 // write to. See docs/razorpay.md.
+import { PLANS } from '../src/utils/planData.js'
 import Razorpay from 'razorpay'
 import {
   verifyPaymentSignature,
@@ -123,6 +124,7 @@ export default async function handler(req, res) {
           userId: notesUser,
           planCode,
           transactionId: txId,
+          periodDays: Boolean(PLANS.find((pl) => pl.id === planCode)?.lifetime) ? null : 30,
         })
       } catch (err) {
         // The payment IS verified; a recording hiccup must not tell the payer

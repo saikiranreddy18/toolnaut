@@ -1,15 +1,14 @@
-// Country for regional pricing, read from the header Vercel stamps on every
-// request. No external geo service, no permission prompt, no body, and
-// deliberately COARSE — the pricing page needs "India or not", never a city
-// or coordinates, so nothing finer ever leaves this function.
+// Tells the browser which country the edge resolved it to, so the UI can avoid
+// advertising an offer the visitor cannot buy.
+//
+// This endpoint grants nothing. The country it reports is the same one
+// create-order reads for itself from the same header — a caller who lies to
+// this endpoint, or ignores it entirely, still hits the server-side rule.
+import { countryOf } from './_razorpay.js'
+
 export default function handler(req, res) {
-  if (req.method !== 'GET') {
-    res.setHeader('Allow', 'GET')
-    return res.status(405).json({ error: 'GET only' })
-  }
-  const country = String(req.headers['x-vercel-ip-country'] || '').slice(0, 2).toUpperCase() || null
-  // Cache at the CDN briefly per client; the answer changes when the person
-  // travels, not per pageview.
-  res.setHeader('Cache-Control', 'private, max-age=3600')
-  return res.status(200).json({ country })
+  // Short cache: a visitor's country does not change between page views, and
+  // this should not cost a function invocation on every mount.
+  res.setHeader('Cache-Control', 'public, max-age=3600')
+  return res.status(200).json({ country: countryOf(req) || null })
 }

@@ -18,6 +18,47 @@ const planned = (text) => ({ text, status: 'planned' })
 
 export const PLANS = [
   {
+    // The founder offer, and a REAL plan rather than a poster.
+    //
+    // It advertised "lifetime access, pay once" with a button that went to the
+    // quiz, so nobody could buy it — and had anyone been able to, they would
+    // have received the flat 30 days activateEntitlement grants everyone. An
+    // offer the system cannot honour is worse than no offer.
+    //
+    // lifetime: true is what makes the promise true. It flows through to a null
+    // ends_at, and current_entitlement() already treats null as never expiring
+    // ("ends_at is null or ends_at > now()"), so this needed no schema change.
+    //
+    // PRICED IN USD, AND THAT IS DELIBERATE. $299 next to a ₹799 Pro plan looks
+    // wrong until you notice it is lifetime against thirty days — roughly
+    // thirty-one months of Pro, paid once. This is the only plan not billed in
+    // rupees, which is why currency travels with it everywhere below.
+    id: 'founder',
+    name: 'Founder',
+    icon: 'pro',
+    tier: 'Founder',
+    price: 299,
+    currency: 'USD',
+    lifetime: true,
+    limitedUntil: '2026-09-10T00:00:00Z',
+    // Not sold in India. Priced in rupees for everyone who CAN buy it, so
+    // there is no FX handling and no second amount to keep in step — an
+    // international card is simply charged INR 299.
+    excludeCountries: ['IN'],
+    badge: 'FOUNDER',
+    glow: 'rgba(255, 222, 46, 0.30)',
+    accent: '#ffde2e',
+    audience: 'Early backers — one payment, kept for good',
+    features: [
+      live('Everything in Pro, permanently'),
+      live('Never expires — no renewal, no second charge'),
+      live('Personalized AI tool discovery (all categories)'),
+      live('Save unlimited tools and stacks'),
+      planned('Weekly discovery digest email'),
+      live('Founder badge on your profile'),
+    ],
+  },
+  {
     id: 'shishya',
     name: 'Student',
     icon: 'student',
