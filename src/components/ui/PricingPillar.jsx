@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { fadeUp } from './SectionShell'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
+import { formatPrice } from '../../utils/planData'
+import { useVisitorCountry } from '../../hooks/useVisitorCountry'
 
 // Sticker-shadow color per plan so the three pillars read lime / pink / cyan.
 const STICKER_VARIANT = { shishya: '', guru: 'pink', pandava: 'cyan' }
@@ -30,6 +32,8 @@ function PlanIcon({ type, color }) {
 }
 
 export default function PricingPillar({ plan, currency = 'USD' }) {
+  // Regional plans price by country; everything else ignores it.
+  const country = useVisitorCountry()
   const track = useAnalytics()
 
   return (
@@ -63,11 +67,11 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
         </div>
         <p className="mt-3 flex items-baseline gap-1">
           <span className="font-display text-5xl font-black italic text-white" style={{ textShadow: '3px 3px 0 #000' }}>
-            {/* A USD-only plan ignores the currency toggle: there is no rupee
-                price to show, and inventing one by conversion would quote a
-                number the checkout will not charge. */}
+            {/* A regionally priced plan ignores the currency toggle: it has one
+                real price per country, and letting the toggle quote the other
+                one would show a number the checkout will not charge. */}
             {plan.currency === 'USD'
-              ? `$${plan.price.toLocaleString('en-US')}`
+              ? formatPrice(plan, country)
               : currency === 'INR'
                 ? `₹${plan.priceINR.toLocaleString('en-IN')}`
                 : `$${plan.price}`}

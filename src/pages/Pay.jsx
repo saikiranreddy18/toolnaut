@@ -1,8 +1,23 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { PLANS } from '../utils/planData'
+import { PLANS, formatPrice } from '../utils/planData'
 import { useVisitorCountry } from '../hooks/useVisitorCountry'
+import { useLocalPrice } from '../hooks/useLocalPrice'
+
+// The rupee figure is what is charged; this is the reader's own currency beside
+// it, so someone abroad can judge the amount. Renders nothing in India, or when
+// the live rate is unavailable — an absent conversion costs a little clarity, a
+// guessed one quotes a price nobody will be charged.
+function LocalApprox({ amountINR }) {
+  const local = useLocalPrice(amountINR)
+  if (!local) return null
+  return (
+    <span className="mt-1 block text-[10px] font-semibold text-slate-500">
+      about {local.text} · charged in INR
+    </span>
+  )
+}
 import { loadSession, signOut } from '../state/authStore'
 import { fetchEntitlement, getAccessToken } from '../utils/entitlement'
 import useRazorpay from '../hooks/useRazorpay'
@@ -114,12 +129,15 @@ export default function Pay() {
             )}
             <p className="mt-1 font-display text-lg font-black uppercase text-white">{p.name}</p>
             <p className="mt-1 font-display text-2xl font-black text-white">
-              ₹{p.priceINR}
-              <span className="text-xs font-bold text-slate-400"> for 30 days</span>
+              {formatPrice(p)}
+              <span className="text-xs font-bold text-slate-400">
+                {p.lifetime ? ' one time' : ' for 30 days'}
+              </span>
             </p>
             <p className="mt-1 font-display text-[9px] font-black uppercase tracking-[0.12em] text-slate-500">
-              One-time · no auto-renewal
+              {p.lifetime ? 'One-time · never expires' : 'One-time · no auto-renewal'}
             </p>
+            <LocalApprox amountINR={p.priceINR} />
             <p className="mt-2 text-[11px] leading-relaxed text-slate-400">{p.audience}</p>
             <span
               className="mt-4 inline-block rounded-full px-4 py-1.5 font-display text-[10px] font-black uppercase tracking-wider text-black"

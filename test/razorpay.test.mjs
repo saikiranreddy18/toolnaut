@@ -96,25 +96,34 @@ test('every real plan prices from the catalogue, above the Razorpay minimum', ()
   }
 })
 
-test('a plan restricted by country is refused from that country', () => {
-  // The founder plan is not sold in India. This is the server-side rule — the
-  // UI also hides it, but a hidden button is decoration and anyone can POST to
-  // the API directly.
-  const restricted = PLANS.filter((p) => Array.isArray(p.excludeCountries) && p.excludeCountries.length)
-  assert.ok(restricted.length, 'expected at least one geo-restricted plan')
-  for (const plan of restricted) {
-    for (const cc of plan.excludeCountries) {
-      assert.equal(planToAmount(plan.id, cc), null, `${plan.id} must not price from ${cc}`)
+test('every plan costs the same in INR from every country', () => {
+  // One price worldwide is the current rule. Visitors abroad are SHOWN a
+  // converted figure by currency.js, but that is a label — the charge is this,
+  // and it must not vary by where the request came from.
+  for (const plan of PLANS) {
+    const baseline = planToAmount(plan.id, 'IN')
+    for (const cc of ['US', 'GB', 'DE', 'AE', 'SG', '']) {
+      const priced = planToAmount(plan.id, cc)
+      assert.ok(priced, `${plan.id} should price from ${cc || 'unknown'}`)
+      assert.equal(priced.currency, 'INR', `${plan.id} must be charged in INR`)
+      assert.equal(priced.paise, baseline.paise,
+        `${plan.id} charges a different amount from ${cc || 'unknown'} than from IN`)
     }
-    // Everyone else, and an undetermined country, can still buy it.
-    assert.ok(planToAmount(plan.id, 'US'), `${plan.id} should price from US`)
-    assert.ok(planToAmount(plan.id, ''), `${plan.id} should price when country is unknown`)
   }
 })
 
-test('an unrestricted plan is unaffected by country', () => {
-  for (const cc of ['IN', 'US', 'GB', '']) {
-    assert.ok(planToAmount('guru', cc), `guru should price from ${cc || 'unknown'}`)
+test('the geo-restriction mechanism still refuses a restricted plan', () => {
+  // No plan is restricted today, so this exercises the mechanism directly
+  // rather than asserting one exists. It is the enforcement point if a plan is
+  // ever geo-limited again, and an unexercised guard is one that quietly rots.
+  const fake = { id: '__test_restricted__', priceINR: 999, excludeCountries: ['IN'] }
+  PLANS.push(fake)
+  try {
+    assert.equal(planToAmount(fake.id, 'IN'), null, 'must be refused from an excluded country')
+    assert.ok(planToAmount(fake.id, 'US'), 'must price elsewhere')
+    assert.ok(planToAmount(fake.id, ''), 'must price when the country is unknown')
+  } finally {
+    PLANS.pop()
   }
 })
 

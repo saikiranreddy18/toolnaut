@@ -29,22 +29,20 @@ export const PLANS = [
     // ends_at, and current_entitlement() already treats null as never expiring
     // ("ends_at is null or ends_at > now()"), so this needed no schema change.
     //
-    // PRICED IN USD, AND THAT IS DELIBERATE. $299 next to a ₹799 Pro plan looks
-    // wrong until you notice it is lifetime against thirty days — roughly
-    // thirty-one months of Pro, paid once. This is the only plan not billed in
-    // rupees, which is why currency travels with it everywhere below.
+    // ₹29,999, one price worldwide like every other plan. It looks steep beside
+    // a ₹799 Pro plan until you notice this is lifetime against thirty days:
+    // roughly thirty-one months of Pro, paid once and never again.
+    //
+    // Visitors outside India see this converted to their own currency for
+    // readability, but INR is what is charged — see convertPrice below.
     id: 'founder',
     name: 'Founder',
     icon: 'pro',
     tier: 'Founder',
-    price: 299,
-    currency: 'USD',
+    price: 360,
+    priceINR: 29999,
     lifetime: true,
     limitedUntil: '2026-09-10T00:00:00Z',
-    // Not sold in India. Priced in rupees for everyone who CAN buy it, so
-    // there is no FX handling and no second amount to keep in step — an
-    // international card is simply charged INR 299.
-    excludeCountries: ['IN'],
     badge: 'FOUNDER',
     glow: 'rgba(255, 222, 46, 0.30)',
     accent: '#ffde2e',
@@ -155,3 +153,17 @@ export const COMPARISON = [
   ['API access', false, false, 'planned'],
   ['Support', 'Basic chat (planned)', 'Priority email (planned)', 'Dedicated 48hr (planned)'],
 ]
+
+// ONE PRICE, IN RUPEES. Everything is billed in INR — there is no second
+// amount to keep in step and no plan that costs a different number depending on
+// where it is opened. Visitors elsewhere are SHOWN a conversion for
+// readability; see convertPrice in currency.js. What is charged is this.
+export function priceFor(plan) {
+  if (!plan) return null
+  return { amount: plan.priceINR, currency: 'INR', symbol: '₹' }
+}
+
+export function formatPrice(plan) {
+  const p = priceFor(plan)
+  return p ? `₹${p.amount.toLocaleString('en-IN')}` : ''
+}

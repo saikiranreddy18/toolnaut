@@ -14,7 +14,7 @@
 // looked up here from the same PLANS table the pricing page renders, which also
 // means the two can never drift.
 import crypto from 'node:crypto'
-import { PLANS } from '../src/utils/planData.js'
+import { PLANS, priceFor } from '../src/utils/planData.js'
 
 // Razorpay works in the smallest currency unit. INR -> paise.
 const PAISE = 100
@@ -35,18 +35,19 @@ export function planToAmount(planId, country = '') {
   const plan = PLANS.find((p) => p.id === planId)
   if (!plan) return null
   // Geo-restricted plans are refused server-side. Hiding the card in the UI is
-  // presentation; this is the rule.
+  // presentation; this is the rule. No plan is restricted today, but the shape
+  // stays because it is the enforcement point if one ever is again.
   if (Array.isArray(plan.excludeCountries) && country &&
       plan.excludeCountries.includes(country)) {
     return null
   }
-  // Most plans are INR; the founder plan is USD. The minor unit is 100 of the
-  // major in both, so one calculation covers them — but the currency must
-  // travel with the amount, because handing Razorpay 29900 without saying USD
-  // charges ₹299 for something priced at $299.
-  const currency = plan.currency === 'USD' ? 'USD' : 'INR'
-  const major = currency === 'USD' ? plan.price : plan.priceINR
-  const paise = Math.round(Number(major) * PAISE)
+  // Everything is charged in INR. A visitor elsewhere may have been SHOWN a
+  // converted figure, but that is a readability aid computed from a live rate —
+  // it is never what Razorpay is asked for, because a displayed conversion and
+  // a charged amount that disagree is the worst outcome available here.
+  const priced = priceFor(plan)
+  const currency = priced.currency
+  const paise = Math.round(Number(priced.amount) * PAISE)
   if (!Number.isFinite(paise) || paise < MIN_PAISE) return null
   // lifetime rides along so the settle paths never have to guess. Read from
   // PLANS, which is also what renders the pricing page — one source, so a plan
