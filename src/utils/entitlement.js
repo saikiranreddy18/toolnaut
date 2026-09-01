@@ -1,50 +1,41 @@
+// Client side of the entitlement check. The server (/api/entitlement, reading
+// user_entitlements) is the authority; this just asks it with the current
+// Supabase access token and hands back one small, honest object.
 import { supabase, isSupabaseConfigured } from './supabase'
 
-// What this account may actually do — asked of the server, every time.
-//
-// NOT profiles.plan, AND NOT localStorage.
-// profiles.plan exists and is fine to render ("Current plan: Pro"), but it is a
-// LABEL. Gating a feature on it would mean the browser deciding what the
-// browser is allowed to do, and anyone can edit that in devtools. The only
-// answer that counts comes from user_entitlements, which no browser can write:
-// the table has SELECT-only policies and every insert goes through the service
-// role in the webhook.
-//
-// current_entitlement() is security invoker, so RLS still applies and it can
-// only ever return the caller's own row. There is no way to ask it about
-// somebody else.
-
-const FREE = Object.freeze({ plan: null, active: false, features: {}, endsAt: null })
-
-export async function fetchEntitlement() {
-  if (!isSupabaseConfigured || !supabase) return FREE
+export async function getAccessToken() {
+  if (!isSupabaseConfigured) return null
   try {
-    const { data: sessionData } = await supabase.auth.getSession()
-    if (!sessionData?.session) return FREE
-
-    const { data, error } = await supabase.rpc('current_entitlement')
-    if (error || !data?.length) return FREE
-
-    const row = data[0]
-    return {
-      plan: row.plan_code,
-      active: row.status === 'active',
-      endsAt: row.ends_at || null,
-      features: {},
-    }
+    const { data } = await supabase.auth.getSession()
+    return data?.session?.access_token || null
   } catch {
-    // Falling back to FREE is the safe direction: a network failure must not
-    // hand out a paid plan.
-    return FREE
+    return null
   }
 }
 
-// Convenience for gating UI. The UI is a courtesy — anything that actually
-// costs money or exposes data must be checked again on the server, because a
-// determined user can always make the client believe whatever they like.
-export async function hasActivePlan() {
-  const e = await fetchEntitlement()
-  return e.active
+// { active, plan, endsAt, paymentsEnabled, configured, unknown }
+// `unknown: true` means the check itself failed (network, local dev without
+// /api) — callers must fail OPEN on unknown: blocking the whole app on a
+// hiccup is worse than letting one visit through.
+export async function fetchEntitlement() {
+  const token = await getAccessToken()
+  if (!token) return { active: false, unknown: false, paymentsEnabled: false, configured: false }
+  try {
+    const res = await fetch('/api/entitlement', {
+      headers: { authorization: `Bearer ${token}` },
+    })
+    if (!res.ok && res.status !== 401) return { active: false, unknown: true }
+    const data = await res.json().catch(() => null)
+    if (!data) return { active: false, unknown: true }
+    return {
+      active: Boolean(data.active),
+      plan: data.plan || null,
+      endsAt: data.ends_at || null,
+      paymentsEnabled: Boolean(data.payments_enabled),
+      configured: Boolean(data.configured),
+      unknown: false,
+    }
+  } catch {
+    return { active: false, unknown: true }
+  }
 }
-
-export { FREE as FREE_ENTITLEMENT }

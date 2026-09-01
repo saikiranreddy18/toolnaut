@@ -33,6 +33,7 @@ const CategoryLanding = lazy(() => import('./pages/CategoryLanding'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 const NewTools = lazy(() => import('./pages/NewTools'))
 const SearchTools = lazy(() => import('./pages/SearchTools'))
+const Pay = lazy(() => import('./pages/Pay'))
 
 // Scroll + analytics on route change. initAnalytics() already fires the first
 // page_view, so skip the initial render to avoid double counting. Hash links
@@ -111,6 +112,9 @@ export default function App() {
               <Route path="/quiz" element={<Navigate to="/goal" replace />} />
               <Route path="/quiz/result" element={<QuizResult />} />
               <Route path="/auth/login" element={<Login />} />
+              {/* The paywall. AppShell routes a signed-in, un-entitled user
+                  here whenever the server says payments are live. */}
+              <Route path="/pay" element={<Pay />} />
             </Route>
 
             <Route path="/app" element={<AppShell />}>

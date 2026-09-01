@@ -23,7 +23,7 @@ import {
   bodyTooLarge,
   credentials,
 } from './_razorpay.js'
-import { admin, isServiceConfigured } from './_supabase.js'
+import { supabaseConfigured, rest, activateEntitlement } from './_supabase.js'
 
 // DELIBERATELY NOT GATED BY PAYMENTS_ENABLED.
 //
@@ -96,30 +96,39 @@ export default async function handler(req, res) {
       return res.status(400).json({ verified: false, error: 'Payment could not be confirmed' })
     }
 
-    // Mark it paid, but do NOT grant the entitlement here.
+    // Reconciled. Record it and unlock the plan. The user id comes from the
+    // ORDER NOTES — written server-side at create-order — never from this
+    // request, so a stolen order/payment/signature triple can only ever
+    // activate the account that created the order.
     //
-    // THE WEBHOOK IS THE ONLY THING THAT GRANTS ACCESS. Both this and the
-    // webhook will run for a successful payment, and if both could create an
-    // entitlement the user would get two — or worse, they would race and the
-    // partial unique index would fail one of them at random. So this records
-    // that the browser confirmed, and the webhook decides what it is worth.
-    //
-    // The status only moves forward: a webhook that already wrote 'captured'
-    // must not be dragged back by a slower browser callback.
-    if (isServiceConfigured) {
-      const { error: txnError } = await admin
-        .from('payment_transactions')
-        .update({
-          status: 'authorized',
-          razorpay_payment_id: paymentId,
-          updated_at: new Date().toISOString(),
+    // Fast path only: the webhook (razorpay-webhook.js) repeats this settle
+    // idempotently, so a browser that dies right here still gets its plan.
+    let entitlementEndsAt = null
+    const notesUser = typeof order?.notes?.user_id === 'string' && order.notes.user_id ? order.notes.user_id : null
+    const planCode = order?.notes?.plan ?? null
+    if (supabaseConfigured && notesUser && planCode) {
+      try {
+        const upd = await rest(`payment_transactions?razorpay_order_id=eq.${encodeURIComponent(orderId)}`, {
+          method: 'PATCH',
+          headers: { prefer: 'return=representation' },
+          body: {
+            status: 'captured',
+            razorpay_payment_id: paymentId,
+            paid_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+          },
         })
-        .eq('razorpay_order_id', orderId)
-        .in('status', ['created', 'pending'])
-      // Not fatal. The payment is real and verified; failing the response here
-      // would tell the payer something went wrong when nothing did, and the
-      // webhook is still coming.
-      if (txnError) console.error('verify: could not update transaction', txnError.message)
+        const txId = Array.isArray(upd.json) ? upd.json[0]?.id : null
+        entitlementEndsAt = await activateEntitlement({
+          userId: notesUser,
+          planCode,
+          transactionId: txId,
+        })
+      } catch (err) {
+        // The payment IS verified; a recording hiccup must not tell the payer
+        // otherwise. The webhook will settle the record on its retry schedule.
+        console.error('post-verify recording failed', err?.message || err)
+      }
     }
 
     return res.status(200).json({
@@ -128,8 +137,9 @@ export default async function handler(req, res) {
       order_id: orderId,
       amount: order.amount,
       currency: order.currency,
-      plan: order?.notes?.plan ?? null,
+      plan: planCode,
       status: payment.status,
+      entitlement_ends_at: entitlementEndsAt,
     })
   } catch (e) {
     // The signature checked out but Razorpay could not be reached. This is NOT

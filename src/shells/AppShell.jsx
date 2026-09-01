@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
+import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { BRAND } from '../config'
 import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import StreakPoints from '../components/app/StreakPoints'
 import { loadSession } from '../state/authStore'
+import { fetchEntitlement } from '../utils/entitlement'
 import { loadQuiz } from '../state/quizStore'
 import { generatePersona } from '../utils/personaGenerator'
 import { planLabel } from '../utils/planData'
@@ -45,8 +46,29 @@ function saveChatOpen(open) {
 // the starfield keeps the "in space" feeling at zero GPU cost.
 export default function AppShell() {
   const location = useLocation()
+  const navigate = useNavigate()
   const session = loadSession()
   const [chatOpen, setChatOpen] = useState(loadChatOpen)
+
+  // THE PAYWALL GATE. A signed-in (real, not simulated) user with no active
+  // entitlement is sent to /pay — but ONLY when the server itself says
+  // payments are switched on (PAYMENTS_ENABLED + Supabase configured). Three
+  // deliberate fail-opens: guests keep browsing the free beta, a failed check
+  // (unknown) lets the visit through rather than bricking the app on a
+  // network hiccup, and a deployment with payments off charges nobody and
+  // therefore blocks nobody.
+  useEffect(() => {
+    if (!session?.user || session.simulated) return
+    let on = true
+    fetchEntitlement().then((ent) => {
+      if (!on || ent.unknown) return
+      if (ent.configured && ent.paymentsEnabled && !ent.active) {
+        navigate('/pay', { replace: true })
+      }
+    })
+    return () => { on = false }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session?.user?.id])
   const launcherRef = useRef(null)
   const chatWasOpenRef = useRef(false)
 

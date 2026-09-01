@@ -54,26 +54,22 @@ export function useRazorpay() {
   // click can still land two calls before React re-renders.
   const busy = useRef(false)
 
-  const startCheckout = useCallback(async ({ planId, prefill = {}, onPaid } = {}) => {
+  const startCheckout = useCallback(async ({ planId, prefill = {}, onPaid, accessToken } = {}) => {
     if (busy.current) return
     busy.current = true
     setError(null)
     setStatus('loading')
 
     try {
-      // The access token goes with the order request: the server attaches the
-      // payment to this account, and a payment with nobody attached cannot
-      // grant anything or be supported later.
-      const { data: sessionData } = (await supabase?.auth.getSession()) || { data: null }
-      const token = sessionData?.session?.access_token
-
+      // The token ties the ORDER to the signed-in user (create-order writes
+      // the user id into the order notes server-side). Without it the payment
+      // still works but can never activate an entitlement.
+      const headers = { 'Content-Type': 'application/json' }
+      if (accessToken) headers.Authorization = `Bearer ${accessToken}`
       const [orderRes] = await Promise.all([
         fetch('/api/create-order', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            ...(token ? { Authorization: `Bearer ${token}` } : {}),
-          },
+          headers,
           body: JSON.stringify({ planId }),
         }),
         loadCheckoutScript(),
