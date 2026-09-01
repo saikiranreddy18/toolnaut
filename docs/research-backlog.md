@@ -1213,6 +1213,39 @@ a client-side SPA with a static tool catalogue.
   card grid. No new store, no new util, no new route, no backend, no new
   dependency.
 - **Found:** 2026-08-26 06:20 UTC
+- **Deepened 2026-09-01 21:20 UTC:** the `ToolDetail.jsx`/`Compare.jsx` half of
+  this plan is intact but its line numbers have drifted — re-read both files
+  in full rather than trusting the numbers below blindly. The status pill this
+  plan targets is now `ToolDetail.jsx:112-119` (was `108-115`; a `score != null`
+  MATCH badge was added above it since this entry was written), and the
+  `Compare.jsx` Status row is now at `Compare.jsx:52` (was `47`) — same
+  `{ label: 'Status', get: (t) => t.status || '—' }` shape, just shifted.
+  Neither file's actual change needed is any different, only the anchor lines.
+  The "reused badge on `Discover.jsx`'s card grid" half is flatly wrong now,
+  not just stale, for the same reason the tags-clickable gap's 2026-08-30
+  deepening already caught for two *other* entries in this file (facet counts,
+  suggest-a-tool) but never checked whether it also applied here — it does.
+  `Discover.jsx` was refactored to extract a shared `<ToolCard>` component
+  (`src/components/app/ToolCard.jsx`, its own header comment: "The one tool
+  card, shared by Discover and Favorites") — `Discover.jsx` no longer contains
+  any inline card markup at all, so there is nothing at a "card grid" location
+  in that file to add a badge to. Confirmed by reading `ToolCard.jsx` in full:
+  its existing badge row already lives at `ToolCard.jsx:45-67` (a `NEW` pill
+  at `:46-53` when `isNewTool(tool)`, a fit-band pill at `:58-66` when
+  `showFit` and a score exists) — neither is `status`-aware today. **Corrected
+  target:** add the `UNCERTAIN` badge as a third sibling inside that same
+  `<span className="flex shrink-0 items-center gap-1.5">` wrapper
+  (`ToolCard.jsx:45-67`), gated on `tool.status && tool.status !== 'Active'`,
+  reusing `ToolDetail.jsx`'s exact style object as originally planned. Unlike
+  the interactive controls lower in the card (`ToolCard.jsx:95-128`, wrapped in
+  `relative z-10` to clear the whole-card stretched-link overlay per that
+  file's own comment at `:9-19`), this badge is non-interactive and sits above
+  the overlay in DOM order already, so it needs no `z-10` treatment — plain
+  insertion into the existing badge row is enough. Fixing it here also closes
+  the gap on `Favorites.jsx` for free (it renders the same `ToolCard`, three
+  call sites per the tags-clickable deepening's own count), which the original
+  "Discover.jsx card grid" plan never covered since `Favorites.jsx` didn't
+  exist when this entry was written.
 
 ### Command palette / ⌘K quick jump
 - **Status:** OPEN
@@ -1676,6 +1709,9 @@ a client-side SPA with a static tool catalogue.
     language, no new component. Since this only ever applies to
     radar-discovered tools, it naturally co-occurs with the NEW badge rather
     than needing its own separate strip.
+    **Correction (see 2026-09-01 21:20 UTC deepening below): this line number
+    and this file are both stale — the actual target is `ToolCard.jsx`'s badge
+    row.**
   - **What this would NOT include** (kept out to bound the diff): no
     backfilling popularity for the 704 bundled baseline tools (they were
     never radar-discovered, so there's no honest number to give them — same
@@ -1694,6 +1730,30 @@ a client-side SPA with a static tool catalogue.
   dependency, no new route, no radar source changes (the fetches already
   happen).
 - **Found:** 2026-08-27 03:06 UTC
+- **Deepened 2026-09-01 21:20 UTC:** the radar/schema/enrich half of this plan
+  (`radar/schema.js`, `radar/enrich.js`, the two `FIELDS` arrays) is untouched
+  by anything that's shipped since and still exactly accurate — re-confirmed
+  `enrich()` still never reads `stars`/`points` off `candidate.raw` beyond the
+  `dev`/`owner` extraction, and neither `FIELDS` array carries `popularity`.
+  Only the app-side render target is wrong, for the identical reason just
+  logged against the neighboring "Tool status warning" gap above: `Discover.jsx`
+  was refactored to extract a shared `<ToolCard>` component
+  (`src/components/app/ToolCard.jsx`, used by both `Discover.jsx` and
+  `Favorites.jsx`), so `Discover.jsx:212-217` is now the category-pill filter
+  row, not card markup — there is no "existing 🆕 NEW pill" location left in
+  that file to add a sibling badge next to. The real NEW pill now lives at
+  `ToolCard.jsx:46-53`, inside the badge wrapper `<span className="flex
+  shrink-0 items-center gap-1.5">` at `ToolCard.jsx:45-67`. **Corrected
+  target:** render `tool.popularityLabel` as a fourth possible badge in that
+  same wrapper (alongside NEW, the fit-band pill, and the UNCERTAIN badge the
+  status-warning gap above also now targets there), gated on `tool.popularity`
+  being truthy. All three badges are non-interactive text pills sitting above
+  the card's whole-card stretched-link overlay in DOM order, so — same
+  reasoning as the status-warning correction — no `z-10` wrapping is needed,
+  unlike the actionable controls lower in the card. This also means whoever
+  builds this gap and the status-warning gap in the same run should write
+  both badges into that one wrapper together rather than two separate patches
+  landing on the same six lines back-to-back.
 
 ### "Community access (Discord & forum)" — half the claim doesn't exist
 - **Status:** REJECTED — the real half (forum) already ships; the missing half
