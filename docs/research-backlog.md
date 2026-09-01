@@ -3131,7 +3131,7 @@ a client-side SPA with a static tool catalogue.
 
 ### Discover has filters but no sort control — the 700+ result grid has exactly one fixed order
 
-- **Status:** OPEN
+- **Status:** SHIPPED (this run, sha in DEVLOG)
 - **Seen in:** FutureTools.io (fetched fresh this run, 4,000+ tools across 29
   categories) lets a visitor sort its grid by most-upvoted, date-added, or
   name; the same three-way sort (relevance/newest/name, sometimes plus
@@ -3213,3 +3213,18 @@ a client-side SPA with a static tool catalogue.
   component, and one added branch in the existing `results` sort chain. No
   backend, no new dependency, no new route, no new store, no radar change.
 - **Found:** 2026-09-01 00:20 UTC
+- **Shipped this run:** built exactly to spec. New `src/utils/sortResults.js`
+  exports `compareByNewest`/`compareByName` (6 unit tests in
+  `test/sort-results.test.mjs`) — pulled out of `Discover.jsx` because they
+  don't need the per-render `tieBreak` closure the `match` order does, so
+  they're independently testable. `Discover.jsx` gained a `sort` URL param
+  (`match` default, absent from the URL so old links are unaffected;
+  `newest`/`name` otherwise) and a "Sort" pill row next to the existing
+  Price/Level filters, reusing the same `Pill` component. The `results`
+  `useMemo` branches on `sort` before falling through to the existing
+  score-then-prominence order; the pagination reset key now includes `sort`
+  so switching orders snaps back to page one instead of showing a stale
+  page length. No new route, no new dependency, no store change — exactly
+  the bounded diff this entry specced. Verified via `npm test` (237/237: 102
+  radar + 135 app, up from 231), `npm run build` (15/15 routes prerendered),
+  and `npm run smoke` (21/21 routes, 0 console errors).

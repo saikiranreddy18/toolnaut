@@ -5,6 +5,7 @@ import { matchScore, matchReasonShort } from '../../utils/matchScore'
 import { byProminence, isCatalogNoise } from '../../utils/prominence'
 import { getNewTools } from '../../utils/newTools'
 import { matchesQuery } from '../../utils/search'
+import { compareByNewest, compareByName } from '../../utils/sortResults'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { loadFavorites, addFavorite, removeFavorite } from '../../state/favoritesStore'
@@ -17,6 +18,13 @@ import ToolCard from '../../components/app/ToolCard'
 const PRICES = ['free', 'freemium', 'paid']
 const LEVELS = ['beginner', 'intermediate', 'advanced']
 const MAX_COMPARE = 4
+// 'match' is the default and never appears in the URL, so an existing
+// shared/bookmarked Discover link with no `sort` param keeps today's order.
+const SORTS = [
+  { key: 'match', label: 'Top match' },
+  { key: 'newest', label: 'Newest' },
+  { key: 'name', label: 'A-Z' },
+]
 
 // The catalog is ~750 tools and every one of them used to render at once:
 // ~14,500 DOM nodes and a 58,000px-tall page on desktop, 167,000px on mobile,
@@ -52,6 +60,7 @@ export default function Discover() {
   const cat = searchParams.get('cat') || ''
   const price = searchParams.get('price') || ''
   const level = searchParams.get('level') || ''
+  const sort = searchParams.get('sort') || 'match'
 
   function setParam(key, value) {
     const next = new URLSearchParams(searchParams)
@@ -94,7 +103,7 @@ export default function Discover() {
   const answersKey = answers ? JSON.stringify(answers) : ''
   const tieBreak = useMemo(() => byProminence(answers?.domain), [answers?.domain])
   const results = useMemo(() => {
-    return TOOLS
+    const scored = TOOLS
       .filter((tool) =>
         (!cat || tool.category === cat) &&
         (!price || tool.price === price) &&
@@ -102,20 +111,23 @@ export default function Discover() {
         matchesQuery(tool, q),
       )
       .map((tool) => ({ ...tool, score: matchScore(tool, answers) }))
-      // Score first, then prominence. The tiebreak used to carry most of the
-      // weight here: matchScore's baseline overflowed its own ceiling, so
-      // dozens of tools pinned at 99 and the real ordering was alphabetical.
-      // The baseline is fixed and scores now spread, but prominence still
-      // breaks the genuine ties.
-      .sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || tieBreak(a, b))
-  }, [q, cat, price, level, answersKey, tieBreak])
+
+    if (sort === 'newest') return scored.sort(compareByNewest)
+    if (sort === 'name') return scored.sort(compareByName)
+    // Score first, then prominence. The tiebreak used to carry most of the
+    // weight here: matchScore's baseline overflowed its own ceiling, so
+    // dozens of tools pinned at 99 and the real ordering was alphabetical.
+    // The baseline is fixed and scores now spread, but prominence still
+    // breaks the genuine ties.
+    return scored.sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || tieBreak(a, b))
+  }, [q, cat, price, level, sort, answersKey, tieBreak])
 
   const hasFilters = !!(q || cat || price || level)
 
   // Paging is derived, not an effect: storing the filter signature alongside
   // the count resets the page during the same render that changes the filters,
   // so a new result set never flashes the previous page length first.
-  const filterKey = `${q}|${cat}|${price}|${level}`
+  const filterKey = `${q}|${cat}|${price}|${level}|${sort}`
   const [page, setPage] = useState({ key: filterKey, count: PAGE_SIZE })
   const visibleCount = page.key === filterKey ? page.count : PAGE_SIZE
   const visible = results.slice(0, visibleCount)
@@ -217,6 +229,12 @@ export default function Discover() {
         {LEVELS.map((l) => (
           <Pill key={l} active={level === l} onClick={() => setParam('level', level === l ? '' : l)}>
             {LEVEL_LABELS[l]}
+          </Pill>
+        ))}
+        <span className="ml-3 shrink-0 text-xs uppercase tracking-widest text-slate-600">Sort</span>
+        {SORTS.map(({ key, label }) => (
+          <Pill key={key} active={sort === key} onClick={() => setParam('sort', key === 'match' ? '' : key)}>
+            {label}
           </Pill>
         ))}
       </div>
