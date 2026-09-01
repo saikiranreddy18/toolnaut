@@ -15,6 +15,7 @@ import {
   bodyTooLarge,
   credentials,
   credentialShapeProblem,
+  paymentsEnabled,
 } from './_razorpay.js'
 
 export default async function handler(req, res) {
@@ -26,6 +27,15 @@ export default async function handler(req, res) {
   if (bodyTooLarge(req)) return res.status(413).json({ error: 'Request too large' })
   if (!originAllowed(req.headers.origin)) return res.status(403).json({ error: 'Forbidden' })
   if (rateLimited(clientIp(req))) return res.status(429).json({ error: 'Too many requests' })
+
+  // Refused BEFORE credentials are even read: no order can be created, so no
+  // new charge can begin, whatever the browser sends. Hiding the button is not
+  // enough - anyone can POST here directly.
+  if (!paymentsEnabled()) {
+    return res.status(503).json({
+      error: 'Payments are not available yet. Toolnaut Pro is currently in early access.',
+    })
+  }
 
   const creds = credentials()
   if (!creds) {

@@ -24,6 +24,15 @@ import {
   credentials,
 } from './_razorpay.js'
 
+// DELIBERATELY NOT GATED BY PAYMENTS_ENABLED.
+//
+// The kill switch stops create-order, which is where a new charge begins.
+// Blocking verification too would strand anyone whose payment was already in
+// flight when payments were switched off: their money has moved, and refusing
+// to confirm it produces exactly the "charged with no access" outcome the
+// switch exists to prevent. Verification cannot create a charge - it only
+// confirms one that already happened - so leaving it open is the safe
+// direction.
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')

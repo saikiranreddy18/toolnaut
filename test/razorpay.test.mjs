@@ -117,3 +117,24 @@ test('the payment endpoints accept only our own origins', () => {
     'https://evil.example', 'https://toolnaut-.vercel.app', 'http://toolnaut.vercel.app',
   ]) assert.equal(originAllowed(bad), false, `${bad} should be blocked`)
 })
+
+// ── the kill switch ──────────────────────────────────────────────────────────
+
+test('payments are OFF unless explicitly enabled', async () => {
+  const { paymentsEnabled } = await import('../api/_razorpay.js')
+  const original = process.env.PAYMENTS_ENABLED
+  try {
+    // Every way of "not exactly true" must mean off. A payment system that
+    // switches itself on when a variable goes missing is the wrong way round.
+    for (const v of [undefined, '', 'false', 'TRUE', 'True', '1', 'yes', ' true']) {
+      if (v === undefined) delete process.env.PAYMENTS_ENABLED
+      else process.env.PAYMENTS_ENABLED = v
+      assert.equal(paymentsEnabled(), false, `PAYMENTS_ENABLED=${JSON.stringify(v)} must be off`)
+    }
+    process.env.PAYMENTS_ENABLED = 'true'
+    assert.equal(paymentsEnabled(), true)
+  } finally {
+    if (original === undefined) delete process.env.PAYMENTS_ENABLED
+    else process.env.PAYMENTS_ENABLED = original
+  }
+})

@@ -105,7 +105,13 @@ export default function ContactSection() {
           <p className="mt-6 text-xs text-slate-500">
             {count.toLocaleString()} tools{updated ? ` · catalogue updated ${updated}` : ''}
             <br />
-            Free public beta — no card, no payment taken.
+            {/* DRIVEN BY THE PAYMENT SWITCH, not typed as a fact. This line was
+                true, then a live checkout went up and it quietly became false;
+                the only durable fix is to make the claim read the same flag the
+                server gates on, so it cannot be left behind again. */}
+            {import.meta.env.VITE_PAYMENTS_ENABLED === 'true'
+              ? 'Free public beta — paid plans in early access.'
+              : 'Free public beta — no card, no payment taken.'}
           </p>
           <p className="mt-3 font-display text-[10px] font-bold uppercase tracking-widest text-slate-600">
             © {new Date().getFullYear()} Toolnaut · built in the open

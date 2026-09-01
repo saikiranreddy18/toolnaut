@@ -107,6 +107,18 @@ export function bodyTooLarge(req) {
   return Number.isFinite(len) && len > MAX_BODY_BYTES
 }
 
+// ── the kill switch ──────────────────────────────────────────────────────────
+// DEFAULT IS OFF. Payments are only live when PAYMENTS_ENABLED is exactly the
+// string 'true'; an unset, empty, misspelled or truthy-ish value all mean off.
+// A payment system that switches itself on when a variable goes missing is the
+// wrong way round.
+//
+// This gates ORDER CREATION, which is where a new charge begins. It deliberately
+// does NOT gate verification - see the note in verify-payment.js.
+export function paymentsEnabled() {
+  return process.env.PAYMENTS_ENABLED === 'true'
+}
+
 // Both endpoints need the same credential check, and neither should ever hint
 // at whether the secret specifically is the missing one.
 export function credentials() {
