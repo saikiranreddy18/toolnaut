@@ -23,6 +23,7 @@ import {
   bodyTooLarge,
   credentials,
 } from './_razorpay.js'
+import { supabaseConfigured, rest, activateEntitlement } from './_supabase.js'
 
 // DELIBERATELY NOT GATED BY PAYMENTS_ENABLED.
 //
@@ -95,14 +96,50 @@ export default async function handler(req, res) {
       return res.status(400).json({ verified: false, error: 'Payment could not be confirmed' })
     }
 
+    // Reconciled. Record it and unlock the plan. The user id comes from the
+    // ORDER NOTES — written server-side at create-order — never from this
+    // request, so a stolen order/payment/signature triple can only ever
+    // activate the account that created the order.
+    //
+    // Fast path only: the webhook (razorpay-webhook.js) repeats this settle
+    // idempotently, so a browser that dies right here still gets its plan.
+    let entitlementEndsAt = null
+    const notesUser = typeof order?.notes?.user_id === 'string' && order.notes.user_id ? order.notes.user_id : null
+    const planCode = order?.notes?.plan ?? null
+    if (supabaseConfigured && notesUser && planCode) {
+      try {
+        const upd = await rest(`payment_transactions?razorpay_order_id=eq.${encodeURIComponent(orderId)}`, {
+          method: 'PATCH',
+          headers: { prefer: 'return=representation' },
+          body: {
+            status: 'captured',
+            razorpay_payment_id: paymentId,
+            paid_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+          },
+        })
+        const txId = Array.isArray(upd.json) ? upd.json[0]?.id : null
+        entitlementEndsAt = await activateEntitlement({
+          userId: notesUser,
+          planCode,
+          transactionId: txId,
+        })
+      } catch (err) {
+        // The payment IS verified; a recording hiccup must not tell the payer
+        // otherwise. The webhook will settle the record on its retry schedule.
+        console.error('post-verify recording failed', err?.message || err)
+      }
+    }
+
     return res.status(200).json({
       verified: true,
       payment_id: paymentId,
       order_id: orderId,
       amount: order.amount,
       currency: order.currency,
-      plan: order?.notes?.plan ?? null,
+      plan: planCode,
       status: payment.status,
+      entitlement_ends_at: entitlementEndsAt,
     })
   } catch (e) {
     // The signature checked out but Razorpay could not be reached. This is NOT

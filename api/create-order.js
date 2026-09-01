@@ -17,6 +17,7 @@ import {
   credentialShapeProblem,
   paymentsEnabled,
 } from './_razorpay.js'
+import { getUserFromRequest, supabaseConfigured, rest } from './_supabase.js'
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -54,6 +55,12 @@ export default async function handler(req, res) {
   // cannot be used to enumerate internal plan ids.
   if (!priced) return res.status(400).json({ error: 'Unknown plan' })
 
+  // Who is paying. The token is optional — the paywall flow always sends it,
+  // and only an order that carries a user id can ever activate an entitlement
+  // (verify-payment and the webhook both read it back from the order notes,
+  // which the browser cannot forge).
+  const user = await getUserFromRequest(req)
+
   try {
     const razorpay = new Razorpay({ key_id: creds.keyId, key_secret: creds.keySecret })
     const order = await razorpay.orders.create({
@@ -62,8 +69,28 @@ export default async function handler(req, res) {
       // Receipts are capped at 40 characters by Razorpay. Plan id plus a
       // timestamp stays well inside that and is enough to find the order again.
       receipt: `tn_${priced.planId}_${Date.now()}`.slice(0, 40),
-      notes: { plan: priced.planId },
+      notes: { plan: priced.planId, user_id: user?.id || '' },
     })
+
+    // The pending row, written BEFORE checkout opens — so a payment that
+    // completes after the browser dies still has something for the webhook to
+    // settle against. Best-effort: a storage hiccup must not block a checkout
+    // the gateway is ready to run (the webhook reconstructs from order notes).
+    if (supabaseConfigured && user?.id) {
+      const ins = await rest('payment_transactions', {
+        method: 'POST',
+        headers: { prefer: 'return=minimal' },
+        body: [{
+          user_id: user.id,
+          plan_code: priced.planId,
+          status: 'created',
+          amount_paise: priced.paise,
+          currency: priced.currency,
+          razorpay_order_id: order.id,
+        }],
+      })
+      if (!ins.ok) console.error('pending transaction write failed', ins.status, ins.text?.slice(0, 200))
+    }
 
     return res.status(200).json({
       order_id: order.id,
