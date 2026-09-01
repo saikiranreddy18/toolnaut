@@ -1335,10 +1335,16 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-26 12:15 UTC
 
 ### Weekly discovery digest email & personalized alerts (Student/Pro tiers, unbuildable client-side)
-- **Status:** REJECTED — needs a backend/email-delivery system; logged so
-  future research hours don't re-spend an hour rediscovering this, same
-  reason the Pro chat assistant / Team tier finding above was logged rather
-  than left silently on the pricing page.
+- **Status:** OPEN — REOPENED 2026-09-01 09:06 UTC. Every reason this was
+  REJECTED is now false; see the deepening below. Do not re-reject this
+  without re-reading it — the backend this entry says doesn't exist was
+  built since (payments work, unrelated in purpose, landed the same
+  serverless-function pattern this gap needed).
+- **Original rejection (now stale, kept for history):** REJECTED — needs a
+  backend/email-delivery system; logged so future research hours don't
+  re-spend an hour rediscovering this, same reason the Pro chat assistant /
+  Team tier finding above was logged rather than left silently on the
+  pricing page.
 - **Seen in:** not a competitor pattern — found while auditing `planData.js`
   for other unbacked rows (the same file that already produced the
   now-shipped Favorites gap, the still-open PDF-export gap, and the
@@ -1382,11 +1388,129 @@ a client-side SPA with a static tool catalogue.
   real delivery infrastructure exists, the same move already flagged for
   the chat-assistant/Team-tier copy above. No edit made — flagged for
   whoever owns pricing copy.
-- **Build size:** L (needs a transactional email or push provider, a
-  server-held secret, and an ongoing content/ops process — none of which a
-  client-only SPA change can provide) — out of scope for this backlog's
-  client-only SPA model.
+- **Build size (original, stale):** L (needs a transactional email or push
+  provider, a server-held secret, and an ongoing content/ops process — none
+  of which a client-only SPA change can provide) — out of scope for this
+  backlog's client-only SPA model.
 - **Found:** 2026-08-26 15:15 UTC
+- **Deepened 2026-09-01 09:06 UTC — the rejection's entire premise is gone,
+  and the harder 90% of the work already shipped:** this run's job was
+  research, not building, but the finding here was too concrete to leave as
+  a one-line reopen. Re-audited every claim the REJECTED verdict made
+  against the *current* repo, not the 2026-08-26 one:
+  - "no `api/` directory" — false today. The unrelated payments work
+    (Razorpay + Supabase entitlements, shipped 2026-08-31/09-01) created
+    `api/` as a real Vercel serverless-functions directory with a
+    server-held-secret pattern already proven in production
+    (`api/_razorpay.js`, `api/_supabase.js`). The email-alerts REJECTED
+    verdict's core objection — "an API key shipped in a `VITE_`-prefixed
+    client bundle is a public secret" — is exactly the problem `api/`
+    already solves for a different feature.
+  - More than that: **the email-alerts backend itself already exists**,
+    fully built, and appears to have shipped without ever being logged as
+    closing this backlog entry. `api/alerts-subscribe.js` (POST, origin
+    allowlist + per-IP rate limit + email validation, upserts into
+    `alert_subscribers` on conflict), `api/alerts-unsubscribe.js` (GET with
+    a per-subscriber uuid token, one click deletes the row, no login), and
+    `api/alerts-send.js` (the actual digest: a Vercel cron —
+    `vercel.json`'s `crons: [{ path: '/api/alerts-send', schedule: '30 3
+    * * *' }]` — reads the *same* `/tools.json` the app itself reads,
+    matches each subscriber's chosen domain(s) against tools discovered
+    since their `last_notified_at` watermark capped at 7 days so a
+    subscriber never gets the same tool twice, and sends via Resend's REST
+    API, no SDK dependency, capped at 80 sends/run to stay under Resend's
+    free 100/day). Schema is `supabase/alert_subscribers.sql`: RLS enabled
+    with **zero** anon policies, so the browser's anon key cannot read or
+    write the subscriber list at all — only the service-role key the
+    serverless functions hold can, which closes exactly the "a list of
+    email addresses must not be publicly readable" risk a naive version of
+    this feature would create.
+  - What's actually still missing, confirmed by grepping `alert` (case
+    insensitive) across all of `src/`: **zero UI calls either endpoint.**
+    The only hits are `capabilityMatrix.js`/`CapabilityMatrix.jsx` (still
+    correctly showing "Alerts" as `planned`, not live — this part of the
+    pricing page is still honest) and `planData.js`'s two `planned(...)`
+    copy lines. There is no subscribe form, no email input, no domain
+    picker, anywhere in the app. A fully working, abuse-hardened,
+    duplicate-safe email pipeline is sitting behind a closed door with no
+    handle on it.
+  - This means the "ongoing editorial/ops task" objection from the
+    original rejection is also gone — `alerts-send.js` already answers
+    "what goes in each week's digest" algorithmically (radar's own
+    `discoveredAt` + each subscriber's domain picks), the same trustworthy
+    signal the (shipped) "Weekly Fresh Finds" in-app strip already reads.
+    No human curation step exists or is needed; the cron is already live
+    and firing daily regardless of whether anyone can subscribe.
+  - **Smallest useful version left to build — genuinely S now, not L:**
+    a subscribe form, nothing else.
+    - New `src/utils/alertsApi.js`: two small async functions,
+      `subscribeToAlerts({ email, domains })` → `POST /api/alerts-subscribe`
+      and returns `{ ok, error }` (translating the endpoint's 503
+      "not configured yet" into a distinct `ok:false, reason:'unconfigured'`
+      so the form can render an honest "alerts aren't live yet" state
+      instead of a generic error — mirrors how `entitlement.js` already
+      surfaces `payments_enabled` as its own explicit field rather than
+      collapsing it into a normal error). No `unsubscribe` call needed
+      client-side — that link only ever needs to work from inside an email,
+      which `alerts-unsubscribe.js` already serves as a self-contained HTML
+      page requiring no app code at all.
+    - New small form on `Settings.jsx` (already imports `BillingCard` and
+      renders it in its own `<section>`, `Settings.jsx:22-23` /
+      `~258-294` block pattern — a "🔔 Alerts" section fits the same
+      `sticker`/`section` visual rhythm as the existing BILLING and account
+      sections on that page, no new visual primitive needed): an email
+      input (defaults to the signed-in session's email if one exists via
+      `loadSession()`, already imported), six checkboxes for the domain
+      keys (`code`/`design`/`writing`/`data`/`automation`/`learning` —
+      reuse `CATEGORY_META` names/colors from `toolsCatalog.js:10-16`
+      exactly as `SkillGraph.jsx` already does on this same page, not a new
+      label map), and a submit button calling `subscribeToAlerts()`. Empty
+      domain selection is valid and means "alert on everything" per
+      `_alerts.js`'s own comment. Success state: a short confirmation line
+      ("You're subscribed — check your inbox tomorrow" or similar,
+      matching this page's existing copy voice) rather than a redirect;
+      unconfigured state (503): the section still renders but says alerts
+      aren't live yet, same honest-degradation pattern `BillingCard.jsx`
+      already uses when Supabase/payments aren't configured.
+    - Once this ships, `planData.js:35` (`planned('Weekly discovery digest
+      email')`) and `planData.js:59` (`planned('Weekly trending tools +
+      personalized alerts')`) and the matching `capabilityMatrix.js:50-53`
+      `Alerts` row become the next honest-copy fix — flip `planned` to a
+      live claim — but that copy edit is a one-line follow-up once the
+      feature is real, not part of this build (same "don't fix the copy
+      before the feature exists" discipline this file already applies
+      elsewhere).
+    - **What this would NOT include** (kept out to bound the diff): no
+      unsubscribe/preferences UI inside the app itself (the emailed link
+      already handles it end to end); no per-user tie-in to the signed-in
+      session beyond pre-filling the email (subscribers are a separate
+      table, not linked to `authStore`'s session — matches how the backend
+      was already built, email-address-keyed, no `user_id` column in
+      `alert_subscribers.sql`); no change to `alerts-send.js`, the cron
+      schedule, or the domain-matching logic — all of that is already
+      correct and already running; no new route, so no `scripts/smoke.mjs`
+      addition needed (this lives inside the existing `/app/settings`
+      route).
+  - **One real caveat to flag, not a blocker:** whether `RESEND_API_KEY`,
+    `RESEND_FROM`, `SUPABASE_SERVICE_ROLE_KEY`, and `CRON_SECRET` are
+    actually set in the live Vercel project is unverifiable from inside
+    this repo/session (per `.env.example`'s own framing, these are
+    server-only secrets a human sets in the Vercel dashboard, not files
+    checked in here). If unset, `alertsConfigured` is `false` and every
+    endpoint already answers 503 honestly rather than pretending to work —
+    so shipping the form is safe either way, but whoever ships it should
+    say plainly in the digest/commit whether alerts are confirmed *actually
+    sending* in production or only wired-and-waiting-on-config, per this
+    routine's own "visible on the deployed site today" instruction. This is
+    exactly analogous to the payments kill-switch pattern already in this
+    codebase (`PAYMENTS_ENABLED` defaults off, fails open, never fakes a
+    live feature) — the alerts backend was clearly built with the same
+    discipline.
+- **Build size (corrected):** S — one small util (`alertsApi.js`), one new
+  form section on the existing `Settings.jsx` page reusing `CATEGORY_META`
+  and the page's existing `sticker`/`section` markup. No backend work (it's
+  already built and already running on a cron), no new dependency, no new
+  route.
 
 ### Final-page CTA broke its own "no signup wall" promise
 - **Status:** FIXED (this commit) — small demonstrable bug, fixed in this run
