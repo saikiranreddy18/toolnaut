@@ -14,13 +14,13 @@ import { generatePersona } from '../../utils/personaGenerator'
 import { generateRoadmap } from '../../utils/roadmapGenerator'
 import { getTool } from '../../utils/toolsCatalog'
 import { QUESTIONS } from '../../utils/quizLogic'
-import { planLabel } from '../../utils/planData'
 import { myStanding } from '../../utils/communityStats'
 import { SEEDED } from '../../utils/communityStats'
 import { haptic } from '../../utils/haptics'
 import SkillGraph from '../../components/app/SkillGraph'
 import Avatar from '../../components/app/Avatar'
 import AvatarPicker from '../../components/app/AvatarPicker'
+import BillingCard from '../../components/app/BillingCard'
 import { loadAvatar } from '../../state/avatarStore'
 
 // ME — the control centre.
@@ -432,12 +432,9 @@ export default function Settings() {
                 {session?.simulated && ' · simulated (dev preview)'}
               </dd>
             </div>
-            <div className="flex flex-wrap items-baseline justify-between gap-x-4 py-2.5 last:pb-0">
-              <dt className="text-xs text-slate-400">Plan</dt>
-              <dd className="font-display text-xs font-black uppercase tracking-wide" style={{ color: 'var(--lime)' }}>
-                {planLabel(session?.plan)} · free public beta
-              </dd>
-            </div>
+            {/* The plan row moved to BILLING below — user_entitlements is the
+                authority now, and a static "free public beta" here would lie
+                to the first person who actually pays. */}
           </dl>
           <p className="mt-4 text-xs leading-relaxed text-slate-500">
             Your stack, shortlist and progress live in this browser only — there
@@ -446,6 +443,16 @@ export default function Settings() {
         </div>
         )}
       </section>
+
+      {/* Billing — spec step 7 of the payment pipeline: current plan and
+          payment history, shown only to signed-in accounts (guests have
+          nothing to bill and the ACCOUNT card already explains their state). */}
+      {session && (
+        <section className="mt-10 xl:mt-0 xl:mb-8 xl:break-inside-avoid">
+          <h2 className="arcade-heading section text-xl sm:text-2xl">BILLING</h2>
+          <BillingCard session={session} />
+        </section>
+      )}
 
       {/* destructive action — visually separated per nav guidelines */}
       </div>
