@@ -8,7 +8,6 @@ import AudienceSection from '../components/sections/AudienceSection'
 import PricingSection from '../components/sections/PricingSection'
 import FeaturesSection from '../components/sections/FeaturesSection'
 import StatsSection from '../components/sections/StatsSection'
-import FounderOffer from '../components/sections/FounderOffer'
 import FounderRibbon from '../components/ui/FounderRibbon'
 import CTASection from '../components/sections/CTASection'
 import CometProgress from '../components/ui/CometProgress'
@@ -163,10 +162,6 @@ export default function Landing() {
         <RolesSection />
         <AudienceSection />
         <FeaturesSection />
-        {/* The founder offer belongs WITH the prices it undercuts, not stranded
-            under the hero. Someone reading the pricing table is mid-decision;
-            that is the moment the discount is worth something. */}
-        <FounderOffer />
         <PricingSection />
         <CTASection />
       </main>

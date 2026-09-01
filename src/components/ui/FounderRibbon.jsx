@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PLANS } from '../../utils/planData'
-import { useVisitorCountry } from '../../hooks/useVisitorCountry'
 
 // The founder ribbon — a live marquee carrying the whole offer: what it is,
 // what it costs, how long is left, and a link that actually takes the money.
@@ -18,10 +17,11 @@ import { useVisitorCountry } from '../../hooks/useVisitorCountry'
 // rupee symbol here would contradict what the card is actually charged. Reading
 // the plan means the ribbon cannot disagree with the checkout.
 //
-// NOT SHOWN IN INDIA
-// The offer is not sold there, and advertising something a visitor cannot buy
-// is worse than not advertising it. The server refuses it regardless — this
-// only avoids the dead end.
+// SHOWN EVERYWHERE, ON INSTRUCTION.
+// The plan itself is still not SOLD in India — /api/create-order refuses it
+// from there and /pay does not list it. So an Indian visitor who follows this
+// ribbon reaches the paywall without the founder plan on it. That gap is
+// deliberate and known; the ribbon runs regardless.
 export const FOUNDER_DEADLINE = '2026-09-10T00:00:00Z'
 
 function timeLeft(to, now) {
@@ -40,7 +40,6 @@ const pad = (n) => String(n).padStart(2, '0')
 
 export default function FounderRibbon() {
   const plan = PLANS.find((p) => p.id === 'founder')
-  const country = useVisitorCountry()
   const [left, setLeft] = useState(() => timeLeft(FOUNDER_DEADLINE, Date.now()))
 
   useEffect(() => {
@@ -52,10 +51,6 @@ export default function FounderRibbon() {
   // than no ribbon, and a countdown that has run out still shouting about a
   // deadline reads as a site nobody maintains.
   if (!plan || !left) return null
-  // Excluded countries see nothing. Undetermined country still sees it: the
-  // server is the gate, and hiding the offer from everyone whose geo lookup is
-  // slow would cost real sales to protect nothing.
-  if (country && plan.excludeCountries?.includes(country)) return null
 
   const clock = `${left.days}d ${pad(left.hours)}:${pad(left.mins)}:${pad(left.secs)}`
 
