@@ -22,6 +22,12 @@ import { markStackSeen } from '../../utils/funnel'
 // open of the app has something unexplored in it.
 function toolOfTheDay(answers, excludeNames, excludeSlugs) {
   const candidates = TOOLS
+    // Budget is a hard constraint here too. The starter stack already honours
+    // it (personaGenerator partitions before prominence), but this path ranked
+    // the whole catalogue on matchScore alone — so a "$0 - free only" visitor
+    // could be handed a paid tool as their pick of the day, in the one slot on
+    // the page that exists to be acted on.
+    .filter((t) => passesHardConstraints(t, answers))
     .filter((t) => !excludeNames.has(t.name) && !excludeSlugs.includes(t.slug))
     .map((t) => ({ ...t, score: matchScore(t, answers) ?? 50 }))
     .sort((a, b) => b.score - a.score)
