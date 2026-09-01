@@ -55,11 +55,27 @@ export default async function handler(req, res) {
   // cannot be used to enumerate internal plan ids.
   if (!priced) return res.status(400).json({ error: 'Unknown plan' })
 
-  // Who is paying. The token is optional — the paywall flow always sends it,
-  // and only an order that carries a user id can ever activate an entitlement
-  // (verify-payment and the webhook both read it back from the order notes,
-  // which the browser cannot forge).
+  // Who is paying. REQUIRED, not optional.
+  //
+  // This used to accept an anonymous order, and the result was the exact
+  // failure this pipeline exists to prevent: no user id meant no
+  // payment_transactions row and an empty notes.user_id, so the webhook found
+  // nothing to settle against, logged "no user/plan to activate", and marked
+  // the event processed. The payer was charged and got nothing, and Razorpay
+  // considered it done.
+  //
+  // The dangerous case is not an attacker POSTing here — it is an ordinary
+  // user whose session expired between loading /pay and clicking the button.
+  // Their token fails validation, getUserFromRequest returns null, and they
+  // are silently charged into a void. Refusing costs them one sign-in;
+  // accepting costs them their money.
   const user = await getUserFromRequest(req)
+  if (!user?.id) {
+    return res.status(401).json({
+      error: 'Please sign in again before paying — we attach the plan to your account.',
+      code: 'auth_required',
+    })
+  }
 
   try {
     const razorpay = new Razorpay({ key_id: creds.keyId, key_secret: creds.keySecret })
@@ -76,7 +92,7 @@ export default async function handler(req, res) {
     // completes after the browser dies still has something for the webhook to
     // settle against. Best-effort: a storage hiccup must not block a checkout
     // the gateway is ready to run (the webhook reconstructs from order notes).
-    if (supabaseConfigured && user?.id) {
+    if (supabaseConfigured) {
       const ins = await rest('payment_transactions', {
         method: 'POST',
         headers: { prefer: 'return=minimal' },

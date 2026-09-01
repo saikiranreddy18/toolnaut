@@ -20,12 +20,14 @@ const post = (path, body, headers = {}) =>
 
 console.log(`\nPAYMENT PIPELINE — ${BASE}\n`)
 
-console.log('Kill switch')
-{
+// Payments are ON now, so the kill switch is no longer the thing standing
+// between a visitor and a charge — authentication is. This reports the flag
+// honestly and only demands a refusal when the flag is actually off.
+const ent = await (await fetch(BASE + '/api/entitlement')).json().catch(() => ({}))
+console.log(`Payments flag: ${ent.payments_enabled ? 'ON' : 'off'}, configured: ${ent.configured ? 'yes' : 'no'}`)
+if (!ent.payments_enabled) {
   const r = await post('/api/create-order', { planId: 'guru' })
-  const b = await r.json().catch(() => ({}))
-  check('create-order refuses while payments are off', r.status === 503,
-    `HTTP ${r.status} ${b.error || ''}`.trim())
+  check('create-order refuses while payments are off', r.status === 503, `HTTP ${r.status}`)
 }
 
 console.log('\nWebhook')
@@ -81,8 +83,31 @@ console.log('\nDirect database access with the public key')
     `HTTP ${rd.status} rows=${Array.isArray(rows) ? rows.length : 'n/a'}`)
 }
 
+// ── the money-loss hole ─────────────────────────────────────────────────────
+// An order created without a signed-in user has no payment_transactions row
+// and an empty notes.user_id, so the webhook has nothing to settle against:
+// the payer is charged and gets nothing. This must refuse.
+console.log('\nAnonymous checkout')
+{
+  const r = await post('/api/create-order', { planId: 'guru' })
+  const b = await r.json().catch(() => ({}))
+  check('no order without a signed-in user', r.status === 401 || r.status === 503,
+    `HTTP ${r.status}${b.order_id ? ' CREATED ' + b.order_id : ''}`)
+}
+{
+  const r = await post('/api/create-order', { planId: 'guru' },
+    { authorization: 'Bearer not.a.real.token' })
+  const b = await r.json().catch(() => ({}))
+  check('no order on an expired/forged token', r.status === 401 || r.status === 503,
+    `HTTP ${r.status}${b.order_id ? ' CREATED ' + b.order_id : ''}`)
+}
+
 const failed = results.filter((r) => !r.pass)
 console.log(failed.length
-  ? `\n${failed.length} FAILURE(S) — do not enable payments.\n`
-  : `\nAll ${results.length} checks passed.\n`)
+  ? `
+${failed.length} FAILURE(S) — do not take payments.
+`
+  : `
+All ${results.length} checks passed.
+`)
 process.exit(failed.length ? 1 : 0)
