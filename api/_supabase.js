@@ -63,6 +63,14 @@ export async function getUserFromRequest(req) {
 // the webhook (authoritative path) — both are idempotent through it. Renewal
 // extends from the CURRENT end when it is still in the future, so paying
 // early never eats days.
+// RETURNS { ok, endsAt }, NOT a bare date.
+//
+// It used to return the end date, or null on failure — but a lifetime grant
+// SUCCEEDS with a null end date, so null meant both "granted forever" and
+// "nothing was written". Any caller trying to tell success from failure would
+// have reported every successful Founder purchase as a failure, and the payer
+// would have been told their payment did not provision.
+//
 // periodDays === null grants access that never expires — the founder plan.
 // current_entitlement() already reads a null ends_at as "still active"
 // ("ends_at is null or ends_at > now()"), so nothing downstream needs to change.
@@ -92,7 +100,7 @@ export async function activateEntitlement({ userId, planCode, transactionId, per
   // points at this payment, the work is done; return the end date already
   // stored rather than pushing it further out.
   if (row && transactionId && row.payment_transaction_id === transactionId) {
-    return row.ends_at
+    return { ok: true, endsAt: row.ends_at }
   }
 
   const now = Date.now()
@@ -108,7 +116,7 @@ export async function activateEntitlement({ userId, planCode, transactionId, per
 
   // Never downgrade a lifetime entitlement. If someone with permanent access
   // buys anything else, their existing null ends_at must survive it.
-  if (row && row.ends_at === null) return null
+  if (row && row.ends_at === null) return { ok: true, endsAt: null }
 
   const record = {
     user_id: userId,
@@ -129,7 +137,7 @@ export async function activateEntitlement({ userId, planCode, transactionId, per
       })
 
   if (!res.ok) console.error('entitlement write failed', res.status, res.text?.slice(0, 300))
-  return res.ok ? endsAt : null
+  return { ok: res.ok, endsAt: res.ok ? endsAt : null }
 }
 
 // ── webhook signature ────────────────────────────────────────────────────────

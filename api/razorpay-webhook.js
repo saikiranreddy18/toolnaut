@@ -109,10 +109,14 @@ export default async function handler(req, res) {
         // Lifetime comes from PLANS, the same list the pricing page renders, so
         // the promise on the page and the grant in the database cannot diverge.
         const lifetime = Boolean(PLANS.find((pl) => pl.id === planCode)?.lifetime)
-        await activateEntitlement({
+        const granted = await activateEntitlement({
           userId, planCode, transactionId: tx?.id || null,
           periodDays: lifetime ? null : 30,
         })
+        // Raise so the run is marked failed and Razorpay retries. Swallowing
+        // this would report success for a captured payment that granted
+        // nothing — the exact failure the webhook exists to prevent.
+        if (!granted?.ok) throw new Error(`entitlement not granted for order ${orderId}`)
       } else {
         console.error('webhook captured but no user/plan to activate', { orderId })
       }

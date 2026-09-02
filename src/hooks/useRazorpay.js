@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from 'react'
 import { supabase } from '../utils/supabase'
+import { fetchEntitlement } from '../utils/entitlement'
 
 // Razorpay Standard Checkout, as a hook.
 //
@@ -47,8 +48,29 @@ function loadCheckoutScript() {
 
 const GENERIC_ERROR = 'Something went wrong starting the payment. Nothing was charged.'
 
+// Polls /api/entitlement until the plan is live, or gives up.
+//
+// Backs off rather than hammering: the webhook usually lands within a couple of
+// seconds, and a tight loop against a serverless endpoint during a payment
+// spike is its own outage. ~30s total, which is long enough for a normal
+// webhook and short enough that nobody stares at a spinner forever.
+async function waitForEntitlement() {
+  const delays = [800, 1200, 2000, 3000, 4000, 6000, 6000, 6000]
+  for (const wait of delays) {
+    await new Promise((r) => setTimeout(r, wait))
+    try {
+      const ent = await fetchEntitlement()
+      if (ent.active) return true
+    } catch { /* keep trying; a failed poll is not a failed payment */ }
+  }
+  return false
+}
+
 export function useRazorpay() {
-  const [status, setStatus] = useState('idle') // idle | loading | open | verifying | paid | error
+  // 'provisioning' sits between verifying and paid: the money moved but the
+  // plan is not switched on yet. Showing 'paid' there would be a lie the user
+  // discovers by finding the app still locked.
+  const [status, setStatus] = useState('idle') // idle | loading | open | verifying | provisioning | paid | error
   const [error, setError] = useState(null)
   // Guards double-submits: the button is disabled while busy, but a fast double
   // click can still land two calls before React re-renders.
@@ -157,8 +179,22 @@ export function useRazorpay() {
               return
             }
 
-            setStatus('paid')
-            onPaid?.(result)
+            // THE RECONCILER. verified means the money moved; provisioned means
+            // the plan is on. When they disagree the webhook is still settling,
+            // so poll until the entitlement is really active rather than
+            // declaring success and leaving the user in a locked app.
+            if (result.provisioned) {
+              setStatus('paid')
+              onPaid?.(result)
+            } else {
+              setStatus('provisioning')
+              const active = await waitForEntitlement()
+              setStatus('paid')
+              // Handed on either way: the payment is real and the webhook will
+              // finish it. `provisioned` tells the page whether to promise
+              // access now or ask them to check back.
+              onPaid?.({ ...result, provisioned: active })
+            }
           } catch {
             setStatus('error')
             setError(

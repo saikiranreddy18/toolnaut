@@ -2,6 +2,7 @@ import { useEffect, useState, useRef} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { PLANS, formatPrice } from '../utils/planData'
+import { CONTACT_EMAIL as SUPPORT_EMAIL } from '../config'
 import { useVisitorCountry } from '../hooks/useVisitorCountry'
 import { useLocalPrice } from '../hooks/useLocalPrice'
 
@@ -173,6 +174,22 @@ export default function Pay() {
 
       {status === 'verifying' && (
         <p className="mt-5 text-xs font-bold uppercase tracking-widest text-slate-300">Confirming your payment…</p>
+      )}
+      {/* Paid, but the plan is not on yet. Says both halves plainly: the money
+          is safe AND we are still working — which is the truth, and is what
+          stops someone paying a second time because the app still looks
+          locked. */}
+      {status === 'provisioning' && (
+        <div className="mt-5 rounded-xl border-2 px-4 py-3" style={{ borderColor: 'var(--arcade-yellow)', background: 'rgba(255,222,46,0.10)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--arcade-yellow)' }}>
+            Payment received — unlocking your plan…
+          </p>
+          <p className="mt-1.5 text-[11px] leading-relaxed text-slate-300">
+            Your payment went through. We are switching your plan on now; this
+            usually takes a few seconds. Do not pay again — if it is still not
+            active in a minute, email {SUPPORT_EMAIL} and we will sort it.
+          </p>
+        </div>
       )}
       {/* Reported once per distinct message: `error` survives re-renders, and an
           effect that fired on each would turn one failed payment into dozens of

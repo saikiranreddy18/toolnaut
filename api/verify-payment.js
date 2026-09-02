@@ -105,6 +105,10 @@ export default async function handler(req, res) {
     // Fast path only: the webhook (razorpay-webhook.js) repeats this settle
     // idempotently, so a browser that dies right here still gets its plan.
     let entitlementEndsAt = null
+    // Did the plan actually get switched on? verified:true said only "the money
+    // moved" — a payer whose entitlement write failed was shown success and
+    // given nothing, with no way to tell. This separates the two facts.
+    let provisioned = false
     const notesUser = typeof order?.notes?.user_id === 'string' && order.notes.user_id ? order.notes.user_id : null
     const planCode = order?.notes?.plan ?? null
     if (supabaseConfigured && notesUser && planCode) {
@@ -120,15 +124,24 @@ export default async function handler(req, res) {
           },
         })
         const txId = Array.isArray(upd.json) ? upd.json[0]?.id : null
-        entitlementEndsAt = await activateEntitlement({
+        const granted = await activateEntitlement({
           userId: notesUser,
           planCode,
           transactionId: txId,
           periodDays: Boolean(PLANS.find((pl) => pl.id === planCode)?.lifetime) ? null : 30,
         })
+        provisioned = Boolean(granted?.ok)
+        entitlementEndsAt = granted?.endsAt ?? null
+        if (!provisioned) {
+          // Loud, because this is money taken for access not given. The webhook
+          // will retry, but a silent line here is how it stays unnoticed until
+          // the customer writes in.
+          console.error('PAID BUT NOT PROVISIONED', { orderId, planCode, userId: notesUser })
+        }
       } catch (err) {
         // The payment IS verified; a recording hiccup must not tell the payer
-        // otherwise. The webhook will settle the record on its retry schedule.
+        // it failed. But it must not tell them it succeeded either — provisioned
+        // stays false and the webhook settles it on its retry schedule.
         console.error('post-verify recording failed', err?.message || err)
       }
     }
@@ -142,6 +155,10 @@ export default async function handler(req, res) {
       plan: planCode,
       status: payment.status,
       entitlement_ends_at: entitlementEndsAt,
+      // verified = the money moved. provisioned = the plan is switched on.
+      // They are different facts and the UI must be able to tell them apart:
+      // "paid, unlocking..." is honest where a bare success tick is not.
+      provisioned,
     })
   } catch (e) {
     // The signature checked out but Razorpay could not be reached. This is NOT
