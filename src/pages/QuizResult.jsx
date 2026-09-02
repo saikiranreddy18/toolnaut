@@ -5,11 +5,21 @@ import { generatePersona } from '../utils/personaGenerator'
 import { recommendationConfidence } from '../utils/confidence'
 import { read as readScoped, write as writeScoped } from '../state/scopedStorage'
 import { loadQuiz, resetQuiz } from '../state/quizStore'
+import { loadSession } from '../state/authStore'
 import { haptic } from '../utils/haptics'
 
 // Persona reveal — the emotional peak of the funnel. Arcade neubrutalism:
 // chunky italic display, sticker cards on tilt, black-bordered CTA, pixel
-// confetti. Guests see full value here BEFORE any signup ask.
+// confetti.
+//
+// SIGNING IN IS REQUIRED TO SEE IT. The kit is the product's actual output,
+// and handing it over anonymously meant the nine answers behind it stayed in
+// one browser and never reached the database — so nobody could be supported,
+// restored, or learned from. The quiz itself stays open: someone has to be
+// able to answer before there is anything to sign in for.
+//
+// The answers are already saved locally by this point, so the round trip
+// through sign-in loses nothing and the same result renders on return.
 export default function QuizResult() {
   const navigate = useNavigate()
   const quiz = loadQuiz()
@@ -45,6 +55,12 @@ export default function QuizResult() {
 
   if (!quiz.completed) {
     return <Navigate to="/quiz?step=1" replace />
+  }
+
+  // Answers first, account second. Arriving here means the work is done and
+  // stored; sign-in is what attaches it to a person.
+  if (!loadSession()?.user) {
+    return <Navigate to="/auth/login?next=/quiz/result" replace />
   }
 
   const persona = generatePersona(quiz.answers)

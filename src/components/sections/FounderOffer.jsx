@@ -103,7 +103,7 @@ export default function FounderOffer() {
             </p>
             <p className="mt-3 flex items-baseline gap-2">
               <span className="font-display text-4xl font-black text-white sm:text-5xl">${plan.price}</span>
-              <span className="font-display text-xs font-black uppercase tracking-widest text-slate-400">one time · lifetime</span>
+              <span className="font-display text-xs font-black uppercase tracking-widest text-slate-400">one time · 10 years</span>
             </p>
           </div>
 

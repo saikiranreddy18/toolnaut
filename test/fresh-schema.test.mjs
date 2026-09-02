@@ -108,27 +108,63 @@ describe('a clean database built from supabase/migrations alone', () => {
     }
   })
 
-  test('the three plans are seeded with a 30-day period', async () => {
+  // Durations are asserted per plan in the next test, against planData. This
+  // one covers what is true of EVERY plan whatever its length: it exists, it is
+  // purchasable, it is priced, and it grants a positive number of days.
+  test('every seeded plan is active, priced, and grants real time', async () => {
     const rows = await all('select plan_code, amount_paise, period_days, active from public.plans order by plan_code')
-    assert.equal(rows.length, 3, `expected 3 seeded plans, got ${rows.length}`)
+    assert.ok(rows.length >= 4, `expected at least 4 seeded plans (3 standard + founder), got ${rows.length}`)
     for (const r of rows) {
-      assert.equal(Number(r.period_days), 30, `${r.plan_code} should grant 30 days, not ${r.period_days}`)
       assert.equal(r.active, true, `${r.plan_code} should be active`)
       assert.ok(Number(r.amount_paise) > 0, `${r.plan_code} needs a price`)
+      assert.ok(
+        Number(r.period_days) > 0,
+        `${r.plan_code} grants ${r.period_days} days — a plan someone pays for must grant time`,
+      )
     }
+    assert.ok(
+      rows.some((r) => r.plan_code === 'founder' && Number(r.period_days) === 3650),
+      'the founder plan must grant 3650 days (10 years), matching what every surface promises',
+    )
   })
 
   // period_days is the future single source of truth for grant length. Assert
   // it matches what the API actually grants so the two cannot drift.
-  test('plans.period_days matches the entitlement period the API grants', async () => {
-    const src = readFileSync(join(root, 'api/_supabase.js'), 'utf8')
-    const m = src.match(/periodDays\s*=\s*(\d+)/)
-    assert.ok(m, 'could not find the default periodDays in api/_supabase.js')
+  // Per-plan, not one global default. Plans no longer share a duration: the
+  // Founder plan grants 3650 days and the rest grant 30, so an assertion that
+  // every row equals the same number would have to be deleted the moment a
+  // second duration existed — and deleting a guard is how the drift it was
+  // guarding against gets in.
+  test('plans.period_days matches what planData grants, plan by plan', async () => {
+    const src = readFileSync(join(root, 'src/utils/planData.js'), 'utf8')
+    // Each plan block: id first, then its periodDays.
+    const expected = new Map()
+    for (const [, id, days] of src.matchAll(/id:\s*'([a-z]+)',\s*\n\s*periodDays:\s*(\d+)/g)) {
+      expected.set(id, Number(days))
+    }
+    // founder declares periodDays a few lines below its id, so pick it up too.
+    const founder = src.match(/id:\s*'founder'[\s\S]{0,600}?periodDays:\s*(\d+)/)
+    if (founder) expected.set('founder', Number(founder[1]))
+
+    assert.ok(expected.size >= 3, `parsed only ${expected.size} plan durations from planData.js`)
+
     const rows = await all('select plan_code, period_days from public.plans')
     for (const r of rows) {
+      const want = expected.get(r.plan_code)
+      assert.ok(
+        want !== undefined,
+        `plans row '${r.plan_code}' has no matching plan in planData.js — the catalogue and the code disagree`,
+      )
       assert.equal(
-        Number(r.period_days), Number(m[1]),
-        `plans.${r.plan_code}.period_days=${r.period_days} but activateEntitlement grants ${m[1]} days`,
+        Number(r.period_days), want,
+        `plans.${r.plan_code}.period_days=${r.period_days} but planData grants ${want} days`,
+      )
+    }
+    // And the reverse: a purchasable plan with no row cannot be reported on.
+    for (const [id] of expected) {
+      assert.ok(
+        rows.some((r) => r.plan_code === id),
+        `planData has plan '${id}' but no row exists in plans — the database cannot say what was bought`,
       )
     }
   })

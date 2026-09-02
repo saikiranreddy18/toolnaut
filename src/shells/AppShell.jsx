@@ -50,13 +50,35 @@ export default function AppShell() {
   const session = loadSession()
   const [chatOpen, setChatOpen] = useState(loadChatOpen)
 
-  // THE PAYWALL GATE. A signed-in (real, not simulated) user with no active
-  // entitlement is sent to /pay — but ONLY when the server itself says
-  // payments are switched on (PAYMENTS_ENABLED + Supabase configured). Three
-  // deliberate fail-opens: guests keep browsing the free beta, a failed check
-  // (unknown) lets the visit through rather than bricking the app on a
-  // network hiccup, and a deployment with payments off charges nobody and
-  // therefore blocks nobody.
+  // THE SIGN-IN GATE. /app/* now requires an account.
+  //
+  // It used to be open to guests, and everything they built lived in their
+  // browser and nowhere else. That was a deliberate acquisition choice, but it
+  // meant the product could not answer the most basic question about itself:
+  // who is using this, and what did they do. Nothing was attributable, so
+  // nothing could be learned, supported, restored, or paid for.
+  //
+  // Public pages are untouched. The landing page, /pricing, /new, /search,
+  // /tools/:domain, shared stacks and the intake conversation stay open — they
+  // are how anyone arrives, and gating them would leave nobody to sign in.
+  //
+  // ?next= carries the page they wanted so sign-in returns them to it rather
+  // than dumping everyone on the stack. safeNextPath (postAuth.js) is what
+  // stops that parameter becoming an open redirect.
+  useEffect(() => {
+    if (!session?.user) {
+      navigate(`/auth/login?next=${encodeURIComponent(location.pathname + location.search)}`, { replace: true })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session?.user?.id])
+
+  // THE PAYWALL GATE, second and separate. A signed-in (real, not simulated)
+  // user with no active entitlement is sent to /pay — but ONLY when the server
+  // itself says payments are switched on (PAYMENTS_ENABLED + Supabase
+  // configured). Two deliberate fail-opens remain: a failed check (unknown)
+  // lets the visit through rather than bricking the app on a network hiccup,
+  // and a deployment with payments off charges nobody and therefore blocks
+  // nobody.
   useEffect(() => {
     if (!session?.user || session.simulated) return
     let on = true
@@ -69,6 +91,7 @@ export default function AppShell() {
     return () => { on = false }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session?.user?.id])
+
   const launcherRef = useRef(null)
   const chatWasOpenRef = useRef(false)
 
@@ -86,18 +109,6 @@ export default function AppShell() {
     }
   }, [chatOpen])
 
-  // NO SIGN-IN GATE.
-  //
-  // Supabase is wired to authentication and nothing else. Stack, favourites,
-  // quiz, roadmap, progress, streak and avatar are all localStorage, and no
-  // table is ever read or written — grep for `.from(` and there is nothing.
-  // So the redirect that used to sit here guarded no data. What it did cost was
-  // every visitor, reviewer and crawler unwilling to sign in first, which is a
-  // steep price for a DISCOVERY product whose whole job is to be browsed.
-  //
-  // Sign-in stays available and becomes load-bearing the day state moves
-  // server-side. Until then it must not stand in the doorway.
-
   const quiz = loadQuiz()
   const persona = quiz.completed ? generatePersona(quiz.answers) : null
   // An unpicked avatar renders as no portrait rather than a placeholder face
@@ -108,6 +119,11 @@ export default function AppShell() {
     setChatOpen(open)
     saveChatOpen(open)
   }
+
+  // Every hook above has run, so this early return cannot change hook order.
+  // Render nothing while the redirect is in flight — otherwise the shell paints
+  // a signed-out app for a frame, which reads as a broken page.
+  if (!session?.user) return null
 
   const navLinkClass = ({ isActive }) =>
     `flex items-center gap-3 rounded-xl border-2 px-4 py-2.5 font-display text-sm font-black uppercase tracking-widest transition-all ${
@@ -178,19 +194,10 @@ export default function AppShell() {
           <StreakPoints />
         </div>
 
-        {/* Identity when there is one; otherwise say plainly that this browser
-            is where the stack lives, which is the honest reason to sign in. */}
+        {/* No guest branch any more: the gate above redirects anyone without a
+            session, so reaching this line means there is one. */}
         <div className="px-4 pt-4 text-xs text-slate-600">
-          {session ? (
-            `Signed in as ${session.user.name}`
-          ) : (
-            <Link
-              to="/auth/login?next=/app/stack"
-              className="underline decoration-dotted underline-offset-2 hover:text-slate-400"
-            >
-              Browsing as guest — saved to this browser. Sign in →
-            </Link>
-          )}
+          {`Signed in as ${session.user.name}`}
         </div>
       </aside>
 

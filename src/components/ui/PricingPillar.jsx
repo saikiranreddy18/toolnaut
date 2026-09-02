@@ -86,7 +86,7 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
           </span>
         </p>
         <p className="mt-1 text-[11px] font-bold uppercase tracking-wide text-slate-500">
-          {plan.lifetime ? 'Pay once · never expires' : 'One payment · does not auto-renew'}
+          {plan.lifetime ? 'Pay once · 10 years of access' : 'One payment · does not auto-renew'}
         </p>
         <p className="mt-3 text-xs text-slate-400">{plan.audience}</p>
 

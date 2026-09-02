@@ -108,6 +108,38 @@ export default function BillingCard({ session }) {
         </p>
       )}
 
+      {/* Ending soon. Silence until the last week, because a countdown shown
+          on day one is nagging; shown on day twenty-eight it is a service.
+          Nothing renews, so this is the only warning a person will get. */}
+      {ent?.active && ent.daysLeft != null && ent.daysLeft <= 7 && (
+        <p
+          className="mt-4 rounded-xl border px-3 py-2.5 text-xs leading-relaxed"
+          style={{ borderColor: 'rgba(255,46,163,0.4)', background: 'rgba(255,46,163,0.08)', color: '#fecdd3' }}
+          role="status"
+        >
+          <b>
+            {ent.daysLeft === 0
+              ? 'Your access ends today.'
+              : `Your access ends in ${ent.daysLeft} day${ent.daysLeft === 1 ? '' : 's'}.`}
+          </b>{' '}
+          Nothing renews automatically, so buy another pass if you want to carry on.
+        </p>
+      )}
+      {ent?.active && ent.daysLeft != null && ent.daysLeft <= 7 && ent.paymentsEnabled && (
+        <Link to="/pay" className="nb-btn mt-3 inline-block min-h-11 px-5 py-2.5 text-xs">
+          GET ANOTHER PASS →
+        </Link>
+      )}
+
+      {/* The one place a payer looks when something is wrong. A billing screen
+          with no way to reach a human is where trust goes. */}
+      <p className="mt-4 text-xs leading-relaxed text-slate-400">
+        Payment or access problem?{' '}
+        <Link to="/support" className="underline underline-offset-4" style={{ color: 'var(--cyan)' }}>
+          Support and refunds
+        </Link>
+      </p>
+
       <p className="mt-5 font-display text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">
         Payment history
       </p>

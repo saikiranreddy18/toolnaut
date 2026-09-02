@@ -69,20 +69,20 @@ export default function ToolDetail() {
 
   function toggleStack() {
     if (added) {
-      setStack(removeFromStack(tool.slug))
+      setStack(removeFromStack(tool.slug, 'tool_detail'))
     } else {
       haptic.select()
-      setStack(addToStack(tool.slug))
+      setStack(addToStack(tool.slug, 'tool_detail'))
       track(EVENTS.CTA_CLICK, { cta: 'add_to_stack', tool: tool.slug, location: 'detail' })
     }
   }
 
   function toggleFavorite() {
     if (favorited) {
-      setFavorites(removeFavorite(tool.slug))
+      setFavorites(removeFavorite(tool.slug, 'tool_detail'))
     } else {
       haptic.select()
-      setFavorites(addFavorite(tool.slug))
+      setFavorites(addFavorite(tool.slug, 'tool_detail'))
       track(EVENTS.CTA_CLICK, { cta: 'add_favorite', tool: tool.slug, location: 'detail' })
     }
   }

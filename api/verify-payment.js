@@ -124,7 +124,9 @@ export default async function handler(req, res) {
           userId: notesUser,
           planCode,
           transactionId: txId,
-          periodDays: Boolean(PLANS.find((pl) => pl.id === planCode)?.lifetime) ? null : 30,
+          // The plan's own period, never a literal. planData is the single
+          // source: the copy, this grant and plans.period_days all read it.
+          periodDays: PLANS.find((pl) => pl.id === planCode)?.periodDays ?? 30,
         })
       } catch (err) {
         // The payment IS verified; a recording hiccup must not tell the payer

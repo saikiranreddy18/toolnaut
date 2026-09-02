@@ -209,8 +209,8 @@ export default function Stack() {
                   index={i}
                   inStack={addedSlugs.includes(tool.slug)}
                   onToggleStack={() => {
-                    if (addedSlugs.includes(tool.slug)) setAddedSlugs(removeFromStack(tool.slug))
-                    else { haptic.select(); setAddedSlugs(addToStack(tool.slug)) }
+                    if (addedSlugs.includes(tool.slug)) setAddedSlugs(removeFromStack(tool.slug, 'stack'))
+                    else { haptic.select(); setAddedSlugs(addToStack(tool.slug, 'stack')) }
                   }}
                 />
               ))}
@@ -348,7 +348,7 @@ export default function Stack() {
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">From your persona</span>
                   ) : (
                     <button
-                      onClick={() => setAddedSlugs(removeFromStack(tool.slug))}
+                      onClick={() => setAddedSlugs(removeFromStack(tool.slug, 'stack'))}
                       className="press min-h-11 px-2 font-display text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-[var(--hot-pink)]"
                     >
                       Remove
@@ -392,7 +392,7 @@ export default function Stack() {
           </div>
           <div className="mt-5 flex items-center gap-3">
             <button
-              onClick={() => { haptic.select(); setAddedSlugs(addToStack(daily.slug)) }}
+              onClick={() => { haptic.select(); setAddedSlugs(addToStack(daily.slug, 'stack')) }}
               className="nb-btn min-h-11 flex-1 py-3 text-sm"
             >
               ⚡ grab it

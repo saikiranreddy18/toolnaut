@@ -239,8 +239,16 @@ describe('anonymous callers', () => {
   }
 
   test('plans stays publicly readable — the pricing page needs it signed out', async () => {
+    // Count-agnostic on purpose. This asserts the POLICY works, not how many
+    // plans exist; pinning the number meant adding the founder plan broke a
+    // security test for a reason that had nothing to do with security.
     const r = await asAnon(`select plan_code from public.plans`)
-    assert.equal(r.rows.length, 3, 'the pricing page would render empty for signed-out visitors')
+    const seeded = await db.query(`select count(*)::int as n from public.plans`)
+    assert.ok(r.rows.length > 0, 'the pricing page would render empty for signed-out visitors')
+    assert.equal(
+      r.rows.length, seeded.rows[0].n,
+      'an anonymous visitor sees fewer plans than exist — some would be invisible on the pricing page',
+    )
   })
 
   test('anonymous cannot rewrite a plan price', async () => {

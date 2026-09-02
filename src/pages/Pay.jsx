@@ -24,6 +24,7 @@ import useRazorpay from '../hooks/useRazorpay'
 import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { track, EVENTS } from '../utils/analyticsEvents'
 import { haptic } from '../utils/haptics'
+import RedeemCode from '../components/app/RedeemCode'
 
 // The paywall — where a signed-in user lands until a plan is active
 // (AppShell sends them here only while the server says payments are ON and
@@ -135,7 +136,7 @@ export default function Pay() {
               </span>
             </p>
             <p className="mt-1 font-display text-[9px] font-black uppercase tracking-[0.12em] text-slate-500">
-              {p.lifetime ? 'One-time · never expires' : 'One-time · no auto-renewal'}
+              {p.lifetime ? 'One-time · 10 years of access' : 'One-time · no auto-renewal'}
             </p>
             <LocalApprox amountINR={p.priceINR} />
             <p className="mt-2 text-[11px] leading-relaxed text-slate-400">{p.audience}</p>
@@ -156,9 +157,18 @@ export default function Pay() {
         Every plan here is a one-time payment. Nothing auto-renews and your card
         is never stored or charged again.{' '}
         {plans.some((p) => p.lifetime)
-          ? 'The 30-day plans end when the 30 days are up unless you buy again; the Founder plan never expires.'
+          ? 'The 30-day plans end when the 30 days are up unless you buy again; the Founder plan runs for 10 years.'
           : 'When the 30 days are up, access simply ends unless you choose to buy again.'}
       </p>
+
+      {/* A code grants access without a payment, so it sits with the plans
+          rather than after them. onRedeemed re-asks the server what is active
+          instead of assuming — the entitlement is the server's answer, not
+          this component's. */}
+      <RedeemCode onRedeemed={async () => {
+        const ent = await fetchEntitlement()
+        if (ent?.active) navigate('/app/stack', { replace: true })
+      }} />
 
       {status === 'verifying' && (
         <p className="mt-5 text-xs font-bold uppercase tracking-widest text-slate-300">Confirming your payment…</p>
@@ -169,6 +179,7 @@ export default function Pay() {
 
       <div className="mt-8 flex items-center gap-5 text-xs text-slate-500">
         <Link to="/pricing" className="underline underline-offset-4 hover:text-white">Compare plans</Link>
+        <Link to="/support" className="underline underline-offset-4 hover:text-white">Refunds &amp; support</Link>
         <button
           onClick={async () => { await signOut(); navigate('/') }}
           className="cursor-pointer underline underline-offset-4 hover:text-white"

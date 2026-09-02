@@ -77,20 +77,20 @@ export default function Discover() {
 
   function toggleStack(tool) {
     if (stack.includes(tool.slug)) {
-      setStack(removeFromStack(tool.slug))
+      setStack(removeFromStack(tool.slug, 'discover'))
     } else {
       haptic.select()
-      setStack(addToStack(tool.slug))
+      setStack(addToStack(tool.slug, 'discover'))
       track(EVENTS.CTA_CLICK, { cta: 'add_to_stack', tool: tool.slug })
     }
   }
 
   function toggleFavorite(tool) {
     if (favorites.includes(tool.slug)) {
-      setFavorites(removeFavorite(tool.slug))
+      setFavorites(removeFavorite(tool.slug, 'discover'))
     } else {
       haptic.select()
-      setFavorites(addFavorite(tool.slug))
+      setFavorites(addFavorite(tool.slug, 'discover'))
       markActed(track, 'save', { slug: tool.slug, surface: 'discover' })
       track(EVENTS.CTA_CLICK, { cta: 'add_favorite', tool: tool.slug })
     }
