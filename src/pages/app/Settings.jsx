@@ -12,6 +12,7 @@ import { loadMoon, setMoon, MOONS } from '../../state/moonStore'
 import { CURSOR_CHOICES, CURSOR_SIZES, loadCursor, setCursor } from '../../state/cursorStore'
 import { generatePersona } from '../../utils/personaGenerator'
 import { generateRoadmap } from '../../utils/roadmapGenerator'
+import AlertSettings from '../../components/app/AlertSettings'
 import { getTool } from '../../utils/toolsCatalog'
 import { QUESTIONS } from '../../utils/quizLogic'
 import { myStanding } from '../../utils/communityStats'
@@ -386,6 +387,24 @@ export default function Settings() {
               ))}
             </div>
           </fieldset>
+        </div>
+      </section>
+
+      {/* ── NOTIFICATIONS ───────────────────────────────────────────
+          Sits above ACCOUNT because it is a preference, not an identity
+          question, and someone hunting for "how do I stop the emails" should
+          find it before the delete-my-data controls. */}
+      <section className="mt-10 xl:mt-0 xl:mb-8 xl:break-inside-avoid">
+        <h2 className="arcade-heading section text-xl sm:text-2xl">NOTIFICATIONS</h2>
+        <div className="sticker mt-4 p-5">
+          {!session ? (
+            <p className="text-sm leading-relaxed text-slate-300">
+              Sign in to turn on tool alerts — we send them to your account
+              email, so there is nowhere to send them until there is an account.
+            </p>
+          ) : (
+            <AlertSettings />
+          )}
         </div>
       </section>
 
