@@ -1432,11 +1432,16 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-26 12:15 UTC
 
 ### Weekly discovery digest email & personalized alerts (Student/Pro tiers, unbuildable client-side)
-- **Status:** OPEN — REOPENED 2026-09-01 09:06 UTC. Every reason this was
-  REJECTED is now false; see the deepening below. Do not re-reject this
-  without re-reading it — the backend this entry says doesn't exist was
-  built since (payments work, unrelated in purpose, landed the same
-  serverless-function pattern this gap needed).
+- **Status:** OPEN (copy-accuracy only) — MOSTLY SHIPPED, discovered this run
+  (2026-09-02 21:09 UTC). The subscribe UI and delivery pipeline this entry's
+  2026-09-01 deepening spec'd as "smallest useful version" already exist,
+  built directly on `master` between this routine's runs (not by this
+  routine) — see the second deepening below for the full trace. What's left
+  is not a build, it's three stale `planned(...)` copy lines that now
+  undersell a real feature, plus a literal-accuracy mismatch ("weekly" /
+  "trending") between the promised copy and what actually ships. Do not
+  mark this fully SHIPPED or re-reject it without reading the second
+  deepening below.
 - **Original rejection (now stale, kept for history):** REJECTED — needs a
   backend/email-delivery system; logged so future research hours don't
   re-spend an hour rediscovering this, same reason the Pro chat assistant /
@@ -1608,6 +1613,83 @@ a client-side SPA with a static tool catalogue.
   and the page's existing `sticker`/`section` markup. No backend work (it's
   already built and already running on a cron), no new dependency, no new
   route.
+- **Deepened 2026-09-02 21:09 UTC — the "smallest useful version" above got
+  built, differently, and outside this routine:** `git log` on `master`
+  shows a `saikiranreddy18`-authored burst today building exactly this
+  capability: `cf458a9` ("feat(alerts): notification toggle in Settings, and
+  the truth about email"), `06330ec` and `68a7f1e` (sender-domain fixes),
+  all released by `v0.62.1`. Read the result in full against the shape
+  proposed above:
+  - `src/components/app/AlertSettings.jsx` (new) renders inside a new
+    NOTIFICATIONS section on `Settings.jsx` (`Settings.jsx:393-407`) — an
+    on/off switch plus the same six domain chips this entry already
+    proposed (`code`/`design`/`writing`/`data`/`automation`/`learning`),
+    matching the page's existing visual rhythm as predicted. It differs from
+    the proposed shape in one deliberate way: it's **session-token-gated**
+    (`getAccessToken()`, shows "Sign in to turn on tool alerts" for guests)
+    against new endpoints `api/alerts-status.js` (GET, resolves the email
+    from the verified Supabase token server-side, never the client) and
+    `api/alerts-toggle.js`, rather than the anonymous email-input form this
+    entry proposed against the older `api/alerts-subscribe.js`. Both API
+    paths now coexist in `api/` — the shipped one is arguably the safer
+    choice (ties the subscription to a real account instead of an
+    unauthenticated email string) and needed no separate build from this
+    backlog's perspective; noting the difference only so nobody goes
+    looking for the originally-spec'd `alertsApi.js`/email-input version and
+    concludes nothing shipped.
+  - The one real defect the shipping commit itself flagged, and fixed in the
+    same burst: `alert_subscribers.sql` existed only as a loose file outside
+    the applied-migrations lineage, so — per `cf458a9`'s own commit message —
+    "the cron has been firing daily into a table that is not there,
+    subscribe would fail, and nobody has ever received anything." Today's
+    later `842313d` ("fix: unify the migration lineage...") folded it into
+    the lineage proper as `supabase/migrations/0007_alert_subscribers.sql`
+    (confirmed on disk) and `supabase/README.md` now documents the
+    apply-in-order process plus `node scripts/supabase-verify.mjs` as the
+    way to confirm a given deployment actually has it. Whether that
+    migration has been run against the **live** Supabase project is not
+    something this repo can answer (same operational-fact ceiling this
+    file's Settings-sync entry and payments-copy entry both already hit) —
+    but the code path itself is complete and internally consistent now,
+    which it demonstrably was not a few commits ago.
+  - **What still doesn't match the promise, re-reading `api/alerts-send.js`
+    in full:** the cron it names itself "The daily alert run" (`alerts-send.js:1`)
+    — it runs once a day (`vercel.json`'s cron entry), not weekly, and a
+    given subscriber can go multiple days between emails only because
+    `WINDOW_DAYS`/`last_notified_at` gate on *new tools existing*, not on a
+    weekly schedule. And it is **not** trend-based: the only signal it reads
+    per tool is `discoveredAt` freshness within a 7-day window
+    (`alerts-send.js:126-129`) matched against the subscriber's chosen
+    domains — there is no join against stars, HN points, or any popularity
+    field (the separate, still-OPEN "popularity signal discarded before it
+    reaches a record" gap elsewhere in this file covers exactly that missing
+    signal). So `planData.js:61`/`:80` ("Weekly discovery digest email") and
+    `planData.js:104` ("Weekly trending tools + personalized alerts") both
+    still describe a cadence and a ranking method that were never built —
+    the shipped feature is closer to "personalized new-tool alerts, sent as
+    they're found" than either literal phrase.
+  - `capabilityMatrix.js`'s own Alerts row (`capabilityMatrix.js:50-54`)
+    needs no change — its free-tier text ("General new-tool feed") was
+    already correctly `live` and describes the in-app strip, not this email
+    feature, and its `pro`/`team` rows ("Price changes, better alternatives,
+    stack drift" / "Org-wide renewal and risk alerts") are still genuinely
+    unbuilt, separate capabilities from what shipped. Only `planData.js`'s
+    three per-plan feature lines are stale.
+  - **Corrected smallest useful version — a copy fix, not a build, and only
+    once the migration is confirmed live:** reword (not just flip the status
+    of) `planData.js:61`, `:80`, and `:104` to describe what actually ships —
+    e.g. `live('New tool alerts, by email')` for the Founder/Student lines
+    and `live('Personalized new-tool alerts by email')` for the Pro line,
+    dropping "weekly" and "trending" rather than keeping false specifics
+    under a `live` status, which would trade an undersell for an oversell.
+    Flipping status without fixing the wording would repeat the exact
+    mistake this backlog keeps finding elsewhere (promising more than what's
+    built) — so this is a finding, not a proposed edit to make blind; left
+    for whoever can confirm the migration's production state to pair with
+    the copy change in one commit.
+  - **Build size (re-corrected):** S — three one-line copy edits in
+    `planData.js`, contingent on confirming `0007_alert_subscribers.sql` is
+    applied in production first (operational check, not a code change).
 
 ### Final-page CTA broke its own "no signup wall" promise
 - **Status:** FIXED (this commit) — small demonstrable bug, fixed in this run
