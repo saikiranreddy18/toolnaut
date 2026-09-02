@@ -111,7 +111,7 @@ function Privacy() {
       <Section title="Contact">
         <p>
           Questions, or a request to delete your account:{' '}
-          <a href="mailto:hello@toolnaut.app" className="font-bold underline underline-offset-4" style={{ color: 'var(--cyan)' }}>
+          <a href={`mailto:${CONTACT_EMAIL}`} className="font-bold underline underline-offset-4" style={{ color: 'var(--cyan)' }}>
             hello@toolnaut.app
           </a>
         </p>
@@ -185,7 +185,7 @@ function Terms() {
 
       <Section title="Contact">
         <p>
-          <a href="mailto:hello@toolnaut.app" className="font-bold underline underline-offset-4" style={{ color: 'var(--cyan)' }}>
+          <a href={`mailto:${CONTACT_EMAIL}`} className="font-bold underline underline-offset-4" style={{ color: 'var(--cyan)' }}>
             hello@toolnaut.app
           </a>
         </p>

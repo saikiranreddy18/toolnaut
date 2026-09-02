@@ -108,6 +108,15 @@ export default function BillingCard({ session }) {
         </p>
       )}
 
+      {/* The one place a payer looks when something is wrong. A billing screen
+          with no way to reach a human is where trust goes. */}
+      <p className="mt-4 text-xs leading-relaxed text-slate-400">
+        Payment or access problem?{' '}
+        <Link to="/support" className="underline underline-offset-4" style={{ color: 'var(--cyan)' }}>
+          Support and refunds
+        </Link>
+      </p>
+
       <p className="mt-5 font-display text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">
         Payment history
       </p>

@@ -32,6 +32,7 @@ const SharedStack = lazy(() => import('./pages/SharedStack'))
 const CategoryLanding = lazy(() => import('./pages/CategoryLanding'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 const NewTools = lazy(() => import('./pages/NewTools'))
+const Support = lazy(() => import('./pages/Support'))
 const SearchTools = lazy(() => import('./pages/SearchTools'))
 const Pay = lazy(() => import('./pages/Pay'))
 
@@ -92,6 +93,10 @@ export default function App() {
                 served the landing page to anyone who clicked them. */}
             <Route path="/privacy" element={<Legal />} />
             <Route path="/terms" element={<Legal />} />
+            {/* A product that takes money needs a reachable human and a written
+                refund policy. Public on purpose: someone chasing a payment
+                should not have to sign in to find help. */}
+            <Route path="/support" element={<Support />} />
             <Route path="/pricing" element={<Pricing />} />
             {/* Both reachable without an account, on purpose: they are the
                 "see the value before you commit" half of the funnel. */}

@@ -179,6 +179,7 @@ export default function Pay() {
 
       <div className="mt-8 flex items-center gap-5 text-xs text-slate-500">
         <Link to="/pricing" className="underline underline-offset-4 hover:text-white">Compare plans</Link>
+        <Link to="/support" className="underline underline-offset-4 hover:text-white">Refunds &amp; support</Link>
         <button
           onClick={async () => { await signOut(); navigate('/') }}
           className="cursor-pointer underline underline-offset-4 hover:text-white"
