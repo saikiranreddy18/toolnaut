@@ -143,6 +143,34 @@ for (const t of ['profiles', 'tool_refs', 'roadmap_progress', 'payment_transacti
 console.log('\nMIGRATION 0006 — entitlement history index')
 meh('user_entitlements_user_idx', 'indexes are invisible to the anon role — see the SQL block below')
 
+// ── 0007 — the behavioural log ──────────────────────────────────────────────
+// Reported separately, and a MISSING table here is not treated as a failure of
+// the rest: 0007 may simply not be applied yet. The distinction matters because
+// the write path is fire-and-forget — if the table is absent the app carries on
+// silently, so this probe is the only thing that will ever tell you.
+console.log('\nMIGRATION 0007 — user_tool_interactions (behavioural log)')
+{
+  const r = await probe('user_tool_interactions', '*')
+  if (r.rows) {
+    ok('user_tool_interactions exists')
+    for (const c of ['user_id', 'tool_slug', 'action', 'context', 'metadata', 'created_at']) {
+      const h = await has('user_tool_interactions', c)
+      h === true ? ok(`user_tool_interactions.${c}`)
+        : h === false ? bad(`user_tool_interactions.${c} MISSING`, 'schema drift')
+        : meh(`user_tool_interactions.${c} unclear`)
+    }
+    // Behaviour is personal data. An anonymous caller must see none of it.
+    if (r.rows.length === 0) ok('user_tool_interactions: anonymous sees 0 rows')
+    else bad(`user_tool_interactions: LEAK — anonymous read ${r.rows.length} row(s)`,
+      'RLS is not protecting the behavioural log')
+  } else if (r.code === '42P01' || /does not exist|find the table/i.test(r.message || '')) {
+    meh('user_tool_interactions NOT PRESENT',
+      'apply 0007. Until then every interaction write fails silently — the app is unaffected, but nothing is recorded.')
+  } else {
+    meh('user_tool_interactions unclear', `status ${r.status}: ${r.message}`)
+  }
+}
+
 console.log(`\n${'='.repeat(62)}`)
 console.log(`RESULT   pass ${pass}   fail ${fail}   needs-sql ${unknown}`)
 console.log('='.repeat(62))
@@ -160,11 +188,14 @@ order by c.relname;
 -- 2. Policies. Expect own-row policies on profiles/tool_refs/roadmap_progress,
 --    SELECT-only on payment_transactions and user_entitlements,
 --    a public SELECT on plans, and ZERO rows for webhook_events.
+--    After 0007, user_tool_interactions must have SELECT/INSERT/DELETE
+--    own-row policies and NO update policy (the log is append-only).
 select tablename, policyname, cmd, roles, qual, with_check
 from pg_policies where schemaname = 'public' order by tablename, policyname;
 
--- 3. Indexes. Expect user_entitlements_user_idx (0006) and
---    user_entitlements_one_active_idx (0004).
+-- 3. Indexes. Expect user_entitlements_user_idx (0006),
+--    user_entitlements_one_active_idx (0004), and after 0007
+--    user_tool_interactions_user_idx + user_tool_interactions_tool_idx.
 select tablename, indexname, indexdef
 from pg_indexes where schemaname = 'public' order by tablename, indexname;
 
