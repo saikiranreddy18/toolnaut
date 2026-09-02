@@ -7,8 +7,13 @@
 import { countryOf } from './_razorpay.js'
 
 export default function handler(req, res) {
-  // Short cache: a visitor's country does not change between page views, and
-  // this should not cost a function invocation on every mount.
-  res.setHeader('Cache-Control', 'public, max-age=3600')
+  // NEVER a shared cache. This response is per-visitor, and `public` put it in
+  // Vercel's CDN — which then served the FIRST caller's country to everyone in
+  // the world for an hour. That is why a VPN changed nothing: the price was
+  // read from a cached "IN" no matter where the request came from.
+  //
+  // The client caches it per page load anyway, so this costs one invocation per
+  // visit rather than one per component.
+  res.setHeader('Cache-Control', 'private, no-store')
   return res.status(200).json({ country: countryOf(req) || null })
 }

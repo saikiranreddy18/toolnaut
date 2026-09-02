@@ -84,7 +84,7 @@ export default function Checkout() {
       )}
 
       <div className={`mt-8 grid gap-5 sm:grid-cols-3 ${PAYMENTS_ON ? '' : 'pointer-events-none opacity-40'}`}>
-        {PLANS.map((plan) => (
+        {PLANS.filter((p) => !p.hiddenFromPricing).map((plan) => (
           <div
             key={plan.id}
             className="rounded-2xl border-[3px] border-black p-5"

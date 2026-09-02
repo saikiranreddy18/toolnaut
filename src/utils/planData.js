@@ -35,6 +35,12 @@ export const PLANS = [
     //
     // Visitors outside India see this converted to their own currency for
     // readability, but INR is what is charged — see convertPrice below.
+    // NOT IN THE PRICING GRID. The three standard plans are what the pricing
+    // section shows and what ships; this one is reachable only through the
+    // founder ribbon, which is the whole point of a limited offer. Still a real
+    // purchasable plan — /pay honours the ribbon's link — just not on display
+    // beside the regular tiers.
+    hiddenFromPricing: true,
     id: 'founder',
     name: 'Founder',
     icon: 'pro',

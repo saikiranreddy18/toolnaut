@@ -61,7 +61,7 @@ export default function PricingSection({ titleAs = 'h2' }) {
       </div>
 
       <div className="grid items-stretch gap-8 md:grid-cols-3">
-        {PLANS.map((plan) => (
+        {PLANS.filter((p) => !p.hiddenFromPricing).map((plan) => (
           <PricingPillar key={plan.id} plan={plan} currency={currency} />
         ))}
       </div>
