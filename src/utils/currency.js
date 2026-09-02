@@ -98,13 +98,21 @@ export async function convertFromINR(amountINR, country) {
   if (!Number.isFinite(rate)) return null
 
   const converted = tidy(amountINR * rate, currency)
+  const whole = Number.isInteger(converted)
   try {
     return {
       currency,
-      text: new Intl.NumberFormat(undefined, {
+      // en-US as the formatting locale, not the visitor's: it renders USD as
+      // "$316" where several locales give "US$316", and the symbol is the point
+      // of showing this at all.
+      //
+      // No trailing ".00" on a whole number either — tidy() already rounded
+      // anything over a hundred, and "$316.00" is arithmetic where "$316" is a
+      // price.
+      text: new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency,
-        maximumFractionDigits: ZERO_DECIMAL.has(currency) ? 0 : undefined,
+        maximumFractionDigits: whole || ZERO_DECIMAL.has(currency) ? 0 : 2,
       }).format(converted),
     }
   } catch {
