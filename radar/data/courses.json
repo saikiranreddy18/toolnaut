@@ -7560,5 +7560,446 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "course-flawd-is-mutation-testing-for-the-ai-era",
+    "toolSlug": "flawd-is-mutation-testing-for-the-ai-era",
+    "title": "Master Flawd is mutation testing for the AI era",
+    "objectives": [
+      "Understand what Flawd is mutation testing for the AI era is for",
+      "Use Flawd is mutation testing for the AI era on a real task",
+      "Know where Flawd is mutation testing for the AI era fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Flawd is mutation testing for the AI era for your real workflow, not the demo.",
+          "Say what Flawd is mutation testing for the AI era does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Flawd is mutation testing for the AI era.",
+          "Push Flawd is mutation testing for the AI era to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Flawd is mutation testing for the AI era into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-mutation testing",
+      "skill-code quality",
+      "skill-testing",
+      "skill-ai code",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "course-coos",
+    "toolSlug": "coos",
+    "title": "Master CoOS",
+    "objectives": [
+      "Understand what CoOS is for",
+      "Use CoOS on a real task",
+      "Know where CoOS fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure CoOS for your real workflow, not the demo.",
+          "Say what CoOS does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through CoOS.",
+          "Push CoOS to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold CoOS into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-crm",
+      "skill-erp",
+      "skill-desktop app",
+      "skill-local plugins"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "course-ai-memory-20",
+    "toolSlug": "ai-memory-20",
+    "title": "Master AI-Memory 2.0",
+    "objectives": [
+      "Understand what AI-Memory 2.0 is for",
+      "Use AI-Memory 2.0 on a real task",
+      "Know where AI-Memory 2.0 fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI-Memory 2.0 for your real workflow, not the demo.",
+          "Say what AI-Memory 2.0 does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI-Memory 2.0.",
+          "Push AI-Memory 2.0 to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI-Memory 2.0 into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-memory",
+      "skill-agents",
+      "skill-llm",
+      "skill-context",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "course-z-local-first-search-layer-for-humans-and-agents",
+    "toolSlug": "z-local-first-search-layer-for-humans-and-agents",
+    "title": "Master Z: Local-first search layer for humans and agents",
+    "objectives": [
+      "Install Z and build a searchable local index of a real codebase",
+      "Run fast filtered and regex queries from the CLI and read ranked results",
+      "Expose the index to AI agents via Z's local server and keep it fresh automatically"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Z: Local-first search layer for humans and agents for your real workflow, not the demo.",
+          "Say what Z: Local-first search layer for humans and agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Z: Local-first search layer for humans and agents.",
+          "Push Z: Local-first search layer for humans and agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Z: Local-first search layer for humans and agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-search",
+      "skill-local-first",
+      "skill-cli",
+      "skill-agents",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "course-ai-agents-and-the-refactoring-that-never-happens",
+    "toolSlug": "ai-agents-and-the-refactoring-that-never-happens",
+    "title": "Master AI Agents and the Refactoring That Never Happens",
+    "objectives": [
+      "Understand what AI Agents and the Refactoring That Never Happens is for",
+      "Use AI Agents and the Refactoring That Never Happens on a real task",
+      "Know where AI Agents and the Refactoring That Never Happens fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI Agents and the Refactoring That Never Happens for your real workflow, not the demo.",
+          "Say what AI Agents and the Refactoring That Never Happens does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Agents and the Refactoring That Never Happens.",
+          "Push AI Agents and the Refactoring That Never Happens to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Agents and the Refactoring That Never Happens into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-refactoring",
+      "skill-technical debt",
+      "skill-coding",
+      "skill-essay"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "course-owasp-top-for-agentic-applications",
+    "toolSlug": "owasp-top-for-agentic-applications",
+    "title": "Master OWASP Top for Agentic Applications",
+    "objectives": [
+      "Understand what OWASP Top for Agentic Applications is for",
+      "Use OWASP Top for Agentic Applications on a real task",
+      "Know where OWASP Top for Agentic Applications fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure OWASP Top for Agentic Applications for your real workflow, not the demo.",
+          "Say what OWASP Top for Agentic Applications does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through OWASP Top for Agentic Applications.",
+          "Push OWASP Top for Agentic Applications to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold OWASP Top for Agentic Applications into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-security",
+      "skill-agentic ai",
+      "skill-owasp",
+      "skill-risk benchmark",
+      "skill-best practices"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "course-i-built-stardew-valley-but-you-pay-for-everything",
+    "toolSlug": "i-built-stardew-valley-but-you-pay-for-everything",
+    "title": "Master I built Stardew Valley but you pay for everything",
+    "objectives": [
+      "Understand what I built Stardew Valley but you pay for everything is for",
+      "Use I built Stardew Valley but you pay for everything on a real task",
+      "Know where I built Stardew Valley but you pay for everything fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for I built Stardew Valley but you pay for everything.",
+          "Say what I built Stardew Valley but you pay for everything does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through I built Stardew Valley but you pay for everything.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold I built Stardew Valley but you pay for everything into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-game",
+      "skill-parody",
+      "skill-farming",
+      "skill-microtransactions",
+      "skill-stardew-valley"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "course-databricks-used-ai-to-save-1mi-year-in-ai-spend",
+    "toolSlug": "databricks-used-ai-to-save-1mi-year-in-ai-spend",
+    "title": "Master Databricks used AI to save $1mi/year in AI spend",
+    "objectives": [
+      "Understand what Databricks used AI to save $1mi/year in AI spend is for",
+      "Use Databricks used AI to save $1mi/year in AI spend on a real task",
+      "Know where Databricks used AI to save $1mi/year in AI spend fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Databricks used AI to save $1mi/year in AI spend for your real workflow, not the demo.",
+          "Say what Databricks used AI to save $1mi/year in AI spend does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Databricks used AI to save $1mi/year in AI spend.",
+          "Push Databricks used AI to save $1mi/year in AI spend to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Databricks used AI to save $1mi/year in AI spend into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-llmops",
+      "skill-cost-optimization",
+      "skill-ai-agents",
+      "skill-finops",
+      "skill-databricks"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "course-end-ai-agent-lock-in-start-conversation-with-one-agent",
+    "toolSlug": "end-ai-agent-lock-in-start-conversation-with-one-agent",
+    "title": "Master End AI agent lock-in. Start conversation with one agent",
+    "objectives": [
+      "Understand what End AI agent lock-in. Start conversation with one agent is for",
+      "Use End AI agent lock-in. Start conversation with one agent on a real task",
+      "Know where End AI agent lock-in. Start conversation with one agent fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure End AI agent lock-in. Start conversation with one agent for your real workflow, not the demo.",
+          "Say what End AI agent lock-in. Start conversation with one agent does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through End AI agent lock-in. Start conversation with one agent.",
+          "Push End AI agent lock-in. Start conversation with one agent to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold End AI agent lock-in. Start conversation with one agent into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai-agents",
+      "skill-interoperability",
+      "skill-open-source",
+      "skill-multi-agent",
+      "skill-protocol"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T23:33:29.474Z"
   }
 ]

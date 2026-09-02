@@ -62,7 +62,10 @@
       "serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040",
       "mcp-is-the-graphql-of-ai-and-thats-fine",
       "soulauth",
-      "memcode-launches-github-code-review"
+      "memcode-launches-github-code-review",
+      "flawd-is-mutation-testing-for-the-ai-era",
+      "z-local-first-search-layer-for-humans-and-agents",
+      "ai-agents-and-the-refactoring-that-never-happens"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -122,7 +125,10 @@
       "course-serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040",
       "course-mcp-is-the-graphql-of-ai-and-thats-fine",
       "course-soulauth",
-      "course-memcode-launches-github-code-review"
+      "course-memcode-launches-github-code-review",
+      "course-flawd-is-mutation-testing-for-the-ai-era",
+      "course-z-local-first-search-layer-for-humans-and-agents",
+      "course-ai-agents-and-the-refactoring-that-never-happens"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -205,7 +211,9 @@
       "itsuki",
       "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
       "open-source-thinking-orb-animations-for-ai-agents",
-      "unitpost-email"
+      "unitpost-email",
+      "ai-memory-20",
+      "end-ai-agent-lock-in-start-conversation-with-one-agent"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -221,7 +229,9 @@
       "course-itsuki",
       "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
       "course-open-source-thinking-orb-animations-for-ai-agents",
-      "course-unitpost-email"
+      "course-unitpost-email",
+      "course-ai-memory-20",
+      "course-end-ai-agent-lock-in-start-conversation-with-one-agent"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -244,7 +254,8 @@
       "doodle-ai-open-source-photo-to-doodle-avatar-generator",
       "cogram-studio",
       "open-source-thinking-orb-animations-for-ai-agents",
-      "ai-old-video-restoration-tool"
+      "ai-old-video-restoration-tool",
+      "i-built-stardew-valley-but-you-pay-for-everything"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -260,7 +271,8 @@
       "course-doodle-ai-open-source-photo-to-doodle-avatar-generator",
       "course-cogram-studio",
       "course-open-source-thinking-orb-animations-for-ai-agents",
-      "course-ai-old-video-restoration-tool"
+      "course-ai-old-video-restoration-tool",
+      "course-i-built-stardew-valley-but-you-pay-for-everything"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -386,7 +398,11 @@
       "local-ai-assistants-can-be-user-friendly-too",
       "ai-agents-will-choose-their-own-pricing",
       "farmanix",
-      "snickers-launches-digital-bar-to-feed-your-hungry-ai"
+      "snickers-launches-digital-bar-to-feed-your-hungry-ai",
+      "coos",
+      "ai-memory-20",
+      "databricks-used-ai-to-save-1mi-year-in-ai-spend",
+      "end-ai-agent-lock-in-start-conversation-with-one-agent"
     ],
     "courses": [
       "course-headless-tools",
@@ -440,7 +456,11 @@
       "course-local-ai-assistants-can-be-user-friendly-too",
       "course-ai-agents-will-choose-their-own-pricing",
       "course-farmanix",
-      "course-snickers-launches-digital-bar-to-feed-your-hungry-ai"
+      "course-snickers-launches-digital-bar-to-feed-your-hungry-ai",
+      "course-coos",
+      "course-ai-memory-20",
+      "course-databricks-used-ai-to-save-1mi-year-in-ai-spend",
+      "course-end-ai-agent-lock-in-start-conversation-with-one-agent"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -510,7 +530,8 @@
       "mc-dc-coverage-so-coding-agents-could-work-overnight",
       "skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
       "ai-agents-will-choose-their-own-pricing",
-      "soulauth"
+      "soulauth",
+      "ai-agents-and-the-refactoring-that-never-happens"
     ],
     "courses": [
       "course-headless-tools",
@@ -560,7 +581,8 @@
       "course-mc-dc-coverage-so-coding-agents-could-work-overnight",
       "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
       "course-ai-agents-will-choose-their-own-pricing",
-      "course-soulauth"
+      "course-soulauth",
+      "course-ai-agents-and-the-refactoring-that-never-happens"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -622,7 +644,8 @@
       "experiments-with-ai",
       "memory-compaction-for-agents-has-an-information-theoretic-fl",
       "anthropic-launches-fable-51-and-mythos-51",
-      "skills-vs-mcp-tools-for-ai-agents-when-to-use-which"
+      "skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
+      "ai-memory-20"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -636,7 +659,8 @@
       "course-experiments-with-ai",
       "course-memory-compaction-for-agents-has-an-information-theoretic-fl",
       "course-anthropic-launches-fable-51-and-mythos-51",
-      "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which"
+      "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
+      "course-ai-memory-20"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -662,13 +686,15 @@
       "glm-53-open-weight-beat-anthropic-openai-models",
       "agenttrail",
       "ai-can-make-you-suck-faster-too",
-      "anthropic-launches-fable-51-and-mythos-51"
+      "anthropic-launches-fable-51-and-mythos-51",
+      "ai-agents-and-the-refactoring-that-never-happens"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
       "course-agenttrail",
       "course-ai-can-make-you-suck-faster-too",
-      "course-anthropic-launches-fable-51-and-mythos-51"
+      "course-anthropic-launches-fable-51-and-mythos-51",
+      "course-ai-agents-and-the-refactoring-that-never-happens"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -863,12 +889,14 @@
     "toolsTeaching": [
       "ecdeos",
       "shelf-protocol",
-      "mcp-is-the-graphql-of-ai-and-thats-fine"
+      "mcp-is-the-graphql-of-ai-and-thats-fine",
+      "end-ai-agent-lock-in-start-conversation-with-one-agent"
     ],
     "courses": [
       "course-ecdeos",
       "course-shelf-protocol",
-      "course-mcp-is-the-graphql-of-ai-and-thats-fine"
+      "course-mcp-is-the-graphql-of-ai-and-thats-fine",
+      "course-end-ai-agent-lock-in-start-conversation-with-one-agent"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -979,7 +1007,8 @@
       "grith",
       "microsoft-publishes-ai-agent-shared-responsibility-model",
       "verb-authority",
-      "dev-sandbox"
+      "dev-sandbox",
+      "owasp-top-for-agentic-applications"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -988,7 +1017,8 @@
       "course-grith",
       "course-microsoft-publishes-ai-agent-shared-responsibility-model",
       "course-verb-authority",
-      "course-dev-sandbox"
+      "course-dev-sandbox",
+      "course-owasp-top-for-agentic-applications"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1217,12 +1247,14 @@
     "toolsTeaching": [
       "the-ai-health-agent-that-will-know-me-for-life",
       "obsessing-over-ai-agent-harnesses",
-      "high-agency-is-high-variance"
+      "high-agency-is-high-variance",
+      "ai-agents-and-the-refactoring-that-never-happens"
     ],
     "courses": [
       "course-the-ai-health-agent-that-will-know-me-for-life",
       "course-obsessing-over-ai-agent-harnesses",
-      "course-high-agency-is-high-variance"
+      "course-high-agency-is-high-variance",
+      "course-ai-agents-and-the-refactoring-that-never-happens"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1330,7 +1362,8 @@
       "open-tool-for-testing-your-ai-agents-no-llm",
       "puppetflow-a-free-browser-automation-platform",
       "urml",
-      "mc-dc-coverage-so-coding-agents-could-work-overnight"
+      "mc-dc-coverage-so-coding-agents-could-work-overnight",
+      "flawd-is-mutation-testing-for-the-ai-era"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -1339,7 +1372,8 @@
       "course-open-tool-for-testing-your-ai-agents-no-llm",
       "course-puppetflow-a-free-browser-automation-platform",
       "course-urml",
-      "course-mc-dc-coverage-so-coding-agents-could-work-overnight"
+      "course-mc-dc-coverage-so-coding-agents-could-work-overnight",
+      "course-flawd-is-mutation-testing-for-the-ai-era"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1370,14 +1404,16 @@
       "coordination-layer-for-coding-agents",
       "a2acast",
       "agentbridge",
-      "civitas"
+      "civitas",
+      "end-ai-agent-lock-in-start-conversation-with-one-agent"
     ],
     "courses": [
       "course-mrea",
       "course-coordination-layer-for-coding-agents",
       "course-a2acast",
       "course-agentbridge",
-      "course-civitas"
+      "course-civitas",
+      "course-end-ai-agent-lock-in-start-conversation-with-one-agent"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1457,7 +1493,8 @@
       "pipy-semantic-search-mcp-for-ai-agents",
       "tenux",
       "indextkn",
-      "memcode-launches-github-code-review"
+      "memcode-launches-github-code-review",
+      "flawd-is-mutation-testing-for-the-ai-era"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -1476,7 +1513,8 @@
       "course-pipy-semantic-search-mcp-for-ai-agents",
       "course-tenux",
       "course-indextkn",
-      "course-memcode-launches-github-code-review"
+      "course-memcode-launches-github-code-review",
+      "course-flawd-is-mutation-testing-for-the-ai-era"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1510,7 +1548,8 @@
       "aicademy",
       "keeplea",
       "high-agency-is-high-variance",
-      "skills-vs-mcp-tools-for-ai-agents-when-to-use-which"
+      "skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
+      "owasp-top-for-agentic-applications"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1524,7 +1563,8 @@
       "course-aicademy",
       "course-keeplea",
       "course-high-agency-is-high-variance",
-      "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which"
+      "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
+      "course-owasp-top-for-agentic-applications"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1541,7 +1581,9 @@
       "a-slm-optimized-for-tool-calling",
       "open-agent-forum",
       "memory-compaction-for-agents-has-an-information-theoretic-fl",
-      "gemini-agentic-video-understanding"
+      "gemini-agentic-video-understanding",
+      "ai-memory-20",
+      "z-local-first-search-layer-for-humans-and-agents"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1551,7 +1593,9 @@
       "course-a-slm-optimized-for-tool-calling",
       "course-open-agent-forum",
       "course-memory-compaction-for-agents-has-an-information-theoretic-fl",
-      "course-gemini-agentic-video-understanding"
+      "course-gemini-agentic-video-understanding",
+      "course-ai-memory-20",
+      "course-z-local-first-search-layer-for-humans-and-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1630,7 +1674,8 @@
       "saccade",
       "kiso",
       "verb-authority",
-      "ai-coding-agent-skills-for-real-engineers"
+      "ai-coding-agent-skills-for-real-engineers",
+      "z-local-first-search-layer-for-humans-and-agents"
     ],
     "courses": [
       "course-limitless-library",
@@ -1648,7 +1693,8 @@
       "course-saccade",
       "course-kiso",
       "course-verb-authority",
-      "course-ai-coding-agent-skills-for-real-engineers"
+      "course-ai-coding-agent-skills-for-real-engineers",
+      "course-z-local-first-search-layer-for-humans-and-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1913,7 +1959,8 @@
       "openai-is-developing-a-persistent-ai-agent",
       "calprep",
       "farmanix",
-      "snickers-launches-digital-bar-to-feed-your-hungry-ai"
+      "snickers-launches-digital-bar-to-feed-your-hungry-ai",
+      "coos"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -1921,7 +1968,8 @@
       "course-openai-is-developing-a-persistent-ai-agent",
       "course-calprep",
       "course-farmanix",
-      "course-snickers-launches-digital-bar-to-feed-your-hungry-ai"
+      "course-snickers-launches-digital-bar-to-feed-your-hungry-ai",
+      "course-coos"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2379,14 +2427,18 @@
       "shelf-protocol",
       "a2acast",
       "open-source-thinking-orb-animations-for-ai-agents",
-      "xfinlab"
+      "xfinlab",
+      "databricks-used-ai-to-save-1mi-year-in-ai-spend",
+      "end-ai-agent-lock-in-start-conversation-with-one-agent"
     ],
     "courses": [
       "course-placeroot",
       "course-shelf-protocol",
       "course-a2acast",
       "course-open-source-thinking-orb-animations-for-ai-agents",
-      "course-xfinlab"
+      "course-xfinlab",
+      "course-databricks-used-ai-to-save-1mi-year-in-ai-spend",
+      "course-end-ai-agent-lock-in-start-conversation-with-one-agent"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2650,10 +2702,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "devx"
+      "devx",
+      "z-local-first-search-layer-for-humans-and-agents"
     ],
     "courses": [
-      "course-devx"
+      "course-devx",
+      "course-z-local-first-search-layer-for-humans-and-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3573,12 +3627,14 @@
     "toolsTeaching": [
       "understudy-scenario-testing-for-ai-agents",
       "observational-reconstruction-then-the-inverse-problem",
-      "selfshipai"
+      "selfshipai",
+      "databricks-used-ai-to-save-1mi-year-in-ai-spend"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
       "course-observational-reconstruction-then-the-inverse-problem",
-      "course-selfshipai"
+      "course-selfshipai",
+      "course-databricks-used-ai-to-save-1mi-year-in-ai-spend"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -3813,10 +3869,12 @@
     "domain": "data",
     "level": "beginner",
     "toolsTeaching": [
-      "dipstick-alerts"
+      "dipstick-alerts",
+      "z-local-first-search-layer-for-humans-and-agents"
     ],
     "courses": [
-      "course-dipstick-alerts"
+      "course-dipstick-alerts",
+      "course-z-local-first-search-layer-for-humans-and-agents"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -3992,10 +4050,12 @@
     "domain": "learning",
     "level": "intermediate",
     "toolsTeaching": [
-      "why-agentic-ai-needs-a-strong-identity-foundation"
+      "why-agentic-ai-needs-a-strong-identity-foundation",
+      "owasp-top-for-agentic-applications"
     ],
     "courses": [
-      "course-why-agentic-ai-needs-a-strong-identity-foundation"
+      "course-why-agentic-ai-needs-a-strong-identity-foundation",
+      "course-owasp-top-for-agentic-applications"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -4392,10 +4452,12 @@
     "domain": "data",
     "level": "intermediate",
     "toolsTeaching": [
-      "datazen"
+      "datazen",
+      "z-local-first-search-layer-for-humans-and-agents"
     ],
     "courses": [
-      "course-datazen"
+      "course-datazen",
+      "course-z-local-first-search-layer-for-humans-and-agents"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -4499,13 +4561,15 @@
       "itsuki",
       "opencontext",
       "memory-compaction-for-agents-has-an-information-theoretic-fl",
-      "keeplea"
+      "keeplea",
+      "ai-memory-20"
     ],
     "courses": [
       "course-itsuki",
       "course-opencontext",
       "course-memory-compaction-for-agents-has-an-information-theoretic-fl",
-      "course-keeplea"
+      "course-keeplea",
+      "course-ai-memory-20"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -4633,11 +4697,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "opencontext",
-      "compilrdev-studio"
+      "compilrdev-studio",
+      "ai-memory-20"
     ],
     "courses": [
       "course-opencontext",
-      "course-compilrdev-studio"
+      "course-compilrdev-studio",
+      "course-ai-memory-20"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -6636,5 +6702,278 @@
       "course-memcode-launches-github-code-review"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-mutation testing",
+    "name": "mutation testing",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "flawd-is-mutation-testing-for-the-ai-era"
+    ],
+    "courses": [
+      "course-flawd-is-mutation-testing-for-the-ai-era"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-code quality",
+    "name": "code quality",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "flawd-is-mutation-testing-for-the-ai-era"
+    ],
+    "courses": [
+      "course-flawd-is-mutation-testing-for-the-ai-era"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-ai code",
+    "name": "ai code",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "flawd-is-mutation-testing-for-the-ai-era"
+    ],
+    "courses": [
+      "course-flawd-is-mutation-testing-for-the-ai-era"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-crm",
+    "name": "crm",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "coos"
+    ],
+    "courses": [
+      "course-coos"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-erp",
+    "name": "erp",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "coos"
+    ],
+    "courses": [
+      "course-coos"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-desktop app",
+    "name": "desktop app",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "coos"
+    ],
+    "courses": [
+      "course-coos"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-local plugins",
+    "name": "local plugins",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "coos"
+    ],
+    "courses": [
+      "course-coos"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-refactoring",
+    "name": "refactoring",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agents-and-the-refactoring-that-never-happens"
+    ],
+    "courses": [
+      "course-ai-agents-and-the-refactoring-that-never-happens"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-technical debt",
+    "name": "technical debt",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agents-and-the-refactoring-that-never-happens"
+    ],
+    "courses": [
+      "course-ai-agents-and-the-refactoring-that-never-happens"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-owasp",
+    "name": "owasp",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "owasp-top-for-agentic-applications"
+    ],
+    "courses": [
+      "course-owasp-top-for-agentic-applications"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-risk benchmark",
+    "name": "risk benchmark",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "owasp-top-for-agentic-applications"
+    ],
+    "courses": [
+      "course-owasp-top-for-agentic-applications"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-best practices",
+    "name": "best practices",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "owasp-top-for-agentic-applications"
+    ],
+    "courses": [
+      "course-owasp-top-for-agentic-applications"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-game",
+    "name": "game",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-built-stardew-valley-but-you-pay-for-everything"
+    ],
+    "courses": [
+      "course-i-built-stardew-valley-but-you-pay-for-everything"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-parody",
+    "name": "parody",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-built-stardew-valley-but-you-pay-for-everything"
+    ],
+    "courses": [
+      "course-i-built-stardew-valley-but-you-pay-for-everything"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-farming",
+    "name": "farming",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-built-stardew-valley-but-you-pay-for-everything"
+    ],
+    "courses": [
+      "course-i-built-stardew-valley-but-you-pay-for-everything"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-microtransactions",
+    "name": "microtransactions",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-built-stardew-valley-but-you-pay-for-everything"
+    ],
+    "courses": [
+      "course-i-built-stardew-valley-but-you-pay-for-everything"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-stardew-valley",
+    "name": "stardew valley",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-built-stardew-valley-but-you-pay-for-everything"
+    ],
+    "courses": [
+      "course-i-built-stardew-valley-but-you-pay-for-everything"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-cost-optimization",
+    "name": "cost optimization",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "databricks-used-ai-to-save-1mi-year-in-ai-spend"
+    ],
+    "courses": [
+      "course-databricks-used-ai-to-save-1mi-year-in-ai-spend"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-finops",
+    "name": "finops",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "databricks-used-ai-to-save-1mi-year-in-ai-spend"
+    ],
+    "courses": [
+      "course-databricks-used-ai-to-save-1mi-year-in-ai-spend"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-databricks",
+    "name": "databricks",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "databricks-used-ai-to-save-1mi-year-in-ai-spend"
+    ],
+    "courses": [
+      "course-databricks-used-ai-to-save-1mi-year-in-ai-spend"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "skill-interoperability",
+    "name": "interoperability",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "end-ai-agent-lock-in-start-conversation-with-one-agent"
+    ],
+    "courses": [
+      "course-end-ai-agent-lock-in-start-conversation-with-one-agent"
+    ],
+    "updatedAt": "2026-09-02T23:33:29.474Z"
   }
 ]
