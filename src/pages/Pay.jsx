@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { PLANS, formatPrice } from '../utils/planData'
@@ -30,10 +30,21 @@ import { haptic } from '../utils/haptics'
 // no entitlement exists). Pays through the existing Razorpay hook; the
 // server prices the plan, verifies the payment, and flips the entitlement —
 // this page only picks a plan and celebrates.
+// Emits checkout_failed exactly once per new error string.
+function CheckoutFailure({ error, chosen, track, seen }) {
+  useEffect(() => {
+    if (!error || seen.current === error) return
+    seen.current = error
+    track(EVENTS.CHECKOUT_FAILED, { plan: chosen || null, reason: String(error).slice(0, 120) })
+  }, [error, chosen, track, seen])
+  return null
+}
+
 export default function Pay() {
   const navigate = useNavigate()
   const session = loadSession()
   const { startCheckout, status, error, busy } = useRazorpay()
+  const reportedError = useRef(null)
   const country = useVisitorCountry()
   // Restricted plans are dropped for visitors who cannot buy them. Undetermined
   // country shows everything: the server is the real gate, and hiding plans
@@ -163,6 +174,11 @@ export default function Pay() {
       {status === 'verifying' && (
         <p className="mt-5 text-xs font-bold uppercase tracking-widest text-slate-300">Confirming your payment…</p>
       )}
+      {/* Reported once per distinct message: `error` survives re-renders, and an
+          effect that fired on each would turn one failed payment into dozens of
+          identical events. */}
+      <CheckoutFailure error={error} chosen={chosen} track={track} seen={reportedError} />
+
       {error && (
         <p className="mt-5 max-w-md text-center text-xs font-semibold" style={{ color: 'var(--hot-pink)' }}>{error}</p>
       )}

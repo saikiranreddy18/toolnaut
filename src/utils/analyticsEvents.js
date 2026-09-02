@@ -38,15 +38,20 @@ export const EVENTS = {
   STACK_UPDATED: 'stack_updated',
   EXAMPLE_STACK_VIEWED: 'example_stack_viewed',
 
-  // Purchase intent and revenue. CHECKOUT_STARTED and SUBSCRIPTION_STARTED are
-  // defined but not emitted anywhere — there is no payment path in the product.
-  // They exist so the funnel is complete the day one is added, not so a
-  // dashboard can show a zero and imply a flow exists.
+  // Purchase intent and revenue. The payment path is live now, so these are
+  // emitted rather than aspirational.
+  //
+  // CHECKOUT_FAILED matters more than the successes: a funnel with no failure
+  // arm reads as "nobody abandoned", when in truth abandonment is invisible.
+  // Started-minus-completed is the only way to see a broken gateway.
   PRICING_VIEWED: 'pricing_viewed',
   UPGRADE_CLICKED: 'upgrade_clicked',
   CHECKOUT_STARTED: 'checkout_started',
+  CHECKOUT_FAILED: 'checkout_failed',
   SUBSCRIPTION_STARTED: 'subscription_started',
   SUBSCRIPTION_CANCELLED: 'subscription_cancelled',
+  TRIAL_STARTED: 'trial_started',
+  TRIAL_EXPIRED: 'trial_expired',
 
   // retention
   RETURNED_7D: 'returned_7d',

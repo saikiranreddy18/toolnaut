@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
+import TrialBanner from '../components/app/TrialBanner'
 import { BRAND } from '../config'
 import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import StreakPoints from '../components/app/StreakPoints'
@@ -211,6 +212,12 @@ export default function AppShell() {
           </Link>
         </div>
         {/* warp-in: each screen arrives from deeper space */}
+        {/* Above the page, inside the same width, so it reads as part of the
+            app rather than a floating alert. Renders nothing for guests, for
+            paying customers, and when the check failed. */}
+        <div className="px-5 pt-4">
+          <TrialBanner />
+        </div>
         <motion.div
           key={location.pathname}
           initial={{ opacity: 0, y: 14, scale: 0.985 }}

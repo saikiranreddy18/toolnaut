@@ -31,6 +31,11 @@ export async function fetchEntitlement() {
       active: Boolean(data.active),
       plan: data.plan || null,
       endsAt: data.ends_at || null,
+      // A trial and a purchase are both "active" but read completely
+      // differently: one needs "3 days left, pick a plan", the other needs
+      // silence. Conflating them nags paying customers.
+      trial: Boolean(data.trial),
+      trialDays: Number(data.trial_days) || 0,
       paymentsEnabled: Boolean(data.payments_enabled),
       configured: Boolean(data.configured),
       unknown: false,
@@ -38,4 +43,16 @@ export async function fetchEntitlement() {
   } catch {
     return { active: false, unknown: true }
   }
+}
+
+// Whole days until an entitlement lapses. null when it never expires (a
+// lifetime plan) or there is no date at all.
+//
+// Rounds UP: with eleven hours left, "1 day" is honest and "0 days" is both
+// wrong and alarming. Zero means it has already gone.
+export function daysLeft(endsAt) {
+  if (!endsAt) return null
+  const ms = new Date(endsAt).getTime() - Date.now()
+  if (!Number.isFinite(ms)) return null
+  return ms <= 0 ? 0 : Math.ceil(ms / 86_400_000)
 }

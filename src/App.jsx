@@ -28,6 +28,7 @@ const Office = lazy(() => import('./pages/Office'))
 const About = lazy(() => import('./pages/About'))
 const Pricing = lazy(() => import('./pages/Pricing'))
 const Legal = lazy(() => import('./pages/Legal'))
+const Support = lazy(() => import('./pages/Support'))
 const SharedStack = lazy(() => import('./pages/SharedStack'))
 const CategoryLanding = lazy(() => import('./pages/CategoryLanding'))
 const NotFound = lazy(() => import('./pages/NotFound'))
@@ -93,6 +94,8 @@ export default function App() {
             <Route path="/privacy" element={<Legal />} />
             <Route path="/terms" element={<Legal />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/support" element={<Support />} />
+            <Route path="/refunds" element={<Support />} />
             {/* Both reachable without an account, on purpose: they are the
                 "see the value before you commit" half of the funnel. */}
             <Route path="/example" element={<ExampleStack />} />

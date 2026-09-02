@@ -4,7 +4,10 @@ export const BRAND_SHORT = 'Toolnaut'
 
 // Where to reach a human. One place, so the footer, the legal pages and the
 // methodology page cannot drift apart on it.
-export const CONTACT_EMAIL = 'hello@toolnaut.app'
+// info@toolnaut.xyz, the mailbox that actually exists on the Workspace account
+// for this domain. It was hello@toolnaut.app — a domain this project does not
+// own — so every mail anyone sent from the legal or contact pages went nowhere.
+export const CONTACT_EMAIL = 'info@toolnaut.xyz'
 
 // Public profiles, rendered in the contact section in this order.
 //
