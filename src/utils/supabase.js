@@ -16,8 +16,13 @@ import { createClient } from '@supabase/supabase-js'
 // NEXT_PUBLIC_* pair is what Supabase's Vercel integration injects, because it
 // assumes a Next.js app. Accepting both means the integration works with no
 // manual env setup at all, and a hand-set value still takes precedence.
-const url = import.meta.env.VITE_SUPABASE_URL || import.meta.env.NEXT_PUBLIC_SUPABASE_URL
-const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+// Optional chaining because import.meta.env only exists under Vite. Node has
+// no such object, so a plain read throws on import — which meant any src module
+// touching this file could not be unit-tested at all. Undefined here simply
+// means "not configured", which is already a supported state.
+const env = import.meta.env ?? {}
+const url = env.VITE_SUPABASE_URL || env.NEXT_PUBLIC_SUPABASE_URL
+const anonKey = env.VITE_SUPABASE_ANON_KEY || env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 export const isSupabaseConfigured = Boolean(url && anonKey)
 
