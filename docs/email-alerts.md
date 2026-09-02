@@ -22,15 +22,9 @@ Any one missing and nothing arrives. Steps 5 and 6 fail silently in different
 ways, which is why `sendEmail` now names a rejected sender explicitly in the
 logs rather than printing a bare status code.
 
-## Sending from the company domain
+## Sending from the company address
 
-Mail goes out as `radar@send.toolnaut.xyz`, overridable with `RESEND_FROM`.
-
-**Use a subdomain, not the root.** `toolnaut.xyz` already carries Google
-Workspace MX (`smtp.google.com`). Verifying the root domain in Resend wants its
-own MX record and sits awkwardly next to Workspace. A subdomain also keeps
-transactional reputation separate from human mail: if a digest run gets marked
-as spam, it should not drag down the address a customer replies to.
+Mail goes out as `info@toolnaut.xyz`, overridable with `RESEND_FROM`.
 
 ### DNS
 
@@ -38,18 +32,33 @@ Nameservers are `ns1/ns2.vercel-dns.com`, so records go in
 **Vercel → Project → Settings → Domains → toolnaut.xyz → DNS**, not at the
 registrar.
 
-Add `send.toolnaut.xyz` as a domain in Resend, then copy the records it shows —
-they are generated per account and cannot be written down here in advance. There
-will be three or four:
+Add `toolnaut.xyz` in Resend and copy the records it shows — they are generated
+per account and cannot be written down here in advance. To SEND, only two
+matter:
 
-| Type  | Name (roughly)        | Purpose |
-|-------|----------------------|---------|
-| MX    | `send`               | bounce handling for the subdomain |
-| TXT   | `send`               | SPF, authorises Resend to send as it |
-| TXT   | `resend._domainkey.send` | DKIM public key, signs each message |
+| Type | Name (roughly)       | Purpose |
+|------|---------------------|---------|
+| TXT  | `resend._domainkey` | DKIM public key, signs each message |
+| TXT  | `@` or `send`       | SPF, authorises Resend to send as the domain |
 
-Resend flips the domain to Verified once they resolve — usually minutes, up to
-a few hours.
+### The one thing that can break your normal email
+
+Resend may also offer an **MX** record, for bounce and complaint feedback. It is
+not required to send.
+
+`toolnaut.xyz` already has `MX 1 smtp.google.com` for Google Workspace. **Lower
+priority numbers win**, so if a Resend MX is added it must carry a HIGHER number
+(10, say) than Google's 1. Getting that backwards routes real company mail away
+from Workspace — inbound mail to info@ and everything else would start
+disappearing. If in doubt, skip the MX record entirely: sending works without
+it, only bounce reporting is lost.
+
+If SPF already exists at the root for Workspace, do not add a second SPF record.
+A domain may publish only one; merge the include instead:
+
+```
+v=spf1 include:_spf.google.com include:amazonses.com ~all
+```
 
 ### The root domain has no SPF, and no DMARC
 

@@ -21,19 +21,19 @@
 import { alertsConfigured, rest } from './_alerts.js'
 
 const SITE = process.env.ALERTS_SITE_URL || 'https://toolnaut.xyz'
-// Sent from the company domain, not resend.dev.
+// Sent from the company address, not resend.dev.
 //
 // A radar digest arriving from "onboarding@resend.dev" looks like something
-// forwarded by a stranger, and lands in spam far more often. RESEND_FROM
-// overrides this; the default names the address the domain should be verified
-// for, so a misconfiguration fails loudly at Resend rather than quietly
-// sending as somebody else's domain.
+// forwarded by a stranger and lands in spam far more often. RESEND_FROM
+// overrides this.
 //
-// toolnaut.xyz already carries Google Workspace MX, so verify a SUBDOMAIN in
-// Resend (send.toolnaut.xyz) rather than the root: root verification wants its
-// own MX record and would sit awkwardly beside Workspace mail. See
-// docs/email-alerts.md.
-const FROM = process.env.RESEND_FROM || 'Toolnaut Radar <radar@send.toolnaut.xyz>'
+// ROOT DOMAIN, ON INSTRUCTION. toolnaut.xyz already carries Google Workspace
+// MX (smtp.google.com, priority 1), so verifying the root in Resend means both
+// live side by side. Resend needs DKIM and SPF TXT records to SEND; its MX
+// record is only for bounce feedback, and if one is added it must stay at a
+// HIGHER priority number than Google's — priority 1 wins, and inverting that
+// would route real company mail away from Workspace. See docs/email-alerts.md.
+const FROM = process.env.RESEND_FROM || 'Toolnaut <info@toolnaut.xyz>'
 const SEND_CAP = 80
 const WINDOW_DAYS = 7
 const TOOLS_PER_EMAIL = 10
