@@ -3326,3 +3326,105 @@ a client-side SPA with a static tool catalogue.
   the bounded diff this entry specced. Verified via `npm test` (237/237: 102
   radar + 135 app, up from 231), `npm run build` (15/15 routes prerendered),
   and `npm run smoke` (21/21 routes, 0 console errors).
+
+### Public "What's New" changelog — the product ships almost daily, nothing user-facing ever says so
+- **Status:** OPEN
+- **Seen in:** a problem area rather than one directory competitor — a public
+  changelog is a standard SaaS trust/retention pattern (Linear's
+  `linear.app/changelog`, Vercel's `vercel.com/changelog`, Stripe's own
+  changelog are the best-known examples), distinct from anything the
+  directory competitors already studied in this file do, because it isn't
+  about the tool *catalog* changing, it's about the *product itself*
+  visibly improving. Toolnaut is an unusually strong candidate for this
+  pattern specifically: this repo's own `DEVLOG.md` shows a real feature
+  shipping to production on almost every single day this backlog has been
+  running, which is a genuine, differentiated fact about the product that
+  currently has zero public-facing proof.
+- **Gap:** confirmed absent — grepped `changelog|what.?s.?new|release.?notes`
+  (case-insensitive) across all of `src/`, zero hits, and there is no
+  `/changelog` route among `App.jsx`'s 27 routes (`App.jsx:87-141`). The
+  closest thing that exists, `DEVLOG.md`, is explicitly not this: it's
+  written in first-person by the autonomous dev routine for a human
+  maintainer to audit ("Radar health," "Researched today," raw commit shas),
+  lives outside `src/` entirely, and is never fetched or rendered by the app
+  (grepped `DEVLOG` across `src/` and `public/` — zero hits). A visitor has
+  no way to learn that Discover got a sort control last week, that public
+  search shipped the week before, or that the catalog crossed 700+ tools —
+  all real, true, dated facts about active investment in the product that
+  today only exist in git history and this backlog file, neither of which a
+  visitor will ever open.
+- **Why it matters:** Toolnaut is a free, pre-revenue, single-builder beta
+  product — exactly the profile a skeptical visitor is most likely to wonder
+  "is this actually maintained, or a one-off side project that will go
+  stale?" about, per `About.jsx`'s own admission ("Built solo... on a
+  near-zero budget"). A changelog is the cheapest possible answer to that
+  doubt: dated, specific, verifiable proof of continuous shipping, using
+  content that already exists as a byproduct of how this backlog/DEVLOG
+  routine already works — no new research or design effort, only a
+  customer-facing rewrite of what's already being recorded daily. It also
+  doesn't compete with or duplicate the (shipped) "Weekly Fresh Finds" strip
+  — that surfaces new *catalog tools*, this surfaces new *Toolnaut features*
+  — and it's free, evergreen, frequently-updated content for the same SEO
+  reasoning already used to justify the category-landing and `/new` pages
+  above (a page that visibly changes every few days is exactly what a
+  crawler favors re-indexing).
+- **Smallest useful version (what to actually build):**
+  - New `src/utils/changelogData.js`: a small, hand-authored, newest-first
+    array of `{ date: 'YYYY-MM-DD', title, body }`, written in plain
+    customer-facing language translated from real shipped commits (not raw
+    commit messages or shas) — e.g. from this repo's actual recent history,
+    entries like `{ date: '2026-09-01', title: 'Sort your search results',
+    body: 'Discover now lets you sort by best match, newest, or A-Z instead
+    of one fixed order.' }` or `{ date: '2026-08-31', title: 'Search without
+    signing in', body: 'A new public search page lets anyone look up a tool
+    by name before creating a stack.' }`. Pure data, no logic — a builder
+    seeding the first version should pull 6-10 real entries straight out of
+    `git log --grep='^feat'` / this backlog's own SHIPPED entries and
+    DEVLOG.md, translated into the voice `About.jsx`'s copy already uses
+    (plain, second-person-adjacent, no jargon), not invented.
+  - New `src/pages/Changelog.jsx` at route `/changelog`, public (outside
+    `AppShell`'s session guard, registered next to `/about` in `App.jsx`) —
+    reuse `About.jsx`'s exact page shell verbatim: same starfield background,
+    same header (`BrandLogo` + a "⚡ Find your stack" CTA), one `sticker`
+    card per changelog entry (`About.jsx:64-77`'s card markup, minus the
+    accordion-less Q&A framing — a date line, a bold title, a one-line body)
+    in reverse-chronological order. `useHead()` call with a fixed
+    title/description (`'What's new — Toolnaut'` / a line naming that the
+    product ships continuously), same pattern as every other page in this
+    file's "per-route meta" precedent.
+  - One footer link: `ContactSection.jsx`'s `COLUMNS` array already has a
+    "Resources" group with "How it works" / "How we choose" / "Open the app"
+    (`ContactSection.jsx:43-50`) — add `{ label: "What's new", to:
+    '/changelog' }` there, matching the file's own "EVERY DESTINATION HERE IS
+    A ROUTE THAT EXISTS" discipline once the route is real.
+  - Route-list housekeeping this file has flagged as easy to forget on every
+    prior page-adding gap: add `/changelog` to `scripts/smoke.mjs`'s route
+    array (`scripts/smoke.mjs:32`), `scripts/prerender.mjs`'s `ROUTES` array
+    (`scripts/prerender.mjs:28`), and one `<url>` entry in `public/sitemap.xml`
+    (`changefreq: weekly`, since real entries land roughly that often per
+    `DEVLOG.md`'s own recent history — not `daily` like `/new`, which is
+    driven by an actual daily cron; a changelog with no new entry on a quiet
+    day would make a `daily` claim false).
+  - **What this would NOT include** (kept out to bound the diff): no RSS/Atom
+    feed or email digest of changelog entries (the weekly-alerts gap above
+    already covers "notify me about new things," scoped to catalog tools, not
+    product features — extending it to product changes is a separate,
+    later decision, not required to ship a browsable page); no admin UI or
+    CMS for authoring entries — the data file is hand-edited the same way
+    `DEVLOG.md` and this backlog file already are, by whoever runs the daily
+    feature-run routine appending one customer-facing line when they mark a
+    gap `SHIPPED`; no linking each entry to its commit sha or PR (this is
+    customer-facing copy, not an engineering log — `DEVLOG.md` already serves
+    that audience); no categorization/filtering/search over entries — a
+    single reverse-chronological list is the honest smallest version at this
+    product's current shipping cadence; no backfilling every historical
+    commit — 6-10 real, representative recent entries is enough to prove the
+    pattern and make the page non-empty, more can be added on each future
+    ship the same way DEVLOG.md already grows one section at a time.
+- **Build size:** S — one small hand-authored data file (`changelogData.js`),
+  one new page closely modeled on the existing `About.jsx` shell, one new
+  public route, one footer link, and the three routine route-list additions
+  (`smoke.mjs`, `prerender.mjs`, `sitemap.xml`) this file has already flagged
+  as the standard checklist for any new public page. No backend, no new
+  dependency, no new store.
+- **Found:** 2026-09-02 03:20 UTC
