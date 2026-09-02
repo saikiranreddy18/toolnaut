@@ -3428,3 +3428,112 @@ a client-side SPA with a static tool catalogue.
   as the standard checklist for any new public page. No backend, no new
   dependency, no new store.
 - **Found:** 2026-09-02 03:20 UTC
+
+### RSS feed of newly discovered tools — the radar publishes daily, nothing subscribes to it
+- **Status:** OPEN
+- **Seen in:** a problem area distinct from any directory studied so far in
+  this file — Hacker News (`news.ycombinator.com/rss`), Product Hunt (per-topic
+  RSS), and virtually every changelog/blog tool (Linear, GitHub Releases) ship
+  a machine-readable feed alongside their human-facing "what's new" page,
+  specifically because a feed reader, a newsletter curator, or another
+  aggregator site wants to pull new items without polling a webpage or
+  scraping HTML. It is the one standard content-syndication format this
+  research file hasn't checked Toolnaut against yet, despite Toolnaut being
+  exactly the kind of frequently-updated source such tools want to subscribe
+  to.
+- **Gap:** confirmed absent — grepped `rss|atom|feed\.xml|application/rss`
+  (case-insensitive) across `index.html`, `public/`, and `radar/`, zero hits
+  beyond the unrelated word "feedback." `public/sitemap.xml` is the only
+  syndication-shaped file in the repo, and it's a hand-written static file
+  (no script under `scripts/` or `radar/scripts/` generates or touches it —
+  confirmed by grepping `sitemap` across both directories, zero hits), so
+  there's no existing "generate an XML file from the tool list" precedent to
+  extend, only sync-to-app.js's tools.json export to model the mechanism on.
+  Toolnaut already ships the public, crawlable `/new` page (`src/pages/
+  NewTools.jsx`, shipped 2026-08-22) for a *human* to check back on — but a
+  human has to remember to visit; a feed reader checks on its own schedule.
+  This is a genuinely separate consumption channel from `/new`, not a
+  duplicate of it, in the same way the (rejected, unbuildable-client-side)
+  email-alerts gap is separate from the (shipped) in-app "New this week"
+  strip: same underlying data, different delivery mechanism, different
+  audience (power users / other site owners who want to embed or watch
+  Toolnaut's feed, vs. a signed-up user browsing the app).
+- **Why it matters:** unlike the email-digest gap (REOPENED, still blocked on
+  "no backend to send mail from"), an RSS/Atom feed needs no server at
+  request-time — it's a static XML file, exactly like `sitemap.xml` and
+  `tools.json` already are, generated once per radar run and served as-is by
+  Vercel's static hosting. That makes it the one personalisation/distribution
+  idea in this file that is *fully* buildable within the "static SPA, no
+  backend" constraint with zero exceptions, not "buildable except for the
+  delivery mechanism" the way the email gap keeps rediscovering. It also
+  costs the radar pipeline almost nothing to produce, since `sync-to-app.js`
+  already computes the exact list this feed needs (`published` tools with
+  every field the feed requires: `name`, `blurb`, `slug`, `discoveredAt`,
+  `website`) as a side effect of writing `tools.json` — the feed is a second,
+  cheap output of data radar already assembles nightly, not a new discovery
+  or enrichment cost.
+- **Smallest useful version (what to actually build):**
+  - New `radar/scripts/gen-feed.js`, run in the same GitHub Actions step as
+    `sync-to-app.js` (`.github/workflows/radar.yml`'s "Export published tools
+    into the app" step) — reads the same `published` array `sync-to-app.js`
+    already filters from `radar/data/tools.json` (`lifecycle === 'published'`),
+    sorts by `discoveredAt` descending, takes the newest 50 (a conventional
+    RSS cap — feed readers don't want an ever-growing file, and 50 covers
+    several radar runs' worth of finds even on a busy week), and writes
+    `public/feed.xml` as RSS 2.0: one `<channel>` with `title`/`link`/
+    `description` describing Toolnaut's radar, one `<item>` per tool —
+    `<title>` = tool name, `<link>` = the same `${SITE}/app/tools/${slug}`
+    pattern `NewTools.jsx`'s own JSON-LD already uses (inheriting that same
+    page's already-flagged wrinkle: it points at a session-gated route, not a
+    public one — worth fixing in the same pass as this feed if it's cheap, but
+    not a blocker; a subscriber can still read the title/description/pubDate
+    in their reader without clicking through), `<description>` = `blurb`,
+    `<guid isPermaLink="false">` = `slug` (stable even if the URL scheme
+    changes later), `<pubDate>` = `new Date(discoveredAt).toUTCString()`
+    (RFC 822, exactly what RSS 2.0 requires — `discoveredAt` is already a
+    valid ISO timestamp per `tools.json`, confirmed by reading a live record).
+  - Noise filtering: `sync-to-app.js`'s own `published` list has no noise
+    filter today (it exports everything `lifecycle === 'published'`), but the
+    app-side "New this week" strip and the `/new` page both additionally
+    filter through `isCatalogNoise()` (`src/utils/prominence.js`) before
+    display, to hide GitHub-repo/forum-post/awesome-list scrapes that
+    technically cleared the publish threshold but read as noise in a
+    human-facing list. A subscriber's feed reader is exactly as human-facing
+    as `/new`, so `gen-feed.js` should apply the same filter — but
+    `prominence.js` lives in `src/utils/` (browser-side) and `gen-feed.js`
+    runs under `radar/`, the pipeline's own independent half per this repo's
+    own architecture split (CLAUDE.md: "two independent halves"). Rather than
+    having `radar/` import across that boundary, `gen-feed.js` should
+    duplicate the three small regexes `isCatalogNoise()` checks (repo-slug
+    names, forum-post titles, bare link-list names — `prominence.js:70-73`)
+    inline, the same way `radar/` already keeps its own independent copies of
+    anything `src/` also needs rather than sharing code across the split.
+  - `index.html`: one `<link rel="alternate" type="application/rss+xml"
+    title="Toolnaut — newly discovered AI tools" href="/feed.xml" />` in
+    `<head>`, next to the existing `manifest`/`icon` link tags
+    (`index.html:31-33`) — this is the standard autodiscovery tag feed readers
+    and browsers look for, and costs one line.
+  - `public/robots.txt`: no change needed (a feed file needs no crawl
+    directive, unlike a new page route), but `public/sitemap.xml` gets no new
+    `<url>` entry either — a `.xml` feed isn't itself a page to index, it's a
+    resource pointed to by the `<link rel="alternate">` tag, matching how
+    `tools.json` is fetched by the app without a sitemap entry of its own.
+  - **What this would NOT include** (kept out to bound the diff): no Atom
+    format alongside RSS (RSS 2.0 alone covers every mainstream reader; Atom
+    is a nice-to-have, not required for a first cut); no per-category feeds
+    (`/feed/code.xml`, etc.) — one feed of everything newly published is the
+    honest smallest version, category-specific feeds are a natural follow-up
+    once the base mechanism is proven; no full-content `<content:encoded>`
+    (the plain `<description>` = blurb is enough for a title-and-summary
+    reader experience); no changing `sync-to-app.js` itself — `gen-feed.js` is
+    a new, separate script reading the same source data, not a modification
+    to the existing export; no retroactive backfill of tools discovered
+    before this ships (the feed starts from whatever's in `radar/data/
+    tools.json` the first time `gen-feed.js` runs, same "starts now, doesn't
+    rewrite history" posture the changelog gap above already takes).
+- **Build size:** S — one new Node script (`radar/scripts/gen-feed.js`,
+  closely modeled on `sync-to-app.js`'s own read-filter-write shape), one new
+  line in `radar.yml`'s existing export step, one `<link>` tag in
+  `index.html`. No backend, no new dependency, no change to the app's `src/`
+  half at all (this is purely a `radar/` + static-file addition).
+- **Found:** 2026-09-02 06:20 UTC
