@@ -1968,6 +1968,44 @@ a client-side SPA with a static tool catalogue.
   shrinks slightly (one fewer extraction step, one function to import
   instead of write), and whoever picks it up should start from
   `matchesQuery()` rather than re-deriving the text-match logic.
+- **Deepened 2026-09-02 00:07 UTC:** the "Discover sort control" gap shipped
+  since the last deepening (`docs/research-backlog.md:3192`, this file's own
+  neighboring entry) and moved every line number in this entry's plan a
+  third time — re-read the current 348-line `Discover.jsx` in full rather
+  than trust the numbers above. `Pill` is now `:35-45`; the `results`
+  `useMemo` is `:105-123` with the filter predicate at `:107-112`
+  (`matchesQuery(tool, q)` plus the three `cat`/`price`/`level` equality
+  checks, substance unchanged from the last deepening — still not extracted
+  into a shared helper anywhere); the category pill row is `:212-219`.
+  One structural change that matters for the build, not just a line-number
+  shift: price and level used to be the only two groups in their shared row
+  div — now that div (`:221-240`) also contains a third pill group, Sort
+  (`:234-239`, `SORTS.map(...)`, added by the just-shipped sort gap), inside
+  the *same* `<div className="...flex items-center gap-2...">` wrapper as
+  price (`:223-227`) and level (`:229-233`). A builder adding the `count`
+  prop to `Pill` needs to make sure it only ever renders on the price and
+  level pills in that row, not the three Sort pills sharing the same
+  container and component — "Top match" / "Newest" / "A-Z" are order
+  choices, not filters, and none of them narrows `results.length`, so a
+  count next to a sort option would be either meaningless (same number on
+  all three) or actively confusing (reads as if choosing "Newest" changes
+  how many tools you get). This wasn't a risk when this gap was first
+  written because Sort didn't exist yet; it's a real one now that all three
+  pill groups render from the same `.map()`-over-array pattern in the same
+  markup block. Concretely: gate the new `count` prop's render inside `Pill`
+  itself on `count != null` (never pass one for Sort's `SORTS.map()` call
+  site), rather than relying on every future call site to remember not to
+  pass it.
+  The zero-results block (`suggestedCats` + "CLEAR ALL FILTERS", cited by
+  the tags gap's own 2026-08-30 deepening as `:227-254`) is now `:242-269`.
+  Also worth noting for `getFacetCounts()`'s implementation: the `results`
+  `useMemo`'s dependency array grew a `sort` entry
+  (`[q, cat, price, level, sort, answersKey, tieBreak]`) for the sort
+  feature — irrelevant to facet counts (sort never changes which tools
+  match, only their order), so the new `useMemo(() => getFacetCounts(...),
+  [q, cat, price, level])` this gap's original plan calls for should
+  deliberately *not* add `sort` to its own dependency array, or it would
+  recompute three count objects on every sort-order change for no reason.
 
 ### Tool "graveyard" page — deferred by the status-note gap, worth its own build
 - **Status:** OPEN
