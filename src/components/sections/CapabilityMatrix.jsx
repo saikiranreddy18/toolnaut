@@ -8,10 +8,10 @@ import { TIERS, CAPABILITIES } from '../../utils/capabilityMatrix'
 // alerts when a tool changes, deeper comparison, exports, team collaboration.
 //
 // Live rows are marked and planned rows are dimmed and labelled. That
-// distinction is not decoration: Toolnaut takes no payment at all right now, so
-// a table implying working paid features would be false. Saying "planned" costs
-// a little polish and keeps the page honest — which, for a product asking to be
-// trusted with tool recommendations, is the better trade.
+// distinction is not decoration: a table implying working paid features would
+// be false while a row is still just the intended shape of a tier. Saying
+// "planned" costs a little polish and keeps the page honest — which, for a
+// product asking to be trusted with tool recommendations, is the better trade.
 
 const isLive = (cell) => cell.status === 'live'
 
@@ -95,9 +95,11 @@ export default function CapabilityMatrix() {
       </div>
 
       <p className="mt-4 text-xs leading-relaxed text-slate-500">
-        Nothing is charged today. Toolnaut is in free public beta and has no
-        payment path — rows marked <span className="text-slate-400">planned</span> are
-        the intended shape of a paid tier, not features you are being sold.
+        {/* DRIVEN BY THE PAYMENT SWITCH — same flag ContactSection.jsx's
+            footer and Methodology.jsx already read. See docs/razorpay.md. */}
+        {import.meta.env.VITE_PAYMENTS_ENABLED === 'true'
+          ? <>Paid plans are live — see <span className="text-slate-400">/pricing</span> to subscribe. Rows marked <span className="text-slate-400">planned</span> are still just the intended shape of a future tier, not features you are being sold today.</>
+          : <>Nothing is charged today. Toolnaut is in free public beta and has no payment path — rows marked <span className="text-slate-400">planned</span> are the intended shape of a paid tier, not features you are being sold.</>}
       </p>
     </section>
   )

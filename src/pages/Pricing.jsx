@@ -12,9 +12,14 @@ import { EVENTS } from '../utils/analyticsEvents'
 // is also mounted on the landing page. All plans are reservations while in
 // beta; CapabilityMatrix below is the corroborating live/planned breakdown.
 export default function Pricing() {
+  // DRIVEN BY THE PAYMENT SWITCH — same flag ContactSection.jsx's footer,
+  // Methodology.jsx and CapabilityMatrix.jsx already read. See docs/razorpay.md.
+  const paymentsOn = import.meta.env.VITE_PAYMENTS_ENABLED === 'true'
   useHead({
     title: 'Pricing — Toolnaut',
-    description: 'Toolnaut is free while it is in public beta. See what a paid tier will cover, and what stays free.',
+    description: paymentsOn
+      ? 'Toolnaut paid plans are now live. See what each tier covers, and what stays free.'
+      : 'Toolnaut is free while it is in public beta. See what a paid tier will cover, and what stays free.',
     path: '/pricing',
   })
   const track = useAnalytics()
@@ -36,7 +41,9 @@ export default function Pricing() {
       </header>
 
       <div className="relative mx-auto max-w-6xl px-1 pb-6 pt-2 text-center">
-        <span className="tape-label text-xs">✦ beta is free — plans open at launch ✦</span>
+        <span className="tape-label text-xs">
+          {paymentsOn ? '✦ paid plans are live ✦' : '✦ beta is free — plans open at launch ✦'}
+        </span>
       </div>
 
       <PricingSection titleAs="h1" />

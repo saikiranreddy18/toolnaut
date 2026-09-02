@@ -3629,3 +3629,78 @@ a client-side SPA with a static tool catalogue.
   already-imported-elsewhere module, two conditional copy branches in one
   existing file. No backend, no new dependency, no new store, no new route.
 - **Found:** 2026-09-02 09:20 UTC
+
+### "Free public beta, no payment" survived on three pages after a live paywall shipped
+- **Status:** SHIPPED (this run, sha in DEVLOG)
+- **Seen in:** not a competitor pattern — the same class of finding as the
+  Settings.jsx sync gap directly above, found doing the same kind of check
+  this run: re-reading `src/` against a claim `CLAUDE.md`/the codebase itself
+  no longer supports, this time about money rather than sync. Found while
+  reading `git log --oneline -8 origin/master` for CI health at the start of
+  this run and noticing the newest commit on `master`,
+  `fc5e240` ("feat(subscriptions): free trial, entitlement enforcement,
+  support page"), is a real, live paywall — not a future promise.
+- **Gap:** `AppShell.jsx:54-72` routes any signed-in, un-entitled user to a
+  real `/pay` page (`src/pages/Pay.jsx`, `App.jsx:120`) the moment the server
+  says `PAYMENTS_ENABLED` is on, and `FounderOffer.jsx:142` already links
+  `/pay?plan=founder` from the landing page itself. `Checkout.jsx`'s own
+  header comment names exactly which claims this breaks once the flag flips:
+  "The pricing page, the footer and /methodology all currently state that
+  Toolnaut is in free public beta and takes no payment of any kind... until
+  the beta actually ends." `Methodology.jsx:139-141`'s own comment agrees,
+  in even more explicit terms: "TIED TO PAYMENTS_ENABLED. If that flag is
+  ever switched on, this paragraph becomes false and must change in the SAME
+  commit — along with the footer line in ContactSection.jsx and the pricing
+  copy." One of those three already happened:
+  `git log --oneline -3 -- src/components/sections/ContactSection.jsx` shows
+  its footer line was made conditional on
+  `import.meta.env.VITE_PAYMENTS_ENABLED === 'true'` in commit `cf3a79e`
+  (2026-09-01). The other two named in its own comment were not: `Methodology.jsx:143-144`
+  still unconditionally asserted "Toolnaut is in free public beta and does
+  not currently take payment of any kind," `CapabilityMatrix.jsx:98-100`
+  still unconditionally asserted "Nothing is charged today... has no payment
+  path," and a fourth site the comment didn't even name,
+  `Pricing.jsx:39` and its `useHead` description, still unconditionally said
+  "beta is free — plans open at launch" / "Toolnaut is free while it is in
+  public beta." Whether `PAYMENTS_ENABLED` is actually `true` in the live
+  Vercel deployment right now is not something this run can verify from the
+  repo alone (same operational-fact caveat the Settings.jsx entry above
+  already names for `syncAvailable()`) — but that uncertainty is exactly the
+  bug: three pages asserted "no payment path" as a permanent fact instead of
+  reading the one flag the fourth page (and the server) already treats as
+  the source of truth, so the day the flag flips in production, three
+  customer-facing pages keep telling every visitor Toolnaut cannot charge
+  them while it already had.
+- **Why it matters:** this is a materially bigger trust risk than the sync
+  gap above — a visitor or a paying customer reading "free public beta, no
+  payment path" on the pricing page itself, seconds after (or during) an
+  actual checkout, is not a soft UX miss, it's the site contradicting a real
+  transaction as it happens. It also undercuts `Methodology.jsx`'s entire
+  stated purpose ("EVERY CLAIM ON THIS PAGE IS CHECKED AGAINST THE CODE"),
+  landing on a page whose commercial-relationships section exists
+  specifically to be trusted.
+- **What shipped this run:** applied the exact conditional pattern
+  `ContactSection.jsx` already established (`import.meta.env.VITE_PAYMENTS_ENABLED
+  === 'true'`) to the three lagging sites, changing nothing when the flag is
+  off (today's behaviour is byte-identical) and swapping in an accurate
+  sentence when it's on:
+  - `Methodology.jsx`: the commercial-relationships paragraph now reads
+    "Paid plans are now live, on the terms shown at /pricing... vendors
+    still pay nothing for inclusion or position" when the flag is on,
+    unchanged otherwise.
+  - `CapabilityMatrix.jsx`: the closing caption under the tier table swaps
+    to "Paid plans are live — see /pricing to subscribe..." when the flag is
+    on; also softened the file's header comment, which asserted "Toolnaut
+    takes no payment at all right now" as a standing fact.
+  - `Pricing.jsx`: both the `<title>`/meta description and the "beta is
+    free" tape-label above the pricing table now branch on the same flag.
+  - Deliberately did **not** touch `capabilityMatrix.js`'s per-row
+    live/planned data (which specific Pro/Team capabilities are actually
+    live is a separate, deeper audit than a copy-consistency fix — flagging
+    it here rather than guessing at row-level accuracy in the same diff) or
+    `App.jsx`/`Checkout.jsx`'s own internal comments (developer-facing, not
+    copy a visitor reads — leaving them slightly stale is a smaller cost
+    than widening this diff to touch non-user-facing text).
+  - Verified via `npm test` (211/211), `npm run build` (15/15 routes
+    prerendered), and `npm run smoke`.
+- **Found:** 2026-09-02 15:20 UTC

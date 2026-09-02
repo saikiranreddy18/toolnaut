@@ -136,12 +136,12 @@ export default function Methodology() {
           after.
         </p>
         <p>
-          {/* TIED TO PAYMENTS_ENABLED. If that flag is ever switched on, this
-              paragraph becomes false and must change in the SAME commit —
-              along with the footer line in ContactSection.jsx and the pricing
-              copy. See docs/razorpay.md. */}
-          Toolnaut is in free public beta and does not currently take payment of
-          any kind.
+          {/* DRIVEN BY THE PAYMENT SWITCH, not typed as a fact — same flag
+              ContactSection.jsx's footer line and CapabilityMatrix.jsx already
+              read, so this can't drift from them again. See docs/razorpay.md. */}
+          {import.meta.env.VITE_PAYMENTS_ENABLED === 'true'
+            ? 'Paid plans are now live, on the terms shown at /pricing. That is payment from users for a subscription — vendors still pay nothing for inclusion or position.'
+            : 'Toolnaut is in free public beta and does not currently take payment of any kind.'}
         </p>
       </Block>
 
