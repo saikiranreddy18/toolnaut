@@ -174,6 +174,74 @@ describe('one user cannot see or forge another user behaviour', () => {
   })
 })
 
+// context is intentionally NOT a database CHECK — a new surface should not need
+// a migration before it can log, and a rejected insert would vanish inside the
+// fire-and-forget write. The drift it invites is real though: one page writing
+// 'discover' and another 'discover_page' makes the column uncountable. So the
+// guard lives here instead, and it reads the actual call sites rather than a
+// list someone remembered to update.
+describe('every context used in the app is a known one', () => {
+  const PAGES = join(root, 'src/pages')
+
+  function jsxFiles(dir) {
+    const out = []
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      if (e.isDirectory()) out.push(...jsxFiles(join(dir, e.name)))
+      else if (e.name.endsWith('.jsx')) out.push(join(dir, e.name))
+    }
+    return out
+  }
+
+  // Comments discuss these functions by name — SharedStack.jsx explains that
+  // "addToStack() already no-ops with no session" — and a scanner that counts
+  // prose as a call site reports a failure nobody can fix.
+  const code = (file) =>
+    readFileSync(file, 'utf8')
+      .split('\n')
+      .filter((l) => !/^\s*(\/\/|\*|\/\*)/.test(l))
+      .join('\n')
+
+  test('no call site invents a context spelling', async () => {
+    const { CONTEXTS } = await import('../src/state/interactionsStore.js')
+    const known = new Set(Object.values(CONTEXTS))
+    const offenders = []
+    for (const file of jsxFiles(PAGES)) {
+      const src = code(file)
+      for (const [, , ctx] of src.matchAll(
+        /\b(addFavorite|removeFavorite|addToStack|removeFromStack)\([^,)]+,\s*'([^']+)'\)/g,
+      )) {
+        if (!known.has(ctx)) offenders.push(`${file.split(/[\\/]/).pop()}: '${ctx}'`)
+      }
+    }
+    assert.deepEqual(
+      offenders, [],
+      `these call sites pass a context not listed in CONTEXTS — add it there, or fix the spelling:\n  ${offenders.join('\n  ')}`,
+    )
+  })
+
+  test('the interaction stores are actually given a context', async () => {
+    // The failure this catches: adding the parameter but never wiring the call
+    // sites, so every row lands with context null and the column carries no
+    // signal at all. That is exactly what happened on the first attempt.
+    let withCtx = 0
+    let withoutCtx = 0
+    for (const file of jsxFiles(PAGES)) {
+      const src = code(file)
+      for (const [full] of src.matchAll(
+        /\b(?:addFavorite|removeFavorite|addToStack|removeFromStack)\([^)]*\)/g,
+      )) {
+        if (/,\s*'[a-z_]+'\s*\)$/.test(full)) withCtx++
+        else withoutCtx++
+      }
+    }
+    assert.ok(withCtx > 0, 'no call site passes a context — the column would always be null')
+    assert.equal(
+      withoutCtx, 0,
+      `${withoutCtx} call site(s) still log without a context, so those events cannot be told apart later`,
+    )
+  })
+})
+
 describe('the store degrades safely', () => {
   test('logInteraction is a no-op without Supabase, and never throws', async () => {
     // Import with no Supabase env configured — the guest and preview path.

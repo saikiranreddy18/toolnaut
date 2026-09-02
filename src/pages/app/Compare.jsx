@@ -34,10 +34,10 @@ export default function Compare() {
 
   function toggleStack(tool) {
     if (stack.includes(tool.slug)) {
-      setStack(removeFromStack(tool.slug))
+      setStack(removeFromStack(tool.slug, 'compare'))
     } else {
       haptic.select()
-      setStack(addToStack(tool.slug))
+      setStack(addToStack(tool.slug, 'compare'))
       track(EVENTS.CTA_CLICK, { cta: 'add_to_stack', tool: tool.slug, location: 'compare' })
     }
   }

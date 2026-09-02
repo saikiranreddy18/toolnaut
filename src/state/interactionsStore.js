@@ -42,6 +42,28 @@ export const INTERACTIONS = {
 
 const VALID = new Set(Object.values(INTERACTIONS))
 
+// WHERE an action happened. Not a database CHECK, deliberately: a new surface
+// should not need a migration before it can log anything, and a rejected insert
+// would vanish inside the fire-and-forget write with nothing in the logs.
+//
+// The drift this guards against is real though — one page writing 'discover'
+// and another 'discover_page' makes the column uncountable. So the set is
+// declared here and test/interactions.test.mjs asserts that every literal
+// passed at a call site appears in it. Adding a surface means adding a line
+// here, and CI says so if you forget.
+export const CONTEXTS = {
+  DISCOVER: 'discover',
+  FAVORITES: 'favorites',
+  TOOL_DETAIL: 'tool_detail',
+  STACK: 'stack',
+  COMPARE: 'compare',
+  SHARED_STACK: 'shared_stack',
+  QUIZ_RESULT: 'quiz_result',
+  SEARCH: 'search',
+}
+
+const KNOWN_CONTEXTS = new Set(Object.values(CONTEXTS))
+
 // Resolved per call rather than cached: a visitor can sign in without a reload,
 // and a stale null here would silently drop every interaction for the rest of
 // the session.
@@ -69,6 +91,12 @@ export function logInteraction(toolSlug, action, context = null, metadata = unde
 
   const userId = currentUserId()
   if (!userId) return
+
+  // An unrecognised context is kept, not dropped — losing the event entirely
+  // would be a worse outcome than recording it with a context CI will flag.
+  if (context && !KNOWN_CONTEXTS.has(context) && import.meta.env?.DEV) {
+    console.debug('[interactions] unknown context:', context, '— add it to CONTEXTS')
+  }
 
   const row = {
     user_id: userId,

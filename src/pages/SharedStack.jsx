@@ -46,7 +46,7 @@ export default function SharedStack() {
   )
 
   function adoptAndGo(destination) {
-    tools.forEach((t) => addToStack(t.slug))
+    tools.forEach((t) => addToStack(t.slug, 'shared_stack'))
     setAdded(true)
     setTimeout(() => navigate(destination), 500)
   }
