@@ -57,7 +57,12 @@
       "ai-coding-agent-skills-for-real-engineers",
       "dev-sandbox",
       "gemini-agentic-video-understanding",
-      "anthropic-launches-fable-51-and-mythos-51"
+      "anthropic-launches-fable-51-and-mythos-51",
+      "mc-dc-coverage-so-coding-agents-could-work-overnight",
+      "serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040",
+      "mcp-is-the-graphql-of-ai-and-thats-fine",
+      "soulauth",
+      "memcode-launches-github-code-review"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -112,7 +117,12 @@
       "course-ai-coding-agent-skills-for-real-engineers",
       "course-dev-sandbox",
       "course-gemini-agentic-video-understanding",
-      "course-anthropic-launches-fable-51-and-mythos-51"
+      "course-anthropic-launches-fable-51-and-mythos-51",
+      "course-mc-dc-coverage-so-coding-agents-could-work-overnight",
+      "course-serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040",
+      "course-mcp-is-the-graphql-of-ai-and-thats-fine",
+      "course-soulauth",
+      "course-memcode-launches-github-code-review"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -369,7 +379,14 @@
       "managing-ai-agents-is-still-a-full-time-job",
       "calprep",
       "free-business-builder",
-      "adds-x402-payments-access-for-ai-agents-with-coinbase"
+      "adds-x402-payments-access-for-ai-agents-with-coinbase",
+      "octoloops",
+      "so-theres-this-499-ai-dyson-camera-toothbrush",
+      "haserupt",
+      "local-ai-assistants-can-be-user-friendly-too",
+      "ai-agents-will-choose-their-own-pricing",
+      "farmanix",
+      "snickers-launches-digital-bar-to-feed-your-hungry-ai"
     ],
     "courses": [
       "course-headless-tools",
@@ -416,7 +433,14 @@
       "course-managing-ai-agents-is-still-a-full-time-job",
       "course-calprep",
       "course-free-business-builder",
-      "course-adds-x402-payments-access-for-ai-agents-with-coinbase"
+      "course-adds-x402-payments-access-for-ai-agents-with-coinbase",
+      "course-octoloops",
+      "course-so-theres-this-499-ai-dyson-camera-toothbrush",
+      "course-haserupt",
+      "course-local-ai-assistants-can-be-user-friendly-too",
+      "course-ai-agents-will-choose-their-own-pricing",
+      "course-farmanix",
+      "course-snickers-launches-digital-bar-to-feed-your-hungry-ai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -482,7 +506,11 @@
       "compilrdev-studio",
       "selfshipai",
       "dev-sandbox",
-      "adds-x402-payments-access-for-ai-agents-with-coinbase"
+      "adds-x402-payments-access-for-ai-agents-with-coinbase",
+      "mc-dc-coverage-so-coding-agents-could-work-overnight",
+      "skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
+      "ai-agents-will-choose-their-own-pricing",
+      "soulauth"
     ],
     "courses": [
       "course-headless-tools",
@@ -528,7 +556,11 @@
       "course-compilrdev-studio",
       "course-selfshipai",
       "course-dev-sandbox",
-      "course-adds-x402-payments-access-for-ai-agents-with-coinbase"
+      "course-adds-x402-payments-access-for-ai-agents-with-coinbase",
+      "course-mc-dc-coverage-so-coding-agents-could-work-overnight",
+      "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
+      "course-ai-agents-will-choose-their-own-pricing",
+      "course-soulauth"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -589,7 +621,8 @@
       "a-slm-optimized-for-tool-calling",
       "experiments-with-ai",
       "memory-compaction-for-agents-has-an-information-theoretic-fl",
-      "anthropic-launches-fable-51-and-mythos-51"
+      "anthropic-launches-fable-51-and-mythos-51",
+      "skills-vs-mcp-tools-for-ai-agents-when-to-use-which"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -602,7 +635,8 @@
       "course-a-slm-optimized-for-tool-calling",
       "course-experiments-with-ai",
       "course-memory-compaction-for-agents-has-an-information-theoretic-fl",
-      "course-anthropic-launches-fable-51-and-mythos-51"
+      "course-anthropic-launches-fable-51-and-mythos-51",
+      "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -649,7 +683,8 @@
       "itsuki",
       "indextkn",
       "gemini-agentic-video-understanding",
-      "anthropic-launches-fable-51-and-mythos-51"
+      "anthropic-launches-fable-51-and-mythos-51",
+      "xfinlab"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -657,7 +692,8 @@
       "course-itsuki",
       "course-indextkn",
       "course-gemini-agentic-video-understanding",
-      "course-anthropic-launches-fable-51-and-mythos-51"
+      "course-anthropic-launches-fable-51-and-mythos-51",
+      "course-xfinlab"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -826,11 +862,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "ecdeos",
-      "shelf-protocol"
+      "shelf-protocol",
+      "mcp-is-the-graphql-of-ai-and-thats-fine"
     ],
     "courses": [
       "course-ecdeos",
-      "course-shelf-protocol"
+      "course-shelf-protocol",
+      "course-mcp-is-the-graphql-of-ai-and-thats-fine"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1074,7 +1112,10 @@
       "agentseed-mcp",
       "itsuki",
       "opencontext",
-      "pipy-semantic-search-mcp-for-ai-agents"
+      "pipy-semantic-search-mcp-for-ai-agents",
+      "skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
+      "xfinlab",
+      "mcp-is-the-graphql-of-ai-and-thats-fine"
     ],
     "courses": [
       "course-coolplugz",
@@ -1083,7 +1124,10 @@
       "course-agentseed-mcp",
       "course-itsuki",
       "course-opencontext",
-      "course-pipy-semantic-search-mcp-for-ai-agents"
+      "course-pipy-semantic-search-mcp-for-ai-agents",
+      "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
+      "course-xfinlab",
+      "course-mcp-is-the-graphql-of-ai-and-thats-fine"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1285,7 +1329,8 @@
       "understudy-scenario-testing-for-ai-agents",
       "open-tool-for-testing-your-ai-agents-no-llm",
       "puppetflow-a-free-browser-automation-platform",
-      "urml"
+      "urml",
+      "mc-dc-coverage-so-coding-agents-could-work-overnight"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -1293,7 +1338,8 @@
       "course-understudy-scenario-testing-for-ai-agents",
       "course-open-tool-for-testing-your-ai-agents-no-llm",
       "course-puppetflow-a-free-browser-automation-platform",
-      "course-urml"
+      "course-urml",
+      "course-mc-dc-coverage-so-coding-agents-could-work-overnight"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1410,7 +1456,8 @@
       "manage-coding-norms-across-your-ai-agents",
       "pipy-semantic-search-mcp-for-ai-agents",
       "tenux",
-      "indextkn"
+      "indextkn",
+      "memcode-launches-github-code-review"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -1428,7 +1475,8 @@
       "course-manage-coding-norms-across-your-ai-agents",
       "course-pipy-semantic-search-mcp-for-ai-agents",
       "course-tenux",
-      "course-indextkn"
+      "course-indextkn",
+      "course-memcode-launches-github-code-review"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1461,7 +1509,8 @@
       "the-thinking-wattage-of-ai-agents-vs-the-human-brain",
       "aicademy",
       "keeplea",
-      "high-agency-is-high-variance"
+      "high-agency-is-high-variance",
+      "skills-vs-mcp-tools-for-ai-agents-when-to-use-which"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1474,7 +1523,8 @@
       "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain",
       "course-aicademy",
       "course-keeplea",
-      "course-high-agency-is-high-variance"
+      "course-high-agency-is-high-variance",
+      "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1661,11 +1711,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "player-vs-computer",
-      "build-your-own-theme-park"
+      "build-your-own-theme-park",
+      "snickers-launches-digital-bar-to-feed-your-hungry-ai"
     ],
     "courses": [
       "course-player-vs-computer",
-      "course-build-your-own-theme-park"
+      "course-build-your-own-theme-park",
+      "course-snickers-launches-digital-bar-to-feed-your-hungry-ai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1682,7 +1734,8 @@
       "datazen",
       "observational-reconstruction-then-the-inverse-problem",
       "will-your-money-last-ai-assisted-financial-simulator",
-      "indextkn"
+      "indextkn",
+      "xfinlab"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -1692,7 +1745,8 @@
       "course-datazen",
       "course-observational-reconstruction-then-the-inverse-problem",
       "course-will-your-money-last-ai-assisted-financial-simulator",
-      "course-indextkn"
+      "course-indextkn",
+      "course-xfinlab"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1777,7 +1831,8 @@
       "openai-is-developing-a-persistent-ai-agent",
       "ai-can-make-you-suck-faster-too",
       "managing-ai-agents-is-still-a-full-time-job",
-      "calprep"
+      "calprep",
+      "farmanix"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -1786,7 +1841,8 @@
       "course-openai-is-developing-a-persistent-ai-agent",
       "course-ai-can-make-you-suck-faster-too",
       "course-managing-ai-agents-is-still-a-full-time-job",
-      "course-calprep"
+      "course-calprep",
+      "course-farmanix"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1855,13 +1911,17 @@
       "launch-hn-vendo-yc-s26",
       "ai-game-playtester",
       "openai-is-developing-a-persistent-ai-agent",
-      "calprep"
+      "calprep",
+      "farmanix",
+      "snickers-launches-digital-bar-to-feed-your-hungry-ai"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
       "course-ai-game-playtester",
       "course-openai-is-developing-a-persistent-ai-agent",
-      "course-calprep"
+      "course-calprep",
+      "course-farmanix",
+      "course-snickers-launches-digital-bar-to-feed-your-hungry-ai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1993,11 +2053,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "aifi-on-aws",
-      "will-your-money-last-ai-assisted-financial-simulator"
+      "will-your-money-last-ai-assisted-financial-simulator",
+      "xfinlab"
     ],
     "courses": [
       "course-aifi-on-aws",
-      "course-will-your-money-last-ai-assisted-financial-simulator"
+      "course-will-your-money-last-ai-assisted-financial-simulator",
+      "course-xfinlab"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2132,10 +2194,12 @@
     "domain": "writing",
     "level": "beginner",
     "toolsTeaching": [
-      "text-editor-that-does-it-all"
+      "text-editor-that-does-it-all",
+      "memcode-launches-github-code-review"
     ],
     "courses": [
-      "course-text-editor-that-does-it-all"
+      "course-text-editor-that-does-it-all",
+      "course-memcode-launches-github-code-review"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2225,10 +2289,12 @@
     "domain": "data",
     "level": "intermediate",
     "toolsTeaching": [
-      "launch-hn-risklytics-yc-s26"
+      "launch-hn-risklytics-yc-s26",
+      "xfinlab"
     ],
     "courses": [
-      "course-launch-hn-risklytics-yc-s26"
+      "course-launch-hn-risklytics-yc-s26",
+      "course-xfinlab"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2279,10 +2345,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "placeroot"
+      "placeroot",
+      "serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040"
     ],
     "courses": [
-      "course-placeroot"
+      "course-placeroot",
+      "course-serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2310,13 +2378,15 @@
       "placeroot",
       "shelf-protocol",
       "a2acast",
-      "open-source-thinking-orb-animations-for-ai-agents"
+      "open-source-thinking-orb-animations-for-ai-agents",
+      "xfinlab"
     ],
     "courses": [
       "course-placeroot",
       "course-shelf-protocol",
       "course-a2acast",
-      "course-open-source-thinking-orb-animations-for-ai-agents"
+      "course-open-source-thinking-orb-animations-for-ai-agents",
+      "course-xfinlab"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2378,10 +2448,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "we-run-stateful-ai-agents-on-a-serverless-infra"
+      "we-run-stateful-ai-agents-on-a-serverless-infra",
+      "serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040"
     ],
     "courses": [
-      "course-we-run-stateful-ai-agents-on-a-serverless-infra"
+      "course-we-run-stateful-ai-agents-on-a-serverless-infra",
+      "course-serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2393,12 +2465,14 @@
     "toolsTeaching": [
       "we-run-stateful-ai-agents-on-a-serverless-infra",
       "propose-and-dual-control-for-dns-changes",
-      "ai-agent-guardrails-dont-work-safer-platforms-do"
+      "ai-agent-guardrails-dont-work-safer-platforms-do",
+      "soulauth"
     ],
     "courses": [
       "course-we-run-stateful-ai-agents-on-a-serverless-infra",
       "course-propose-and-dual-control-for-dns-changes",
-      "course-ai-agent-guardrails-dont-work-safer-platforms-do"
+      "course-ai-agent-guardrails-dont-work-safer-platforms-do",
+      "course-soulauth"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2632,10 +2706,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "why-ai-agents-need-persistent-browser-identities"
+      "why-ai-agents-need-persistent-browser-identities",
+      "soulauth"
     ],
     "courses": [
-      "course-why-ai-agents-need-persistent-browser-identities"
+      "course-why-ai-agents-need-persistent-browser-identities",
+      "course-soulauth"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2790,10 +2866,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "bytedance-launches-ai-office-product-doubao-work"
+      "bytedance-launches-ai-office-product-doubao-work",
+      "local-ai-assistants-can-be-user-friendly-too"
     ],
     "courses": [
-      "course-bytedance-launches-ai-office-product-doubao-work"
+      "course-bytedance-launches-ai-office-product-doubao-work",
+      "course-local-ai-assistants-can-be-user-friendly-too"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3928,11 +4006,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "why-agentic-ai-needs-a-strong-identity-foundation",
-      "open-agent-forum"
+      "open-agent-forum",
+      "soulauth"
     ],
     "courses": [
       "course-why-agentic-ai-needs-a-strong-identity-foundation",
-      "course-open-agent-forum"
+      "course-open-agent-forum",
+      "course-soulauth"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -4897,11 +4977,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "claude-skills-starter-kit",
-      "ai-coding-agent-skills-for-real-engineers"
+      "ai-coding-agent-skills-for-real-engineers",
+      "skills-vs-mcp-tools-for-ai-agents-when-to-use-which"
     ],
     "courses": [
       "course-claude-skills-starter-kit",
-      "course-ai-coding-agent-skills-for-real-engineers"
+      "course-ai-coding-agent-skills-for-real-engineers",
+      "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
   },
@@ -5331,10 +5413,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "ai-old-video-restoration-tool"
+      "ai-old-video-restoration-tool",
+      "local-ai-assistants-can-be-user-friendly-too"
     ],
     "courses": [
-      "course-ai-old-video-restoration-tool"
+      "course-ai-old-video-restoration-tool",
+      "course-local-ai-assistants-can-be-user-friendly-too"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -5409,10 +5493,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "ai-can-make-you-suck-faster-too"
+      "ai-can-make-you-suck-faster-too",
+      "mcp-is-the-graphql-of-ai-and-thats-fine"
     ],
     "courses": [
-      "course-ai-can-make-you-suck-faster-too"
+      "course-ai-can-make-you-suck-faster-too",
+      "course-mcp-is-the-graphql-of-ai-and-thats-fine"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -6020,10 +6106,12 @@
     "domain": "writing",
     "level": "beginner",
     "toolsTeaching": [
-      "pearpie"
+      "pearpie",
+      "local-ai-assistants-can-be-user-friendly-too"
     ],
     "courses": [
-      "course-pearpie"
+      "course-pearpie",
+      "course-local-ai-assistants-can-be-user-friendly-too"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -6065,5 +6153,488 @@
       "course-pearpie"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-marketing",
+    "name": "marketing",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "octoloops"
+    ],
+    "courses": [
+      "course-octoloops"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-growth",
+    "name": "growth",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "octoloops"
+    ],
+    "courses": [
+      "course-octoloops"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-indie dev",
+    "name": "indie dev",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "octoloops"
+    ],
+    "courses": [
+      "course-octoloops"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-campaigns",
+    "name": "campaigns",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "octoloops"
+    ],
+    "courses": [
+      "course-octoloops"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-test coverage",
+    "name": "test coverage",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "mc-dc-coverage-so-coding-agents-could-work-overnight"
+    ],
+    "courses": [
+      "course-mc-dc-coverage-so-coding-agents-could-work-overnight"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-mcdc",
+    "name": "mcdc",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "mc-dc-coverage-so-coding-agents-could-work-overnight"
+    ],
+    "courses": [
+      "course-mc-dc-coverage-so-coding-agents-could-work-overnight"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-verification",
+    "name": "verification",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "mc-dc-coverage-so-coding-agents-could-work-overnight"
+    ],
+    "courses": [
+      "course-mc-dc-coverage-so-coding-agents-could-work-overnight"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-toothbrush",
+    "name": "toothbrush",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "so-theres-this-499-ai-dyson-camera-toothbrush"
+    ],
+    "courses": [
+      "course-so-theres-this-499-ai-dyson-camera-toothbrush"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-ai hardware",
+    "name": "ai hardware",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "so-theres-this-499-ai-dyson-camera-toothbrush"
+    ],
+    "courses": [
+      "course-so-theres-this-499-ai-dyson-camera-toothbrush"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-camera",
+    "name": "camera",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "so-theres-this-499-ai-dyson-camera-toothbrush"
+    ],
+    "courses": [
+      "course-so-theres-this-499-ai-dyson-camera-toothbrush"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-consumer tech",
+    "name": "consumer tech",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "so-theres-this-499-ai-dyson-camera-toothbrush"
+    ],
+    "courses": [
+      "course-so-theres-this-499-ai-dyson-camera-toothbrush"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-oral care",
+    "name": "oral care",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "so-theres-this-499-ai-dyson-camera-toothbrush"
+    ],
+    "courses": [
+      "course-so-theres-this-499-ai-dyson-camera-toothbrush"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-developer guide",
+    "name": "developer guide",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "skills-vs-mcp-tools-for-ai-agents-when-to-use-which"
+    ],
+    "courses": [
+      "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-digital wellbeing",
+    "name": "digital wellbeing",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "haserupt"
+    ],
+    "courses": [
+      "course-haserupt"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-screen time",
+    "name": "screen time",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "haserupt"
+    ],
+    "courses": [
+      "course-haserupt"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-focus",
+    "name": "focus",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "haserupt"
+    ],
+    "courses": [
+      "course-haserupt"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-habit breaking",
+    "name": "habit breaking",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "haserupt"
+    ],
+    "courses": [
+      "course-haserupt"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-phone usage",
+    "name": "phone usage",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "haserupt"
+    ],
+    "courses": [
+      "course-haserupt"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-local ai",
+    "name": "local ai",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "local-ai-assistants-can-be-user-friendly-too"
+    ],
+    "courses": [
+      "course-local-ai-assistants-can-be-user-friendly-too"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-chatbot",
+    "name": "chatbot",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "local-ai-assistants-can-be-user-friendly-too",
+      "snickers-launches-digital-bar-to-feed-your-hungry-ai"
+    ],
+    "courses": [
+      "course-local-ai-assistants-can-be-user-friendly-too",
+      "course-snickers-launches-digital-bar-to-feed-your-hungry-ai"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-embedded",
+    "name": "embedded",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040"
+    ],
+    "courses": [
+      "course-serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-esp32",
+    "name": "esp32",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040"
+    ],
+    "courses": [
+      "course-serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-rp2040",
+    "name": "rp2040",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040"
+    ],
+    "courses": [
+      "course-serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-pricing",
+    "name": "pricing",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agents-will-choose-their-own-pricing"
+    ],
+    "courses": [
+      "course-ai-agents-will-choose-their-own-pricing"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-autonomy",
+    "name": "autonomy",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agents-will-choose-their-own-pricing"
+    ],
+    "courses": [
+      "course-ai-agents-will-choose-their-own-pricing"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-blog post",
+    "name": "blog post",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agents-will-choose-their-own-pricing"
+    ],
+    "courses": [
+      "course-ai-agents-will-choose-their-own-pricing"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-future",
+    "name": "future",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agents-will-choose-their-own-pricing"
+    ],
+    "courses": [
+      "course-ai-agents-will-choose-their-own-pricing"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-graphql",
+    "name": "graphql",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "mcp-is-the-graphql-of-ai-and-thats-fine"
+    ],
+    "courses": [
+      "course-mcp-is-the-graphql-of-ai-and-thats-fine"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-ai infrastructure",
+    "name": "ai infrastructure",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "mcp-is-the-graphql-of-ai-and-thats-fine"
+    ],
+    "courses": [
+      "course-mcp-is-the-graphql-of-ai-and-thats-fine"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-rust",
+    "name": "rust",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "soulauth"
+    ],
+    "courses": [
+      "course-soulauth"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-mac automation",
+    "name": "mac automation",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "farmanix"
+    ],
+    "courses": [
+      "course-farmanix"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-desktop control",
+    "name": "desktop control",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "farmanix"
+    ],
+    "courses": [
+      "course-farmanix"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-snickers",
+    "name": "snickers",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "snickers-launches-digital-bar-to-feed-your-hungry-ai"
+    ],
+    "courses": [
+      "course-snickers-launches-digital-bar-to-feed-your-hungry-ai"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-promotion",
+    "name": "promotion",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "snickers-launches-digital-bar-to-feed-your-hungry-ai"
+    ],
+    "courses": [
+      "course-snickers-launches-digital-bar-to-feed-your-hungry-ai"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-code review",
+    "name": "code review",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "memcode-launches-github-code-review"
+    ],
+    "courses": [
+      "course-memcode-launches-github-code-review"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-github",
+    "name": "github",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "memcode-launches-github-code-review"
+    ],
+    "courses": [
+      "course-memcode-launches-github-code-review"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "skill-pull requests",
+    "name": "pull requests",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "memcode-launches-github-code-review"
+    ],
+    "courses": [
+      "course-memcode-launches-github-code-review"
+    ],
+    "updatedAt": "2026-09-02T13:42:33.502Z"
   }
 ]

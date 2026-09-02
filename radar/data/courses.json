@@ -6825,5 +6825,740 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "course-octoloops",
+    "toolSlug": "octoloops",
+    "title": "Master OctoLoops",
+    "objectives": [
+      "Connect your product and one marketing channel to OctoLoops",
+      "Build and activate your first automated welcome-email Loop",
+      "Read Loop analytics to improve a running campaign"
+    ],
+    "modules": [
+      {
+        "title": "Set Up Your OctoLoops Workspace",
+        "estMinutes": 10,
+        "steps": [
+          "Create an account and add your product's site by pasting the OctoLoops tracking snippet before the closing </body> tag (or install the plugin for your stack)",
+          "Connect one channel, such as your email provider or X/Twitter account, from Settings > Integrations",
+          "Verify setup by sending a test event: sign up on your own site and confirm it appears in the Activity feed"
+        ]
+      },
+      {
+        "title": "Build Your First Welcome-Email Loop",
+        "estMinutes": 15,
+        "steps": [
+          "Go to Loops > New Loop and pick the 'Welcome New Signups' template, with the trigger set to 'user_signed_up' event",
+          "Edit the two-step sequence: a welcome email sent immediately and a tips email delayed 2 days, using the {{first_name}} variable",
+          "Toggle the Loop to Active, then trigger it with a test signup and check your inbox"
+        ]
+      },
+      {
+        "title": "Automate a Product Update Post",
+        "estMinutes": 12,
+        "steps": [
+          "Create a new Loop with trigger 'Feature shipped' (manual event) and action 'Post to connected social account'",
+          "Write the post once using variables like {{feature_name}} and {{link}}, and add a fallback default text",
+          "Fire a manual test event and confirm the post publishes correctly on your connected channel"
+        ]
+      },
+      {
+        "title": "Read Results and Tweak Your Loop",
+        "estMinutes": 8,
+        "steps": [
+          "Open the Loop's Analytics tab and check send, open, and click rates for the past 7 days",
+          "Pause any email step with an open rate under 20% and edit its subject line using the built-in suggestions",
+          "Reactivate the step and set a weekly email summary to monitor performance without logging in"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-marketing",
+      "skill-growth",
+      "skill-indie dev",
+      "skill-campaigns"
+    ],
+    "prerequisites": [
+      "A live product or landing page with a signup form",
+      "Admin access to at least one email or social account to connect"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "course-mc-dc-coverage-so-coding-agents-could-work-overnight",
+    "toolSlug": "mc-dc-coverage-so-coding-agents-could-work-overnight",
+    "title": "Master MC/DC coverage so coding agents could work overnight",
+    "objectives": [
+      "Understand what MC/DC coverage so coding agents could work overnight is for",
+      "Use MC/DC coverage so coding agents could work overnight on a real task",
+      "Know where MC/DC coverage so coding agents could work overnight fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure MC/DC coverage so coding agents could work overnight for your real workflow, not the demo.",
+          "Say what MC/DC coverage so coding agents could work overnight does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through MC/DC coverage so coding agents could work overnight.",
+          "Push MC/DC coverage so coding agents could work overnight to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold MC/DC coverage so coding agents could work overnight into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-test coverage",
+      "skill-mcdc",
+      "skill-ai agents",
+      "skill-testing",
+      "skill-verification"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "course-so-theres-this-499-ai-dyson-camera-toothbrush",
+    "toolSlug": "so-theres-this-499-ai-dyson-camera-toothbrush",
+    "title": "Master So there's this $499 AI Dyson camera toothbrush",
+    "objectives": [
+      "Unbox, charge, and assemble the toothbrush correctly",
+      "Pair the handle with the companion app and calibrate the camera",
+      "Complete a full AI-guided brushing session and read the coverage report"
+    ],
+    "modules": [
+      {
+        "title": "Unbox, Charge & Assemble",
+        "estMinutes": 12,
+        "steps": [
+          "Place the handle on the charging puck and wait for the LED ring to pulse, then charge fully (about 3 hours) before first use",
+          "Snap the brush head onto the metal shaft until you hear a click, leaving a small gap between head and handle",
+          "Remove the protective film from the camera lens at the base of the brush head and wipe it with the included microfiber cloth"
+        ]
+      },
+      {
+        "title": "App Pairing & Camera Calibration",
+        "estMinutes": 15,
+        "steps": [
+          "Download the companion app, create an account, and enable Bluetooth and location permissions",
+          "Hold the power button for 3 seconds until the LED blinks blue, then tap 'Add Device' in the app and select your handle",
+          "Follow the in-app calibration: hold the brush at arm's length in front of your open mouth so the camera maps your teeth and confirms each quadrant"
+        ]
+      },
+      {
+        "title": "Your First AI-Guided Brushing Session",
+        "estMinutes": 10,
+        "steps": [
+          "Apply a pea-sized amount of toothpaste, press power, and keep your lips slightly parted so the camera maintains a clear view",
+          "Follow the on-screen zone map as the AI highlights each section; move only when it confirms 100% coverage with a chime",
+          "Finish the full 2-minute session without pausing, then watch the real-time score appear in the app"
+        ]
+      },
+      {
+        "title": "Reading Your Brushing Report",
+        "estMinutes": 8,
+        "steps": [
+          "Open the session report and review the 3D coverage map—teeth shown in red are missed zones",
+          "Check the plaque-detection and pressure alerts, then tap any flagged zone to see a short coaching video",
+          "Set a weekly goal in the app based on your lowest-scoring area so the AI prioritizes it next session"
+        ]
+      },
+      {
+        "title": "Cleaning, Heads & Routine Care",
+        "estMinutes": 7,
+        "steps": [
+          "After each use, rinse the brush head and gently wipe the camera lens with the microfiber cloth to prevent toothpaste film from blurring AI tracking",
+          "Enable head-replacement reminders in the app and swap the head every 3 months or when the bristle indicator fades",
+          "Once a month, check the app for firmware updates and install them while the handle sits on the charger"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-toothbrush",
+      "skill-ai hardware",
+      "skill-camera",
+      "skill-consumer tech",
+      "skill-oral care"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
+    "toolSlug": "skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
+    "title": "Master Skills vs. MCP tools for AI agents: When to use which",
+    "objectives": [
+      "Understand what Skills vs. MCP tools for AI agents: When to use which is for",
+      "Use Skills vs. MCP tools for AI agents: When to use which on a real task",
+      "Know where Skills vs. MCP tools for AI agents: When to use which fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Skills vs. MCP tools for AI agents: When to use which for your real workflow, not the demo.",
+          "Say what Skills vs. MCP tools for AI agents: When to use which does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Skills vs. MCP tools for AI agents: When to use which.",
+          "Push Skills vs. MCP tools for AI agents: When to use which to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Skills vs. MCP tools for AI agents: When to use which into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-mcp",
+      "skill-ai agents",
+      "skill-skills",
+      "skill-llm",
+      "skill-developer guide"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "course-haserupt",
+    "toolSlug": "haserupt",
+    "title": "Master Haserupt",
+    "objectives": [
+      "Set up Haserupt and read your baseline screen-time data",
+      "Create daily app limits and a scheduled downtime window",
+      "Review weekly reports and adjust limits to build the habit"
+    ],
+    "modules": [
+      {
+        "title": "Install Haserupt and See Your Baseline",
+        "estMinutes": 8,
+        "steps": [
+          "Download Haserupt from your app store and create a free account",
+          "Grant usage access and screen-time permissions when prompted so the app can track activity",
+          "Open the dashboard and note your current daily average and top 3 most-used apps"
+        ]
+      },
+      {
+        "title": "Set Your First App Limits",
+        "estMinutes": 7,
+        "steps": [
+          "Tap your biggest time-wasting app (e.g., Instagram or TikTok) and set a daily limit you can keep, like 30 minutes",
+          "Choose what happens at the limit: a hard block screen or a gentle reminder",
+          "Add limits to one or two more apps, then test one by using it until the limit triggers"
+        ]
+      },
+      {
+        "title": "Schedule Downtime and Try a Focus Session",
+        "estMinutes": 6,
+        "steps": [
+          "Create a recurring downtime window such as 10pm–7am so distracting apps lock automatically overnight",
+          "Whitelist essentials like Phone, Messages, and Maps so they stay available during downtime",
+          "Start a manual 25-minute focus session and leave your phone alone until it ends"
+        ]
+      },
+      {
+        "title": "Review Reports and Adjust",
+        "estMinutes": 5,
+        "steps": [
+          "After 3–4 days, open the weekly report and compare your screen time to your baseline",
+          "Tighten limits that were too easy or loosen ones you kept overriding",
+          "Turn on streak and milestone notifications to stay motivated"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-digital wellbeing",
+      "skill-screen time",
+      "skill-focus",
+      "skill-habit breaking",
+      "skill-phone usage"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "course-local-ai-assistants-can-be-user-friendly-too",
+    "toolSlug": "local-ai-assistants-can-be-user-friendly-too",
+    "title": "Master Local AI Assistants can be user friendly too",
+    "objectives": [
+      "Understand what Local AI Assistants can be user friendly too is for",
+      "Use Local AI Assistants can be user friendly too on a real task",
+      "Know where Local AI Assistants can be user friendly too fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Local AI Assistants can be user friendly too.",
+          "Say what Local AI Assistants can be user friendly too does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Local AI Assistants can be user friendly too.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Local AI Assistants can be user friendly too into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-local ai",
+      "skill-privacy",
+      "skill-assistant",
+      "skill-chatbot",
+      "skill-offline"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "course-serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040",
+    "toolSlug": "serverless-reverse-geocoding-for-webmcp-esp32-and-rp2040",
+    "title": "Master Serverless reverse geocoding for WebMCP, ESP32, and RP2040",
+    "objectives": [
+      "Understand what Serverless reverse geocoding for WebMCP, ESP32, and RP2040 is for",
+      "Use Serverless reverse geocoding for WebMCP, ESP32, and RP2040 on a real task",
+      "Know where Serverless reverse geocoding for WebMCP, ESP32, and RP2040 fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Serverless reverse geocoding for WebMCP, ESP32, and RP2040 for your real workflow, not the demo.",
+          "Say what Serverless reverse geocoding for WebMCP, ESP32, and RP2040 does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Serverless reverse geocoding for WebMCP, ESP32, and RP2040.",
+          "Push Serverless reverse geocoding for WebMCP, ESP32, and RP2040 to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Serverless reverse geocoding for WebMCP, ESP32, and RP2040 into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-geocoding",
+      "skill-embedded",
+      "skill-esp32",
+      "skill-rp2040",
+      "skill-serverless"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "course-xfinlab",
+    "toolSlug": "xfinlab",
+    "title": "Master Xfinlab",
+    "objectives": [
+      "Understand what Xfinlab is for",
+      "Use Xfinlab on a real task",
+      "Know where Xfinlab fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Xfinlab for your real workflow, not the demo.",
+          "Say what Xfinlab does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Xfinlab.",
+          "Push Xfinlab to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Xfinlab into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-finance",
+      "skill-api",
+      "skill-mcp",
+      "skill-ai-agents",
+      "skill-fintech"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "course-ai-agents-will-choose-their-own-pricing",
+    "toolSlug": "ai-agents-will-choose-their-own-pricing",
+    "title": "Master AI agents will choose their own pricing",
+    "objectives": [
+      "Understand what AI agents will choose their own pricing is for",
+      "Use AI agents will choose their own pricing on a real task",
+      "Know where AI agents will choose their own pricing fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI agents will choose their own pricing for your real workflow, not the demo.",
+          "Say what AI agents will choose their own pricing does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI agents will choose their own pricing.",
+          "Push AI agents will choose their own pricing to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI agents will choose their own pricing into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-pricing",
+      "skill-autonomy",
+      "skill-blog post",
+      "skill-future"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "course-mcp-is-the-graphql-of-ai-and-thats-fine",
+    "toolSlug": "mcp-is-the-graphql-of-ai-and-thats-fine",
+    "title": "Master MCP Is the GraphQL of AI (and That's Fine)",
+    "objectives": [
+      "Understand what MCP Is the GraphQL of AI (and That's Fine) is for",
+      "Use MCP Is the GraphQL of AI (and That's Fine) on a real task",
+      "Know where MCP Is the GraphQL of AI (and That's Fine) fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure MCP Is the GraphQL of AI (and That's Fine) for your real workflow, not the demo.",
+          "Say what MCP Is the GraphQL of AI (and That's Fine) does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through MCP Is the GraphQL of AI (and That's Fine).",
+          "Push MCP Is the GraphQL of AI (and That's Fine) to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold MCP Is the GraphQL of AI (and That's Fine) into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-mcp",
+      "skill-graphql",
+      "skill-protocol",
+      "skill-ai infrastructure",
+      "skill-opinion"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "course-soulauth",
+    "toolSlug": "soulauth",
+    "title": "Master SoulAuth",
+    "objectives": [
+      "Understand what SoulAuth is for",
+      "Use SoulAuth on a real task",
+      "Know where SoulAuth fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure SoulAuth for your real workflow, not the demo.",
+          "Say what SoulAuth does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through SoulAuth.",
+          "Push SoulAuth to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold SoulAuth into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-rust",
+      "skill-identity",
+      "skill-authentication",
+      "skill-ai agents",
+      "skill-infrastructure"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "course-farmanix",
+    "toolSlug": "farmanix",
+    "title": "Master Farmanix",
+    "objectives": [
+      "Understand what Farmanix is for",
+      "Use Farmanix on a real task",
+      "Know where Farmanix fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Farmanix for your real workflow, not the demo.",
+          "Say what Farmanix does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Farmanix.",
+          "Push Farmanix to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Farmanix into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-mac automation",
+      "skill-desktop control",
+      "skill-productivity"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "course-snickers-launches-digital-bar-to-feed-your-hungry-ai",
+    "toolSlug": "snickers-launches-digital-bar-to-feed-your-hungry-ai",
+    "title": "Master Snickers launches digital bar to feed your \"hungry\" AI",
+    "objectives": [
+      "Find the official Snickers 'feed your AI' campaign and confirm it's legit",
+      "Send a digital Snickers bar to a sluggish AI and trigger the gag response",
+      "Recognize this as a marketing stunt and check what data it asks for"
+    ],
+    "modules": [
+      {
+        "title": "Find the Real Campaign",
+        "estMinutes": 4,
+        "steps": [
+          "Search for 'Snickers feed your AI digital bar' or go to the link from Snickers' verified Twitter/Instagram account",
+          "Check the URL domain (e.g., snickers.com) and look for the verified blue checkmark to avoid copycat phishing pages",
+          "Open the campaign microsite and read the one-line explanation of the gag before clicking anything"
+        ]
+      },
+      {
+        "title": "Send a Digital Bar",
+        "estMinutes": 5,
+        "steps": [
+          "Click the 'feed your AI' button or connect the supported assistant the campaign offers (read-only demo vs. real integration — note which)",
+          "Send the digital bar and watch the AI's 'hungry → energized' transformation, which is a pre-scripted animation or joke response",
+          "Try the share button to send the gag to a friend via link or social post from your own account, not by granting contacts access"
+        ]
+      },
+      {
+        "title": "Spot the Marketing Mechanics",
+        "estMinutes": 6,
+        "steps": [
+          "List what the campaign asked for: email sign-up, social login, cookies, or permissions — and decline anything not required for the joke",
+          "Look for the conversion hook: a promo code, coupon, or sweepstakes entry, and decide if it's worth the data trade",
+          "Check the privacy policy link at the footer, then clear cookies or unsubscribe if you only wanted the one-time gag"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-snickers",
+      "skill-ai agent",
+      "skill-promotion",
+      "skill-fun",
+      "skill-chatbot"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-02T13:42:33.502Z"
+  },
+  {
+    "id": "course-memcode-launches-github-code-review",
+    "toolSlug": "memcode-launches-github-code-review",
+    "title": "Master Memcode Launches GitHub Code Review",
+    "objectives": [
+      "Understand what Memcode Launches GitHub Code Review is for",
+      "Use Memcode Launches GitHub Code Review on a real task",
+      "Know where Memcode Launches GitHub Code Review fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Memcode Launches GitHub Code Review for your real workflow, not the demo.",
+          "Say what Memcode Launches GitHub Code Review does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Memcode Launches GitHub Code Review.",
+          "Push Memcode Launches GitHub Code Review to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Memcode Launches GitHub Code Review into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-code review",
+      "skill-github",
+      "skill-pull requests",
+      "skill-ai assistant",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-02T13:42:33.502Z"
   }
 ]
