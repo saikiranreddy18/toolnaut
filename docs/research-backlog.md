@@ -3537,3 +3537,95 @@ a client-side SPA with a static tool catalogue.
   `index.html`. No backend, no new dependency, no change to the app's `src/`
   half at all (this is purely a `radar/` + static-file addition).
 - **Found:** 2026-09-02 06:20 UTC
+
+### Settings page hardcodes "no server copy" — the sync backend it's describing already exists elsewhere in the app
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — found while re-checking `src/state/`
+  against `CLAUDE.md`'s own "No backend: all user state lives in localStorage"
+  line, which is now stale. `src/state/sync.js` (feature-detected Supabase
+  push/pull, `syncAvailable()`/`pushAll()`/`pullAll()`/`syncOnSignIn()`) and
+  `src/components/app/SyncStatus.jsx` (a live `subscribeSync()`-driven "Syncing…
+  / Synced / Couldn't sync" banner, mounted app-wide at
+  `src/shells/AppShell.jsx:161`) both already exist and are already wired into
+  every sign-in via `src/state/authStore.js:81,86` (`watchSession()` calls
+  `syncOnSignIn()` on both the initial session check and every
+  `onAuthStateChange` event). This is real, shipped infrastructure, not a
+  future promise — the opposite shape from every other entry in this file.
+- **Gap:** `src/pages/app/Settings.jsx` — the one page in the app whose entire
+  point is "what does Toolnaut know about me, and what can I change" (its own
+  file-header comment, `Settings.jsx:33-35`) — never imports anything from
+  `state/sync.js` (confirmed: grepped its full import block, zero hits) and
+  instead makes two separate hardcoded, unconditional claims:
+  - Guest branch, `Settings.jsx:427-430`: "Signing in does not sync anything
+    yet — there is no server copy of your stack. It reserves your account for
+    when there is."
+  - Signed-in branch, `Settings.jsx:458-461`: "Your stack, shortlist and
+    progress live in this browser only — there is no server copy yet, so
+    clearing site data clears them."
+  Both lines were written in the exact same commit that introduced `sync.js`
+  and wired `syncOnSignIn()` into `authStore.js` (`git log -S"does not sync
+  anything yet"` and `git log -S"syncOnSignIn"` both land on `81e5078`,
+  v0.50.1) — so even at the moment this copy was written, the sync engine it
+  describes as nonexistent was shipping in the same release. `SyncStatus.jsx`'s
+  own comment (`SyncStatus.jsx:14-16`) says the reason it renders nothing for
+  `'unavailable'`/`'idle'` is that "no server sync configured is the app's
+  normal state today" — meaning as of that component's writing, the Supabase
+  migration `sync.js` depends on (`supabase/migrations/0002_user_state.sql`,
+  confirmed present on disk) had not yet been run in production. Whether it has
+  been run by now is not something this run can check from the repo alone
+  (`syncAvailable()` does a live RPC call, `sync_available`, against the actual
+  database) — but that uncertainty is itself the finding: Settings.jsx's claim
+  is hardcoded to one answer forever, while the true answer is a runtime fact
+  the app already knows how to ask (`syncAvailable()`) and already displays
+  correctly elsewhere (`SyncStatus.jsx`). The day someone finally runs that
+  migration, `SyncStatus.jsx` will start correctly saying "Synced" for 2.6
+  seconds after every sign-in and then get out of the way — while the one page
+  a worried user actually goes to check ("is my data really backed up before I
+  clear my browser / switch devices?") will keep telling them, permanently and
+  confidently, that it isn't. Nobody edits Settings.jsx when a migration runs;
+  this file exists precisely to catch the promises/claims nothing will
+  remember to revisit.
+- **Why it matters:** this is the inverse of every other "promised, not built"
+  entry in this file — here the capability is real and the copy undersells it,
+  which is a quieter but still real trust cost: a hesitant visitor deciding
+  whether to sign in reads "does not sync anything yet" as a reason to stay a
+  guest, right on the page designed to earn that trust, even on a day sync is
+  fully live. And because the claim is hardcoded rather than derived from the
+  same signal `SyncStatus.jsx` already reads, it will silently go stale the
+  moment sync flips on in production, with nothing in the codebase positioned
+  to notice.
+- **Smallest useful version (what to actually build):**
+  - `Settings.jsx`: import `syncAvailable` from `../../state/sync` (the same
+    module `SyncStatus.jsx` and `GuestImportPrompt.jsx` already import from —
+    no new module needed). Call it once in a `useEffect` on mount (it works
+    for guests too — `syncAvailable()` only checks `isSupabaseConfigured` and
+    fires the `sync_available` RPC, it never touches `uid()`) and hold the
+    result (`null` while checking, then `true`/`false`) in local state.
+  - Guest branch (`Settings.jsx:427-430`): render the current sentence only
+    when `available === false` (or still checking — `null` should show nothing
+    rather than guess, same "don't announce what you don't know yet" rule
+    `SyncStatus.jsx` already follows for its own `null`/`idle` case). When
+    `available === true`, replace it with copy that tells the truth in the
+    other direction, e.g. "Signing in saves your stack, shortlist and progress
+    to your account, so it's there the next time you sign in on any device."
+  - Signed-in branch (`Settings.jsx:458-461`): same conditional swap. When
+    `available` is `false`, keep today's sentence (still honest on a device
+    where sync genuinely isn't live). When `true`, replace "there is no server
+    copy yet" with something that also names the actual live signal, e.g.
+    pointing at `syncState()` directly — "Backed up to your account" /
+    "Couldn't back up last change — still safe on this device," reusing
+    `SyncStatus.jsx`'s own three-state `LABEL` copy (`SyncStatus.jsx:10-13`)
+    instead of inventing new wording, so the two places in the app that talk
+    about sync never drift apart again.
+  - **What this would NOT include** (kept out to bound the diff): no change to
+    `sync.js`, `authStore.js`, or any migration file — this is purely a
+    Settings.jsx copy/data-binding fix, not a sync-engine change; no new
+    always-visible sync indicator elsewhere in the app beyond what
+    `SyncStatus.jsx` already provides; no attempt from this repo to determine
+    or change whether migration `0002_user_state.sql` has actually been run in
+    the live Supabase project — that's an operational fact outside version
+    control, not something a code change decides.
+- **Build size:** S — one `useEffect` + one `syncAvailable()` call added to an
+  already-imported-elsewhere module, two conditional copy branches in one
+  existing file. No backend, no new dependency, no new store, no new route.
+- **Found:** 2026-09-02 09:20 UTC
