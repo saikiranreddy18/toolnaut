@@ -88,7 +88,22 @@ describe('the launch codes are seeded as promised', () => {
     assert.equal(Number(r.rows[0].period_days), 30, 'stu26 must grant 30 days')
   })
 
-  test('both codes point at a plan that actually exists', async () => {
+  test('the internal codes grant two and three months of Pro', async () => {
+    const r = await db.query(`select code, plan_code, period_days, max_redemptions
+                              from public.promo_codes where code in ('team60','team90')
+                              order by period_days`)
+    assert.equal(r.rows.length, 2, 'team60 and team90 must both exist')
+    assert.equal(Number(r.rows[0].period_days), 60)
+    assert.equal(Number(r.rows[1].period_days), 90)
+    for (const c of r.rows) {
+      assert.equal(c.plan_code, 'guru', `${c.code} must unlock Pro`)
+      // Handed out one person at a time, so the cap is deliberately small.
+      assert.ok(Number(c.max_redemptions) <= 50,
+        `${c.code} is an internal code and should stay tightly capped`)
+    }
+  })
+
+  test('every code points at a plan that actually exists', async () => {
     const r = await db.query(`
       select p.code from public.promo_codes p
       left join public.plans pl on pl.plan_code = p.plan_code
