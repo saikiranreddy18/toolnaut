@@ -108,10 +108,10 @@ export default async function handler(req, res) {
       if (userId && planCode) {
         // Lifetime comes from PLANS, the same list the pricing page renders, so
         // the promise on the page and the grant in the database cannot diverge.
-        const lifetime = Boolean(PLANS.find((pl) => pl.id === planCode)?.lifetime)
+        const planPeriod = PLANS.find((pl) => pl.id === planCode)?.periodDays ?? 30
         await activateEntitlement({
           userId, planCode, transactionId: tx?.id || null,
-          periodDays: lifetime ? null : 30,
+          periodDays: planPeriod,
         })
       } else {
         console.error('webhook captured but no user/plan to activate', { orderId })

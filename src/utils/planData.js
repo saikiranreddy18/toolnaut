@@ -25,9 +25,10 @@ export const PLANS = [
     // have received the flat 30 days activateEntitlement grants everyone. An
     // offer the system cannot honour is worse than no offer.
     //
-    // lifetime: true is what makes the promise true. It flows through to a null
-    // ends_at, and current_entitlement() already treats null as never expiring
-    // ("ends_at is null or ends_at > now()"), so this needed no schema change.
+    // Sold as ten years rather than literal forever. periodDays below is the
+    // single source: the copy on every surface, the grant in verify-payment and
+    // the webhook, and plans.period_days in the database all read that one
+    // number, so none of them can promise a duration another will not honour.
     //
     // ₹29,999, one price worldwide like every other plan. It looks steep beside
     // a ₹799 Pro plan until you notice this is lifetime against thirty days:
@@ -48,14 +49,20 @@ export const PLANS = [
     price: 360,
     priceINR: 29999,
     lifetime: true,
+    // "Lifetime" is sold as ten years of access, and the number lives here so
+    // the copy, the server grant and the plans table cannot disagree. A promise
+    // of literal infinity is one a pre-revenue product cannot underwrite;
+    // ten years is long enough to mean the same thing to a buyer and short
+    // enough to be a commitment that can actually be kept.
+    periodDays: 3650,
     limitedUntil: '2026-09-10T00:00:00Z',
     badge: 'FOUNDER',
     glow: 'rgba(255, 222, 46, 0.30)',
     accent: '#ffde2e',
     audience: 'Early backers — one payment, kept for good',
     features: [
-      live('Everything in Pro, permanently'),
-      live('Never expires — no renewal, no second charge'),
+      live('Everything in Pro, for 10 years'),
+      live('10 years of access — no renewal, no second charge'),
       live('Personalized AI tool discovery (all categories)'),
       live('Save unlimited tools and stacks'),
       planned('Weekly discovery digest email'),
@@ -64,6 +71,7 @@ export const PLANS = [
   },
   {
     id: 'shishya',
+    periodDays: 30,
     name: 'Student',
     icon: 'student',
     tier: 'Solo',
@@ -85,6 +93,7 @@ export const PLANS = [
   },
   {
     id: 'guru',
+    periodDays: 30,
     name: 'Pro',
     icon: 'pro',
     tier: 'Pro',
@@ -110,6 +119,7 @@ export const PLANS = [
   },
   {
     id: 'pandava',
+    periodDays: 30,
     name: 'Team',
     icon: 'team',
     tier: 'Team',

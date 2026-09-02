@@ -73,7 +73,7 @@ export default function FounderRibbon() {
       <span className="rounded-[4px] bg-black px-2 py-0.5" style={{ color: 'var(--arcade-yellow)' }}>FOUNDER</span>
       <span>Lifetime access · {price}</span>
       <span aria-hidden="true">✦</span>
-      <span>Pay once, never expires</span>
+      <span>Pay once, 10 years of access</span>
       <span aria-hidden="true">✦</span>
       <span className="flex items-center gap-1.5">Ends in <Clock /></span>
       <span aria-hidden="true">✦</span>
@@ -84,7 +84,7 @@ export default function FounderRibbon() {
   return (
     <Link
       to="/pay?plan=founder"
-      aria-label={`Founder offer: lifetime access for ${inr}, one payment, never expires. Ends in ${left.days} days. Claim it.`}
+      aria-label={`Founder offer: 10 years of access for ${inr}, one payment, no renewal. Ends in ${left.days} days. Claim it.`}
       className="group relative block"
     >
       {/* Skewed and over-wide so the ends run off screen — a strip of tape
