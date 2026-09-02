@@ -264,7 +264,7 @@ export default function Learning() {
   }
 
   return (
-    <div className="relative z-10 mx-auto max-w-5xl px-5 xl:max-w-7xl py-6 lg:py-10">
+    <div className="relative z-10 mx-auto max-w-5xl px-5 xl:max-w-6xl py-6 lg:py-10">
       <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ LEARN</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR 4-WEEK<br/>ORBIT</h1>
 

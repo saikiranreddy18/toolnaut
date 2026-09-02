@@ -83,7 +83,7 @@ export default function Favorites() {
   const total = favoriteSlugs.length
 
   return (
-    <div className="mx-auto max-w-5xl px-5 py-8 lg:py-10 xl:max-w-7xl">
+    <div className="mx-auto max-w-5xl px-5 py-8 lg:py-10 xl:max-w-6xl">
       <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ SAVED</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR AI SHORTLIST</h1>
 
