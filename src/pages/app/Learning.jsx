@@ -208,15 +208,22 @@ export default function Learning() {
 
   if (!roadmap) {
     return (
-      <div className="relative z-10 flex min-h-[70dvh] flex-col items-center justify-center px-5 text-center">
-        <h1 className="arcade-heading section text-2xl sm:text-3xl">ROADMAP NEEDS A PERSONA</h1>
-        <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-300">
-          Take the 60-second quiz and we'll chart a 4-week path through the exact
-          tools that fit how you work.
-        </p>
-        <Link to="/goal" className="nb-btn mt-8 px-8 py-4 text-base">
-          ⚡ FIND MY PATH
-        </Link>
+      // Same container, eyebrow and heading as the filled page, so arriving
+      // without a persona does not read as a different screen — and the content
+      // lines up with every other page instead of floating in the middle. The
+      // pattern SAVED already uses for its empty state.
+      <div className="relative z-10 mx-auto max-w-5xl px-5 xl:max-w-6xl py-6 lg:py-10">
+        <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ LEARN</p>
+        <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR 4-WEEK<br/>ORBIT</h1>
+        <div className="mt-6">
+          <p className="max-w-md text-sm leading-relaxed text-slate-300">
+            No roadmap yet. Take the 60-second quiz and we'll chart a 4-week path
+            through the exact tools that fit how you work.
+          </p>
+          <Link to="/goal" className="nb-btn mt-5 inline-block min-h-11 px-5 py-2.5 text-xs">
+            ⚡ FIND MY PATH →
+          </Link>
+        </div>
       </div>
     )
   }
