@@ -6162,5 +6162,668 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "course-compilrdev-studio",
+    "toolSlug": "compilrdev-studio",
+    "title": "Master Compilr.dev Studio",
+    "objectives": [
+      "Understand what Compilr.dev Studio is for",
+      "Use Compilr.dev Studio on a real task",
+      "Know where Compilr.dev Studio fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Compilr.dev Studio for your real workflow, not the demo.",
+          "Say what Compilr.dev Studio does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Compilr.dev Studio.",
+          "Push Compilr.dev Studio to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Compilr.dev Studio into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-project memory",
+      "skill-context",
+      "skill-devtools",
+      "skill-documentation"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "course-tenux",
+    "toolSlug": "tenux",
+    "title": "Master Tenux",
+    "objectives": [
+      "Understand what Tenux is for",
+      "Use Tenux on a real task",
+      "Know where Tenux fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Tenux for your real workflow, not the demo.",
+          "Say what Tenux does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Tenux.",
+          "Push Tenux to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Tenux into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-remote access",
+      "skill-terminal",
+      "skill-mobile",
+      "skill-self-hosted",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "course-selfshipai",
+    "toolSlug": "selfshipai",
+    "title": "Master Selfship.ai",
+    "objectives": [
+      "Understand what Selfship.ai is for",
+      "Use Selfship.ai on a real task",
+      "Know where Selfship.ai fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Selfship.ai for your real workflow, not the demo.",
+          "Say what Selfship.ai does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Selfship.ai.",
+          "Push Selfship.ai to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Selfship.ai into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-llmops",
+      "skill-monitoring",
+      "skill-debugging",
+      "skill-ai agents",
+      "skill-observability"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "course-free-business-builder",
+    "toolSlug": "free-business-builder",
+    "title": "Master Free Business Builder",
+    "objectives": [
+      "Turn a rough idea into a structured business plan",
+      "Use prompts to refine the plan's market, offer, and revenue sections",
+      "Export a launch-ready one-page summary with first steps"
+    ],
+    "modules": [
+      {
+        "title": "Get Set Up and Input Your Idea",
+        "estMinutes": 10,
+        "steps": [
+          "Open Free Business Builder and create your free account to unlock saving and exporting",
+          "Write one clear sentence describing your idea: who it serves, what it offers, and why it's different",
+          "Paste the sentence into the idea input field and select your industry from the dropdown to seed the AI"
+        ]
+      },
+      {
+        "title": "Generate Your First Business Plan Draft",
+        "estMinutes": 15,
+        "steps": [
+          "Click 'Generate Plan' and read through the auto-created sections: value proposition, target customer, and revenue model",
+          "Highlight the weakest section and ask the AI with a follow-up prompt to expand it, e.g., 'Give me 3 more specific target customer segments'",
+          "Save the draft and rename it with your working business name"
+        ]
+      },
+      {
+        "title": "Stress-Test and Refine the Plan",
+        "estMinutes": 15,
+        "steps": [
+          "Use the built-in market analysis prompt to list 3 competitors and ask how your idea differs from each",
+          "Run the pricing suggestion feature, then adjust the numbers to match what you could realistically charge",
+          "Ask the AI 'What are the top 3 risks with this idea?' and add a mitigation note to each in your plan"
+        ]
+      },
+      {
+        "title": "Build Your Launch Checklist and Export",
+        "estMinutes": 10,
+        "steps": [
+          "Open the launch planner view and convert the plan into a 30-day action checklist with dates",
+          "Edit the first week's tasks to ones you can actually start, like registering a domain or creating a social account",
+          "Export the one-page summary as PDF and email it to yourself or a potential advisor for feedback"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-business",
+      "skill-startup",
+      "skill-entrepreneurship",
+      "skill-planning"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "course-will-your-money-last-ai-assisted-financial-simulator",
+    "toolSlug": "will-your-money-last-ai-assisted-financial-simulator",
+    "title": "Master Will your money last? AI-assisted financial simulator",
+    "objectives": [
+      "Understand what Will your money last? AI-assisted financial simulator is for",
+      "Use Will your money last? AI-assisted financial simulator on a real task",
+      "Know where Will your money last? AI-assisted financial simulator fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Will your money last? AI-assisted financial simulator.",
+          "Say what Will your money last? AI-assisted financial simulator does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Will your money last? AI-assisted financial simulator.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Will your money last? AI-assisted financial simulator into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-finance",
+      "skill-retirement",
+      "skill-simulation",
+      "skill-planning",
+      "skill-ai"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "course-ai-coding-agent-skills-for-real-engineers",
+    "toolSlug": "ai-coding-agent-skills-for-real-engineers",
+    "title": "Master AI Coding Agent Skills for Real Engineers",
+    "objectives": [
+      "Understand what AI Coding Agent Skills for Real Engineers is for",
+      "Use AI Coding Agent Skills for Real Engineers on a real task",
+      "Know where AI Coding Agent Skills for Real Engineers fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI Coding Agent Skills for Real Engineers for your real workflow, not the demo.",
+          "Say what AI Coding Agent Skills for Real Engineers does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Coding Agent Skills for Real Engineers.",
+          "Push AI Coding Agent Skills for Real Engineers to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Coding Agent Skills for Real Engineers into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding agents",
+      "skill-skills",
+      "skill-developer workflows",
+      "skill-open source",
+      "skill-prompt engineering"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "course-high-agency-is-high-variance",
+    "toolSlug": "high-agency-is-high-variance",
+    "title": "Master High Agency Is High Variance",
+    "objectives": [
+      "Understand what High Agency Is High Variance is for",
+      "Use High Agency Is High Variance on a real task",
+      "Know where High Agency Is High Variance fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for High Agency Is High Variance.",
+          "Say what High Agency Is High Variance does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through High Agency Is High Variance.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold High Agency Is High Variance into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-essay",
+      "skill-agency",
+      "skill-risk taking",
+      "skill-psychology",
+      "skill-substack"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "course-indextkn",
+    "toolSlug": "indextkn",
+    "title": "Master Indextkn",
+    "objectives": [
+      "Understand what Indextkn is for",
+      "Use Indextkn on a real task",
+      "Know where Indextkn fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Indextkn for your real workflow, not the demo.",
+          "Say what Indextkn does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Indextkn.",
+          "Push Indextkn to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Indextkn into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-api",
+      "skill-llm pricing",
+      "skill-ai models",
+      "skill-cost comparison",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "course-dev-sandbox",
+    "toolSlug": "dev-sandbox",
+    "title": "Master Dev-sandbox",
+    "objectives": [
+      "Understand what Dev-sandbox is for",
+      "Use Dev-sandbox on a real task",
+      "Know where Dev-sandbox fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Dev-sandbox for your real workflow, not the demo.",
+          "Say what Dev-sandbox does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Dev-sandbox.",
+          "Push Dev-sandbox to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Dev-sandbox into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-sandbox",
+      "skill-podman",
+      "skill-ai agents",
+      "skill-containers",
+      "skill-security"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "course-gemini-agentic-video-understanding",
+    "toolSlug": "gemini-agentic-video-understanding",
+    "title": "Master Gemini Agentic Video Understanding",
+    "objectives": [
+      "Upload and query video files through the Gemini Files API",
+      "Extract timestamped, structured JSON output from video content",
+      "Build an agentic loop where Gemini triggers tool calls based on what it sees in video"
+    ],
+    "modules": [
+      {
+        "title": "Setup & First Video Analysis",
+        "estMinutes": 20,
+        "steps": [
+          "Install the google-genai Python SDK, set your GEMINI_API_KEY env var, and initialize a client with gemini-2.5-flash",
+          "Upload a short (<2 min) MP4 using client.files.upload(), then poll client.files.get() until state is ACTIVE before generating",
+          "Send the file reference plus a prompt like 'Summarize this video and list every distinct scene' to client.models.generate_content() and print the result"
+        ]
+      },
+      {
+        "title": "Timestamped & Structured Output",
+        "estMinutes": 25,
+        "steps": [
+          "Prompt for timestamps explicitly: 'For each event, return start and end in MM:SS format' and verify Gemini grounds answers to video timecodes",
+          "Add a response_schema (JSON Schema with event, start_time, end_time, description fields) and set response_mime_type='application/json' to force parseable output",
+          "Ask a question about a specific window ('What happens between 0:45 and 1:10?') and compare answers at default vs. low media resolution to see token/accuracy tradeoffs (~300 tokens/sec default, ~100 at low)"
+        ]
+      },
+      {
+        "title": "Building the Agentic Video Loop",
+        "estMinutes": 30,
+        "steps": [
+          "Declare 2-3 tools with function declarations, e.g. log_event(timestamp, label) and request_rewatch(start, end), and pass them via the tools config",
+          "Run a generate_content call where the model watches a video and decide which tools to call; parse the returned function_call parts from the response",
+          "Execute the requested functions in your code, send results back as function_response parts, and continue the conversation until the model returns a final text answer"
+        ]
+      },
+      {
+        "title": "Long Videos, YouTube & Production Hardening",
+        "estMinutes": 25,
+        "steps": [
+          "Analyze a YouTube URL directly by passing file_data with file_uri set to the video link instead of uploading",
+          "For long-form files, split analysis by prompting per-chunk summaries first, then a second pass that reasons over the combined structured notes",
+          "Add retries around file polling and generation calls, log per-request token usage from response.usage_metadata, and set a cost ceiling per video"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-video understanding",
+      "skill-gemini",
+      "skill-api",
+      "skill-multimodal",
+      "skill-agents"
+    ],
+    "prerequisites": [
+      "Intermediate Python (environments, SDKs, JSON handling)",
+      "A Google AI Studio API key",
+      "Basic familiarity with function calling / tool use in LLM APIs"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "course-adds-x402-payments-access-for-ai-agents-with-coinbase",
+    "toolSlug": "adds-x402-payments-access-for-ai-agents-with-coinbase",
+    "title": "Master Adds X402 Payments Access for AI Agents with Coinbase",
+    "objectives": [
+      "Understand what Adds X402 Payments Access for AI Agents with Coinbase is for",
+      "Use Adds X402 Payments Access for AI Agents with Coinbase on a real task",
+      "Know where Adds X402 Payments Access for AI Agents with Coinbase fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Adds X402 Payments Access for AI Agents with Coinbase for your real workflow, not the demo.",
+          "Say what Adds X402 Payments Access for AI Agents with Coinbase does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Adds X402 Payments Access for AI Agents with Coinbase.",
+          "Push Adds X402 Payments Access for AI Agents with Coinbase to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Adds X402 Payments Access for AI Agents with Coinbase into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-payments",
+      "skill-x402",
+      "skill-coinbase"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "course-anthropic-launches-fable-51-and-mythos-51",
+    "toolSlug": "anthropic-launches-fable-51-and-mythos-51",
+    "title": "Master Anthropic launches Fable 5.1 and Mythos 5.1",
+    "objectives": [
+      "Understand what Anthropic launches Fable 5.1 and Mythos 5.1 is for",
+      "Use Anthropic launches Fable 5.1 and Mythos 5.1 on a real task",
+      "Know where Anthropic launches Fable 5.1 and Mythos 5.1 fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Anthropic launches Fable 5.1 and Mythos 5.1 for your real workflow, not the demo.",
+          "Say what Anthropic launches Fable 5.1 and Mythos 5.1 does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Anthropic launches Fable 5.1 and Mythos 5.1.",
+          "Push Anthropic launches Fable 5.1 and Mythos 5.1 to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Anthropic launches Fable 5.1 and Mythos 5.1 into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-llm",
+      "skill-coding",
+      "skill-anthropic",
+      "skill-api",
+      "skill-foundation-model"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "course-pearpie",
+    "toolSlug": "pearpie",
+    "title": "Master PearPie",
+    "objectives": [
+      "Understand what PearPie is for",
+      "Use PearPie on a real task",
+      "Know where PearPie fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for PearPie.",
+          "Say what PearPie does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through PearPie.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold PearPie into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-ai chat",
+      "skill-privacy",
+      "skill-peer-to-peer",
+      "skill-no account",
+      "skill-sync"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-01T23:34:11.678Z"
   }
 ]

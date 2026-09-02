@@ -50,7 +50,14 @@
       "claude-codex-cursor-token-saver",
       "verb-authority",
       "ai-can-make-you-suck-faster-too",
-      "unitpost-email"
+      "unitpost-email",
+      "compilrdev-studio",
+      "tenux",
+      "selfshipai",
+      "ai-coding-agent-skills-for-real-engineers",
+      "dev-sandbox",
+      "gemini-agentic-video-understanding",
+      "anthropic-launches-fable-51-and-mythos-51"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -98,7 +105,14 @@
       "course-claude-codex-cursor-token-saver",
       "course-verb-authority",
       "course-ai-can-make-you-suck-faster-too",
-      "course-unitpost-email"
+      "course-unitpost-email",
+      "course-compilrdev-studio",
+      "course-tenux",
+      "course-selfshipai",
+      "course-ai-coding-agent-skills-for-real-engineers",
+      "course-dev-sandbox",
+      "course-gemini-agentic-video-understanding",
+      "course-anthropic-launches-fable-51-and-mythos-51"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -353,7 +367,9 @@
       "memory-compaction-for-agents-has-an-information-theoretic-fl",
       "i-built-a-real-time-translator-for-google-meet",
       "managing-ai-agents-is-still-a-full-time-job",
-      "calprep"
+      "calprep",
+      "free-business-builder",
+      "adds-x402-payments-access-for-ai-agents-with-coinbase"
     ],
     "courses": [
       "course-headless-tools",
@@ -398,7 +414,9 @@
       "course-memory-compaction-for-agents-has-an-information-theoretic-fl",
       "course-i-built-a-real-time-translator-for-google-meet",
       "course-managing-ai-agents-is-still-a-full-time-job",
-      "course-calprep"
+      "course-calprep",
+      "course-free-business-builder",
+      "course-adds-x402-payments-access-for-ai-agents-with-coinbase"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -460,7 +478,11 @@
       "pipy-semantic-search-mcp-for-ai-agents",
       "verb-authority",
       "managing-ai-agents-is-still-a-full-time-job",
-      "the-thinking-wattage-of-ai-agents-vs-the-human-brain"
+      "the-thinking-wattage-of-ai-agents-vs-the-human-brain",
+      "compilrdev-studio",
+      "selfshipai",
+      "dev-sandbox",
+      "adds-x402-payments-access-for-ai-agents-with-coinbase"
     ],
     "courses": [
       "course-headless-tools",
@@ -502,7 +524,11 @@
       "course-pipy-semantic-search-mcp-for-ai-agents",
       "course-verb-authority",
       "course-managing-ai-agents-is-still-a-full-time-job",
-      "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain"
+      "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain",
+      "course-compilrdev-studio",
+      "course-selfshipai",
+      "course-dev-sandbox",
+      "course-adds-x402-payments-access-for-ai-agents-with-coinbase"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -562,7 +588,8 @@
       "obsessing-over-ai-agent-harnesses",
       "a-slm-optimized-for-tool-calling",
       "experiments-with-ai",
-      "memory-compaction-for-agents-has-an-information-theoretic-fl"
+      "memory-compaction-for-agents-has-an-information-theoretic-fl",
+      "anthropic-launches-fable-51-and-mythos-51"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -574,7 +601,8 @@
       "course-obsessing-over-ai-agent-harnesses",
       "course-a-slm-optimized-for-tool-calling",
       "course-experiments-with-ai",
-      "course-memory-compaction-for-agents-has-an-information-theoretic-fl"
+      "course-memory-compaction-for-agents-has-an-information-theoretic-fl",
+      "course-anthropic-launches-fable-51-and-mythos-51"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -599,12 +627,14 @@
     "toolsTeaching": [
       "glm-53-open-weight-beat-anthropic-openai-models",
       "agenttrail",
-      "ai-can-make-you-suck-faster-too"
+      "ai-can-make-you-suck-faster-too",
+      "anthropic-launches-fable-51-and-mythos-51"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
       "course-agenttrail",
-      "course-ai-can-make-you-suck-faster-too"
+      "course-ai-can-make-you-suck-faster-too",
+      "course-anthropic-launches-fable-51-and-mythos-51"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -616,12 +646,18 @@
     "toolsTeaching": [
       "glm-53-open-weight-beat-anthropic-openai-models",
       "gemini-omni-11-flash",
-      "itsuki"
+      "itsuki",
+      "indextkn",
+      "gemini-agentic-video-understanding",
+      "anthropic-launches-fable-51-and-mythos-51"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
       "course-gemini-omni-11-flash",
-      "course-itsuki"
+      "course-itsuki",
+      "course-indextkn",
+      "course-gemini-agentic-video-understanding",
+      "course-anthropic-launches-fable-51-and-mythos-51"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -904,7 +940,8 @@
       "grith-is-live",
       "grith",
       "microsoft-publishes-ai-agent-shared-responsibility-model",
-      "verb-authority"
+      "verb-authority",
+      "dev-sandbox"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -912,7 +949,8 @@
       "course-grith-is-live",
       "course-grith",
       "course-microsoft-publishes-ai-agent-shared-responsibility-model",
-      "course-verb-authority"
+      "course-verb-authority",
+      "course-dev-sandbox"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1134,11 +1172,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "the-ai-health-agent-that-will-know-me-for-life",
-      "obsessing-over-ai-agent-harnesses"
+      "obsessing-over-ai-agent-harnesses",
+      "high-agency-is-high-variance"
     ],
     "courses": [
       "course-the-ai-health-agent-that-will-know-me-for-life",
-      "course-obsessing-over-ai-agent-harnesses"
+      "course-obsessing-over-ai-agent-harnesses",
+      "course-high-agency-is-high-variance"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1163,12 +1203,14 @@
     "toolsTeaching": [
       "hermes-agent",
       "openinstinct",
-      "i-might-have-built-the-best-linear-alternative"
+      "i-might-have-built-the-best-linear-alternative",
+      "tenux"
     ],
     "courses": [
       "course-hermes-agent",
       "course-openinstinct",
-      "course-i-might-have-built-the-best-linear-alternative"
+      "course-i-might-have-built-the-best-linear-alternative",
+      "course-tenux"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1181,13 +1223,15 @@
       "try-to-beat-this-ai-writing-detector",
       "text-editor-that-does-it-all",
       "handwrought",
-      "marktwin"
+      "marktwin",
+      "pearpie"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
       "course-text-editor-that-does-it-all",
       "course-handwrought",
-      "course-marktwin"
+      "course-marktwin",
+      "course-pearpie"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1364,7 +1408,9 @@
       "documentationaimd",
       "subs-the-cloud-native-agent-harness",
       "manage-coding-norms-across-your-ai-agents",
-      "pipy-semantic-search-mcp-for-ai-agents"
+      "pipy-semantic-search-mcp-for-ai-agents",
+      "tenux",
+      "indextkn"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -1380,7 +1426,9 @@
       "course-documentationaimd",
       "course-subs-the-cloud-native-agent-harness",
       "course-manage-coding-norms-across-your-ai-agents",
-      "course-pipy-semantic-search-mcp-for-ai-agents"
+      "course-pipy-semantic-search-mcp-for-ai-agents",
+      "course-tenux",
+      "course-indextkn"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1412,7 +1460,8 @@
       "experiments-with-ai",
       "the-thinking-wattage-of-ai-agents-vs-the-human-brain",
       "aicademy",
-      "keeplea"
+      "keeplea",
+      "high-agency-is-high-variance"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1424,7 +1473,8 @@
       "course-experiments-with-ai",
       "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain",
       "course-aicademy",
-      "course-keeplea"
+      "course-keeplea",
+      "course-high-agency-is-high-variance"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1440,7 +1490,8 @@
       "ai-engineer-notebooks",
       "a-slm-optimized-for-tool-calling",
       "open-agent-forum",
-      "memory-compaction-for-agents-has-an-information-theoretic-fl"
+      "memory-compaction-for-agents-has-an-information-theoretic-fl",
+      "gemini-agentic-video-understanding"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1449,7 +1500,8 @@
       "course-ai-engineer-notebooks",
       "course-a-slm-optimized-for-tool-calling",
       "course-open-agent-forum",
-      "course-memory-compaction-for-agents-has-an-information-theoretic-fl"
+      "course-memory-compaction-for-agents-has-an-information-theoretic-fl",
+      "course-gemini-agentic-video-understanding"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1527,7 +1579,8 @@
       "claude-skills-starter-kit",
       "saccade",
       "kiso",
-      "verb-authority"
+      "verb-authority",
+      "ai-coding-agent-skills-for-real-engineers"
     ],
     "courses": [
       "course-limitless-library",
@@ -1544,7 +1597,8 @@
       "course-claude-skills-starter-kit",
       "course-saccade",
       "course-kiso",
-      "course-verb-authority"
+      "course-verb-authority",
+      "course-ai-coding-agent-skills-for-real-engineers"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1626,7 +1680,9 @@
       "terminal-bench-science-evaluating-ai-agents-on-scientific-re",
       "dipstick-alerts",
       "datazen",
-      "observational-reconstruction-then-the-inverse-problem"
+      "observational-reconstruction-then-the-inverse-problem",
+      "will-your-money-last-ai-assisted-financial-simulator",
+      "indextkn"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -1634,7 +1690,9 @@
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
       "course-dipstick-alerts",
       "course-datazen",
-      "course-observational-reconstruction-then-the-inverse-problem"
+      "course-observational-reconstruction-then-the-inverse-problem",
+      "course-will-your-money-last-ai-assisted-financial-simulator",
+      "course-indextkn"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1671,11 +1729,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "genbio-launches-a-virtual-biological-cell",
-      "civitas"
+      "civitas",
+      "will-your-money-last-ai-assisted-financial-simulator"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
-      "course-civitas"
+      "course-civitas",
+      "course-will-your-money-last-ai-assisted-financial-simulator"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1749,10 +1809,14 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "aristra-your-life-os"
+      "aristra-your-life-os",
+      "free-business-builder",
+      "will-your-money-last-ai-assisted-financial-simulator"
     ],
     "courses": [
-      "course-aristra-your-life-os"
+      "course-aristra-your-life-os",
+      "course-free-business-builder",
+      "course-will-your-money-last-ai-assisted-financial-simulator"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1886,11 +1950,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "ai-resume-screening",
-      "ai-can-make-you-suck-faster-too"
+      "ai-can-make-you-suck-faster-too",
+      "will-your-money-last-ai-assisted-financial-simulator"
     ],
     "courses": [
       "course-ai-resume-screening",
-      "course-ai-can-make-you-suck-faster-too"
+      "course-ai-can-make-you-suck-faster-too",
+      "course-will-your-money-last-ai-assisted-financial-simulator"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1926,10 +1992,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "aifi-on-aws"
+      "aifi-on-aws",
+      "will-your-money-last-ai-assisted-financial-simulator"
     ],
     "courses": [
-      "course-aifi-on-aws"
+      "course-aifi-on-aws",
+      "course-will-your-money-last-ai-assisted-financial-simulator"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1967,12 +2035,14 @@
     "toolsTeaching": [
       "agenttrail",
       "telem",
-      "observational-reconstruction-then-the-inverse-problem"
+      "observational-reconstruction-then-the-inverse-problem",
+      "selfshipai"
     ],
     "courses": [
       "course-agenttrail",
       "course-telem",
-      "course-observational-reconstruction-then-the-inverse-problem"
+      "course-observational-reconstruction-then-the-inverse-problem",
+      "course-selfshipai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1982,10 +2052,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "agenttrail"
+      "agenttrail",
+      "selfshipai"
     ],
     "courses": [
-      "course-agenttrail"
+      "course-agenttrail",
+      "course-selfshipai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2424,10 +2496,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "a-benchmark-for-safely-measuring-container-breakout-capabili"
+      "a-benchmark-for-safely-measuring-container-breakout-capabili",
+      "dev-sandbox"
     ],
     "courses": [
-      "course-a-benchmark-for-safely-measuring-container-breakout-capabili"
+      "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
+      "course-dev-sandbox"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2878,14 +2952,16 @@
       "coordination-layer-for-coding-agents",
       "dmx",
       "my-free-code",
-      "opencontext"
+      "opencontext",
+      "ai-coding-agent-skills-for-real-engineers"
     ],
     "courses": [
       "course-ai-tools-list",
       "course-coordination-layer-for-coding-agents",
       "course-dmx",
       "course-my-free-code",
-      "course-opencontext"
+      "course-opencontext",
+      "course-ai-coding-agent-skills-for-real-engineers"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3275,10 +3351,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "gemini-omni-11-flash"
+      "gemini-omni-11-flash",
+      "gemini-agentic-video-understanding"
     ],
     "courses": [
-      "course-gemini-omni-11-flash"
+      "course-gemini-omni-11-flash",
+      "course-gemini-agentic-video-understanding"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -3288,10 +3366,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "gemini-omni-11-flash"
+      "gemini-omni-11-flash",
+      "gemini-agentic-video-understanding"
     ],
     "courses": [
-      "course-gemini-omni-11-flash"
+      "course-gemini-omni-11-flash",
+      "course-gemini-agentic-video-understanding"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -3414,11 +3494,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "understudy-scenario-testing-for-ai-agents",
-      "observational-reconstruction-then-the-inverse-problem"
+      "observational-reconstruction-then-the-inverse-problem",
+      "selfshipai"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
-      "course-observational-reconstruction-then-the-inverse-problem"
+      "course-observational-reconstruction-then-the-inverse-problem",
+      "course-selfshipai"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -4470,10 +4552,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "opencontext"
+      "opencontext",
+      "compilrdev-studio"
     ],
     "courses": [
-      "course-opencontext"
+      "course-opencontext",
+      "course-compilrdev-studio"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -4601,11 +4685,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "documentationaimd",
-      "kiso"
+      "kiso",
+      "compilrdev-studio"
     ],
     "courses": [
       "course-documentationaimd",
-      "course-kiso"
+      "course-kiso",
+      "course-compilrdev-studio"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -4810,10 +4896,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "claude-skills-starter-kit"
+      "claude-skills-starter-kit",
+      "ai-coding-agent-skills-for-real-engineers"
     ],
     "courses": [
-      "course-claude-skills-starter-kit"
+      "course-claude-skills-starter-kit",
+      "course-ai-coding-agent-skills-for-real-engineers"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
   },
@@ -5561,5 +5649,421 @@
       "course-unitpost-email"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
+  },
+  {
+    "id": "skill-project memory",
+    "name": "project memory",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "compilrdev-studio"
+    ],
+    "courses": [
+      "course-compilrdev-studio"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-devtools",
+    "name": "devtools",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "compilrdev-studio"
+    ],
+    "courses": [
+      "course-compilrdev-studio"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-remote access",
+    "name": "remote access",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "tenux"
+    ],
+    "courses": [
+      "course-tenux"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-terminal",
+    "name": "terminal",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "tenux"
+    ],
+    "courses": [
+      "course-tenux"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-mobile",
+    "name": "mobile",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "tenux"
+    ],
+    "courses": [
+      "course-tenux"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-debugging",
+    "name": "debugging",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "selfshipai"
+    ],
+    "courses": [
+      "course-selfshipai"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-business",
+    "name": "business",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "free-business-builder"
+    ],
+    "courses": [
+      "course-free-business-builder"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-startup",
+    "name": "startup",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "free-business-builder"
+    ],
+    "courses": [
+      "course-free-business-builder"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-entrepreneurship",
+    "name": "entrepreneurship",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "free-business-builder"
+    ],
+    "courses": [
+      "course-free-business-builder"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-retirement",
+    "name": "retirement",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "will-your-money-last-ai-assisted-financial-simulator"
+    ],
+    "courses": [
+      "course-will-your-money-last-ai-assisted-financial-simulator"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-developer workflows",
+    "name": "developer workflows",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-coding-agent-skills-for-real-engineers"
+    ],
+    "courses": [
+      "course-ai-coding-agent-skills-for-real-engineers"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-prompt engineering",
+    "name": "prompt engineering",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-coding-agent-skills-for-real-engineers"
+    ],
+    "courses": [
+      "course-ai-coding-agent-skills-for-real-engineers"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-agency",
+    "name": "agency",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "high-agency-is-high-variance"
+    ],
+    "courses": [
+      "course-high-agency-is-high-variance"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-risk taking",
+    "name": "risk taking",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "high-agency-is-high-variance"
+    ],
+    "courses": [
+      "course-high-agency-is-high-variance"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-psychology",
+    "name": "psychology",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "high-agency-is-high-variance"
+    ],
+    "courses": [
+      "course-high-agency-is-high-variance"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-substack",
+    "name": "substack",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "high-agency-is-high-variance"
+    ],
+    "courses": [
+      "course-high-agency-is-high-variance"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-llm pricing",
+    "name": "llm pricing",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "indextkn"
+    ],
+    "courses": [
+      "course-indextkn"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-ai models",
+    "name": "ai models",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "indextkn"
+    ],
+    "courses": [
+      "course-indextkn"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-cost comparison",
+    "name": "cost comparison",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "indextkn"
+    ],
+    "courses": [
+      "course-indextkn"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-podman",
+    "name": "podman",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "dev-sandbox"
+    ],
+    "courses": [
+      "course-dev-sandbox"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-containers",
+    "name": "containers",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "dev-sandbox"
+    ],
+    "courses": [
+      "course-dev-sandbox"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-video understanding",
+    "name": "video understanding",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "gemini-agentic-video-understanding"
+    ],
+    "courses": [
+      "course-gemini-agentic-video-understanding"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-payments",
+    "name": "payments",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "adds-x402-payments-access-for-ai-agents-with-coinbase"
+    ],
+    "courses": [
+      "course-adds-x402-payments-access-for-ai-agents-with-coinbase"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-x402",
+    "name": "x402",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "adds-x402-payments-access-for-ai-agents-with-coinbase"
+    ],
+    "courses": [
+      "course-adds-x402-payments-access-for-ai-agents-with-coinbase"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-coinbase",
+    "name": "coinbase",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "adds-x402-payments-access-for-ai-agents-with-coinbase"
+    ],
+    "courses": [
+      "course-adds-x402-payments-access-for-ai-agents-with-coinbase"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-anthropic",
+    "name": "anthropic",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "anthropic-launches-fable-51-and-mythos-51"
+    ],
+    "courses": [
+      "course-anthropic-launches-fable-51-and-mythos-51"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-foundation-model",
+    "name": "foundation model",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "anthropic-launches-fable-51-and-mythos-51"
+    ],
+    "courses": [
+      "course-anthropic-launches-fable-51-and-mythos-51"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-ai chat",
+    "name": "ai chat",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "pearpie"
+    ],
+    "courses": [
+      "course-pearpie"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-privacy",
+    "name": "privacy",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "pearpie"
+    ],
+    "courses": [
+      "course-pearpie"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-peer-to-peer",
+    "name": "peer to peer",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "pearpie"
+    ],
+    "courses": [
+      "course-pearpie"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-no account",
+    "name": "no account",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "pearpie"
+    ],
+    "courses": [
+      "course-pearpie"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
+  },
+  {
+    "id": "skill-sync",
+    "name": "sync",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "pearpie"
+    ],
+    "courses": [
+      "course-pearpie"
+    ],
+    "updatedAt": "2026-09-01T23:34:11.678Z"
   }
 ]
