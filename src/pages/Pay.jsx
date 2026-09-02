@@ -24,6 +24,7 @@ import useRazorpay from '../hooks/useRazorpay'
 import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { track, EVENTS } from '../utils/analyticsEvents'
 import { haptic } from '../utils/haptics'
+import RedeemCode from '../components/app/RedeemCode'
 
 // The paywall — where a signed-in user lands until a plan is active
 // (AppShell sends them here only while the server says payments are ON and
@@ -159,6 +160,15 @@ export default function Pay() {
           ? 'The 30-day plans end when the 30 days are up unless you buy again; the Founder plan runs for 10 years.'
           : 'When the 30 days are up, access simply ends unless you choose to buy again.'}
       </p>
+
+      {/* A code grants access without a payment, so it sits with the plans
+          rather than after them. onRedeemed re-asks the server what is active
+          instead of assuming — the entitlement is the server's answer, not
+          this component's. */}
+      <RedeemCode onRedeemed={async () => {
+        const ent = await fetchEntitlement()
+        if (ent?.active) navigate('/app/stack', { replace: true })
+      }} />
 
       {status === 'verifying' && (
         <p className="mt-5 text-xs font-bold uppercase tracking-widest text-slate-300">Confirming your payment…</p>
