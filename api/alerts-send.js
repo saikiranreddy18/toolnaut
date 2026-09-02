@@ -21,10 +21,19 @@
 import { alertsConfigured, rest } from './_alerts.js'
 
 const SITE = process.env.ALERTS_SITE_URL || 'https://toolnaut.xyz'
-// resend.dev sender works before a domain is verified; set RESEND_FROM to
-// e.g. "Toolnaut Radar <alerts@toolnaut.xyz>" once toolnaut.xyz is verified
-// in Resend.
-const FROM = process.env.RESEND_FROM || 'Toolnaut Radar <onboarding@resend.dev>'
+// Sent from the company domain, not resend.dev.
+//
+// A radar digest arriving from "onboarding@resend.dev" looks like something
+// forwarded by a stranger, and lands in spam far more often. RESEND_FROM
+// overrides this; the default names the address the domain should be verified
+// for, so a misconfiguration fails loudly at Resend rather than quietly
+// sending as somebody else's domain.
+//
+// toolnaut.xyz already carries Google Workspace MX, so verify a SUBDOMAIN in
+// Resend (send.toolnaut.xyz) rather than the root: root verification wants its
+// own MX record and would sit awkwardly beside Workspace mail. See
+// docs/email-alerts.md.
+const FROM = process.env.RESEND_FROM || 'Toolnaut Radar <radar@send.toolnaut.xyz>'
 const SEND_CAP = 80
 const WINDOW_DAYS = 7
 const TOOLS_PER_EMAIL = 10
@@ -71,7 +80,21 @@ async function sendEmail(key, to, subject, html) {
     body: JSON.stringify({ from: FROM, to: [to], subject, html }),
     signal: AbortSignal.timeout(10_000),
   })
-  if (!res.ok) console.error('resend', res.status, (await res.text()).slice(0, 300))
+  if (!res.ok) {
+    const body = (await res.text()).slice(0, 400)
+    // 403 from Resend almost always means the FROM domain is not verified.
+    // Saying so plainly beats leaving a bare status code for someone to
+    // decode at 3am when the digest did not go out.
+    if (res.status === 403 || /domain/i.test(body)) {
+      console.error(
+        `resend REJECTED the sender "${FROM}" (${res.status}). The domain is ` +
+        `probably not verified in Resend, or RESEND_FROM does not match a ` +
+        `verified domain. Nothing was sent. Response: ${body}`,
+      )
+    } else {
+      console.error('resend', res.status, body)
+    }
+  }
   return res.ok
 }
 
