@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { PLANS, formatPrice } from '../../utils/planData'
 import { useLocalPrice } from '../../hooks/useLocalPrice'
+import { useAnalytics } from '../../hooks/useAnalytics'
+import { EVENTS } from '../../utils/analyticsEvents'
 
 // The founder ribbon — a live marquee carrying the whole offer: what it is,
 // what it costs, how long is left, and a link that takes the money.
@@ -37,6 +39,7 @@ const pad = (n) => String(n).padStart(2, '0')
 export default function FounderRibbon() {
   const plan = PLANS.find((p) => p.id === 'founder')
   const local = useLocalPrice(plan?.priceINR)
+  const track = useAnalytics()
   const [left, setLeft] = useState(() => timeLeft(FOUNDER_DEADLINE, Date.now()))
 
   useEffect(() => {
@@ -84,6 +87,7 @@ export default function FounderRibbon() {
   return (
     <Link
       to="/pay?plan=founder"
+      onClick={() => track(EVENTS.UPGRADE_CLICKED, { plan: 'founder', surface: 'ribbon' })}
       aria-label={`Founder offer: lifetime access for ${inr}, one payment, never expires. Ends in ${left.days} days. Claim it.`}
       className="group relative block"
     >

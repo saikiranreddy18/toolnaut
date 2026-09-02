@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { consumeLaunch } from '../../utils/launchFlag'
+import { useAnalytics } from '../../hooks/useAnalytics'
+import { EVENTS } from '../../utils/analyticsEvents'
 import { loadSession } from '../../state/authStore'
 import Wordmark from '../ui/Wordmark'
 import PixelRocket from './PixelRocket'
@@ -28,18 +30,35 @@ const BEATS = [
 
 export default function ArrivalLaunch() {
   const still = useReducedMotion()
+  const track = useAnalytics()
   const [playing, setPlaying] = useState(false)
   const [beat, setBeat] = useState(0)
 
   useEffect(() => {
-    if (!consumeLaunch()) return          // consume regardless, so it never re-arms
-    if (!loadSession()) return
+    const arrived = consumeLaunch()       // consume regardless, so it never re-arms
+    if (!arrived) return
+    const session = loadSession()
+    if (!session) return
+
+    // ACCOUNT_CREATED fires HERE, not at the sign-in button. The button hands
+    // the browser to an OAuth provider and the page unloads, so an event sent
+    // there is a race the analytics call usually loses. This runs once the
+    // session actually exists, on a page that is staying put.
+    //
+    // The launch flag is armed only when the destination was /goal — no
+    // completed intake — which is what distinguishes a new account from a
+    // returning one. Consumed exactly once, so a refresh does not double-count.
+    track(EVENTS.ACCOUNT_CREATED, { method: session.simulated ? 'simulated' : 'oauth' })
+
+    // The animation is skipped for reduced-motion, but the SIGNUP still
+    // happened — reporting it must not depend on whether a rocket played.
     if (still) return
 
     setPlaying(true)
     const timers = BEATS.map((b, i) => setTimeout(() => setBeat(i), b.at))
     timers.push(setTimeout(() => setPlaying(false), 2600))
     return () => timers.forEach(clearTimeout)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [still])
 
   return (

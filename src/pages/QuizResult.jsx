@@ -259,15 +259,20 @@ export default function QuizResult() {
           </div>
         </motion.div>
 
-        {/* Honest confidence, now beneath the ticket it grades. */}
+        {/* "Recommendation quality" claimed to grade the PICKS. It does not —
+            it grades what went into them: how many decision-relevant answers we
+            have, and how deep the pool of tools scoring highly for this profile
+            actually is. Someone reading the old label as "these picks are 80%
+            good" was reading a promise nobody made, and would rightly feel
+            misled by a bad pick under a high number. */}
         <div className="mx-auto mt-4 max-w-xl rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center">
           <p className="font-display text-[10px] font-black uppercase tracking-[0.18em]" style={{ color: confidence.constrained ? 'var(--hot-pink)' : 'var(--lime)' }}>
-            Recommendation quality: {confidence.constrained ? 'Limited by your answers' : confidence.label}
+            How well we know your needs: {confidence.constrained ? 'Limited by your answers' : confidence.label}
           </p>
           <p className="mt-1.5 text-xs leading-relaxed text-slate-400">
             {confidence.constrained
               ? `Your combination of answers narrows the field — only ${confidence.pool} tools score highly for it. The picks above are the best of a small pool; relaxing budget or level widens it.`
-              : `Built from ${confidence.known.length} things you told us — ${confidence.known.slice(0, 3).join(', ')}${confidence.known.length > 3 ? '…' : ''}.`}
+              : `Built from ${confidence.known.length} things you told us — ${confidence.known.slice(0, 3).join(', ')}${confidence.known.length > 3 ? '…' : ''} — and ${confidence.pool} tools that score highly for it.`}
             {!confidence.constrained && confidence.nextSignal && ` Telling us ${confidence.nextSignal} would sharpen it further.`}
           </p>
         </div>

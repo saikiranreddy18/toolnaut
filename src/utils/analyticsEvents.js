@@ -44,6 +44,12 @@ export const EVENTS = {
   // CHECKOUT_FAILED matters more than the successes: a funnel with no failure
   // arm reads as "nobody abandoned", when in truth abandonment is invisible.
   // Started-minus-completed is the only way to see a broken gateway.
+  // Account lifecycle. Without these the funnel starts at "someone was already
+  // signed in", which hides the step where most people actually drop.
+  ACCOUNT_CREATED: 'account_created',
+  SIGNED_IN: 'signed_in',
+  GUEST_STACK_IMPORTED: 'guest_stack_imported',
+
   PRICING_VIEWED: 'pricing_viewed',
   UPGRADE_CLICKED: 'upgrade_clicked',
   CHECKOUT_STARTED: 'checkout_started',

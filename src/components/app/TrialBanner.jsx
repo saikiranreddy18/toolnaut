@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
+import { useEffect, useRef } from 'react'
 import { useEntitlement } from '../../hooks/useEntitlement'
+import { useAnalytics } from '../../hooks/useAnalytics'
+import { EVENTS } from '../../utils/analyticsEvents'
 
 // "Your trial ends in 3 days."
 //
@@ -13,6 +16,22 @@ const WARN_WITHIN_DAYS = 3
 
 export default function TrialBanner() {
   const ent = useEntitlement()
+  const track = useAnalytics()
+  const reported = useRef(false)
+
+  // Reported once per mount, and only once the server has actually said so —
+  // firing on the click that CREATED the account would count trials that the
+  // grant then failed to write.
+  useEffect(() => {
+    if (reported.current || ent.loading || ent.unknown) return
+    if (ent.trial && ent.active) {
+      reported.current = true
+      track(EVENTS.TRIAL_STARTED, { days_left: ent.days ?? null })
+    } else if (ent.trial && !ent.active) {
+      reported.current = true
+      track(EVENTS.TRIAL_EXPIRED, {})
+    }
+  }, [ent.loading, ent.unknown, ent.trial, ent.active, ent.days, track])
 
   if (ent.loading || ent.unknown) return null
   // Payments off means nobody can buy anything, so urging them to would be

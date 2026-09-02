@@ -11,7 +11,7 @@ into a table that did not exist.
 
 ## What has to be true for a single email to go out
 
-1. `alert_subscribers` exists in Supabase (`supabase/alert_subscribers.sql`)
+1. `alert_subscribers` exists in Supabase (`supabase/migrations/0007_alert_subscribers.sql`)
 2. `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` in Vercel — already set
 3. `CRON_SECRET` in Vercel
 4. `RESEND_API_KEY` in Vercel
