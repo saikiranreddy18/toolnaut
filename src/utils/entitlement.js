@@ -31,6 +31,11 @@ export async function fetchEntitlement() {
       active: Boolean(data.active),
       plan: data.plan || null,
       endsAt: data.ends_at || null,
+      // Whole days remaining, computed once here so no caller re-derives it
+      // and gets a different answer. Null when access does not expire.
+      daysLeft: data.ends_at
+        ? Math.max(0, Math.ceil((new Date(data.ends_at).getTime() - Date.now()) / 86400000))
+        : null,
       paymentsEnabled: Boolean(data.payments_enabled),
       configured: Boolean(data.configured),
       unknown: false,
