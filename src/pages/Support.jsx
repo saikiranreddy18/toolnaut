@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { CONTACT_EMAIL } from '../config'
+import { useHead } from '../utils/head'
 
 // Support and refunds.
 //
@@ -37,6 +38,54 @@ const Mail = () => (
 )
 
 export default function Support() {
+  // Its own title and description. Without these the page inherited the
+  // homepage's, so a search result for "toolnaut refund" would have shown the
+  // wrong title and Google would have seen two pages claiming to be the same.
+  //
+  // The FAQPage schema is the refund terms in the form search engines read, so
+  // "does toolnaut offer refunds" can be answered in the result itself.
+  useHead({
+    title: 'Support & Refunds — Toolnaut',
+    description:
+      'Toolnaut support and refund policy: a 7-day money-back guarantee, one-time payments that never '
+      + 'auto-renew, and a real address that reaches a person.',
+    path: '/support',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Does Toolnaut offer refunds?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: `Yes. Email ${CONTACT_EMAIL} within ${REFUND_WINDOW_DAYS} days of payment and we `
+              + 'refund it in full, no reason required. Refunds are returned through Razorpay to the '
+              + 'card or account you paid from.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Does a Toolnaut plan renew automatically?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'No. Every plan is a one-time payment. Nothing renews, your card is never stored, '
+              + 'and you are never charged again without going through checkout.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How do I cancel?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'There is no subscription to cancel, because nothing recurs — not buying again ends '
+              + `it. To have your account and data deleted, ask at ${CONTACT_EMAIL}.`,
+          },
+        },
+      ],
+    },
+  })
+
   return (
     <div className="relative min-h-screen">
       <div className="starfield" aria-hidden="true" />

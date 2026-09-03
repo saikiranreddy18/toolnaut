@@ -9,6 +9,7 @@ import PricingSection from '../components/sections/PricingSection'
 import FeaturesSection from '../components/sections/FeaturesSection'
 import StatsSection from '../components/sections/StatsSection'
 import FounderRibbon from '../components/ui/FounderRibbon'
+import { useHead } from '../utils/head'
 import CTASection from '../components/sections/CTASection'
 import CometProgress from '../components/ui/CometProgress'
 import GalaxyExplorer from '../components/ui/GalaxyExplorer'
@@ -49,6 +50,52 @@ export default function Landing() {
   const track = useAnalytics()
   const audio = useSpaceAudio()
   const navigate = useNavigate()
+
+  // Structured data for the homepage. The title and description already live
+  // in index.html and are correct there, so this adds only the schema.
+  //
+  // Organization and WebSite are the two that earn something concrete: the
+  // first tells Google what this company IS rather than inferring it from
+  // copy, the second declares the search endpoint that produces a sitelinks
+  // search box.
+  //
+  // Deliberately NO aggregateRating and no review count. There are no reviews
+  // yet, inventing them is the kind of fake data this project refuses, and
+  // Google penalises unverifiable review markup anyway.
+  useHead({
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Toolnaut',
+        url: 'https://toolnaut.xyz',
+        logo: 'https://toolnaut.xyz/og.png',
+        description:
+          'Toolnaut maps AI tools to the work you actually do — your role, goal, budget and skill '
+          + 'level — and shows why each one fits.',
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'customer support',
+          email: 'info@toolnaut.xyz',
+          url: 'https://toolnaut.xyz/support',
+        },
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Toolnaut',
+        url: 'https://toolnaut.xyz',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: 'https://toolnaut.xyz/search?q={search_term_string}',
+          },
+          'query-input': 'required name=search_term_string',
+        },
+      },
+    ],
+  })
 
   // The moon is off HERE and only here. It is a real setting (moonStore, with a
   // toggle in the theme picker) and it stays available on every other surface —

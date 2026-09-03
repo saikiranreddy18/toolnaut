@@ -33,6 +33,7 @@ const ROUTES = [
   '/example',
   '/new',
   '/search',
+  '/support',
   '/privacy',
   '/terms',
   '/tools/code',
