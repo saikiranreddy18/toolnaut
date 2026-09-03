@@ -3786,3 +3786,104 @@ a client-side SPA with a static tool catalogue.
   - Verified via `npm test` (211/211), `npm run build` (15/15 routes
     prerendered), and `npm run smoke`.
 - **Found:** 2026-09-02 15:20 UTC
+
+### The leaderboard's own precondition for going real has already shipped, and nobody came back to flip it
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern this time — a self-audit of a TODO
+  Toolnaut's own code left for itself. G2/Capterra-style "real ranking"
+  products (and Toolnaut's own `explorerCount()`, shipped for the landing
+  page's Explorers tile) are the reference for how to expose an aggregate
+  safely once accounts exist; this gap is about noticing that reference case
+  now applies somewhere it hasn't been applied yet.
+- **Gap:** `src/utils/leaderboardData.js:12-17` says, in its own header
+  comment: *"When accounts land, the same [scoring] function runs
+  server-side over stored progress and these rows get replaced by a query.
+  Nothing else in this file survives that change."* Accounts landed — read
+  in full, `src/state/authStore.js` has real Supabase Google OAuth +
+  email-magic-link sign-in (not just the old simulated session), and
+  `supabase/migrations/0002_user_state.sql` already gives every signed-in
+  account a durable, RLS-protected server copy of exactly the three inputs
+  `computeScore()` needs: `tool_refs` (stack size), `roadmap_progress`
+  (steps done), and `profiles`. `src/state/sync.js` already pushes and pulls
+  all three on every sign-in (`syncOnSignIn` → `pullAll()` + `pushAll()`,
+  `sync.js:75-195`). None of that is wired to the leaderboard: `RankCard.jsx`
+  still calls `myStanding()` (`communityStats.js:70-100`), which reads only
+  `localStorage` and ranks the visitor against `SAMPLE_LEADERBOARD` — seven
+  hardcoded fictional handles (`leaderboardData.js:41-49`, `IS_SAMPLE =
+  true`) — on every device, signed in or not. A user who syncs their stack
+  across two laptops (the feature `sync.js` exists to provide) still sees
+  two independent fake leaderboards, one per device's local streak, because
+  nothing server-side aggregates across accounts. The precedent for doing
+  this safely already exists in the same codebase: `0001_explorers.sql`'s
+  `explorer_count()` is a `security definer` function that lets `anon` read
+  one aggregate (a count) over a table with **no** select policy of its own
+  — proving the "expose the aggregate, never the rows" pattern this gap
+  needs is already accepted practice here, not a new privacy posture.
+- **Why it matters:** a fake leaderboard is the exact credibility risk the
+  file's own comments warn about ("the single most credible-looking thing a
+  product can put on a landing page"), and it currently sits inside the
+  authenticated app (`Stack.jsx` via `RankCard`), not just the marketing
+  site — a signed-in user comparing their real, synced progress against
+  seven names that never move is a worse experience than showing nothing,
+  because the "Preview — leaderboard not live yet" badge is easy to miss
+  and the numbers otherwise look completely real (tabular scores, streak
+  days, category dots). Once accounts existed to rank, every day this stays
+  sample data is a day the game mechanic that's supposed to drive roadmap
+  completion (`POINTS_PER_PLACE`, `SCORING.perRoadmapStep`) is motivating
+  people to climb past nobody.
+- **Smallest useful version (what to actually build):**
+  - New migration `supabase/migrations/0008_leaderboard.sql`, modeled
+    directly on `0001_explorers.sql`: add a `handle` text column to
+    `public.profiles`, backfilled and set-on-insert to a generated
+    pseudonym (adjective + noun + short numeric suffix, derived from `id`
+    so it's stable and needs no extra uniqueness dance) — never the
+    person's real name or email, matching the "no personal data leaves this
+    table" rule `0001` already sets. Add one `security definer` function,
+    `public.leaderboard_top(n int)`, returning `(handle, score, rank)` for
+    the top `n` accounts computed from `tool_refs` + `roadmap_progress`
+    counts (the same weights as `SCORING` in `leaderboardData.js`, kept in
+    SQL so client and server can't drift — comment the two in sync the way
+    the drift-guard test already does for `INTERACTIONS` elsewhere in this
+    repo), plus `public.my_rank()` returning the caller's own real rank via
+    `auth.uid()`. Both grant `execute` to `anon, authenticated` and select
+    nothing else — no table gets a new SELECT policy, exactly like
+    `explorer_count()`.
+  - New `src/utils/leaderboard.js`: `fetchLeaderboard()` calls
+    `syncAvailable()` (already exported from `sync.js`) first — unconfigured
+    or not-yet-migrated both mean "stay on sample data," feature-detected
+    the same way `sync.js` already treats a missing RPC as "not set up"
+    rather than an error. When available, calls the two RPCs and returns
+    `{ top, myRank, real: true }`; otherwise returns `{ top: null, real:
+    false }` so the caller falls back to `SAMPLE_LEADERBOARD` unchanged.
+  - `RankCard.jsx`: on mount, try `fetchLeaderboard()`; render the real rows
+    and drop the "Preview — leaderboard not live yet" badge only when
+    `real` comes back true — same honesty rule `StatsSection.jsx` already
+    applies to `explorers` vs `SUBSCRIBERS` (a real tile and a seeded tile
+    never share one "this is real" signal). Streak stays local-only per
+    `communityStats.js`'s existing note that it's owned by `Stack.jsx`, so
+    the server-computed score in v1 uses stack size + roadmap steps only
+    (drop `perStreakDay` from the server formula, keep it in the local
+    "your standing" tile above the board, which already renders separately
+    from the ranked table) — understating everyone's real score identically
+    is honest; inventing a synced streak column is not what this gap asked
+    for.
+  - **What this would NOT include** (kept out to bound the diff): no
+    friend-only or category-filtered leaderboards; no live/realtime updates
+    (a page-load fetch is enough, same freshness bar as `explorerCount()`);
+    no letting a user set their own handle in v1 (auto-generated only —
+    letting people type free text into a public-facing name field is a
+    moderation problem this gap doesn't need to open); no syncing streak
+    server-side (a separate, smaller gap if ever wanted); no changing
+    `myStanding()`'s local-only fallback path for signed-out visitors, who
+    keep exactly today's experience.
+  - **Verify before shipping:** the migration is additive and RLS-scoped
+    like every prior one, but run it in a Supabase staging/SQL-editor pass
+    first and confirm `leaderboard_top`/`my_rank` return nothing broken
+    against **zero** signed-up accounts (the RPC must return an empty set,
+    not error, the same "degrade honestly" case `0001`'s own comment
+    calls out) before wiring the client to it.
+- **Build size:** M — one additive SQL migration (mirrors `0001_explorers.sql`
+  closely), one new client module, and swapping `RankCard.jsx`'s data source
+  behind the same feature-detection `sync.js` already uses elsewhere. No new
+  route, no new dependency.
+- **Found:** 2026-09-03 00:35 UTC
