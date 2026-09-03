@@ -8001,5 +8001,815 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-02T23:33:29.474Z"
+  },
+  {
+    "id": "course-pangolin",
+    "toolSlug": "pangolin",
+    "title": "Master Pangolin",
+    "objectives": [
+      "Understand what Pangolin is for",
+      "Use Pangolin on a real task",
+      "Know where Pangolin fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Pangolin for your real workflow, not the demo.",
+          "Say what Pangolin does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Pangolin.",
+          "Push Pangolin to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Pangolin into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-sso",
+      "skill-wireguard",
+      "skill-reverse-proxy",
+      "skill-self-hosted",
+      "skill-security"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-openvurp",
+    "toolSlug": "openvurp",
+    "title": "Master Openvurp",
+    "objectives": [
+      "Understand what Openvurp is for",
+      "Use Openvurp on a real task",
+      "Know where Openvurp fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Openvurp for your real workflow, not the demo.",
+          "Say what Openvurp does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Openvurp.",
+          "Push Openvurp to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Openvurp into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-multi-agent",
+      "skill-open-source",
+      "skill-tools"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-oconee-runtime",
+    "toolSlug": "oconee-runtime",
+    "title": "Master Oconee Runtime",
+    "objectives": [
+      "Understand what Oconee Runtime is for",
+      "Use Oconee Runtime on a real task",
+      "Know where Oconee Runtime fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Oconee Runtime for your real workflow, not the demo.",
+          "Say what Oconee Runtime does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Oconee Runtime.",
+          "Push Oconee Runtime to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Oconee Runtime into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-policy enforcement",
+      "skill-guardrails",
+      "skill-security",
+      "skill-runtime"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-stillmade",
+    "toolSlug": "stillmade",
+    "title": "Master StillMade",
+    "objectives": [
+      "Script a repeatable text-to-video pipeline in StillMade",
+      "Chain prompt stages from storyboard to final render",
+      "Tune render parameters and debug failed generation runs"
+    ],
+    "modules": [
+      {
+        "title": "Pipeline Basics: Prompt to Render",
+        "estMinutes": 12,
+        "steps": [
+          "Create a new pipeline in the StillMade dashboard and define a single chat prompt node with a style preset",
+          "Run the pipeline with a 5-second test prompt and inspect the generated frames in the preview panel",
+          "Export the result as MP4 and note the default render settings (resolution, fps, seed) in the run log"
+        ]
+      },
+      {
+        "title": "Multi-Stage Chains and Variables",
+        "estMinutes": 15,
+        "steps": [
+          "Add a storyboard node that expands your prompt into scenes, then connect a render node that consumes {{storyboard.output}}",
+          "Define two input variables (subject, mood) and inject them into the prompt template using {{variable}} syntax",
+          "Re-run with three different variable sets and compare outputs in the run history"
+        ]
+      },
+      {
+        "title": "Tuning Quality and Consistency",
+        "estMinutes": 14,
+        "steps": [
+          "Set a fixed seed and adjust guidance strength on the render node, then run 3 variations to measure consistency",
+          "Configure frame interpolation and upscaling settings, and observe the impact on render time and cost per run",
+          "Add a negative-prompt node to suppress artifacts and compare before/after frames side by side"
+        ]
+      },
+      {
+        "title": "Automating with the StillMade API",
+        "estMinutes": 15,
+        "steps": [
+          "Generate an API key, then trigger your pipeline via POST to /v1/pipelines/{id}/runs with a JSON payload containing your variables",
+          "Poll the run status endpoint until state = completed, and download the video from the returned asset URL",
+          "Add a webhook URL to the pipeline config so a notification fires when renders finish, and verify it with a test request"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-video generation",
+      "skill-ai video",
+      "skill-pipeline",
+      "skill-automation",
+      "skill-chat-to-video"
+    ],
+    "prerequisites": [
+      "Comfortable writing structured prompts for generative AI tools",
+      "Basic familiarity with REST APIs and JSON payloads"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-cut-your-ai-bill-by-a-third-same-tools-same-output",
+    "toolSlug": "cut-your-ai-bill-by-a-third-same-tools-same-output",
+    "title": "Master Cut your AI bill by a third. Same tools, same output",
+    "objectives": [
+      "Understand what Cut your AI bill by a third. Same tools, same output is for",
+      "Use Cut your AI bill by a third. Same tools, same output on a real task",
+      "Know where Cut your AI bill by a third. Same tools, same output fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Cut your AI bill by a third. Same tools, same output for your real workflow, not the demo.",
+          "Say what Cut your AI bill by a third. Same tools, same output does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Cut your AI bill by a third. Same tools, same output.",
+          "Push Cut your AI bill by a third. Same tools, same output to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Cut your AI bill by a third. Same tools, same output into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-llm",
+      "skill-cost-optimization",
+      "skill-api-savings",
+      "skill-devops",
+      "skill-ai-billing"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-concorde-one-ai-agent-shared-by-an-organization",
+    "toolSlug": "concorde-one-ai-agent-shared-by-an-organization",
+    "title": "Master Concorde, one AI agent shared by an organization",
+    "objectives": [
+      "Understand what Concorde, one AI agent shared by an organization is for",
+      "Use Concorde, one AI agent shared by an organization on a real task",
+      "Know where Concorde, one AI agent shared by an organization fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Concorde, one AI agent shared by an organization for your real workflow, not the demo.",
+          "Say what Concorde, one AI agent shared by an organization does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Concorde, one AI agent shared by an organization.",
+          "Push Concorde, one AI agent shared by an organization to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Concorde, one AI agent shared by an organization into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-open source",
+      "skill-organization",
+      "skill-collaboration"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-jern-cloud",
+    "toolSlug": "jern-cloud",
+    "title": "Master Jern Cloud",
+    "objectives": [
+      "Understand what Jern Cloud is for",
+      "Use Jern Cloud on a real task",
+      "Know where Jern Cloud fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Jern Cloud for your real workflow, not the demo.",
+          "Say what Jern Cloud does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Jern Cloud.",
+          "Push Jern Cloud to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Jern Cloud into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding agent",
+      "skill-policy",
+      "skill-security",
+      "skill-devtools",
+      "skill-ai agent"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-i-built-my-first-mcp-to-manage-google-ads",
+    "toolSlug": "i-built-my-first-mcp-to-manage-google-ads",
+    "title": "Master I built my first MCP to manage Google Ads",
+    "objectives": [
+      "Understand what I built my first MCP to manage Google Ads is for",
+      "Use I built my first MCP to manage Google Ads on a real task",
+      "Know where I built my first MCP to manage Google Ads fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure I built my first MCP to manage Google Ads for your real workflow, not the demo.",
+          "Say what I built my first MCP to manage Google Ads does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through I built my first MCP to manage Google Ads.",
+          "Push I built my first MCP to manage Google Ads to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold I built my first MCP to manage Google Ads into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-mcp",
+      "skill-google ads",
+      "skill-marketing",
+      "skill-ai agents"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-vantage",
+    "toolSlug": "vantage",
+    "title": "Master Vantage",
+    "objectives": [
+      "Connect Vantage to Apple Health and configure data permissions",
+      "Understand how Vantage generates your one daily priority action",
+      "Establish a daily routine of reviewing and completing your priority action"
+    ],
+    "modules": [
+      {
+        "title": "Install and Connect Apple Health",
+        "estMinutes": 6,
+        "steps": [
+          "Download Vantage from the App Store and create an account",
+          "When prompted, tap 'Connect Apple Health' and enable read access for Steps, Sleep Analysis, Heart Rate, and Workouts",
+          "Complete onboarding by selecting up to 3 health focus areas (e.g., sleep, movement, recovery) so Vantage knows what to prioritize"
+        ]
+      },
+      {
+        "title": "Understand Your Daily Priority",
+        "estMinutes": 5,
+        "steps": [
+          "Open Vantage and find today's single priority action card at the top of the home screen",
+          "Tap 'Why this action' to see which Apple Health metrics (e.g., low sleep duration, elevated resting heart rate) drove the recommendation",
+          "Compare today's action to yesterday's data summary to see how your inputs change the priority"
+        ]
+      },
+      {
+        "title": "Act On and Log Your Action",
+        "estMinutes": 5,
+        "steps": [
+          "Complete today's action (e.g., a 20-minute walk or a 10:30 PM bedtime target) and mark it done in the app",
+          "Rate the action as helpful or not helpful so Vantage refines future recommendations",
+          "Check your streak and weekly completion summary under the Progress tab"
+        ]
+      },
+      {
+        "title": "Tune Notifications and Preferences",
+        "estMinutes": 4,
+        "steps": [
+          "Set a morning notification time in Settings so your daily priority arrives before your day starts",
+          "Adjust which health categories Vantage can draw actions from if recommendations feel repetitive",
+          "Set the app to refresh after workouts so post-exercise data updates tomorrow's priority"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-health",
+      "skill-apple health",
+      "skill-wellness",
+      "skill-habits",
+      "skill-ios"
+    ],
+    "prerequisites": [
+      "iPhone with the Apple Health app set up and at least a few days of data recorded",
+      "Apple ID signed in for App Store downloads"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-scaling-agentic-ai-pilots-across-the-enterprise",
+    "toolSlug": "scaling-agentic-ai-pilots-across-the-enterprise",
+    "title": "Master Scaling agentic AI pilots across the enterprise",
+    "objectives": [
+      "Understand what Scaling agentic AI pilots across the enterprise is for",
+      "Use Scaling agentic AI pilots across the enterprise on a real task",
+      "Know where Scaling agentic AI pilots across the enterprise fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Scaling agentic AI pilots across the enterprise for your real workflow, not the demo.",
+          "Say what Scaling agentic AI pilots across the enterprise does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Scaling agentic AI pilots across the enterprise.",
+          "Push Scaling agentic AI pilots across the enterprise to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Scaling agentic AI pilots across the enterprise into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agentic ai",
+      "skill-enterprise",
+      "skill-scaling",
+      "skill-ai agents",
+      "skill-pilots"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-vocabdesign",
+    "toolSlug": "vocabdesign",
+    "title": "Master Vocab.design",
+    "objectives": [
+      "Understand what Vocab.design is for",
+      "Use Vocab.design on a real task",
+      "Know where Vocab.design fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Vocab.design.",
+          "Say what Vocab.design does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Vocab.design.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Vocab.design into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-ui",
+      "skill-dictionary",
+      "skill-reference",
+      "skill-learning"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-reverify",
+    "toolSlug": "reverify",
+    "title": "Master reverify",
+    "objectives": [
+      "Understand what reverify is for",
+      "Use reverify on a real task",
+      "Know where reverify fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure reverify for your real workflow, not the demo.",
+          "Say what reverify does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through reverify.",
+          "Push reverify to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold reverify into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-reverse engineering",
+      "skill-binary analysis",
+      "skill-security",
+      "skill-verification",
+      "skill-deterministic"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-claude2api",
+    "toolSlug": "claude2api",
+    "title": "Master claude2api",
+    "objectives": [
+      "Understand what claude2api is for",
+      "Use claude2api on a real task",
+      "Know where claude2api fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure claude2api for your real workflow, not the demo.",
+          "Say what claude2api does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through claude2api.",
+          "Push claude2api to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold claude2api into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-api gateway",
+      "skill-claude",
+      "skill-openai-compatible",
+      "skill-docker",
+      "skill-proxy"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-hermes-agent-demo",
+    "toolSlug": "hermes-agent-demo",
+    "title": "Master hermes-agent-demo",
+    "objectives": [
+      "Understand what hermes-agent-demo is for",
+      "Use hermes-agent-demo on a real task",
+      "Know where hermes-agent-demo fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure hermes-agent-demo for your real workflow, not the demo.",
+          "Say what hermes-agent-demo does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through hermes-agent-demo.",
+          "Push hermes-agent-demo to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold hermes-agent-demo into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-agent runtime",
+      "skill-spring ai",
+      "skill-mcp",
+      "skill-rag",
+      "skill-multi-model"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-token-dashboard",
+    "toolSlug": "token-dashboard",
+    "title": "Master Token_dashboard",
+    "objectives": [
+      "Understand what Token_dashboard is for",
+      "Use Token_dashboard on a real task",
+      "Know where Token_dashboard fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Token_dashboard for your real workflow, not the demo.",
+          "Say what Token_dashboard does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Token_dashboard.",
+          "Push Token_dashboard to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Token_dashboard into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-token usage",
+      "skill-analytics",
+      "skill-dashboard",
+      "skill-open source",
+      "skill-ai coding"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-habitus-ai",
+    "toolSlug": "habitus-ai",
+    "title": "Master Habitus-AI",
+    "objectives": [
+      "Understand what Habitus-AI is for",
+      "Use Habitus-AI on a real task",
+      "Know where Habitus-AI fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Habitus-AI for your real workflow, not the demo.",
+          "Say what Habitus-AI does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Habitus-AI.",
+          "Push Habitus-AI to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Habitus-AI into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agent-memory",
+      "skill-cognitive-architecture",
+      "skill-graphs",
+      "skill-open-source",
+      "skill-ai-agents"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T13:37:04.770Z"
   }
 ]
