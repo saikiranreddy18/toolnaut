@@ -743,6 +743,64 @@ a client-side SPA with a static tool catalogue.
   `Learning.jsx` calling `window.print()`. No backend, no new dependency, no
   new route, no new store.
 - **Found:** 2026-08-25 03:20 UTC
+- **Deepened 2026-09-03 03:20 UTC — both the "false claim" framing and the
+  "ships ungated" plan are now stale; the build itself is still exactly
+  right.** Two things changed underneath this entry since 2026-08-25, and
+  this run re-verified both against the current tree rather than trusting
+  the original text:
+  1. **The pricing page no longer sells this as live.** `planData.js:108`
+     now reads `planned('Export learning roadmaps as PDF')` (line moved from
+     the original `:49` — the file was restructured when payments shipped),
+     and `COMPARISON` at `planData.js:154` is `['PDF roadmap export', false,
+     'planned', 'planned']`, not the bare `true` this entry originally
+     found. Read `PricingSection.jsx`'s `Cell` component and
+     `PricingPillar.jsx`'s feature-list rendering: both now branch on
+     `status`/`value === 'planned'` and render a dimmed "planned, not yet
+     built" pill (`PricingSection.jsx:13-19`) instead of a checkmark. This is
+     the fix the now-SHIPPED "Pricing already got its honest fix written"
+     entry above (`c04149e`) put in place — it explicitly named this PDF
+     row as one of the four claims it was reconciling. Net effect: a visitor
+     reading `/pricing` today already sees this as "planned," not as
+     something they're being sold. The trust-cost framing in "Why it
+     matters" above was accurate on 2026-08-25 and is not accurate now — the
+     remaining reason to build this is closing a real promise/reality gap
+     and giving Pro subscribers something they were told to expect, not
+     stopping an active false claim.
+  2. **"No billing system exists to enforce Student vs. Pro" is false.**
+     Confirmed by reading `src/hooks/useEntitlement.js` and
+     `src/utils/entitlement.js`: `fetchEntitlement()` hits a real
+     `/api/entitlement` endpoint backed by `user_entitlements` and returns
+     `{ active, plan, paymentsEnabled, configured, unknown }`, and
+     `TrialBanner.jsx:39` already shows the established call-site pattern for
+     a Pro-only UI piece: `if (!ent.paymentsEnabled || !ent.configured)
+     return null`. This means gating is now cheap and real, not a "no
+     billing system" dead end.
+  - **Corrected smallest useful version:** build exactly as originally
+    specced (the `@media print` block, the button, `window.print()` — none
+    of that changes), but wire the button through `useEntitlement()` using
+    the exact `TrialBanner.jsx:39` escape hatch: when `!ent.paymentsEnabled
+    || !ent.configured` (today's actual state, free public beta), render the
+    button unconditionally — identical to what this entry originally
+    proposed, so behavior right now is unchanged from the original plan.
+    Once payments are live, gate on `ent.active && (ent.plan === 'guru' ||
+    ent.plan === 'founder' || ent.plan === 'pandava')` (Pro and up, matching
+    `planData.js:98,128`'s "Everything in Student/Pro, plus" inheritance) —
+    Student sees a "Pro roadmap export →/pricing" nudge instead of the
+    button. This turns the current `planned` pill into a `live` one
+    specifically for the tier that was promised it, rather than the
+    original plan's "ship free for everyone regardless of plan," which
+    would have quietly under-delivered the Team/Pro distinction the second
+    payments actually go live and nobody revisits this file.
+  - **What this still would NOT include:** any change to the `@media print`
+    scope, the button's page (`Learning.jsx` only), or the dependency-free
+    `window.print()` approach — none of that was wrong, only the gating
+    assumption was stale. Also not proposing to gate `Favorites.jsx`'s
+    10-tool cap the same way in this pass — that's a separate, already-
+    shipped feature this run did not re-audit; flagging it only so a future
+    hour doesn't assume this deepening covered it.
+  - **Build size, corrected:** still S — same stylesheet + button, plus one
+    `useEntitlement()` call and a two-branch conditional already proven at
+    `TrialBanner.jsx:39`. No new dependency, no new route.
 
 ### Per-route page title & meta description (SEO/social, every page shares one)
 - **Status:** SHIPPED (this run, sha to follow the DEVLOG-visible fix commit)
