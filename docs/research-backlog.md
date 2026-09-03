@@ -1136,6 +1136,42 @@ a client-side SPA with a static tool catalogue.
   hard parts (secret management, abuse limits, origin checks, a Vercel
   function that actually works in production) are now a proven pattern in
   this exact repo, not new infrastructure.
+- **Deepened 2026-09-03 12:20 UTC — Gap 2's own rejection reasoning has one
+  stale line; the verdict itself is unchanged.** Checking whether the same
+  payments work that reopened Gap 1 also touches Gap 2, since both were
+  rejected in the same original entry for adjacent reasons. Re-read
+  `src/state/authStore.js` in full against its state as of the original
+  2026-08-25 rejection: when Supabase is configured, `signIn('google')` now
+  goes through a real `supabase.auth.signInWithOAuth()` flow, and
+  `watchSession()` mirrors a genuine `auth.users` row (`user.id`, a real
+  Google-verified `email`) into the app's session — confirmed this is the
+  same identity `api/entitlement`, `user_entitlements`, and the alerts
+  backend already key off. So the specific clause "no server-side user
+  record at all" this entry's Gap 2 originally rejected on is no longer
+  literally true — there is one, per individual, and it has existed since
+  the same 2026-08-31/09-01 payments work Gap 1's own deepening already
+  cites.
+  This does **not** reopen Gap 2. Checked `supabase/migrations/` in full
+  (7 files, `0001`–`0007`) and grepped `team|seat|org` across all of them:
+  the only hit is a plan **label** — `('pandava', 'Team', ...)` in
+  `0005_reconcile_payment_schema.sql:59`, a price-tier name, not a schema.
+  There is still no org/team entity, no seat count, no membership or invite
+  table, and no permissions model of any kind — every one of Gap 2's seven
+  named capabilities ("Team stack standardization," admin/seat management,
+  shared leaderboards, etc.) needs a *group* of users related to each
+  other, and individual accounts, however real, don't provide that. The
+  accurate framing going forward: Gap 2 no longer needs a backend from
+  zero (one already exists, and already has real per-user identity to
+  build on), but it still needs a real multi-user *data model* — at
+  minimum an `orgs`/`teams` table, a membership join table, and RLS
+  policies scoped to it — which is new schema design and a permissions
+  surface, not a slice of what already shipped. That keeps this at
+  L / REJECTED for a single feature run's S/M sizing bias, just for a
+  narrower and now-accurate reason than "no accounts exist."
+  **Build size, Gap 2 (still rejected, reasoning corrected):** L — needs a
+  new `orgs`/`memberships` schema and permissions model. Individual
+  Supabase accounts (real, already shipped) are a precondition this gap can
+  now build on, not a substitute for it.
 
 ### Recently viewed tools
 - **Status:** OPEN
