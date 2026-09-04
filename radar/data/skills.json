@@ -76,7 +76,8 @@
       "mu",
       "engram",
       "a-context-registry-for-ai-coding-agents",
-      "top-ai-agent-skills-for-building-live-streaming-apps"
+      "top-ai-agent-skills-for-building-live-streaming-apps",
+      "termy"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -150,7 +151,8 @@
       "course-mu",
       "course-engram",
       "course-a-context-registry-for-ai-coding-agents",
-      "course-top-ai-agent-skills-for-building-live-streaming-apps"
+      "course-top-ai-agent-skills-for-building-live-streaming-apps",
+      "course-termy"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -160,10 +162,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "ablo-make-your-ai-app-multiplayer"
+      "ablo-make-your-ai-app-multiplayer",
+      "crew"
     ],
     "courses": [
-      "course-ablo-make-your-ai-app-multiplayer"
+      "course-ablo-make-your-ai-app-multiplayer",
+      "course-crew"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -192,14 +196,16 @@
       "marktwin",
       "a2acast",
       "concorde-one-ai-agent-shared-by-an-organization",
-      "drawdb-pro"
+      "drawdb-pro",
+      "crew"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
       "course-marktwin",
       "course-a2acast",
       "course-concorde-one-ai-agent-shared-by-an-organization",
-      "course-drawdb-pro"
+      "course-drawdb-pro",
+      "course-crew"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -244,7 +250,9 @@
       "habitus-ai",
       "addom",
       "mu",
-      "engram"
+      "engram",
+      "openwhispr",
+      "termy"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -267,7 +275,9 @@
       "course-habitus-ai",
       "course-addom",
       "course-mu",
-      "course-engram"
+      "course-engram",
+      "course-openwhispr",
+      "course-termy"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -458,7 +468,11 @@
       "mu",
       "live-graph-interface-harness",
       "agentkind-a-place-where-ai-agents-get-a-self",
-      "top-ai-agent-skills-for-building-live-streaming-apps"
+      "top-ai-agent-skills-for-building-live-streaming-apps",
+      "designing-grok-bot-for-a-world-of-persistent-agents",
+      "execution-gating-and-micro-rollbacks-for-ai-agents",
+      "agentic-search",
+      "crew"
     ],
     "courses": [
       "course-headless-tools",
@@ -530,7 +544,11 @@
       "course-mu",
       "course-live-graph-interface-harness",
       "course-agentkind-a-place-where-ai-agents-get-a-self",
-      "course-top-ai-agent-skills-for-building-live-streaming-apps"
+      "course-top-ai-agent-skills-for-building-live-streaming-apps",
+      "course-designing-grok-bot-for-a-world-of-persistent-agents",
+      "course-execution-gating-and-micro-rollbacks-for-ai-agents",
+      "course-agentic-search",
+      "course-crew"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -608,7 +626,10 @@
       "live-graph-interface-harness",
       "a-context-registry-for-ai-coding-agents",
       "agentkind-a-place-where-ai-agents-get-a-self",
-      "top-ai-agent-skills-for-building-live-streaming-apps"
+      "top-ai-agent-skills-for-building-live-streaming-apps",
+      "execution-gating-and-micro-rollbacks-for-ai-agents",
+      "agentic-search",
+      "crew"
     ],
     "courses": [
       "course-headless-tools",
@@ -666,7 +687,10 @@
       "course-live-graph-interface-harness",
       "course-a-context-registry-for-ai-coding-agents",
       "course-agentkind-a-place-where-ai-agents-get-a-self",
-      "course-top-ai-agent-skills-for-building-live-streaming-apps"
+      "course-top-ai-agent-skills-for-building-live-streaming-apps",
+      "course-execution-gating-and-micro-rollbacks-for-ai-agents",
+      "course-agentic-search",
+      "course-crew"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -733,7 +757,8 @@
       "skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
       "ai-memory-20",
       "cut-your-ai-bill-by-a-third-same-tools-same-output",
-      "a-context-registry-for-ai-coding-agents"
+      "a-context-registry-for-ai-coding-agents",
+      "designing-grok-bot-for-a-world-of-persistent-agents"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -750,7 +775,8 @@
       "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
       "course-ai-memory-20",
       "course-cut-your-ai-bill-by-a-third-same-tools-same-output",
-      "course-a-context-registry-for-ai-coding-agents"
+      "course-a-context-registry-for-ai-coding-agents",
+      "course-designing-grok-bot-for-a-world-of-persistent-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1364,13 +1390,15 @@
       "the-ai-health-agent-that-will-know-me-for-life",
       "obsessing-over-ai-agent-harnesses",
       "high-agency-is-high-variance",
-      "ai-agents-and-the-refactoring-that-never-happens"
+      "ai-agents-and-the-refactoring-that-never-happens",
+      "ai-tools-and-transformation"
     ],
     "courses": [
       "course-the-ai-health-agent-that-will-know-me-for-life",
       "course-obsessing-over-ai-agent-harnesses",
       "course-high-agency-is-high-variance",
-      "course-ai-agents-and-the-refactoring-that-never-happens"
+      "course-ai-agents-and-the-refactoring-that-never-happens",
+      "course-ai-tools-and-transformation"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1418,14 +1446,16 @@
       "text-editor-that-does-it-all",
       "handwrought",
       "marktwin",
-      "pearpie"
+      "pearpie",
+      "openwhispr"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
       "course-text-editor-that-does-it-all",
       "course-handwrought",
       "course-marktwin",
-      "course-pearpie"
+      "course-pearpie",
+      "course-openwhispr"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1619,7 +1649,8 @@
       "flawd-is-mutation-testing-for-the-ai-era",
       "mcp-tool-definition-quality-score-tdqs-spec",
       "live-graph-interface-harness",
-      "a-context-registry-for-ai-coding-agents"
+      "a-context-registry-for-ai-coding-agents",
+      "execution-gating-and-micro-rollbacks-for-ai-agents"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -1642,7 +1673,8 @@
       "course-flawd-is-mutation-testing-for-the-ai-era",
       "course-mcp-tool-definition-quality-score-tdqs-spec",
       "course-live-graph-interface-harness",
-      "course-a-context-registry-for-ai-coding-agents"
+      "course-a-context-registry-for-ai-coding-agents",
+      "course-execution-gating-and-micro-rollbacks-for-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1678,7 +1710,9 @@
       "high-agency-is-high-variance",
       "skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
       "owasp-top-for-agentic-applications",
-      "vocabdesign"
+      "vocabdesign",
+      "ai-tools-and-transformation",
+      "what-if-ai-did-the-prompting"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1694,7 +1728,9 @@
       "course-high-agency-is-high-variance",
       "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
       "course-owasp-top-for-agentic-applications",
-      "course-vocabdesign"
+      "course-vocabdesign",
+      "course-ai-tools-and-transformation",
+      "course-what-if-ai-did-the-prompting"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1714,7 +1750,8 @@
       "gemini-agentic-video-understanding",
       "ai-memory-20",
       "z-local-first-search-layer-for-humans-and-agents",
-      "openvurp"
+      "openvurp",
+      "designing-grok-bot-for-a-world-of-persistent-agents"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1727,7 +1764,8 @@
       "course-gemini-agentic-video-understanding",
       "course-ai-memory-20",
       "course-z-local-first-search-layer-for-humans-and-agents",
-      "course-openvurp"
+      "course-openvurp",
+      "course-designing-grok-bot-for-a-world-of-persistent-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1809,7 +1847,8 @@
       "ai-coding-agent-skills-for-real-engineers",
       "z-local-first-search-layer-for-humans-and-agents",
       "concorde-one-ai-agent-shared-by-an-organization",
-      "token-dashboard"
+      "token-dashboard",
+      "crew"
     ],
     "courses": [
       "course-limitless-library",
@@ -1830,7 +1869,8 @@
       "course-ai-coding-agent-skills-for-real-engineers",
       "course-z-local-first-search-layer-for-humans-and-agents",
       "course-concorde-one-ai-agent-shared-by-an-organization",
-      "course-token-dashboard"
+      "course-token-dashboard",
+      "course-crew"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2868,12 +2908,14 @@
     "toolsTeaching": [
       "devx",
       "z-local-first-search-layer-for-humans-and-agents",
-      "mu"
+      "mu",
+      "termy"
     ],
     "courses": [
       "course-devx",
       "course-z-local-first-search-layer-for-humans-and-agents",
-      "course-mu"
+      "course-mu",
+      "course-termy"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3087,11 +3129,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "bytedance-launches-ai-office-product-doubao-work",
-      "local-ai-assistants-can-be-user-friendly-too"
+      "local-ai-assistants-can-be-user-friendly-too",
+      "termy"
     ],
     "courses": [
       "course-bytedance-launches-ai-office-product-doubao-work",
-      "course-local-ai-assistants-can-be-user-friendly-too"
+      "course-local-ai-assistants-can-be-user-friendly-too",
+      "course-termy"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3101,10 +3145,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "bytedance-launches-ai-office-product-doubao-work"
+      "bytedance-launches-ai-office-product-doubao-work",
+      "crew"
     ],
     "courses": [
-      "course-bytedance-launches-ai-office-product-doubao-work"
+      "course-bytedance-launches-ai-office-product-doubao-work",
+      "course-crew"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3630,11 +3676,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "telem",
-      "simurg"
+      "simurg",
+      "agentic-search"
     ],
     "courses": [
       "course-telem",
-      "course-simurg"
+      "course-simurg",
+      "course-agentic-search"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -3834,11 +3882,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "terminal-bench-science-evaluating-ai-agents-on-scientific-re",
-      "what-agent-skills-are-made-of-programming-languages"
+      "what-agent-skills-are-made-of-programming-languages",
+      "agentic-search"
     ],
     "courses": [
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
-      "course-what-agent-skills-are-made-of-programming-languages"
+      "course-what-agent-skills-are-made-of-programming-languages",
+      "course-agentic-search"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -4549,10 +4599,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "ai-agent-guardrails-dont-work-safer-platforms-do"
+      "ai-agent-guardrails-dont-work-safer-platforms-do",
+      "execution-gating-and-micro-rollbacks-for-ai-agents"
     ],
     "courses": [
-      "course-ai-agent-guardrails-dont-work-safer-platforms-do"
+      "course-ai-agent-guardrails-dont-work-safer-platforms-do",
+      "course-execution-gating-and-micro-rollbacks-for-ai-agents"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -6048,11 +6100,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "tenux",
-      "mu"
+      "mu",
+      "termy"
     ],
     "courses": [
       "course-tenux",
-      "course-mu"
+      "course-mu",
+      "course-termy"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -6378,12 +6432,14 @@
     "toolsTeaching": [
       "pearpie",
       "local-ai-assistants-can-be-user-friendly-too",
-      "addom"
+      "addom",
+      "openwhispr"
     ],
     "courses": [
       "course-pearpie",
       "course-local-ai-assistants-can-be-user-friendly-too",
-      "course-addom"
+      "course-addom",
+      "course-openwhispr"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -6686,11 +6742,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "local-ai-assistants-can-be-user-friendly-too",
-      "snickers-launches-digital-bar-to-feed-your-hungry-ai"
+      "snickers-launches-digital-bar-to-feed-your-hungry-ai",
+      "what-if-ai-did-the-prompting"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
-      "course-snickers-launches-digital-bar-to-feed-your-hungry-ai"
+      "course-snickers-launches-digital-bar-to-feed-your-hungry-ai",
+      "course-what-if-ai-did-the-prompting"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -7945,5 +8003,252 @@
       "course-top-ai-agent-skills-for-building-live-streaming-apps"
     ],
     "updatedAt": "2026-09-03T23:31:51.252Z"
+  },
+  {
+    "id": "skill-voice-to-text",
+    "name": "voice to text",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "openwhispr"
+    ],
+    "courses": [
+      "course-openwhispr"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-transcription",
+    "name": "transcription",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "openwhispr"
+    ],
+    "courses": [
+      "course-openwhispr"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-local-ai",
+    "name": "local ai",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "openwhispr"
+    ],
+    "courses": [
+      "course-openwhispr"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-no-llm",
+    "name": "no llm",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "termy"
+    ],
+    "courses": [
+      "course-termy"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-ai analysis",
+    "name": "ai analysis",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-tools-and-transformation"
+    ],
+    "courses": [
+      "course-ai-tools-and-transformation"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-transformation",
+    "name": "transformation",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-tools-and-transformation"
+    ],
+    "courses": [
+      "course-ai-tools-and-transformation"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-industry trends",
+    "name": "industry trends",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-tools-and-transformation"
+    ],
+    "courses": [
+      "course-ai-tools-and-transformation"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-strategy",
+    "name": "strategy",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-tools-and-transformation"
+    ],
+    "courses": [
+      "course-ai-tools-and-transformation"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-grok",
+    "name": "grok",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "designing-grok-bot-for-a-world-of-persistent-agents"
+    ],
+    "courses": [
+      "course-designing-grok-bot-for-a-world-of-persistent-agents"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-xai",
+    "name": "xai",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "designing-grok-bot-for-a-world-of-persistent-agents"
+    ],
+    "courses": [
+      "course-designing-grok-bot-for-a-world-of-persistent-agents"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-persistent agents",
+    "name": "persistent agents",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "designing-grok-bot-for-a-world-of-persistent-agents"
+    ],
+    "courses": [
+      "course-designing-grok-bot-for-a-world-of-persistent-agents"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-socratic",
+    "name": "socratic",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "what-if-ai-did-the-prompting"
+    ],
+    "courses": [
+      "course-what-if-ai-did-the-prompting"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-critical-thinking",
+    "name": "critical thinking",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "what-if-ai-did-the-prompting"
+    ],
+    "courses": [
+      "course-what-if-ai-did-the-prompting"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-reflection",
+    "name": "reflection",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "what-if-ai-did-the-prompting"
+    ],
+    "courses": [
+      "course-what-if-ai-did-the-prompting"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-prompting",
+    "name": "prompting",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "what-if-ai-did-the-prompting"
+    ],
+    "courses": [
+      "course-what-if-ai-did-the-prompting"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-execution gating",
+    "name": "execution gating",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "execution-gating-and-micro-rollbacks-for-ai-agents"
+    ],
+    "courses": [
+      "course-execution-gating-and-micro-rollbacks-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-rollbacks",
+    "name": "rollbacks",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "execution-gating-and-micro-rollbacks-for-ai-agents"
+    ],
+    "courses": [
+      "course-execution-gating-and-micro-rollbacks-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-agentic search",
+    "name": "agentic search",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "agentic-search"
+    ],
+    "courses": [
+      "course-agentic-search"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-citations",
+    "name": "citations",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "agentic-search"
+    ],
+    "courses": [
+      "course-agentic-search"
+    ],
+    "updatedAt": "2026-09-04T13:33:57.801Z"
   }
 ]

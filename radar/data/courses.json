@@ -9475,5 +9475,430 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-03T23:31:51.252Z"
+  },
+  {
+    "id": "course-openwhispr",
+    "toolSlug": "openwhispr",
+    "title": "Master OpenWhispr",
+    "objectives": [
+      "Understand what OpenWhispr is for",
+      "Use OpenWhispr on a real task",
+      "Know where OpenWhispr fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for OpenWhispr.",
+          "Say what OpenWhispr does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through OpenWhispr.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold OpenWhispr into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-voice-to-text",
+      "skill-open-source",
+      "skill-privacy",
+      "skill-transcription",
+      "skill-local-ai"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "course-termy",
+    "toolSlug": "termy",
+    "title": "Master TERMy",
+    "objectives": [
+      "Install TERMy and wire it into your shell",
+      "Trigger, accept, and refine command suggestions",
+      "Tune suggestion sources and ranking for your workflow"
+    ],
+    "modules": [
+      {
+        "title": "Install and shell integration",
+        "estMinutes": 8,
+        "steps": [
+          "Install with your package manager (e.g. `brew install termy` or `cargo install termy`) and run `termy init` to append the hook to your .bashrc/.zshrc",
+          "Restart your shell, then run `termy doctor` to confirm the hook, history index, and man-page cache are all green",
+          "Run `termy index build` to parse your existing shell history into the local suggestion database"
+        ]
+      },
+      {
+        "title": "Core suggestion workflow",
+        "estMinutes": 10,
+        "steps": [
+          "Type a partial command like `git ch` and press the trigger key (Tab-Tab by default) to see ranked inline suggestions",
+          "Accept a suggestion with the accept key, or cycle candidates with the next/prev keys before accepting",
+          "Reject a bad suggestion with the dismiss key, then run `termy feedback last bad` to down-rank that pattern"
+        ]
+      },
+      {
+        "title": "Custom rules and aliases",
+        "estMinutes": 12,
+        "steps": [
+          "Open `~/.config/termy/rules.toml` and add a rule mapping your frequent input `dock ps` to `docker ps --format \"table {{.Names}}\\t{{.Status}}\"`",
+          "Create a project-scoped rule file `.termy.toml` in a repo root with one command template (e.g. your test runner), then verify it appears only inside that directory",
+          "Reload with `termy rules reload` and confirm priority with `termy rules list --active`"
+        ]
+      },
+      {
+        "title": "Tuning sources and ranking",
+        "estMinutes": 10,
+        "steps": [
+          "Edit `config.toml` to adjust source weights (history vs. rules vs. man pages) and set `max_suggestions` to your preference",
+          "Exclude noisy history (e.g. secrets or one-off scripts) by adding patterns to `ignore_patterns` and running `termy index rebuild`",
+          "Benchmark latency with `termy bench` and confirm suggestions stay under your configured `latency_budget_ms`"
+        ]
+      },
+      {
+        "title": "Daily-driver habits",
+        "estMinutes": 6,
+        "steps": [
+          "Run `termy stats` to see your top accepted suggestions and convert the top three into explicit aliases",
+          "Prune stale entries with `termy index prune --older-than 90d` to keep suggestions relevant",
+          "Export your rules with `termy export > termy-backup.toml` so your tuned setup is portable across machines"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-terminal",
+      "skill-cli",
+      "skill-assistant",
+      "skill-open-source",
+      "skill-no-llm"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "course-ai-tools-and-transformation",
+    "toolSlug": "ai-tools-and-transformation",
+    "title": "Master AI, Tools and Transformation",
+    "objectives": [
+      "Summarize Evans's tool-to-workflow-to-transformation arc in 3 sentences",
+      "Map one real workflow you own onto Evans's stages",
+      "Write 2 falsifiable predictions for your industry based on the essay"
+    ],
+    "modules": [
+      {
+        "title": "Read the Essay Actively",
+        "estMinutes": 15,
+        "steps": [
+          "Read the full essay on ben-evans.com in one sitting without taking notes",
+          "Reread and highlight every claim distinguishing 'AI as a tool' from 'AI transforming the workflow'",
+          "Flag one passage that matches something you've seen in your own job"
+        ]
+      },
+      {
+        "title": "Extract the Core Framework",
+        "estMinutes": 15,
+        "steps": [
+          "Write a 3-sentence summary of how tools become workflows become industry transformations",
+          "List the historical analogies Evans uses and note what each one is meant to prove",
+          "Sketch a one-page diagram of the tool → workflow → transformation progression"
+        ]
+      },
+      {
+        "title": "Apply the Lens to Your Own Work",
+        "estMinutes": 20,
+        "steps": [
+          "Pick one recurring workflow you personally own and write out its steps",
+          "Label which stage the workflow is in: tool adoption, workflow redesign, or full transformation",
+          "Mark which steps AI handles today and which still require a human, with reasons"
+        ]
+      },
+      {
+        "title": "Generate and Stress-Test Predictions",
+        "estMinutes": 15,
+        "steps": [
+          "Write 2 predictions about your industry using the essay's framework",
+          "For each, state what observable evidence would prove it wrong",
+          "Put a 6-month calendar reminder to check both predictions against reality"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai analysis",
+      "skill-essay",
+      "skill-transformation",
+      "skill-industry trends",
+      "skill-strategy"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "course-designing-grok-bot-for-a-world-of-persistent-agents",
+    "toolSlug": "designing-grok-bot-for-a-world-of-persistent-agents",
+    "title": "Master Designing Grok Bot for a world of persistent agents",
+    "objectives": [
+      "Understand what Designing Grok Bot for a world of persistent agents is for",
+      "Use Designing Grok Bot for a world of persistent agents on a real task",
+      "Know where Designing Grok Bot for a world of persistent agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Designing Grok Bot for a world of persistent agents for your real workflow, not the demo.",
+          "Say what Designing Grok Bot for a world of persistent agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Designing Grok Bot for a world of persistent agents.",
+          "Push Designing Grok Bot for a world of persistent agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Designing Grok Bot for a world of persistent agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-grok",
+      "skill-xai",
+      "skill-agents",
+      "skill-persistent agents",
+      "skill-llm"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "course-what-if-ai-did-the-prompting",
+    "toolSlug": "what-if-ai-did-the-prompting",
+    "title": "Master What if AI did the prompting",
+    "objectives": [
+      "Understand what What if AI did the prompting is for",
+      "Use What if AI did the prompting on a real task",
+      "Know where What if AI did the prompting fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for What if AI did the prompting.",
+          "Say what What if AI did the prompting does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through What if AI did the prompting.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold What if AI did the prompting into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-socratic",
+      "skill-critical-thinking",
+      "skill-chatbot",
+      "skill-reflection",
+      "skill-prompting"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "course-execution-gating-and-micro-rollbacks-for-ai-agents",
+    "toolSlug": "execution-gating-and-micro-rollbacks-for-ai-agents",
+    "title": "Master Execution gating and micro-rollbacks for AI agents",
+    "objectives": [
+      "Understand what Execution gating and micro-rollbacks for AI agents is for",
+      "Use Execution gating and micro-rollbacks for AI agents on a real task",
+      "Know where Execution gating and micro-rollbacks for AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Execution gating and micro-rollbacks for AI agents for your real workflow, not the demo.",
+          "Say what Execution gating and micro-rollbacks for AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Execution gating and micro-rollbacks for AI agents.",
+          "Push Execution gating and micro-rollbacks for AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Execution gating and micro-rollbacks for AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-execution gating",
+      "skill-rollbacks",
+      "skill-agent safety",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "course-agentic-search",
+    "toolSlug": "agentic-search",
+    "title": "Master Agentic Search",
+    "objectives": [
+      "Understand what Agentic Search is for",
+      "Use Agentic Search on a real task",
+      "Know where Agentic Search fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Agentic Search.",
+          "Say what Agentic Search does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Agentic Search.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Agentic Search into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agentic search",
+      "skill-web search",
+      "skill-research",
+      "skill-citations",
+      "skill-ai agents"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "course-crew",
+    "toolSlug": "crew",
+    "title": "Master Crew",
+    "objectives": [
+      "Understand what Crew is for",
+      "Use Crew on a real task",
+      "Know where Crew fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Crew for your real workflow, not the demo.",
+          "Say what Crew does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Crew.",
+          "Push Crew to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Crew into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-collaboration",
+      "skill-workspace",
+      "skill-multiplayer",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-04T13:33:57.801Z"
   }
 ]
