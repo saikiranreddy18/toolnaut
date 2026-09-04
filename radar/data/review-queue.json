@@ -1083,5 +1083,34 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "exhibit-of-2026-ai-agents",
+    "name": "Exhibit of 2026 AI Agents",
+    "category": "automation",
+    "sourceCategory": "Productivity & Meetings",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Exhibit of 2026 AI Agents",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://agent-museum-2026.halstonsellentin.chatgpt.site",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "automation",
+      "agent"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49570787",
+    "discoveredAt": "2026-09-04T23:20:31.711Z",
+    "updatedAt": "2026-09-04T23:20:31.711Z",
+    "contentHash": "140cce3bbefa3442",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]

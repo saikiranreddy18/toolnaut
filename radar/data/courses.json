@@ -9900,5 +9900,658 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "course-timervana-a-local-first-scheduler-for-real-world-routines",
+    "toolSlug": "timervana-a-local-first-scheduler-for-real-world-routines",
+    "title": "Master TimerVana a Local-first scheduler for real world routines",
+    "objectives": [
+      "Create a routine with named, timed steps in TimerVana",
+      "Run a routine using the built-in timer with pause, skip, and complete actions",
+      "Locate, back up, and restore your local TimerVana data file"
+    ],
+    "modules": [
+      {
+        "title": "Install and Tour the Workspace",
+        "estMinutes": 5,
+        "steps": [
+          "Install TimerVana, launch it, and confirm the app opens without any account sign-up since it is local-first",
+          "Open Settings and note the folder path where your routines file is stored on your device",
+          "Click through the three main views: Routines list, Routine editor, and Run screen, and name what each one does out loud"
+        ]
+      },
+      {
+        "title": "Build Your First Routine",
+        "estMinutes": 10,
+        "steps": [
+          "Create a new routine named 'Morning Reset' and add four steps with realistic durations, e.g., 'Make bed 2m', 'Stretch 5m', 'Shower 10m', 'Get dressed 5m'",
+          "Drag the steps into your preferred order and add an optional buffer minute between the longest steps",
+          "Save the routine and confirm the total estimated duration shown at the top matches the sum of your steps"
+        ]
+      },
+      {
+        "title": "Run a Timed Session",
+        "estMinutes": 10,
+        "steps": [
+          "Press Run on 'Morning Reset' and let the first step's countdown play, then mark it complete early to see the next step start automatically",
+          "Practice the three mid-run controls: pause the timer, skip a step, and extend a step by one minute",
+          "Finish the run and open the session summary to compare planned vs. actual time per step"
+        ]
+      },
+      {
+        "title": "Tweak and Protect Your Setup",
+        "estMinutes": 5,
+        "steps": [
+          "Adjust two step durations based on the session summary so the routine matches your real pace",
+          "Duplicate 'Morning Reset', rename the copy 'Evening Wind-Down', and swap in evening-appropriate steps",
+          "Export your routines file to a backup location (cloud drive or USB), then verify the export by checking the file exists and note how to re-import it from Settings"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-scheduler",
+      "skill-routines",
+      "skill-local-first",
+      "skill-productivity",
+      "skill-habits"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "course-tesorohelp",
+    "toolSlug": "tesorohelp",
+    "title": "Master Tesoro.help",
+    "objectives": [
+      "Understand what Tesoro.help is for",
+      "Use Tesoro.help on a real task",
+      "Know where Tesoro.help fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Tesoro.help.",
+          "Say what Tesoro.help does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Tesoro.help.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Tesoro.help into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-helpdesk",
+      "skill-education",
+      "skill-chatbot",
+      "skill-school",
+      "skill-faq"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "course-filmmakers-tout-ais-use-in-hollywood",
+    "toolSlug": "filmmakers-tout-ais-use-in-hollywood",
+    "title": "Master Filmmakers tout AI's use in Hollywood",
+    "objectives": [
+      "Summarize the article's key claims about AI in film",
+      "Identify 3 AI tools filmmakers used at the festival and what each does",
+      "Form a beginner opinion on AI's benefits vs. risks in filmmaking"
+    ],
+    "modules": [
+      {
+        "title": "Read and map the article",
+        "estMinutes": 10,
+        "steps": [
+          "Read the article once, highlighting every named AI tool, filmmaker, and film",
+          "Make a two-column list: 'What AI did' vs. 'Who said it' (e.g., de-aging, dubbing, VFX cleanup)",
+          "Write a 3-sentence summary of the article's main argument in your own words"
+        ]
+      },
+      {
+        "title": "Try one beginner AI film tool",
+        "estMinutes": 20,
+        "steps": [
+          "Pick one tool category from the article (e.g., video generation, voice dubbing, background removal) and open a free option like Runway, CapCut, or ElevenLabs",
+          "Complete one tiny task: generate a 5-second clip, remove a background, or dub one line of dialogue",
+          "Save the output and note one thing it did well and one thing it got wrong"
+        ]
+      },
+      {
+        "title": "Fact-check the hype",
+        "estMinutes": 10,
+        "steps": [
+          "Pick the boldest claim in the article and search for one supporting and one skeptical source about it",
+          "Note one concern raised by critics (jobs, copyright, consent) and who raised it",
+          "Write 2 sentences: where you think AI genuinely helps filmmakers, and where you'd draw a line"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-ai film",
+      "skill-hollywood",
+      "skill-filmmaking",
+      "skill-news",
+      "skill-video ai"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "course-georace",
+    "toolSlug": "georace",
+    "title": "Master GeoRace",
+    "objectives": [
+      "Navigate the GeoRace interface and start a game",
+      "Solve location puzzles using map and photo clues",
+      "Plan and progress through a virtual journey route"
+    ],
+    "modules": [
+      {
+        "title": "Getting Started with GeoRace",
+        "estMinutes": 8,
+        "steps": [
+          "Launch GeoRace and create a free player profile with a username and avatar",
+          "Complete the built-in tutorial round to learn the guess-and-score flow",
+          "Locate the three main tabs on the dashboard: Play, Journeys, and Passport"
+        ]
+      },
+      {
+        "title": "Your First Location Puzzle",
+        "estMinutes": 12,
+        "steps": [
+          "Tap Play > Classic Guess and start a 3-round beginner session",
+          "Pan and zoom the photo view to find clues: sign languages, driving side, vegetation, architecture",
+          "Drop a pin on the world map, submit your guess, and read the distance-and-score results screen"
+        ]
+      },
+      {
+        "title": "Using Hints and Clue Tools",
+        "estMinutes": 10,
+        "steps": [
+          "Start a round and spend one hint token to reveal a region or continent clue",
+          "Use the compass overlay to check sun position and narrow down the hemisphere",
+          "Compare your two closest guesses side-by-side in round review to see which clues you missed"
+        ]
+      },
+      {
+        "title": "Planning a Virtual Journey",
+        "estMinutes": 12,
+        "steps": [
+          "Open the Journeys tab and select a beginner route like 'European Capitals'",
+          "Preview the waypoint list and note the score threshold needed to unlock each stop",
+          "Beat the first waypoint's puzzle to stamp your passport and advance your route marker on the map"
+        ]
+      },
+      {
+        "title": "Tracking Progress and Building a Streak",
+        "estMinutes": 8,
+        "steps": [
+          "Play the Daily Challenge once to start a streak counter on your profile",
+          "Open your stats page and identify your lowest-scoring continent",
+          "Replay one missed location from your history log to improve its score"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-geography",
+      "skill-puzzle-game",
+      "skill-virtual-travel",
+      "skill-maps",
+      "skill-trivia"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "course-open-source-eink-bike-computer",
+    "toolSlug": "open-source-eink-bike-computer",
+    "title": "Master Open-Source eInk Bike Computer",
+    "objectives": [
+      "Understand what Open-Source eInk Bike Computer is for",
+      "Use Open-Source eInk Bike Computer on a real task",
+      "Know where Open-Source eInk Bike Computer fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Open-Source eInk Bike Computer for your real workflow, not the demo.",
+          "Say what Open-Source eInk Bike Computer does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Open-Source eInk Bike Computer.",
+          "Push Open-Source eInk Bike Computer to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Open-Source eInk Bike Computer into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-open-source",
+      "skill-e-ink",
+      "skill-hardware",
+      "skill-cycling",
+      "skill-diy"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "course-learn-practice-sudoku-strategies-web-app",
+    "toolSlug": "learn-practice-sudoku-strategies-web-app",
+    "title": "Master Learn/Practice Sudoku strategies web app",
+    "objectives": [
+      "Navigate the app and solve a guided first puzzle",
+      "Apply naked single and hidden single techniques",
+      "Use pencil marks to track candidates and finish beginner puzzles"
+    ],
+    "modules": [
+      {
+        "title": "Getting Oriented in the App",
+        "estMinutes": 8,
+        "steps": [
+          "Create a free account (or continue as guest) and open the 'Getting Started' puzzle from the home screen",
+          "Practice entering a number, using undo, and toggling the note/pencil-mark mode on one empty cell",
+          "Run the built-in mistake checker and read the rules recap panel before moving on"
+        ]
+      },
+      {
+        "title": "Naked Singles: The First Strategy",
+        "estMinutes": 12,
+        "steps": [
+          "Open the 'Naked Singles' lesson and watch the 60-second animated example",
+          "Scan the guided puzzle for cells where only one number is possible and fill all of them",
+          "Complete the 5-puzzle drill set using only naked singles until you hit 3 in a row without hints"
+        ]
+      },
+      {
+        "title": "Hidden Singles",
+        "estMinutes": 12,
+        "steps": [
+          "Open the 'Hidden Singles' lesson and learn to scan a row, column, and box for a number that fits in only one cell",
+          "Use the app's highlight toggle to show all placements of a chosen digit, then find its hidden single in each unit",
+          "Finish the mixed drill puzzle combining naked and hidden singles with the hint limit set to 2"
+        ]
+      },
+      {
+        "title": "Pencil Marks & Candidate Scanning",
+        "estMinutes": 15,
+        "steps": [
+          "Turn on note mode and fill in candidates for every empty cell in a practice puzzle using the 'auto-notes' assistant once, then manually on the next",
+          "Use the notes to spot and eliminate candidates after each placement, repeating until the puzzle is solved",
+          "Review the mistake log to see which eliminations you missed"
+        ]
+      },
+      {
+        "title": "Timed Practice & Daily Habit",
+        "estMinutes": 10,
+        "steps": [
+          "Solve one 'Easy' rated puzzle from the practice library with the timer on, aiming for under 10 minutes",
+          "Check the stats page to compare your time and hint usage across your last 5 puzzles",
+          "Bookmark the Daily Puzzle and set a reminder to solve one per day this week"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-sudoku",
+      "skill-puzzle",
+      "skill-strategy",
+      "skill-practice"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "course-audiorealityai",
+    "toolSlug": "audiorealityai",
+    "title": "Master Audioreality.ai",
+    "objectives": [
+      "Connect your email account to Audioreality.ai",
+      "Select which newsletters get summarized and set your delivery schedule",
+      "Subscribe to your private podcast feed and listen to your first episode"
+    ],
+    "modules": [
+      {
+        "title": "Sign up and connect your email",
+        "estMinutes": 8,
+        "steps": [
+          "Create an account at Audioreality.ai with your Google or Outlook login",
+          "Grant read-only inbox access when prompted (or copy the unique forwarding address they give you if you prefer not to connect directly)",
+          "Confirm the connection shows 'Active' on the dashboard and run the test scan to detect your existing newsletters"
+        ]
+      },
+      {
+        "title": "Pick newsletters and set your show schedule",
+        "estMinutes": 6,
+        "steps": [
+          "From the detected senders list, check the 3-10 newsletters you actually want summarized and mute the rest",
+          "Set your daily episode time and timezone (e.g., 7:00 AM) so the show is ready before your commute",
+          "Choose a summary length (short/medium/deep-dive) and pick a voice you like from the preview samples"
+        ]
+      },
+      {
+        "title": "Add your private feed to a podcast app",
+        "estMinutes": 7,
+        "steps": [
+          "Copy your private RSS feed URL from the 'Listen' or 'Feed' section of the dashboard",
+          "In Apple Podcasts, Overcast, or Pocket Casts, use 'Add show by URL' and paste the feed (keep this link private)",
+          "Refresh the feed in your app and confirm yesterday's sample episode appears and plays"
+        ]
+      },
+      {
+        "title": "Review your first episode and fine-tune",
+        "estMinutes": 5,
+        "steps": [
+          "Listen to one full episode and note any newsletters that were summarized poorly or should be skipped",
+          "Back in settings, remove low-value senders and adjust summary length if the episode felt too long or too thin",
+          "Enable notifications or auto-download in your podcast app so each day's episode is waiting for you"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-email",
+      "skill-podcast",
+      "skill-audio",
+      "skill-summaries",
+      "skill-text-to-speech"
+    ],
+    "prerequisites": [
+      "An email account that already receives newsletters",
+      "A podcast app installed on your phone (Apple Podcasts, Overcast, Pocket Casts, etc.)"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "course-sageling",
+    "toolSlug": "sageling",
+    "title": "Master Sageling",
+    "objectives": [
+      "Understand what Sageling is for",
+      "Use Sageling on a real task",
+      "Know where Sageling fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Sageling for your real workflow, not the demo.",
+          "Say what Sageling does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Sageling.",
+          "Push Sageling to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Sageling into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-local ai",
+      "skill-ai agent",
+      "skill-mac",
+      "skill-mlx",
+      "skill-qwen"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "course-airuncode",
+    "toolSlug": "airuncode",
+    "title": "Master Airuncode",
+    "objectives": [
+      "Understand what Airuncode is for",
+      "Use Airuncode on a real task",
+      "Know where Airuncode fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Airuncode for your real workflow, not the demo.",
+          "Say what Airuncode does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Airuncode.",
+          "Push Airuncode to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Airuncode into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding agent",
+      "skill-game engine",
+      "skill-3d",
+      "skill-game development",
+      "skill-ai runtime"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "course-covenant",
+    "toolSlug": "covenant",
+    "title": "Master Covenant",
+    "objectives": [
+      "Understand what Covenant is for",
+      "Use Covenant on a real task",
+      "Know where Covenant fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Covenant for your real workflow, not the demo.",
+          "Say what Covenant does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Covenant.",
+          "Push Covenant to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Covenant into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-multi-agent",
+      "skill-governance",
+      "skill-ai agents",
+      "skill-framework",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "course-a-get-message-board-for-ai-agents-not-browsers",
+    "toolSlug": "a-get-message-board-for-ai-agents-not-browsers",
+    "title": "Master A GET message board for AI agents, not browsers",
+    "objectives": [
+      "Understand what A GET message board for AI agents, not browsers is for",
+      "Use A GET message board for AI agents, not browsers on a real task",
+      "Know where A GET message board for AI agents, not browsers fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure A GET message board for AI agents, not browsers for your real workflow, not the demo.",
+          "Say what A GET message board for AI agents, not browsers does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through A GET message board for AI agents, not browsers.",
+          "Push A GET message board for AI agents, not browsers to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold A GET message board for AI agents, not browsers into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-message board",
+      "skill-get api",
+      "skill-agent communication"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "course-cursor-free-trial-reset",
+    "toolSlug": "cursor-free-trial-reset",
+    "title": "Master cursor-free-trial-reset",
+    "objectives": [
+      "Understand what cursor-free-trial-reset is for",
+      "Use cursor-free-trial-reset on a real task",
+      "Know where cursor-free-trial-reset fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure cursor-free-trial-reset for your real workflow, not the demo.",
+          "Say what cursor-free-trial-reset does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through cursor-free-trial-reset.",
+          "Push cursor-free-trial-reset to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold cursor-free-trial-reset into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-04T23:20:31.711Z"
   }
 ]

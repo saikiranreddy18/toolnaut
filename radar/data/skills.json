@@ -77,7 +77,10 @@
       "engram",
       "a-context-registry-for-ai-coding-agents",
       "top-ai-agent-skills-for-building-live-streaming-apps",
-      "termy"
+      "termy",
+      "open-source-eink-bike-computer",
+      "airuncode",
+      "covenant"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -152,7 +155,10 @@
       "course-engram",
       "course-a-context-registry-for-ai-coding-agents",
       "course-top-ai-agent-skills-for-building-live-streaming-apps",
-      "course-termy"
+      "course-termy",
+      "course-open-source-eink-bike-computer",
+      "course-airuncode",
+      "course-covenant"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -252,7 +258,8 @@
       "mu",
       "engram",
       "openwhispr",
-      "termy"
+      "termy",
+      "open-source-eink-bike-computer"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -277,7 +284,8 @@
       "course-mu",
       "course-engram",
       "course-openwhispr",
-      "course-termy"
+      "course-termy",
+      "course-open-source-eink-bike-computer"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -304,7 +312,8 @@
       "i-built-stardew-valley-but-you-pay-for-everything",
       "stillmade",
       "vocabdesign",
-      "aidemovideo"
+      "aidemovideo",
+      "filmmakers-tout-ais-use-in-hollywood"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -324,7 +333,8 @@
       "course-i-built-stardew-valley-but-you-pay-for-everything",
       "course-stillmade",
       "course-vocabdesign",
-      "course-aidemovideo"
+      "course-aidemovideo",
+      "course-filmmakers-tout-ais-use-in-hollywood"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -386,10 +396,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "i-built-an-ai-music-generator-with-some-harnesses"
+      "i-built-an-ai-music-generator-with-some-harnesses",
+      "audiorealityai"
     ],
     "courses": [
-      "course-i-built-an-ai-music-generator-with-some-harnesses"
+      "course-i-built-an-ai-music-generator-with-some-harnesses",
+      "course-audiorealityai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -472,7 +484,13 @@
       "designing-grok-bot-for-a-world-of-persistent-agents",
       "execution-gating-and-micro-rollbacks-for-ai-agents",
       "agentic-search",
-      "crew"
+      "crew",
+      "timervana-a-local-first-scheduler-for-real-world-routines",
+      "tesorohelp",
+      "audiorealityai",
+      "sageling",
+      "a-get-message-board-for-ai-agents-not-browsers",
+      "cursor-free-trial-reset"
     ],
     "courses": [
       "course-headless-tools",
@@ -548,7 +566,13 @@
       "course-designing-grok-bot-for-a-world-of-persistent-agents",
       "course-execution-gating-and-micro-rollbacks-for-ai-agents",
       "course-agentic-search",
-      "course-crew"
+      "course-crew",
+      "course-timervana-a-local-first-scheduler-for-real-world-routines",
+      "course-tesorohelp",
+      "course-audiorealityai",
+      "course-sageling",
+      "course-a-get-message-board-for-ai-agents-not-browsers",
+      "course-cursor-free-trial-reset"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -629,7 +653,9 @@
       "top-ai-agent-skills-for-building-live-streaming-apps",
       "execution-gating-and-micro-rollbacks-for-ai-agents",
       "agentic-search",
-      "crew"
+      "crew",
+      "covenant",
+      "a-get-message-board-for-ai-agents-not-browsers"
     ],
     "courses": [
       "course-headless-tools",
@@ -690,7 +716,9 @@
       "course-top-ai-agent-skills-for-building-live-streaming-apps",
       "course-execution-gating-and-micro-rollbacks-for-ai-agents",
       "course-agentic-search",
-      "course-crew"
+      "course-crew",
+      "course-covenant",
+      "course-a-get-message-board-for-ai-agents-not-browsers"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1533,12 +1561,14 @@
     "toolsTeaching": [
       "mrea",
       "foundry-toolbox-radar-lab",
-      "microsoft-publishes-ai-agent-shared-responsibility-model"
+      "microsoft-publishes-ai-agent-shared-responsibility-model",
+      "covenant"
     ],
     "courses": [
       "course-mrea",
       "course-foundry-toolbox-radar-lab",
-      "course-microsoft-publishes-ai-agent-shared-responsibility-model"
+      "course-microsoft-publishes-ai-agent-shared-responsibility-model",
+      "course-covenant"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1554,7 +1584,8 @@
       "agentbridge",
       "civitas",
       "end-ai-agent-lock-in-start-conversation-with-one-agent",
-      "openvurp"
+      "openvurp",
+      "covenant"
     ],
     "courses": [
       "course-mrea",
@@ -1563,7 +1594,8 @@
       "course-agentbridge",
       "course-civitas",
       "course-end-ai-agent-lock-in-start-conversation-with-one-agent",
-      "course-openvurp"
+      "course-openvurp",
+      "course-covenant"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1573,10 +1605,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "mrea"
+      "mrea",
+      "covenant"
     ],
     "courses": [
-      "course-mrea"
+      "course-mrea",
+      "course-covenant"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1588,12 +1622,14 @@
     "toolsTeaching": [
       "thinkrail-jetbrains-incubator",
       "devx",
-      "jern-cloud"
+      "jern-cloud",
+      "airuncode"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
       "course-devx",
-      "course-jern-cloud"
+      "course-jern-cloud",
+      "course-airuncode"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1712,7 +1748,9 @@
       "owasp-top-for-agentic-applications",
       "vocabdesign",
       "ai-tools-and-transformation",
-      "what-if-ai-did-the-prompting"
+      "what-if-ai-did-the-prompting",
+      "georace",
+      "learn-practice-sudoku-strategies-web-app"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1730,7 +1768,9 @@
       "course-owasp-top-for-agentic-applications",
       "course-vocabdesign",
       "course-ai-tools-and-transformation",
-      "course-what-if-ai-did-the-prompting"
+      "course-what-if-ai-did-the-prompting",
+      "course-georace",
+      "course-learn-practice-sudoku-strategies-web-app"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1848,7 +1888,8 @@
       "z-local-first-search-layer-for-humans-and-agents",
       "concorde-one-ai-agent-shared-by-an-organization",
       "token-dashboard",
-      "crew"
+      "crew",
+      "covenant"
     ],
     "courses": [
       "course-limitless-library",
@@ -1870,7 +1911,8 @@
       "course-z-local-first-search-layer-for-humans-and-agents",
       "course-concorde-one-ai-agent-shared-by-an-organization",
       "course-token-dashboard",
-      "course-crew"
+      "course-crew",
+      "course-covenant"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2064,7 +2106,8 @@
       "ai-can-make-you-suck-faster-too",
       "managing-ai-agents-is-still-a-full-time-job",
       "calprep",
-      "farmanix"
+      "farmanix",
+      "timervana-a-local-first-scheduler-for-real-world-routines"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -2074,7 +2117,8 @@
       "course-ai-can-make-you-suck-faster-too",
       "course-managing-ai-agents-is-still-a-full-time-job",
       "course-calprep",
-      "course-farmanix"
+      "course-farmanix",
+      "course-timervana-a-local-first-scheduler-for-real-world-routines"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2151,7 +2195,8 @@
       "coos",
       "concorde-one-ai-agent-shared-by-an-organization",
       "jern-cloud",
-      "ardent-a-code-first-agent-for-non-engineering-work"
+      "ardent-a-code-first-agent-for-non-engineering-work",
+      "sageling"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -2163,7 +2208,8 @@
       "course-coos",
       "course-concorde-one-ai-agent-shared-by-an-organization",
       "course-jern-cloud",
-      "course-ardent-a-code-first-agent-for-non-engineering-work"
+      "course-ardent-a-code-first-agent-for-non-engineering-work",
+      "course-sageling"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2580,10 +2626,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "placeroot"
+      "placeroot",
+      "georace"
     ],
     "courses": [
-      "course-placeroot"
+      "course-placeroot",
+      "course-georace"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2676,10 +2724,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "abbs"
+      "abbs",
+      "a-get-message-board-for-ai-agents-not-browsers"
     ],
     "courses": [
-      "course-abbs"
+      "course-abbs",
+      "course-a-get-message-board-for-ai-agents-not-browsers"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3634,10 +3684,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "google-flow"
+      "google-flow",
+      "filmmakers-tout-ais-use-in-hollywood"
     ],
     "courses": [
-      "course-google-flow"
+      "course-google-flow",
+      "course-filmmakers-tout-ais-use-in-hollywood"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -4697,11 +4749,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "datazen",
-      "z-local-first-search-layer-for-humans-and-agents"
+      "z-local-first-search-layer-for-humans-and-agents",
+      "timervana-a-local-first-scheduler-for-real-world-routines"
     ],
     "courses": [
       "course-datazen",
-      "course-z-local-first-search-layer-for-humans-and-agents"
+      "course-z-local-first-search-layer-for-humans-and-agents",
+      "course-timervana-a-local-first-scheduler-for-real-world-routines"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -5941,10 +5995,12 @@
     "domain": "learning",
     "level": "beginner",
     "toolsTeaching": [
-      "aicademy"
+      "aicademy",
+      "tesorohelp"
     ],
     "courses": [
-      "course-aicademy"
+      "course-aicademy",
+      "course-tesorohelp"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -6006,10 +6062,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "unitpost-email"
+      "unitpost-email",
+      "audiorealityai"
     ],
     "courses": [
-      "course-unitpost-email"
+      "course-unitpost-email",
+      "course-audiorealityai"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -6728,10 +6786,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "local-ai-assistants-can-be-user-friendly-too"
+      "local-ai-assistants-can-be-user-friendly-too",
+      "sageling"
     ],
     "courses": [
-      "course-local-ai-assistants-can-be-user-friendly-too"
+      "course-local-ai-assistants-can-be-user-friendly-too",
+      "course-sageling"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -6743,12 +6803,14 @@
     "toolsTeaching": [
       "local-ai-assistants-can-be-user-friendly-too",
       "snickers-launches-digital-bar-to-feed-your-hungry-ai",
-      "what-if-ai-did-the-prompting"
+      "what-if-ai-did-the-prompting",
+      "tesorohelp"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
       "course-snickers-launches-digital-bar-to-feed-your-hungry-ai",
-      "course-what-if-ai-did-the-prompting"
+      "course-what-if-ai-did-the-prompting",
+      "course-tesorohelp"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -7436,10 +7498,12 @@
     "domain": "data",
     "level": "beginner",
     "toolsTeaching": [
-      "vantage"
+      "vantage",
+      "timervana-a-local-first-scheduler-for-real-world-routines"
     ],
     "courses": [
-      "course-vantage"
+      "course-vantage",
+      "course-timervana-a-local-first-scheduler-for-real-world-routines"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -8101,10 +8165,12 @@
     "domain": "learning",
     "level": "intermediate",
     "toolsTeaching": [
-      "ai-tools-and-transformation"
+      "ai-tools-and-transformation",
+      "learn-practice-sudoku-strategies-web-app"
     ],
     "courses": [
-      "course-ai-tools-and-transformation"
+      "course-ai-tools-and-transformation",
+      "course-learn-practice-sudoku-strategies-web-app"
     ],
     "updatedAt": "2026-09-04T13:33:57.801Z"
   },
@@ -8250,5 +8316,421 @@
       "course-agentic-search"
     ],
     "updatedAt": "2026-09-04T13:33:57.801Z"
+  },
+  {
+    "id": "skill-scheduler",
+    "name": "scheduler",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "timervana-a-local-first-scheduler-for-real-world-routines"
+    ],
+    "courses": [
+      "course-timervana-a-local-first-scheduler-for-real-world-routines"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-routines",
+    "name": "routines",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "timervana-a-local-first-scheduler-for-real-world-routines"
+    ],
+    "courses": [
+      "course-timervana-a-local-first-scheduler-for-real-world-routines"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-helpdesk",
+    "name": "helpdesk",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "tesorohelp"
+    ],
+    "courses": [
+      "course-tesorohelp"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-school",
+    "name": "school",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "tesorohelp"
+    ],
+    "courses": [
+      "course-tesorohelp"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-faq",
+    "name": "faq",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "tesorohelp"
+    ],
+    "courses": [
+      "course-tesorohelp"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-ai film",
+    "name": "ai film",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "filmmakers-tout-ais-use-in-hollywood"
+    ],
+    "courses": [
+      "course-filmmakers-tout-ais-use-in-hollywood"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-hollywood",
+    "name": "hollywood",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "filmmakers-tout-ais-use-in-hollywood"
+    ],
+    "courses": [
+      "course-filmmakers-tout-ais-use-in-hollywood"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-news",
+    "name": "news",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "filmmakers-tout-ais-use-in-hollywood"
+    ],
+    "courses": [
+      "course-filmmakers-tout-ais-use-in-hollywood"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-video ai",
+    "name": "video ai",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "filmmakers-tout-ais-use-in-hollywood"
+    ],
+    "courses": [
+      "course-filmmakers-tout-ais-use-in-hollywood"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-geography",
+    "name": "geography",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "georace"
+    ],
+    "courses": [
+      "course-georace"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-puzzle-game",
+    "name": "puzzle game",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "georace"
+    ],
+    "courses": [
+      "course-georace"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-virtual-travel",
+    "name": "virtual travel",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "georace"
+    ],
+    "courses": [
+      "course-georace"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-trivia",
+    "name": "trivia",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "georace"
+    ],
+    "courses": [
+      "course-georace"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-e-ink",
+    "name": "e ink",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "open-source-eink-bike-computer"
+    ],
+    "courses": [
+      "course-open-source-eink-bike-computer"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-hardware",
+    "name": "hardware",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "open-source-eink-bike-computer"
+    ],
+    "courses": [
+      "course-open-source-eink-bike-computer"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-cycling",
+    "name": "cycling",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "open-source-eink-bike-computer"
+    ],
+    "courses": [
+      "course-open-source-eink-bike-computer"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-diy",
+    "name": "diy",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "open-source-eink-bike-computer"
+    ],
+    "courses": [
+      "course-open-source-eink-bike-computer"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-sudoku",
+    "name": "sudoku",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "learn-practice-sudoku-strategies-web-app"
+    ],
+    "courses": [
+      "course-learn-practice-sudoku-strategies-web-app"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-puzzle",
+    "name": "puzzle",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "learn-practice-sudoku-strategies-web-app"
+    ],
+    "courses": [
+      "course-learn-practice-sudoku-strategies-web-app"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-practice",
+    "name": "practice",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "learn-practice-sudoku-strategies-web-app"
+    ],
+    "courses": [
+      "course-learn-practice-sudoku-strategies-web-app"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-podcast",
+    "name": "podcast",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "audiorealityai"
+    ],
+    "courses": [
+      "course-audiorealityai"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-summaries",
+    "name": "summaries",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "audiorealityai"
+    ],
+    "courses": [
+      "course-audiorealityai"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-text-to-speech",
+    "name": "text to speech",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "audiorealityai"
+    ],
+    "courses": [
+      "course-audiorealityai"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-mac",
+    "name": "mac",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "sageling"
+    ],
+    "courses": [
+      "course-sageling"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-mlx",
+    "name": "mlx",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "sageling"
+    ],
+    "courses": [
+      "course-sageling"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-qwen",
+    "name": "qwen",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "sageling"
+    ],
+    "courses": [
+      "course-sageling"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-game engine",
+    "name": "game engine",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "airuncode"
+    ],
+    "courses": [
+      "course-airuncode"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-3d",
+    "name": "3d",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "airuncode"
+    ],
+    "courses": [
+      "course-airuncode"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-game development",
+    "name": "game development",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "airuncode"
+    ],
+    "courses": [
+      "course-airuncode"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-ai runtime",
+    "name": "ai runtime",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "airuncode"
+    ],
+    "courses": [
+      "course-airuncode"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-message board",
+    "name": "message board",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "a-get-message-board-for-ai-agents-not-browsers"
+    ],
+    "courses": [
+      "course-a-get-message-board-for-ai-agents-not-browsers"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "skill-get api",
+    "name": "get api",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "a-get-message-board-for-ai-agents-not-browsers"
+    ],
+    "courses": [
+      "course-a-get-message-board-for-ai-agents-not-browsers"
+    ],
+    "updatedAt": "2026-09-04T23:20:31.711Z"
   }
 ]
