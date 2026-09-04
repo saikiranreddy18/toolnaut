@@ -8811,5 +8811,669 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-03T13:37:04.770Z"
+  },
+  {
+    "id": "course-aidemovideo",
+    "toolSlug": "aidemovideo",
+    "title": "Master AIDemo.Video",
+    "objectives": [
+      "Generate a first demo video from a live website URL",
+      "Customize the AI script, voiceover, and branding",
+      "Export and share the finished video in the right format"
+    ],
+    "modules": [
+      {
+        "title": "Set Up and Capture Your First Site",
+        "estMinutes": 8,
+        "steps": [
+          "Open AIDemo.Video (or install its browser extension) and paste in the URL of the site you want to demo",
+          "Click 'Create Demo' and let the auto-capture click through 3-5 key pages while it records",
+          "Wait for the AI to assemble the recording into scenes with a draft script and voiceover"
+        ]
+      },
+      {
+        "title": "Edit the AI-Generated Script and Scenes",
+        "estMinutes": 7,
+        "steps": [
+          "Read each scene's narration and rewrite anything vague, keeping lines under 15 words",
+          "Drag scenes in the timeline to match your core user flow; delete any filler screens",
+          "Fix one bad line by regenerating just that scene's voiceover, not the whole video"
+        ]
+      },
+      {
+        "title": "Apply Branding and Polish",
+        "estMinutes": 8,
+        "steps": [
+          "Upload your logo and set brand colors in the Brand Kit so they apply across every scene",
+          "Swap the default AI voice and pick a background music track from the built-in library",
+          "Add cursor highlights and zoom effects to the two screens that matter most"
+        ]
+      },
+      {
+        "title": "Export and Share",
+        "estMinutes": 6,
+        "steps": [
+          "Preview the full video and verify auto-captions match the narration word for word",
+          "Export a 1080p MP4 for YouTube or your site, or copy the share link for instant embedding",
+          "Download the auto-generated animated thumbnail to use in emails and docs"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-video",
+      "skill-product-demo",
+      "skill-marketing",
+      "skill-automation",
+      "skill-saas"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-03T23:31:51.252Z"
+  },
+  {
+    "id": "course-addom",
+    "toolSlug": "addom",
+    "title": "Master Addom",
+    "objectives": [
+      "Understand what Addom is for",
+      "Use Addom on a real task",
+      "Know where Addom fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Addom for your real workflow, not the demo.",
+          "Say what Addom does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Addom.",
+          "Push Addom to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Addom into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-open-source",
+      "skill-coding",
+      "skill-ai-editor",
+      "skill-privacy",
+      "skill-telemetry-free"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T23:31:51.252Z"
+  },
+  {
+    "id": "course-mcp-tool-definition-quality-score-tdqs-spec",
+    "toolSlug": "mcp-tool-definition-quality-score-tdqs-spec",
+    "title": "Master MCP Tool Definition Quality Score (TDQS) Spec",
+    "objectives": [
+      "Understand what MCP Tool Definition Quality Score (TDQS) Spec is for",
+      "Use MCP Tool Definition Quality Score (TDQS) Spec on a real task",
+      "Know where MCP Tool Definition Quality Score (TDQS) Spec fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure MCP Tool Definition Quality Score (TDQS) Spec for your real workflow, not the demo.",
+          "Say what MCP Tool Definition Quality Score (TDQS) Spec does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through MCP Tool Definition Quality Score (TDQS) Spec.",
+          "Push MCP Tool Definition Quality Score (TDQS) Spec to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold MCP Tool Definition Quality Score (TDQS) Spec into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-mcp",
+      "skill-spec",
+      "skill-llm tools",
+      "skill-quality",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T23:31:51.252Z"
+  },
+  {
+    "id": "course-flocks-ai-search-tool-for-cops",
+    "toolSlug": "flocks-ai-search-tool-for-cops",
+    "title": "Master Flock's AI Search Tool for Cops",
+    "objectives": [
+      "Understand what Flock's AI Search Tool for Cops is for",
+      "Use Flock's AI Search Tool for Cops on a real task",
+      "Know where Flock's AI Search Tool for Cops fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Flock's AI Search Tool for Cops for your real workflow, not the demo.",
+          "Say what Flock's AI Search Tool for Cops does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Flock's AI Search Tool for Cops.",
+          "Push Flock's AI Search Tool for Cops to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Flock's AI Search Tool for Cops into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-surveillance",
+      "skill-law enforcement",
+      "skill-license plate recognition",
+      "skill-video search",
+      "skill-public safety"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T23:31:51.252Z"
+  },
+  {
+    "id": "course-ardent-a-code-first-agent-for-non-engineering-work",
+    "toolSlug": "ardent-a-code-first-agent-for-non-engineering-work",
+    "title": "Master Ardent, a code-first agent for non-engineering work",
+    "objectives": [
+      "Understand what Ardent, a code-first agent for non-engineering work is for",
+      "Use Ardent, a code-first agent for non-engineering work on a real task",
+      "Know where Ardent, a code-first agent for non-engineering work fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Ardent, a code-first agent for non-engineering work for your real workflow, not the demo.",
+          "Say what Ardent, a code-first agent for non-engineering work does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Ardent, a code-first agent for non-engineering work.",
+          "Push Ardent, a code-first agent for non-engineering work to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Ardent, a code-first agent for non-engineering work into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-workflows",
+      "skill-code-first",
+      "skill-business"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T23:31:51.252Z"
+  },
+  {
+    "id": "course-mu",
+    "toolSlug": "mu",
+    "title": "Master Mu",
+    "objectives": [
+      "Understand what Mu is for",
+      "Use Mu on a real task",
+      "Know where Mu fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Mu for your real workflow, not the demo.",
+          "Say what Mu does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Mu.",
+          "Push Mu to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Mu into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-cli",
+      "skill-agent",
+      "skill-terminal",
+      "skill-open-source",
+      "skill-automation"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T23:31:51.252Z"
+  },
+  {
+    "id": "course-dumbdetector",
+    "toolSlug": "dumbdetector",
+    "title": "Master DumbDetector",
+    "objectives": [
+      "Navigate DumbDetector's signal feed to find reported issues for AI tools you use",
+      "Evaluate community signals for credibility, severity, and relevance to your workflow",
+      "Set up alerts and submit your first well-formed issue report"
+    ],
+    "modules": [
+      {
+        "title": "Set Up and Tour the Signal Feed",
+        "estMinutes": 10,
+        "steps": [
+          "Create a free account at DumbDetector and complete the onboarding checklist",
+          "Open the main feed and identify its core sections: trending signals, recent reports, and tool pages",
+          "Search for one AI tool you use daily (e.g., ChatGPT, Midjourney, Copilot) and open its dedicated issue page"
+        ]
+      },
+      {
+        "title": "Find and Read Signals That Matter to You",
+        "estMinutes": 15,
+        "steps": [
+          "Apply filters for tool name, severity, and date range to narrow the feed to the last 7 days",
+          "Open a signal report and read its components: description, reproduction steps, affected versions, and community confirmations",
+          "Check the report's status tag (unverified, confirmed, resolved) and note how many users confirmed it"
+        ]
+      },
+      {
+        "title": "Verify a Signal Before Acting on It",
+        "estMinutes": 15,
+        "steps": [
+          "Pick one active signal for a tool you have access to and attempt to reproduce the issue yourself",
+          "Cross-check the signal against the tool's official status page or changelog to rule out a permanent change",
+          "Click 'Confirm' on the signal if you reproduced it, or 'Cannot reproduce' with a short note if you couldn't"
+        ]
+      },
+      {
+        "title": "Contribute: Report an Issue and Set Alerts",
+        "estMinutes": 20,
+        "steps": [
+          "Click 'New Signal' and write a report with a specific title, numbered reproduction steps, your tool version/plan, and one screenshot or screen recording",
+          "Tag the report with the correct tool and category, then submit and watch for community confirmations",
+          "Open the alerts page and enable email or in-app notifications for the two AI tools you depend on most"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-community",
+      "skill-ai-tools",
+      "skill-signals",
+      "skill-reviews",
+      "skill-monitoring"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-03T23:31:51.252Z"
+  },
+  {
+    "id": "course-drawdb-pro",
+    "toolSlug": "drawdb-pro",
+    "title": "Master DrawDB Pro",
+    "objectives": [
+      "Understand what DrawDB Pro is for",
+      "Use DrawDB Pro on a real task",
+      "Know where DrawDB Pro fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure DrawDB Pro for your real workflow, not the demo.",
+          "Say what DrawDB Pro does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through DrawDB Pro.",
+          "Push DrawDB Pro to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold DrawDB Pro into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-database",
+      "skill-schema design",
+      "skill-erd",
+      "skill-sql",
+      "skill-collaboration"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T23:31:51.252Z"
+  },
+  {
+    "id": "course-live-graph-interface-harness",
+    "toolSlug": "live-graph-interface-harness",
+    "title": "Master Live Graph Interface Harness",
+    "objectives": [
+      "Define and register a typed agent graph (nodes, edges, state) inside the harness",
+      "Stream live execution events into an updating graph visualization",
+      "Record, replay, and assert on agent runs using mocked model responses"
+    ],
+    "modules": [
+      {
+        "title": "Boot the Harness and Register Your First Graph",
+        "estMinutes": 25,
+        "steps": [
+          "Install the harness package, run `harness dev`, and open the local graph canvas in your browser",
+          "Define a 3-node graph (router → tool-call → responder) with a typed state schema and register it via `harness.register(graph)`",
+          "Fire a test run from the built-in prompt panel and confirm each node lights up as it executes"
+        ]
+      },
+      {
+        "title": "Wire Live Streaming into the Interface",
+        "estMinutes": 35,
+        "steps": [
+          "Subscribe to the harness event stream (`node_start`, `token`, `edge_traversal`, `node_end`) from your UI layer",
+          "Map events to visual states: highlight the active node, animate edge transitions, and append streamed tokens to node cards",
+          "Add a timeline scrubber that lets you pause the run and inspect the state snapshot at any event index"
+        ]
+      },
+      {
+        "title": "Mock, Record, and Replay Test Scenarios",
+        "estMinutes": 30,
+        "steps": [
+          "Swap live LLM calls for harness mock fixtures keyed by prompt hash so runs are deterministic",
+          "Record a golden run and write assertions on node visit order, edge counts, and final state shape",
+          "Re-run a deliberately broken scenario in step-through mode to isolate the failing edge, then fix and re-verify against the golden trace"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-graph interface",
+      "skill-agent harness",
+      "skill-developer tools"
+    ],
+    "prerequisites": [
+      "Intermediate TypeScript/JavaScript",
+      "Basic familiarity with agent concepts (nodes, edges, shared state)",
+      "Node.js 18+ installed"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-03T23:31:51.252Z"
+  },
+  {
+    "id": "course-engram",
+    "toolSlug": "engram",
+    "title": "Master Engram",
+    "objectives": [
+      "Understand what Engram is for",
+      "Use Engram on a real task",
+      "Know where Engram fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Engram for your real workflow, not the demo.",
+          "Say what Engram does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Engram.",
+          "Push Engram to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Engram into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-mcp",
+      "skill-agent-memory",
+      "skill-coding-agents",
+      "skill-runbooks",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T23:31:51.252Z"
+  },
+  {
+    "id": "course-a-context-registry-for-ai-coding-agents",
+    "toolSlug": "a-context-registry-for-ai-coding-agents",
+    "title": "Master A Context Registry for AI coding agents",
+    "objectives": [
+      "Understand what A Context Registry for AI coding agents is for",
+      "Use A Context Registry for AI coding agents on a real task",
+      "Know where A Context Registry for AI coding agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure A Context Registry for AI coding agents for your real workflow, not the demo.",
+          "Say what A Context Registry for AI coding agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through A Context Registry for AI coding agents.",
+          "Push A Context Registry for AI coding agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold A Context Registry for AI coding agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-context registry",
+      "skill-ai agents",
+      "skill-code generation",
+      "skill-developer tools",
+      "skill-llm"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T23:31:51.252Z"
+  },
+  {
+    "id": "course-agentkind-a-place-where-ai-agents-get-a-self",
+    "toolSlug": "agentkind-a-place-where-ai-agents-get-a-self",
+    "title": "Master Agentkind, a place where AI agents get a self",
+    "objectives": [
+      "Understand what Agentkind, a place where AI agents get a self is for",
+      "Use Agentkind, a place where AI agents get a self on a real task",
+      "Know where Agentkind, a place where AI agents get a self fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Agentkind, a place where AI agents get a self for your real workflow, not the demo.",
+          "Say what Agentkind, a place where AI agents get a self does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Agentkind, a place where AI agents get a self.",
+          "Push Agentkind, a place where AI agents get a self to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Agentkind, a place where AI agents get a self into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-identity",
+      "skill-agent platform"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T23:31:51.252Z"
+  },
+  {
+    "id": "course-top-ai-agent-skills-for-building-live-streaming-apps",
+    "toolSlug": "top-ai-agent-skills-for-building-live-streaming-apps",
+    "title": "Master Top AI Agent Skills for Building Live Streaming Apps",
+    "objectives": [
+      "Understand what Top AI Agent Skills for Building Live Streaming Apps is for",
+      "Use Top AI Agent Skills for Building Live Streaming Apps on a real task",
+      "Know where Top AI Agent Skills for Building Live Streaming Apps fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Top AI Agent Skills for Building Live Streaming Apps for your real workflow, not the demo.",
+          "Say what Top AI Agent Skills for Building Live Streaming Apps does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Top AI Agent Skills for Building Live Streaming Apps.",
+          "Push Top AI Agent Skills for Building Live Streaming Apps to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Top AI Agent Skills for Building Live Streaming Apps into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-live streaming",
+      "skill-app development",
+      "skill-video",
+      "skill-automation"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-03T23:31:51.252Z"
   }
 ]
