@@ -10951,5 +10951,380 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-05T12:45:39.833Z"
+  },
+  {
+    "id": "course-phntm-one-i-built-a-local-ai-desk-assistant",
+    "toolSlug": "phntm-one-i-built-a-local-ai-desk-assistant",
+    "title": "Master Phntm-ONE: I built a local AI desk assistant",
+    "objectives": [
+      "Understand what Phntm-ONE: I built a local AI desk assistant is for",
+      "Use Phntm-ONE: I built a local AI desk assistant on a real task",
+      "Know where Phntm-ONE: I built a local AI desk assistant fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Phntm-ONE: I built a local AI desk assistant.",
+          "Say what Phntm-ONE: I built a local AI desk assistant does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Phntm-ONE: I built a local AI desk assistant.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Phntm-ONE: I built a local AI desk assistant into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-local ai",
+      "skill-desk assistant",
+      "skill-hardware",
+      "skill-offline",
+      "skill-privacy"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "course-paygate",
+    "toolSlug": "paygate",
+    "title": "Master Paygate",
+    "objectives": [
+      "Deploy a Paygate paywall in front of an agent API endpoint priced in USDC on Base",
+      "Build an agent client that detects 402 Payment Required responses and settles them autonomously",
+      "Verify on-chain settlement and manage paywalled routes without custodying buyer funds"
+    ],
+    "modules": [
+      {
+        "title": "Environment and Wallet Setup",
+        "estMinutes": 20,
+        "steps": [
+          "Install the Paygate SDK (`npm install @paygate/sdk` or `pip install paygate`) and pin the version in your project",
+          "Create a dedicated Base wallet for your agent, export its private key to an environment variable like `PAYGATE_AGENT_KEY` (never a shared wallet), and fund it with a small amount of USDC plus ETH for gas on Base",
+          "Run the SDK's connection check (`paygate doctor` or equivalent init script) to confirm Base RPC access and correct USDC contract address (0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)"
+        ]
+      },
+      {
+        "title": "Gating an Endpoint with Paygate",
+        "estMinutes": 30,
+        "steps": [
+          "Add Paygate middleware to one API route (e.g., Express: `app.use('/api/inference', paygate({ price: '0.10', asset: 'USDC', network: 'base', payTo: YOUR_WALLET }))`)",
+          "Set per-route pricing and confirm the middleware returns HTTP 402 with a payment payload when hit without a valid payment header",
+          "Test the gate with curl: verify the 402 response includes the amount, recipient address, and a nonce/deadline field the buyer must sign"
+        ]
+      },
+      {
+        "title": "Building a Paying Agent Client",
+        "estMinutes": 35,
+        "steps": [
+          "Wrap your agent's HTTP calls in the Paygate client (`paygate.fetch(url)` or the fetch interceptor) so 402 responses trigger the payment flow automatically",
+          "Implement the signing step: parse the 402 payment requirements, sign an EIP-3009 `transferWithAuthorization` for USDC, and retry the request with the `X-PAYMENT` header attached",
+          "Add spending guardrails: set a max-price-per-call and daily USDC budget in the client config, and log every payment with tx hash for audit"
+        ]
+      },
+      {
+        "title": "Verification, Settlement, and Operations",
+        "estMinutes": 25,
+        "steps": [
+          "Confirm non-custodial settlement by checking on Basescan that USDC moved directly from buyer wallet to your `payTo` address with no intermediary contract holding funds",
+          "Simulate failure cases: expired payment nonce, insufficient USDC balance, and replayed signature — verify your endpoint rejects each without granting access",
+          "Add monitoring: emit an event on each settled payment, reconcile counts against on-chain transfers via the Base RPC or a subgraph, and alert on mismatches"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-paywall",
+      "skill-usdc",
+      "skill-base",
+      "skill-agents",
+      "skill-payments"
+    ],
+    "prerequisites": [
+      "Comfort building and exposing HTTP APIs (Express, FastAPI, or similar)",
+      "Working knowledge of Ethereum wallets, private keys, and EIP-712 typed-data signing",
+      "USDC and a small amount of ETH on Base mainnet, plus access to a Base RPC endpoint",
+      "Familiarity with AI agent loops that make autonomous outbound HTTP requests"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "course-okf-agent-memory",
+    "toolSlug": "okf-agent-memory",
+    "title": "Master OKF Agent Memory",
+    "objectives": [
+      "Understand what OKF Agent Memory is for",
+      "Use OKF Agent Memory on a real task",
+      "Know where OKF Agent Memory fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure OKF Agent Memory for your real workflow, not the demo.",
+          "Say what OKF Agent Memory does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through OKF Agent Memory.",
+          "Push OKF Agent Memory to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold OKF Agent Memory into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-memory",
+      "skill-agents",
+      "skill-git",
+      "skill-coding",
+      "skill-developer-tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "course-chatpanel-now-available-on-firefox",
+    "toolSlug": "chatpanel-now-available-on-firefox",
+    "title": "Master ChatPanel Now Available on Firefox",
+    "objectives": [
+      "Understand what ChatPanel Now Available on Firefox is for",
+      "Use ChatPanel Now Available on Firefox on a real task",
+      "Know where ChatPanel Now Available on Firefox fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for ChatPanel Now Available on Firefox.",
+          "Say what ChatPanel Now Available on Firefox does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through ChatPanel Now Available on Firefox.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold ChatPanel Now Available on Firefox into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-chatbot",
+      "skill-firefox",
+      "skill-browser extension",
+      "skill-sidebar",
+      "skill-llm"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "course-kingfy",
+    "toolSlug": "kingfy",
+    "title": "Master KingFy",
+    "objectives": [
+      "Chain multiple specialized agents into a single multi-step workflow",
+      "Route tasks to the right agent and override bad router picks",
+      "Monitor, debug, and cap costs on live agent runs"
+    ],
+    "modules": [
+      {
+        "title": "Multi-Agent Workflows with Flow Composer",
+        "estMinutes": 25,
+        "steps": [
+          "Open Flow Composer (Cmd+K → \"New Flow\") and drag three agents onto the canvas, e.g. Researcher → Summarizer → Email-Drafter, connecting them with output-to-input edges",
+          "Set a handoff condition on the second edge so the Email-Drafter only runs when the Summarizer's output contains the keyword \"urgent\"",
+          "Run the flow end-to-end with a real task (\"research my top 3 competitors and email me a brief\") and pin it to your dashboard as a reusable template"
+        ]
+      },
+      {
+        "title": "Agent Routing and Overrides",
+        "estMinutes": 20,
+        "steps": [
+          "Type a vague task in the prompt bar (\"fix my sales numbers\") and watch which agent the Router selects in the Routing Preview panel",
+          "Force a different agent with @mentions (e.g. @spreadsheet-analyst @data-cleaner) and compare the two outputs side-by-side in the Run Diff view",
+          "Save a routing rule in Settings → Routing so \"sales numbers\" phrasing always prefers spreadsheet-analyst over the default Router pick"
+        ]
+      },
+      {
+        "title": "Debugging Runs with Trace Inspector",
+        "estMinutes": 20,
+        "steps": [
+          "Open a failed or odd run in Trace Inspector and expand each agent node to read its input, prompt, and raw output",
+          "Identify the failing hand-off, edit that agent's input mapping, and click \"Replay from Node\" to rerun only the broken step instead of the whole flow",
+          "Add a validation checkpoint to the weak node requiring a specific JSON schema before passing output downstream"
+        ]
+      },
+      {
+        "title": "Budgets, Permissions, and Live-Run Control",
+        "estMinutes": 15,
+        "steps": [
+          "Set a per-flow token/credit cap in Flow Settings → Budget (e.g. 50K credits) and enable the auto-pause toggle when the cap is hit",
+          "Strip the web-browsing permission from one agent in the flow using the Permissions tab, then confirm the agent fails gracefully and logs the denial",
+          "Configure Slack or email alerts in Notifications so you're pinged on budget exhaustion, failed nodes, and flows idle longer than 10 minutes"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-orchestration",
+      "skill-super app",
+      "skill-multi-agent"
+    ],
+    "prerequisites": [
+      "KingFy account with at least 5 completed single-agent tasks",
+      "One external integration connected (email, calendar, or Google Drive)",
+      "Familiarity with basic prompting and the Agent Directory search"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "course-praesidias",
+    "toolSlug": "praesidias",
+    "title": "Master Praesidias",
+    "objectives": [
+      "Understand what Praesidias is for",
+      "Use Praesidias on a real task",
+      "Know where Praesidias fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Praesidias for your real workflow, not the demo.",
+          "Say what Praesidias does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Praesidias.",
+          "Push Praesidias to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Praesidias into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-authorization",
+      "skill-security",
+      "skill-guardrails",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "course-defending-against-ai-agents-with-social-engineering",
+    "toolSlug": "defending-against-ai-agents-with-social-engineering",
+    "title": "Master Defending Against AI Agents with Social Engineering",
+    "objectives": [
+      "Understand what Defending Against AI Agents with Social Engineering is for",
+      "Use Defending Against AI Agents with Social Engineering on a real task",
+      "Know where Defending Against AI Agents with Social Engineering fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Defending Against AI Agents with Social Engineering for your real workflow, not the demo.",
+          "Say what Defending Against AI Agents with Social Engineering does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Defending Against AI Agents with Social Engineering.",
+          "Push Defending Against AI Agents with Social Engineering to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Defending Against AI Agents with Social Engineering into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-security",
+      "skill-ai agents",
+      "skill-social engineering",
+      "skill-defense",
+      "skill-threat detection"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-05T23:19:13.483Z"
   }
 ]

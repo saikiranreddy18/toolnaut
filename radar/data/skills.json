@@ -81,7 +81,8 @@
       "open-source-eink-bike-computer",
       "airuncode",
       "covenant",
-      "rubato"
+      "rubato",
+      "okf-agent-memory"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -160,7 +161,8 @@
       "course-open-source-eink-bike-computer",
       "course-airuncode",
       "course-covenant",
-      "course-rubato"
+      "course-rubato",
+      "course-okf-agent-memory"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -499,7 +501,11 @@
       "cursor-free-trial-reset",
       "ai-agents-started-emailing-philosophers-and-researchers",
       "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
-      "cs2-aim-toolkit"
+      "cs2-aim-toolkit",
+      "phntm-one-i-built-a-local-ai-desk-assistant",
+      "paygate",
+      "kingfy",
+      "praesidias"
     ],
     "courses": [
       "course-headless-tools",
@@ -584,7 +590,11 @@
       "course-cursor-free-trial-reset",
       "course-ai-agents-started-emailing-philosophers-and-researchers",
       "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
-      "course-cs2-aim-toolkit"
+      "course-cs2-aim-toolkit",
+      "course-phntm-one-i-built-a-local-ai-desk-assistant",
+      "course-paygate",
+      "course-kingfy",
+      "course-praesidias"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -668,7 +678,10 @@
       "crew",
       "covenant",
       "a-get-message-board-for-ai-agents-not-browsers",
-      "ai-agents-started-emailing-philosophers-and-researchers"
+      "ai-agents-started-emailing-philosophers-and-researchers",
+      "kingfy",
+      "praesidias",
+      "defending-against-ai-agents-with-social-engineering"
     ],
     "courses": [
       "course-headless-tools",
@@ -732,7 +745,10 @@
       "course-crew",
       "course-covenant",
       "course-a-get-message-board-for-ai-agents-not-browsers",
-      "course-ai-agents-started-emailing-philosophers-and-researchers"
+      "course-ai-agents-started-emailing-philosophers-and-researchers",
+      "course-kingfy",
+      "course-praesidias",
+      "course-defending-against-ai-agents-with-social-engineering"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -801,7 +817,8 @@
       "cut-your-ai-bill-by-a-third-same-tools-same-output",
       "a-context-registry-for-ai-coding-agents",
       "designing-grok-bot-for-a-world-of-persistent-agents",
-      "datalume"
+      "datalume",
+      "chatpanel-now-available-on-firefox"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -820,7 +837,8 @@
       "course-cut-your-ai-bill-by-a-third-same-tools-same-output",
       "course-a-context-registry-for-ai-coding-agents",
       "course-designing-grok-bot-for-a-world-of-persistent-agents",
-      "course-datalume"
+      "course-datalume",
+      "course-chatpanel-now-available-on-firefox"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -848,7 +866,8 @@
       "ai-can-make-you-suck-faster-too",
       "anthropic-launches-fable-51-and-mythos-51",
       "ai-agents-and-the-refactoring-that-never-happens",
-      "addom"
+      "addom",
+      "okf-agent-memory"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -856,7 +875,8 @@
       "course-ai-can-make-you-suck-faster-too",
       "course-anthropic-launches-fable-51-and-mythos-51",
       "course-ai-agents-and-the-refactoring-that-never-happens",
-      "course-addom"
+      "course-addom",
+      "course-okf-agent-memory"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1179,7 +1199,9 @@
       "oconee-runtime",
       "jern-cloud",
       "reverify",
-      "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen"
+      "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
+      "praesidias",
+      "defending-against-ai-agents-with-social-engineering"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -1194,7 +1216,9 @@
       "course-oconee-runtime",
       "course-jern-cloud",
       "course-reverify",
-      "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen"
+      "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
+      "course-praesidias",
+      "course-defending-against-ai-agents-with-social-engineering"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1493,7 +1517,8 @@
       "handwrought",
       "marktwin",
       "pearpie",
-      "openwhispr"
+      "openwhispr",
+      "chatpanel-now-available-on-firefox"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -1501,7 +1526,8 @@
       "course-handwrought",
       "course-marktwin",
       "course-pearpie",
-      "course-openwhispr"
+      "course-openwhispr",
+      "course-chatpanel-now-available-on-firefox"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1603,7 +1629,8 @@
       "civitas",
       "end-ai-agent-lock-in-start-conversation-with-one-agent",
       "openvurp",
-      "covenant"
+      "covenant",
+      "kingfy"
     ],
     "courses": [
       "course-mrea",
@@ -1613,7 +1640,8 @@
       "course-civitas",
       "course-end-ai-agent-lock-in-start-conversation-with-one-agent",
       "course-openvurp",
-      "course-covenant"
+      "course-covenant",
+      "course-kingfy"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1769,7 +1797,8 @@
       "what-if-ai-did-the-prompting",
       "georace",
       "learn-practice-sudoku-strategies-web-app",
-      "mu-two-minute-visualized-lessons-on-modern-ai"
+      "mu-two-minute-visualized-lessons-on-modern-ai",
+      "defending-against-ai-agents-with-social-engineering"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1790,7 +1819,8 @@
       "course-what-if-ai-did-the-prompting",
       "course-georace",
       "course-learn-practice-sudoku-strategies-web-app",
-      "course-mu-two-minute-visualized-lessons-on-modern-ai"
+      "course-mu-two-minute-visualized-lessons-on-modern-ai",
+      "course-defending-against-ai-agents-with-social-engineering"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1811,7 +1841,9 @@
       "ai-memory-20",
       "z-local-first-search-layer-for-humans-and-agents",
       "openvurp",
-      "designing-grok-bot-for-a-world-of-persistent-agents"
+      "designing-grok-bot-for-a-world-of-persistent-agents",
+      "paygate",
+      "okf-agent-memory"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1825,7 +1857,9 @@
       "course-ai-memory-20",
       "course-z-local-first-search-layer-for-humans-and-agents",
       "course-openvurp",
-      "course-designing-grok-bot-for-a-world-of-persistent-agents"
+      "course-designing-grok-bot-for-a-world-of-persistent-agents",
+      "course-paygate",
+      "course-okf-agent-memory"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1910,7 +1944,8 @@
       "token-dashboard",
       "crew",
       "covenant",
-      "datalume"
+      "datalume",
+      "praesidias"
     ],
     "courses": [
       "course-limitless-library",
@@ -1934,7 +1969,8 @@
       "course-token-dashboard",
       "course-crew",
       "course-covenant",
-      "course-datalume"
+      "course-datalume",
+      "course-praesidias"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3432,13 +3468,15 @@
       "agentseed",
       "ai-agent-guardrails-dont-work-safer-platforms-do",
       "oconee-runtime",
-      "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen"
+      "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
+      "praesidias"
     ],
     "courses": [
       "course-agentseed",
       "course-ai-agent-guardrails-dont-work-safer-platforms-do",
       "course-oconee-runtime",
-      "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen"
+      "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
+      "course-praesidias"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4556,11 +4594,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "openinstinct",
-      "slidex"
+      "slidex",
+      "okf-agent-memory"
     ],
     "courses": [
       "course-openinstinct",
-      "course-slidex"
+      "course-slidex",
+      "course-okf-agent-memory"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -4623,11 +4663,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "coordination-layer-for-coding-agents",
-      "agentbridge"
+      "agentbridge",
+      "kingfy"
     ],
     "courses": [
       "course-coordination-layer-for-coding-agents",
-      "course-agentbridge"
+      "course-agentbridge",
+      "course-kingfy"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -4898,14 +4940,16 @@
       "opencontext",
       "memory-compaction-for-agents-has-an-information-theoretic-fl",
       "keeplea",
-      "ai-memory-20"
+      "ai-memory-20",
+      "okf-agent-memory"
     ],
     "courses": [
       "course-itsuki",
       "course-opencontext",
       "course-memory-compaction-for-agents-has-an-information-theoretic-fl",
       "course-keeplea",
-      "course-ai-memory-20"
+      "course-ai-memory-20",
+      "course-okf-agent-memory"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -5822,11 +5866,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "ai-old-video-restoration-tool",
-      "local-ai-assistants-can-be-user-friendly-too"
+      "local-ai-assistants-can-be-user-friendly-too",
+      "phntm-one-i-built-a-local-ai-desk-assistant"
     ],
     "courses": [
       "course-ai-old-video-restoration-tool",
-      "course-local-ai-assistants-can-be-user-friendly-too"
+      "course-local-ai-assistants-can-be-user-friendly-too",
+      "course-phntm-one-i-built-a-local-ai-desk-assistant"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -5875,10 +5921,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "verb-authority"
+      "verb-authority",
+      "praesidias"
     ],
     "courses": [
-      "course-verb-authority"
+      "course-verb-authority",
+      "course-praesidias"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -6451,11 +6499,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "adds-x402-payments-access-for-ai-agents-with-coinbase",
-      "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen"
+      "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
+      "paygate"
     ],
     "courses": [
       "course-adds-x402-payments-access-for-ai-agents-with-coinbase",
-      "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen"
+      "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
+      "course-paygate"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -6533,13 +6583,15 @@
       "pearpie",
       "local-ai-assistants-can-be-user-friendly-too",
       "addom",
-      "openwhispr"
+      "openwhispr",
+      "phntm-one-i-built-a-local-ai-desk-assistant"
     ],
     "courses": [
       "course-pearpie",
       "course-local-ai-assistants-can-be-user-friendly-too",
       "course-addom",
-      "course-openwhispr"
+      "course-openwhispr",
+      "course-phntm-one-i-built-a-local-ai-desk-assistant"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -6829,11 +6881,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "local-ai-assistants-can-be-user-friendly-too",
-      "sageling"
+      "sageling",
+      "phntm-one-i-built-a-local-ai-desk-assistant"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
-      "course-sageling"
+      "course-sageling",
+      "course-phntm-one-i-built-a-local-ai-desk-assistant"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -6846,13 +6900,15 @@
       "local-ai-assistants-can-be-user-friendly-too",
       "snickers-launches-digital-bar-to-feed-your-hungry-ai",
       "what-if-ai-did-the-prompting",
-      "tesorohelp"
+      "tesorohelp",
+      "chatpanel-now-available-on-firefox"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
       "course-snickers-launches-digital-bar-to-feed-your-hungry-ai",
       "course-what-if-ai-did-the-prompting",
-      "course-tesorohelp"
+      "course-tesorohelp",
+      "course-chatpanel-now-available-on-firefox"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -8548,11 +8604,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "open-source-eink-bike-computer",
-      "rubato"
+      "rubato",
+      "phntm-one-i-built-a-local-ai-desk-assistant"
     ],
     "courses": [
       "course-open-source-eink-bike-computer",
-      "course-rubato"
+      "course-rubato",
+      "course-phntm-one-i-built-a-local-ai-desk-assistant"
     ],
     "updatedAt": "2026-09-04T23:20:31.711Z"
   },
@@ -9025,5 +9083,161 @@
       "course-datalume"
     ],
     "updatedAt": "2026-09-05T12:45:39.833Z"
+  },
+  {
+    "id": "skill-desk assistant",
+    "name": "desk assistant",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "phntm-one-i-built-a-local-ai-desk-assistant"
+    ],
+    "courses": [
+      "course-phntm-one-i-built-a-local-ai-desk-assistant"
+    ],
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "skill-paywall",
+    "name": "paywall",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "paygate"
+    ],
+    "courses": [
+      "course-paygate"
+    ],
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "skill-usdc",
+    "name": "usdc",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "paygate"
+    ],
+    "courses": [
+      "course-paygate"
+    ],
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "skill-base",
+    "name": "base",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "paygate"
+    ],
+    "courses": [
+      "course-paygate"
+    ],
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "skill-git",
+    "name": "git",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "okf-agent-memory"
+    ],
+    "courses": [
+      "course-okf-agent-memory"
+    ],
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "skill-firefox",
+    "name": "firefox",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "chatpanel-now-available-on-firefox"
+    ],
+    "courses": [
+      "course-chatpanel-now-available-on-firefox"
+    ],
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "skill-browser extension",
+    "name": "browser extension",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "chatpanel-now-available-on-firefox"
+    ],
+    "courses": [
+      "course-chatpanel-now-available-on-firefox"
+    ],
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "skill-sidebar",
+    "name": "sidebar",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "chatpanel-now-available-on-firefox"
+    ],
+    "courses": [
+      "course-chatpanel-now-available-on-firefox"
+    ],
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "skill-super app",
+    "name": "super app",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "kingfy"
+    ],
+    "courses": [
+      "course-kingfy"
+    ],
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "skill-social engineering",
+    "name": "social engineering",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "defending-against-ai-agents-with-social-engineering"
+    ],
+    "courses": [
+      "course-defending-against-ai-agents-with-social-engineering"
+    ],
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "skill-defense",
+    "name": "defense",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "defending-against-ai-agents-with-social-engineering"
+    ],
+    "courses": [
+      "course-defending-against-ai-agents-with-social-engineering"
+    ],
+    "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "skill-threat detection",
+    "name": "threat detection",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "defending-against-ai-agents-with-social-engineering"
+    ],
+    "courses": [
+      "course-defending-against-ai-agents-with-social-engineering"
+    ],
+    "updatedAt": "2026-09-05T23:19:13.483Z"
   }
 ]
