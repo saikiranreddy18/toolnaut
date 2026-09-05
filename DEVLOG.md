@@ -9,6 +9,66 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-05
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h
+window, last run 2026-09-05 12:45 UTC (5.3h before this run), published 8
+tools in that run, feed holds 213 tools. Healthy and growing, no action
+needed. No CI failures on master, no `agent-fixable` issues open.
+
+**Researched today:** none — today's three research-hour slots (00:03,
+06:03, 12:03 UTC) already ran and logged/deepened backlog entries before
+this end-of-day run started; this run only drained the backlog, it did not
+add to it.
+
+**Digest gap noted:** the previous "Dev digest" issue (#33, 2026-09-01) was
+never closed, and DEVLOG's last entry before this one was also 2026-09-01
+— four days (09-02 through 09-04) produced no feature-run digest. Commits
+did land in that window (a Settings.jsx copy fix, a category-pages backlog
+entry, radar publishes), so the catalogue and codebase kept moving; only
+the daily digest step itself was skipped. Flagging rather than
+reconstructing days this run wasn't present for, same as the 2026-08-29
+entry did for a similar gap.
+
+**Shipped:** the status-note gap — every "UNCERTAIN" badge now shows the
+reason behind it, not just the bare word.
+[`b7dda24`](https://github.com/saikiranreddy18/toolnaut/commit/b7dda24)
+(pending merge — see workflow note below). `toolsCatalog.js` already
+carries a written reason for 47 of the 52 Uncertain tools (e.g. Baichuan:
+"Pivoted toward medical AI"), and `personaGenerator.js` already trusts
+`status` enough to use it in scoring, but no page ever rendered `tool.note`
+— `ToolDetail` and `Compare` showed the bare word "Uncertain", and
+Discover/Favorites (via the shared `ToolCard`) showed no signal at all
+until a user clicked into a tool's own page. Now: `ToolDetail` shows the
+note as a caption under the pill, `Compare`'s Status row appends it in
+parentheses, and `ToolCard` gets a third badge (matching the existing
+NEW/fit-band badges) so the signal exists at browse time on Discover and
+Favorites too. 13-line diff across three files, no new store/util/route,
+no backend. Picked over the other OPEN gaps (clickable tags, visual
+identity/favicons, facet counts, command palette, RSS feed, What's New
+changelog, graveyard page) because it was the smallest, most concretely
+specced entry with a real trust payoff, and the backlog's own deepening
+note had already re-verified its exact target lines twice.
+
+**Verification:** `npm test` 214/214 passing · `npm run build` clean (16
+routes prerendered, three.js stays in its own chunk) · `npm run smoke`
+21/21 routes render, 0 console errors.
+
+**Is it live?** Not yet. CLAUDE.md's hard rules (never push to `master`,
+every change goes through a PR from a `bot/<agent>/<slug>` branch) take
+precedence over this run's own "work on master" instructions, since
+CLAUDE.md is the checked-in working agreement this repo's owner set for
+automated agents — the same conflict a 2026-09-03 research run already
+flagged on PR #36. The commit above sits on `bot/claude/status-note-visible`
+behind a PR; it reaches toolnaut.xyz once a human merges it, not on push.
+
+**Queued next:** clickable tags (`ToolDetail`'s bare `arcade-chip` spans →
+links into Discover's search) and per-tool visual identity (704 catalog
+entries, zero logos/favicons) are the next-smallest well-specced OPEN
+gaps.
+
+---
+
 ## 2026-09-01
 
 **Radar health:** OK per `npm run radar:health` — 3 runs in the last 26h,

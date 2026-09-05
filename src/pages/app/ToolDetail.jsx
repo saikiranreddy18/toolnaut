@@ -118,6 +118,9 @@ export default function ToolDetail() {
           </span>
         )}
       </div>
+      {tool.status && tool.status !== 'Active' && tool.note && (
+        <p className="mt-2 text-xs text-slate-400">{tool.note}</p>
+      )}
 
       <h1 className="arcade-heading mt-4 text-4xl sm:text-5xl">{tool.name.toUpperCase()}</h1>
       {(tool.dev || tool.year) && (
