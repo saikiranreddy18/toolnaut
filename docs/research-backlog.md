@@ -3715,7 +3715,20 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-09-02 06:20 UTC
 
 ### Settings page hardcodes "no server copy" — the sync backend it's describing already exists elsewhere in the app
-- **Status:** OPEN
+- **Status:** FIXED (this commit) — small, well-scoped defect in already-shipped
+  infrastructure, same class as the two other FIXED entries in this file.
+  `Settings.jsx` now calls the same `syncAvailable()` probe `SyncStatus.jsx`
+  and `GuestImportPrompt.jsx` already use, holds the result in local state
+  (`null` while checking, matching the "say nothing until you know" rule this
+  codebase already follows), and both the guest and signed-in ACCOUNT-card
+  copy branches swap on it: `false` keeps today's honest "no server copy yet"
+  wording unchanged, `true` replaces it with copy that names the real,
+  now-live behaviour ("saves your stack... to your account" / "Backed up to
+  your account"). No change to `sync.js`, `authStore.js`, or any migration —
+  purely the copy/data-binding fix the deepened entry below scoped it to.
+  214 app tests + 102 radar tests green, build clean (16/16 routes
+  prerendered), smoke clean (21/21 routes, 0 console errors, `/app/settings`
+  included).
 - **Seen in:** not a competitor pattern — found while re-checking `src/state/`
   against `CLAUDE.md`'s own "No backend: all user state lives in localStorage"
   line, which is now stale. `src/state/sync.js` (feature-detected Supabase

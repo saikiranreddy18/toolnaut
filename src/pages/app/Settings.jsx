@@ -1,6 +1,7 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { loadSession, signOut } from '../../state/authStore'
+import { syncAvailable } from '../../state/sync'
 import { loadQuiz, resetQuiz } from '../../state/quizStore'
 import { loadStack } from '../../state/stackStore'
 import { loadFavorites } from '../../state/favoritesStore'
@@ -65,6 +66,11 @@ export default function Settings() {
   const [theme, setThemeState] = useState(loadTheme)
   const [moon, setMoonState] = useState(loadMoon)
   const [avatarId, setAvatarId] = useState(loadAvatar)
+
+  // null while checking — the ACCOUNT card shows nothing sync-related until it
+  // knows, rather than guessing "no server copy" and then having to retract it.
+  const [syncOn, setSyncOn] = useState(null)
+  useEffect(() => { syncAvailable().then(setSyncOn) }, [])
 
   const stats = useMemo(() => {
     const stackSlugs = loadStack()
@@ -424,10 +430,17 @@ export default function Settings() {
             <Link to="/auth/login?next=/app/settings" className="nb-btn mt-4 inline-block min-h-11 px-5 py-2.5 text-xs">
               SIGN IN →
             </Link>
-            <p className="mt-3 text-xs leading-relaxed text-slate-500">
-              Signing in does not sync anything yet — there is no server copy of
-              your stack. It reserves your account for when there is.
-            </p>
+            {syncOn === true ? (
+              <p className="mt-3 text-xs leading-relaxed text-slate-500">
+                Signing in saves your stack, shortlist and progress to your
+                account, so it's there the next time you sign in on any device.
+              </p>
+            ) : syncOn === false ? (
+              <p className="mt-3 text-xs leading-relaxed text-slate-500">
+                Signing in does not sync anything yet — there is no server copy of
+                your stack. It reserves your account for when there is.
+              </p>
+            ) : null}
           </div>
         ) : (
         <div className="sticker mt-4 p-5">
@@ -455,10 +468,17 @@ export default function Settings() {
                 authority now, and a static "free public beta" here would lie
                 to the first person who actually pays. */}
           </dl>
-          <p className="mt-4 text-xs leading-relaxed text-slate-500">
-            Your stack, shortlist and progress live in this browser only — there
-            is no server copy yet, so clearing site data clears them.
-          </p>
+          {syncOn === true ? (
+            <p className="mt-4 text-xs leading-relaxed text-slate-500">
+              Backed up to your account — signing in on another device brings
+              your stack, shortlist and progress with it.
+            </p>
+          ) : syncOn === false ? (
+            <p className="mt-4 text-xs leading-relaxed text-slate-500">
+              Your stack, shortlist and progress live in this browser only — there
+              is no server copy yet, so clearing site data clears them.
+            </p>
+          ) : null}
         </div>
         )}
       </section>
