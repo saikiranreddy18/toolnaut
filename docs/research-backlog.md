@@ -4008,3 +4008,97 @@ a client-side SPA with a static tool catalogue.
   smoke/prerender route-list addition. No backend, no new dependency, no new
   store, no radar change.
 - **Found:** 2026-09-05 15:20 UTC
+
+### The quiz asks "when you hit a wall, you usually..." and the roadmap answers with a sentence instead of a link
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — the same class of finding as the
+  Settings.jsx sync-copy and free-beta-claim entries above: re-reading a
+  feature already shipped against what it actually delivers, this time in
+  `roadmapGenerator.js`/`Learning.jsx` rather than marketing copy. Futurepedia's
+  own differentiator (fetched fresh this run, see its 2026 review coverage) is
+  pairing every tool listing with actual video/course content instead of just
+  a text blurb — precisely because "watch a tutorial" as a stated learning
+  preference is only useful to a product if it leads somewhere to actually
+  watch one.
+- **Gap:** the quiz's `learning_style` question (`quizLogic.js:94-102`, text
+  "When you hit a wall, you usually...") offers five concrete answers — Google
+  it / watch a tutorial / ask a friend / break it to learn it / take a course —
+  and `roadmapGenerator.js:58-63`'s own comment says this answer was
+  historically "previously-unused" before `STYLE_TIP` was added to give it
+  somewhere to go. But `STYLE_TIP` only maps each answer to one static prose
+  sentence (e.g. `tutorial: 'You learn by watching — queue one short
+  walkthrough before you start.'`), computed once per roadmap
+  (`roadmapGenerator.js:167`) and stamped onto all three tool-weeks unchanged
+  (`roadmapGenerator.js:189`) — the same sentence for Claude in week 1 and a
+  completely different tool in week 3. `Learning.jsx:397-400` renders it as an
+  inert italic caption, `💡 {m.styleTip}`, no `<a>`, no `<Link>`. Someone who
+  answered "watch a tutorial" is told to "queue one short walkthrough" every
+  single week and is never given one — not even a search link — despite each
+  week already carrying the exact tool name (`m.tool.name`) a walkthrough
+  query needs. The same gap holds for "Google it" (told to "bookmark each
+  tool's official docs first" with no docs link, even though `tool.website`
+  already exists and is already rendered as a real link elsewhere on
+  `ToolDetail.jsx:138-149`) and "ask a friend" (told to "post your progress in
+  SQUAD" with no link to `/app/community`, the actual route that page name
+  refers to).
+- **Why it matters:** this is a preference the product explicitly asked for
+  and explicitly claims to act on (the STYLE_TIP comment says so), on the one
+  page — the 4-week roadmap — a newly onboarded user returns to repeatedly.
+  Right now answering the question changes which sentence appears, not
+  whether anything is one tap away, so the personalization is entirely
+  cosmetic. Fixing it costs nothing structurally: three of the five styles
+  already resolve to data or a route the app has today (`tool.name` for a
+  video search, `tool.website` for docs, `/app/community` for asking someone),
+  it's only ever been surfaced as prose instead of a link.
+- **Smallest useful version (what to actually build):**
+  - New pure util `src/utils/learnLink.js`: `getLearnLink(style, tool)` →
+    `{ label, href, external }` or `null`, one small `switch`/lookup over the
+    five `learning_style` keys:
+    - `tutorial` → `{ label: 'Watch: ' + tool.name + ' tutorial', href:
+      'https://www.youtube.com/results?search_query=' +
+      encodeURIComponent(tool.name + ' tutorial'), external: true }` — same
+      "pragmatic zero-infrastructure external service" call the still-OPEN
+      favicon gap above already scoped for `website`; a search-results URL
+      always resolves to something relevant, never a 404, unlike guessing a
+      specific video ID.
+    - `search` → only when `tool.website` is non-empty (42 of 704 entries have
+      none, per the favicon gap's own count — same guard, same reason):
+      `{ label: tool.name + ' docs', href: tool.website, external: true }`.
+    - `ask` → `{ label: 'Ask in SQUAD', href: '/app/community', external:
+      false }` — an internal `<Link>`, not an `<a>`.
+    - `tinker`, `course` → `null`. Neither maps to an obvious single
+      destination ("just start clicking" has no target more specific than the
+      tool itself, already one tap away via the existing VISIT WEBSITE
+      button; "take a course" would need real course curation, which is a
+      separate, much larger gap — see "no video/course content" note below).
+      `STYLE_TIP`'s existing prose keeps rendering unchanged for these two,
+      this entry doesn't touch them.
+    Pure and unit-testable the same way as `shareStack.js`/`faviconUrl.js`.
+  - `roadmapGenerator.js:183-193`: compute the link per-week, per-tool —
+    `learnLink: getLearnLink(quiz.answers.learning_style, tool)` — inside the
+    `toolWeeks.map(...)` that already has both `tool` and `styleTip` in scope,
+    instead of `styleTip` being hoisted once outside the loop. This is the one
+    behavior change beyond adding a link: the tip becomes genuinely per-tool
+    (a real fix, not a side effect — the sentence "watch a tutorial before you
+    start" already implicitly means *this week's* tool, it just never varied).
+  - `Learning.jsx:397-401`: alongside the existing `💡 {m.styleTip}` line,
+    render `m.learnLink` when non-null as a small inline `<a
+    target="_blank" rel="noopener noreferrer">` (external) or `<Link>`
+    (internal) directly under it, reusing the same muted-caption text size —
+    not a new button/sticker, this is a footnote-weight nudge, same visual
+    register as the tip it sits beside.
+  - **What this would NOT include** (kept out to bound the diff): no actual
+    video/course *content* curation — that's a categorically bigger,
+    ongoing-maintenance gap (matching a specific tool to a specific
+    hand-picked video for 704 catalog entries) worth its own future entry, not
+    something a search-link fix should be confused with; no per-tool cached
+    "best video" lookup via a video-platform API (new dependency, API key,
+    and rate limits for a "watch a tutorial" nudge that a search link already
+    serves adequately); no change to the `course` or `tinker` styles; no
+    change to `STYLE_TIP`'s existing sentences, which still render alongside
+    the new link, not instead of it.
+- **Build size:** S — one new pure util (`learnLink.js`), moving one existing
+  computation inside an existing `.map()` in `roadmapGenerator.js`, one small
+  conditional link added to one existing block in `Learning.jsx`. No backend,
+  no new dependency, no new route, no new store, no radar change.
+- **Found:** 2026-09-05 21:20 UTC
