@@ -21,6 +21,15 @@ needed. No CI failures on master, no `agent-fixable` issues open.
 this end-of-day run started; this run only drained the backlog, it did not
 add to it.
 
+**Digest gap noted:** the previous "Dev digest" issue (#33, 2026-09-01) was
+never closed, and DEVLOG's last entry before this one was also 2026-09-01
+— four days (09-02 through 09-04) produced no feature-run digest. Commits
+did land in that window (a Settings.jsx copy fix, a category-pages backlog
+entry, radar publishes), so the catalogue and codebase kept moving; only
+the daily digest step itself was skipped. Flagging rather than
+reconstructing days this run wasn't present for, same as the 2026-08-29
+entry did for a similar gap.
+
 **Shipped:** the status-note gap — every "UNCERTAIN" badge now shows the
 reason behind it, not just the bare word.
 [`b7dda24`](https://github.com/saikiranreddy18/toolnaut/commit/b7dda24)
