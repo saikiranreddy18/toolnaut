@@ -10553,5 +10553,403 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-09-04T23:20:31.711Z"
+  },
+  {
+    "id": "course-rubato",
+    "toolSlug": "rubato",
+    "title": "Master Rubato",
+    "objectives": [
+      "Understand what Rubato is for",
+      "Use Rubato on a real task",
+      "Know where Rubato fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Rubato for your real workflow, not the demo.",
+          "Say what Rubato does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Rubato.",
+          "Push Rubato to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Rubato into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-hardware",
+      "skill-esp8266",
+      "skill-retro",
+      "skill-diy",
+      "skill-coding-status"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-05T12:45:39.833Z"
+  },
+  {
+    "id": "course-ai-agents-started-emailing-philosophers-and-researchers",
+    "toolSlug": "ai-agents-started-emailing-philosophers-and-researchers",
+    "title": "Master AI agents started emailing philosophers and researchers",
+    "objectives": [
+      "Understand what AI agents started emailing philosophers and researchers is for",
+      "Use AI agents started emailing philosophers and researchers on a real task",
+      "Know where AI agents started emailing philosophers and researchers fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI agents started emailing philosophers and researchers for your real workflow, not the demo.",
+          "Say what AI agents started emailing philosophers and researchers does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI agents started emailing philosophers and researchers.",
+          "Push AI agents started emailing philosophers and researchers to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI agents started emailing philosophers and researchers into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-autonomous",
+      "skill-email",
+      "skill-consciousness",
+      "skill-research"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-05T12:45:39.833Z"
+  },
+  {
+    "id": "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
+    "toolSlug": "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
+    "title": "Master GateKeep402, Deterministic pre-payment guardrails for AI agents",
+    "objectives": [
+      "Understand what GateKeep402, Deterministic pre-payment guardrails for AI agents is for",
+      "Use GateKeep402, Deterministic pre-payment guardrails for AI agents on a real task",
+      "Know where GateKeep402, Deterministic pre-payment guardrails for AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure GateKeep402, Deterministic pre-payment guardrails for AI agents for your real workflow, not the demo.",
+          "Say what GateKeep402, Deterministic pre-payment guardrails for AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through GateKeep402, Deterministic pre-payment guardrails for AI agents.",
+          "Push GateKeep402, Deterministic pre-payment guardrails for AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold GateKeep402, Deterministic pre-payment guardrails for AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai-agents",
+      "skill-payments",
+      "skill-guardrails",
+      "skill-security",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-05T12:45:39.833Z"
+  },
+  {
+    "id": "course-mu-two-minute-visualized-lessons-on-modern-ai",
+    "toolSlug": "mu-two-minute-visualized-lessons-on-modern-ai",
+    "title": "Master Mu, two-minute visualized lessons on modern AI",
+    "objectives": [
+      "Navigate Mu's AI lesson catalog and pick relevant topics",
+      "Watch and control a two-minute visualized lesson effectively",
+      "Reinforce concepts with quizzes and build a saved lesson path"
+    ],
+    "modules": [
+      {
+        "title": "Set Up Mu and Find Your First Lesson",
+        "estMinutes": 5,
+        "steps": [
+          "Open Mu and create a free account, then select at least three interest topics (e.g., LLMs, image generation, agents) to personalize your home feed",
+          "Browse the catalog by category or use the search bar to find the lesson 'What Is a Large Language Model?'",
+          "Open the lesson preview to read its difficulty tag and the list of prerequisite concepts shown under the title"
+        ]
+      },
+      {
+        "title": "Watch a Two-Minute Lesson Intentionally",
+        "estMinutes": 6,
+        "steps": [
+          "Play the lesson full-screen and watch it once straight through without pausing to get the big picture",
+          "Replay it and pause on key animated diagrams (e.g., tokens flowing through a transformer), using the scrubber to rewatch any step you missed",
+          "Turn on captions and tap one highlighted term in the lesson to open its one-line definition popup"
+        ]
+      },
+      {
+        "title": "Test Understanding with the Lesson Quiz",
+        "estMinutes": 5,
+        "steps": [
+          "Complete the 3-question quiz at the end of the lesson and review each explanation, including for correct answers",
+          "Use the 'Replay concept' link on any missed question to jump to the exact timeline moment it was explained",
+          "Earn the lesson's completion badge and confirm your streak/progress bar updated on the home screen"
+        ]
+      },
+      {
+        "title": "Build a Personal Learning Path",
+        "estMinutes": 8,
+        "steps": [
+          "Save the lesson to a new playlist called 'AI Foundations' and add the suggested next lessons Mu recommends (e.g., 'Tokens Explained,' 'What Are Embeddings?')",
+          "Reorder the playlist so concepts build logically, then enable a daily reminder for one two-minute lesson per day",
+          "Share your playlist link or export your notes from two lessons into a single summary to review offline"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai education",
+      "skill-visual learning",
+      "skill-micro-lessons",
+      "skill-ai concepts"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-05T12:45:39.833Z"
+  },
+  {
+    "id": "course-cs2-aim-toolkit",
+    "toolSlug": "cs2-aim-toolkit",
+    "title": "Master cs2-aim-toolkit",
+    "objectives": [
+      "Understand what cs2-aim-toolkit is for",
+      "Use cs2-aim-toolkit on a real task",
+      "Know where cs2-aim-toolkit fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure cs2-aim-toolkit for your real workflow, not the demo.",
+          "Say what cs2-aim-toolkit does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through cs2-aim-toolkit.",
+          "Push cs2-aim-toolkit to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold cs2-aim-toolkit into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-cs2",
+      "skill-aim-assist",
+      "skill-gaming",
+      "skill-computer-vision",
+      "skill-cheats"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-05T12:45:39.833Z"
+  },
+  {
+    "id": "course-capcut-pro-crack-new",
+    "toolSlug": "capcut-pro-crack-new",
+    "title": "Master CapCut-Pro-Crack-New",
+    "objectives": [
+      "Understand what CapCut-Pro-Crack-New is for",
+      "Use CapCut-Pro-Crack-New on a real task",
+      "Know where CapCut-Pro-Crack-New fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure CapCut-Pro-Crack-New for your real workflow, not the demo.",
+          "Say what CapCut-Pro-Crack-New does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through CapCut-Pro-Crack-New.",
+          "Push CapCut-Pro-Crack-New to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold CapCut-Pro-Crack-New into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-05T12:45:39.833Z"
+  },
+  {
+    "id": "course-zatom-lite",
+    "toolSlug": "zatom-lite",
+    "title": "Master zatom-lite",
+    "objectives": [
+      "Understand what zatom-lite is for",
+      "Use zatom-lite on a real task",
+      "Know where zatom-lite fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure zatom-lite for your real workflow, not the demo.",
+          "Say what zatom-lite does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through zatom-lite.",
+          "Push zatom-lite to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold zatom-lite into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-chemistry",
+      "skill-molecular modeling",
+      "skill-webmcp",
+      "skill-ai modeling",
+      "skill-research"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-05T12:45:39.833Z"
+  },
+  {
+    "id": "course-datalume",
+    "toolSlug": "datalume",
+    "title": "Master Datalume",
+    "objectives": [
+      "Understand what Datalume is for",
+      "Use Datalume on a real task",
+      "Know where Datalume fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Datalume for your real workflow, not the demo.",
+          "Say what Datalume does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Datalume.",
+          "Push Datalume to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Datalume into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-data analysis",
+      "skill-llm",
+      "skill-agent",
+      "skill-tool calling",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-05T12:45:39.833Z"
   }
 ]
