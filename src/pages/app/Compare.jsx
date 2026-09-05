@@ -49,7 +49,7 @@ export default function Compare() {
     { label: 'Developer', get: (t) => t.dev || '—' },
     { label: 'Since', get: (t) => t.year || '—' },
     { label: 'Audience', get: (t) => t.audience || '—' },
-    { label: 'Status', get: (t) => t.status || '—' },
+    { label: 'Status', get: (t) => (t.status && t.status !== 'Active' ? `${t.status}${t.note ? ` (${t.note})` : ''}` : t.status || '—') },
     { label: 'Tags', get: (t) => (t.tags && t.tags.length > 0 ? t.tags.join(', ') : '—') },
   ]
   if (answers) {
