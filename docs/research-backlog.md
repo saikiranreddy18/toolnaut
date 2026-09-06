@@ -4051,3 +4051,112 @@ a client-side SPA with a static tool catalogue.
   subcategory match turns up on review (design and code are each dominated
   by one or two subcategories close enough to the whole domain that
   re-pointing them may not be worth a special case).
+
+### "Live Tool Comparison" is sold on the landing page; the actual comparison table sits behind login
+- **Status:** OPEN
+- **Seen in:** not a fresh competitor — a promise-gap found doing the same
+  `src/components/sections/*` marketing-audit sweep that already produced the
+  shipped Compare/Fresh-Finds/Skills-Graph gaps, revisited because two things
+  changed since Compare originally shipped: `/search` and `/new` both moved
+  from `AppShell`-gated to public routes (the "no public search" and
+  "public new-tools feed" gaps, both SHIPPED), and the still-OPEN
+  "Alternatives" gap above independently arrived at the same conclusion for a
+  different page — that Toolnaut's structured catalog makes public,
+  crawlable, per-tool-pair pages nearly free to build and high-intent to rank
+  for. Head-to-head "X vs Y" pages are themselves a standard competitor
+  pattern (G2 and Capterra both auto-generate comparison pages for popular
+  product pairs; "notion ai vs jasper," "chatgpt vs claude" style queries are
+  some of the highest-commercial-intent searches in the category, distinct
+  from both the broad category pages and the single-tool "alternatives to X"
+  pages already in this backlog).
+- **Gap:** `src/components/sections/FeaturesSection.jsx:8` sells "Live Tool
+  Comparison — Side-by-side capability, pricing, and integration comparisons
+  kept current" as one of six headline capabilities on the public landing
+  page, visible to every signed-out visitor. The feature it points at,
+  `Compare.jsx`, is registered at `src/App.jsx:128` nested under
+  `<Route path="/app" element={<AppShell />}>` (`App.jsx:123`) — the same
+  session gate as `Stack`/`Discover`/`Settings`. A visitor who reads that
+  landing-page card and clicks through has nothing to click through to: there
+  is no public route at all that renders a comparison, only the in-session
+  `/app/compare?tools=...` a signed-out visitor is redirected away from. This
+  is the same shape of gap as the original Compare finding itself (a FEATURES
+  card with nothing public behind it), one layer deeper than that entry
+  fixed: the table now exists, it's just not reachable by the audience the
+  card is shown to.
+  This was a deliberate call at the time, not an oversight — Compare's own
+  "Deepened" note reasoned it was "a within-session comparison action, not a
+  public share artifact like the separate share-stack gap." That reasoning
+  held until `/search` and `/new` also moved public; now three of Toolnaut's
+  four content-shaped in-app pages (Discover, new-tools, compare) have a
+  public sibling or public original, and Compare is the one left behind.
+- **Why it matters:** "X vs Y" comparison queries convert unusually well
+  because the searcher has already narrowed to two specific products and is
+  actively deciding — a stronger buying signal than either the broad category
+  queries the domain pages target or the single-tool "alternatives to X"
+  queries the still-OPEN Alternatives gap targets. Toolnaut can answer this
+  query honestly with data it already has (the exact same `price`/`pricing`/
+  `level`/`dev`/`year`/`audience`/`status`/`tags` fields `Compare.jsx:46-53`
+  already renders) — no editorial content to write, no new field to invent.
+  It also closes the landing page's remaining half-promise: "kept current" is
+  true today (the catalog is radar-refreshed), but "Live Tool Comparison" as
+  advertised only exists for people who already made an account.
+- **Smallest useful version (what to actually build):**
+  - Pull `Compare.jsx`'s row list (`Compare.jsx:45-56`, minus the quiz-gated
+    "Fit" row — a public visitor has no `loadQuiz()` answers to score against)
+    into a shared pure function, e.g. `src/utils/compareRows.js` exporting
+    `buildCompareRows(tools)`. Both the existing private `Compare.jsx` and the
+    new public page import it, so the field list is defined once — today it
+    only exists inline in one file, which is fine for one caller and wrong
+    for two.
+  - New public route `/vs/:slugA/:slugB` in `App.jsx`, alongside
+    `/tools/:domain` / `/new` / `/search` (`App.jsx:106-109`) — same tier,
+    outside `AppShell`, no session needed.
+  - Canonical ordering to avoid two indexable URLs for one pair: slugs sorted
+    alphabetically define the canonical path (`/vs/chatgpt/claude`, never
+    `/vs/claude/chatgpt`). The page component redirects
+    (`<Navigate replace>`, matching `CategoryLanding.jsx`'s own
+    unknown-param-degrades pattern) any request where the params arrive
+    out of order to the canonical URL — one rule, checked once, no duplicate
+    content for Google to split ranking signal across.
+  - New `src/pages/Vs.jsx`: resolves both slugs via `getTool()`
+    (`toolsCatalog.js:757`), redirects to `/` if either is unknown (matching
+    `Alternatives.jsx`'s planned unknown-slug handling above), otherwise
+    renders a two-column table from `buildCompareRows([toolA, toolB])`.
+    Heading reads "{TOOL A} VS {TOOL B}" — the literal search phrase, same
+    convention as the Alternatives gap's "BEST {TOOL} ALTERNATIVES" — with a
+    one-line honest intro identical in spirit to that gap's ("compared on the
+    same fields as everywhere else in Toolnaut — nothing sponsored or
+    invented"). Each column gets an "⚡ Add to stack" button reusing
+    `addToStack` from `stackStore.js` verbatim (works with no session, same
+    as `SharedStack.jsx` already relies on) rather than gating the action
+    behind sign-in.
+  - `Compare.jsx` itself gets one small addition, not a rewrite: when exactly
+    2 tools are selected, show a "Share this comparison →" link to the public
+    `/vs/:slugA/:slugB` equivalent (sorted), the same one-line cross-link
+    pattern the Alternatives gap adds to `ToolDetail.jsx`'s related-tools
+    section. 3-4 tool comparisons stay private-only — the public page is
+    scoped to pairs, which is also the actual shape of the search query
+    ("X vs Y" is never "X vs Y vs Z vs W" in practice).
+  - `scripts/smoke.mjs:32` and `scripts/prerender.mjs:26-44`: one representative
+    route added to each (e.g. `/vs/chatgpt/claude`), same footgun flagged on
+    every route-adding gap in this file. `public/sitemap.xml`: hand-add a
+    small handful of the catalog's best-known, most-searched pairs (chatgpt
+    vs claude, chatgpt vs gemini, notion-ai vs jasper or equivalent — whatever
+    the highest-recognition slugs actually are), the same manual scope the
+    Alternatives gap already chose over building a sitemap generator.
+  - **What this would NOT include** (kept out to bound the diff): no 3+-tool
+    public pages (pairs only, matching the real query shape); no sitemap/
+    prerender entries for every mathematically possible pair (704 tools is
+    ~247K pairs — a handful of hand-picked, high-recognition pairs only, same
+    restraint as Alternatives); no new visual design (same card/table styling
+    `Compare.jsx` already uses); no "which tool wins" verdict or score — same
+    no-invented-numbers principle this backlog has held since `StatsSection.jsx`;
+    no change to the private `/app/compare` multi-tool flow beyond the one
+    added share link.
+- **Build size:** S/M — one extracted pure util (`compareRows.js`), one new
+  page (`Vs.jsx`, closely modeled on `Compare.jsx`'s table and
+  `Alternatives.jsx`'s planned public-page chrome), one new public route, a
+  one-line addition to `Compare.jsx`, one smoke/prerender route each, a
+  handful of hand-picked sitemap entries. No backend, no new dependency, no
+  new store, no new scoring logic.
+- **Found:** 2026-09-06 06:10 UTC
