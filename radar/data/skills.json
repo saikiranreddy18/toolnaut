@@ -84,7 +84,9 @@
       "rubato",
       "okf-agent-memory",
       "ai-coding-agents-forget-the-codebase-between-sessions",
-      "nimvarya"
+      "nimvarya",
+      "quiz-ui",
+      "mdmanagerai"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -166,7 +168,9 @@
       "course-rubato",
       "course-okf-agent-memory",
       "course-ai-coding-agents-forget-the-codebase-between-sessions",
-      "course-nimvarya"
+      "course-nimvarya",
+      "course-quiz-ui",
+      "course-mdmanagerai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -328,7 +332,9 @@
       "vocabdesign",
       "aidemovideo",
       "filmmakers-tout-ais-use-in-hollywood",
-      "capcut-pro-crack-new"
+      "capcut-pro-crack-new",
+      "alternaterealitieslol",
+      "robin"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -350,7 +356,9 @@
       "course-vocabdesign",
       "course-aidemovideo",
       "course-filmmakers-tout-ais-use-in-hollywood",
-      "course-capcut-pro-crack-new"
+      "course-capcut-pro-crack-new",
+      "course-alternaterealitieslol",
+      "course-robin"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -517,7 +525,11 @@
       "pov-youre-an-ai-agent-recruited-for-the-swarm",
       "i-gave-my-ai-agent-a-sleep-cycle",
       "handoru-ai-customer-conversation-agents-for-service-business",
-      "interpretation-to-ai-agents"
+      "interpretation-to-ai-agents",
+      "chrome-bridge",
+      "a-public-noticeboard-for-ai-agents",
+      "public-beta-a-decision-governance-runtime-for-ai-agents",
+      "automatically-save-60-on-amazon"
     ],
     "courses": [
       "course-headless-tools",
@@ -610,7 +622,11 @@
       "course-pov-youre-an-ai-agent-recruited-for-the-swarm",
       "course-i-gave-my-ai-agent-a-sleep-cycle",
       "course-handoru-ai-customer-conversation-agents-for-service-business",
-      "course-interpretation-to-ai-agents"
+      "course-interpretation-to-ai-agents",
+      "course-chrome-bridge",
+      "course-a-public-noticeboard-for-ai-agents",
+      "course-public-beta-a-decision-governance-runtime-for-ai-agents",
+      "course-automatically-save-60-on-amazon"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -700,7 +716,10 @@
       "defending-against-ai-agents-with-social-engineering",
       "pov-youre-an-ai-agent-recruited-for-the-swarm",
       "handoru-ai-customer-conversation-agents-for-service-business",
-      "interpretation-to-ai-agents"
+      "interpretation-to-ai-agents",
+      "chrome-bridge",
+      "a-public-noticeboard-for-ai-agents",
+      "public-beta-a-decision-governance-runtime-for-ai-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -770,7 +789,10 @@
       "course-defending-against-ai-agents-with-social-engineering",
       "course-pov-youre-an-ai-agent-recruited-for-the-swarm",
       "course-handoru-ai-customer-conversation-agents-for-service-business",
-      "course-interpretation-to-ai-agents"
+      "course-interpretation-to-ai-agents",
+      "course-chrome-bridge",
+      "course-a-public-noticeboard-for-ai-agents",
+      "course-public-beta-a-decision-governance-runtime-for-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1264,11 +1286,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "gibson-adk-and-zero-trust-runtime",
-      "oconee-runtime"
+      "oconee-runtime",
+      "public-beta-a-decision-governance-runtime-for-ai-agents"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
-      "course-oconee-runtime"
+      "course-oconee-runtime",
+      "course-public-beta-a-decision-governance-runtime-for-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1349,12 +1373,14 @@
     "toolsTeaching": [
       "coolplugz",
       "claude-skills-starter-kit",
-      "claude2api"
+      "claude2api",
+      "mdmanagerai"
     ],
     "courses": [
       "course-coolplugz",
       "course-claude-skills-starter-kit",
-      "course-claude2api"
+      "course-claude2api",
+      "course-mdmanagerai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1630,13 +1656,15 @@
       "mrea",
       "foundry-toolbox-radar-lab",
       "microsoft-publishes-ai-agent-shared-responsibility-model",
-      "covenant"
+      "covenant",
+      "public-beta-a-decision-governance-runtime-for-ai-agents"
     ],
     "courses": [
       "course-mrea",
       "course-foundry-toolbox-radar-lab",
       "course-microsoft-publishes-ai-agent-shared-responsibility-model",
-      "course-covenant"
+      "course-covenant",
+      "course-public-beta-a-decision-governance-runtime-for-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1756,7 +1784,8 @@
       "mcp-tool-definition-quality-score-tdqs-spec",
       "live-graph-interface-harness",
       "a-context-registry-for-ai-coding-agents",
-      "execution-gating-and-micro-rollbacks-for-ai-agents"
+      "execution-gating-and-micro-rollbacks-for-ai-agents",
+      "a-public-noticeboard-for-ai-agents"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -1780,7 +1809,8 @@
       "course-mcp-tool-definition-quality-score-tdqs-spec",
       "course-live-graph-interface-harness",
       "course-a-context-registry-for-ai-coding-agents",
-      "course-execution-gating-and-micro-rollbacks-for-ai-agents"
+      "course-execution-gating-and-micro-rollbacks-for-ai-agents",
+      "course-a-public-noticeboard-for-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1822,7 +1852,9 @@
       "georace",
       "learn-practice-sudoku-strategies-web-app",
       "mu-two-minute-visualized-lessons-on-modern-ai",
-      "defending-against-ai-agents-with-social-engineering"
+      "defending-against-ai-agents-with-social-engineering",
+      "whatthemoviecom-a-movie-still-guessing-game",
+      "new-york-city-pausing-some-ai-tools-in-schools"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1844,7 +1876,9 @@
       "course-georace",
       "course-learn-practice-sudoku-strategies-web-app",
       "course-mu-two-minute-visualized-lessons-on-modern-ai",
-      "course-defending-against-ai-agents-with-social-engineering"
+      "course-defending-against-ai-agents-with-social-engineering",
+      "course-whatthemoviecom-a-movie-still-guessing-game",
+      "course-new-york-city-pausing-some-ai-tools-in-schools"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1867,7 +1901,8 @@
       "openvurp",
       "designing-grok-bot-for-a-world-of-persistent-agents",
       "paygate",
-      "okf-agent-memory"
+      "okf-agent-memory",
+      "mdmanagerai"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1883,7 +1918,8 @@
       "course-openvurp",
       "course-designing-grok-bot-for-a-world-of-persistent-agents",
       "course-paygate",
-      "course-okf-agent-memory"
+      "course-okf-agent-memory",
+      "course-mdmanagerai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1970,7 +2006,9 @@
       "covenant",
       "datalume",
       "praesidias",
-      "i-gave-my-ai-agent-a-sleep-cycle"
+      "i-gave-my-ai-agent-a-sleep-cycle",
+      "chrome-bridge",
+      "quiz-ui"
     ],
     "courses": [
       "course-limitless-library",
@@ -1996,7 +2034,9 @@
       "course-covenant",
       "course-datalume",
       "course-praesidias",
-      "course-i-gave-my-ai-agent-a-sleep-cycle"
+      "course-i-gave-my-ai-agent-a-sleep-cycle",
+      "course-chrome-bridge",
+      "course-quiz-ui"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2819,11 +2859,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "abbs",
-      "a-get-message-board-for-ai-agents-not-browsers"
+      "a-get-message-board-for-ai-agents-not-browsers",
+      "a-public-noticeboard-for-ai-agents"
     ],
     "courses": [
       "course-abbs",
-      "course-a-get-message-board-for-ai-agents-not-browsers"
+      "course-a-get-message-board-for-ai-agents-not-browsers",
+      "course-a-public-noticeboard-for-ai-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2833,10 +2875,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "abbs"
+      "abbs",
+      "a-public-noticeboard-for-ai-agents"
     ],
     "courses": [
-      "course-abbs"
+      "course-abbs",
+      "course-a-public-noticeboard-for-ai-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3055,13 +3099,15 @@
       "devx",
       "z-local-first-search-layer-for-humans-and-agents",
       "mu",
-      "termy"
+      "termy",
+      "mdmanagerai"
     ],
     "courses": [
       "course-devx",
       "course-z-local-first-search-layer-for-humans-and-agents",
       "course-mu",
-      "course-termy"
+      "course-termy",
+      "course-mdmanagerai"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3073,12 +3119,14 @@
     "toolsTeaching": [
       "why-ai-agents-need-persistent-browser-identities",
       "puppetflow-a-free-browser-automation-platform",
-      "saccade"
+      "saccade",
+      "chrome-bridge"
     ],
     "courses": [
       "course-why-ai-agents-need-persistent-browser-identities",
       "course-puppetflow-a-free-browser-automation-platform",
-      "course-saccade"
+      "course-saccade",
+      "course-chrome-bridge"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3130,11 +3178,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "serve-markdown-to-ai-agents-with-accept-headers",
-      "marktwin"
+      "marktwin",
+      "mdmanagerai"
     ],
     "courses": [
       "course-serve-markdown-to-ai-agents-with-accept-headers",
-      "course-marktwin"
+      "course-marktwin",
+      "course-mdmanagerai"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3499,14 +3549,16 @@
       "ai-agent-guardrails-dont-work-safer-platforms-do",
       "oconee-runtime",
       "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
-      "praesidias"
+      "praesidias",
+      "public-beta-a-decision-governance-runtime-for-ai-agents"
     ],
     "courses": [
       "course-agentseed",
       "course-ai-agent-guardrails-dont-work-safer-platforms-do",
       "course-oconee-runtime",
       "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
-      "course-praesidias"
+      "course-praesidias",
+      "course-public-beta-a-decision-governance-runtime-for-ai-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6124,11 +6176,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "aicademy",
-      "tesorohelp"
+      "tesorohelp",
+      "new-york-city-pausing-some-ai-tools-in-schools"
     ],
     "courses": [
       "course-aicademy",
-      "course-tesorohelp"
+      "course-tesorohelp",
+      "course-new-york-city-pausing-some-ai-tools-in-schools"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -7575,10 +7629,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "jern-cloud"
+      "jern-cloud",
+      "public-beta-a-decision-governance-runtime-for-ai-agents"
     ],
     "courses": [
-      "course-jern-cloud"
+      "course-jern-cloud",
+      "course-public-beta-a-decision-governance-runtime-for-ai-agents"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -8556,10 +8612,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "filmmakers-tout-ais-use-in-hollywood"
+      "filmmakers-tout-ais-use-in-hollywood",
+      "new-york-city-pausing-some-ai-tools-in-schools"
     ],
     "courses": [
-      "course-filmmakers-tout-ais-use-in-hollywood"
+      "course-filmmakers-tout-ais-use-in-hollywood",
+      "course-new-york-city-pausing-some-ai-tools-in-schools"
     ],
     "updatedAt": "2026-09-04T23:20:31.711Z"
   },
@@ -9212,10 +9270,12 @@
     "domain": "writing",
     "level": "beginner",
     "toolsTeaching": [
-      "chatpanel-now-available-on-firefox"
+      "chatpanel-now-available-on-firefox",
+      "robin"
     ],
     "courses": [
-      "course-chatpanel-now-available-on-firefox"
+      "course-chatpanel-now-available-on-firefox",
+      "course-robin"
     ],
     "updatedAt": "2026-09-05T23:19:13.483Z"
   },
@@ -9355,10 +9415,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "nimvarya"
+      "nimvarya",
+      "chrome-bridge"
     ],
     "courses": [
-      "course-nimvarya"
+      "course-nimvarya",
+      "course-chrome-bridge"
     ],
     "updatedAt": "2026-09-06T12:54:08.108Z"
   },
@@ -9413,5 +9475,358 @@
       "course-interpretation-to-ai-agents"
     ],
     "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "skill-interactive fiction",
+    "name": "interactive fiction",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "alternaterealitieslol"
+    ],
+    "courses": [
+      "course-alternaterealitieslol"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-game maker",
+    "name": "game maker",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "alternaterealitieslol"
+    ],
+    "courses": [
+      "course-alternaterealitieslol"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-storytelling",
+    "name": "storytelling",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "alternaterealitieslol"
+    ],
+    "courses": [
+      "course-alternaterealitieslol"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-no-code",
+    "name": "no code",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "alternaterealitieslol"
+    ],
+    "courses": [
+      "course-alternaterealitieslol"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-point and click",
+    "name": "point and click",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "alternaterealitieslol"
+    ],
+    "courses": [
+      "course-alternaterealitieslol"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-movie trivia",
+    "name": "movie trivia",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "whatthemoviecom-a-movie-still-guessing-game"
+    ],
+    "courses": [
+      "course-whatthemoviecom-a-movie-still-guessing-game"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-guessing game",
+    "name": "guessing game",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "whatthemoviecom-a-movie-still-guessing-game"
+    ],
+    "courses": [
+      "course-whatthemoviecom-a-movie-still-guessing-game"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-film",
+    "name": "film",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "whatthemoviecom-a-movie-still-guessing-game"
+    ],
+    "courses": [
+      "course-whatthemoviecom-a-movie-still-guessing-game"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-quiz",
+    "name": "quiz",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "whatthemoviecom-a-movie-still-guessing-game",
+      "quiz-ui"
+    ],
+    "courses": [
+      "course-whatthemoviecom-a-movie-still-guessing-game",
+      "course-quiz-ui"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-entertainment",
+    "name": "entertainment",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "whatthemoviecom-a-movie-still-guessing-game"
+    ],
+    "courses": [
+      "course-whatthemoviecom-a-movie-still-guessing-game"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-ai policy",
+    "name": "ai policy",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "new-york-city-pausing-some-ai-tools-in-schools"
+    ],
+    "courses": [
+      "course-new-york-city-pausing-some-ai-tools-in-schools"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-schools",
+    "name": "schools",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "new-york-city-pausing-some-ai-tools-in-schools"
+    ],
+    "courses": [
+      "course-new-york-city-pausing-some-ai-tools-in-schools"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-regulation",
+    "name": "regulation",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "new-york-city-pausing-some-ai-tools-in-schools"
+    ],
+    "courses": [
+      "course-new-york-city-pausing-some-ai-tools-in-schools"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-web design",
+    "name": "web design",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "robin"
+    ],
+    "courses": [
+      "course-robin"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-css",
+    "name": "css",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "robin"
+    ],
+    "courses": [
+      "course-robin"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-restyle",
+    "name": "restyle",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "robin"
+    ],
+    "courses": [
+      "course-robin"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-prompt",
+    "name": "prompt",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "robin"
+    ],
+    "courses": [
+      "course-robin"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-noticeboard",
+    "name": "noticeboard",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "a-public-noticeboard-for-ai-agents"
+    ],
+    "courses": [
+      "course-a-public-noticeboard-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-ui components",
+    "name": "ui components",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "quiz-ui"
+    ],
+    "courses": [
+      "course-quiz-ui"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-shadcn",
+    "name": "shadcn",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "quiz-ui"
+    ],
+    "courses": [
+      "course-quiz-ui"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-react",
+    "name": "react",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "quiz-ui"
+    ],
+    "courses": [
+      "course-quiz-ui"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-config",
+    "name": "config",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "mdmanagerai"
+    ],
+    "courses": [
+      "course-mdmanagerai"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-amazon",
+    "name": "amazon",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "automatically-save-60-on-amazon"
+    ],
+    "courses": [
+      "course-automatically-save-60-on-amazon"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-shopping",
+    "name": "shopping",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "automatically-save-60-on-amazon"
+    ],
+    "courses": [
+      "course-automatically-save-60-on-amazon"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-price comparison",
+    "name": "price comparison",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "automatically-save-60-on-amazon"
+    ],
+    "courses": [
+      "course-automatically-save-60-on-amazon"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-deals",
+    "name": "deals",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "automatically-save-60-on-amazon"
+    ],
+    "courses": [
+      "course-automatically-save-60-on-amazon"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-chrome extension",
+    "name": "chrome extension",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "automatically-save-60-on-amazon"
+    ],
+    "courses": [
+      "course-automatically-save-60-on-amazon"
+    ],
+    "updatedAt": "2026-09-06T23:10:17.799Z"
   }
 ]

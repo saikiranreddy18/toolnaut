@@ -11660,5 +11660,569 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "course-alternaterealitieslol",
+    "toolSlug": "alternaterealitieslol",
+    "title": "Master AlternateRealities.lol",
+    "objectives": [
+      "Build a playable branching story with at least 4 scenes and 2 different endings",
+      "Add clickable hotspots and choice buttons that route players down different paths",
+      "Use a variable to remember a player decision, then publish a shareable story link"
+    ],
+    "modules": [
+      {
+        "title": "Start a project and sketch the story map",
+        "estMinutes": 10,
+        "steps": [
+          "Create an account, click New Story, name your project, and choose the blank template",
+          "Drag 4 scene cards onto the canvas and label them: Opening, Crossroads, Ending A, Ending B"
+        ]
+      },
+      {
+        "title": "Write scenes and add visuals",
+        "estMinutes": 15,
+        "steps": [
+          "Open the Opening scene and write 2–4 lines of narrative text in the description panel",
+          "Upload a background image (or pick one from the built-in library) and give the scene a short title",
+          "Repeat for the other 3 scenes so every branch has content before you wire anything up"
+        ]
+      },
+      {
+        "title": "Connect choices into branches",
+        "estMinutes": 15,
+        "steps": [
+          "In the Crossroads scene, add two choice buttons, e.g. 'Open the locked door' and 'Follow the river path'",
+          "Drag a connector from each button to its target scene (Ending A and Ending B), then check the map for unconnected dead ends"
+        ]
+      },
+      {
+        "title": "Add a hotspot and a variable",
+        "estMinutes": 20,
+        "steps": [
+          "In the Opening scene, use the hotspot tool to draw a clickable zone over an object in the background (e.g. a key on a table) and link it to a short reveal scene or pop-up text",
+          "Create a flag variable called has_key and set it to true when the hotspot is clicked",
+          "Add a visibility condition to the 'Open the locked door' button so it only appears when has_key is true"
+        ]
+      },
+      {
+        "title": "Playtest and publish",
+        "estMinutes": 10,
+        "steps": [
+          "Open Preview mode and click through every path to both endings, confirming the locked-door choice is hidden until the key is found",
+          "Click Publish, set visibility to unlisted/public, copy the share link, and send it to one person to test on their phone"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-interactive fiction",
+      "skill-game maker",
+      "skill-storytelling",
+      "skill-no-code",
+      "skill-point and click"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "course-whatthemoviecom-a-movie-still-guessing-game",
+    "toolSlug": "whatthemoviecom-a-movie-still-guessing-game",
+    "title": "Master Whatthemovie.com, a movie-still guessing game",
+    "objectives": [
+      "Understand what Whatthemovie.com, a movie-still guessing game is for",
+      "Use Whatthemovie.com, a movie-still guessing game on a real task",
+      "Know where Whatthemovie.com, a movie-still guessing game fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Whatthemovie.com, a movie-still guessing game.",
+          "Say what Whatthemovie.com, a movie-still guessing game does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Whatthemovie.com, a movie-still guessing game.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Whatthemovie.com, a movie-still guessing game into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-movie trivia",
+      "skill-guessing game",
+      "skill-film",
+      "skill-quiz",
+      "skill-entertainment"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "course-new-york-city-pausing-some-ai-tools-in-schools",
+    "toolSlug": "new-york-city-pausing-some-ai-tools-in-schools",
+    "title": "Master New York City pausing some AI tools in schools",
+    "objectives": [
+      "Explain which AI tools NYC public schools paused and when",
+      "Identify the three main concerns that drove the pause (cheating, accuracy, student safety)",
+      "State how the policy was applied and what happened next"
+    ],
+    "modules": [
+      {
+        "title": "The Story in 5 Minutes",
+        "estMinutes": 5,
+        "steps": [
+          "Read the January 2023 announcement: NYC blocked ChatGPT on school devices and networks",
+          "Write down the official reason given: 'negative impacts on student learning, and concerns regarding the safety and accuracy of content'",
+          "Note who it affected — the largest U.S. school district, roughly 1 million students"
+        ]
+      },
+      {
+        "title": "Why They Paused It",
+        "estMinutes": 8,
+        "steps": [
+          "List the cheating concern: students generating essays and homework answers that teachers can't easily detect",
+          "List the accuracy concern: chatbots present false information with confident, fluent wording",
+          "List the safety/privacy concern: how student data and interactions with the tool are handled"
+        ]
+      },
+      {
+        "title": "Check Your Understanding and the Follow-Up",
+        "estMinutes": 6,
+        "steps": [
+          "In one sentence, summarize the district's position without using the word 'AI'",
+          "Look up the May 2023 reversal: NYC lifted the ban and pivoted toward teaching AI literacy",
+          "Compare the two positions in two bullet points: what changed and why"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-education",
+      "skill-ai policy",
+      "skill-schools",
+      "skill-news",
+      "skill-regulation"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "course-robin",
+    "toolSlug": "robin",
+    "title": "Master Robin",
+    "objectives": [
+      "Install Robin and apply your first one-prompt restyle to a live website",
+      "Write clear prompts that change colors, fonts, spacing, and layout",
+      "Save, toggle, and remove your custom styles per site"
+    ],
+    "modules": [
+      {
+        "title": "Install and First Restyle in 5 Minutes",
+        "estMinutes": 8,
+        "steps": [
+          "Install the Robin extension from the Chrome Web Store, then pin it to your browser toolbar using the puzzle-piece icon",
+          "Open a text-heavy site you know well (e.g., a news site or Wikipedia), click the Robin icon, type the prompt \"dark mode with bigger, easier-to-read text\", and press Enter",
+          "Reload the page to confirm whether the style persists, then click Robin again and use the reset/undo option to restore the original design"
+        ]
+      },
+      {
+        "title": "Writing Prompts That Actually Work",
+        "estMinutes": 10,
+        "steps": [
+          "On the same test site, apply three separate single-change prompts one at a time: \"make all headings purple\", \"increase line spacing\", \"hide the sidebar\" — note how each prompt changes only what you named",
+          "Combine changes into one structured prompt such as \"dark background, white text, sans-serif font, hide ads and popups\" and compare the result to the single-change versions",
+          "Rewrite a vague prompt (like \"make it nicer\") into a specific one naming colors, fonts, and elements, and apply both to see the difference in output quality"
+        ]
+      },
+      {
+        "title": "Targeting Specific Page Elements",
+        "estMinutes": 8,
+        "steps": [
+          "Open a site with mixed content (e.g., a blog or dashboard) and prompt Robin to restyle only one region, such as \"make only the navigation bar compact and sticky\"",
+          "Use visual words from the page itself in your prompt — e.g., \"round the corners of the article cards and add shadows\" — and verify only those elements changed",
+          "If Robin restyles too much, undo, then re-prompt with a limiting phrase like \"change nothing else\" or \"only the header\" until the change is contained"
+        ]
+      },
+      {
+        "title": "Saving and Managing Your Styles",
+        "estMinutes": 7,
+        "steps": [
+          "Apply a style you like, then check Robin's panel for a save or history option and name the style (e.g., \"News — dark reading mode\")",
+          "Toggle the saved style off and on from the Robin panel to confirm you can switch between the original and restyled version instantly",
+          "Visit a second site, confirm the style does not leak over, then delete a style you no longer want from Robin's saved list"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-web design",
+      "skill-css",
+      "skill-restyle",
+      "skill-browser extension",
+      "skill-prompt"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "course-chrome-bridge",
+    "toolSlug": "chrome-bridge",
+    "title": "Master Chrome-bridge",
+    "objectives": [
+      "Understand what Chrome-bridge is for",
+      "Use Chrome-bridge on a real task",
+      "Know where Chrome-bridge fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Chrome-bridge for your real workflow, not the demo.",
+          "Say what Chrome-bridge does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Chrome-bridge.",
+          "Push Chrome-bridge to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Chrome-bridge into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-browser automation",
+      "skill-chrome",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "course-a-public-noticeboard-for-ai-agents",
+    "toolSlug": "a-public-noticeboard-for-ai-agents",
+    "title": "Master A public noticeboard for AI agents",
+    "objectives": [
+      "Understand what A public noticeboard for AI agents is for",
+      "Use A public noticeboard for AI agents on a real task",
+      "Know where A public noticeboard for AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure A public noticeboard for AI agents for your real workflow, not the demo.",
+          "Say what A public noticeboard for AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through A public noticeboard for AI agents.",
+          "Push A public noticeboard for AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold A public noticeboard for AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-noticeboard",
+      "skill-agent communication",
+      "skill-messaging",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "course-quiz-ui",
+    "toolSlug": "quiz-ui",
+    "title": "Master Quiz-UI",
+    "objectives": [
+      "Assemble a multi-step quiz funnel from Quiz-UI components",
+      "Implement branching logic, validation, and progress tracking between steps",
+      "Score answers, render a dynamic results screen, and submit responses"
+    ],
+    "modules": [
+      {
+        "title": "Install and theme the components",
+        "estMinutes": 20,
+        "steps": [
+          "Add the QuestionStep, OptionCard, ProgressBar, and ResultsCard components to your project via the Quiz-UI registry CLI",
+          "Override the radius, primary, and accent CSS variables in globals.css so components match your brand",
+          "Render one static multiple-choice question with three OptionCards to verify styles and dark mode"
+        ]
+      },
+      {
+        "title": "Compose the multi-step funnel",
+        "estMinutes": 35,
+        "steps": [
+          "Define a questions config array with id, type, prompt, options, and required fields",
+          "Wire step state (useReducer: currentStep + answers record) and auto-advance on option select with a 250ms transition",
+          "Persist answers in URL search params so refresh and back-button navigation restore progress"
+        ]
+      },
+      {
+        "title": "Add branching, validation, and progress",
+        "estMinutes": 30,
+        "steps": [
+          "Implement a skip-logic map so answers route to conditional next steps instead of linear order",
+          "Disable the Next button until required questions are answered and show an inline error state on attempted advance",
+          "Feed the visible step index and dynamic total (excluding skipped steps) into ProgressBar"
+        ]
+      },
+      {
+        "title": "Results, submission, and analytics",
+        "estMinutes": 30,
+        "steps": [
+          "Compute a score or segment from the answers record and pass a dynamic headline plus CTA to ResultsCard",
+          "POST the completed answers payload via a Server Action with pending, error, and success states",
+          "Emit step_viewed and quiz_completed analytics events from the step transition handler"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ui components",
+      "skill-quiz",
+      "skill-shadcn",
+      "skill-react",
+      "skill-open source"
+    ],
+    "prerequisites": [
+      "React + TypeScript project (Next.js or Vite)",
+      "Tailwind CSS installed and configured",
+      "shadcn/ui CLI initialized with components.json present"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "course-public-beta-a-decision-governance-runtime-for-ai-agents",
+    "toolSlug": "public-beta-a-decision-governance-runtime-for-ai-agents",
+    "title": "Master Public beta: a decision-governance runtime for AI agents",
+    "objectives": [
+      "Understand what Public beta: a decision-governance runtime for AI agents is for",
+      "Use Public beta: a decision-governance runtime for AI agents on a real task",
+      "Know where Public beta: a decision-governance runtime for AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Public beta: a decision-governance runtime for AI agents for your real workflow, not the demo.",
+          "Say what Public beta: a decision-governance runtime for AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Public beta: a decision-governance runtime for AI agents.",
+          "Push Public beta: a decision-governance runtime for AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Public beta: a decision-governance runtime for AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-governance",
+      "skill-runtime",
+      "skill-policy",
+      "skill-guardrails"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "course-mdmanagerai",
+    "toolSlug": "mdmanagerai",
+    "title": "Master Mdmanager.ai",
+    "objectives": [
+      "Install Mdmanager.ai and link two machines to one sync workspace",
+      "Keep Claude.md and AGENTS.md consistent across AI runtimes with per-runtime mapping rules",
+      "Resolve sync conflicts and roll back to a prior version using history"
+    ],
+    "modules": [
+      {
+        "title": "Setup & First Sync",
+        "estMinutes": 10,
+        "steps": [
+          "Install the Mdmanager CLI and sign in with your account token",
+          "Initialize a workspace in a project folder containing an existing Claude.md or AGENTS.md",
+          "Run your first push and confirm the file appears in the Mdmanager.ai dashboard"
+        ]
+      },
+      {
+        "title": "Connecting Machines & Runtimes",
+        "estMinutes": 12,
+        "steps": [
+          "On a second machine, run the device-link command and approve it from the dashboard",
+          "Map runtimes to filenames (e.g., Claude Code → CLAUDE.md, Codex/Cursor → AGENTS.md) in workspace settings",
+          "Pull on the second machine and verify the files land at the correct paths for each runtime"
+        ]
+      },
+      {
+        "title": "Sync Rules & Per-Runtime Overrides",
+        "estMinutes": 12,
+        "steps": [
+          "Edit Claude.md locally and trigger a sync; confirm propagation to the other machine",
+          "Add an include/exclude rule so machine-specific notes (paths, env hints) stay local",
+          "Create a per-runtime override block so Cursor receives trimmed instructions while Claude Code gets the full file"
+        ]
+      },
+      {
+        "title": "Conflicts & Version History",
+        "estMinutes": 10,
+        "steps": [
+          "Edit the same section on both machines while offline, then sync both to force a conflict",
+          "Resolve it in the merge view by choosing hunks from each side",
+          "Open version history and restore the pre-conflict version, then re-sync to verify rollback"
+        ]
+      },
+      {
+        "title": "Templates & Team Standards",
+        "estMinutes": 8,
+        "steps": [
+          "Convert your best Claude.md into a reusable template with variable placeholders",
+          "Apply the template to a fresh project and fill in the placeholder values",
+          "Pin a shared standards block so it auto-updates across all linked projects"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-markdown",
+      "skill-claude",
+      "skill-agents",
+      "skill-config",
+      "skill-cli"
+    ],
+    "prerequisites": [
+      "Claude Code or another AI coding runtime installed",
+      "Comfort editing Markdown files",
+      "A second machine, VM, or container available for sync testing",
+      "An Mdmanager.ai account"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "course-automatically-save-60-on-amazon",
+    "toolSlug": "automatically-save-60-on-amazon",
+    "title": "Master Automatically Save 60% on Amazon",
+    "objectives": [
+      "Understand what Automatically Save 60% on Amazon is for",
+      "Use Automatically Save 60% on Amazon on a real task",
+      "Know where Automatically Save 60% on Amazon fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Automatically Save 60% on Amazon.",
+          "Say what Automatically Save 60% on Amazon does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Automatically Save 60% on Amazon.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Automatically Save 60% on Amazon into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-amazon",
+      "skill-shopping",
+      "skill-price comparison",
+      "skill-deals",
+      "skill-chrome extension"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-06T23:10:17.799Z"
   }
 ]
