@@ -4051,3 +4051,88 @@ a client-side SPA with a static tool catalogue.
   subcategory match turns up on review (design and code are each dominated
   by one or two subcategories close enough to the whole domain that
   re-pointing them may not be worth a special case).
+
+### Access-method facet ("Web app" / "API" / "Self-hosted") — Discover has no way to filter out API-only or open-weights tools from a beginner's results
+
+- **Status:** OPEN
+- **Seen in:** studied fresh this run — Tool Finder (toolfinder.com, a
+  1,300+-tool software directory; fetched its `/categories/ai-tools` and
+  `/tools?platform=web` pages, both 403'd to a direct fetch, so worked from
+  its own indexed copy and cached search snippets instead) filters its
+  catalog by **platform** (web/desktop/mobile) and **team size** as facets
+  distinct from category — i.e. "what kind of thing is this, and how do I
+  actually use it" is treated as its own filter axis, not folded into the
+  category taxonomy. Toolnaut has no equivalent: `Discover.jsx`'s only
+  facets are category, price and level (`Discover.jsx:60-62`).
+- **Gap:** confirmed by reading `toolsCatalog.js`'s 704-record schema in
+  full — there is no `platform` field anywhere (`slug`, `category`,
+  `sourceCategory`, `price`, `pricing`, `level`, `blurb`, `audience`, `dev`,
+  `year`, `website`, `status`, `note`, `tags`, nothing else), and
+  `radar/schema.js`'s canonical `makeToolRecord()` (the pipeline's own
+  source of truth, deliberately kept in sync with the app shape per its own
+  header comment) doesn't have one either — this isn't a wiring gap, the
+  data genuinely doesn't exist yet. A beginner running the quiz today can
+  land on "Falcon" or "Command" (open-weights/enterprise-API-only entries,
+  confirmed in `toolsCatalog.js`) with the exact same "beginner" `level`
+  tag as ChatGPT, even though one is a sign-up-and-click product and the
+  other requires standing up your own inference. `level` describes skill
+  required to use the *output*, not how much engineering setup is needed to
+  *reach* the product — they're different axes Toolnaut currently
+  conflates into one.
+- **Why it matters:** this is a real beginner-trust problem, not a nice-to-
+  have facet — Toolnaut's whole pitch is a role-aware quiz that won't hand a
+  non-technical user something they can't actually use, and "beginner-level,
+  open-weights, API-only" is exactly the kind of recommendation that breaks
+  that promise silently (the tool is genuinely good and genuinely
+  beginner-friendly *once you have a GPU cluster or an API key*, which is
+  not what "beginner" reads as to the visitor taking the quiz).
+- **Why the honest version is smaller than "add a platform field":** a real
+  `platform` enum would need LLM re-enrichment across all 704 already-
+  published records (`radar/enrich.js`) plus a schema/validate-gate change
+  — a backfill risk against the exact load-bearing `public/tools.json` file
+  this project's own CLAUDE.md flags as sensitive, and radar's LLM step is
+  the same one already once broken silently by a timeout (the NO-PUBLISH
+  failure mode). Inventing per-tool platform data by hand for 704 entries
+  would also be the invented-data problem this backlog has consistently
+  avoided (`StatsSection.jsx`'s counted-vs-seeded split, the Alternatives-
+  page entry's rejected "8-parameter scoring" idea). So a full backend/data
+  build here should stay REJECTED for now, same reasoning as the other
+  radar-schema-touching ideas in this file — but a **derived**, purely
+  client-side proxy is honestly buildable today from data that already
+  exists: `tags` already carries `"api"` (14 tools) and `"open-source"` (33
+  tools) values (counted directly against `toolsCatalog.js`), and `pricing`
+  strings already say things like `"Usage-based API"` / `"Enterprise API"` /
+  `"Open weights"` verbatim on the exact records this gap is about.
+- **Smallest useful version (what to actually build):**
+  - New pure util `src/utils/accessMethod.js`: `accessMethodOf(tool)` →
+    checks `tool.tags.includes('api')` or `/\bAPI\b/.test(tool.pricing)` →
+    `"api"`; `tool.tags.includes('open-source')` or `/open.weights/i.test(
+    tool.pricing)` → `"self-hosted"`; else `"web"` (the default, and
+    correctly the common case — most of the catalog is a sign-up-and-use
+    product). Three buckets only, labelled honestly as **derived**, not
+    vendor-declared. Pure function, unit-testable like `categorySlug.js`/
+    `shareStack.js`.
+  - `Discover.jsx`: one more `Pill` row next to the existing price/level
+    rows (`Discover.jsx:220-233`), same `searchParams`-backed pattern
+    (`access` param), filtering with `accessMethodOf(tool) === access`.
+  - `personaGenerator.js`/quiz scoring (not audited line-by-line this run,
+    flagged for whoever builds this to confirm): a "beginner" persona's
+    results should bias against `"api"`/`"self-hosted"` unless the visitor's
+    own answers indicate developer comfort — this is the part of the gap
+    that actually protects the quiz's promise, not just the Discover filter,
+    so the smallest version that only touches `Discover.jsx` is a partial
+    fix; the filter alone still ships value (a developer can already
+    self-select "API" today) even if the quiz-side bias lands later.
+  - **What this would NOT include** (kept out to bound the diff): no new
+    `platform` field in `toolsCatalog.js`/`radar/schema.js` — this stays a
+    derived, client-only label, not a catalog change; no radar/enrichment
+    change of any kind; no team-size facet (Tool Finder's other axis) — no
+    field in this catalog supports it even heuristically, inventing one
+    would be exactly the "made-up number" problem this file avoids; no
+    change to `level`'s existing meaning, this is a new, separate axis
+    alongside it, not a redefinition.
+- **Build size:** S — one new pure util, one new filter row reusing
+  `Discover.jsx`'s existing `Pill`/`searchParams` pattern. No backend, no
+  radar change, no new dependency. (The quiz-scoring bias half is a
+  separate, unscoped follow-up, not required to ship the filter.)
+- **Found:** 2026-09-06 09:09 UTC
