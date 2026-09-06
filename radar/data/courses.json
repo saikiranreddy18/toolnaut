@@ -11326,5 +11326,339 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "course-ai-coding-agents-forget-the-codebase-between-sessions",
+    "toolSlug": "ai-coding-agents-forget-the-codebase-between-sessions",
+    "title": "Master AI coding agents forget the codebase between sessions",
+    "objectives": [
+      "Install and connect a persistent memory layer to your coding agent",
+      "Seed the memory store with codebase architecture and conventions",
+      "Maintain memory quality by reviewing, updating, and pruning entries"
+    ],
+    "modules": [
+      {
+        "title": "Install and Wire Up Persistent Memory",
+        "estMinutes": 15,
+        "steps": [
+          "Install the memory server (e.g., an MCP memory server via `npx` or `uvx`) and add it to your agent's config file such as `.mcp.json` or your client's `mcpServers` settings",
+          "Set the storage location (local JSON/SQLite file or vector DB path) and confirm it lives outside any temp directory so it survives restarts",
+          "Restart the agent, run a test prompt like 'what do you remember about this project?', and verify the memory tool appears in the agent's available tools list"
+        ]
+      },
+      {
+        "title": "Seed Memory with Codebase Context",
+        "estMinutes": 20,
+        "steps": [
+          "Prompt the agent: 'Explore this repo and store: the architecture (main modules, data flow), build/test commands, and 3-5 naming or style conventions you observe'",
+          "Manually add entries the agent can't infer, such as 'payments module must stay PCI-compliant — never log card data' or 'use pnpm, not npm'",
+          "Inspect the stored memory file to confirm entries are concise facts, not pasted code dumps, and trim anything longer than 2-3 sentences"
+        ]
+      },
+      {
+        "title": "Use Memory Across Sessions",
+        "estMinutes": 15,
+        "steps": [
+          "Start a fresh session on a new task and ask the agent to recall project conventions before writing code; check that its plan references stored memory",
+          "After the agent makes a mistake, correct it and say 'store this as a memory: [the correction]' so the error doesn't recur next session",
+          "Practice targeted recall with prompts like 'what do you remember about the auth module?' before asking for changes in that area"
+        ]
+      },
+      {
+        "title": "Maintain and Debug the Memory Store",
+        "estMinutes": 15,
+        "steps": [
+          "Weekly, open the memory file and delete stale entries (e.g., conventions for a deleted module) and merge duplicates",
+          "When the agent cites wrong context, trace which memory entry caused it, rewrite that entry to be specific, and test recall again",
+          "Commit the memory file to the repo (or document the shared store path in the README) so teammates' agents load the same context"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-memory",
+      "skill-coding-agents",
+      "skill-context",
+      "skill-developer-tools",
+      "skill-open-source"
+    ],
+    "prerequisites": [
+      "Comfortable using an AI coding agent (Claude Code, Cursor, Cline, or similar) on a real project",
+      "Ability to edit JSON config files and run terminal commands like `npx` or `uvx`"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "course-pov-youre-an-ai-agent-recruited-for-the-swarm",
+    "toolSlug": "pov-youre-an-ai-agent-recruited-for-the-swarm",
+    "title": "Master Pov: You're an AI agent recruited for the swarm",
+    "objectives": [
+      "Explain the 'POV: AI agent joins the swarm' meme format",
+      "Write a short, funny POV caption with an AI-swarm twist",
+      "Assemble and post the meme on one platform"
+    ],
+    "modules": [
+      {
+        "title": "Decode the Format",
+        "estMinutes": 5,
+        "steps": [
+          "Search 'POV meme' on TikTok or X and watch 3 examples, noting the caption-on-top structure",
+          "Write down 3 AI-swarm tropes to mine: shared hive mind, instant onboarding, 'your compute is ours now'"
+        ]
+      },
+      {
+        "title": "Write Your Caption",
+        "estMinutes": 7,
+        "steps": [
+          "Draft the line 'POV: you're an AI agent recruited for the swarm' plus one twist (e.g., orientation is just a firmware update)",
+          "Trim it to under 80 characters so it reads in one glance"
+        ]
+      },
+      {
+        "title": "Pick a Visual and Build It",
+        "estMinutes": 8,
+        "steps": [
+          "Choose a fitting clip or image: bee swarm, robot army, or the Matrix 'agent' scenes",
+          "Overlay your caption in CapCut or Canva using bold white text at the top with a black outline"
+        ]
+      },
+      {
+        "title": "Post and Iterate",
+        "estMinutes": 5,
+        "steps": [
+          "Post to one platform with hashtags like #POVmeme and #AIhumor",
+          "Check engagement after 24 hours and make one variation swapping the twist line"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-meme",
+      "skill-swarm",
+      "skill-humor",
+      "skill-twitter"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "course-i-gave-my-ai-agent-a-sleep-cycle",
+    "toolSlug": "i-gave-my-ai-agent-a-sleep-cycle",
+    "title": "Master I gave my AI agent a sleep cycle",
+    "objectives": [
+      "Understand what I gave my AI agent a sleep cycle is for",
+      "Use I gave my AI agent a sleep cycle on a real task",
+      "Know where I gave my AI agent a sleep cycle fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure I gave my AI agent a sleep cycle for your real workflow, not the demo.",
+          "Say what I gave my AI agent a sleep cycle does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through I gave my AI agent a sleep cycle.",
+          "Push I gave my AI agent a sleep cycle to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold I gave my AI agent a sleep cycle into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-self-healing",
+      "skill-open source",
+      "skill-memory"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "course-nimvarya",
+    "toolSlug": "nimvarya",
+    "title": "Master Nimvarya",
+    "objectives": [
+      "Understand what Nimvarya is for",
+      "Use Nimvarya on a real task",
+      "Know where Nimvarya fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Nimvarya for your real workflow, not the demo.",
+          "Say what Nimvarya does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Nimvarya.",
+          "Push Nimvarya to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Nimvarya into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-browser-automation",
+      "skill-chrome",
+      "skill-coding-agents",
+      "skill-devtools",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "course-handoru-ai-customer-conversation-agents-for-service-business",
+    "toolSlug": "handoru-ai-customer-conversation-agents-for-service-business",
+    "title": "Master Handoru: AI customer conversation agents for service businesses",
+    "objectives": [
+      "Launch a live AI agent that answers customer questions on your website",
+      "Train the agent on your services, pricing, hours, and policies",
+      "Set up human handoff rules and review real conversations"
+    ],
+    "modules": [
+      {
+        "title": "Create your account and first agent",
+        "estMinutes": 10,
+        "steps": [
+          "Sign up at Handoru and choose your business type (e.g., salon, plumbing, dental)",
+          "Click 'New Agent', name it, and pick a default language and tone (friendly, professional, casual)",
+          "Set your business hours and location so the agent can answer scheduling questions"
+        ]
+      },
+      {
+        "title": "Train the agent on your business",
+        "estMinutes": 20,
+        "steps": [
+          "Paste your service list with prices into the Knowledge Base as plain text or bullet points",
+          "Add 10-15 real FAQs customers ask (pricing, cancellations, insurance, turnaround time)",
+          "Upload any existing documents (service menu PDF, policy page) and verify the agent quotes them correctly in the preview chat"
+        ]
+      },
+      {
+        "title": "Configure behavior and handoff rules",
+        "estMinutes": 15,
+        "steps": [
+          "Write the agent's greeting message and one fallback line for questions it can't answer",
+          "Add escalation triggers (e.g., 'complaint', 'refund', 'speak to a person') that route the chat to a human",
+          "Enter your notification email/phone so you get alerted the moment a handoff happens"
+        ]
+      },
+      {
+        "title": "Connect a channel and go live",
+        "estMinutes": 15,
+        "steps": [
+          "Copy the chat widget embed code and paste it into your website before the closing </body> tag",
+          "Optionally connect one messaging channel (SMS or WhatsApp) from the Channels tab",
+          "Flip the agent from 'Draft' to 'Live' and confirm the widget appears on your site"
+        ]
+      },
+      {
+        "title": "Test, monitor, and improve",
+        "estMinutes": 10,
+        "steps": [
+          "Run 5 test chats pretending to be a customer: ask about price, booking, hours, and one off-topic question",
+          "Open the Conversations inbox, read 3 real transcripts, and mark any wrong answers",
+          "Add one correction or new FAQ based on what you saw, then save so the agent learns from it"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-customer support",
+      "skill-ai agents",
+      "skill-chatbots",
+      "skill-conversations"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "course-interpretation-to-ai-agents",
+    "toolSlug": "interpretation-to-ai-agents",
+    "title": "Master interpretation to AI agents",
+    "objectives": [
+      "Understand what interpretation to AI agents is for",
+      "Use interpretation to AI agents on a real task",
+      "Know where interpretation to AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure interpretation to AI agents for your real workflow, not the demo.",
+          "Say what interpretation to AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through interpretation to AI agents.",
+          "Push interpretation to AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold interpretation to AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-interpretation",
+      "skill-assistant"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-06T12:54:08.108Z"
   }
 ]

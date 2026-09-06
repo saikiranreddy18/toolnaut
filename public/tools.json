@@ -5260,5 +5260,148 @@
       "threat detection"
     ],
     "discoveredAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "slug": "ai-coding-agents-forget-the-codebase-between-sessions",
+    "name": "AI coding agents forget the codebase between sessions",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Free (open source)",
+    "level": "intermediate",
+    "blurb": "Gives AI coding agents persistent memory of your codebase across sessions.",
+    "audience": "Developers using AI coding agents",
+    "dev": "The Colour Foundation",
+    "year": 2026,
+    "website": "https://github.com/thecolourfoundation/rune",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "memory",
+      "coding-agents",
+      "context",
+      "developer-tools",
+      "open-source"
+    ],
+    "discoveredAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "slug": "pov-youre-an-ai-agent-recruited-for-the-swarm",
+    "name": "Pov: You're an AI agent recruited for the swarm",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free",
+    "level": "beginner",
+    "blurb": "A humorous POV meme imagining an AI agent being recruited into a swarm.",
+    "audience": "AI enthusiasts and meme fans",
+    "dev": "artficialisabel",
+    "year": 2026,
+    "website": "https://twitter.com/artficialisabel/status/2095678312773554533",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "meme",
+      "swarm",
+      "humor",
+      "twitter"
+    ],
+    "discoveredAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "slug": "i-gave-my-ai-agent-a-sleep-cycle",
+    "name": "I gave my AI agent a sleep cycle",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free (open source)",
+    "level": "advanced",
+    "blurb": "Open-source agent that 'sleeps' to replay its errors, learn from them, and self-fix.",
+    "audience": "AI developers and agent builders",
+    "dev": "openamer",
+    "year": 2026,
+    "website": "https://github.com/openamer/openamer",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agent",
+      "self-healing",
+      "open source",
+      "automation",
+      "memory"
+    ],
+    "discoveredAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "slug": "nimvarya",
+    "name": "Nimvarya",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Free / open source",
+    "level": "intermediate",
+    "blurb": "Lets AI coding agents control Chrome without stealing window focus.",
+    "audience": "developers using AI coding agents",
+    "dev": "Basiliskin",
+    "year": 2026,
+    "website": "https://github.com/Basiliskin/nimvarya",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "browser-automation",
+      "chrome",
+      "coding-agents",
+      "devtools",
+      "open-source"
+    ],
+    "discoveredAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "slug": "handoru-ai-customer-conversation-agents-for-service-business",
+    "name": "Handoru: AI customer conversation agents for service businesses",
+    "category": "automation",
+    "sourceCategory": "Customer Support & Voice Agents",
+    "price": "paid",
+    "pricing": "Paid",
+    "level": "beginner",
+    "blurb": "AI conversation agents that handle customer interactions for service businesses.",
+    "audience": "service businesses",
+    "dev": "",
+    "year": 2026,
+    "website": "https://handoru.ai/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "customer support",
+      "ai agents",
+      "chatbots",
+      "automation",
+      "conversations"
+    ],
+    "discoveredAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "slug": "interpretation-to-ai-agents",
+    "name": "interpretation to AI agents",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free",
+    "level": "intermediate",
+    "blurb": "Adds interpretation capabilities to AI agents for clearer understanding and responses.",
+    "audience": "developers building AI agents",
+    "dev": "",
+    "year": 2026,
+    "website": "https://ag3497120.github.io/call-me-vera/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "interpretation",
+      "automation",
+      "assistant"
+    ],
+    "discoveredAt": "2026-09-06T12:54:08.108Z"
   }
 ]

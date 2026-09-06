@@ -82,7 +82,9 @@
       "airuncode",
       "covenant",
       "rubato",
-      "okf-agent-memory"
+      "okf-agent-memory",
+      "ai-coding-agents-forget-the-codebase-between-sessions",
+      "nimvarya"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -162,7 +164,9 @@
       "course-airuncode",
       "course-covenant",
       "course-rubato",
-      "course-okf-agent-memory"
+      "course-okf-agent-memory",
+      "course-ai-coding-agents-forget-the-codebase-between-sessions",
+      "course-nimvarya"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -264,7 +268,9 @@
       "openwhispr",
       "termy",
       "open-source-eink-bike-computer",
-      "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen"
+      "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
+      "ai-coding-agents-forget-the-codebase-between-sessions",
+      "nimvarya"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -291,7 +297,9 @@
       "course-openwhispr",
       "course-termy",
       "course-open-source-eink-bike-computer",
-      "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen"
+      "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
+      "course-ai-coding-agents-forget-the-codebase-between-sessions",
+      "course-nimvarya"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -505,7 +513,11 @@
       "phntm-one-i-built-a-local-ai-desk-assistant",
       "paygate",
       "kingfy",
-      "praesidias"
+      "praesidias",
+      "pov-youre-an-ai-agent-recruited-for-the-swarm",
+      "i-gave-my-ai-agent-a-sleep-cycle",
+      "handoru-ai-customer-conversation-agents-for-service-business",
+      "interpretation-to-ai-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -594,7 +606,11 @@
       "course-phntm-one-i-built-a-local-ai-desk-assistant",
       "course-paygate",
       "course-kingfy",
-      "course-praesidias"
+      "course-praesidias",
+      "course-pov-youre-an-ai-agent-recruited-for-the-swarm",
+      "course-i-gave-my-ai-agent-a-sleep-cycle",
+      "course-handoru-ai-customer-conversation-agents-for-service-business",
+      "course-interpretation-to-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -681,7 +697,10 @@
       "ai-agents-started-emailing-philosophers-and-researchers",
       "kingfy",
       "praesidias",
-      "defending-against-ai-agents-with-social-engineering"
+      "defending-against-ai-agents-with-social-engineering",
+      "pov-youre-an-ai-agent-recruited-for-the-swarm",
+      "handoru-ai-customer-conversation-agents-for-service-business",
+      "interpretation-to-ai-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -748,7 +767,10 @@
       "course-ai-agents-started-emailing-philosophers-and-researchers",
       "course-kingfy",
       "course-praesidias",
-      "course-defending-against-ai-agents-with-social-engineering"
+      "course-defending-against-ai-agents-with-social-engineering",
+      "course-pov-youre-an-ai-agent-recruited-for-the-swarm",
+      "course-handoru-ai-customer-conversation-agents-for-service-business",
+      "course-interpretation-to-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1310,10 +1332,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "a-daily-cartoon-contest-between-ai-models-judged-blind"
+      "a-daily-cartoon-contest-between-ai-models-judged-blind",
+      "pov-youre-an-ai-agent-recruited-for-the-swarm"
     ],
     "courses": [
-      "course-a-daily-cartoon-contest-between-ai-models-judged-blind"
+      "course-a-daily-cartoon-contest-between-ai-models-judged-blind",
+      "course-pov-youre-an-ai-agent-recruited-for-the-swarm"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1945,7 +1969,8 @@
       "crew",
       "covenant",
       "datalume",
-      "praesidias"
+      "praesidias",
+      "i-gave-my-ai-agent-a-sleep-cycle"
     ],
     "courses": [
       "course-limitless-library",
@@ -1970,7 +1995,8 @@
       "course-crew",
       "course-covenant",
       "course-datalume",
-      "course-praesidias"
+      "course-praesidias",
+      "course-i-gave-my-ai-agent-a-sleep-cycle"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2258,7 +2284,8 @@
       "concorde-one-ai-agent-shared-by-an-organization",
       "jern-cloud",
       "ardent-a-code-first-agent-for-non-engineering-work",
-      "sageling"
+      "sageling",
+      "i-gave-my-ai-agent-a-sleep-cycle"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -2271,7 +2298,8 @@
       "course-concorde-one-ai-agent-shared-by-an-organization",
       "course-jern-cloud",
       "course-ardent-a-code-first-agent-for-non-engineering-work",
-      "course-sageling"
+      "course-sageling",
+      "course-i-gave-my-ai-agent-a-sleep-cycle"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3248,12 +3276,14 @@
     "toolsTeaching": [
       "bytedance-launches-ai-office-product-doubao-work",
       "local-ai-assistants-can-be-user-friendly-too",
-      "termy"
+      "termy",
+      "interpretation-to-ai-agents"
     ],
     "courses": [
       "course-bytedance-launches-ai-office-product-doubao-work",
       "course-local-ai-assistants-can-be-user-friendly-too",
-      "course-termy"
+      "course-termy",
+      "course-interpretation-to-ai-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4108,12 +4138,16 @@
     "toolsTeaching": [
       "agentseed-mcp",
       "grith",
-      "engram"
+      "engram",
+      "ai-coding-agents-forget-the-codebase-between-sessions",
+      "nimvarya"
     ],
     "courses": [
       "course-agentseed-mcp",
       "course-grith",
-      "course-engram"
+      "course-engram",
+      "course-ai-coding-agents-forget-the-codebase-between-sessions",
+      "course-nimvarya"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -4595,12 +4629,14 @@
     "toolsTeaching": [
       "openinstinct",
       "slidex",
-      "okf-agent-memory"
+      "okf-agent-memory",
+      "ai-coding-agents-forget-the-codebase-between-sessions"
     ],
     "courses": [
       "course-openinstinct",
       "course-slidex",
-      "course-okf-agent-memory"
+      "course-okf-agent-memory",
+      "course-ai-coding-agents-forget-the-codebase-between-sessions"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -4941,7 +4977,9 @@
       "memory-compaction-for-agents-has-an-information-theoretic-fl",
       "keeplea",
       "ai-memory-20",
-      "okf-agent-memory"
+      "okf-agent-memory",
+      "ai-coding-agents-forget-the-codebase-between-sessions",
+      "i-gave-my-ai-agent-a-sleep-cycle"
     ],
     "courses": [
       "course-itsuki",
@@ -4949,7 +4987,9 @@
       "course-memory-compaction-for-agents-has-an-information-theoretic-fl",
       "course-keeplea",
       "course-ai-memory-20",
-      "course-okf-agent-memory"
+      "course-okf-agent-memory",
+      "course-ai-coding-agents-forget-the-codebase-between-sessions",
+      "course-i-gave-my-ai-agent-a-sleep-cycle"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -5078,12 +5118,14 @@
     "toolsTeaching": [
       "opencontext",
       "compilrdev-studio",
-      "ai-memory-20"
+      "ai-memory-20",
+      "ai-coding-agents-forget-the-codebase-between-sessions"
     ],
     "courses": [
       "course-opencontext",
       "course-compilrdev-studio",
-      "course-ai-memory-20"
+      "course-ai-memory-20",
+      "course-ai-coding-agents-forget-the-codebase-between-sessions"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -6218,11 +6260,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "compilrdev-studio",
-      "jern-cloud"
+      "jern-cloud",
+      "nimvarya"
     ],
     "courses": [
       "course-compilrdev-studio",
-      "course-jern-cloud"
+      "course-jern-cloud",
+      "course-nimvarya"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -9239,5 +9283,135 @@
       "course-defending-against-ai-agents-with-social-engineering"
     ],
     "updatedAt": "2026-09-05T23:19:13.483Z"
+  },
+  {
+    "id": "skill-meme",
+    "name": "meme",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "pov-youre-an-ai-agent-recruited-for-the-swarm"
+    ],
+    "courses": [
+      "course-pov-youre-an-ai-agent-recruited-for-the-swarm"
+    ],
+    "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "skill-swarm",
+    "name": "swarm",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "pov-youre-an-ai-agent-recruited-for-the-swarm"
+    ],
+    "courses": [
+      "course-pov-youre-an-ai-agent-recruited-for-the-swarm"
+    ],
+    "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "skill-twitter",
+    "name": "twitter",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "pov-youre-an-ai-agent-recruited-for-the-swarm"
+    ],
+    "courses": [
+      "course-pov-youre-an-ai-agent-recruited-for-the-swarm"
+    ],
+    "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "skill-self-healing",
+    "name": "self healing",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "i-gave-my-ai-agent-a-sleep-cycle"
+    ],
+    "courses": [
+      "course-i-gave-my-ai-agent-a-sleep-cycle"
+    ],
+    "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "skill-browser-automation",
+    "name": "browser automation",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "nimvarya"
+    ],
+    "courses": [
+      "course-nimvarya"
+    ],
+    "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "skill-chrome",
+    "name": "chrome",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "nimvarya"
+    ],
+    "courses": [
+      "course-nimvarya"
+    ],
+    "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "skill-customer support",
+    "name": "customer support",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "handoru-ai-customer-conversation-agents-for-service-business"
+    ],
+    "courses": [
+      "course-handoru-ai-customer-conversation-agents-for-service-business"
+    ],
+    "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "skill-chatbots",
+    "name": "chatbots",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "handoru-ai-customer-conversation-agents-for-service-business"
+    ],
+    "courses": [
+      "course-handoru-ai-customer-conversation-agents-for-service-business"
+    ],
+    "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "skill-conversations",
+    "name": "conversations",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "handoru-ai-customer-conversation-agents-for-service-business"
+    ],
+    "courses": [
+      "course-handoru-ai-customer-conversation-agents-for-service-business"
+    ],
+    "updatedAt": "2026-09-06T12:54:08.108Z"
+  },
+  {
+    "id": "skill-interpretation",
+    "name": "interpretation",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "interpretation-to-ai-agents"
+    ],
+    "courses": [
+      "course-interpretation-to-ai-agents"
+    ],
+    "updatedAt": "2026-09-06T12:54:08.108Z"
   }
 ]
