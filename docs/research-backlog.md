@@ -4008,3 +4008,46 @@ a client-side SPA with a static tool catalogue.
   smoke/prerender route-list addition. No backend, no new dependency, no new
   store, no radar change.
 - **Found:** 2026-09-05 15:20 UTC
+- **Deepened 2026-09-06 03:03 UTC:** checked this entry against `RolesSection.jsx`
+  and `rolesData.js` while confirming no other backlog entry already covers
+  this angle (grepped `RolesSection|rolesData` across this file — the only
+  hits are in the already-shipped `927ee5b` category-landing-page entry
+  above). That entry explicitly flagged its own role→domain wiring as a
+  deliberate simplification, not an oversight: "the smallest honest fix is
+  giving each Tilt card a Link to the domain it's closest to in spirit …
+  rather than inventing a second role taxonomy" (line ~1494-1502 in this
+  file). This subcategory gap is what makes that simplification fixable for
+  real, so the connection is worth recording here rather than re-discovering
+  later. Today `RolesSection.jsx:124` links every role card to
+  `/tools/${r.domain}` — one of the 6 broad `CATEGORY_META` pages — and
+  `rolesData.js`'s own header comment admits the mapping exists only to
+  satisfy "each of the 6 domains is used exactly once," not because that
+  domain is each role's best fit. Two of the six are visibly loose once you
+  look at the real `SOURCE_CATEGORIES` list this gap is about to make
+  routable: PM → `automation` today, when "Productivity & Meetings" (47
+  tools, same `automation` domain) is a far more specific, on-the-nose
+  destination for a PM card than the generic automation-domain page it
+  currently gets; Marketer → `writing` today, when "Marketing, SEO & Sales"
+  (41 tools, same `writing` domain) is the obviously-named match sitting
+  right there in the taxonomy the marketer role is supposedly drawn from.
+  Founder → `data` is the weakest of the six and probably shouldn't be
+  "fixed" by picking a single subcategory at all — a founder's real tool
+  surface spans automation, writing and data roughly evenly, so forcing one
+  subcategory would trade one arbitrary link for another; that card is
+  better left on its current broad domain page, or reconsidered separately,
+  not folded into this fix. Note also that `personaGenerator.js`'s own role
+  vocabulary (`student/developer/designer/creator/founder/manager/analyst`)
+  doesn't share names with `rolesData.js`'s `ROLES` (`PM`/`Marketer`/
+  `Engineer` have no literal match there either) and carries no
+  subcategory-level weighting of its own — so a role→subcategory map for
+  `RolesSection.jsx` would be new, hand-picked data, not something to look
+  up from existing scoring logic.
+  **Not part of this gap's own build** — recorded as a fast-follow once the
+  26 subcategory routes above ship, not a reason to widen this entry's
+  diff: re-point `RolesSection.jsx`'s `PM` and `Marketer` cards (the two
+  clear wins) at their matching subcategory slugs via `categorySlug.js`
+  once it exists, leave `Founder` on its current domain link, and leave
+  `Student`/`Designer`/`Engineer` alone unless a similarly obvious
+  subcategory match turns up on review (design and code are each dominated
+  by one or two subcategories close enough to the whole domain that
+  re-pointing them may not be worth a special case).
