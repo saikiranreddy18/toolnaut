@@ -1112,5 +1112,34 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "silo",
+    "name": "Silo",
+    "category": "data",
+    "sourceCategory": "Search & Research",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Silo – Give agents a local database for project work",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://github.com/silo-ai/silo",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "data",
+      "agent"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49598496",
+    "discoveredAt": "2026-09-07T15:05:03.707Z",
+    "updatedAt": "2026-09-07T15:05:03.707Z",
+    "contentHash": "1614d9a89957a230",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]

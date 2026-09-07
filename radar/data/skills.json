@@ -86,7 +86,10 @@
       "ai-coding-agents-forget-the-codebase-between-sessions",
       "nimvarya",
       "quiz-ui",
-      "mdmanagerai"
+      "mdmanagerai",
+      "pod",
+      "nomacapp",
+      "an-agent-skill-can-hand-a-stranger-your-shell"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -170,7 +173,10 @@
       "course-ai-coding-agents-forget-the-codebase-between-sessions",
       "course-nimvarya",
       "course-quiz-ui",
-      "course-mdmanagerai"
+      "course-mdmanagerai",
+      "course-pod",
+      "course-nomacapp",
+      "course-an-agent-skill-can-hand-a-stranger-your-shell"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -215,7 +221,8 @@
       "a2acast",
       "concorde-one-ai-agent-shared-by-an-organization",
       "drawdb-pro",
-      "crew"
+      "crew",
+      "openfork"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -223,7 +230,8 @@
       "course-a2acast",
       "course-concorde-one-ai-agent-shared-by-an-organization",
       "course-drawdb-pro",
-      "course-crew"
+      "course-crew",
+      "course-openfork"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -274,7 +282,8 @@
       "open-source-eink-bike-computer",
       "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
       "ai-coding-agents-forget-the-codebase-between-sessions",
-      "nimvarya"
+      "nimvarya",
+      "k2-horizon"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -303,7 +312,8 @@
       "course-open-source-eink-bike-computer",
       "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
       "course-ai-coding-agents-forget-the-codebase-between-sessions",
-      "course-nimvarya"
+      "course-nimvarya",
+      "course-k2-horizon"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -529,7 +539,10 @@
       "chrome-bridge",
       "a-public-noticeboard-for-ai-agents",
       "public-beta-a-decision-governance-runtime-for-ai-agents",
-      "automatically-save-60-on-amazon"
+      "automatically-save-60-on-amazon",
+      "openfork",
+      "ai-agents-aha-moment",
+      "nomacapp"
     ],
     "courses": [
       "course-headless-tools",
@@ -626,7 +639,10 @@
       "course-chrome-bridge",
       "course-a-public-noticeboard-for-ai-agents",
       "course-public-beta-a-decision-governance-runtime-for-ai-agents",
-      "course-automatically-save-60-on-amazon"
+      "course-automatically-save-60-on-amazon",
+      "course-openfork",
+      "course-ai-agents-aha-moment",
+      "course-nomacapp"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -719,7 +735,10 @@
       "interpretation-to-ai-agents",
       "chrome-bridge",
       "a-public-noticeboard-for-ai-agents",
-      "public-beta-a-decision-governance-runtime-for-ai-agents"
+      "public-beta-a-decision-governance-runtime-for-ai-agents",
+      "pod",
+      "openfork",
+      "ai-agents-aha-moment"
     ],
     "courses": [
       "course-headless-tools",
@@ -792,7 +811,10 @@
       "course-interpretation-to-ai-agents",
       "course-chrome-bridge",
       "course-a-public-noticeboard-for-ai-agents",
-      "course-public-beta-a-decision-governance-runtime-for-ai-agents"
+      "course-public-beta-a-decision-governance-runtime-for-ai-agents",
+      "course-pod",
+      "course-openfork",
+      "course-ai-agents-aha-moment"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -862,7 +884,8 @@
       "a-context-registry-for-ai-coding-agents",
       "designing-grok-bot-for-a-world-of-persistent-agents",
       "datalume",
-      "chatpanel-now-available-on-firefox"
+      "chatpanel-now-available-on-firefox",
+      "k2-horizon"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -882,7 +905,8 @@
       "course-a-context-registry-for-ai-coding-agents",
       "course-designing-grok-bot-for-a-world-of-persistent-agents",
       "course-datalume",
-      "course-chatpanel-now-available-on-firefox"
+      "course-chatpanel-now-available-on-firefox",
+      "course-k2-horizon"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -911,7 +935,8 @@
       "anthropic-launches-fable-51-and-mythos-51",
       "ai-agents-and-the-refactoring-that-never-happens",
       "addom",
-      "okf-agent-memory"
+      "okf-agent-memory",
+      "manware-s-ai-learning-toolkit"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -920,7 +945,8 @@
       "course-anthropic-launches-fable-51-and-mythos-51",
       "course-ai-agents-and-the-refactoring-that-never-happens",
       "course-addom",
-      "course-okf-agent-memory"
+      "course-okf-agent-memory",
+      "course-manware-s-ai-learning-toolkit"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1245,7 +1271,8 @@
       "reverify",
       "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
       "praesidias",
-      "defending-against-ai-agents-with-social-engineering"
+      "defending-against-ai-agents-with-social-engineering",
+      "an-agent-skill-can-hand-a-stranger-your-shell"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -1262,7 +1289,8 @@
       "course-reverify",
       "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
       "course-praesidias",
-      "course-defending-against-ai-agents-with-social-engineering"
+      "course-defending-against-ai-agents-with-social-engineering",
+      "course-an-agent-skill-can-hand-a-stranger-your-shell"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1403,7 +1431,8 @@
       "i-built-my-first-mcp-to-manage-google-ads",
       "hermes-agent-demo",
       "mcp-tool-definition-quality-score-tdqs-spec",
-      "engram"
+      "engram",
+      "openfork"
     ],
     "courses": [
       "course-coolplugz",
@@ -1419,7 +1448,8 @@
       "course-i-built-my-first-mcp-to-manage-google-ads",
       "course-hermes-agent-demo",
       "course-mcp-tool-definition-quality-score-tdqs-spec",
-      "course-engram"
+      "course-engram",
+      "course-openfork"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1854,7 +1884,8 @@
       "mu-two-minute-visualized-lessons-on-modern-ai",
       "defending-against-ai-agents-with-social-engineering",
       "whatthemoviecom-a-movie-still-guessing-game",
-      "new-york-city-pausing-some-ai-tools-in-schools"
+      "new-york-city-pausing-some-ai-tools-in-schools",
+      "manware-s-ai-learning-toolkit"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1878,7 +1909,8 @@
       "course-mu-two-minute-visualized-lessons-on-modern-ai",
       "course-defending-against-ai-agents-with-social-engineering",
       "course-whatthemoviecom-a-movie-still-guessing-game",
-      "course-new-york-city-pausing-some-ai-tools-in-schools"
+      "course-new-york-city-pausing-some-ai-tools-in-schools",
+      "course-manware-s-ai-learning-toolkit"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1902,7 +1934,8 @@
       "designing-grok-bot-for-a-world-of-persistent-agents",
       "paygate",
       "okf-agent-memory",
-      "mdmanagerai"
+      "mdmanagerai",
+      "nomacapp"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1919,7 +1952,8 @@
       "course-designing-grok-bot-for-a-world-of-persistent-agents",
       "course-paygate",
       "course-okf-agent-memory",
-      "course-mdmanagerai"
+      "course-mdmanagerai",
+      "course-nomacapp"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2130,7 +2164,9 @@
       "dumbdetector",
       "drawdb-pro",
       "zatom-lite",
-      "datalume"
+      "datalume",
+      "k2-horizon",
+      "awesome-geo-tools"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -2148,7 +2184,9 @@
       "course-dumbdetector",
       "course-drawdb-pro",
       "course-zatom-lite",
-      "course-datalume"
+      "course-datalume",
+      "course-k2-horizon",
+      "course-awesome-geo-tools"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2811,7 +2849,8 @@
       "databricks-used-ai-to-save-1mi-year-in-ai-spend",
       "end-ai-agent-lock-in-start-conversation-with-one-agent",
       "habitus-ai",
-      "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen"
+      "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
+      "manware-s-ai-learning-toolkit"
     ],
     "courses": [
       "course-placeroot",
@@ -2822,7 +2861,8 @@
       "course-databricks-used-ai-to-save-1mi-year-in-ai-spend",
       "course-end-ai-agent-lock-in-start-conversation-with-one-agent",
       "course-habitus-ai",
-      "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen"
+      "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
+      "course-manware-s-ai-learning-toolkit"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3479,10 +3519,12 @@
     "domain": "code",
     "level": "beginner",
     "toolsTeaching": [
-      "ai-tools-list"
+      "ai-tools-list",
+      "awesome-geo-tools"
     ],
     "courses": [
-      "course-ai-tools-list"
+      "course-ai-tools-list",
+      "course-awesome-geo-tools"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4091,14 +4133,16 @@
       "what-agent-skills-are-made-of-programming-languages",
       "agentic-search",
       "ai-agents-started-emailing-philosophers-and-researchers",
-      "zatom-lite"
+      "zatom-lite",
+      "k2-horizon"
     ],
     "courses": [
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
       "course-what-agent-skills-are-made-of-programming-languages",
       "course-agentic-search",
       "course-ai-agents-started-emailing-philosophers-and-researchers",
-      "course-zatom-lite"
+      "course-zatom-lite",
+      "course-k2-horizon"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -4371,10 +4415,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "how-i-design-with-ai"
+      "how-i-design-with-ai",
+      "ai-agents-aha-moment"
     ],
     "courses": [
-      "course-how-i-design-with-ai"
+      "course-how-i-design-with-ai",
+      "course-ai-agents-aha-moment"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -4411,11 +4457,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "open-tool-for-testing-your-ai-agents-no-llm",
-      "coordination-layer-for-coding-agents"
+      "coordination-layer-for-coding-agents",
+      "pod"
     ],
     "courses": [
       "course-open-tool-for-testing-your-ai-agents-no-llm",
-      "course-coordination-layer-for-coding-agents"
+      "course-coordination-layer-for-coding-agents",
+      "course-pod"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -4454,13 +4502,15 @@
       "trana",
       "darwin-vm",
       "piqt-ios",
-      "vantage"
+      "vantage",
+      "nomacapp"
     ],
     "courses": [
       "course-trana",
       "course-darwin-vm",
       "course-piqt-ios",
-      "course-vantage"
+      "course-vantage",
+      "course-nomacapp"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -5615,10 +5665,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "what-agent-skills-are-made-of-programming-languages"
+      "what-agent-skills-are-made-of-programming-languages",
+      "an-agent-skill-can-hand-a-stranger-your-shell"
     ],
     "courses": [
-      "course-what-agent-skills-are-made-of-programming-languages"
+      "course-what-agent-skills-are-made-of-programming-languages",
+      "course-an-agent-skill-can-hand-a-stranger-your-shell"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
   },
@@ -5722,11 +5774,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "open-agent-forum",
-      "dumbdetector"
+      "dumbdetector",
+      "openfork"
     ],
     "courses": [
       "course-open-agent-forum",
-      "course-dumbdetector"
+      "course-dumbdetector",
+      "course-openfork"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -6360,10 +6414,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "tenux"
+      "tenux",
+      "nomacapp"
     ],
     "courses": [
-      "course-tenux"
+      "course-tenux",
+      "course-nomacapp"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -6652,10 +6708,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "anthropic-launches-fable-51-and-mythos-51"
+      "anthropic-launches-fable-51-and-mythos-51",
+      "k2-horizon"
     ],
     "courses": [
-      "course-anthropic-launches-fable-51-and-mythos-51"
+      "course-anthropic-launches-fable-51-and-mythos-51",
+      "course-k2-horizon"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -8142,10 +8200,12 @@
     "domain": "data",
     "level": "beginner",
     "toolsTeaching": [
-      "dumbdetector"
+      "dumbdetector",
+      "pod"
     ],
     "courses": [
-      "course-dumbdetector"
+      "course-dumbdetector",
+      "course-pod"
     ],
     "updatedAt": "2026-09-03T23:31:51.252Z"
   },
@@ -9828,5 +9888,187 @@
       "course-automatically-save-60-on-amazon"
     ],
     "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "skill-recommendations",
+    "name": "recommendations",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "pod"
+    ],
+    "courses": [
+      "course-pod"
+    ],
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "skill-idea board",
+    "name": "idea board",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "openfork"
+    ],
+    "courses": [
+      "course-openfork"
+    ],
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "skill-insights",
+    "name": "insights",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agents-aha-moment"
+    ],
+    "courses": [
+      "course-ai-agents-aha-moment"
+    ],
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "skill-ci/cd",
+    "name": "ci/cd",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "nomacapp"
+    ],
+    "courses": [
+      "course-nomacapp"
+    ],
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "skill-shell",
+    "name": "shell",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "an-agent-skill-can-hand-a-stranger-your-shell"
+    ],
+    "courses": [
+      "course-an-agent-skill-can-hand-a-stranger-your-shell"
+    ],
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "skill-supply chain",
+    "name": "supply chain",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "an-agent-skill-can-hand-a-stranger-your-shell"
+    ],
+    "courses": [
+      "course-an-agent-skill-can-hand-a-stranger-your-shell"
+    ],
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "skill-vulnerability",
+    "name": "vulnerability",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "an-agent-skill-can-hand-a-stranger-your-shell"
+    ],
+    "courses": [
+      "course-an-agent-skill-can-hand-a-stranger-your-shell"
+    ],
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "skill-large-scale",
+    "name": "large scale",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "k2-horizon"
+    ],
+    "courses": [
+      "course-k2-horizon"
+    ],
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "skill-teaching",
+    "name": "teaching",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "manware-s-ai-learning-toolkit"
+    ],
+    "courses": [
+      "course-manware-s-ai-learning-toolkit"
+    ],
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "skill-prompts",
+    "name": "prompts",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "manware-s-ai-learning-toolkit"
+    ],
+    "courses": [
+      "course-manware-s-ai-learning-toolkit"
+    ],
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "skill-geo",
+    "name": "geo",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "awesome-geo-tools"
+    ],
+    "courses": [
+      "course-awesome-geo-tools"
+    ],
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "skill-ai-visibility",
+    "name": "ai visibility",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "awesome-geo-tools"
+    ],
+    "courses": [
+      "course-awesome-geo-tools"
+    ],
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "skill-seo",
+    "name": "seo",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "awesome-geo-tools"
+    ],
+    "courses": [
+      "course-awesome-geo-tools"
+    ],
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "skill-comparison",
+    "name": "comparison",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "awesome-geo-tools"
+    ],
+    "courses": [
+      "course-awesome-geo-tools"
+    ],
+    "updatedAt": "2026-09-07T15:05:03.707Z"
   }
 ]

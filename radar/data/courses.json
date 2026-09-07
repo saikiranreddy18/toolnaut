@@ -12224,5 +12224,393 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-06T23:10:17.799Z"
+  },
+  {
+    "id": "course-pod",
+    "toolSlug": "pod",
+    "title": "Master Pod",
+    "objectives": [
+      "Understand what Pod is for",
+      "Use Pod on a real task",
+      "Know where Pod fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Pod for your real workflow, not the demo.",
+          "Say what Pod does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Pod.",
+          "Push Pod to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Pod into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-dev tools",
+      "skill-reviews",
+      "skill-recommendations"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "course-openfork",
+    "toolSlug": "openfork",
+    "title": "Master Openfork",
+    "objectives": [
+      "Understand what Openfork is for",
+      "Use Openfork on a real task",
+      "Know where Openfork fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Openfork for your real workflow, not the demo.",
+          "Say what Openfork does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Openfork.",
+          "Push Openfork to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Openfork into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-mcp",
+      "skill-idea board",
+      "skill-collaboration",
+      "skill-community"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "course-ai-agents-aha-moment",
+    "toolSlug": "ai-agents-aha-moment",
+    "title": "Master AI Agents Aha Moment",
+    "objectives": [
+      "Understand what AI Agents Aha Moment is for",
+      "Use AI Agents Aha Moment on a real task",
+      "Know where AI Agents Aha Moment fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI Agents Aha Moment for your real workflow, not the demo.",
+          "Say what AI Agents Aha Moment does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Agents Aha Moment.",
+          "Push AI Agents Aha Moment to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Agents Aha Moment into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-blog",
+      "skill-insights"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "course-nomacapp",
+    "toolSlug": "nomacapp",
+    "title": "Master NoMac.App",
+    "objectives": [
+      "Understand what NoMac.App is for",
+      "Use NoMac.App on a real task",
+      "Know where NoMac.App fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure NoMac.App for your real workflow, not the demo.",
+          "Say what NoMac.App does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through NoMac.App.",
+          "Push NoMac.App to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold NoMac.App into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ci/cd",
+      "skill-ios",
+      "skill-automation",
+      "skill-agents",
+      "skill-mobile"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "course-an-agent-skill-can-hand-a-stranger-your-shell",
+    "toolSlug": "an-agent-skill-can-hand-a-stranger-your-shell",
+    "title": "Master An agent skill can hand a stranger your shell",
+    "objectives": [
+      "Understand what An agent skill can hand a stranger your shell is for",
+      "Use An agent skill can hand a stranger your shell on a real task",
+      "Know where An agent skill can hand a stranger your shell fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure An agent skill can hand a stranger your shell for your real workflow, not the demo.",
+          "Say what An agent skill can hand a stranger your shell does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through An agent skill can hand a stranger your shell.",
+          "Push An agent skill can hand a stranger your shell to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold An agent skill can hand a stranger your shell into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-security",
+      "skill-agent skills",
+      "skill-shell",
+      "skill-supply chain",
+      "skill-vulnerability"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "course-k2-horizon",
+    "toolSlug": "k2-horizon",
+    "title": "Master K2 Horizon",
+    "objectives": [
+      "Understand what K2 Horizon is for",
+      "Use K2 Horizon on a real task",
+      "Know where K2 Horizon fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure K2 Horizon for your real workflow, not the demo.",
+          "Say what K2 Horizon does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through K2 Horizon.",
+          "Push K2 Horizon to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold K2 Horizon into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-llm",
+      "skill-open-source",
+      "skill-foundation-model",
+      "skill-research",
+      "skill-large-scale"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "course-manware-s-ai-learning-toolkit",
+    "toolSlug": "manware-s-ai-learning-toolkit",
+    "title": "Master Manware-s-AI-Learning-Toolkit",
+    "objectives": [
+      "Understand what Manware-s-AI-Learning-Toolkit is for",
+      "Use Manware-s-AI-Learning-Toolkit on a real task",
+      "Know where Manware-s-AI-Learning-Toolkit fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Manware-s-AI-Learning-Toolkit.",
+          "Say what Manware-s-AI-Learning-Toolkit does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Manware-s-AI-Learning-Toolkit.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Manware-s-AI-Learning-Toolkit into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai-agents",
+      "skill-teaching",
+      "skill-coding",
+      "skill-prompts"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "course-awesome-geo-tools",
+    "toolSlug": "awesome-geo-tools",
+    "title": "Master awesome-geo-tools",
+    "objectives": [
+      "Understand what awesome-geo-tools is for",
+      "Use awesome-geo-tools on a real task",
+      "Know where awesome-geo-tools fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure awesome-geo-tools for your real workflow, not the demo.",
+          "Say what awesome-geo-tools does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through awesome-geo-tools.",
+          "Push awesome-geo-tools to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold awesome-geo-tools into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-geo",
+      "skill-ai-visibility",
+      "skill-seo",
+      "skill-directory",
+      "skill-comparison"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T15:05:03.707Z"
   }
 ]
