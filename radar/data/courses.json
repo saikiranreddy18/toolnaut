@@ -13004,5 +13004,658 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "course-fraise-a-memory-database-for-ai-agents",
+    "toolSlug": "fraise-a-memory-database-for-ai-agents",
+    "title": "Master Fraise: a memory database for AI agents",
+    "objectives": [
+      "Understand what Fraise: a memory database for AI agents is for",
+      "Use Fraise: a memory database for AI agents on a real task",
+      "Know where Fraise: a memory database for AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Fraise: a memory database for AI agents for your real workflow, not the demo.",
+          "Say what Fraise: a memory database for AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Fraise: a memory database for AI agents.",
+          "Push Fraise: a memory database for AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Fraise: a memory database for AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-memory",
+      "skill-database",
+      "skill-agents",
+      "skill-llm",
+      "skill-infrastructure"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T13:40:03.372Z"
+  },
+  {
+    "id": "course-gen-ai-tools-are-now-being-used-to-push-slop-jihad",
+    "toolSlug": "gen-ai-tools-are-now-being-used-to-push-slop-jihad",
+    "title": "Master Gen AI Tools Are Now Being Used to Push 'Slop Jihad'",
+    "objectives": [
+      "Understand what Gen AI Tools Are Now Being Used to Push 'Slop Jihad' is for",
+      "Use Gen AI Tools Are Now Being Used to Push 'Slop Jihad' on a real task",
+      "Know where Gen AI Tools Are Now Being Used to Push 'Slop Jihad' fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Gen AI Tools Are Now Being Used to Push 'Slop Jihad'.",
+          "Say what Gen AI Tools Are Now Being Used to Push 'Slop Jihad' does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Gen AI Tools Are Now Being Used to Push 'Slop Jihad'.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Gen AI Tools Are Now Being Used to Push 'Slop Jihad' into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-ai slop",
+      "skill-moderation",
+      "skill-generative ai",
+      "skill-extremism",
+      "skill-news"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T13:40:03.372Z"
+  },
+  {
+    "id": "course-am-i-replacable",
+    "toolSlug": "am-i-replacable",
+    "title": "Master Am I replacable",
+    "objectives": [
+      "Set up your work profile and log your weekly tasks",
+      "Run a replaceability scan and interpret your score",
+      "Create a 30-day plan to stay ahead of automation"
+    ],
+    "modules": [
+      {
+        "title": "Set Up Your Work Profile",
+        "estMinutes": 10,
+        "steps": [
+          "Create an account and select your job role from the dropdown (e.g., 'Customer Support Rep' or 'Marketing Associate')",
+          "Paste 5-8 real tasks you did this week into the Task Intake box, one per line",
+          "Tag each task with a category like Writing, Data Entry, Analysis, or Communication using the built-in tags"
+        ]
+      },
+      {
+        "title": "Run Your First Replaceability Scan",
+        "estMinutes": 8,
+        "steps": [
+          "Click 'Run Scan' and wait for the assessment to process your task list",
+          "Open the Score Breakdown and note which tasks are flagged above 70% replaceable",
+          "Compare your overall score against the role benchmark shown on the dashboard"
+        ]
+      },
+      {
+        "title": "Build Your Keep-Up Plan",
+        "estMinutes": 12,
+        "steps": [
+          "Open the Recommendations panel and read why your 3 lowest-scoring tasks are hardest to automate",
+          "Pick 2 skills from the 'High-Leverage' list and add them to your 30-day plan with one concrete practice action each",
+          "Turn on the weekly re-scan reminder so you can track your score improving over time"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-career",
+      "skill-automation",
+      "skill-self-assessment",
+      "skill-future-of-work",
+      "skill-ai-impact"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-08T13:40:03.372Z"
+  },
+  {
+    "id": "course-ai-is-making-us-build-too-much",
+    "toolSlug": "ai-is-making-us-build-too-much",
+    "title": "Master AI Is Making Us Build Too Much",
+    "objectives": [
+      "Understand what AI Is Making Us Build Too Much is for",
+      "Use AI Is Making Us Build Too Much on a real task",
+      "Know where AI Is Making Us Build Too Much fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI Is Making Us Build Too Much for your real workflow, not the demo.",
+          "Say what AI Is Making Us Build Too Much does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Is Making Us Build Too Much.",
+          "Push AI Is Making Us Build Too Much to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Is Making Us Build Too Much into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-ai",
+      "skill-essay",
+      "skill-software",
+      "skill-productivity",
+      "skill-opinion"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T13:40:03.372Z"
+  },
+  {
+    "id": "course-catenary",
+    "toolSlug": "catenary",
+    "title": "Master Catenary",
+    "objectives": [
+      "Understand what Catenary is for",
+      "Use Catenary on a real task",
+      "Know where Catenary fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Catenary for your real workflow, not the demo.",
+          "Say what Catenary does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Catenary.",
+          "Push Catenary to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Catenary into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ide",
+      "skill-ai agents",
+      "skill-coding",
+      "skill-spatial canvas",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T13:40:03.372Z"
+  },
+  {
+    "id": "course-inspyry",
+    "toolSlug": "inspyry",
+    "title": "Master Inspyry",
+    "objectives": [
+      "Understand what Inspyry is for",
+      "Use Inspyry on a real task",
+      "Know where Inspyry fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Inspyry.",
+          "Say what Inspyry does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Inspyry.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Inspyry into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-svg",
+      "skill-vector graphics",
+      "skill-generator",
+      "skill-illustration"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T13:40:03.372Z"
+  },
+  {
+    "id": "course-ai-means-the-end-of-software-as-we-know-it",
+    "toolSlug": "ai-means-the-end-of-software-as-we-know-it",
+    "title": "Master AI means the end of software as we know it",
+    "objectives": [
+      "Understand what AI means the end of software as we know it is for",
+      "Use AI means the end of software as we know it on a real task",
+      "Know where AI means the end of software as we know it fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI means the end of software as we know it for your real workflow, not the demo.",
+          "Say what AI means the end of software as we know it does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI means the end of software as we know it.",
+          "Push AI means the end of software as we know it to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI means the end of software as we know it into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai",
+      "skill-coding",
+      "skill-essay",
+      "skill-future",
+      "skill-software"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T13:40:03.372Z"
+  },
+  {
+    "id": "course-ai-agent-for-beautiful-data-visuals",
+    "toolSlug": "ai-agent-for-beautiful-data-visuals",
+    "title": "Master AI agent for beautiful data visuals",
+    "objectives": [
+      "Understand what AI agent for beautiful data visuals is for",
+      "Use AI agent for beautiful data visuals on a real task",
+      "Know where AI agent for beautiful data visuals fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for AI agent for beautiful data visuals.",
+          "Say what AI agent for beautiful data visuals does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI agent for beautiful data visuals.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI agent for beautiful data visuals into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-data visualization",
+      "skill-charts",
+      "skill-ai agent",
+      "skill-analytics",
+      "skill-dashboards"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T13:40:03.372Z"
+  },
+  {
+    "id": "course-novus",
+    "toolSlug": "novus",
+    "title": "Master Novus",
+    "objectives": [
+      "Understand what Novus is for",
+      "Use Novus on a real task",
+      "Know where Novus fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Novus for your real workflow, not the demo.",
+          "Say what Novus does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Novus.",
+          "Push Novus to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Novus into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-android",
+      "skill-self-improving",
+      "skill-mobile"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T13:40:03.372Z"
+  },
+  {
+    "id": "course-ai-agent-for-google-play-submissions-video",
+    "toolSlug": "ai-agent-for-google-play-submissions-video",
+    "title": "Master AI Agent for Google Play Submissions [video]",
+    "objectives": [
+      "Connect the AI agent to Google Play Console with a service account",
+      "Configure the agent to submit builds, metadata, and release notes automatically",
+      "Run and verify a full submission from prompt to Play Console review"
+    ],
+    "modules": [
+      {
+        "title": "Connect the Agent to Google Play",
+        "estMinutes": 15,
+        "steps": [
+          "In Google Cloud Console, create a service account, enable the Google Play Developer API, and download the JSON key",
+          "In Play Console under Users and permissions, grant the service account 'Release manager' access to your app",
+          "Paste the JSON key into the agent's credentials panel and run its built-in connection test"
+        ]
+      },
+      {
+        "title": "Prepare Your Release Assets",
+        "estMinutes": 10,
+        "steps": [
+          "Build a signed AAB (Android App Bundle) with an incremented versionCode and versionName",
+          "Organize store listing assets: short/full descriptions, screenshots, and feature graphic in a single folder",
+          "Draft release notes for at least en-US in the agent's notes field or linked file"
+        ]
+      },
+      {
+        "title": "Configure the Submission Workflow",
+        "estMinutes": 12,
+        "steps": [
+          "Tell the agent the target track (internal, closed, or production) and rollout percentage, e.g. 10% staged rollout",
+          "Map your asset folder and AAB path in the agent's config prompt",
+          "Run the agent in dry-run/preview mode and review its diff of the store listing before approving changes"
+        ]
+      },
+      {
+        "title": "Submit and Monitor",
+        "estMinutes": 13,
+        "steps": [
+          "Trigger the live submission and watch the agent's step log for upload, metadata sync, and track release confirmation",
+          "Verify in Play Console that the release appears on the correct track with the right rollout percentage",
+          "Re-run the agent with a corrective prompt if Google flags policy or metadata warnings, then confirm the updated review status"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-google play",
+      "skill-app submission",
+      "skill-android"
+    ],
+    "prerequisites": [
+      "Google Play Console developer account with an existing app listing",
+      "A signed AAB built with your upload key",
+      "Google Cloud project access to create a service account"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-08T13:40:03.372Z"
+  },
+  {
+    "id": "course-developer-agency-in-the-age-of-ai",
+    "toolSlug": "developer-agency-in-the-age-of-ai",
+    "title": "Master Developer Agency in the Age of AI",
+    "objectives": [
+      "Understand what Developer Agency in the Age of AI is for",
+      "Use Developer Agency in the Age of AI on a real task",
+      "Know where Developer Agency in the Age of AI fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Developer Agency in the Age of AI for your real workflow, not the demo.",
+          "Say what Developer Agency in the Age of AI does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Developer Agency in the Age of AI.",
+          "Push Developer Agency in the Age of AI to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Developer Agency in the Age of AI into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-developer agency",
+      "skill-ai coding",
+      "skill-software development",
+      "skill-blog",
+      "skill-essay"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T13:40:03.372Z"
+  },
+  {
+    "id": "course-trustnotch",
+    "toolSlug": "trustnotch",
+    "title": "Master TrustNotch",
+    "objectives": [
+      "Understand what TrustNotch is for",
+      "Use TrustNotch on a real task",
+      "Know where TrustNotch fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure TrustNotch for your real workflow, not the demo.",
+          "Say what TrustNotch does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through TrustNotch.",
+          "Push TrustNotch to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold TrustNotch into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-audit logs",
+      "skill-ai agents",
+      "skill-security",
+      "skill-compliance",
+      "skill-verification"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T13:40:03.372Z"
+  },
+  {
+    "id": "course-logitech-launches-mx-keypad-for-developers",
+    "toolSlug": "logitech-launches-mx-keypad-for-developers",
+    "title": "Master Logitech launches MX Keypad for developers",
+    "objectives": [
+      "Understand what Logitech launches MX Keypad for developers is for",
+      "Use Logitech launches MX Keypad for developers on a real task",
+      "Know where Logitech launches MX Keypad for developers fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Logitech launches MX Keypad for developers for your real workflow, not the demo.",
+          "Say what Logitech launches MX Keypad for developers does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Logitech launches MX Keypad for developers.",
+          "Push Logitech launches MX Keypad for developers to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Logitech launches MX Keypad for developers into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-hardware",
+      "skill-keypad",
+      "skill-workflow",
+      "skill-customization",
+      "skill-productivity"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T13:40:03.372Z"
   }
 ]
