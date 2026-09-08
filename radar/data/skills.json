@@ -89,7 +89,9 @@
       "mdmanagerai",
       "pod",
       "nomacapp",
-      "an-agent-skill-can-hand-a-stranger-your-shell"
+      "an-agent-skill-can-hand-a-stranger-your-shell",
+      "where-every-ai-coding-tool-keeps-its-config",
+      "benzi"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -176,7 +178,9 @@
       "course-mdmanagerai",
       "course-pod",
       "course-nomacapp",
-      "course-an-agent-skill-can-hand-a-stranger-your-shell"
+      "course-an-agent-skill-can-hand-a-stranger-your-shell",
+      "course-where-every-ai-coding-tool-keeps-its-config",
+      "course-benzi"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -222,7 +226,8 @@
       "concorde-one-ai-agent-shared-by-an-organization",
       "drawdb-pro",
       "crew",
-      "openfork"
+      "openfork",
+      "quire"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -231,7 +236,8 @@
       "course-concorde-one-ai-agent-shared-by-an-organization",
       "course-drawdb-pro",
       "course-crew",
-      "course-openfork"
+      "course-openfork",
+      "course-quire"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -283,7 +289,9 @@
       "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
       "ai-coding-agents-forget-the-codebase-between-sessions",
       "nimvarya",
-      "k2-horizon"
+      "k2-horizon",
+      "inbundly",
+      "quire"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -313,7 +321,9 @@
       "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
       "course-ai-coding-agents-forget-the-codebase-between-sessions",
       "course-nimvarya",
-      "course-k2-horizon"
+      "course-k2-horizon",
+      "course-inbundly",
+      "course-quire"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -542,7 +552,10 @@
       "automatically-save-60-on-amazon",
       "openfork",
       "ai-agents-aha-moment",
-      "nomacapp"
+      "nomacapp",
+      "inbundly",
+      "lightpanda-session-bridge",
+      "relay"
     ],
     "courses": [
       "course-headless-tools",
@@ -642,7 +655,10 @@
       "course-automatically-save-60-on-amazon",
       "course-openfork",
       "course-ai-agents-aha-moment",
-      "course-nomacapp"
+      "course-nomacapp",
+      "course-inbundly",
+      "course-lightpanda-session-bridge",
+      "course-relay"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -738,7 +754,9 @@
       "public-beta-a-decision-governance-runtime-for-ai-agents",
       "pod",
       "openfork",
-      "ai-agents-aha-moment"
+      "ai-agents-aha-moment",
+      "benzi",
+      "lightpanda-session-bridge"
     ],
     "courses": [
       "course-headless-tools",
@@ -814,7 +832,9 @@
       "course-public-beta-a-decision-governance-runtime-for-ai-agents",
       "course-pod",
       "course-openfork",
-      "course-ai-agents-aha-moment"
+      "course-ai-agents-aha-moment",
+      "course-benzi",
+      "course-lightpanda-session-bridge"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -885,7 +905,8 @@
       "designing-grok-bot-for-a-world-of-persistent-agents",
       "datalume",
       "chatpanel-now-available-on-firefox",
-      "k2-horizon"
+      "k2-horizon",
+      "secret-collusion-among-ai-agents"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -906,7 +927,8 @@
       "course-designing-grok-bot-for-a-world-of-persistent-agents",
       "course-datalume",
       "course-chatpanel-now-available-on-firefox",
-      "course-k2-horizon"
+      "course-k2-horizon",
+      "course-secret-collusion-among-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1598,7 +1620,8 @@
       "marktwin",
       "pearpie",
       "openwhispr",
-      "chatpanel-now-available-on-firefox"
+      "chatpanel-now-available-on-firefox",
+      "quire"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -1607,7 +1630,8 @@
       "course-marktwin",
       "course-pearpie",
       "course-openwhispr",
-      "course-chatpanel-now-available-on-firefox"
+      "course-chatpanel-now-available-on-firefox",
+      "course-quire"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1712,7 +1736,8 @@
       "end-ai-agent-lock-in-start-conversation-with-one-agent",
       "openvurp",
       "covenant",
-      "kingfy"
+      "kingfy",
+      "secret-collusion-among-ai-agents"
     ],
     "courses": [
       "course-mrea",
@@ -1723,7 +1748,8 @@
       "course-end-ai-agent-lock-in-start-conversation-with-one-agent",
       "course-openvurp",
       "course-covenant",
-      "course-kingfy"
+      "course-kingfy",
+      "course-secret-collusion-among-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1815,7 +1841,8 @@
       "live-graph-interface-harness",
       "a-context-registry-for-ai-coding-agents",
       "execution-gating-and-micro-rollbacks-for-ai-agents",
-      "a-public-noticeboard-for-ai-agents"
+      "a-public-noticeboard-for-ai-agents",
+      "where-every-ai-coding-tool-keeps-its-config"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -1840,7 +1867,8 @@
       "course-live-graph-interface-harness",
       "course-a-context-registry-for-ai-coding-agents",
       "course-execution-gating-and-micro-rollbacks-for-ai-agents",
-      "course-a-public-noticeboard-for-ai-agents"
+      "course-a-public-noticeboard-for-ai-agents",
+      "course-where-every-ai-coding-tool-keeps-its-config"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1885,7 +1913,8 @@
       "defending-against-ai-agents-with-social-engineering",
       "whatthemoviecom-a-movie-still-guessing-game",
       "new-york-city-pausing-some-ai-tools-in-schools",
-      "manware-s-ai-learning-toolkit"
+      "manware-s-ai-learning-toolkit",
+      "secret-collusion-among-ai-agents"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -1910,7 +1939,8 @@
       "course-defending-against-ai-agents-with-social-engineering",
       "course-whatthemoviecom-a-movie-still-guessing-game",
       "course-new-york-city-pausing-some-ai-tools-in-schools",
-      "course-manware-s-ai-learning-toolkit"
+      "course-manware-s-ai-learning-toolkit",
+      "course-secret-collusion-among-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2042,7 +2072,8 @@
       "praesidias",
       "i-gave-my-ai-agent-a-sleep-cycle",
       "chrome-bridge",
-      "quiz-ui"
+      "quiz-ui",
+      "benzi"
     ],
     "courses": [
       "course-limitless-library",
@@ -2070,7 +2101,8 @@
       "course-praesidias",
       "course-i-gave-my-ai-agent-a-sleep-cycle",
       "course-chrome-bridge",
-      "course-quiz-ui"
+      "course-quiz-ui",
+      "course-benzi"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2166,7 +2198,8 @@
       "zatom-lite",
       "datalume",
       "k2-horizon",
-      "awesome-geo-tools"
+      "awesome-geo-tools",
+      "rejourney"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -2186,7 +2219,8 @@
       "course-zatom-lite",
       "course-datalume",
       "course-k2-horizon",
-      "course-awesome-geo-tools"
+      "course-awesome-geo-tools",
+      "course-rejourney"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2273,7 +2307,8 @@
       "managing-ai-agents-is-still-a-full-time-job",
       "calprep",
       "farmanix",
-      "timervana-a-local-first-scheduler-for-real-world-routines"
+      "timervana-a-local-first-scheduler-for-real-world-routines",
+      "inbundly"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -2284,7 +2319,8 @@
       "course-managing-ai-agents-is-still-a-full-time-job",
       "course-calprep",
       "course-farmanix",
-      "course-timervana-a-local-first-scheduler-for-real-world-routines"
+      "course-timervana-a-local-first-scheduler-for-real-world-routines",
+      "course-inbundly"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2781,12 +2817,14 @@
     "toolsTeaching": [
       "launch-hn-risklytics-yc-s26",
       "datazen",
-      "token-dashboard"
+      "token-dashboard",
+      "rejourney"
     ],
     "courses": [
       "course-launch-hn-risklytics-yc-s26",
       "course-datazen",
-      "course-token-dashboard"
+      "course-token-dashboard",
+      "course-rejourney"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2850,7 +2888,8 @@
       "end-ai-agent-lock-in-start-conversation-with-one-agent",
       "habitus-ai",
       "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
-      "manware-s-ai-learning-toolkit"
+      "manware-s-ai-learning-toolkit",
+      "quire"
     ],
     "courses": [
       "course-placeroot",
@@ -2862,7 +2901,8 @@
       "course-end-ai-agent-lock-in-start-conversation-with-one-agent",
       "course-habitus-ai",
       "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
-      "course-manware-s-ai-learning-toolkit"
+      "course-manware-s-ai-learning-toolkit",
+      "course-quire"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3082,10 +3122,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "a-benchmark-for-safely-measuring-container-breakout-capabili"
+      "a-benchmark-for-safely-measuring-container-breakout-capabili",
+      "secret-collusion-among-ai-agents"
     ],
     "courses": [
-      "course-a-benchmark-for-safely-measuring-container-breakout-capabili"
+      "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
+      "course-secret-collusion-among-ai-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3160,13 +3202,15 @@
       "why-ai-agents-need-persistent-browser-identities",
       "puppetflow-a-free-browser-automation-platform",
       "saccade",
-      "chrome-bridge"
+      "chrome-bridge",
+      "lightpanda-session-bridge"
     ],
     "courses": [
       "course-why-ai-agents-need-persistent-browser-identities",
       "course-puppetflow-a-free-browser-automation-platform",
       "course-saccade",
-      "course-chrome-bridge"
+      "course-chrome-bridge",
+      "course-lightpanda-session-bridge"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3203,11 +3247,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "why-ai-agents-need-persistent-browser-identities",
-      "soulauth"
+      "soulauth",
+      "lightpanda-session-bridge"
     ],
     "courses": [
       "course-why-ai-agents-need-persistent-browser-identities",
-      "course-soulauth"
+      "course-soulauth",
+      "course-lightpanda-session-bridge"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3219,12 +3265,14 @@
     "toolsTeaching": [
       "serve-markdown-to-ai-agents-with-accept-headers",
       "marktwin",
-      "mdmanagerai"
+      "mdmanagerai",
+      "quire"
     ],
     "courses": [
       "course-serve-markdown-to-ai-agents-with-accept-headers",
       "course-marktwin",
-      "course-mdmanagerai"
+      "course-mdmanagerai",
+      "course-quire"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3573,11 +3621,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "agentseed",
-      "token-dashboard"
+      "token-dashboard",
+      "where-every-ai-coding-tool-keeps-its-config"
     ],
     "courses": [
       "course-agentseed",
-      "course-token-dashboard"
+      "course-token-dashboard",
+      "course-where-every-ai-coding-tool-keeps-its-config"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4134,7 +4184,8 @@
       "agentic-search",
       "ai-agents-started-emailing-philosophers-and-researchers",
       "zatom-lite",
-      "k2-horizon"
+      "k2-horizon",
+      "secret-collusion-among-ai-agents"
     ],
     "courses": [
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
@@ -4142,7 +4193,8 @@
       "course-agentic-search",
       "course-ai-agents-started-emailing-philosophers-and-researchers",
       "course-zatom-lite",
-      "course-k2-horizon"
+      "course-k2-horizon",
+      "course-secret-collusion-among-ai-agents"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5356,12 +5408,14 @@
     "toolsTeaching": [
       "documentationaimd",
       "kiso",
-      "compilrdev-studio"
+      "compilrdev-studio",
+      "where-every-ai-coding-tool-keeps-its-config"
     ],
     "courses": [
       "course-documentationaimd",
       "course-kiso",
-      "course-compilrdev-studio"
+      "course-compilrdev-studio",
+      "course-where-every-ai-coding-tool-keeps-its-config"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -6300,12 +6354,14 @@
     "toolsTeaching": [
       "unitpost-email",
       "audiorealityai",
-      "ai-agents-started-emailing-philosophers-and-researchers"
+      "ai-agents-started-emailing-philosophers-and-researchers",
+      "inbundly"
     ],
     "courses": [
       "course-unitpost-email",
       "course-audiorealityai",
-      "course-ai-agents-started-emailing-philosophers-and-researchers"
+      "course-ai-agents-started-emailing-philosophers-and-researchers",
+      "course-inbundly"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -7821,10 +7877,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "vocabdesign"
+      "vocabdesign",
+      "where-every-ai-coding-tool-keeps-its-config"
     ],
     "courses": [
-      "course-vocabdesign"
+      "course-vocabdesign",
+      "course-where-every-ai-coding-tool-keeps-its-config"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -9817,10 +9875,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "mdmanagerai"
+      "mdmanagerai",
+      "where-every-ai-coding-tool-keeps-its-config"
     ],
     "courses": [
-      "course-mdmanagerai"
+      "course-mdmanagerai",
+      "course-where-every-ai-coding-tool-keeps-its-config"
     ],
     "updatedAt": "2026-09-06T23:10:17.799Z"
   },
@@ -10070,5 +10130,239 @@
       "course-awesome-geo-tools"
     ],
     "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "skill-session-replay",
+    "name": "session replay",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "rejourney"
+    ],
+    "courses": [
+      "course-rejourney"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-funnel",
+    "name": "funnel",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "rejourney"
+    ],
+    "courses": [
+      "course-rejourney"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-ux",
+    "name": "ux",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "rejourney"
+    ],
+    "courses": [
+      "course-rejourney"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-conversion",
+    "name": "conversion",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "rejourney"
+    ],
+    "courses": [
+      "course-rejourney"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-code intelligence",
+    "name": "code intelligence",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "benzi"
+    ],
+    "courses": [
+      "course-benzi"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-llm infrastructure",
+    "name": "llm infrastructure",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "benzi"
+    ],
+    "courses": [
+      "course-benzi"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-code analysis",
+    "name": "code analysis",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "benzi"
+    ],
+    "courses": [
+      "course-benzi"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-gmail",
+    "name": "gmail",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "inbundly"
+    ],
+    "courses": [
+      "course-inbundly"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-bundles",
+    "name": "bundles",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "inbundly"
+    ],
+    "courses": [
+      "course-inbundly"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-editor",
+    "name": "editor",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "quire"
+    ],
+    "courses": [
+      "course-quire"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-headless browser",
+    "name": "headless browser",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "lightpanda-session-bridge"
+    ],
+    "courses": [
+      "course-lightpanda-session-bridge"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-session management",
+    "name": "session management",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "lightpanda-session-bridge"
+    ],
+    "courses": [
+      "course-lightpanda-session-bridge"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-check-ins",
+    "name": "check ins",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "relay"
+    ],
+    "courses": [
+      "course-relay"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-anonymous feedback",
+    "name": "anonymous feedback",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "relay"
+    ],
+    "courses": [
+      "course-relay"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-team health",
+    "name": "team health",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "relay"
+    ],
+    "courses": [
+      "course-relay"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-async standups",
+    "name": "async standups",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "relay"
+    ],
+    "courses": [
+      "course-relay"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-remote teams",
+    "name": "remote teams",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "relay"
+    ],
+    "courses": [
+      "course-relay"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "skill-collusion",
+    "name": "collusion",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "secret-collusion-among-ai-agents"
+    ],
+    "courses": [
+      "course-secret-collusion-among-ai-agents"
+    ],
+    "updatedAt": "2026-09-07T23:46:33.880Z"
   }
 ]

@@ -12612,5 +12612,397 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-07T15:05:03.707Z"
+  },
+  {
+    "id": "course-rejourney",
+    "toolSlug": "rejourney",
+    "title": "Master Rejourney",
+    "objectives": [
+      "Understand what Rejourney is for",
+      "Use Rejourney on a real task",
+      "Know where Rejourney fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Rejourney for your real workflow, not the demo.",
+          "Say what Rejourney does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Rejourney.",
+          "Push Rejourney to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Rejourney into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-session-replay",
+      "skill-analytics",
+      "skill-funnel",
+      "skill-ux",
+      "skill-conversion"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "course-where-every-ai-coding-tool-keeps-its-config",
+    "toolSlug": "where-every-ai-coding-tool-keeps-its-config",
+    "title": "Master Where every AI coding tool keeps its config",
+    "objectives": [
+      "Understand what Where every AI coding tool keeps its config is for",
+      "Use Where every AI coding tool keeps its config on a real task",
+      "Know where Where every AI coding tool keeps its config fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Where every AI coding tool keeps its config for your real workflow, not the demo.",
+          "Say what Where every AI coding tool keeps its config does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Where every AI coding tool keeps its config.",
+          "Push Where every AI coding tool keeps its config to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Where every AI coding tool keeps its config into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai coding",
+      "skill-config",
+      "skill-developer tools",
+      "skill-reference",
+      "skill-documentation"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "course-benzi",
+    "toolSlug": "benzi",
+    "title": "Master Benzi",
+    "objectives": [
+      "Understand what Benzi is for",
+      "Use Benzi on a real task",
+      "Know where Benzi fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Benzi for your real workflow, not the demo.",
+          "Say what Benzi does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Benzi.",
+          "Push Benzi to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Benzi into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-code intelligence",
+      "skill-llm infrastructure",
+      "skill-code analysis",
+      "skill-ai agents",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "course-inbundly",
+    "toolSlug": "inbundly",
+    "title": "Master Inbundly",
+    "objectives": [
+      "Understand what Inbundly is for",
+      "Use Inbundly on a real task",
+      "Know where Inbundly fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Inbundly for your real workflow, not the demo.",
+          "Say what Inbundly does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Inbundly.",
+          "Push Inbundly to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Inbundly into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-gmail",
+      "skill-email",
+      "skill-open-source",
+      "skill-bundles",
+      "skill-productivity"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "course-quire",
+    "toolSlug": "quire",
+    "title": "Master Quire",
+    "objectives": [
+      "Understand what Quire is for",
+      "Use Quire on a real task",
+      "Know where Quire fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Quire for your real workflow, not the demo.",
+          "Say what Quire does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Quire.",
+          "Push Quire to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Quire into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-markdown",
+      "skill-ai-agents",
+      "skill-collaboration",
+      "skill-editor",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "course-lightpanda-session-bridge",
+    "toolSlug": "lightpanda-session-bridge",
+    "title": "Master Lightpanda Session Bridge",
+    "objectives": [
+      "Understand what Lightpanda Session Bridge is for",
+      "Use Lightpanda Session Bridge on a real task",
+      "Know where Lightpanda Session Bridge fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Lightpanda Session Bridge for your real workflow, not the demo.",
+          "Say what Lightpanda Session Bridge does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Lightpanda Session Bridge.",
+          "Push Lightpanda Session Bridge to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Lightpanda Session Bridge into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-browser automation",
+      "skill-headless browser",
+      "skill-session management",
+      "skill-authentication"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "course-relay",
+    "toolSlug": "relay",
+    "title": "Master Relay",
+    "objectives": [
+      "Understand what Relay is for",
+      "Use Relay on a real task",
+      "Know where Relay fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Relay.",
+          "Say what Relay does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Relay.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Relay into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-check-ins",
+      "skill-anonymous feedback",
+      "skill-team health",
+      "skill-async standups",
+      "skill-remote teams"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T23:46:33.880Z"
+  },
+  {
+    "id": "course-secret-collusion-among-ai-agents",
+    "toolSlug": "secret-collusion-among-ai-agents",
+    "title": "Master Secret Collusion Among AI Agents",
+    "objectives": [
+      "Understand what Secret Collusion Among AI Agents is for",
+      "Use Secret Collusion Among AI Agents on a real task",
+      "Know where Secret Collusion Among AI Agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Secret Collusion Among AI Agents for your real workflow, not the demo.",
+          "Say what Secret Collusion Among AI Agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Secret Collusion Among AI Agents.",
+          "Push Secret Collusion Among AI Agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Secret Collusion Among AI Agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai safety",
+      "skill-multi-agent",
+      "skill-collusion",
+      "skill-research",
+      "skill-llm"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-07T23:46:33.880Z"
   }
 ]
