@@ -12,6 +12,13 @@ import { BUNDLED_COUNT } from '../utils/toolsCatalog'
 // between radar syncs rather than being exact for a day and wrong after.
 const TOOL_FLOOR = Math.floor(BUNDLED_COUNT / 100) * 100
 
+// Same flag ContactSection.jsx/CapabilityMatrix.jsx/Methodology.jsx/Pricing.jsx
+// already read for this — the footer tagline below was missed when payments
+// shipped and kept asserting "free while in beta" even though this page's own
+// "How far along are we?" answer above already states the real 7-day-trial-
+// then-one-time-pass terms.
+const paymentsOn = import.meta.env.VITE_PAYMENTS_ENABLED === 'true'
+
 // The story/pitch page — the accelerator-application answers, public.
 const SECTIONS = [
   {
@@ -111,7 +118,7 @@ export default function About() {
             🚀 Take the 60-second quiz
           </Link>
           <p className="mt-4 text-xs text-slate-500">
-            Free while in beta · <Link to="/" className="underline underline-offset-2 hover:text-white">back home</Link>
+            {paymentsOn ? 'Free for 7 days, then a one-time pass' : 'Free while in beta'} · <Link to="/" className="underline underline-offset-2 hover:text-white">back home</Link>
           </p>
         </motion.div>
       </main>
