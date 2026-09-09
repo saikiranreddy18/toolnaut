@@ -28,6 +28,7 @@ const DIST = 'dist'
 const ROUTES = [
   '/',
   '/about',
+  '/changelog',
   '/pricing',
   '/methodology',
   '/example',

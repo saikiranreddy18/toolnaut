@@ -45,6 +45,7 @@ const COLUMNS = [
     links: [
       { label: 'How it works', href: '/#how-it-works' },
       { label: 'How we choose', to: '/methodology' },
+      { label: "What's new", to: '/changelog' },
       { label: 'Open the app', to: '/app/stack' },
     ],
   },

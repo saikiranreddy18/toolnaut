@@ -26,6 +26,7 @@ const Community = lazy(() => import('./pages/app/Community'))
 const Thread = lazy(() => import('./pages/app/Thread'))
 const Office = lazy(() => import('./pages/Office'))
 const About = lazy(() => import('./pages/About'))
+const Changelog = lazy(() => import('./pages/Changelog'))
 const Pricing = lazy(() => import('./pages/Pricing'))
 const Legal = lazy(() => import('./pages/Legal'))
 const Support = lazy(() => import('./pages/Support'))
@@ -88,6 +89,7 @@ export default function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/office" element={<Office />} />
             <Route path="/about" element={<About />} />
+            <Route path="/changelog" element={<Changelog />} />
             {/* Google requires both before an OAuth app can go to production,
                 and both previously resolved only via the SPA catch-all — which
                 served the landing page to anyone who clicked them. */}
