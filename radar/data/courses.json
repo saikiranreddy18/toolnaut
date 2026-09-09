@@ -13657,5 +13657,738 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-08T13:40:03.372Z"
+  },
+  {
+    "id": "course-thread-to-self",
+    "toolSlug": "thread-to-self",
+    "title": "Master Thread to Self",
+    "objectives": [
+      "Open your self-thread and send your first note",
+      "Quickly capture notes, links, and reminders",
+      "Find and manage past messages using search and pins"
+    ],
+    "modules": [
+      {
+        "title": "Find Your Self-Thread and Send a First Note",
+        "estMinutes": 3,
+        "steps": [
+          "Use the search bar to find your own name in the message list",
+          "Type a test note like 'Packing list: charger, passport, earbuds' and press Enter",
+          "Bookmark or star the self-thread so it stays at the top of your message list"
+        ]
+      },
+      {
+        "title": "Capture Thoughts and Reminders Fast",
+        "estMinutes": 4,
+        "steps": [
+          "Send three separate short messages: one idea, one link, and one reminder — keeping each item in its own message",
+          "Use the share button on a webpage or photo and send it directly to your self-thread",
+          "Turn a message into a reminder (e.g., 'Call dentist tomorrow') by setting a reminder or flag on it if the app supports it"
+        ]
+      },
+      {
+        "title": "Retrieve and Organize Your Notes",
+        "estMinutes": 4,
+        "steps": [
+          "Search inside your self-thread for one of the keywords from your earlier notes",
+          "Pin your most important message so it stays visible at the top of the thread",
+          "Delete one outdated message and pin or react to one keep keeping it organized"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-notes",
+      "skill-self-messaging",
+      "skill-journaling",
+      "skill-productivity"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "course-portraitdesk",
+    "toolSlug": "portraitdesk",
+    "title": "Master PortraitDesk",
+    "objectives": [
+      "Upload source selfies that generate realistic results",
+      "Configure style and realism settings to avoid the AI look",
+      "Retouch and export a headshot ready for LinkedIn"
+    ],
+    "modules": [
+      {
+        "title": "Create Your First Headshot Session",
+        "estMinutes": 8,
+        "steps": [
+          "Sign up at PortraitDesk and click New Session from the dashboard",
+          "Name your session (e.g., 'LinkedIn 2025') and select the Professional Headshot session type",
+          "Pick your target platform (LinkedIn, company site, or email signature) so output sizes are preset"
+        ]
+      },
+      {
+        "title": "Upload Source Photos That Work",
+        "estMinutes": 12,
+        "steps": [
+          "Gather 10-15 recent selfies with front-facing angles, even lighting, and no sunglasses, hats, or heavy shadows",
+          "Drag them into the upload tray and let PortraitDesk's Quality Check flag blurry or low-light shots",
+          "Replace any rejected photos and confirm at least 8 pass Quality Check before continuing"
+        ]
+      },
+      {
+        "title": "Dial In Style and Realism Settings",
+        "estMinutes": 10,
+        "steps": [
+          "Choose one background (e.g., 'Office Blur' or 'Neutral Gray') and one attire option (e.g., 'Blazer, Navy')",
+          "Set the Realism slider to High and keep Skin Smoothing at 20% or lower to preserve texture",
+          "Disable the 'Polished Look' enhancement toggle to avoid the over-retouched AI appearance"
+        ]
+      },
+      {
+        "title": "Generate and Spot AI Artifacts",
+        "estMinutes": 12,
+        "steps": [
+          "Click Generate and wait for the first batch of 8 headshots",
+          "Open each result in Review mode and zoom in on eyes, teeth, ears, and hairline for common AI tells",
+          "Rate your top 3 with the star tool and flag distorted ones to train the next batch"
+        ]
+      },
+      {
+        "title": "Retouch and Export for LinkedIn",
+        "estMinutes": 10,
+        "steps": [
+          "Open your favorite and use the one-click 'Fix Stray Hairs' and 'Natural Teeth' touch-up brushes",
+          "Download the 400x400 LinkedIn crop and the full-resolution version simultaneously",
+          "Upload the 400x400 to LinkedIn and check it on both mobile and desktop before finalizing"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-headshots",
+      "skill-ai-portraits",
+      "skill-profile-photos",
+      "skill-image-generation",
+      "skill-realistic"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "course-remarc",
+    "toolSlug": "remarc",
+    "title": "Master Remarc",
+    "objectives": [
+      "Understand what Remarc is for",
+      "Use Remarc on a real task",
+      "Know where Remarc fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Remarc for your real workflow, not the demo.",
+          "Say what Remarc does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Remarc.",
+          "Push Remarc to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Remarc into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-feedback",
+      "skill-context",
+      "skill-developer tools",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "course-pen",
+    "toolSlug": "pen",
+    "title": "Master Pen",
+    "objectives": [
+      "Understand what Pen is for",
+      "Use Pen on a real task",
+      "Know where Pen fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Pen.",
+          "Say what Pen does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Pen.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Pen into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-ai-editor",
+      "skill-conversational",
+      "skill-drafting"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "course-felan",
+    "toolSlug": "felan",
+    "title": "Master Felan",
+    "objectives": [
+      "Understand what Felan is for",
+      "Use Felan on a real task",
+      "Know where Felan fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Felan for your real workflow, not the demo.",
+          "Say what Felan does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Felan.",
+          "Push Felan to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Felan into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-open source",
+      "skill-coding agent",
+      "skill-cli",
+      "skill-ai assistant",
+      "skill-efficiency"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "course-built-myself-a-super-youtube-post-prod-studio",
+    "toolSlug": "built-myself-a-super-youtube-post-prod-studio",
+    "title": "Master Built myself a super YouTube post-prod studio",
+    "objectives": [
+      "Understand what Built myself a super YouTube post-prod studio is for",
+      "Use Built myself a super YouTube post-prod studio on a real task",
+      "Know where Built myself a super YouTube post-prod studio fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Built myself a super YouTube post-prod studio for your real workflow, not the demo.",
+          "Say what Built myself a super YouTube post-prod studio does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Built myself a super YouTube post-prod studio.",
+          "Push Built myself a super YouTube post-prod studio to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Built myself a super YouTube post-prod studio into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-youtube",
+      "skill-video-editing",
+      "skill-post-production",
+      "skill-creator-tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "course-ffmpeg-commander",
+    "toolSlug": "ffmpeg-commander",
+    "title": "Master FFmpeg Commander",
+    "objectives": [
+      "Understand what FFmpeg Commander is for",
+      "Use FFmpeg Commander on a real task",
+      "Know where FFmpeg Commander fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure FFmpeg Commander for your real workflow, not the demo.",
+          "Say what FFmpeg Commander does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through FFmpeg Commander.",
+          "Push FFmpeg Commander to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold FFmpeg Commander into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ffmpeg",
+      "skill-video",
+      "skill-encoding",
+      "skill-cli",
+      "skill-converter"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "course-mastra-agent-factory",
+    "toolSlug": "mastra-agent-factory",
+    "title": "Master Mastra Agent Factory",
+    "objectives": [
+      "Understand what Mastra Agent Factory is for",
+      "Use Mastra Agent Factory on a real task",
+      "Know where Mastra Agent Factory fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Mastra Agent Factory for your real workflow, not the demo.",
+          "Say what Mastra Agent Factory does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Mastra Agent Factory.",
+          "Push Mastra Agent Factory to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Mastra Agent Factory into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-typescript",
+      "skill-agent builder",
+      "skill-framework"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "course-sagashield",
+    "toolSlug": "sagashield",
+    "title": "Master SagaShield",
+    "objectives": [
+      "Understand what SagaShield is for",
+      "Use SagaShield on a real task",
+      "Know where SagaShield fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure SagaShield for your real workflow, not the demo.",
+          "Say what SagaShield does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through SagaShield.",
+          "Push SagaShield to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold SagaShield into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-acid",
+      "skill-transactions",
+      "skill-guardrails",
+      "skill-security"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "course-how-we-built-safety-into-muse-by-meta",
+    "toolSlug": "how-we-built-safety-into-muse-by-meta",
+    "title": "Master How We Built Safety into Muse by Meta",
+    "objectives": [
+      "Understand what How We Built Safety into Muse by Meta is for",
+      "Use How We Built Safety into Muse by Meta on a real task",
+      "Know where How We Built Safety into Muse by Meta fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure How We Built Safety into Muse by Meta for your real workflow, not the demo.",
+          "Say what How We Built Safety into Muse by Meta does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through How We Built Safety into Muse by Meta.",
+          "Push How We Built Safety into Muse by Meta to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold How We Built Safety into Muse by Meta into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai safety",
+      "skill-security",
+      "skill-ai agents",
+      "skill-research"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "course-muse-metas-personal-ai-agent-features-and-capabilities",
+    "toolSlug": "muse-metas-personal-ai-agent-features-and-capabilities",
+    "title": "Master Muse: Meta's personal AI agent, features and capabilities",
+    "objectives": [
+      "Identify where Muse appears across Meta apps and how to activate it",
+      "Use Muse to ask questions, summarize content, and draft messages",
+      "Apply Muse to a real everyday task on at least two Meta platforms"
+    ],
+    "modules": [
+      {
+        "title": "Finding and Activating Muse",
+        "estMinutes": 8,
+        "steps": [
+          "Open WhatsApp or Instagram and locate the Muse (circle) icon in the search bar or chats tab",
+          "Type 'Hello' into the Muse chat and review the suggested prompts it returns",
+          "Open your Meta app settings and confirm Muse permissions for voice and microphone are enabled"
+        ]
+      },
+      {
+        "title": "Core Skills: Ask, Summarize, Draft",
+        "estMinutes": 12,
+        "steps": [
+          "Ask Muse a factual question (e.g., 'What's a good 20-minute dinner recipe?') and follow up to refine the answer",
+          "Paste or forward a long message or article link and prompt Muse: 'Summarize this in 3 bullet points'",
+          "Draft a message with Muse: 'Write a friendly birthday message for a coworker' then edit the tone using a follow-up like 'Make it shorter'"
+        ]
+      },
+      {
+        "title": "Muse Across Meta Apps",
+        "estMinutes": 10,
+        "steps": [
+          "In WhatsApp, type @MetaAI (Muse) inside a group chat to settle a question without leaving the conversation",
+          "In Instagram or Facebook feed, use a post's context to ask Muse for related info or comment ideas",
+          "Try one hands-free query using voice input or Ray-Ban Meta glasses if available (e.g., 'What am I looking at?' or 'Read my latest messages')"
+        ]
+      },
+      {
+        "title": "Putting It Together: A Daily Task Workflow",
+        "estMinutes": 10,
+        "steps": [
+          "Plan a small real task (e.g., organizing a weekend meetup) and use Muse to generate options for time, place, and food",
+          "Have Muse draft the invitation message, then send it via WhatsApp or Messenger",
+          "Afterward, ask Muse to create a packing or to-do checklist for the event and save it to your notes"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-personal assistant",
+      "skill-meta",
+      "skill-chatbot",
+      "skill-productivity"
+    ],
+    "prerequisites": [
+      "An active Meta account (Facebook, Instagram, or WhatsApp)",
+      "A Meta app updated to the latest version"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "course-muse-your-personal-ai-agent-from-meta",
+    "toolSlug": "muse-your-personal-ai-agent-from-meta",
+    "title": "Master Muse, your personal AI agent from Meta",
+    "objectives": [
+      "Access Muse from a Meta app and send your first prompt",
+      "Use Muse to answer everyday questions and draft messages",
+      "Plan a simple event with Muse and refine its output"
+    ],
+    "modules": [
+      {
+        "title": "Get Started with Muse",
+        "estMinutes": 10,
+        "steps": [
+          "Open WhatsApp, Messenger, or Instagram and tap the Muse (Meta AI) icon or search for it in your chats",
+          "Type a simple question like \"What's a good 20-minute dinner recipe?\" and read the reply",
+          "Send a follow-up such as \"Make it vegetarian\" to see how Muse remembers conversation context"
+        ]
+      },
+      {
+        "title": "Everyday Questions and Quick Drafts",
+        "estMinutes": 12,
+        "steps": [
+          "Ask Muse to draft a short message, e.g. \"Write a polite text declining a party invite,\" then edit it to your taste",
+          "Ask it to summarize a topic in 3 bullet points, such as \"Summarize the pros and cons of electric cars\"",
+          "Try the voice input option to ask a hands-free question like \"What will the weather be like this weekend?\""
+        ]
+      },
+      {
+        "title": "Plan Something Real",
+        "estMinutes": 15,
+        "steps": [
+          "Give Muse a planning prompt with constraints: \"Plan a Saturday in my city for two people under $50\"",
+          "Ask it to convert the plan into a checklist you can copy into your notes app",
+          "Refine the result with an adjustment like \"Swap the museum for something outdoors\" and compare the two versions"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-personal assistant",
+      "skill-meta"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "course-muse-your-personal-ai-agent",
+    "toolSlug": "muse-your-personal-ai-agent",
+    "title": "Master Muse, your personal AI agent.",
+    "objectives": [
+      "Set up Muse and personalize it to your needs",
+      "Ask clear questions and refine answers with follow-ups",
+      "Complete a real everyday task (draft, plan, or summary) using Muse"
+    ],
+    "modules": [
+      {
+        "title": "Get Muse Running and Personalized",
+        "estMinutes": 8,
+        "steps": [
+          "Install the Muse app (or open the web version) and create your account",
+          "Complete onboarding: enter your name, pick 2-3 interests, and set your main goal (e.g., productivity, learning, planning)",
+          "Send your first message: 'Hi Muse, what can you help me with day to day?' and read the reply"
+        ]
+      },
+      {
+        "title": "Ask Questions That Get Good Answers",
+        "estMinutes": 10,
+        "steps": [
+          "Ask a question with context instead of one word, e.g., 'Suggest a 30-minute dinner recipe using chicken, rice, and broccoli for two people'",
+          "Use a follow-up to refine: 'Make it spicier and under 500 calories per serving' and compare the two answers",
+          "Ask Muse to reformat a response: 'Turn that into a short checklist,' then save or pin the answer you liked best"
+        ]
+      },
+      {
+        "title": "Do Real Tasks: Draft, Plan, Summarize",
+        "estMinutes": 12,
+        "steps": [
+          "Have Muse draft a real message, e.g., 'Write a polite email asking my landlord to fix a leaking faucet,' then say 'make it friendlier and shorter'",
+          "Paste in a long article or document and ask: 'Summarize this in 5 bullet points with key takeaways'",
+          "Ask Muse to plan something concrete: 'Plan my Saturday with a workout, grocery run, and 2 hours of focused work' and adjust the schedule it gives you"
+        ]
+      },
+      {
+        "title": "Build a Simple Daily Routine with Muse",
+        "estMinutes": 7,
+        "steps": [
+          "Ask Muse to give you a morning briefing: 'Each morning, give me my top 3 priorities and the weather' and set the reminder/notification if prompted",
+          "Connect one account Muse supports (calendar or email) so it can reference your real schedule",
+          "Open Settings and review privacy options: choose what Muse can remember about you and how to clear chat history"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-personal assistant",
+      "skill-productivity"
+    ],
+    "prerequisites": [
+      "A smartphone or computer with internet access",
+      "A free Muse account (email sign-up)"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "course-endframe",
+    "toolSlug": "endframe",
+    "title": "Master EndFrame",
+    "objectives": [
+      "Understand what EndFrame is for",
+      "Use EndFrame on a real task",
+      "Know where EndFrame fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for EndFrame.",
+          "Say what EndFrame does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through EndFrame.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold EndFrame into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-video generation",
+      "skill-product demos",
+      "skill-launch videos",
+      "skill-shorts",
+      "skill-marketing"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-08T23:40:07.345Z"
   }
 ]

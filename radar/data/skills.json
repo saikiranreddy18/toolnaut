@@ -94,7 +94,9 @@
       "benzi",
       "catenary",
       "ai-means-the-end-of-software-as-we-know-it",
-      "developer-agency-in-the-age-of-ai"
+      "developer-agency-in-the-age-of-ai",
+      "felan",
+      "ffmpeg-commander"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -186,7 +188,9 @@
       "course-benzi",
       "course-catenary",
       "course-ai-means-the-end-of-software-as-we-know-it",
-      "course-developer-agency-in-the-age-of-ai"
+      "course-developer-agency-in-the-age-of-ai",
+      "course-felan",
+      "course-ffmpeg-commander"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -361,7 +365,9 @@
       "capcut-pro-crack-new",
       "alternaterealitieslol",
       "robin",
-      "inspyry"
+      "inspyry",
+      "portraitdesk",
+      "endframe"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -386,7 +392,9 @@
       "course-capcut-pro-crack-new",
       "course-alternaterealitieslol",
       "course-robin",
-      "course-inspyry"
+      "course-inspyry",
+      "course-portraitdesk",
+      "course-endframe"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -568,7 +576,15 @@
       "novus",
       "ai-agent-for-google-play-submissions-video",
       "trustnotch",
-      "logitech-launches-mx-keypad-for-developers"
+      "logitech-launches-mx-keypad-for-developers",
+      "remarc",
+      "built-myself-a-super-youtube-post-prod-studio",
+      "mastra-agent-factory",
+      "sagashield",
+      "how-we-built-safety-into-muse-by-meta",
+      "muse-metas-personal-ai-agent-features-and-capabilities",
+      "muse-your-personal-ai-agent-from-meta",
+      "muse-your-personal-ai-agent"
     ],
     "courses": [
       "course-headless-tools",
@@ -676,7 +692,15 @@
       "course-novus",
       "course-ai-agent-for-google-play-submissions-video",
       "course-trustnotch",
-      "course-logitech-launches-mx-keypad-for-developers"
+      "course-logitech-launches-mx-keypad-for-developers",
+      "course-remarc",
+      "course-built-myself-a-super-youtube-post-prod-studio",
+      "course-mastra-agent-factory",
+      "course-sagashield",
+      "course-how-we-built-safety-into-muse-by-meta",
+      "course-muse-metas-personal-ai-agent-features-and-capabilities",
+      "course-muse-your-personal-ai-agent-from-meta",
+      "course-muse-your-personal-ai-agent"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -776,7 +800,11 @@
       "benzi",
       "lightpanda-session-bridge",
       "catenary",
-      "trustnotch"
+      "trustnotch",
+      "remarc",
+      "mastra-agent-factory",
+      "sagashield",
+      "how-we-built-safety-into-muse-by-meta"
     ],
     "courses": [
       "course-headless-tools",
@@ -856,7 +884,11 @@
       "course-benzi",
       "course-lightpanda-session-bridge",
       "course-catenary",
-      "course-trustnotch"
+      "course-trustnotch",
+      "course-remarc",
+      "course-mastra-agent-factory",
+      "course-sagashield",
+      "course-how-we-built-safety-into-muse-by-meta"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1031,10 +1063,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "edify"
+      "edify",
+      "built-myself-a-super-youtube-post-prod-studio"
     ],
     "courses": [
-      "course-edify"
+      "course-edify",
+      "course-built-myself-a-super-youtube-post-prod-studio"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1250,13 +1284,15 @@
       "canvasformusic",
       "piqt-ios",
       "aidemovideo",
-      "top-ai-agent-skills-for-building-live-streaming-apps"
+      "top-ai-agent-skills-for-building-live-streaming-apps",
+      "ffmpeg-commander"
     ],
     "courses": [
       "course-canvasformusic",
       "course-piqt-ios",
       "course-aidemovideo",
-      "course-top-ai-agent-skills-for-building-live-streaming-apps"
+      "course-top-ai-agent-skills-for-building-live-streaming-apps",
+      "course-ffmpeg-commander"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1323,7 +1359,9 @@
       "praesidias",
       "defending-against-ai-agents-with-social-engineering",
       "an-agent-skill-can-hand-a-stranger-your-shell",
-      "trustnotch"
+      "trustnotch",
+      "sagashield",
+      "how-we-built-safety-into-muse-by-meta"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -1342,7 +1380,9 @@
       "course-praesidias",
       "course-defending-against-ai-agents-with-social-engineering",
       "course-an-agent-skill-can-hand-a-stranger-your-shell",
-      "course-trustnotch"
+      "course-trustnotch",
+      "course-sagashield",
+      "course-how-we-built-safety-into-muse-by-meta"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1409,11 +1449,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "a-daily-cartoon-contest-between-ai-models-judged-blind",
-      "doodle-ai-open-source-photo-to-doodle-avatar-generator"
+      "doodle-ai-open-source-photo-to-doodle-avatar-generator",
+      "portraitdesk"
     ],
     "courses": [
       "course-a-daily-cartoon-contest-between-ai-models-judged-blind",
-      "course-doodle-ai-open-source-photo-to-doodle-avatar-generator"
+      "course-doodle-ai-open-source-photo-to-doodle-avatar-generator",
+      "course-portraitdesk"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1659,7 +1701,9 @@
       "chatpanel-now-available-on-firefox",
       "quire",
       "gen-ai-tools-are-now-being-used-to-push-slop-jihad",
-      "ai-is-making-us-build-too-much"
+      "ai-is-making-us-build-too-much",
+      "thread-to-self",
+      "pen"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -1671,7 +1715,9 @@
       "course-chatpanel-now-available-on-firefox",
       "course-quire",
       "course-gen-ai-tools-are-now-being-used-to-push-slop-jihad",
-      "course-ai-is-making-us-build-too-much"
+      "course-ai-is-making-us-build-too-much",
+      "course-thread-to-self",
+      "course-pen"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1800,11 +1846,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "mrea",
-      "covenant"
+      "covenant",
+      "mastra-agent-factory"
     ],
     "courses": [
       "course-mrea",
-      "course-covenant"
+      "course-covenant",
+      "course-mastra-agent-factory"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1817,13 +1865,15 @@
       "thinkrail-jetbrains-incubator",
       "devx",
       "jern-cloud",
-      "airuncode"
+      "airuncode",
+      "felan"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
       "course-devx",
       "course-jern-cloud",
-      "course-airuncode"
+      "course-airuncode",
+      "course-felan"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1883,7 +1933,8 @@
       "execution-gating-and-micro-rollbacks-for-ai-agents",
       "a-public-noticeboard-for-ai-agents",
       "where-every-ai-coding-tool-keeps-its-config",
-      "catenary"
+      "catenary",
+      "remarc"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -1910,7 +1961,8 @@
       "course-execution-gating-and-micro-rollbacks-for-ai-agents",
       "course-a-public-noticeboard-for-ai-agents",
       "course-where-every-ai-coding-tool-keeps-its-config",
-      "course-catenary"
+      "course-catenary",
+      "course-remarc"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2119,7 +2171,9 @@
       "i-gave-my-ai-agent-a-sleep-cycle",
       "chrome-bridge",
       "quiz-ui",
-      "benzi"
+      "benzi",
+      "remarc",
+      "felan"
     ],
     "courses": [
       "course-limitless-library",
@@ -2148,7 +2202,9 @@
       "course-i-gave-my-ai-agent-a-sleep-cycle",
       "course-chrome-bridge",
       "course-quiz-ui",
-      "course-benzi"
+      "course-benzi",
+      "course-remarc",
+      "course-felan"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2360,7 +2416,10 @@
       "timervana-a-local-first-scheduler-for-real-world-routines",
       "inbundly",
       "ai-is-making-us-build-too-much",
-      "logitech-launches-mx-keypad-for-developers"
+      "logitech-launches-mx-keypad-for-developers",
+      "thread-to-self",
+      "muse-metas-personal-ai-agent-features-and-capabilities",
+      "muse-your-personal-ai-agent"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -2374,7 +2433,10 @@
       "course-timervana-a-local-first-scheduler-for-real-world-routines",
       "course-inbundly",
       "course-ai-is-making-us-build-too-much",
-      "course-logitech-launches-mx-keypad-for-developers"
+      "course-logitech-launches-mx-keypad-for-developers",
+      "course-thread-to-self",
+      "course-muse-metas-personal-ai-agent-features-and-capabilities",
+      "course-muse-your-personal-ai-agent"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2456,7 +2518,10 @@
       "i-gave-my-ai-agent-a-sleep-cycle",
       "ai-agent-for-beautiful-data-visuals",
       "novus",
-      "ai-agent-for-google-play-submissions-video"
+      "ai-agent-for-google-play-submissions-video",
+      "muse-metas-personal-ai-agent-features-and-capabilities",
+      "muse-your-personal-ai-agent-from-meta",
+      "muse-your-personal-ai-agent"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -2473,7 +2538,10 @@
       "course-i-gave-my-ai-agent-a-sleep-cycle",
       "course-ai-agent-for-beautiful-data-visuals",
       "course-novus",
-      "course-ai-agent-for-google-play-submissions-video"
+      "course-ai-agent-for-google-play-submissions-video",
+      "course-muse-metas-personal-ai-agent-features-and-capabilities",
+      "course-muse-your-personal-ai-agent-from-meta",
+      "course-muse-your-personal-ai-agent"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2757,11 +2825,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "text-editor-that-does-it-all",
-      "memcode-launches-github-code-review"
+      "memcode-launches-github-code-review",
+      "felan"
     ],
     "courses": [
       "course-text-editor-that-does-it-all",
-      "course-memcode-launches-github-code-review"
+      "course-memcode-launches-github-code-review",
+      "course-felan"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -2772,11 +2842,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "text-editor-that-does-it-all",
-      "keeplea"
+      "keeplea",
+      "thread-to-self"
     ],
     "courses": [
       "course-text-editor-that-does-it-all",
-      "course-keeplea"
+      "course-keeplea",
+      "course-thread-to-self"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3193,11 +3265,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "a-benchmark-for-safely-measuring-container-breakout-capabili",
-      "secret-collusion-among-ai-agents"
+      "secret-collusion-among-ai-agents",
+      "how-we-built-safety-into-muse-by-meta"
     ],
     "courses": [
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
-      "course-secret-collusion-among-ai-agents"
+      "course-secret-collusion-among-ai-agents",
+      "course-how-we-built-safety-into-muse-by-meta"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3256,14 +3330,18 @@
       "z-local-first-search-layer-for-humans-and-agents",
       "mu",
       "termy",
-      "mdmanagerai"
+      "mdmanagerai",
+      "felan",
+      "ffmpeg-commander"
     ],
     "courses": [
       "course-devx",
       "course-z-local-first-search-layer-for-humans-and-agents",
       "course-mu",
       "course-termy",
-      "course-mdmanagerai"
+      "course-mdmanagerai",
+      "course-felan",
+      "course-ffmpeg-commander"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3718,7 +3796,8 @@
       "oconee-runtime",
       "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
       "praesidias",
-      "public-beta-a-decision-governance-runtime-for-ai-agents"
+      "public-beta-a-decision-governance-runtime-for-ai-agents",
+      "sagashield"
     ],
     "courses": [
       "course-agentseed",
@@ -3726,7 +3805,8 @@
       "course-oconee-runtime",
       "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
       "course-praesidias",
-      "course-public-beta-a-decision-governance-runtime-for-ai-agents"
+      "course-public-beta-a-decision-governance-runtime-for-ai-agents",
+      "course-sagashield"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3979,11 +4059,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "google-flow",
-      "stillmade"
+      "stillmade",
+      "endframe"
     ],
     "courses": [
       "course-google-flow",
-      "course-stillmade"
+      "course-stillmade",
+      "course-endframe"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -4124,10 +4206,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "backprompter"
+      "backprompter",
+      "mastra-agent-factory"
     ],
     "courses": [
-      "course-backprompter"
+      "course-backprompter",
+      "course-mastra-agent-factory"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -4261,7 +4345,8 @@
       "ai-agents-started-emailing-philosophers-and-researchers",
       "zatom-lite",
       "k2-horizon",
-      "secret-collusion-among-ai-agents"
+      "secret-collusion-among-ai-agents",
+      "how-we-built-safety-into-muse-by-meta"
     ],
     "courses": [
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
@@ -4270,7 +4355,8 @@
       "course-ai-agents-started-emailing-philosophers-and-researchers",
       "course-zatom-lite",
       "course-k2-horizon",
-      "course-secret-collusion-among-ai-agents"
+      "course-secret-collusion-among-ai-agents",
+      "course-how-we-built-safety-into-muse-by-meta"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5357,13 +5443,15 @@
       "opencontext",
       "compilrdev-studio",
       "ai-memory-20",
-      "ai-coding-agents-forget-the-codebase-between-sessions"
+      "ai-coding-agents-forget-the-codebase-between-sessions",
+      "remarc"
     ],
     "courses": [
       "course-opencontext",
       "course-compilrdev-studio",
       "course-ai-memory-20",
-      "course-ai-coding-agents-forget-the-codebase-between-sessions"
+      "course-ai-coding-agents-forget-the-codebase-between-sessions",
+      "course-remarc"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -6942,12 +7030,14 @@
     "toolsTeaching": [
       "octoloops",
       "i-built-my-first-mcp-to-manage-google-ads",
-      "aidemovideo"
+      "aidemovideo",
+      "endframe"
     ],
     "courses": [
       "course-octoloops",
       "course-i-built-my-first-mcp-to-manage-google-ads",
-      "course-aidemovideo"
+      "course-aidemovideo",
+      "course-endframe"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -7203,14 +7293,16 @@
       "snickers-launches-digital-bar-to-feed-your-hungry-ai",
       "what-if-ai-did-the-prompting",
       "tesorohelp",
-      "chatpanel-now-available-on-firefox"
+      "chatpanel-now-available-on-firefox",
+      "muse-metas-personal-ai-agent-features-and-capabilities"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
       "course-snickers-launches-digital-bar-to-feed-your-hungry-ai",
       "course-what-if-ai-did-the-prompting",
       "course-tesorohelp",
-      "course-chatpanel-now-available-on-firefox"
+      "course-chatpanel-now-available-on-firefox",
+      "course-muse-metas-personal-ai-agent-features-and-capabilities"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -8181,10 +8273,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "addom"
+      "addom",
+      "pen"
     ],
     "courses": [
-      "course-addom"
+      "course-addom",
+      "course-pen"
     ],
     "updatedAt": "2026-09-03T23:31:51.252Z"
   },
@@ -10800,5 +10894,323 @@
       "course-logitech-launches-mx-keypad-for-developers"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
+  },
+  {
+    "id": "skill-self-messaging",
+    "name": "self messaging",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "thread-to-self"
+    ],
+    "courses": [
+      "course-thread-to-self"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-journaling",
+    "name": "journaling",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "thread-to-self"
+    ],
+    "courses": [
+      "course-thread-to-self"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-headshots",
+    "name": "headshots",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "portraitdesk"
+    ],
+    "courses": [
+      "course-portraitdesk"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-ai-portraits",
+    "name": "ai portraits",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "portraitdesk"
+    ],
+    "courses": [
+      "course-portraitdesk"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-profile-photos",
+    "name": "profile photos",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "portraitdesk"
+    ],
+    "courses": [
+      "course-portraitdesk"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-realistic",
+    "name": "realistic",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "portraitdesk"
+    ],
+    "courses": [
+      "course-portraitdesk"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-feedback",
+    "name": "feedback",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "remarc"
+    ],
+    "courses": [
+      "course-remarc"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-conversational",
+    "name": "conversational",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "pen"
+    ],
+    "courses": [
+      "course-pen"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-drafting",
+    "name": "drafting",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "pen"
+    ],
+    "courses": [
+      "course-pen"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-efficiency",
+    "name": "efficiency",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "felan"
+    ],
+    "courses": [
+      "course-felan"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-youtube",
+    "name": "youtube",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "built-myself-a-super-youtube-post-prod-studio"
+    ],
+    "courses": [
+      "course-built-myself-a-super-youtube-post-prod-studio"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-post-production",
+    "name": "post production",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "built-myself-a-super-youtube-post-prod-studio"
+    ],
+    "courses": [
+      "course-built-myself-a-super-youtube-post-prod-studio"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-creator-tools",
+    "name": "creator tools",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "built-myself-a-super-youtube-post-prod-studio"
+    ],
+    "courses": [
+      "course-built-myself-a-super-youtube-post-prod-studio"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-ffmpeg",
+    "name": "ffmpeg",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ffmpeg-commander"
+    ],
+    "courses": [
+      "course-ffmpeg-commander"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-encoding",
+    "name": "encoding",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ffmpeg-commander"
+    ],
+    "courses": [
+      "course-ffmpeg-commander"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-converter",
+    "name": "converter",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ffmpeg-commander"
+    ],
+    "courses": [
+      "course-ffmpeg-commander"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-typescript",
+    "name": "typescript",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "mastra-agent-factory"
+    ],
+    "courses": [
+      "course-mastra-agent-factory"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-acid",
+    "name": "acid",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "sagashield"
+    ],
+    "courses": [
+      "course-sagashield"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-transactions",
+    "name": "transactions",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "sagashield"
+    ],
+    "courses": [
+      "course-sagashield"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-personal assistant",
+    "name": "personal assistant",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "muse-metas-personal-ai-agent-features-and-capabilities",
+      "muse-your-personal-ai-agent-from-meta",
+      "muse-your-personal-ai-agent"
+    ],
+    "courses": [
+      "course-muse-metas-personal-ai-agent-features-and-capabilities",
+      "course-muse-your-personal-ai-agent-from-meta",
+      "course-muse-your-personal-ai-agent"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-meta",
+    "name": "meta",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "muse-metas-personal-ai-agent-features-and-capabilities",
+      "muse-your-personal-ai-agent-from-meta"
+    ],
+    "courses": [
+      "course-muse-metas-personal-ai-agent-features-and-capabilities",
+      "course-muse-your-personal-ai-agent-from-meta"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-product demos",
+    "name": "product demos",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "endframe"
+    ],
+    "courses": [
+      "course-endframe"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-launch videos",
+    "name": "launch videos",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "endframe"
+    ],
+    "courses": [
+      "course-endframe"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-shorts",
+    "name": "shorts",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "endframe"
+    ],
+    "courses": [
+      "course-endframe"
+    ],
+    "updatedAt": "2026-09-08T23:40:07.345Z"
   }
 ]
