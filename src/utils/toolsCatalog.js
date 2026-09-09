@@ -754,6 +754,12 @@ export const TOOLS = [
 
 const BY_SLUG = new Map(TOOLS.map((t) => [t.slug, t]))
 const BY_NAME = new Map(TOOLS.map((t) => [t.name.toLowerCase(), t]))
+
+// Captured at module load, before hydrateCatalog() can push live radar tools
+// into TOOLS. Anything user-visible must count from this and not TOOLS.length:
+// the prerendered HTML is produced before the live merge and the browser paints
+// after it, so TOOLS.length differs between the two and desyncs hydration.
+export const BUNDLED_COUNT = TOOLS.length
 export function getTool(slug) { return BY_SLUG.get(slug) || null }
 export function findToolByName(name) { return BY_NAME.get(String(name).toLowerCase()) || null }
 

@@ -26,7 +26,7 @@ than hidden.
 
 ## Catalogue
 
-Around 700 curated tools across six areas: code and development, design,
+__TOOL_COUNT__ curated tools across six areas: code and development, design,
 writing, data, automation, and learning. The catalogue is not exhaustive by
 design — curation is the product, and an unfiltered directory of thousands is
 the thing Toolnaut exists to replace.

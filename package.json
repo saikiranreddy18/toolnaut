@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/stamp-sw.mjs && npm run prerender",
+    "build": "vite build && node scripts/stamp-sw.mjs && node scripts/gen-llms.mjs && npm run prerender",
     "prerender": "node scripts/prerender.mjs || echo prerender-step-failed",
     "preview": "vite preview",
     "smoke": "node scripts/smoke.mjs",
