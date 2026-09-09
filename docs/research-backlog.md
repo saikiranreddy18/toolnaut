@@ -4136,3 +4136,84 @@ a client-side SPA with a static tool catalogue.
   radar change, no new dependency. (The quiz-scoring bias half is a
   separate, unscoped follow-up, not required to ship the filter.)
 - **Found:** 2026-09-06 09:09 UTC
+
+### The "no credit card" claim survived on three more pages the payment audit never checked — including the hero every visitor sees first
+
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — a direct continuation of the
+  already-SHIPPED "Free public beta, no payment" audit above (found
+  2026-09-02, sha in DEVLOG). That entry fixed `ContactSection.jsx`,
+  `Methodology.jsx`, `CapabilityMatrix.jsx` and `Pricing.jsx` — the four
+  sites its own investigation named — but never widened the search past
+  those four. Re-running the search this run (`grep -rn "credit card" src/`)
+  turns up three more literal, unconditional matches the original audit
+  missed entirely.
+- **Gap:** three more customer-facing strings assert "no credit card" as a
+  permanent fact instead of branching on `VITE_PAYMENTS_ENABLED`, the exact
+  same flag `ContactSection.jsx`/`CapabilityMatrix.jsx`/`Methodology.jsx`/
+  `Pricing.jsx` already read for this:
+  - `HeroSection.jsx:129` — `<li>✓ No credit card</li>`, in the trust row
+    directly under the primary CTA. This is the single worst site of the
+    three: the hero is the first thing every visitor sees, before they've
+    clicked anything, on the landing page that gets 100% of top-of-funnel
+    traffic. The row sits right next to `count`/`updated`, which the file's
+    own header comment says are deliberately live-read from the catalogue
+    "because a hardcoded number would be false the next time the radar
+    publishes" — the exact reasoning that was applied to two of the four
+    neighbouring list items and skipped for this one.
+  - `CTASection.jsx:52` — `No credit card. No commitment.`, under the
+    final-page CTA button, unconditional.
+  - `ExampleStack.jsx:239` — `Nine questions, about ten minutes. No credit
+    card, and no account until you want to save it.`, in the page's own
+    closing CTA block, unconditional.
+  Confirmed these are real gaps, not already-covered ground: `Checkout.jsx`
+  (`PAYMENTS_ON = import.meta.env.VITE_PAYMENTS_ENABLED === 'true'`) runs a
+  live Razorpay flow once the flag is on — a real card, even in Razorpay's
+  test mode — so "no credit card" is only true while the flag is off, same
+  as the four already-fixed claims. `FounderOffer.jsx` was also checked
+  (grepped for "credit card"/"no cost"/"free forever"/"no payment"/"no
+  charge") and has no matching claim — clean, not part of this gap.
+- **Why it matters:** the original entry called this "a materially bigger
+  trust risk than the sync gap" because it puts the site's own commercial
+  page in contradiction with a live transaction — but the hero row is a
+  bigger exposure than any of the four pages that entry did fix. Every one
+  of those four is a page a visitor has to navigate to (`/pricing`,
+  `/methodology`); the hero is unavoidable — it is the page. The day
+  `PAYMENTS_ENABLED` flips, the very first thing a returning or new visitor
+  reads is a trust badge telling them payment is impossible, directly above
+  a button that (for a signed-in, un-entitled user) `AppShell.jsx:54-72`
+  will route straight into `/pay`.
+- **Smallest useful version (what to actually build):** reuse the exact
+  conditional pattern the four already-fixed sites established — no new
+  logic, no new module, just applying the same one-line check three more
+  places:
+  - `HeroSection.jsx`: read `const paymentsOn = import.meta.env.VITE_PAYMENTS_ENABLED
+    === 'true'` (same const name `Pricing.jsx`/`Checkout.jsx` already use).
+    Keep `<li>✓ No credit card</li>` when `!paymentsOn` (today's behaviour,
+    byte-identical). When `paymentsOn`, swap it for a claim that's still
+    true and still reassuring, e.g. `<li>✓ Free to see a stack</li>` — the
+    quiz and the first stack view stay free either way per
+    `AppShell.jsx`'s own entitlement gate, only deeper app access needs
+    payment, so this doesn't have to become a "we charge now" scare line.
+  - `CTASection.jsx`: same flag, same swap on the `No credit card. No
+    commitment.` line — when payments are on, something like `Free to try —
+    plans shown at checkout` (points at reality without repeating a false
+    "no commitment" once a real subscription exists).
+  - `ExampleStack.jsx`: same flag, drop just the `No credit card, ` clause
+    from that sentence when `paymentsOn` (the rest of it — "and no account
+    until you want to save it" — stays true regardless of payments, so it's
+    the only clause that needs to change).
+  - **What this would NOT include** (kept out to bound the diff): no change
+    to `AppShell.jsx`'s entitlement logic, `Checkout.jsx`, or any pricing
+    number — this is copy-accuracy only, identical in shape to the already-
+    shipped fix on the other four pages; no new shared `PaymentsGate`
+    component — three call sites reading one env flag directly, matching
+    how the four existing sites already do it, doesn't earn an abstraction;
+    no attempt to grep for every possible phrasing of "free" beyond "credit
+    card" (that's the broader claim the original entry already scoped to
+    "no payment of any kind" and fixed on its four sites — this entry is
+    specifically the literal string the original grep missed).
+- **Build size:** S — three call sites, each a one-line conditional using a
+  flag three other files already read the same way. No backend, no new
+  dependency, no new component.
+- **Found:** 2026-09-09 12:09 UTC
