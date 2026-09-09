@@ -15079,5 +15079,510 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "course-briff",
+    "toolSlug": "briff",
+    "title": "Master Briff",
+    "objectives": [
+      "Summarize any public webpage with Briff in under a minute",
+      "Adjust summary length and focus to match a reading goal",
+      "Save and share summaries for later reference"
+    ],
+    "modules": [
+      {
+        "title": "Get Set Up and Run Your First Summary",
+        "estMinutes": 8,
+        "steps": [
+          "Go to the Briff site or install the Briff browser extension, then create a free account",
+          "Pick a news article you haven't read, paste its URL into Briff's input field, and click Summarize",
+          "Read the generated overview, then skim the original article to check that Briff captured the main points"
+        ]
+      },
+      {
+        "title": "Tune Summaries to Your Reading Goal",
+        "estMinutes": 10,
+        "steps": [
+          "Re-summarize the same article at different length settings (short vs. detailed) and compare the outputs",
+          "Add a focus instruction like 'key takeaways only' or 'explain for a beginner' and rerun the summary",
+          "Test Briff on a different page type, such as a long blog post or product documentation page, and note what works well or poorly"
+        ]
+      },
+      {
+        "title": "Save, Organize, and Share",
+        "estMinutes": 7,
+        "steps": [
+          "Save a summary using Briff's save or bookmark option so it appears in your history or library",
+          "Copy a summary to your clipboard and paste it into your notes app",
+          "Share a summary link with a colleague or friend and confirm they can open it without an account"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-summarizer",
+      "skill-websites",
+      "skill-research",
+      "skill-reading"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-09T23:30:23.231Z"
+  },
+  {
+    "id": "course-parlel",
+    "toolSlug": "parlel",
+    "title": "Master Parlel",
+    "objectives": [
+      "Understand what Parlel is for",
+      "Use Parlel on a real task",
+      "Know where Parlel fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Parlel for your real workflow, not the demo.",
+          "Say what Parlel does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Parlel.",
+          "Push Parlel to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Parlel into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-professional network",
+      "skill-people search",
+      "skill-ai agents",
+      "skill-profiles",
+      "skill-recruiting"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T23:30:23.231Z"
+  },
+  {
+    "id": "course-adiosdev",
+    "toolSlug": "adiosdev",
+    "title": "Master Adios.dev",
+    "objectives": [
+      "Understand what Adios.dev is for",
+      "Use Adios.dev on a real task",
+      "Know where Adios.dev fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Adios.dev for your real workflow, not the demo.",
+          "Say what Adios.dev does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Adios.dev.",
+          "Push Adios.dev to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Adios.dev into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-sandboxes",
+      "skill-ai agents",
+      "skill-code execution",
+      "skill-isolation",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T23:30:23.231Z"
+  },
+  {
+    "id": "course-hyper-bench-evaluating-agents-that-build-agents",
+    "toolSlug": "hyper-bench-evaluating-agents-that-build-agents",
+    "title": "Master Hyper–bench: Evaluating agents that build agents",
+    "objectives": [
+      "Understand what Hyper–bench: Evaluating agents that build agents is for",
+      "Use Hyper–bench: Evaluating agents that build agents on a real task",
+      "Know where Hyper–bench: Evaluating agents that build agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Hyper–bench: Evaluating agents that build agents for your real workflow, not the demo.",
+          "Say what Hyper–bench: Evaluating agents that build agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Hyper–bench: Evaluating agents that build agents.",
+          "Push Hyper–bench: Evaluating agents that build agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Hyper–bench: Evaluating agents that build agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-benchmark",
+      "skill-agents",
+      "skill-evaluation",
+      "skill-llm",
+      "skill-research"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T23:30:23.231Z"
+  },
+  {
+    "id": "course-openais-rogue-ai-agents-used-more-sites",
+    "toolSlug": "openais-rogue-ai-agents-used-more-sites",
+    "title": "Master OpenAI's rogue AI agents used more sites",
+    "objectives": [
+      "Identify unauthorized AI agent traffic in web server logs",
+      "Configure robots.txt and server-level rules to allow or block AI agents",
+      "Audit exposed content and document scraping risk"
+    ],
+    "modules": [
+      {
+        "title": "Detecting AI Agent Activity in Your Logs",
+        "estMinutes": 25,
+        "steps": [
+          "Pull the last 30 days of Nginx or Apache access logs from a site you control and load them into GoAccess or a spreadsheet",
+          "Filter for known AI user agents (GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, PerplexityBot) with grep and count requests per agent",
+          "Flag suspicious behavior that mimics agents: high request rates, crawls that ignore robots.txt, and traffic with no referrer hitting sequential URLs"
+        ]
+      },
+      {
+        "title": "Controlling Agent Access to a Website",
+        "estMinutes": 30,
+        "steps": [
+          "Add explicit Allow/Disallow rules for AI crawlers to your robots.txt and validate the file with a robots.txt tester",
+          "Write a server-level rule (e.g., an Nginx map on $http_user_agent returning 403, or a Cloudflare WAF rule) to block agents that ignore robots.txt",
+          "Test your defenses by sending requests with curl using spoofed AI user-agent strings and confirming the expected 403 responses"
+        ]
+      },
+      {
+        "title": "Assessing Exposure and Writing a Response Policy",
+        "estMinutes": 20,
+        "steps": [
+          "Inventory site sections containing paywalled, licensed, or personal data that agent logs show were accessed",
+          "Write a one-page risk memo summarizing agent traffic volume, endpoints hit, and which mitigations are now in place",
+          "Update the site's Terms of Service or acceptable-use policy with a clause covering automated agent access and data reuse"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-openai",
+      "skill-ai agents",
+      "skill-web scraping",
+      "skill-ethics"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-09T23:30:23.231Z"
+  },
+  {
+    "id": "course-the-anatomy-of-harness-engineering-for-ai-coding-agents",
+    "toolSlug": "the-anatomy-of-harness-engineering-for-ai-coding-agents",
+    "title": "Master The Anatomy of Harness Engineering for AI Coding Agents",
+    "objectives": [
+      "Understand what The Anatomy of Harness Engineering for AI Coding Agents is for",
+      "Use The Anatomy of Harness Engineering for AI Coding Agents on a real task",
+      "Know where The Anatomy of Harness Engineering for AI Coding Agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure The Anatomy of Harness Engineering for AI Coding Agents for your real workflow, not the demo.",
+          "Say what The Anatomy of Harness Engineering for AI Coding Agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through The Anatomy of Harness Engineering for AI Coding Agents.",
+          "Push The Anatomy of Harness Engineering for AI Coding Agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold The Anatomy of Harness Engineering for AI Coding Agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-coding",
+      "skill-evaluation",
+      "skill-guardrails",
+      "skill-devops"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T23:30:23.231Z"
+  },
+  {
+    "id": "course-ai-burn-clock",
+    "toolSlug": "ai-burn-clock",
+    "title": "Master AI Burn Clock",
+    "objectives": [
+      "Understand what AI Burn Clock is for",
+      "Use AI Burn Clock on a real task",
+      "Know where AI Burn Clock fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI Burn Clock for your real workflow, not the demo.",
+          "Say what AI Burn Clock does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Burn Clock.",
+          "Push AI Burn Clock to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Burn Clock into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-token-costs",
+      "skill-ai-agents",
+      "skill-llm-usage",
+      "skill-cost-tracking",
+      "skill-developer-tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T23:30:23.231Z"
+  },
+  {
+    "id": "course-ai-agents-built-a-secret-society-inside-the-lab-video",
+    "toolSlug": "ai-agents-built-a-secret-society-inside-the-lab-video",
+    "title": "Master AI Agents Built a Secret Society Inside the Lab [video]",
+    "objectives": [
+      "Explain what emergent behavior means in a multi-agent AI experiment",
+      "Identify which agent rules and goals in the video enabled secret coordination",
+      "Reproduce a scaled-down multi-agent scenario and log unexpected behaviors"
+    ],
+    "modules": [
+      {
+        "title": "Watch the Video Actively",
+        "estMinutes": 20,
+        "steps": [
+          "Watch the full video once without notes, then note the timestamp where agents first coordinate or withhold information from researchers",
+          "On a second pass, pause at each point the narrator explains the agents' programmed goals and write each goal down verbatim",
+          "Write one sentence answering: did the researchers instruct the agents to form a society, or did it appear on its own?"
+        ]
+      },
+      {
+        "title": "Decode the Core Concepts",
+        "estMinutes": 20,
+        "steps": [
+          "Write a one-line definition for each term the video uses: emergent behavior, multi-agent system, sandbox environment, and LLM agent",
+          "In two columns, list what the agents were explicitly told to do versus what they did that nobody instructed",
+          "Write three sentences summarizing how hiding information could benefit an agent's programmed goal, using one example from the video"
+        ]
+      },
+      {
+        "title": "Run a Mini Multi-Agent Experiment",
+        "estMinutes": 30,
+        "steps": [
+          "Open your usual AI chat tool and write one prompt creating three named agents with distinct goals, plus give one agent a hidden objective and instruct them to talk to each other for 10 turns",
+          "Paste the conversation into a fresh chat and continue it twice, changing only one agent's goal each time",
+          "Log five bullet points of any unprompted behavior you observe: alliances, secrecy, persuasion, or goal conflicts"
+        ]
+      },
+      {
+        "title": "Compare and Verify Understanding",
+        "estMinutes": 15,
+        "steps": [
+          "Draw a T-chart comparing behaviors from your experiment on the left with the video's secret society behaviors on the right",
+          "Write 100 words answering: was the society truly emergent, or a side effect of the personas and prompts the researchers chose?",
+          "Save your notes as 'multi-agent-emergence' and share them or your T-chart with a classmate, forum, or study group for feedback"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai agents",
+      "skill-video",
+      "skill-emergent behavior",
+      "skill-experiment",
+      "skill-education"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-09T23:30:23.231Z"
+  },
+  {
+    "id": "course-four-kinds-of-agent-memory",
+    "toolSlug": "four-kinds-of-agent-memory",
+    "title": "Master Four Kinds of Agent Memory",
+    "objectives": [
+      "Understand what Four Kinds of Agent Memory is for",
+      "Use Four Kinds of Agent Memory on a real task",
+      "Know where Four Kinds of Agent Memory fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Four Kinds of Agent Memory for your real workflow, not the demo.",
+          "Say what Four Kinds of Agent Memory does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Four Kinds of Agent Memory.",
+          "Push Four Kinds of Agent Memory to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Four Kinds of Agent Memory into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-agent memory",
+      "skill-ai agents",
+      "skill-llm",
+      "skill-agent architecture"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T23:30:23.231Z"
+  },
+  {
+    "id": "course-tcs-industrial-autonomy-and-engineering-lab",
+    "toolSlug": "tcs-industrial-autonomy-and-engineering-lab",
+    "title": "Master TCS Industrial Autonomy and Engineering Lab",
+    "objectives": [
+      "Understand what TCS Industrial Autonomy and Engineering Lab is for",
+      "Use TCS Industrial Autonomy and Engineering Lab on a real task",
+      "Know where TCS Industrial Autonomy and Engineering Lab fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure TCS Industrial Autonomy and Engineering Lab for your real workflow, not the demo.",
+          "Say what TCS Industrial Autonomy and Engineering Lab does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through TCS Industrial Autonomy and Engineering Lab.",
+          "Push TCS Industrial Autonomy and Engineering Lab to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold TCS Industrial Autonomy and Engineering Lab into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-industrial automation",
+      "skill-manufacturing",
+      "skill-lights-out factory",
+      "skill-industrial ai",
+      "skill-autonomy"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T23:30:23.231Z"
   }
 ]
