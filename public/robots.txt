@@ -1,4 +1,42 @@
+# Toolnaut — open to crawlers, including the ones that answer questions.
+#
+# AI assistants are now where a large share of "which AI tool should I use for
+# X" is asked, which is the exact question this product answers. Being readable
+# to them is not a leak to tolerate, it is a distribution channel — so the
+# answer engines are named explicitly rather than left to infer it from the
+# wildcard.
+#
+# See /llms.txt for a structured summary written for them.
+
 User-agent: *
+Allow: /
+
+# Answer and generative engines
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
 Allow: /
 
 Sitemap: https://toolnaut.xyz/sitemap.xml

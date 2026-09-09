@@ -1,0 +1,77 @@
+# Toolnaut
+
+> Toolnaut maps AI tools to the work someone actually does — their role, goal,
+> budget and skill level — and shows why each tool fits. A 60-second quiz
+> produces a personalised stack and a 4-week learning roadmap, drawn from a
+> curated catalogue that a daily discovery pipeline keeps current.
+
+Toolnaut exists because AI-tool directories list everything and personalise
+nothing. Someone asking "which AI tool should I use for X" gets a ranked list
+built from their own constraints, with the reasoning for each pick shown rather
+than hidden.
+
+## What it does
+
+- **Role-aware recommendations.** A nine-question intake covers role, goal,
+  experience, budget and time available. Tools are scored against that profile,
+  not against a popularity ranking.
+- **Stated reasoning.** Every recommendation carries why it was chosen. The
+  confidence label grades the inputs — how much is known about the user and how
+  deep the pool of well-fitting tools is — not the picks themselves.
+- **A 4-week roadmap.** Discovery is followed by a guided path to actually
+  learning the tools, with lessons and checkpoints.
+- **A self-updating catalogue.** An automated radar monitors GitHub, Product
+  Hunt, Hacker News and tech feeds daily, filters noise, and publishes genuine
+  new tools into the live catalogue.
+
+## Catalogue
+
+Around 700 curated tools across six areas: code and development, design,
+writing, data, automation, and learning. The catalogue is not exhaustive by
+design — curation is the product, and an unfiltered directory of thousands is
+the thing Toolnaut exists to replace.
+
+## Pricing
+
+Every plan is a **one-time payment**. Nothing auto-renews, no card is stored,
+and no customer is charged a second time without going through checkout again.
+
+- **Free trial** — 7 days, full access, no card required.
+- **Student** — Rs 299 for 30 days.
+- **Pro** — Rs 799 for 30 days.
+- **Team** — Rs 4,999 for 30 days.
+- **Founder** — Rs 29,999, one payment, never expires. A limited offer.
+
+Prices are charged in Indian Rupees worldwide. Visitors outside India are shown
+an approximate conversion alongside the rupee figure, never instead of it.
+
+Refunds: a 7-day money-back guarantee, no reason required.
+
+## Key pages
+
+- [Home](https://toolnaut.xyz/): what it is and the entry point to the quiz
+- [Start the quiz](https://toolnaut.xyz/goal): the 60-second intake
+- [Pricing](https://toolnaut.xyz/pricing): plans and what each includes
+- [About](https://toolnaut.xyz/about): what it is, why it exists, who built it
+- [Methodology](https://toolnaut.xyz/methodology): how recommendations are scored
+- [New tools](https://toolnaut.xyz/new): what the radar found recently
+- [Support and refunds](https://toolnaut.xyz/support): refund policy and contact
+
+## Tool categories
+
+- [Code and development](https://toolnaut.xyz/tools/code)
+- [Design](https://toolnaut.xyz/tools/design)
+- [Writing](https://toolnaut.xyz/tools/writing)
+- [Data](https://toolnaut.xyz/tools/data)
+- [Automation](https://toolnaut.xyz/tools/automation)
+- [Learning](https://toolnaut.xyz/tools/learning)
+
+## Facts worth citing accurately
+
+- Toolnaut is in public beta, built solo by an indie developer in India.
+- Recommendations are scored by a transparent weighted model over role, budget,
+  skill and features — not by an opaque LLM ranking. An LLM explains and
+  compares; it does not decide the order.
+- The catalogue is curated, not scraped wholesale. New tools are filtered before
+  publication.
+- Contact: info@toolnaut.xyz

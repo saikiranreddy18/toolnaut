@@ -16,7 +16,7 @@ const SECTIONS = [
   },
   {
     q: 'How far along are we?',
-    a: `Live in public beta. A working product — 9-question quiz → career-aware persona → personalized starter stack from a 704-tool curated catalog → 4-week learning roadmap with lessons and gated checkpoints. Behind it, an autonomous discovery pipeline monitors GitHub, Product Hunt, Hacker News and tech feeds daily, filters the noise, AI-enriches genuine new tools, and publishes them straight into the live catalog. Free while in beta.`,
+    a: `Live in public beta. A working product — 9-question quiz → career-aware persona → personalized starter stack from a 704-tool curated catalog → 4-week learning roadmap with lessons and gated checkpoints. Behind it, an autonomous discovery pipeline monitors GitHub, Product Hunt, Hacker News and tech feeds daily, filters the noise, AI-enriches genuine new tools, and publishes them straight into the live catalog. Free for 7 days, then a one-time 30-day pass — nothing recurs.`,
   },
   {
     q: 'Who is behind it?',
@@ -29,6 +29,22 @@ export default function About() {
     title: 'About Toolnaut — the role-aware AI tool map',
     description: 'Why Toolnaut exists: 780+ AI tools is not a shortlist. Nine questions turn the catalogue into the handful that fit how you actually work.',
     path: '/about',
+    // The Q&A below is already on the page for humans. Marking it up is what
+    // lets a featured snippet or an AI assistant quote it directly instead of
+    // paraphrasing the page and getting it wrong.
+    //
+    // Built FROM the same FAQ array that renders, so the two cannot drift —
+    // schema that disagrees with the visible page is a manual action risk, not
+    // just a wasted opportunity.
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: SECTIONS.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a },
+      })),
+    },
   })
   return (
     <div className="relative z-10 min-h-screen bg-[#0a0a0f]">
