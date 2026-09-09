@@ -1141,5 +1141,33 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "aer",
+    "name": "AER",
+    "category": "automation",
+    "sourceCategory": "Productivity & Meetings",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Show HN: AER – A subjectless protocol anchored in TPM 2.0 and WASM receipts",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://medium.com/@team-sequence/designing-a-subjectless-distributed-protocol-for-autonomous-machines-and-ai-agents-aer-autonomous-33a81e77e784",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "automation"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49622818",
+    "discoveredAt": "2026-09-09T13:45:32.864Z",
+    "updatedAt": "2026-09-09T13:45:32.864Z",
+    "contentHash": "6e67f5c8d2d58273",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]

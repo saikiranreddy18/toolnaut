@@ -14390,5 +14390,694 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "course-revliu",
+    "toolSlug": "revliu",
+    "title": "Master Revliu",
+    "objectives": [
+      "Understand what Revliu is for",
+      "Use Revliu on a real task",
+      "Know where Revliu fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Revliu for your real workflow, not the demo.",
+          "Say what Revliu does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Revliu.",
+          "Push Revliu to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Revliu into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-attribution",
+      "skill-marketing analytics",
+      "skill-revenue tracking",
+      "skill-multi-touch",
+      "skill-growth"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "course-ai-agent-spends-too-much-time-waiting",
+    "toolSlug": "ai-agent-spends-too-much-time-waiting",
+    "title": "Master AI agent spends too much time waiting",
+    "objectives": [
+      "Understand what AI agent spends too much time waiting is for",
+      "Use AI agent spends too much time waiting on a real task",
+      "Know where AI agent spends too much time waiting fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI agent spends too much time waiting for your real workflow, not the demo.",
+          "Say what AI agent spends too much time waiting does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI agent spends too much time waiting.",
+          "Push AI agent spends too much time waiting to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI agent spends too much time waiting into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-job queue",
+      "skill-async tasks",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "course-free-ai-image-tools-no-signup",
+    "toolSlug": "free-ai-image-tools-no-signup",
+    "title": "Master Free AI image tools, no signup",
+    "objectives": [
+      "Understand what Free AI image tools, no signup is for",
+      "Use Free AI image tools, no signup on a real task",
+      "Know where Free AI image tools, no signup fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Free AI image tools, no signup.",
+          "Say what Free AI image tools, no signup does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Free AI image tools, no signup.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Free AI image tools, no signup into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-ai images",
+      "skill-image generation",
+      "skill-image editing",
+      "skill-no signup",
+      "skill-free tools"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "course-raven",
+    "toolSlug": "raven",
+    "title": "Master Raven",
+    "objectives": [
+      "Embed an AES-encrypted secret message inside innocent cover text with a passphrase",
+      "Extract and decrypt a hidden message from received text, verifying integrity",
+      "Spot and remove telltale artifacts that reveal a text carries hidden data"
+    ],
+    "modules": [
+      {
+        "title": "Install Raven and run your first encode",
+        "estMinutes": 10,
+        "steps": [
+          "Install via `pip install raven-stego` and confirm with `raven --version`",
+          "Write a one-line secret to secret.txt and a 3-paragraph blog-style sample to cover.txt",
+          "Run `raven encode --cover cover.txt --secret secret.txt --passphrase 'correct horse' -o out.txt`, then diff out.txt against cover.txt to see the visible text is unchanged"
+        ]
+      },
+      {
+        "title": "Control output quality and capacity",
+        "estMinutes": 12,
+        "steps": [
+          "Run `raven encode` with `--mode zero-width` and `--mode homoglyph` on the same inputs; compare file sizes and note capacity differences",
+          "Pass `--stats` on the output to inspect bits-per-character density and Raven's detectability score",
+          "Experiment with cover length: try embedding a 500-byte secret in 200 vs 2000 words of cover text and record where Raven warns about low redundancy"
+        ]
+      },
+      {
+        "title": "Decode, verify, and handle failure modes",
+        "estMinutes": 10,
+        "steps": [
+          "Send out.txt to yourself by pasting into a plain email body, then run `raven decode --in received.txt --passphrase 'correct horse'`",
+          "Test a wrong passphrase and confirm Raven fails cleanly with its HMAC integrity check rather than emitting garbage",
+          "Corrupt the carrier deliberately (re-flow line breaks, run through an autocorrecting editor) and identify which edits destroy the payload versus which survive"
+        ]
+      },
+      {
+        "title": "Operational security and anti-detection",
+        "estMinutes": 15,
+        "steps": [
+          "Run `raven lint out.txt` to flag residual zero-width characters, trailing whitespace anomalies, and Unicode confusables that scanners catch",
+          "Normalize output through `iconv -f UTF-8 -t ASCII//TRANSLIT` and re-run lint to understand why homoglyph mode breaks under normalization",
+          "Draft a personal checklist: use long unique passphrases, never reuse the same cover text twice, strip metadata, and match cover register to the channel you post on"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-encryption",
+      "skill-steganography",
+      "skill-privacy",
+      "skill-messaging",
+      "skill-security"
+    ],
+    "prerequisites": [
+      "Comfortable running CLI tools and piping files",
+      "Basic understanding of symmetric encryption and passphrases",
+      "Familiarity with UTF-8 text and how editors can alter invisible characters"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "course-ai-stack-selector-tool",
+    "toolSlug": "ai-stack-selector-tool",
+    "title": "Master AI Stack Selector Tool",
+    "objectives": [
+      "Translate your app idea into a project profile the selector can score",
+      "Compare recommended models using cost, latency, and benchmark filters",
+      "Export a complete stack decision (model + framework + tooling) with rationale"
+    ],
+    "modules": [
+      {
+        "title": "Set Up and Tour the Selector",
+        "estMinutes": 5,
+        "steps": [
+          "Open the tool and create a free account, then start a new 'Stack Assessment' project from the dashboard",
+          "Locate the three main panels: Project Profile, Recommendations, and Comparison Tray",
+          "Run the sample project ('Chatbot for docs') to see what a finished selection looks like"
+        ]
+      },
+      {
+        "title": "Build Your Project Profile",
+        "estMinutes": 10,
+        "steps": [
+          "Fill in the Task Type wizard: pick your use case (e.g., text generation, image classification, embeddings/RAG) and expected input/output sizes",
+          "Set hard constraints: monthly budget, max response latency (ms), data privacy level (cloud OK vs. must self-host), and expected requests/day",
+          "Mark your team's existing skills (e.g., Python, JavaScript, no ML experience) so recommendations match your capacity to operate them"
+        ]
+      },
+      {
+        "title": "Compare Model Recommendations",
+        "estMinutes": 10,
+        "steps": [
+          "Review the ranked model list and pin 3 candidates to the Comparison Tray",
+          "Sort candidates by cost per 1K requests and by benchmark score for your task type; note which tradeoff matters more for your app",
+          "Open one model's detail card and read the 'Watch out for' section (licensing, context limits, hardware needs) before shortlisting it"
+        ]
+      },
+      {
+        "title": "Pick Frameworks and Supporting Tools",
+        "estMinutes": 8,
+        "steps": [
+          "On the Stack tab, accept or swap the suggested framework (e.g., LangChain, LlamaIndex, Hugging Face) shown as compatible with your chosen model",
+          "Add one tool each for the flagged gaps: vector database (if RAG), observability/logging, and hosting/serving",
+          "Check the Compatibility panel for red warning icons and resolve any conflicts it flags"
+        ]
+      },
+      {
+        "title": "Export and Defend Your Stack",
+        "estMinutes": 5,
+        "steps": [
+          "Click 'Generate Report' to produce the stack summary with cost estimate, rationale, and risk notes per choice",
+          "Edit the one-paragraph justification so it explains your top tradeoff (e.g., cheaper model, slightly lower accuracy) in plain language",
+          "Export as Markdown/PDF and share the link with a teammate for a sanity check before building"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-stack selector",
+      "skill-ai tools",
+      "skill-recommendation",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "course-post-training-rlm-agents-for-end-to-end-m-a-diligence",
+    "toolSlug": "post-training-rlm-agents-for-end-to-end-m-a-diligence",
+    "title": "Master Post-Training RLM Agents for End-to-End M&A Diligence",
+    "objectives": [
+      "Understand what Post-Training RLM Agents for End-to-End M&A Diligence is for",
+      "Use Post-Training RLM Agents for End-to-End M&A Diligence on a real task",
+      "Know where Post-Training RLM Agents for End-to-End M&A Diligence fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Post-Training RLM Agents for End-to-End M&A Diligence for your real workflow, not the demo.",
+          "Say what Post-Training RLM Agents for End-to-End M&A Diligence does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Post-Training RLM Agents for End-to-End M&A Diligence.",
+          "Push Post-Training RLM Agents for End-to-End M&A Diligence to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Post-Training RLM Agents for End-to-End M&A Diligence into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-m&a-diligence",
+      "skill-rlm-agents",
+      "skill-post-training",
+      "skill-legal-ai"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "course-starwell",
+    "toolSlug": "starwell",
+    "title": "Master Starwell",
+    "objectives": [
+      "Understand what Starwell is for",
+      "Use Starwell on a real task",
+      "Know where Starwell fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Starwell for your real workflow, not the demo.",
+          "Say what Starwell does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Starwell.",
+          "Push Starwell to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Starwell into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-ai agents",
+      "skill-statistics",
+      "skill-api",
+      "skill-data grounding",
+      "skill-hallucination"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "course-we-should-anthropomorphize-ai-agents",
+    "toolSlug": "we-should-anthropomorphize-ai-agents",
+    "title": "Master We should anthropomorphize AI agents",
+    "objectives": [
+      "Understand what We should anthropomorphize AI agents is for",
+      "Use We should anthropomorphize AI agents on a real task",
+      "Know where We should anthropomorphize AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure We should anthropomorphize AI agents for your real workflow, not the demo.",
+          "Say what We should anthropomorphize AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through We should anthropomorphize AI agents.",
+          "Push We should anthropomorphize AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold We should anthropomorphize AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai agents",
+      "skill-anthropomorphism",
+      "skill-essay",
+      "skill-opinion",
+      "skill-llm"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "course-t3rnel-browser",
+    "toolSlug": "t3rnel-browser",
+    "title": "Master T3rnel Browser",
+    "objectives": [
+      "Understand what T3rnel Browser is for",
+      "Use T3rnel Browser on a real task",
+      "Know where T3rnel Browser fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure T3rnel Browser for your real workflow, not the demo.",
+          "Say what T3rnel Browser does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through T3rnel Browser.",
+          "Push T3rnel Browser to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold T3rnel Browser into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-browser",
+      "skill-ai-agent",
+      "skill-sessions",
+      "skill-plugin"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "course-lapis-one",
+    "toolSlug": "lapis-one",
+    "title": "Master Lapis One",
+    "objectives": [
+      "Understand what Lapis One is for",
+      "Use Lapis One on a real task",
+      "Know where Lapis One fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Lapis One for your real workflow, not the demo.",
+          "Say what Lapis One does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Lapis One.",
+          "Push Lapis One to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Lapis One into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-hardware",
+      "skill-personal computer",
+      "skill-self-hosting"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "course-making-your-data-ready-for-agentic-ai",
+    "toolSlug": "making-your-data-ready-for-agentic-ai",
+    "title": "Master Making your data ready for agentic AI",
+    "objectives": [
+      "Understand what Making your data ready for agentic AI is for",
+      "Use Making your data ready for agentic AI on a real task",
+      "Know where Making your data ready for agentic AI fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Making your data ready for agentic AI for your real workflow, not the demo.",
+          "Say what Making your data ready for agentic AI does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Making your data ready for agentic AI.",
+          "Push Making your data ready for agentic AI to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Making your data ready for agentic AI into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-agentic ai",
+      "skill-data engineering",
+      "skill-data architecture",
+      "skill-data readiness"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "course-meta-launches-muse-a-personal-ai-agent",
+    "toolSlug": "meta-launches-muse-a-personal-ai-agent",
+    "title": "Master Meta launches Muse, a personal AI agent",
+    "objectives": [
+      "Understand what Meta launches Muse, a personal AI agent is for",
+      "Use Meta launches Muse, a personal AI agent on a real task",
+      "Know where Meta launches Muse, a personal AI agent fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Meta launches Muse, a personal AI agent.",
+          "Say what Meta launches Muse, a personal AI agent does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Meta launches Muse, a personal AI agent.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Meta launches Muse, a personal AI agent into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-personal assistant",
+      "skill-meta",
+      "skill-chatbot",
+      "skill-productivity"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "course-suno-rolls-out-v6-song-making-model-will-pay-royalties",
+    "toolSlug": "suno-rolls-out-v6-song-making-model-will-pay-royalties",
+    "title": "Master Suno rolls out v6 song making model, will pay royalties",
+    "objectives": [
+      "Generate a full song from a text prompt using Suno v6",
+      "Use Custom mode to control lyrics, structure, and style",
+      "Export a finished track and enroll in the royalty program"
+    ],
+    "modules": [
+      {
+        "title": "Set up Suno and pick the v6 model",
+        "estMinutes": 8,
+        "steps": [
+          "Create a free account at suno.com, then open the Create page and locate your daily credit balance in the sidebar",
+          "Open the model dropdown and select v6, then read the tooltips for Simple mode, Custom mode, and Instrumental toggle",
+          "Check the plan page to see which features (commercial use, WAV export, royalty eligibility) require a paid tier"
+        ]
+      },
+      {
+        "title": "Generate your first song with a prompt",
+        "estMinutes": 12,
+        "steps": [
+          "In Simple mode, write a one-line prompt combining genre, mood, and topic, e.g. 'upbeat synth-pop song about missing the last train home'",
+          "Generate the song, listen to both versions Suno produces, and note how the prompt wording changed tempo and instrumentation",
+          "Rewrite the prompt with a specific BPM feel, vocal style, or era reference and regenerate to compare results"
+        ]
+      },
+      {
+        "title": "Take control with Custom mode",
+        "estMinutes": 15,
+        "steps": [
+          "Switch to Custom mode and paste or write lyrics using structure tags like [Intro], [Verse], [Chorus], [Bridge], and [Outro]",
+          "Fill the Style of Music field with concrete tags (genre, instruments, vocal type, production feel) while staying under the character limit",
+          "Use the Exclude Styles field to block sounds you don't want, then regenerate until the chorus lands the way you want"
+        ]
+      },
+      {
+        "title": "Edit, extend, and polish your track",
+        "estMinutes": 12,
+        "steps": [
+          "Use Extend to continue a song that ends too early, choosing the exact timestamp where the extension should start",
+          "Use Crop to trim a weak intro or outro, and Replace Section to regenerate only the part of the song that misses",
+          "Save the best version to your Library, create a Persona from its vocal style, and apply that Persona to a follow-up song"
+        ]
+      },
+      {
+        "title": "Export and opt into royalties",
+        "estMinutes": 8,
+        "steps": [
+          "Download your finished song as MP3 (or WAV if your plan allows) and pull the stems if you want to remix in a DAW",
+          "Open the song's menu, read the royalty/revenue-sharing terms, and complete the opt-in or artist verification steps for the royalty program",
+          "Add the required Suno attribution metadata when uploading the track to a streaming or social platform, and verify your payout method in account settings"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-music generation",
+      "skill-ai music",
+      "skill-text-to-music",
+      "skill-songwriting",
+      "skill-royalties"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-09T13:45:32.864Z"
   }
 ]

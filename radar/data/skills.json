@@ -96,7 +96,9 @@
       "ai-means-the-end-of-software-as-we-know-it",
       "developer-agency-in-the-age-of-ai",
       "felan",
-      "ffmpeg-commander"
+      "ffmpeg-commander",
+      "raven",
+      "ai-stack-selector-tool"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -190,7 +192,9 @@
       "course-ai-means-the-end-of-software-as-we-know-it",
       "course-developer-agency-in-the-age-of-ai",
       "course-felan",
-      "course-ffmpeg-commander"
+      "course-ffmpeg-commander",
+      "course-raven",
+      "course-ai-stack-selector-tool"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -367,7 +371,9 @@
       "robin",
       "inspyry",
       "portraitdesk",
-      "endframe"
+      "endframe",
+      "free-ai-image-tools-no-signup",
+      "suno-rolls-out-v6-song-making-model-will-pay-royalties"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -394,7 +400,9 @@
       "course-robin",
       "course-inspyry",
       "course-portraitdesk",
-      "course-endframe"
+      "course-endframe",
+      "course-free-ai-image-tools-no-signup",
+      "course-suno-rolls-out-v6-song-making-model-will-pay-royalties"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -404,10 +412,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "i-built-an-ai-music-generator-with-some-harnesses"
+      "i-built-an-ai-music-generator-with-some-harnesses",
+      "suno-rolls-out-v6-song-making-model-will-pay-royalties"
     ],
     "courses": [
-      "course-i-built-an-ai-music-generator-with-some-harnesses"
+      "course-i-built-an-ai-music-generator-with-some-harnesses",
+      "course-suno-rolls-out-v6-song-making-model-will-pay-royalties"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -417,10 +427,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "i-built-an-ai-music-generator-with-some-harnesses"
+      "i-built-an-ai-music-generator-with-some-harnesses",
+      "suno-rolls-out-v6-song-making-model-will-pay-royalties"
     ],
     "courses": [
-      "course-i-built-an-ai-music-generator-with-some-harnesses"
+      "course-i-built-an-ai-music-generator-with-some-harnesses",
+      "course-suno-rolls-out-v6-song-making-model-will-pay-royalties"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -584,7 +596,12 @@
       "how-we-built-safety-into-muse-by-meta",
       "muse-metas-personal-ai-agent-features-and-capabilities",
       "muse-your-personal-ai-agent-from-meta",
-      "muse-your-personal-ai-agent"
+      "muse-your-personal-ai-agent",
+      "ai-agent-spends-too-much-time-waiting",
+      "post-training-rlm-agents-for-end-to-end-m-a-diligence",
+      "t3rnel-browser",
+      "lapis-one",
+      "meta-launches-muse-a-personal-ai-agent"
     ],
     "courses": [
       "course-headless-tools",
@@ -700,7 +717,12 @@
       "course-how-we-built-safety-into-muse-by-meta",
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
       "course-muse-your-personal-ai-agent-from-meta",
-      "course-muse-your-personal-ai-agent"
+      "course-muse-your-personal-ai-agent",
+      "course-ai-agent-spends-too-much-time-waiting",
+      "course-post-training-rlm-agents-for-end-to-end-m-a-diligence",
+      "course-t3rnel-browser",
+      "course-lapis-one",
+      "course-meta-launches-muse-a-personal-ai-agent"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -804,7 +826,11 @@
       "remarc",
       "mastra-agent-factory",
       "sagashield",
-      "how-we-built-safety-into-muse-by-meta"
+      "how-we-built-safety-into-muse-by-meta",
+      "ai-agent-spends-too-much-time-waiting",
+      "starwell",
+      "we-should-anthropomorphize-ai-agents",
+      "lapis-one"
     ],
     "courses": [
       "course-headless-tools",
@@ -888,7 +914,11 @@
       "course-remarc",
       "course-mastra-agent-factory",
       "course-sagashield",
-      "course-how-we-built-safety-into-muse-by-meta"
+      "course-how-we-built-safety-into-muse-by-meta",
+      "course-ai-agent-spends-too-much-time-waiting",
+      "course-starwell",
+      "course-we-should-anthropomorphize-ai-agents",
+      "course-lapis-one"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -961,7 +991,8 @@
       "chatpanel-now-available-on-firefox",
       "k2-horizon",
       "secret-collusion-among-ai-agents",
-      "fraise-a-memory-database-for-ai-agents"
+      "fraise-a-memory-database-for-ai-agents",
+      "we-should-anthropomorphize-ai-agents"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -984,7 +1015,8 @@
       "course-chatpanel-now-available-on-firefox",
       "course-k2-horizon",
       "course-secret-collusion-among-ai-agents",
-      "course-fraise-a-memory-database-for-ai-agents"
+      "course-fraise-a-memory-database-for-ai-agents",
+      "course-we-should-anthropomorphize-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1044,7 +1076,8 @@
       "indextkn",
       "gemini-agentic-video-understanding",
       "anthropic-launches-fable-51-and-mythos-51",
-      "xfinlab"
+      "xfinlab",
+      "starwell"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1053,7 +1086,8 @@
       "course-indextkn",
       "course-gemini-agentic-video-understanding",
       "course-anthropic-launches-fable-51-and-mythos-51",
-      "course-xfinlab"
+      "course-xfinlab",
+      "course-starwell"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1361,7 +1395,8 @@
       "an-agent-skill-can-hand-a-stranger-your-shell",
       "trustnotch",
       "sagashield",
-      "how-we-built-safety-into-muse-by-meta"
+      "how-we-built-safety-into-muse-by-meta",
+      "raven"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -1382,7 +1417,8 @@
       "course-an-agent-skill-can-hand-a-stranger-your-shell",
       "course-trustnotch",
       "course-sagashield",
-      "course-how-we-built-safety-into-muse-by-meta"
+      "course-how-we-built-safety-into-muse-by-meta",
+      "course-raven"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1638,7 +1674,8 @@
       "ai-tools-and-transformation",
       "ai-is-making-us-build-too-much",
       "ai-means-the-end-of-software-as-we-know-it",
-      "developer-agency-in-the-age-of-ai"
+      "developer-agency-in-the-age-of-ai",
+      "we-should-anthropomorphize-ai-agents"
     ],
     "courses": [
       "course-the-ai-health-agent-that-will-know-me-for-life",
@@ -1648,7 +1685,8 @@
       "course-ai-tools-and-transformation",
       "course-ai-is-making-us-build-too-much",
       "course-ai-means-the-end-of-software-as-we-know-it",
-      "course-developer-agency-in-the-age-of-ai"
+      "course-developer-agency-in-the-age-of-ai",
+      "course-we-should-anthropomorphize-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1658,10 +1696,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "hermes-agent"
+      "hermes-agent",
+      "t3rnel-browser"
     ],
     "courses": [
-      "course-hermes-agent"
+      "course-hermes-agent",
+      "course-t3rnel-browser"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1934,7 +1974,9 @@
       "a-public-noticeboard-for-ai-agents",
       "where-every-ai-coding-tool-keeps-its-config",
       "catenary",
-      "remarc"
+      "remarc",
+      "ai-agent-spends-too-much-time-waiting",
+      "ai-stack-selector-tool"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -1962,7 +2004,9 @@
       "course-a-public-noticeboard-for-ai-agents",
       "course-where-every-ai-coding-tool-keeps-its-config",
       "course-catenary",
-      "course-remarc"
+      "course-remarc",
+      "course-ai-agent-spends-too-much-time-waiting",
+      "course-ai-stack-selector-tool"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2009,7 +2053,8 @@
       "new-york-city-pausing-some-ai-tools-in-schools",
       "manware-s-ai-learning-toolkit",
       "secret-collusion-among-ai-agents",
-      "am-i-replacable"
+      "am-i-replacable",
+      "we-should-anthropomorphize-ai-agents"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2036,7 +2081,8 @@
       "course-new-york-city-pausing-some-ai-tools-in-schools",
       "course-manware-s-ai-learning-toolkit",
       "course-secret-collusion-among-ai-agents",
-      "course-am-i-replacable"
+      "course-am-i-replacable",
+      "course-we-should-anthropomorphize-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2303,7 +2349,10 @@
       "awesome-geo-tools",
       "rejourney",
       "fraise-a-memory-database-for-ai-agents",
-      "ai-agent-for-beautiful-data-visuals"
+      "ai-agent-for-beautiful-data-visuals",
+      "revliu",
+      "starwell",
+      "making-your-data-ready-for-agentic-ai"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -2326,7 +2375,10 @@
       "course-awesome-geo-tools",
       "course-rejourney",
       "course-fraise-a-memory-database-for-ai-agents",
-      "course-ai-agent-for-beautiful-data-visuals"
+      "course-ai-agent-for-beautiful-data-visuals",
+      "course-revliu",
+      "course-starwell",
+      "course-making-your-data-ready-for-agentic-ai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2419,7 +2471,8 @@
       "logitech-launches-mx-keypad-for-developers",
       "thread-to-self",
       "muse-metas-personal-ai-agent-features-and-capabilities",
-      "muse-your-personal-ai-agent"
+      "muse-your-personal-ai-agent",
+      "meta-launches-muse-a-personal-ai-agent"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -2436,7 +2489,8 @@
       "course-logitech-launches-mx-keypad-for-developers",
       "course-thread-to-self",
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
-      "course-muse-your-personal-ai-agent"
+      "course-muse-your-personal-ai-agent",
+      "course-meta-launches-muse-a-personal-ai-agent"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2521,7 +2575,8 @@
       "ai-agent-for-google-play-submissions-video",
       "muse-metas-personal-ai-agent-features-and-capabilities",
       "muse-your-personal-ai-agent-from-meta",
-      "muse-your-personal-ai-agent"
+      "muse-your-personal-ai-agent",
+      "meta-launches-muse-a-personal-ai-agent"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -2541,7 +2596,8 @@
       "course-ai-agent-for-google-play-submissions-video",
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
       "course-muse-your-personal-ai-agent-from-meta",
-      "course-muse-your-personal-ai-agent"
+      "course-muse-your-personal-ai-agent",
+      "course-meta-launches-muse-a-personal-ai-agent"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3096,11 +3152,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "abbs",
-      "a-public-noticeboard-for-ai-agents"
+      "a-public-noticeboard-for-ai-agents",
+      "raven"
     ],
     "courses": [
       "course-abbs",
-      "course-a-public-noticeboard-for-ai-agents"
+      "course-a-public-noticeboard-for-ai-agents",
+      "course-raven"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3385,10 +3443,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "why-ai-agents-need-persistent-browser-identities"
+      "why-ai-agents-need-persistent-browser-identities",
+      "t3rnel-browser"
     ],
     "courses": [
-      "course-why-ai-agents-need-persistent-browser-identities"
+      "course-why-ai-agents-need-persistent-browser-identities",
+      "course-t3rnel-browser"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3705,11 +3765,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "ai-tools-list",
-      "toolchestrator"
+      "toolchestrator",
+      "ai-stack-selector-tool"
     ],
     "courses": [
       "course-ai-tools-list",
-      "course-toolchestrator"
+      "course-toolchestrator",
+      "course-ai-stack-selector-tool"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4103,10 +4165,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "google-flow"
+      "google-flow",
+      "free-ai-image-tools-no-signup"
     ],
     "courses": [
-      "course-google-flow"
+      "course-google-flow",
+      "course-free-ai-image-tools-no-signup"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -4764,12 +4828,14 @@
     "toolsTeaching": [
       "why-agentic-ai-needs-a-strong-identity-foundation",
       "owasp-top-for-agentic-applications",
-      "scaling-agentic-ai-pilots-across-the-enterprise"
+      "scaling-agentic-ai-pilots-across-the-enterprise",
+      "making-your-data-ready-for-agentic-ai"
     ],
     "courses": [
       "course-why-agentic-ai-needs-a-strong-identity-foundation",
       "course-owasp-top-for-agentic-applications",
-      "course-scaling-agentic-ai-pilots-across-the-enterprise"
+      "course-scaling-agentic-ai-pilots-across-the-enterprise",
+      "course-making-your-data-ready-for-agentic-ai"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -6325,12 +6391,14 @@
     "toolsTeaching": [
       "ai-can-make-you-suck-faster-too",
       "mcp-is-the-graphql-of-ai-and-thats-fine",
-      "ai-is-making-us-build-too-much"
+      "ai-is-making-us-build-too-much",
+      "we-should-anthropomorphize-ai-agents"
     ],
     "courses": [
       "course-ai-can-make-you-suck-faster-too",
       "course-mcp-is-the-graphql-of-ai-and-thats-fine",
-      "course-ai-is-making-us-build-too-much"
+      "course-ai-is-making-us-build-too-much",
+      "course-we-should-anthropomorphize-ai-agents"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -6972,14 +7040,16 @@
       "local-ai-assistants-can-be-user-friendly-too",
       "addom",
       "openwhispr",
-      "phntm-one-i-built-a-local-ai-desk-assistant"
+      "phntm-one-i-built-a-local-ai-desk-assistant",
+      "raven"
     ],
     "courses": [
       "course-pearpie",
       "course-local-ai-assistants-can-be-user-friendly-too",
       "course-addom",
       "course-openwhispr",
-      "course-phntm-one-i-built-a-local-ai-desk-assistant"
+      "course-phntm-one-i-built-a-local-ai-desk-assistant",
+      "course-raven"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -7047,10 +7117,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "octoloops"
+      "octoloops",
+      "revliu"
     ],
     "courses": [
-      "course-octoloops"
+      "course-octoloops",
+      "course-revliu"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -7294,7 +7366,8 @@
       "what-if-ai-did-the-prompting",
       "tesorohelp",
       "chatpanel-now-available-on-firefox",
-      "muse-metas-personal-ai-agent-features-and-capabilities"
+      "muse-metas-personal-ai-agent-features-and-capabilities",
+      "meta-launches-muse-a-personal-ai-agent"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
@@ -7302,7 +7375,8 @@
       "course-what-if-ai-did-the-prompting",
       "course-tesorohelp",
       "course-chatpanel-now-available-on-firefox",
-      "course-muse-metas-personal-ai-agent-features-and-capabilities"
+      "course-muse-metas-personal-ai-agent-features-and-capabilities",
+      "course-meta-launches-muse-a-personal-ai-agent"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -9014,13 +9088,15 @@
       "open-source-eink-bike-computer",
       "rubato",
       "phntm-one-i-built-a-local-ai-desk-assistant",
-      "logitech-launches-mx-keypad-for-developers"
+      "logitech-launches-mx-keypad-for-developers",
+      "lapis-one"
     ],
     "courses": [
       "course-open-source-eink-bike-computer",
       "course-rubato",
       "course-phntm-one-i-built-a-local-ai-desk-assistant",
-      "course-logitech-launches-mx-keypad-for-developers"
+      "course-logitech-launches-mx-keypad-for-developers",
+      "course-lapis-one"
     ],
     "updatedAt": "2026-09-04T23:20:31.711Z"
   },
@@ -11150,12 +11226,14 @@
     "toolsTeaching": [
       "muse-metas-personal-ai-agent-features-and-capabilities",
       "muse-your-personal-ai-agent-from-meta",
-      "muse-your-personal-ai-agent"
+      "muse-your-personal-ai-agent",
+      "meta-launches-muse-a-personal-ai-agent"
     ],
     "courses": [
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
       "course-muse-your-personal-ai-agent-from-meta",
-      "course-muse-your-personal-ai-agent"
+      "course-muse-your-personal-ai-agent",
+      "course-meta-launches-muse-a-personal-ai-agent"
     ],
     "updatedAt": "2026-09-08T23:40:07.345Z"
   },
@@ -11166,11 +11244,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "muse-metas-personal-ai-agent-features-and-capabilities",
-      "muse-your-personal-ai-agent-from-meta"
+      "muse-your-personal-ai-agent-from-meta",
+      "meta-launches-muse-a-personal-ai-agent"
     ],
     "courses": [
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
-      "course-muse-your-personal-ai-agent-from-meta"
+      "course-muse-your-personal-ai-agent-from-meta",
+      "course-meta-launches-muse-a-personal-ai-agent"
     ],
     "updatedAt": "2026-09-08T23:40:07.345Z"
   },
@@ -11212,5 +11292,421 @@
       "course-endframe"
     ],
     "updatedAt": "2026-09-08T23:40:07.345Z"
+  },
+  {
+    "id": "skill-attribution",
+    "name": "attribution",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "revliu"
+    ],
+    "courses": [
+      "course-revliu"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-marketing analytics",
+    "name": "marketing analytics",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "revliu"
+    ],
+    "courses": [
+      "course-revliu"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-revenue tracking",
+    "name": "revenue tracking",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "revliu"
+    ],
+    "courses": [
+      "course-revliu"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-multi-touch",
+    "name": "multi touch",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "revliu"
+    ],
+    "courses": [
+      "course-revliu"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-job queue",
+    "name": "job queue",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agent-spends-too-much-time-waiting"
+    ],
+    "courses": [
+      "course-ai-agent-spends-too-much-time-waiting"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-async tasks",
+    "name": "async tasks",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agent-spends-too-much-time-waiting"
+    ],
+    "courses": [
+      "course-ai-agent-spends-too-much-time-waiting"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-ai images",
+    "name": "ai images",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "free-ai-image-tools-no-signup"
+    ],
+    "courses": [
+      "course-free-ai-image-tools-no-signup"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-image editing",
+    "name": "image editing",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "free-ai-image-tools-no-signup"
+    ],
+    "courses": [
+      "course-free-ai-image-tools-no-signup"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-no signup",
+    "name": "no signup",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "free-ai-image-tools-no-signup"
+    ],
+    "courses": [
+      "course-free-ai-image-tools-no-signup"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-free tools",
+    "name": "free tools",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "free-ai-image-tools-no-signup"
+    ],
+    "courses": [
+      "course-free-ai-image-tools-no-signup"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-encryption",
+    "name": "encryption",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "raven"
+    ],
+    "courses": [
+      "course-raven"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-steganography",
+    "name": "steganography",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "raven"
+    ],
+    "courses": [
+      "course-raven"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-stack selector",
+    "name": "stack selector",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-stack-selector-tool"
+    ],
+    "courses": [
+      "course-ai-stack-selector-tool"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-recommendation",
+    "name": "recommendation",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-stack-selector-tool"
+    ],
+    "courses": [
+      "course-ai-stack-selector-tool"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-m&a-diligence",
+    "name": "m&a diligence",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "post-training-rlm-agents-for-end-to-end-m-a-diligence"
+    ],
+    "courses": [
+      "course-post-training-rlm-agents-for-end-to-end-m-a-diligence"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-rlm-agents",
+    "name": "rlm agents",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "post-training-rlm-agents-for-end-to-end-m-a-diligence"
+    ],
+    "courses": [
+      "course-post-training-rlm-agents-for-end-to-end-m-a-diligence"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-post-training",
+    "name": "post training",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "post-training-rlm-agents-for-end-to-end-m-a-diligence"
+    ],
+    "courses": [
+      "course-post-training-rlm-agents-for-end-to-end-m-a-diligence"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-legal-ai",
+    "name": "legal ai",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "post-training-rlm-agents-for-end-to-end-m-a-diligence"
+    ],
+    "courses": [
+      "course-post-training-rlm-agents-for-end-to-end-m-a-diligence"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-statistics",
+    "name": "statistics",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "starwell"
+    ],
+    "courses": [
+      "course-starwell"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-data grounding",
+    "name": "data grounding",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "starwell"
+    ],
+    "courses": [
+      "course-starwell"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-hallucination",
+    "name": "hallucination",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "starwell"
+    ],
+    "courses": [
+      "course-starwell"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-anthropomorphism",
+    "name": "anthropomorphism",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "we-should-anthropomorphize-ai-agents"
+    ],
+    "courses": [
+      "course-we-should-anthropomorphize-ai-agents"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-browser",
+    "name": "browser",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "t3rnel-browser"
+    ],
+    "courses": [
+      "course-t3rnel-browser"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-plugin",
+    "name": "plugin",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "t3rnel-browser"
+    ],
+    "courses": [
+      "course-t3rnel-browser"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-personal computer",
+    "name": "personal computer",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "lapis-one"
+    ],
+    "courses": [
+      "course-lapis-one"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-self-hosting",
+    "name": "self hosting",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "lapis-one"
+    ],
+    "courses": [
+      "course-lapis-one"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-data engineering",
+    "name": "data engineering",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "making-your-data-ready-for-agentic-ai"
+    ],
+    "courses": [
+      "course-making-your-data-ready-for-agentic-ai"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-data architecture",
+    "name": "data architecture",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "making-your-data-ready-for-agentic-ai"
+    ],
+    "courses": [
+      "course-making-your-data-ready-for-agentic-ai"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-data readiness",
+    "name": "data readiness",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "making-your-data-ready-for-agentic-ai"
+    ],
+    "courses": [
+      "course-making-your-data-ready-for-agentic-ai"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-text-to-music",
+    "name": "text to music",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "suno-rolls-out-v6-song-making-model-will-pay-royalties"
+    ],
+    "courses": [
+      "course-suno-rolls-out-v6-song-making-model-will-pay-royalties"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-songwriting",
+    "name": "songwriting",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "suno-rolls-out-v6-song-making-model-will-pay-royalties"
+    ],
+    "courses": [
+      "course-suno-rolls-out-v6-song-making-model-will-pay-royalties"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
+  },
+  {
+    "id": "skill-royalties",
+    "name": "royalties",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "suno-rolls-out-v6-song-making-model-will-pay-royalties"
+    ],
+    "courses": [
+      "course-suno-rolls-out-v6-song-making-model-will-pay-royalties"
+    ],
+    "updatedAt": "2026-09-09T13:45:32.864Z"
   }
 ]
