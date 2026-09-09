@@ -9,6 +9,77 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-09
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h,
+last run 2026-09-09 13:45 UTC (4.6h before this run), published 13 tools in
+that run, feed holds 292 tools. Healthy and growing, no action needed.
+
+**Researched today:** earlier today's runs shipped GEO/AEO work directly
+(`llms.txt`, named answer-engine access in `robots.txt`, FAQ schema on
+`/about`/`/pricing`, and a fix deriving the catalogue count shown in
+`llms.txt`/`/about` from the real 996-tool total instead of three
+disagreeing hardcoded numbers) rather than only logging a gap. The 12:09 UTC
+research hour found and fully specced a fresh, small gap: the "no credit
+card" claim survives unconditionally on three more pages
+(`HeroSection.jsx`, `CTASection.jsx`, `ExampleStack.jsx`) that a prior audit
+never checked — same `VITE_PAYMENTS_ENABLED` flag four other pages already
+read for this. Left OPEN for a future run; this run picked a bigger,
+older, equally-ready gap instead (see below), and while building it this
+run's own code read turned up a second instance of the exact same bug
+class — `About.jsx`'s footer tagline still hardcoded "Free while in beta"
+even though the same page's own "How far along are we?" answer already
+states the real 7-day-trial-then-one-time-pass terms — small enough to fix
+alongside today's feature rather than leave for tomorrow.
+
+**Shipped:** a public `/changelog` page —
+[`c8ef631`](https://github.com/saikiranreddy18/toolnaut/commit/c8ef631),
+plus the About.jsx stale-claim fix —
+[`4481672`](https://github.com/saikiranreddy18/toolnaut/commit/4481672).
+Picked the changelog over the other OPEN gaps (ratings/reviews,
+suggest-a-tool, PDF export, recently-viewed, tool-status-note-reason,
+command palette, facet counts, tool graveyard, embeddable badge,
+alternatives pages, RSS feed, visual identity/favicons, 26-subcategory
+pages, access-method facet, the fresh no-credit-card gap above) because it
+was the oldest fully-specced entry still OPEN (found 2026-09-02) and the
+best fit for what this product actually needs proof of: Toolnaut is a
+solo-built, pre-revenue beta, and a dated, honest, evergreen record of
+real shipped features is the cheapest available answer to "is this still
+maintained?" — while none of the other OPEN gaps are both this concretely
+specced and this cheap to build correctly today.
+
+New `src/utils/changelogData.js` — ten real shipped commits (2026-08-22
+through 2026-09-05) translated into plain customer-facing language, newest
+first, no shas or commit messages. New `src/pages/Changelog.jsx` at
+`/changelog`, reusing `About.jsx`'s shell (starfield, header, sticker
+cards) verbatim. Linked from the footer's Resources column; added to
+`scripts/smoke.mjs` and `scripts/prerender.mjs`'s route lists and given a
+weekly-changefreq `sitemap.xml` entry, matching this backlog's own
+checklist for every prior new public page. The `About.jsx` fix reuses the
+exact `paymentsOn` conditional pattern the four already-audited pages use,
+rather than a new hardcoded string.
+
+**Live on toolnaut.xyz** now that both commits are on master — pure
+client-side additions, no backend, no new dependency, no new store.
+`npm test` (214/214), `npm run build` (17/17 routes prerendered,
+`/changelog` included), and `npm run smoke` (22/22 routes, 0 console
+errors) all green before each push.
+
+**Queued next:** the fresh "no credit card" 3-site gap
+(`HeroSection.jsx`/`CTASection.jsx`/`ExampleStack.jsx`) is the freshest and
+smallest OPEN item, well worth grabbing on a quiet research hour or the
+next feature run. Also OPEN: per-tool ratings & reviews, suggest-a-tool,
+PDF roadmap export, recently-viewed tools, tool-status-note-reason,
+command palette, Discover facet counts, tool graveyard page, embeddable
+"Featured on Toolnaut" badge, per-tool Alternatives SEO pages, RSS feed of
+new tools, tool visual identity/favicons, clickable tags, the
+26-subcategory landing pages, and the access-method facet. Weekly
+alerts/Pro chat assistant and Team tier stay OPEN-but-not-concrete or
+REJECTED-for-build respectively (need a standing backend commitment
+beyond this client-side SPA).
+
+---
+
 ## 2026-09-01
 
 **Radar health:** OK per `npm run radar:health` — 3 runs in the last 26h,

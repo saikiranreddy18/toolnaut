@@ -3504,7 +3504,7 @@ a client-side SPA with a static tool catalogue.
   and `npm run smoke` (21/21 routes, 0 console errors).
 
 ### Public "What's New" changelog — the product ships almost daily, nothing user-facing ever says so
-- **Status:** OPEN
+- **Status:** SHIPPED c8ef631
 - **Seen in:** a problem area rather than one directory competitor — a public
   changelog is a standard SaaS trust/retention pattern (Linear's
   `linear.app/changelog`, Vercel's `vercel.com/changelog`, Stripe's own
