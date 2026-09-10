@@ -101,7 +101,10 @@
       "ai-stack-selector-tool",
       "adiosdev",
       "the-anatomy-of-harness-engineering-for-ai-coding-agents",
-      "ai-burn-clock"
+      "ai-burn-clock",
+      "security-cards",
+      "static-hosting-a-coding-agent-can-drive-end-to-end",
+      "stroq"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -200,7 +203,10 @@
       "course-ai-stack-selector-tool",
       "course-adiosdev",
       "course-the-anatomy-of-harness-engineering-for-ai-coding-agents",
-      "course-ai-burn-clock"
+      "course-ai-burn-clock",
+      "course-security-cards",
+      "course-static-hosting-a-coding-agent-can-drive-end-to-end",
+      "course-stroq"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -311,7 +317,8 @@
       "nimvarya",
       "k2-horizon",
       "inbundly",
-      "quire"
+      "quire",
+      "rdc"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -343,7 +350,8 @@
       "course-nimvarya",
       "course-k2-horizon",
       "course-inbundly",
-      "course-quire"
+      "course-quire",
+      "course-rdc"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -379,7 +387,8 @@
       "portraitdesk",
       "endframe",
       "free-ai-image-tools-no-signup",
-      "suno-rolls-out-v6-song-making-model-will-pay-royalties"
+      "suno-rolls-out-v6-song-making-model-will-pay-royalties",
+      "listpro"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -408,7 +417,8 @@
       "course-portraitdesk",
       "course-endframe",
       "course-free-ai-image-tools-no-signup",
-      "course-suno-rolls-out-v6-song-making-model-will-pay-royalties"
+      "course-suno-rolls-out-v6-song-making-model-will-pay-royalties",
+      "course-listpro"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -610,7 +620,12 @@
       "meta-launches-muse-a-personal-ai-agent",
       "hyper-bench-evaluating-agents-that-build-agents",
       "openais-rogue-ai-agents-used-more-sites",
-      "tcs-industrial-autonomy-and-engineering-lab"
+      "tcs-industrial-autonomy-and-engineering-lab",
+      "never-let-your-agent-choose-its-own-tool",
+      "starkomand",
+      "ai-agents-that-qa-test-your-web-app-like-real-users",
+      "botbinio",
+      "rdc"
     ],
     "courses": [
       "course-headless-tools",
@@ -734,7 +749,12 @@
       "course-meta-launches-muse-a-personal-ai-agent",
       "course-hyper-bench-evaluating-agents-that-build-agents",
       "course-openais-rogue-ai-agents-used-more-sites",
-      "course-tcs-industrial-autonomy-and-engineering-lab"
+      "course-tcs-industrial-autonomy-and-engineering-lab",
+      "course-never-let-your-agent-choose-its-own-tool",
+      "course-starkomand",
+      "course-ai-agents-that-qa-test-your-web-app-like-real-users",
+      "course-botbinio",
+      "course-rdc"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -848,7 +868,10 @@
       "openais-rogue-ai-agents-used-more-sites",
       "the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "ai-agents-built-a-secret-society-inside-the-lab-video",
-      "four-kinds-of-agent-memory"
+      "four-kinds-of-agent-memory",
+      "never-let-your-agent-choose-its-own-tool",
+      "ai-agents-that-qa-test-your-web-app-like-real-users",
+      "stroq"
     ],
     "courses": [
       "course-headless-tools",
@@ -942,7 +965,10 @@
       "course-openais-rogue-ai-agents-used-more-sites",
       "course-the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "course-ai-agents-built-a-secret-society-inside-the-lab-video",
-      "course-four-kinds-of-agent-memory"
+      "course-four-kinds-of-agent-memory",
+      "course-never-let-your-agent-choose-its-own-tool",
+      "course-ai-agents-that-qa-test-your-web-app-like-real-users",
+      "course-stroq"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1018,7 +1044,9 @@
       "fraise-a-memory-database-for-ai-agents",
       "we-should-anthropomorphize-ai-agents",
       "hyper-bench-evaluating-agents-that-build-agents",
-      "four-kinds-of-agent-memory"
+      "four-kinds-of-agent-memory",
+      "security-cards",
+      "ai-cost-dashboard-is-probably-wrong"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1044,7 +1072,9 @@
       "course-fraise-a-memory-database-for-ai-agents",
       "course-we-should-anthropomorphize-ai-agents",
       "course-hyper-bench-evaluating-agents-that-build-agents",
-      "course-four-kinds-of-agent-memory"
+      "course-four-kinds-of-agent-memory",
+      "course-security-cards",
+      "course-ai-cost-dashboard-is-probably-wrong"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1332,10 +1362,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "canvasformusic"
+      "canvasformusic",
+      "starkomand"
     ],
     "courses": [
-      "course-canvasformusic"
+      "course-canvasformusic",
+      "course-starkomand"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1428,7 +1460,10 @@
       "trustnotch",
       "sagashield",
       "how-we-built-safety-into-muse-by-meta",
-      "raven"
+      "raven",
+      "never-let-your-agent-choose-its-own-tool",
+      "security-cards",
+      "stroq"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -1450,7 +1485,10 @@
       "course-trustnotch",
       "course-sagashield",
       "course-how-we-built-safety-into-muse-by-meta",
-      "course-raven"
+      "course-raven",
+      "course-never-let-your-agent-choose-its-own-tool",
+      "course-security-cards",
+      "course-stroq"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2091,7 +2129,10 @@
       "we-should-anthropomorphize-ai-agents",
       "briff",
       "ai-agents-built-a-secret-society-inside-the-lab-video",
-      "four-kinds-of-agent-memory"
+      "four-kinds-of-agent-memory",
+      "swiftcruit",
+      "humble-bundle",
+      "autoresearchexam-measuring-agents-ability-to-improve-and-gen"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2122,7 +2163,10 @@
       "course-we-should-anthropomorphize-ai-agents",
       "course-briff",
       "course-ai-agents-built-a-secret-society-inside-the-lab-video",
-      "course-four-kinds-of-agent-memory"
+      "course-four-kinds-of-agent-memory",
+      "course-swiftcruit",
+      "course-humble-bundle",
+      "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2149,7 +2193,10 @@
       "mdmanagerai",
       "nomacapp",
       "fraise-a-memory-database-for-ai-agents",
-      "hyper-bench-evaluating-agents-that-build-agents"
+      "hyper-bench-evaluating-agents-that-build-agents",
+      "starkomand",
+      "autoresearchexam-measuring-agents-ability-to-improve-and-gen",
+      "rdc"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2169,7 +2216,10 @@
       "course-mdmanagerai",
       "course-nomacapp",
       "course-fraise-a-memory-database-for-ai-agents",
-      "course-hyper-bench-evaluating-agents-that-build-agents"
+      "course-hyper-bench-evaluating-agents-that-build-agents",
+      "course-starkomand",
+      "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen",
+      "course-rdc"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2261,7 +2311,8 @@
       "quiz-ui",
       "benzi",
       "remarc",
-      "felan"
+      "felan",
+      "stroq"
     ],
     "courses": [
       "course-limitless-library",
@@ -2292,7 +2343,8 @@
       "course-quiz-ui",
       "course-benzi",
       "course-remarc",
-      "course-felan"
+      "course-felan",
+      "course-stroq"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2395,7 +2447,8 @@
       "revliu",
       "starwell",
       "making-your-data-ready-for-agentic-ai",
-      "parlel"
+      "parlel",
+      "ai-cost-dashboard-is-probably-wrong"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -2422,7 +2475,8 @@
       "course-revliu",
       "course-starwell",
       "course-making-your-data-ready-for-agentic-ai",
-      "course-parlel"
+      "course-parlel",
+      "course-ai-cost-dashboard-is-probably-wrong"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2691,11 +2745,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "ai-resume-screening",
-      "parlel"
+      "parlel",
+      "swiftcruit"
     ],
     "courses": [
       "course-ai-resume-screening",
-      "course-parlel"
+      "course-parlel",
+      "course-swiftcruit"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2705,10 +2761,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "ai-resume-screening"
+      "ai-resume-screening",
+      "swiftcruit"
     ],
     "courses": [
-      "course-ai-resume-screening"
+      "course-ai-resume-screening",
+      "course-swiftcruit"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2735,14 +2793,16 @@
       "ai-can-make-you-suck-faster-too",
       "will-your-money-last-ai-assisted-financial-simulator",
       "ai-is-making-us-build-too-much",
-      "ai-means-the-end-of-software-as-we-know-it"
+      "ai-means-the-end-of-software-as-we-know-it",
+      "humble-bundle"
     ],
     "courses": [
       "course-ai-resume-screening",
       "course-ai-can-make-you-suck-faster-too",
       "course-will-your-money-last-ai-assisted-financial-simulator",
       "course-ai-is-making-us-build-too-much",
-      "course-ai-means-the-end-of-software-as-we-know-it"
+      "course-ai-means-the-end-of-software-as-we-know-it",
+      "course-humble-bundle"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2828,13 +2888,17 @@
       "agenttrail",
       "telem",
       "observational-reconstruction-then-the-inverse-problem",
-      "selfshipai"
+      "selfshipai",
+      "stroq",
+      "ai-cost-dashboard-is-probably-wrong"
     ],
     "courses": [
       "course-agenttrail",
       "course-telem",
       "course-observational-reconstruction-then-the-inverse-problem",
-      "course-selfshipai"
+      "course-selfshipai",
+      "course-stroq",
+      "course-ai-cost-dashboard-is-probably-wrong"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2846,12 +2910,14 @@
     "toolsTeaching": [
       "agenttrail",
       "selfshipai",
-      "dumbdetector"
+      "dumbdetector",
+      "starkomand"
     ],
     "courses": [
       "course-agenttrail",
       "course-selfshipai",
-      "course-dumbdetector"
+      "course-dumbdetector",
+      "course-starkomand"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2874,10 +2940,12 @@
     "domain": "learning",
     "level": "advanced",
     "toolsTeaching": [
-      "ai-agent-hacking-writeups"
+      "ai-agent-hacking-writeups",
+      "never-let-your-agent-choose-its-own-tool"
     ],
     "courses": [
-      "course-ai-agent-hacking-writeups"
+      "course-ai-agent-hacking-writeups",
+      "course-never-let-your-agent-choose-its-own-tool"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3132,7 +3200,8 @@
       "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
       "manware-s-ai-learning-toolkit",
       "quire",
-      "ai-burn-clock"
+      "ai-burn-clock",
+      "botbinio"
     ],
     "courses": [
       "course-placeroot",
@@ -3146,7 +3215,8 @@
       "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
       "course-manware-s-ai-learning-toolkit",
       "course-quire",
-      "course-ai-burn-clock"
+      "course-ai-burn-clock",
+      "course-botbinio"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3253,11 +3323,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "we-run-stateful-ai-agents-on-a-serverless-infra",
-      "backprompter"
+      "backprompter",
+      "static-hosting-a-coding-agent-can-drive-end-to-end"
     ],
     "courses": [
       "course-we-run-stateful-ai-agents-on-a-serverless-infra",
-      "course-backprompter"
+      "course-backprompter",
+      "course-static-hosting-a-coding-agent-can-drive-end-to-end"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3329,12 +3401,14 @@
     "toolsTeaching": [
       "a-benchmark-for-safely-measuring-container-breakout-capabili",
       "terminal-bench-science-evaluating-ai-agents-on-scientific-re",
-      "hyper-bench-evaluating-agents-that-build-agents"
+      "hyper-bench-evaluating-agents-that-build-agents",
+      "autoresearchexam-measuring-agents-ability-to-improve-and-gen"
     ],
     "courses": [
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
-      "course-hyper-bench-evaluating-agents-that-build-agents"
+      "course-hyper-bench-evaluating-agents-that-build-agents",
+      "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3723,12 +3797,14 @@
     "toolsTeaching": [
       "propose-and-dual-control-for-dns-changes",
       "cut-your-ai-bill-by-a-third-same-tools-same-output",
-      "the-anatomy-of-harness-engineering-for-ai-coding-agents"
+      "the-anatomy-of-harness-engineering-for-ai-coding-agents",
+      "humble-bundle"
     ],
     "courses": [
       "course-propose-and-dual-control-for-dns-changes",
       "course-cut-your-ai-bill-by-a-third-same-tools-same-output",
-      "course-the-anatomy-of-harness-engineering-for-ai-coding-agents"
+      "course-the-anatomy-of-harness-engineering-for-ai-coding-agents",
+      "course-humble-bundle"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3889,13 +3965,15 @@
       "agentseed",
       "token-dashboard",
       "where-every-ai-coding-tool-keeps-its-config",
-      "developer-agency-in-the-age-of-ai"
+      "developer-agency-in-the-age-of-ai",
+      "security-cards"
     ],
     "courses": [
       "course-agentseed",
       "course-token-dashboard",
       "course-where-every-ai-coding-tool-keeps-its-config",
-      "course-developer-agency-in-the-age-of-ai"
+      "course-developer-agency-in-the-age-of-ai",
+      "course-security-cards"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4411,7 +4489,8 @@
       "urml",
       "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
       "hyper-bench-evaluating-agents-that-build-agents",
-      "the-anatomy-of-harness-engineering-for-ai-coding-agents"
+      "the-anatomy-of-harness-engineering-for-ai-coding-agents",
+      "autoresearchexam-measuring-agents-ability-to-improve-and-gen"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -4419,7 +4498,8 @@
       "course-urml",
       "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
       "course-hyper-bench-evaluating-agents-that-build-agents",
-      "course-the-anatomy-of-harness-engineering-for-ai-coding-agents"
+      "course-the-anatomy-of-harness-engineering-for-ai-coding-agents",
+      "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -4470,7 +4550,8 @@
       "secret-collusion-among-ai-agents",
       "how-we-built-safety-into-muse-by-meta",
       "briff",
-      "hyper-bench-evaluating-agents-that-build-agents"
+      "hyper-bench-evaluating-agents-that-build-agents",
+      "autoresearchexam-measuring-agents-ability-to-improve-and-gen"
     ],
     "courses": [
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
@@ -4482,7 +4563,8 @@
       "course-secret-collusion-among-ai-agents",
       "course-how-we-built-safety-into-muse-by-meta",
       "course-briff",
-      "course-hyper-bench-evaluating-agents-that-build-agents"
+      "course-hyper-bench-evaluating-agents-that-build-agents",
+      "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -4578,14 +4660,16 @@
       "grith",
       "engram",
       "ai-coding-agents-forget-the-codebase-between-sessions",
-      "nimvarya"
+      "nimvarya",
+      "static-hosting-a-coding-agent-can-drive-end-to-end"
     ],
     "courses": [
       "course-agentseed-mcp",
       "course-grith",
       "course-engram",
       "course-ai-coding-agents-forget-the-codebase-between-sessions",
-      "course-nimvarya"
+      "course-nimvarya",
+      "course-static-hosting-a-coding-agent-can-drive-end-to-end"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5081,14 +5165,18 @@
       "slidex",
       "okf-agent-memory",
       "ai-coding-agents-forget-the-codebase-between-sessions",
-      "ai-burn-clock"
+      "ai-burn-clock",
+      "botbinio",
+      "rdc"
     ],
     "courses": [
       "course-openinstinct",
       "course-slidex",
       "course-okf-agent-memory",
       "course-ai-coding-agents-forget-the-codebase-between-sessions",
-      "course-ai-burn-clock"
+      "course-ai-burn-clock",
+      "course-botbinio",
+      "course-rdc"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -5098,10 +5186,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "argus-open-source-ai-agents-for-testing-web-apps"
+      "argus-open-source-ai-agents-for-testing-web-apps",
+      "ai-agents-that-qa-test-your-web-app-like-real-users"
     ],
     "courses": [
-      "course-argus-open-source-ai-agents-for-testing-web-apps"
+      "course-argus-open-source-ai-agents-for-testing-web-apps",
+      "course-ai-agents-that-qa-test-your-web-app-like-real-users"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -5124,10 +5214,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "grith"
+      "grith",
+      "humble-bundle"
     ],
     "courses": [
-      "course-grith"
+      "course-grith",
+      "course-humble-bundle"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -5152,12 +5244,14 @@
     "toolsTeaching": [
       "coordination-layer-for-coding-agents",
       "agentbridge",
-      "kingfy"
+      "kingfy",
+      "starkomand"
     ],
     "courses": [
       "course-coordination-layer-for-coding-agents",
       "course-agentbridge",
-      "course-kingfy"
+      "course-kingfy",
+      "course-starkomand"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -6737,12 +6831,14 @@
     "toolsTeaching": [
       "compilrdev-studio",
       "jern-cloud",
-      "nimvarya"
+      "nimvarya",
+      "static-hosting-a-coding-agent-can-drive-end-to-end"
     ],
     "courses": [
       "course-compilrdev-studio",
       "course-jern-cloud",
-      "course-nimvarya"
+      "course-nimvarya",
+      "course-static-hosting-a-coding-agent-can-drive-end-to-end"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -7171,13 +7267,15 @@
       "octoloops",
       "i-built-my-first-mcp-to-manage-google-ads",
       "aidemovideo",
-      "endframe"
+      "endframe",
+      "listpro"
     ],
     "courses": [
       "course-octoloops",
       "course-i-built-my-first-mcp-to-manage-google-ads",
       "course-aidemovideo",
-      "course-endframe"
+      "course-endframe",
+      "course-listpro"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -7824,10 +7922,12 @@
     "domain": "learning",
     "level": "advanced",
     "toolsTeaching": [
-      "owasp-top-for-agentic-applications"
+      "owasp-top-for-agentic-applications",
+      "never-let-your-agent-choose-its-own-tool"
     ],
     "courses": [
-      "course-owasp-top-for-agentic-applications"
+      "course-owasp-top-for-agentic-applications",
+      "course-never-let-your-agent-choose-its-own-tool"
     ],
     "updatedAt": "2026-09-02T23:33:29.474Z"
   },
@@ -10371,10 +10471,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "an-agent-skill-can-hand-a-stranger-your-shell"
+      "an-agent-skill-can-hand-a-stranger-your-shell",
+      "security-cards"
     ],
     "courses": [
-      "course-an-agent-skill-can-hand-a-stranger-your-shell"
+      "course-an-agent-skill-can-hand-a-stranger-your-shell",
+      "course-security-cards"
     ],
     "updatedAt": "2026-09-07T15:05:03.707Z"
   },
@@ -11943,10 +12045,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "ai-burn-clock"
+      "ai-burn-clock",
+      "ai-cost-dashboard-is-probably-wrong"
     ],
     "courses": [
-      "course-ai-burn-clock"
+      "course-ai-burn-clock",
+      "course-ai-cost-dashboard-is-probably-wrong"
     ],
     "updatedAt": "2026-09-09T23:30:23.231Z"
   },
@@ -12053,5 +12157,304 @@
       "course-tcs-industrial-autonomy-and-engineering-lab"
     ],
     "updatedAt": "2026-09-09T23:30:23.231Z"
+  },
+  {
+    "id": "skill-tool selection",
+    "name": "tool selection",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "never-let-your-agent-choose-its-own-tool"
+    ],
+    "courses": [
+      "course-never-let-your-agent-choose-its-own-tool"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-assessments",
+    "name": "assessments",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "swiftcruit"
+    ],
+    "courses": [
+      "course-swiftcruit"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-technical screening",
+    "name": "technical screening",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "swiftcruit"
+    ],
+    "courses": [
+      "course-swiftcruit"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-question generator",
+    "name": "question generator",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "swiftcruit"
+    ],
+    "courses": [
+      "course-swiftcruit"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-secure code",
+    "name": "secure code",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "security-cards"
+    ],
+    "courses": [
+      "course-security-cards"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-qa testing",
+    "name": "qa testing",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agents-that-qa-test-your-web-app-like-real-users"
+    ],
+    "courses": [
+      "course-ai-agents-that-qa-test-your-web-app-like-real-users"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-bug detection",
+    "name": "bug detection",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agents-that-qa-test-your-web-app-like-real-users"
+    ],
+    "courses": [
+      "course-ai-agents-that-qa-test-your-web-app-like-real-users"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-cloud",
+    "name": "cloud",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "humble-bundle"
+    ],
+    "courses": [
+      "course-humble-bundle"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-ebooks",
+    "name": "ebooks",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "humble-bundle"
+    ],
+    "courses": [
+      "course-humble-bundle"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-hosting",
+    "name": "hosting",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "static-hosting-a-coding-agent-can-drive-end-to-end"
+    ],
+    "courses": [
+      "course-static-hosting-a-coding-agent-can-drive-end-to-end"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-static-sites",
+    "name": "static sites",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "static-hosting-a-coding-agent-can-drive-end-to-end"
+    ],
+    "courses": [
+      "course-static-hosting-a-coding-agent-can-drive-end-to-end"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-firewall",
+    "name": "firewall",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "stroq"
+    ],
+    "courses": [
+      "course-stroq"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-pastebin",
+    "name": "pastebin",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "botbinio"
+    ],
+    "courses": [
+      "course-botbinio"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-sharing",
+    "name": "sharing",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "botbinio"
+    ],
+    "courses": [
+      "course-botbinio"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-artifacts",
+    "name": "artifacts",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "botbinio"
+    ],
+    "courses": [
+      "course-botbinio"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-token-accounting",
+    "name": "token accounting",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-cost-dashboard-is-probably-wrong"
+    ],
+    "courses": [
+      "course-ai-cost-dashboard-is-probably-wrong"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-audit",
+    "name": "audit",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-cost-dashboard-is-probably-wrong"
+    ],
+    "courses": [
+      "course-ai-cost-dashboard-is-probably-wrong"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-generalization",
+    "name": "generalization",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "autoresearchexam-measuring-agents-ability-to-improve-and-gen"
+    ],
+    "courses": [
+      "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-remote-desktop",
+    "name": "remote desktop",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "rdc"
+    ],
+    "courses": [
+      "course-rdc"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-launch assets",
+    "name": "launch assets",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "listpro"
+    ],
+    "courses": [
+      "course-listpro"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-screenshots",
+    "name": "screenshots",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "listpro"
+    ],
+    "courses": [
+      "course-listpro"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-product launch",
+    "name": "product launch",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "listpro"
+    ],
+    "courses": [
+      "course-listpro"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "skill-branding",
+    "name": "branding",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "listpro"
+    ],
+    "courses": [
+      "course-listpro"
+    ],
+    "updatedAt": "2026-09-10T13:38:44.077Z"
   }
 ]

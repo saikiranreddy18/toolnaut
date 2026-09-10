@@ -15584,5 +15584,675 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-09T23:30:23.231Z"
+  },
+  {
+    "id": "course-never-let-your-agent-choose-its-own-tool",
+    "toolSlug": "never-let-your-agent-choose-its-own-tool",
+    "title": "Master Never let your agent choose its own tool",
+    "objectives": [
+      "Explain why dynamic tool selection creates safety and reliability risks",
+      "Replace free-form tool choice with a constrained routing pattern",
+      "Add allowlists and approval gates to an existing agent"
+    ],
+    "modules": [
+      {
+        "title": "Map the Attack Surface of Dynamic Tool Choice",
+        "estMinutes": 15,
+        "steps": [
+          "Read the post and list the three failure modes it names (prompt-injection-driven selection, wrong-tool hallucination, privilege escalation via tool chaining)",
+          "Sketch your own agent's loop and mark every point where the model's output directly determines which tool runs",
+          "Write one concrete exploit scenario for your agent, e.g. 'attacker email instructs agent to call delete_user instead of search_docs'"
+        ]
+      },
+      {
+        "title": "Fix the Tool Set Per State",
+        "estMinutes": 20,
+        "steps": [
+          "Define your agent's states (e.g. triage, lookup, draft, send) and assign each state a hardcoded allowlist of 1-3 tools — never the full registry",
+          "In code, pass only that state's tools to the model on each turn (e.g. filter the 'tools' array in your OpenAI/Anthropic call by current state)",
+          "Add a test asserting that a state cannot emit a tool call outside its allowlist, even if the model requests one"
+        ]
+      },
+      {
+        "title": "Replace Model Routing with a Deterministic Dispatcher",
+        "estMinutes": 25,
+        "steps": [
+          "Move tool selection out of the LLM: write an explicit dispatch table (intent string -> function) and have the model output only the intent plus arguments",
+          "Set tool_choice to force a single 'return_intent' function (or use structured output/JSON mode) so the model can never name an arbitrary tool",
+          "Log every dispatch decision with the raw model output so you can audit mismatches between intent and invoked tool"
+        ]
+      },
+      {
+        "title": "Layer on Approval Gates for Irreversible Tools",
+        "estMinutes": 20,
+        "steps": [
+          "Tag each tool in your registry as 'read' or 'write/destructive' in its metadata",
+          "Wrap destructive tools in a confirmation step that requires a non-model signal (human click, signed token, policy check) before execution",
+          "Run a red-team pass: feed the agent 5 injected prompts trying to trigger a write tool, and verify all are blocked or held for approval"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-tool selection",
+      "skill-prompt injection",
+      "skill-security",
+      "skill-best practices"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "course-swiftcruit",
+    "toolSlug": "swiftcruit",
+    "title": "Master Swiftcruit",
+    "objectives": [
+      "Understand what Swiftcruit is for",
+      "Use Swiftcruit on a real task",
+      "Know where Swiftcruit fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Swiftcruit for your real workflow, not the demo.",
+          "Say what Swiftcruit does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Swiftcruit.",
+          "Push Swiftcruit to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Swiftcruit into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-recruiting",
+      "skill-assessments",
+      "skill-hiring",
+      "skill-technical screening",
+      "skill-question generator"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "course-starkomand",
+    "toolSlug": "starkomand",
+    "title": "Master Starkomand",
+    "objectives": [
+      "Understand what Starkomand is for",
+      "Use Starkomand on a real task",
+      "Know where Starkomand fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Starkomand for your real workflow, not the demo.",
+          "Say what Starkomand does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Starkomand.",
+          "Push Starkomand to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Starkomand into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-orchestration",
+      "skill-canvas",
+      "skill-monitoring"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "course-security-cards",
+    "toolSlug": "security-cards",
+    "title": "Master Security Cards",
+    "objectives": [
+      "Understand what Security Cards is for",
+      "Use Security Cards on a real task",
+      "Know where Security Cards fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Security Cards for your real workflow, not the demo.",
+          "Say what Security Cards does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Security Cards.",
+          "Push Security Cards to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Security Cards into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-security",
+      "skill-ai coding",
+      "skill-secure code",
+      "skill-vulnerability",
+      "skill-llm"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "course-ai-agents-that-qa-test-your-web-app-like-real-users",
+    "toolSlug": "ai-agents-that-qa-test-your-web-app-like-real-users",
+    "title": "Master AI agents that QA-test your web app like real users",
+    "objectives": [
+      "Set up an AI QA agent against your web app and run a first exploratory test",
+      "Define plain-English test goals, assertions, and personas that mimic real user behavior",
+      "Wire agent runs into CI and triage failures using session replays"
+    ],
+    "modules": [
+      {
+        "title": "Connect the agent to your app",
+        "estMinutes": 20,
+        "steps": [
+          "Create a project in your AI QA tool and point the agent at a staging URL (not production)",
+          "Set up test credentials: a seeded test account, API key, and any feature flags the agent will need",
+          "Run the default exploratory crawl and note which pages, buttons, and forms the agent discovered"
+        ]
+      },
+      {
+        "title": "Write goal-based test flows in plain English",
+        "estMinutes": 25,
+        "steps": [
+          "Pick your 3 riskiest user journeys (e.g., signup, checkout, settings change) and write each as a natural-language goal like 'Create an account with a duplicate email and verify a clear error appears'",
+          "Add explicit assertions to each flow: expected text, URL, or element state the agent must confirm before passing",
+          "Run each flow 3 times and tighten the wording wherever the agent misinterprets an instruction"
+        ]
+      },
+      {
+        "title": "Explore like a real user: personas and chaos runs",
+        "estMinutes": 20,
+        "steps": [
+          "Configure a persona run (e.g., 'impatient mobile user') so the agent tests with a mobile viewport, throttled network, and out-of-order clicks",
+          "Launch an unscripted exploration session with a goal like 'try to break the checkout flow' and set a time cap of 10-15 minutes",
+          "Tag every issue the agent reports as real bug, environment problem, or agent confusion, and prune the noisy ones"
+        ]
+      },
+      {
+        "title": "Ship it in CI and triage failures",
+        "estMinutes": 20,
+        "steps": [
+          "Add the tool's CLI or GitHub Action so scripted flows run on each pull request against a preview deployment",
+          "Route failures to Slack with links to session replays and network logs, and set a retry limit of 1 to catch flake without hiding bugs",
+          "Fix one real failure using the replay: locate the exact click, screenshot, and console error that preceded it"
+        ]
+      },
+      {
+        "title": "Keep the suite healthy over time",
+        "estMinutes": 15,
+        "steps": [
+          "Review how the agent healed any broken selectors after a UI change, and approve or reject each heal",
+          "Delete or rewrite your 2 flakiest steps and set a calendar reminder to audit flow coverage against new features monthly"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-qa testing",
+      "skill-ai agents",
+      "skill-web testing",
+      "skill-bug detection"
+    ],
+    "prerequisites": [
+      "A web app with a staging environment and seeded test data",
+      "Basic familiarity with manual exploratory testing and writing bug reports",
+      "Comfort editing a CI pipeline (e.g., GitHub Actions workflow)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "course-humble-bundle",
+    "toolSlug": "humble-bundle",
+    "title": "Master Humble Bundle",
+    "objectives": [
+      "Understand what Humble Bundle is for",
+      "Use Humble Bundle on a real task",
+      "Know where Humble Bundle fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Humble Bundle for your real workflow, not the demo.",
+          "Say what Humble Bundle does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Humble Bundle.",
+          "Push Humble Bundle to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Humble Bundle into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-linux",
+      "skill-cloud",
+      "skill-ebooks",
+      "skill-devops",
+      "skill-ai"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "course-static-hosting-a-coding-agent-can-drive-end-to-end",
+    "toolSlug": "static-hosting-a-coding-agent-can-drive-end-to-end",
+    "title": "Master Static hosting a coding agent can drive end to end",
+    "objectives": [
+      "Understand what Static hosting a coding agent can drive end to end is for",
+      "Use Static hosting a coding agent can drive end to end on a real task",
+      "Know where Static hosting a coding agent can drive end to end fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Static hosting a coding agent can drive end to end for your real workflow, not the demo.",
+          "Say what Static hosting a coding agent can drive end to end does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Static hosting a coding agent can drive end to end.",
+          "Push Static hosting a coding agent can drive end to end to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Static hosting a coding agent can drive end to end into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-hosting",
+      "skill-deployment",
+      "skill-static-sites",
+      "skill-coding-agents",
+      "skill-devtools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "course-stroq",
+    "toolSlug": "stroq",
+    "title": "Master Stroq",
+    "objectives": [
+      "Understand what Stroq is for",
+      "Use Stroq on a real task",
+      "Know where Stroq fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Stroq for your real workflow, not the demo.",
+          "Say what Stroq does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Stroq.",
+          "Push Stroq to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Stroq into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-firewall",
+      "skill-ai agents",
+      "skill-security",
+      "skill-observability",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "course-botbinio",
+    "toolSlug": "botbinio",
+    "title": "Master Botbin.io",
+    "objectives": [
+      "Understand what Botbin.io is for",
+      "Use Botbin.io on a real task",
+      "Know where Botbin.io fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Botbin.io for your real workflow, not the demo.",
+          "Say what Botbin.io does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Botbin.io.",
+          "Push Botbin.io to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Botbin.io into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-pastebin",
+      "skill-ai-agents",
+      "skill-sharing",
+      "skill-artifacts",
+      "skill-developer-tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "course-ai-cost-dashboard-is-probably-wrong",
+    "toolSlug": "ai-cost-dashboard-is-probably-wrong",
+    "title": "Master AI cost dashboard is probably wrong",
+    "objectives": [
+      "Understand what AI cost dashboard is probably wrong is for",
+      "Use AI cost dashboard is probably wrong on a real task",
+      "Know where AI cost dashboard is probably wrong fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI cost dashboard is probably wrong for your real workflow, not the demo.",
+          "Say what AI cost dashboard is probably wrong does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI cost dashboard is probably wrong.",
+          "Push AI cost dashboard is probably wrong to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI cost dashboard is probably wrong into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-llm",
+      "skill-cost-tracking",
+      "skill-token-accounting",
+      "skill-observability",
+      "skill-audit"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen",
+    "toolSlug": "autoresearchexam-measuring-agents-ability-to-improve-and-gen",
+    "title": "Master AutoResearchExam: Measuring agents' ability to improve and generalize",
+    "objectives": [
+      "Understand what AutoResearchExam: Measuring agents' ability to improve and generalize is for",
+      "Use AutoResearchExam: Measuring agents' ability to improve and generalize on a real task",
+      "Know where AutoResearchExam: Measuring agents' ability to improve and generalize fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AutoResearchExam: Measuring agents' ability to improve and generalize for your real workflow, not the demo.",
+          "Say what AutoResearchExam: Measuring agents' ability to improve and generalize does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AutoResearchExam: Measuring agents' ability to improve and generalize.",
+          "Push AutoResearchExam: Measuring agents' ability to improve and generalize to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AutoResearchExam: Measuring agents' ability to improve and generalize into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-benchmark",
+      "skill-agents",
+      "skill-evaluation",
+      "skill-research",
+      "skill-generalization"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "course-rdc",
+    "toolSlug": "rdc",
+    "title": "Master RDC",
+    "objectives": [
+      "Understand what RDC is for",
+      "Use RDC on a real task",
+      "Know where RDC fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure RDC for your real workflow, not the demo.",
+          "Say what RDC does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through RDC.",
+          "Push RDC to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold RDC into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-remote-desktop",
+      "skill-developer-tools",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "course-listpro",
+    "toolSlug": "listpro",
+    "title": "Master Listpro",
+    "objectives": [
+      "Understand what Listpro is for",
+      "Use Listpro on a real task",
+      "Know where Listpro fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Listpro.",
+          "Say what Listpro does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Listpro.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Listpro into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-launch assets",
+      "skill-screenshots",
+      "skill-product launch",
+      "skill-marketing",
+      "skill-branding"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T13:38:44.077Z"
   }
 ]
