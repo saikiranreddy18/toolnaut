@@ -4138,9 +4138,42 @@ a client-side SPA with a static tool catalogue.
     alongside it, not a redefinition.
 - **Build size:** S — one new pure util, one new filter row reusing
   `Discover.jsx`'s existing `Pill`/`searchParams` pattern. No backend, no
-  radar change, no new dependency. (The quiz-scoring bias half is a
-  separate, unscoped follow-up, not required to ship the filter.)
+  radar change, no new dependency. (The quiz-scoring bias half, now scoped
+  below, is a separate ~10-line addition to `matchScore.js` — not required
+  to ship the filter, but no longer unscoped.)
 - **Found:** 2026-09-06 09:09 UTC
+- **Deepened 2026-09-10 (audit run):** resolved the "not audited this run"
+  hedge on the quiz-scoring half rather than leaving it as a flagged unknown.
+  1. **A hard filter is the wrong mechanism, and the codebase already says
+     so.** `eligibility.js`'s header comment (around line 26-35) names "API
+     availability" by name as a legitimate hard constraint that "none of
+     [these] can be enforced today" for lack of a catalog field, and
+     `passesHardConstraints` only ever checks the free-budget/paid-tool
+     case. Since this gap deliberately stays derived-only (no new catalog
+     field, per its own NOT-include list below), a hard eligibility gate
+     here would contradict `eligibility.js`'s own documented reasoning — it
+     has to be a soft bias instead.
+  2. **The soft-bias mechanism this needs already exists.** `matchScore.js`'s
+     `EXPERIENCE_LEVEL_BONUS` (keyed on `answers.experience` × `tool.level`,
+     applied at `score += EXPERIENCE_LEVEL_BONUS[answers.experience]?.[
+     tool.level] ?? 0` inside `scoreTool`) is the established pattern for
+     exactly this kind of per-experience nudge. `personaGenerator.js` — the
+     file this entry originally guessed at — only holds label/noun tables
+     and imports scoring helpers; it does not score anything itself.
+  - **Corrected smallest useful version for this half:** add a parallel
+    `ACCESS_METHOD_BONUS` const to `matchScore.js`, same shape as
+    `EXPERIENCE_LEVEL_BONUS` (beginners/dabblers take a small penalty for
+    `accessMethodOf(tool) === 'api' | 'self-hosted'`, builders/regulars
+    don't), plus one `score += ACCESS_METHOD_BONUS[answers.experience]?.[
+    accessMethodOf(tool)] ?? 0` line next to the existing
+    `EXPERIENCE_LEVEL_BONUS` line in `scoreTool`. ~10 lines in the one file
+    already responsible for every other soft bonus — not a new subsystem,
+    and still fully separable from the `Discover.jsx` filter (the filter
+    ships value alone; this closes the quiz-honesty half).
+  - **Still would NOT include:** no hard exclusion at any experience level —
+    same soft-preference-not-eligibility-gate reasoning `eligibility.js`
+    already applies to every other unenforceable constraint; no change to
+    `EXPERIENCE_LEVEL_BONUS` itself, this is additive and parallel to it.
 
 ### The "no credit card" claim survived on three more pages the payment audit never checked — including the hero every visitor sees first
 
