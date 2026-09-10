@@ -4139,7 +4139,9 @@ a client-side SPA with a static tool catalogue.
 
 ### The "no credit card" claim survived on three more pages the payment audit never checked — including the hero every visitor sees first
 
-- **Status:** OPEN
+- **Status:** SHIPPED 6c6859c — verified 2026-09-10: `HeroSection.jsx:133`,
+  `CTASection.jsx:53` and `ExampleStack.jsx:241-243` all read `paymentsOn`
+  from `VITE_PAYMENTS_ENABLED` and swap the claim exactly as scoped below.
 - **Seen in:** not a competitor pattern — a direct continuation of the
   already-SHIPPED "Free public beta, no payment" audit above (found
   2026-09-02, sha in DEVLOG). That entry fixed `ContactSection.jsx`,
@@ -4287,3 +4289,92 @@ a client-side SPA with a static tool catalogue.
   for a single feature-run diff. Logged so the backfill can be scheduled
   deliberately rather than attempted as a rushed one-day feature.
 - **Found:** 2026-09-10 06:16 UTC
+
+---
+
+### Curated tool bundles ("Collections") — the multi-tool middle step between Discover and the quiz, missing entirely
+- **Status:** OPEN
+- **Seen in:** Product Hunt Collections (producthunt.com/collections) — themed,
+  curated lists of multiple products ("GIF Apps," "Marketing Tools," "X for Y")
+  that Product Hunt itself describes as having two intents, personal
+  (bookmarking) and social (sharing a themed list with others); it's one of
+  the site's two core discovery mechanisms alongside single-product browsing.
+  Futurepedia's category-by-business-function grouping and G2's "Best
+  Software" round-ups do a coarser version of the same job — group multiple
+  products around a use-case, not just a single filter axis.
+- **Gap:** confirmed absent — `grep -rniE "collection|bundle|curated.{0,15}(stack|list)"
+  src/pages src/components` turns up nothing but unrelated schema.org
+  `CollectionPage`/`ItemList` JSON-LD types `NewTools.jsx:23` and
+  `CategoryLanding.jsx:43` already emit for SEO markup on single-domain
+  listings — not an actual bundle feature. Toolnaut has exactly three ways to
+  land on more than one tool today, and none of them is "here are 5 tools
+  that work well together for X": (1) `CategoryLanding.jsx` (`/tools/:domain`)
+  lists every tool in one of only 6 broad domains — writing, code, design,
+  data, automation, learning (`rolesData.js:8-13`) — which is breadth, not
+  curation (the "writing" domain alone spans ChatGPT through Doubao through
+  enterprise-only Command); widening that facet is the separate,
+  already-logged "26 categories, only 6 shipped" gap above, not this one.
+  (2) `Discover.jsx`'s filtered grid is session-gated behind `AppShell` and
+  requires the visitor to already know what to filter for. (3)
+  `SharedStack.jsx` (`/s/:slugs`) renders a read-only list of tools, but it's
+  one specific *user's* personal stack, reachable only via a pasted link, has
+  no editorial rationale text, and is explicitly excluded from
+  `scripts/prerender.mjs`'s `ROUTES` per that file's own comment — it is
+  never crawlable and nothing in the app's own nav links to one. There is no
+  "browse pre-made bundles" surface anywhere.
+- **Why it matters:** Toolnaut's pitch is a personalized quiz, but that
+  leaves nothing for a visitor who isn't ready for a 9-question commitment
+  yet also finds the 6 broad domain pages too wide to be useful ("best AI
+  tools for writing" doesn't say which 4 a solo founder should actually run
+  together). A curated collection is the missing middle step — lower
+  commitment than the quiz, more opinionated than Discover's raw filter grid
+  — the exact gap Product Hunt Collections fills between "here's every
+  product" and "here's my personal list." It's also new, real SEO surface:
+  long-tail "best AI tools for [use case]" queries at a granularity below the
+  6 domain pages, buildable entirely client-side with hand-picked slugs from
+  the existing catalog — no radar/schema change, unlike the access-method
+  and stack-cost-estimate gaps above that both hit that same wall.
+- **Smallest useful version (what to actually build):**
+  - New static data file `src/utils/collectionsData.js`: ~6-8 hand-curated
+    bundles, `{ slug, title, blurb, rationale, toolSlugs: [...] }`, each with
+    4-6 real tool slugs cross-checked against `toolsCatalog.js` before
+    writing (same seed-data discipline already established for
+    `communityData.js`/`toolReviewsData.js`'s slug lists) — e.g. "The Solo
+    Founder's Stack," "Content Creator Starter Kit." Editorial rationale text
+    only, no invented per-tool scores.
+  - New page `src/pages/Collections.jsx` at a new public route `/collections`
+    (added in `App.jsx` alongside the other public marketing routes near
+    `/tools/:domain`, `App.jsx:109`): an index grid of collection cards
+    (title, blurb, tool-count), reusing `CategoryLanding.jsx:85`'s existing
+    `glass rounded-2xl` card markup rather than inventing new chrome.
+  - New page `src/pages/CollectionDetail.jsx` at `/collections/:slug`:
+    resolves `toolSlugs` through `getTool()` (same pattern `SharedStack.jsx:14`
+    already uses), renders each tool with `CategoryLanding.jsx`'s existing
+    card markup plus the editorial rationale paragraph, and one "Add all to
+    my stack" button looping `addToStack()` over every slug — the same adopt
+    pattern `SharedStack.jsx`'s `adoptAndGo` already implements, so no new
+    interaction is invented, just reused on hand-picked instead of
+    user-shared slugs.
+  - Add `/collections` plus one `/collections/:slug` entry per bundle to
+    `scripts/prerender.mjs`'s `ROUTES` (`scripts/prerender.mjs:28-45`) — a
+    small, fixed-size list since these are hand-authored, unlike
+    `SharedStack`'s unbounded user-generated slugs, so making them crawlable
+    doesn't blow up the prerender matrix.
+  - `useHead()` on both new pages with `CollectionPage`/`ItemList` JSON-LD,
+    same shape `CategoryLanding.jsx:41-57` already builds.
+  - **What this would NOT include** (kept out to bound the diff): no
+    user-submitted or crowdsourced collections (that's the already-logged
+    "Suggest a tool" gap's shape applied to lists, a separate, unscoped
+    idea); no collection editing UI — content lives in the static data file,
+    edited the same way `rolesData.js`/`communityData.js` already are; no
+    overlap with the "26 categories" gap — collections are cross-category
+    use-case bundles, not a finer single-axis facet; no AI-generated
+    rationale text — hand-written like every other seed-content file in this
+    codebase; nav/footer placement not scoped here — flagged for whoever
+    builds this to pick the least intrusive spot in `Landing.jsx` rather than
+    guessed in advance.
+- **Build size:** S/M — one new data file, two new pages closely mirroring
+  `CategoryLanding.jsx`/`SharedStack.jsx`'s existing markup and adopt
+  pattern, two new routes, a small `prerender.mjs` `ROUTES` addition. No
+  backend, no new dependency, no radar/schema change.
+- **Found:** 2026-09-10 09:07 UTC
