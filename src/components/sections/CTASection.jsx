@@ -14,6 +14,7 @@ export default function CTASection() {
   // A signed-out visitor has no stack yet — "map your stack" below means the
   // quiz, not the (session-gated) app, or this button breaks its own promise.
   const openTarget = loadSession() ? '/app/stack' : '/goal'
+  const paymentsOn = import.meta.env.VITE_PAYMENTS_ENABLED === 'true'
 
   return (
     <section id="cta" ref={ref} className="relative z-10">
@@ -49,7 +50,7 @@ export default function CTASection() {
         </motion.div>
 
         <motion.p variants={fadeUp} className="mt-4 text-sm text-slate-500">
-          No credit card. No commitment.
+          {paymentsOn ? 'Free to try — plans shown at checkout.' : 'No credit card. No commitment.'}
         </motion.p>
       </motion.div>
 

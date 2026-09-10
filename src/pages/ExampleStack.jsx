@@ -83,6 +83,7 @@ const EXAMPLE_PROFILE = [
 export default function ExampleStack() {
   const track = useAnalytics()
   const navigate = useNavigate()
+  const paymentsOn = import.meta.env.VITE_PAYMENTS_ENABLED === 'true'
 
   const { persona, picks, roadmap } = useMemo(() => {
     const p = generatePersona(EXAMPLE_ANSWERS)
@@ -236,8 +237,10 @@ export default function ExampleStack() {
       <div className="mt-10 rounded-2xl border-[3px] p-6 text-center" style={{ borderColor: 'var(--hot-pink)', background: '#1a0f16', boxShadow: '6px 6px 0 #000' }}>
         <p className="font-display text-xl font-black uppercase text-white">Now do it for your role</p>
         <p className="mx-auto mt-2 max-w-md text-sm text-slate-300">
-          Nine questions, about ten minutes. No credit card, and no account until
-          you want to save it.
+          Nine questions, about ten minutes.{' '}
+          {paymentsOn
+            ? 'No account until you want to save it.'
+            : 'No credit card, and no account until you want to save it.'}
         </p>
         <button
           onClick={() => {

@@ -4217,3 +4217,73 @@ a client-side SPA with a static tool catalogue.
   flag three other files already read the same way. No backend, no new
   dependency, no new component.
 - **Found:** 2026-09-09 12:09 UTC
+
+---
+
+### Stack cost estimate — competitors model total spend, our catalog can't yet
+- **Status:** OPEN — needs a radar schema change before it's buildable, see below
+- **Seen in:** Whizi (whizi.io) is built specifically around "calculate real AI
+  subscription costs, compare tool overlap, find wasted spend, and decide
+  when consolidating tools saves money"; several 2026 AI-pricing aggregators
+  (itoolverse, aipricingcalculators.com) exist purely to let someone total up
+  a multi-tool stack in dollars. It's the natural next question after
+  Toolnaut already gets someone to *build* a stack: "what will this cost me
+  a month?" StackShare and G2 don't attempt this (they're B2B research, not
+  spend management) — this is specifically an AI-tool-directory pattern,
+  because AI tools are the rare software category where a beginner
+  routinely stacks 4-6 paid subscriptions at once without meaning to.
+- **Gap:** confirmed our catalog cannot support a real version of this today.
+  Checked `radar/schema.js:7,11,58` and every `"pricing"` string currently in
+  `src/utils/toolsCatalog.js` (`grep -o '"pricing": "[^"]*"' | sort -u`): the
+  full set of values across all 704 bundled tools is `Free`, `Freemium`,
+  `Paid`, `API`, `Usage-based`, `Usage-based API`, `Enterprise`, `Enterprise
+  API`, `Open source` and similar category labels — **zero** contain a `$`
+  or a number. `price` (`radar/schema.js:7`) is a 3-value enum
+  (free/freemium/paid), not an amount. There is no numeric monthly-cost field
+  anywhere in the pipeline to sum, so "estimate your stack's monthly cost"
+  cannot be built as a client-side computation over data we already have —
+  unlike every other OPEN gap in this file, which reads data the catalog
+  already carries.
+- **Why it matters:** it's the highest-intent question after the quiz and
+  Stack builder already work as designed — a user who has assembled 5 tools
+  from their persona's starter stack has no way to see "3 of these are paid,
+  roughly $60-100/mo combined" before committing. That's exactly the
+  overspend Whizi's whole product exists to prevent, and Toolnaut is
+  upstream of the decision (recommending the stack) without downstream
+  visibility into what it costs. A wrong or fabricated number here would be
+  worse than no feature — this is exactly the kind of trust claim the
+  "no credit card" and payments-copy entries in this file keep having to
+  correct after the fact, so it must not ship with guessed numbers.
+- **What it would take to become buildable** (not a smallest-useful-version,
+  because there isn't one without new data):
+  - `radar/schema.js`: add a `priceAmount` field (nullable number, USD/mo,
+    `null` when the tool has no fixed subscription price — usage-based API
+    billing, enterprise-quote, or genuinely free tools all stay `null` rather
+    than a fabricated 0 or guess) and add it to `HASHED_FIELDS` so a price
+    change is detected like any other content edit.
+  - `radar/enrich.js`: extend the LLM enrichment prompt to extract a numeric
+    monthly price ONLY when the tool's own pricing page states one plainly
+    (e.g. "$20/month") and return `null` otherwise — this is an extraction
+    task, not an estimation task; the prompt must not be allowed to infer or
+    round a price the source didn't state, for the same reason the catalogue
+    count and llms.txt entries in this backlog insist on derived-not-guessed
+    numbers.
+  - Backfill: the 704 bundled tools in `src/utils/toolsCatalog.js` were never
+    enriched by the current `radar/enrich.js` pipeline, so they'd all read
+    `priceAmount: null` until a one-time backfill re-runs enrichment against
+    them — a genuinely large, LLM-cost-bearing batch job, not a code change,
+    and the reason this can't be scoped as a normal S/M feature-run diff.
+  - Only once real numbers exist for a meaningful share of the catalog would
+    `Stack.jsx` showing "Estimated: $X-Y/mo across N paid tools" (a range,
+    never a false-precision single number, and openly listing which tools
+    are excluded as `null`) be honest rather than decorative.
+  - **What this would NOT include even once buildable:** no per-seat/team
+    pricing math, no currency conversion, no annual-vs-monthly toggle, no
+    tracking actual billing (still a static catalog, not an account-linked
+    spend tracker) — just a same-order-of-magnitude estimate from the
+    tool's own stated list price.
+- **Build size:** L, and cross-cutting (`radar/schema.js`, `radar/enrich.js`,
+  a backfill run, then `src/pages/app/Stack.jsx`) — correctly out of scope
+  for a single feature-run diff. Logged so the backfill can be scheduled
+  deliberately rather than attempted as a rushed one-day feature.
+- **Found:** 2026-09-10 06:16 UTC

@@ -31,6 +31,7 @@ export default function HeroSection({ onEnter }) {
 
   const count = catalogSize()
   const updated = lastUpdatedLabel()
+  const paymentsOn = import.meta.env.VITE_PAYMENTS_ENABLED === 'true'
 
   return (
     <section
@@ -116,9 +117,12 @@ export default function HeroSection({ onEnter }) {
       </motion.div>
 
       {/* Trust row. Only claims that are true and checkable: the count and the
-          date are read from the catalogue, and there is genuinely no payment
-          path in the product today. Rendered on a scrim because thin text over
-          a starfield is unreadable, and an unreadable trust cue is no cue. */}
+          date are read from the catalogue, and the "no credit card" claim
+          only holds while payments are off — once VITE_PAYMENTS_ENABLED
+          flips, quiz + first stack view are still free (AppShell's own
+          entitlement gate), so that's the claim that stays true. Rendered on
+          a scrim because thin text over a starfield is unreadable, and an
+          unreadable trust cue is no cue. */}
       <motion.ul
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -126,7 +130,7 @@ export default function HeroSection({ onEnter }) {
         className="mt-7 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-full px-5 py-2.5 text-[12px] font-semibold text-slate-200"
         style={{ background: 'rgba(6,6,12,0.72)', border: '1px solid rgba(255,255,255,0.10)' }}
       >
-        <li>✓ No credit card</li>
+        <li>✓ {paymentsOn ? 'Free to see a stack' : 'No credit card'}</li>
         <li aria-hidden="true" className="text-slate-600">·</li>
         <li>✓ No account needed to see a stack</li>
         <li aria-hidden="true" className="text-slate-600">·</li>
