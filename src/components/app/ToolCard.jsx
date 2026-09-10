@@ -64,6 +64,17 @@ export default function ToolCard({
               {fitBand(tool.score).label}
             </span>
           )}
+          {/* Same signal ToolDetail's pill gives, at the point someone
+              decides whether to open the card at all — not only after. */}
+          {tool.status && tool.status !== 'Active' && (
+            <span
+              className="rounded-full px-2 py-0.5 font-display text-[10px] font-black uppercase"
+              style={{ background: 'var(--hot-pink)', color: '#fff', border: '2px solid #000', boxShadow: '2px 2px 0 #000' }}
+              title={tool.note || tool.status}
+            >
+              {tool.status}
+            </span>
+          )}
         </span>
       </div>
 
