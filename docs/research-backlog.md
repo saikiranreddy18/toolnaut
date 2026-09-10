@@ -4485,3 +4485,99 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-09-03 00:35 UTC (recovered from unmerged PR #40 and
   re-verified against master 2026-09-10 12:xx UTC — all file:line references
   above checked fresh, not copied blind)
+
+---
+
+### No public developer API — the structured catalog data already exists and is already public, nobody was ever told
+- **Status:** OPEN
+- **Seen in:** There's An AI For That (TAAFT), the largest AI-tool directory
+  by listing count (47,400+ tools as of April 2026 per its own reporting) —
+  one of its named strengths alongside raw listing volume is "structured data
+  and developer access: filter by task type, pricing, and platform, and
+  there's an API for building on top of the directory programmatically."
+  Product Hunt's public GraphQL API is the same pattern at a different scale:
+  a directory's own catalog, exposed deliberately as a second growth channel
+  (people building on top of it) rather than kept as an internal
+  implementation detail.
+- **Gap:** confirmed this is a near-zero-cost gap, not a new-data one — the
+  underlying asset already exists and is already public. `public/tools.json`
+  is committed (not gitignored, per this repo's own CLAUDE.md), served
+  statically by Vercel, and any visitor's browser or server can already fetch
+  `https://toolnaut.xyz/tools.json` today and get all 700+ structured records
+  (`slug`, `name`, `category`, `sourceCategory`, `price`, `pricing`, `level`,
+  `blurb`, `audience`, `dev`, `year`, `website`, `status`, `note`, `tags`,
+  `discoveredAt` — read directly off the live file). `vercel.json:18-21`
+  already gives it a dedicated, correct `Cache-Control: public, max-age=0,
+  must-revalidate` header, proving someone already thought about this file as
+  a served asset, not just a build artifact. But nobody was ever told: grepped
+  every page and the footer (`src/components/sections/ContactSection.jsx`'s
+  three-column `COLUMNS` link list, `ContactSection.jsx:33-60`) for
+  `developer|api\b` — the only `/api/*` references anywhere in `src/` are
+  Vercel serverless functions unrelated to the catalog (`create-order`,
+  `entitlement`, `alerts-status`, `alerts-toggle`, `alerts-send`, per
+  `AlertSettings.jsx:36,52`, `PayButton.jsx:6`, `BillingCard.jsx:10`). There
+  is no `/developers` route in `App.jsx`'s route list (checked all ~25
+  routes), no mention of `tools.json` as a fetchable resource anywhere a
+  human would read it, and — the one part that's a genuine defect, not just
+  missing marketing — no CORS header on the `/tools.json` block
+  (`vercel.json:18-21`), so a browser script on someone else's site can't
+  actually `fetch()` it cross-origin today even if they discovered the URL;
+  only same-origin code, curl, or a server-side fetch can read it. `llms.txt`
+  (`public/llms.txt`, shipped recently) is the closest existing analog, but
+  it's prose written for AI crawlers summarizing the product, not structured
+  data documentation for a developer who wants to query the catalog itself.
+- **Why it matters:** this is the cheapest possible "developer access" story
+  in the directory-site playbook, because — unlike the access-method-facet
+  and stack-cost-estimate gaps in this file, which both hit a real "the data
+  doesn't exist yet" wall — the data already exists, is already generated
+  daily by radar, and is already sitting in a public, correctly-cached file.
+  The entire gap is: (1) one missing HTTP header blocking actual cross-origin
+  consumption, and (2) nobody wrote the one page that says "this exists, here
+  is its shape, here is how to use it." Every hour this stays unbuilt is free
+  distribution (someone building a "best AI tool for X" widget, a Raycast
+  extension, or a personal dashboard on top of Toolnaut's catalog, each
+  linking back) left entirely on the table for the cost of a docs page.
+- **Smallest useful version (what to actually build):**
+  - `vercel.json`: add `{ "key": "Access-Control-Allow-Origin", "value": "*" }`
+    to the existing `/tools.json` header block (`vercel.json:18-21`) — a
+    read-only GET on a public, non-sensitive, no-auth static file, so an
+    open CORS policy carries no privacy or security exposure (contrast with
+    `/api/entitlement` or `/api/alerts-status`, both auth-gated and correctly
+    left alone). No other header block in the file should change.
+  - New page `src/pages/Developers.jsx` at route `/developers`, mirroring
+    `Changelog.jsx`'s exact shell (its own header comment already names it as
+    reusing `About.jsx`'s shell, so this page reuses the same one a third
+    time — one page shell, three simple content pages): what the file is
+    (`GET https://toolnaut.xyz/tools.json`), the field list with one real
+    example record pulled from the live catalog, a plain `fetch()` snippet,
+    an honest "no API key, no rate limit enforced today, please be
+    reasonable" line (stating the real, unglamorous truth rather than
+    promising an SLA nothing backs), a link to `/changelog` for how often the
+    data changes (radar publishes daily per this file's own health checks),
+    and a link to `/llms.txt` as the AI-agent-facing counterpart to this
+    human-facing one. `useHead()` with title/description, same pattern as
+    `Changelog.jsx:12-16`.
+  - Add `/developers` to `ContactSection.jsx`'s `Resources` column
+    (`ContactSection.jsx:44-51`, next to `/changelog` and `/methodology` —
+    same "here's how the product works under the hood" grouping) and to
+    `scripts/prerender.mjs`'s `ROUTES` array (`scripts/prerender.mjs:28-46`,
+    one more flat string alongside `/changelog`, `/methodology`) so it's
+    crawlable like every other marketing/resource page.
+  - **What this would NOT include** (kept out to bound the diff): no API key
+    or auth system — the data has no per-tool or per-user sensitivity, an
+    auth layer would be pure friction for zero benefit; no new endpoint or
+    data shape separate from `tools.json` — this exposes the existing
+    canonical file honestly, it does not fork a second copy of the catalog;
+    no server-side filtering/query params (`?category=code` etc.) — still a
+    static file, consumers filter client-side same as Toolnaut's own
+    `Discover.jsx` already does; no formal rate-limiting infrastructure —
+    Vercel's CDN caching (`max-age=0, must-revalidate` already means
+    conditional-GET/304s do the real work) is the only protection, and the
+    docs page says so plainly rather than implying more than exists; no
+    change to `radar/` or the publish pipeline — this only changes how the
+    already-published output is surfaced and described.
+- **Build size:** S — a two-line `vercel.json` header addition, one new
+  static content page closely mirroring an existing page's shell, one footer
+  link, one `prerender.mjs` `ROUTES` entry. No backend, no new dependency, no
+  radar/schema change.
+- **Found:** 2026-09-10 15:xx UTC
