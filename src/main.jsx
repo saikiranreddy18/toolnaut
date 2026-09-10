@@ -3,11 +3,15 @@ import { createRoot } from 'react-dom/client'
 import App from './App'
 import './index.css'
 import { initAnalytics } from './utils/analyticsEvents'
+import { initErrorReporting } from './utils/errorReporting'
+import AppErrorBoundary from './components/AppErrorBoundary'
 import { loadLiveCatalog } from './utils/liveCatalog'
 import { loadTheme, applyTheme } from './state/themeStore'
 import { loadMoon, applyMoon } from './state/moonStore'
 import { watchSession } from './state/authStore'
 
+// First, so a crash in any of the boot steps below is still reported.
+initErrorReporting()
 initAnalytics()
 applyTheme(loadTheme()) // paint the saved play-mode before first render
 applyMoon(loadMoon())   // and the saved sky, so there is no flash of the wrong night
@@ -23,7 +27,9 @@ watchSession()
 loadLiveCatalog().finally(() => {
   createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-      <App />
+      <AppErrorBoundary>
+        <App />
+      </AppErrorBoundary>
     </React.StrictMode>,
   )
 })

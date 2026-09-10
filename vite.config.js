@@ -15,6 +15,22 @@ export default defineConfig({
   // read/write on every table, bypassing Row Level Security. Adding that prefix
   // would bake it into a public bundle.
   envPrefix: ['VITE_', 'NEXT_PUBLIC_'],
+
+  // Which build an error came from. Without it every Sentry issue is dated but
+  // not versioned, so 'did the fix ship' has no answer. Vercel exposes the
+  // commit at build time; a local build says 'dev' rather than lying about it.
+  define: {
+    // Sentry compiles its debug logging and its entire tracing subsystem into
+    // the bundle unless these flags strip them. Tracing is off by default here,
+    // so shipping it costs every visitor bytes for a feature nobody enabled.
+    // Read from the same build-time env as the runtime sample rate, so a build
+    // made with tracing on still contains the code to do it.
+    __SENTRY_DEBUG__: false,
+    __SENTRY_TRACING__: Number(process.env.VITE_SENTRY_TRACES || 0) > 0,
+    __APP_RELEASE__: JSON.stringify(
+      (process.env.VERCEL_GIT_COMMIT_SHA || '').slice(0, 12) || 'dev',
+    ),
+  },
   server: {
     // Honour the harness-assigned port (autoPort sets PORT) so the preview
     // tool watches the same port vite binds — and bind IPv4+IPv6 so localhost
@@ -46,6 +62,13 @@ export default defineConfig({
           }
           if (id.includes('/node_modules/three/') || id.includes('/node_modules/@react-three/')) {
             return 'three'
+          }
+          // Sentry is loaded on demand and would otherwise be merged into
+          // whichever dynamic chunk rollup groups it with, which makes its
+          // real cost impossible to read and re-downloads the whole SDK
+          // whenever that unrelated code changes.
+          if (id.includes('/node_modules/@sentry/')) {
+            return 'sentry'
           }
         },
       },
