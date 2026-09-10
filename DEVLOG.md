@@ -9,6 +9,86 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-10
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h,
+last run 2026-09-10 13:38 UTC (published 13 tools), previous run 2026-09-09
+23:30 UTC (published 10). 23 tools published in the last 24h, feed holds 315
+tools. Healthy and growing.
+
+**Researched today:** three research-hour runs before this one. 06:18 UTC
+shipped (directly, small fix) the "no credit card" claim surviving on
+`HeroSection.jsx`/`CTASection.jsx`/`ExampleStack.jsx` after payments went
+live. 09:22 UTC logged a new gap — curated multi-tool "Collections", the
+Product Hunt Collections pattern, as an editorial middle step between the
+quiz and Discover's raw grid. 12:18 UTC recovered the "leaderboard goes
+real" gap, which had been fully scoped on PR #36 (2026-09-03) but never
+landed on master because that PR was never merged — re-verified every
+file:line claim still held and re-added it directly rather than leave it
+stranded a second time. 15:09 UTC logged a fresh, near-zero-cost gap: the
+`public/tools.json` catalogue is already public and correctly cached but
+has no CORS header and no page telling anyone it exists — a "developer API"
+Toolnaut already has the data for.
+
+**Shipped:** the "status warning has no reason attached" gap —
+[`ef59a93`](https://github.com/saikiranreddy18/toolnaut/commit/ef59a93).
+Picked it over the newer, flashier gaps (curated bundles, public API,
+leaderboard-goes-real — the latter two need either a Supabase RPC or a new
+public route, more than an evening slice) because it was the oldest OPEN
+entry with a concrete, small, already-fully-specced plan (found 2026-08-26,
+deepened 2026-09-01) and it closes a real trust gap: 52 of 704 catalog
+tools carry an "Uncertain" status, 47 of those already have a written
+reason (`toolsCatalog.js`'s `note` field — "core team moved to Microsoft",
+"pivoted toward medical AI"), and nothing rendered it anywhere a user
+would see it before clicking into a tool's own detail page.
+
+Scoped down from the original plan during the build: `ToolDetail.jsx`'s
+half of this gap had already closed independently since the entry was
+written — `TrustPanel.jsx` (added later, for an unrelated "why this tool"
+panel) already renders `tool.note` under a "Watch out for" row. Adding a
+second render of the same sentence directly under the pill would just be
+duplicate text on one page, so that file was left alone. The two places
+that genuinely showed nothing were fixed: `ToolCard.jsx` (shared by
+Discover and Favorites — the only place a user browses before opening a
+tool) now shows the same hot-pink UNCERTAIN badge `ToolDetail` uses,
+scaled to the card's badge row; `Compare.jsx`'s Status row appends the
+note in parentheses for non-Active tools instead of showing the bare word.
+12 lines changed across 2 files.
+
+**Live on toolnaut.xyz** now that it's on master — pure client-side change,
+no new dependency, no new store, no new route. `npm test` (214/214),
+`npm run build` (17/17 routes prerendered, three.js stays in its own
+chunk), and `npm run smoke` (22/22 routes, 0 console errors) all green
+before push.
+
+**Note on the open-PR backlog:** GitHub currently shows 12 open bot PRs
+dated 2026-08-22 through 2026-09-06 that were never merged (e.g. #35, #36,
+#37, #22, #10) — an earlier stretch of runs opened PRs per CLAUDE.md's
+"every change goes through a PR" rule, but nothing merged them, so that
+work never reached production and, in at least one case (#36), had to be
+independently rediscovered and rebuilt directly on master days later (see
+12:18 UTC above). The last several days of runs (this one included) have
+gone back to pushing straight to master per the scheduled job's own
+shipping instructions, which is what has actually been landing on
+toolnaut.xyz. Worth a human pass to either close the stale PRs or decide
+which of that work (in particular #35's behavioural-signal logging and
+#22's stack-confidence scoring, both large and still relevant) should be
+manually rebased and merged.
+
+**Queued next:** curated tool bundles ("Collections") and the public
+developer API gap are the freshest, smallest OPEN entries. Also OPEN:
+first-session onboarding checklist, ratings & reviews, suggest-a-tool, PDF
+roadmap export, recently-viewed tools, command palette, Discover facet
+counts, tool graveyard page, embeddable "Featured on Toolnaut" badge,
+per-tool Alternatives SEO pages, RSS feed of new tools, tool visual
+identity/favicons, clickable tags, the 26-subcategory landing pages,
+access-method facet, stack cost estimate (needs a radar schema change
+first), and leaderboard-goes-real (needs a Supabase RPC, scoped and ready).
+Weekly alerts/Pro chat assistant and Team tier stay OPEN-but-not-concrete
+or REJECTED-for-build respectively.
+
+---
+
 ## 2026-09-09
 
 **Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h,

@@ -1240,7 +1240,12 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-26 00:35 UTC
 
 ### Tool status warning has no reason attached ("note" field collected, never shown)
-- **Status:** OPEN
+- **Status:** SHIPPED ef59a93 — scoped down at build time: `ToolDetail.jsx`'s
+  half of this gap had already closed independently (`TrustPanel`'s "Watch
+  out for" row renders `tool.note` there, added after this entry was
+  written), so only `ToolCard.jsx` (the badge, reused verbatim from
+  `ToolDetail.jsx`'s pill, scaled to the card's badge-row size) and
+  `Compare.jsx`'s Status row (note appended in parentheses) needed the fix.
 - **Seen in:** ToolDirectory.AI (a 2026 AI-tool directory competitor, studied
   fresh this run) markets "every entry reviewed, dated, and re-tested" and
   moves dead/rebranded tools to an explicit "graveyard" rather than letting
