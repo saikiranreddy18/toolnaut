@@ -4776,4 +4776,88 @@ a client-side SPA with a static tool catalogue.
   ongoing cost is a one-line addition to the feature run's own existing
   end-of-day writing step (it already composes a "queued next" line for
   `DEVLOG.md`; the same sentence, in the same words, goes here too).
+
+---
+
+### Stack overlap warning — the catalog already carries the field the cost-estimate gap ruled out needing, nobody reads it for redundancy
+- **Status:** OPEN
+- **Seen in:** Whizi (whizi.io) markets itself around three things: "calculate
+  real AI subscription costs, **compare tool overlap**, find wasted spend."
+  The Stack cost estimate entry above (found 2026-09-10, still OPEN, `L`,
+  blocked on a `radar/schema.js` price field that doesn't exist yet) scoped
+  the first third of that claim and correctly ruled it out for now. It did
+  not check the second third — tool overlap — which turns out not to share
+  the same blocker at all.
+- **Gap:** a Toolnaut stack can and regularly will contain two tools that do
+  the same job. Checked `src/pages/app/Stack.jsx:230-233` — `allStackTools`
+  is built by concatenating `persona.stack` (three starter picks from
+  `personaGenerator.js`) with `addedTools` (anything added from Discover via
+  `stackStore.js`), with the only existing dedupe being an exact-name filter
+  at `Stack.jsx:98-101` (`starterNames`/`addedTools.filter`). Nothing compares
+  what the tools in that list actually *do*. Every catalog record already
+  carries a `sourceCategory` field one level more specific than the six
+  `category` buckets used for routing (`src/utils/toolsCatalog.js` — grepped
+  `"sourceCategory": "` across all 330 bundled + radar-published tools:
+  26 distinct values, e.g. `LLMs & Chatbots` (35 tools), `Image Generation &
+  Editing` (60), `Video Generation & Avatars` (47) — the exact granularity
+  the still-open "26 real source categories" entry above already established
+  as meaningful, not noise). A user whose stack has both ChatGPT and Claude
+  (both `LLMs & Chatbots`) or both Midjourney and an unlisted image tool
+  (both `Image Generation & Editing`) gets no signal that two of their
+  slots are doing the same job — the exact "wasted spend" moment Whizi's
+  whole product targets, and one Toolnaut can detect for free because,
+  unlike price, category was never missing data.
+- **Why it matters:** this is upstream of the (currently blocked) cost
+  estimate in the funnel a user actually walks: before "what does my stack
+  cost," the more answerable question is "is my stack even efficient" — and
+  answering it needs no price data, no radar schema change, no backfill,
+  just a `groupBy(sourceCategory)` over a list of ≤10 tools already sitting
+  in state. For a persona-driven starter stack specifically, a Pro/Team
+  upsell moment already exists for "deeper comparison" (`capabilityMatrix.js`
+  row `Comparison`) — flagging real overlap on the free tier and offering
+  "compare these two side by side" (linking straight into the already-shipped
+  `Compare.jsx` from the Side-by-side entry above) is exactly the
+  `deep_comparison_opened` good-upgrade-moment `capabilityMatrix.js:88`
+  already names, just never triggered by anything today.
+- **Smallest useful version (what to actually build):**
+  - A small pure function, e.g. `src/utils/stackOverlap.js`:
+    `findOverlaps(tools)` groups `allStackTools` by `sourceCategory` and
+    returns groups with more than one tool. No new store, no persisted
+    state — recomputed from `allStackTools` on every render the same way
+    `untouchedCount` already is (`Stack.jsx:234`).
+  - `Stack.jsx`: render a dismissible-per-session (not persisted — a stack
+    changes shape often enough that a stale dismissal would hide a *new*
+    overlap) sticker near `allStackTools` (around `Stack.jsx:315-319`, same
+    card language as the streak/next-learning-step stickers already there)
+    when `findOverlaps` returns anything: e.g. "2 tools doing the same job —
+    ChatGPT and Claude are both LLM chat assistants," with a link into
+    `Compare.jsx` pre-filled with those two slugs. Confirmed the shape:
+    `Compare.jsx:26` reads `searchParams.get('tools')` as a comma-separated
+    slug list off `/app/compare`, so the link is exactly
+    `/app/compare?tools=${slug1},${slug2}` — no new prop or route needed,
+    just the existing `<Link>`.
+  - Only flag when a group has 2+ *non-starter-overlapping* tools — i.e.
+    don't warn about the persona's own three starter picks against each
+    other; personaGenerator deliberately spans different jobs already, so a
+    same-category starter pair would indicate a personaGenerator bug, not a
+    user redundancy, and is out of scope here.
+  - **What this would NOT include:** no price/cost math (that is the
+    separately-blocked cost-estimate entry — this is redundancy, not spend);
+    no automatic removal of either tool, ever — surfacing the overlap and
+    linking to Compare is the entire feature, the user decides; no new
+    route; no change to `radar/schema.js` or any enrichment prompt, since
+    `sourceCategory` is already populated for every record.
+  - **Open question for whoever builds it:** with only 26 buckets and up to
+    10 stack slots, false positives are possible (two `Productivity &
+    Meetings` tools that don't actually compete). Worth wording the sticker
+    as a question ("might be doing the same job — worth comparing?") rather
+    than an assertion, so a wrong flag reads as a nudge, not a factual claim
+    the "no fabricated numbers" discipline this file enforces elsewhere
+    would otherwise require evidence for.
+- **Build size:** S — one new pure utility (~20-30 lines), one conditional
+  sticker in an already-existing file, reusing `Compare.jsx` rather than
+  building new comparison logic. No backend, no schema change, no backfill —
+  unlike its Whizi-adjacent sibling above, this half of the pattern needs
+  nothing Toolnaut doesn't already have.
+- **Found:** 2026-09-11 09:20 UTC
 - **Found:** 2026-09-11 03:20 UTC
