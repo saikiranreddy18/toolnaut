@@ -44,4 +44,25 @@ describe('matchesQuery', () => {
   test('no match returns false', () => {
     assert.equal(matchesQuery(TOOL, 'spreadsheet'), false)
   })
+
+  test('multi-word query matches words in any order across fields, not just as one literal phrase', () => {
+    const videoTool = {
+      name: 'Kapwing',
+      blurb: 'Edit videos online with an AI-powered editor',
+      sourceCategory: 'Video Editing',
+      dev: 'Kapwing Inc',
+      tags: ['video', 'editing'],
+    }
+    // "video editor" is not a literal substring anywhere above (it's
+    // "videos online with an AI-powered editor"), but both words are present.
+    assert.equal(matchesQuery(videoTool, 'video editor'), true)
+  })
+
+  test('multi-word query still requires every word to be present somewhere', () => {
+    assert.equal(matchesQuery(TOOL, 'coding spreadsheet'), false)
+  })
+
+  test('multi-word literal-phrase queries that matched before still match', () => {
+    assert.equal(matchesQuery(TOOL, 'long documents'), true)
+  })
 })

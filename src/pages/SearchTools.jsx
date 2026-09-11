@@ -55,7 +55,7 @@ export default function SearchTools() {
           value={q}
           autoFocus
           onChange={(e) => setSearchParams(e.target.value ? { q: e.target.value } : {}, { replace: true })}
-          placeholder='Try "video", "Anthropic" or "healthcare"...'
+          placeholder='Try "video editor", "Anthropic" or "healthcare"...'
           className="w-full rounded-full px-5 py-3.5 text-base text-white placeholder:text-slate-500 focus:outline-none"
           style={{
             background: 'rgba(20,18,31,0.9)',

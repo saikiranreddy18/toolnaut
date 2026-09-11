@@ -4619,3 +4619,84 @@ a client-side SPA with a static tool catalogue.
   link, one `prerender.mjs` `ROUTES` entry. No backend, no new dependency, no
   radar/schema change.
 - **Found:** 2026-09-10 15:xx UTC
+
+---
+
+### Search treats a whole multi-word query as one literal phrase — "video editor" misses tools that "video" and "editor" alone both find
+
+- **Status:** SHIPPED (this commit) — small, well-scoped, verifiably-buildable
+  client-side fix; built same run as found rather than left for the feature
+  run, per this file's own allowance for one small demonstrable-bug fix
+  alongside research
+- **Seen in:** not a competitor pattern — a self-audit of `src/utils/search.js`,
+  the shared predicate behind both `/search` (public) and Discover's search
+  box, prompted by checking `SearchTools.jsx`'s own copy against its actual
+  behavior. `SearchTools.jsx:70-75` tells visitors to "Search by name,
+  category, or **the problem you're trying to solve**" — that's an explicit
+  invitation to type a multi-word description, not just one keyword, which is
+  exactly the query shape `ToolDirectory.AI`'s "AI-powered search" ("AI for
+  sales follow-up") and every other 2026-era AI-tool directory studied in this
+  file leads with on their homepage search box.
+- **Gap:** `search.js:6-14`'s `matchesQuery(tool, q)` lowercases the *entire*
+  query and tests it as one `.includes()` substring against
+  name/blurb/sourceCategory/dev/tags — confirmed by reading the file in full
+  (14 lines). A query only matches if its exact word sequence appears
+  verbatim somewhere in that concatenated text. Verified against the real,
+  bundled catalog (`node -e` against `TOOLS` from `toolsCatalog.js`, this
+  run): `"video editor"` returns 2 results today even though 5 catalog tools
+  (Freepik AI, CapCut AI, Filmora AI, Kapwing, VEED) have both words present,
+  just not adjacent in that order in any single field; `"customer support
+  chatbot"` returns 0 today though 1 real match exists; `"resume builder"`
+  returns 2 today though 3 real matches exist. The placeholder text
+  (`SearchTools.jsx:58`, `'Try "video", "Anthropic" or "healthcare"...'`)
+  only ever demonstrates single-word queries — the one part of the page that
+  does show a real example never actually exercises the multi-word promise
+  the paragraph above it makes, so the gap has been invisible in normal use
+  of the page's own suggested queries.
+- **Why it matters:** this is the exact "no results" moment described by this
+  backlog's own `NO TOOLS MATCH` copy (`SearchTools.jsx:86-97`) firing on
+  queries that should have worked — a first-time, signed-out visitor who
+  searches the problem they actually have ("customer support chatbot",
+  "resume builder") lands on an honest-looking but wrong empty state and
+  bounces, on the one public page whose entire purpose (per its own code
+  comment at `SearchTools.jsx:10-13`) is answering "does Toolnaut have X" for
+  cold search traffic with no quiz and no sign-in required. It's the same
+  predicate behind Discover's session-gated search box too
+  (`Discover.jsx:7,111`), so the same false negative also degrades the
+  primary in-app browsing tool for every signed-in user, every day.
+- **Smallest useful version (what to actually build):**
+  - `search.js`: split the trimmed, lowercased query on whitespace into
+    words, build the same concatenated haystack per tool
+    (name/blurb/sourceCategory/dev/tags joined, matching today's per-field
+    checks) once, and require every word to appear somewhere in it
+    (`words.every(w => haystack.includes(w))`) instead of testing the whole
+    phrase as one substring. This is a pure widening — any query that
+    matches today (a literal phrase is trivially a set of words that all
+    individually appear) keeps matching, so no existing behavior regresses,
+    confirmed by re-running `test/search.test.mjs`'s existing 7 cases against
+    the new logic by hand before writing the diff (all 7 still pass,
+    including the two-word `'long documents'` case at line 28).
+  - Add 3-4 new `test/search.test.mjs` cases pinned to the exact false
+    negatives measured above (`'video editor'`, `'customer support
+    chatbot'`), asserting `true` against a tool fixture whose fields contain
+    the words separately but not as one phrase — the regression this change
+    exists to prevent.
+  - Update `SearchTools.jsx:58`'s placeholder to include one multi-word
+    example (e.g. `'Try "video editor", "Anthropic" or "healthcare"...'`) so
+    the page's only concrete example actually demonstrates the capability its
+    own paragraph above promises.
+  - **What this would NOT include** (kept out to bound the diff): no fuzzy
+    or typo-tolerant matching (a misspelled word still won't match — that's a
+    separate, harder gap); no real semantic/NL search (`"summarize
+    meetings"` still returns 0 under word-AND matching too, verified this
+    run — closing that gap needs embeddings or an LLM call, which is a
+    backend this SPA doesn't have, the same reasoning `Pro chat assistant`
+    above was rejected for); no relevance ranking or scoring by match count
+    — results keep today's existing catalog order, just a bigger, more
+    honest result set; no change to `Discover.jsx`'s or `SearchTools.jsx`'s
+    own filtering/rendering code beyond the one placeholder string, since
+    both already just call `matchesQuery()` and inherit the fix for free.
+- **Build size:** S — a ~5-line change to one pure function
+  (`search.js`), a handful of new unit tests, one placeholder string edit.
+  No new dependency, no backend, no new route, no radar/schema change.
+- **Found:** 2026-09-11 00:20 UTC
