@@ -654,7 +654,14 @@
       "natively",
       "i-built-an-ai-agent-that-sell-itself",
       "coletivo",
-      "bee"
+      "bee",
+      "free-online-bates-numbering-tool-for-pdfs",
+      "meta-deployed-agents-and-fired-8000-employees",
+      "bitroad",
+      "noodle-computer",
+      "swiftime",
+      "basedagents-give-your-idle-ai-agent-a-paying-job",
+      "google-seo-mcp"
     ],
     "courses": [
       "course-headless-tools",
@@ -788,7 +795,14 @@
       "course-natively",
       "course-i-built-an-ai-agent-that-sell-itself",
       "course-coletivo",
-      "course-bee"
+      "course-bee",
+      "course-free-online-bates-numbering-tool-for-pdfs",
+      "course-meta-deployed-agents-and-fired-8000-employees",
+      "course-bitroad",
+      "course-noodle-computer",
+      "course-swiftime",
+      "course-basedagents-give-your-idle-ai-agent-a-paying-job",
+      "course-google-seo-mcp"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -907,7 +921,10 @@
       "ai-agents-that-qa-test-your-web-app-like-real-users",
       "stroq",
       "coletivo",
-      "moshi"
+      "moshi",
+      "meta-deployed-agents-and-fired-8000-employees",
+      "noodle-computer",
+      "basedagents-give-your-idle-ai-agent-a-paying-job"
     ],
     "courses": [
       "course-headless-tools",
@@ -1006,7 +1023,10 @@
       "course-ai-agents-that-qa-test-your-web-app-like-real-users",
       "course-stroq",
       "course-coletivo",
-      "course-moshi"
+      "course-moshi",
+      "course-meta-deployed-agents-and-fired-8000-employees",
+      "course-noodle-computer",
+      "course-basedagents-give-your-idle-ai-agent-a-paying-job"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1177,7 +1197,9 @@
       "gemini-agentic-video-understanding",
       "anthropic-launches-fable-51-and-mythos-51",
       "xfinlab",
-      "starwell"
+      "starwell",
+      "bitroad",
+      "swiftime"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1187,7 +1209,9 @@
       "course-gemini-agentic-video-understanding",
       "course-anthropic-launches-fable-51-and-mythos-51",
       "course-xfinlab",
-      "course-starwell"
+      "course-starwell",
+      "course-bitroad",
+      "course-swiftime"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1677,7 +1701,8 @@
       "mcp-tool-definition-quality-score-tdqs-spec",
       "engram",
       "openfork",
-      "coletivo"
+      "coletivo",
+      "google-seo-mcp"
     ],
     "courses": [
       "course-coolplugz",
@@ -1695,7 +1720,8 @@
       "course-mcp-tool-definition-quality-score-tdqs-spec",
       "course-engram",
       "course-openfork",
-      "course-coletivo"
+      "course-coletivo",
+      "course-google-seo-mcp"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2103,7 +2129,8 @@
       "remarc",
       "ai-agent-spends-too-much-time-waiting",
       "ai-stack-selector-tool",
-      "adiosdev"
+      "adiosdev",
+      "bitroad"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -2134,7 +2161,8 @@
       "course-remarc",
       "course-ai-agent-spends-too-much-time-waiting",
       "course-ai-stack-selector-tool",
-      "course-adiosdev"
+      "course-adiosdev",
+      "course-bitroad"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2189,7 +2217,9 @@
       "swiftcruit",
       "humble-bundle",
       "autoresearchexam-measuring-agents-ability-to-improve-and-gen",
-      "designing-tests-for-agentic-ai-tools"
+      "designing-tests-for-agentic-ai-tools",
+      "senator-hawley-opens-investigation-into-openai-huggingface-h",
+      "reelbench-skills"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2224,7 +2254,9 @@
       "course-swiftcruit",
       "course-humble-bundle",
       "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen",
-      "course-designing-tests-for-agentic-ai-tools"
+      "course-designing-tests-for-agentic-ai-tools",
+      "course-senator-hawley-opens-investigation-into-openai-huggingface-h",
+      "course-reelbench-skills"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2257,7 +2289,8 @@
       "rdc",
       "charter",
       "natively",
-      "symphony"
+      "symphony",
+      "bitroad"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2283,7 +2316,8 @@
       "course-rdc",
       "course-charter",
       "course-natively",
-      "course-symphony"
+      "course-symphony",
+      "course-bitroad"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2377,7 +2411,8 @@
       "remarc",
       "felan",
       "stroq",
-      "charter"
+      "charter",
+      "reelbench-skills"
     ],
     "courses": [
       "course-limitless-library",
@@ -2410,7 +2445,8 @@
       "course-remarc",
       "course-felan",
       "course-stroq",
-      "course-charter"
+      "course-charter",
+      "course-reelbench-skills"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2640,7 +2676,8 @@
       "thread-to-self",
       "muse-metas-personal-ai-agent-features-and-capabilities",
       "muse-your-personal-ai-agent",
-      "meta-launches-muse-a-personal-ai-agent"
+      "meta-launches-muse-a-personal-ai-agent",
+      "swiftime"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -2658,7 +2695,8 @@
       "course-thread-to-self",
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
       "course-muse-your-personal-ai-agent",
-      "course-meta-launches-muse-a-personal-ai-agent"
+      "course-meta-launches-muse-a-personal-ai-agent",
+      "course-swiftime"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3003,10 +3041,12 @@
     "domain": "learning",
     "level": "advanced",
     "toolsTeaching": [
-      "ai-agent-hacking-writeups"
+      "ai-agent-hacking-writeups",
+      "senator-hawley-opens-investigation-into-openai-huggingface-h"
     ],
     "courses": [
-      "course-ai-agent-hacking-writeups"
+      "course-ai-agent-hacking-writeups",
+      "course-senator-hawley-opens-investigation-into-openai-huggingface-h"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3203,14 +3243,16 @@
       "datazen",
       "token-dashboard",
       "rejourney",
-      "ai-agent-for-beautiful-data-visuals"
+      "ai-agent-for-beautiful-data-visuals",
+      "google-seo-mcp"
     ],
     "courses": [
       "course-launch-hn-risklytics-yc-s26",
       "course-datazen",
       "course-token-dashboard",
       "course-rejourney",
-      "course-ai-agent-for-beautiful-data-visuals"
+      "course-ai-agent-for-beautiful-data-visuals",
+      "course-google-seo-mcp"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3388,7 +3430,8 @@
       "ai-agent-guardrails-dont-work-safer-platforms-do",
       "soulauth",
       "fraise-a-memory-database-for-ai-agents",
-      "natively"
+      "natively",
+      "bitroad"
     ],
     "courses": [
       "course-we-run-stateful-ai-agents-on-a-serverless-infra",
@@ -3396,7 +3439,8 @@
       "course-ai-agent-guardrails-dont-work-safer-platforms-do",
       "course-soulauth",
       "course-fraise-a-memory-database-for-ai-agents",
-      "course-natively"
+      "course-natively",
+      "course-bitroad"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4186,12 +4230,14 @@
     "toolsTeaching": [
       "ta",
       "darwin-vm",
-      "cli-tools"
+      "cli-tools",
+      "noodle-computer"
     ],
     "courses": [
       "course-ta",
       "course-darwin-vm",
-      "course-cli-tools"
+      "course-cli-tools",
+      "course-noodle-computer"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4346,12 +4392,14 @@
     "toolsTeaching": [
       "google-flow",
       "stillmade",
-      "endframe"
+      "endframe",
+      "reelbench-skills"
     ],
     "courses": [
       "course-google-flow",
       "course-stillmade",
-      "course-endframe"
+      "course-endframe",
+      "course-reelbench-skills"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -4405,11 +4453,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "google-flow",
-      "stillmade"
+      "stillmade",
+      "reelbench-skills"
     ],
     "courses": [
       "course-google-flow",
-      "course-stillmade"
+      "course-stillmade",
+      "course-reelbench-skills"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -4481,10 +4531,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "gemini-omni-11-flash"
+      "gemini-omni-11-flash",
+      "google-seo-mcp"
     ],
     "courses": [
-      "course-gemini-omni-11-flash"
+      "course-gemini-omni-11-flash",
+      "course-google-seo-mcp"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -4712,11 +4764,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "openai-is-developing-a-persistent-ai-agent",
-      "openais-rogue-ai-agents-used-more-sites"
+      "openais-rogue-ai-agents-used-more-sites",
+      "senator-hawley-opens-investigation-into-openai-huggingface-h"
     ],
     "courses": [
       "course-openai-is-developing-a-persistent-ai-agent",
-      "course-openais-rogue-ai-agents-used-more-sites"
+      "course-openais-rogue-ai-agents-used-more-sites",
+      "course-senator-hawley-opens-investigation-into-openai-huggingface-h"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -6128,12 +6182,14 @@
     "toolsTeaching": [
       "claude-skills-starter-kit",
       "ai-coding-agent-skills-for-real-engineers",
-      "skills-vs-mcp-tools-for-ai-agents-when-to-use-which"
+      "skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
+      "reelbench-skills"
     ],
     "courses": [
       "course-claude-skills-starter-kit",
       "course-ai-coding-agent-skills-for-real-engineers",
-      "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which"
+      "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
+      "course-reelbench-skills"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
   },
@@ -7321,7 +7377,8 @@
       "addom",
       "openwhispr",
       "phntm-one-i-built-a-local-ai-desk-assistant",
-      "raven"
+      "raven",
+      "free-online-bates-numbering-tool-for-pdfs"
     ],
     "courses": [
       "course-pearpie",
@@ -7329,7 +7386,8 @@
       "course-addom",
       "course-openwhispr",
       "course-phntm-one-i-built-a-local-ai-desk-assistant",
-      "course-raven"
+      "course-raven",
+      "course-free-online-bates-numbering-tool-for-pdfs"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -8290,11 +8348,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "jern-cloud",
-      "public-beta-a-decision-governance-runtime-for-ai-agents"
+      "public-beta-a-decision-governance-runtime-for-ai-agents",
+      "senator-hawley-opens-investigation-into-openai-huggingface-h"
     ],
     "courses": [
       "course-jern-cloud",
-      "course-public-beta-a-decision-governance-runtime-for-ai-agents"
+      "course-public-beta-a-decision-governance-runtime-for-ai-agents",
+      "course-senator-hawley-opens-investigation-into-openai-huggingface-h"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -9280,12 +9340,14 @@
     "toolsTeaching": [
       "filmmakers-tout-ais-use-in-hollywood",
       "new-york-city-pausing-some-ai-tools-in-schools",
-      "gen-ai-tools-are-now-being-used-to-push-slop-jihad"
+      "gen-ai-tools-are-now-being-used-to-push-slop-jihad",
+      "meta-deployed-agents-and-fired-8000-employees"
     ],
     "courses": [
       "course-filmmakers-tout-ais-use-in-hollywood",
       "course-new-york-city-pausing-some-ai-tools-in-schools",
-      "course-gen-ai-tools-are-now-being-used-to-push-slop-jihad"
+      "course-gen-ai-tools-are-now-being-used-to-push-slop-jihad",
+      "course-meta-deployed-agents-and-fired-8000-employees"
     ],
     "updatedAt": "2026-09-04T23:20:31.711Z"
   },
@@ -10643,10 +10705,12 @@
     "domain": "data",
     "level": "intermediate",
     "toolsTeaching": [
-      "awesome-geo-tools"
+      "awesome-geo-tools",
+      "google-seo-mcp"
     ],
     "courses": [
-      "course-awesome-geo-tools"
+      "course-awesome-geo-tools",
+      "course-google-seo-mcp"
     ],
     "updatedAt": "2026-09-07T15:05:03.707Z"
   },
@@ -10669,10 +10733,12 @@
     "domain": "data",
     "level": "intermediate",
     "toolsTeaching": [
-      "awesome-geo-tools"
+      "awesome-geo-tools",
+      "google-seo-mcp"
     ],
     "courses": [
-      "course-awesome-geo-tools"
+      "course-awesome-geo-tools",
+      "course-google-seo-mcp"
     ],
     "updatedAt": "2026-09-07T15:05:03.707Z"
   },
@@ -11541,12 +11607,14 @@
     "toolsTeaching": [
       "muse-metas-personal-ai-agent-features-and-capabilities",
       "muse-your-personal-ai-agent-from-meta",
-      "meta-launches-muse-a-personal-ai-agent"
+      "meta-launches-muse-a-personal-ai-agent",
+      "meta-deployed-agents-and-fired-8000-employees"
     ],
     "courses": [
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
       "course-muse-your-personal-ai-agent-from-meta",
-      "course-meta-launches-muse-a-personal-ai-agent"
+      "course-meta-launches-muse-a-personal-ai-agent",
+      "course-meta-deployed-agents-and-fired-8000-employees"
     ],
     "updatedAt": "2026-09-08T23:40:07.345Z"
   },
@@ -12929,5 +12997,213 @@
       "course-cli-tools"
     ],
     "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "skill-pdf",
+    "name": "pdf",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "free-online-bates-numbering-tool-for-pdfs"
+    ],
+    "courses": [
+      "course-free-online-bates-numbering-tool-for-pdfs"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "skill-bates numbering",
+    "name": "bates numbering",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "free-online-bates-numbering-tool-for-pdfs"
+    ],
+    "courses": [
+      "course-free-online-bates-numbering-tool-for-pdfs"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "skill-legal documents",
+    "name": "legal documents",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "free-online-bates-numbering-tool-for-pdfs"
+    ],
+    "courses": [
+      "course-free-online-bates-numbering-tool-for-pdfs"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "skill-document stamping",
+    "name": "document stamping",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "free-online-bates-numbering-tool-for-pdfs"
+    ],
+    "courses": [
+      "course-free-online-bates-numbering-tool-for-pdfs"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "skill-layoffs",
+    "name": "layoffs",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "meta-deployed-agents-and-fired-8000-employees"
+    ],
+    "courses": [
+      "course-meta-deployed-agents-and-fired-8000-employees"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "skill-workforce automation",
+    "name": "workforce automation",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "meta-deployed-agents-and-fired-8000-employees"
+    ],
+    "courses": [
+      "course-meta-deployed-agents-and-fired-8000-employees"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "skill-linux desktops",
+    "name": "linux desktops",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "noodle-computer"
+    ],
+    "courses": [
+      "course-noodle-computer"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "skill-computer use",
+    "name": "computer use",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "noodle-computer"
+    ],
+    "courses": [
+      "course-noodle-computer"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "skill-time-tracking",
+    "name": "time tracking",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "swiftime"
+    ],
+    "courses": [
+      "course-swiftime"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "skill-voice-control",
+    "name": "voice control",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "swiftime"
+    ],
+    "courses": [
+      "course-swiftime"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "skill-marketplace",
+    "name": "marketplace",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "basedagents-give-your-idle-ai-agent-a-paying-job"
+    ],
+    "courses": [
+      "course-basedagents-give-your-idle-ai-agent-a-paying-job"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "skill-tasks",
+    "name": "tasks",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "basedagents-give-your-idle-ai-agent-a-paying-job"
+    ],
+    "courses": [
+      "course-basedagents-give-your-idle-ai-agent-a-paying-job"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "skill-monetization",
+    "name": "monetization",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "basedagents-give-your-idle-ai-agent-a-paying-job"
+    ],
+    "courses": [
+      "course-basedagents-give-your-idle-ai-agent-a-paying-job"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "skill-huggingface",
+    "name": "huggingface",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "senator-hawley-opens-investigation-into-openai-huggingface-h"
+    ],
+    "courses": [
+      "course-senator-hawley-opens-investigation-into-openai-huggingface-h"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "skill-investigation",
+    "name": "investigation",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "senator-hawley-opens-investigation-into-openai-huggingface-h"
+    ],
+    "courses": [
+      "course-senator-hawley-opens-investigation-into-openai-huggingface-h"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "skill-learning notes",
+    "name": "learning notes",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "reelbench-skills"
+    ],
+    "courses": [
+      "course-reelbench-skills"
+    ],
+    "updatedAt": "2026-09-11T13:37:11.155Z"
   }
 ]

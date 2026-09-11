@@ -1197,5 +1197,33 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "sidenote-pro",
+    "name": "SideNote Pro",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Show HN: SideNote Pro – Native Windows 11 AI beside your work",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://sidenotepro.com",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "code"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49654117",
+    "discoveredAt": "2026-09-11T13:37:11.155Z",
+    "updatedAt": "2026-09-11T13:37:11.155Z",
+    "contentHash": "8bf6d8656ddea7f7",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]

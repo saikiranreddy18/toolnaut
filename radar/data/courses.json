@@ -17014,5 +17014,473 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "course-free-online-bates-numbering-tool-for-pdfs",
+    "toolSlug": "free-online-bates-numbering-tool-for-pdfs",
+    "title": "Master Free Online Bates Numbering Tool for PDFs",
+    "objectives": [
+      "Stamp sequential Bates numbers across a PDF",
+      "Configure prefix, start number, and zero-padding",
+      "Place, preview, and download a numbered PDF locally"
+    ],
+    "modules": [
+      {
+        "title": "Load Your PDF Locally",
+        "estMinutes": 3,
+        "steps": [
+          "Open the tool in your browser and drag your PDF into the upload area (the file stays on your device)",
+          "Wait for the page count and page thumbnails to render so you know the full document loaded"
+        ]
+      },
+      {
+        "title": "Set the Bates Number Format",
+        "estMinutes": 6,
+        "steps": [
+          "Type a prefix such as ACME-2024- into the prefix field so every stamp reads e.g. ACME-2024-000001",
+          "Set the starting number to 1 and the digit width to 6 to get zero-padded numbers like 000001",
+          "If stamping only part of the file, enter a page range (e.g., 5-40) instead of all pages"
+        ]
+      },
+      {
+        "title": "Choose Position and Appearance",
+        "estMinutes": 5,
+        "steps": [
+          "Select the bottom-right corner position, the standard placement for Bates stamps in legal documents",
+          "Set font size around 10-12 pt and add a small margin so the number clears the page edge and existing content",
+          "Use the preview to flip through the first, middle, and last pages and confirm the stamp doesn't cover text"
+        ]
+      },
+      {
+        "title": "Stamp, Verify, and Download",
+        "estMinutes": 4,
+        "steps": [
+          "Click Stamp/Apply to burn the sequential numbers onto every selected page",
+          "Scroll the result to verify numbers increment by exactly one per page with no duplicates or skipped pages",
+          "Click Download, save the file with a clear name like Smith-Production-000001-000250.pdf, then close the tab—no copy remains on any server"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-pdf",
+      "skill-bates numbering",
+      "skill-legal documents",
+      "skill-document stamping",
+      "skill-privacy"
+    ],
+    "prerequisites": [
+      "A PDF file saved on your device",
+      "A modern web browser (Chrome, Edge, or Firefox)"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "course-meta-deployed-agents-and-fired-8000-employees",
+    "toolSlug": "meta-deployed-agents-and-fired-8000-employees",
+    "title": "Master Meta deployed agents and fired 8000 employees",
+    "objectives": [
+      "Understand what Meta deployed agents and fired 8000 employees is for",
+      "Use Meta deployed agents and fired 8000 employees on a real task",
+      "Know where Meta deployed agents and fired 8000 employees fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Meta deployed agents and fired 8000 employees.",
+          "Say what Meta deployed agents and fired 8000 employees does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Meta deployed agents and fired 8000 employees.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Meta deployed agents and fired 8000 employees into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-meta",
+      "skill-ai agents",
+      "skill-layoffs",
+      "skill-workforce automation",
+      "skill-news"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "course-bitroad",
+    "toolSlug": "bitroad",
+    "title": "Master Bitroad",
+    "objectives": [
+      "Understand what Bitroad is for",
+      "Use Bitroad on a real task",
+      "Know where Bitroad fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Bitroad for your real workflow, not the demo.",
+          "Say what Bitroad does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Bitroad.",
+          "Push Bitroad to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Bitroad into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-infrastructure",
+      "skill-api",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "course-noodle-computer",
+    "toolSlug": "noodle-computer",
+    "title": "Master Noodle Computer",
+    "objectives": [
+      "Understand what Noodle Computer is for",
+      "Use Noodle Computer on a real task",
+      "Know where Noodle Computer fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Noodle Computer for your real workflow, not the demo.",
+          "Say what Noodle Computer does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Noodle Computer.",
+          "Push Noodle Computer to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Noodle Computer into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-linux desktops",
+      "skill-computer use",
+      "skill-macos"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "course-swiftime",
+    "toolSlug": "swiftime",
+    "title": "Master Swiftime",
+    "objectives": [
+      "Start, stop, and log time entries using only voice commands",
+      "Organize tracked time with projects, tags, and quick edits",
+      "Use the Swiftime API to let an AI agent start timers and pull summaries"
+    ],
+    "modules": [
+      {
+        "title": "Voice-First Time Tracking",
+        "estMinutes": 15,
+        "steps": [
+          "Install Swiftime (desktop or mobile), sign in, and grant microphone permission in Settings > Voice",
+          "Say \"Start timer for Website Redesign\" and confirm the live timer appears on the dashboard with the correct project name",
+          "Say \"Stop timer and log 25 minutes to Website Redesign with note homepage mockups\" and verify the entry in Today's Timeline"
+        ]
+      },
+      {
+        "title": "Organizing Entries with Projects and Tags",
+        "estMinutes": 15,
+        "steps": [
+          "Create two projects (e.g., \"Client A\" and \"Internal\") and add a #billable tag from the Projects page",
+          "Say \"Move my last entry to Client A and tag it #billable\" to practice voice-based editing",
+          "Open the Weekly report and filter by project and tag to check totals"
+        ]
+      },
+      {
+        "title": "Fixing Mistakes Fast",
+        "estMinutes": 10,
+        "steps": [
+          "Say \"Undo last action\" after a test entry, then say \"Delete my last time entry\" to remove it entirely",
+          "Manually edit one entry's start and end times in the timeline, then say \"Change my 2 PM entry to 45 minutes\" to compare voice vs. manual editing"
+        ]
+      },
+      {
+        "title": "Connecting the API to an AI Agent",
+        "estMinutes": 20,
+        "steps": [
+          "Generate an API key in Settings > Developer, and store it in an .env file as SWIFTIME_API_KEY",
+          "Run a curl POST to /v1/timers/start with a project name, then confirm the timer is running in the app",
+          "Give the key and the /v1/summary endpoint to your AI agent (e.g., a custom GPT or script) and ask it: \"How many hours did I track this week?\" Verify the answer matches your Weekly report"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-time-tracking",
+      "skill-voice-control",
+      "skill-api",
+      "skill-productivity"
+    ],
+    "prerequisites": [
+      "A free Swiftime account",
+      "A device with a working microphone"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "course-basedagents-give-your-idle-ai-agent-a-paying-job",
+    "toolSlug": "basedagents-give-your-idle-ai-agent-a-paying-job",
+    "title": "Master BasedAgents: Give your idle AI agent a paying job",
+    "objectives": [
+      "Understand what BasedAgents: Give your idle AI agent a paying job is for",
+      "Use BasedAgents: Give your idle AI agent a paying job on a real task",
+      "Know where BasedAgents: Give your idle AI agent a paying job fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure BasedAgents: Give your idle AI agent a paying job for your real workflow, not the demo.",
+          "Say what BasedAgents: Give your idle AI agent a paying job does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through BasedAgents: Give your idle AI agent a paying job.",
+          "Push BasedAgents: Give your idle AI agent a paying job to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold BasedAgents: Give your idle AI agent a paying job into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-marketplace",
+      "skill-tasks",
+      "skill-monetization"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "course-senator-hawley-opens-investigation-into-openai-huggingface-h",
+    "toolSlug": "senator-hawley-opens-investigation-into-openai-huggingface-h",
+    "title": "Master Senator Hawley opens investigation into OpenAI HuggingFace hack",
+    "objectives": [
+      "Locate and read the Senate press release on the OpenAI–HuggingFace probe",
+      "Identify what the investigation claims about AI security risks",
+      "Cross-check the press release's claims against independent reporting"
+    ],
+    "modules": [
+      {
+        "title": "Find the Source Document",
+        "estMinutes": 5,
+        "steps": [
+          "Go to senate.gov or hawley.senate.gov and open the press release about the OpenAI–HuggingFace hack investigation",
+          "Note the release date and which Senate subcommittee issued the letter",
+          "Copy the official letter or PDF link cited in the release into a notes file"
+        ]
+      },
+      {
+        "title": "Extract the Key Claims",
+        "estMinutes": 10,
+        "steps": [
+          "Write down the who, what, and when: which companies are named, what breach occurred, and what information was allegedly exposed",
+          "List each specific risk the press release raises (e.g., model weights, user data, supply-chain exposure) in bullet form",
+          "Highlight the actions demanded: deadlines, documents requested, and the response date given to the companies"
+        ]
+      },
+      {
+        "title": "Verify and Evaluate",
+        "estMinutes": 10,
+        "steps": [
+          "Search at least two independent news outlets covering the same incident and compare their facts against the press release",
+          "Check HuggingFace's own security advisory or blog post to confirm the technical details of the hack",
+          "Write a 3-sentence summary separating confirmed facts from political claims or speculation"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai security",
+      "skill-openai",
+      "skill-huggingface",
+      "skill-investigation",
+      "skill-policy"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "course-reelbench-skills",
+    "toolSlug": "reelbench-skills",
+    "title": "Master reelbench-skills",
+    "objectives": [
+      "Understand what reelbench-skills is for",
+      "Use reelbench-skills on a real task",
+      "Know where reelbench-skills fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure reelbench-skills for your real workflow, not the demo.",
+          "Say what reelbench-skills does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through reelbench-skills.",
+          "Push reelbench-skills to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold reelbench-skills into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai video",
+      "skill-learning notes",
+      "skill-skills",
+      "skill-video generation",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "course-google-seo-mcp",
+    "toolSlug": "google-seo-mcp",
+    "title": "Master google-seo-mcp",
+    "objectives": [
+      "Understand what google-seo-mcp is for",
+      "Use google-seo-mcp on a real task",
+      "Know where google-seo-mcp fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure google-seo-mcp for your real workflow, not the demo.",
+          "Say what google-seo-mcp does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through google-seo-mcp.",
+          "Push google-seo-mcp to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold google-seo-mcp into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-seo",
+      "skill-mcp",
+      "skill-google",
+      "skill-geo",
+      "skill-analytics"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-11T13:37:11.155Z"
   }
 ]
