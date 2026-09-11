@@ -16254,5 +16254,765 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-10T13:38:44.077Z"
+  },
+  {
+    "id": "course-stitchwink",
+    "toolSlug": "stitchwink",
+    "title": "Master Stitchwink",
+    "objectives": [
+      "Turn a photo into a stitchable cross-stitch pattern",
+      "Adjust size, colors, and detail to match beginner skill level",
+      "Export a pattern with a floss color key you can stitch from"
+    ],
+    "modules": [
+      {
+        "title": "Generate Your First Pattern",
+        "estMinutes": 15,
+        "steps": [
+          "Pick a photo with one clear subject, good lighting, and simple background.",
+          "Upload the image to Stitchwink and click 'Generate Pattern'.",
+          "Compare the preview to your original and regenerate if the subject is unrecognizable."
+        ]
+      },
+      {
+        "title": "Set Size and Complexity",
+        "estMinutes": 15,
+        "steps": [
+          "Set the finished size to a small grid (e.g., 50x50 stitches) to keep the project manageable.",
+          "Reduce the color count to 8-10 floss colors using the color limit slider.",
+          "Toggle background removal to strip out busy areas behind your subject."
+        ]
+      },
+      {
+        "title": "Clean Up in the Pattern Editor",
+        "estMinutes": 15,
+        "steps": [
+          "Use the erase tool to delete scattered single 'confetti' stitches.",
+          "Merge near-identical colors in the color panel to simplify your floss list.",
+          "Zoom to 100% and scan the edges of your subject for stray pixels to fix."
+        ]
+      },
+      {
+        "title": "Read the Color Key and Symbols",
+        "estMinutes": 10,
+        "steps": [
+          "Open the generated legend and match each symbol on the chart to its DMC floss number.",
+          "Note the stitch count per color to estimate how many skeins you need to buy."
+        ]
+      },
+      {
+        "title": "Export and Prepare to Stitch",
+        "estMinutes": 10,
+        "steps": [
+          "Export the pattern as a PDF with symbols, color key, and grid overlays enabled.",
+          "Print at 100% scale and highlight a starting row near the center of the chart.",
+          "Confirm your supply list: Aida cloth, hoop, needle, and the DMC floss colors from your key."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-cross-stitch",
+      "skill-patterns",
+      "skill-crafts",
+      "skill-image-to-pattern",
+      "skill-hobby"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "course-charter",
+    "toolSlug": "charter",
+    "title": "Master Charter",
+    "objectives": [
+      "Understand what Charter is for",
+      "Use Charter on a real task",
+      "Know where Charter fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Charter for your real workflow, not the demo.",
+          "Say what Charter does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Charter.",
+          "Push Charter to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Charter into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-self-hosted",
+      "skill-open source",
+      "skill-devops"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "course-nasa-and-ibm-open-source-lunar-mapping-tools",
+    "toolSlug": "nasa-and-ibm-open-source-lunar-mapping-tools",
+    "title": "Master NASA and IBM open source lunar mapping tools",
+    "objectives": [
+      "Understand what NASA and IBM open source lunar mapping tools is for",
+      "Use NASA and IBM open source lunar mapping tools on a real task",
+      "Know where NASA and IBM open source lunar mapping tools fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure NASA and IBM open source lunar mapping tools for your real workflow, not the demo.",
+          "Say what NASA and IBM open source lunar mapping tools does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through NASA and IBM open source lunar mapping tools.",
+          "Push NASA and IBM open source lunar mapping tools to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold NASA and IBM open source lunar mapping tools into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-lunar",
+      "skill-mapping",
+      "skill-nasa",
+      "skill-open-source",
+      "skill-space"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "course-natively",
+    "toolSlug": "natively",
+    "title": "Master Natively",
+    "objectives": [
+      "Understand what Natively is for",
+      "Use Natively on a real task",
+      "Know where Natively fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Natively for your real workflow, not the demo.",
+          "Say what Natively does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Natively.",
+          "Push Natively to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Natively into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-messaging",
+      "skill-communication",
+      "skill-infrastructure",
+      "skill-multi-agent"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "course-promptsign",
+    "toolSlug": "promptsign",
+    "title": "Master PromptSign",
+    "objectives": [
+      "Understand what PromptSign is for",
+      "Use PromptSign on a real task",
+      "Know where PromptSign fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure PromptSign for your real workflow, not the demo.",
+          "Say what PromptSign does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through PromptSign.",
+          "Push PromptSign to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold PromptSign into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-sigstore",
+      "skill-signing",
+      "skill-verification",
+      "skill-prompts",
+      "skill-security"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "course-designing-tests-for-agentic-ai-tools",
+    "toolSlug": "designing-tests-for-agentic-ai-tools",
+    "title": "Master Designing Tests for Agentic AI Tools",
+    "objectives": [
+      "Understand what Designing Tests for Agentic AI Tools is for",
+      "Use Designing Tests for Agentic AI Tools on a real task",
+      "Know where Designing Tests for Agentic AI Tools fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Designing Tests for Agentic AI Tools for your real workflow, not the demo.",
+          "Say what Designing Tests for Agentic AI Tools does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Designing Tests for Agentic AI Tools.",
+          "Push Designing Tests for Agentic AI Tools to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Designing Tests for Agentic AI Tools into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-testing",
+      "skill-agentic ai",
+      "skill-evaluation",
+      "skill-qa",
+      "skill-course"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "course-open-source-simulation-testing-infra-for-voice-agents",
+    "toolSlug": "open-source-simulation-testing-infra-for-voice-agents",
+    "title": "Master Open-source simulation testing infra for voice agents",
+    "objectives": [
+      "Understand what Open-source simulation testing infra for voice agents is for",
+      "Use Open-source simulation testing infra for voice agents on a real task",
+      "Know where Open-source simulation testing infra for voice agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Open-source simulation testing infra for voice agents for your real workflow, not the demo.",
+          "Say what Open-source simulation testing infra for voice agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Open-source simulation testing infra for voice agents.",
+          "Push Open-source simulation testing infra for voice agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Open-source simulation testing infra for voice agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-voice-agents",
+      "skill-testing",
+      "skill-simulation",
+      "skill-open-source",
+      "skill-ai-agents"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "course-i-built-an-ai-agent-that-sell-itself",
+    "toolSlug": "i-built-an-ai-agent-that-sell-itself",
+    "title": "Master I built an AI Agent that sell itself",
+    "objectives": [
+      "Understand what I built an AI Agent that sell itself is for",
+      "Use I built an AI Agent that sell itself on a real task",
+      "Know where I built an AI Agent that sell itself fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure I built an AI Agent that sell itself for your real workflow, not the demo.",
+          "Say what I built an AI Agent that sell itself does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through I built an AI Agent that sell itself.",
+          "Push I built an AI Agent that sell itself to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold I built an AI Agent that sell itself into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-sales",
+      "skill-outreach",
+      "skill-cold email",
+      "skill-lead generation"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "course-nola",
+    "toolSlug": "nola",
+    "title": "Master Nola",
+    "objectives": [
+      "Understand what Nola is for",
+      "Use Nola on a real task",
+      "Know where Nola fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Nola for your real workflow, not the demo.",
+          "Say what Nola does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Nola.",
+          "Push Nola to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Nola into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-typescript",
+      "skill-llm",
+      "skill-programming-language",
+      "skill-ai-inference",
+      "skill-developer-tools"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "course-ai-agent-for-animation",
+    "toolSlug": "ai-agent-for-animation",
+    "title": "Master AI Agent for Animation",
+    "objectives": [
+      "Understand what AI Agent for Animation is for",
+      "Use AI Agent for Animation on a real task",
+      "Know where AI Agent for Animation fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for AI Agent for Animation.",
+          "Say what AI Agent for Animation does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Agent for Animation.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Agent for Animation into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-animation",
+      "skill-ai agent",
+      "skill-video",
+      "skill-motion graphics",
+      "skill-generative ai"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "course-coletivo",
+    "toolSlug": "coletivo",
+    "title": "Master Coletivo",
+    "objectives": [
+      "Understand what Coletivo is for",
+      "Use Coletivo on a real task",
+      "Know where Coletivo fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Coletivo for your real workflow, not the demo.",
+          "Say what Coletivo does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Coletivo.",
+          "Push Coletivo to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Coletivo into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-mcp",
+      "skill-collaboration",
+      "skill-multi-agent"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "course-moshi",
+    "toolSlug": "moshi",
+    "title": "Master Moshi",
+    "objectives": [
+      "Understand what Moshi is for",
+      "Use Moshi on a real task",
+      "Know where Moshi fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Moshi for your real workflow, not the demo.",
+          "Say what Moshi does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Moshi.",
+          "Push Moshi to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Moshi into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ssh",
+      "skill-mosh",
+      "skill-terminal",
+      "skill-claude code",
+      "skill-ai agents"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "course-symphony",
+    "toolSlug": "symphony",
+    "title": "Master Symphony",
+    "objectives": [
+      "Understand what Symphony is for",
+      "Use Symphony on a real task",
+      "Know where Symphony fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Symphony for your real workflow, not the demo.",
+          "Say what Symphony does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Symphony.",
+          "Push Symphony to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Symphony into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-agents",
+      "skill-visualization",
+      "skill-monitoring",
+      "skill-open-source",
+      "skill-devtools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "course-bee",
+    "toolSlug": "bee",
+    "title": "Master Bee",
+    "objectives": [
+      "Connect Bee to your Google Calendar in under 10 minutes",
+      "Create and view calendar events by sending plain-language texts",
+      "Reschedule, cancel, and get reminders without opening the Calendar app"
+    ],
+    "modules": [
+      {
+        "title": "Set Up Bee and Link Google Calendar",
+        "estMinutes": 8,
+        "steps": [
+          "Sign up on Bee's website and save Bee's texting number as a contact named 'Bee' in your phone.",
+          "Send Bee your first text (e.g., \"Hi\") and tap the link it replies with to grant access to your Google account.",
+          "Reply to Bee's setup prompt to choose which Google Calendar it should manage (e.g., your 'Work' or primary calendar)."
+        ]
+      },
+      {
+        "title": "Create and Check Events by Text",
+        "estMinutes": 7,
+        "steps": [
+          "Text Bee a plain-language event: \"Lunch with Priya tomorrow at 12:30pm for 1 hour.\"",
+          "Read Bee's confirmation reply, then open Google Calendar once to verify the event appears correctly.",
+          "Ask Bee to read your schedule back: \"What's on my calendar today?\" or \"Do I have anything Friday afternoon?\""
+        ]
+      },
+      {
+        "title": "Update, Cancel, and Get Reminded",
+        "estMinutes": 8,
+        "steps": [
+          "Text a change: \"Move my lunch with Priya to 1pm\" or \"Cancel my 3pm meeting.\" Confirm Bee's reply matches what you wanted.",
+          "Add details to an existing event: \"Add priya@example.com to Thursday's lunch\" or \"Set the location to Cafe Luna.\"",
+          "Set a reminder by text: \"Remind me 30 minutes before every meeting tomorrow,\" then note Bee's confirmation so you know it's active."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-calendar",
+      "skill-scheduling",
+      "skill-sms",
+      "skill-assistant",
+      "skill-google-calendar"
+    ],
+    "prerequisites": [
+      "A Google account with Google Calendar enabled",
+      "A phone that can send and receive texts (iMessage or SMS)",
+      "Comfort giving Bee permission to view and edit your Google Calendar"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-10T23:24:02.732Z"
+  },
+  {
+    "id": "course-cli-tools",
+    "toolSlug": "cli-tools",
+    "title": "Master cli-tools",
+    "objectives": [
+      "Understand what cli-tools is for",
+      "Use cli-tools on a real task",
+      "Know where cli-tools fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure cli-tools for your real workflow, not the demo.",
+          "Say what cli-tools does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through cli-tools.",
+          "Push cli-tools to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold cli-tools into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-cli",
+      "skill-macos",
+      "skill-developer-tools",
+      "skill-ai-agents",
+      "skill-catalog"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-10T23:24:02.732Z"
   }
 ]
