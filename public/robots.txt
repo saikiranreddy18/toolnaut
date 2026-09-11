@@ -39,4 +39,9 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
+# Search engines whose index feeds AI answers. ChatGPT search draws heavily on
+# Bing, so its crawler is named here rather than left to the wildcard.
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://toolnaut.xyz/sitemap.xml

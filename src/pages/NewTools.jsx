@@ -5,6 +5,7 @@ import { PRICE_LABELS, LEVEL_LABELS } from '../utils/toolsCatalog'
 import { getNewTools } from '../utils/newTools'
 import { isCatalogNoise } from '../utils/prominence'
 import { timeAgo } from '../utils/communityData'
+import { newestDiscovery, formatUpdated } from '../utils/freshness'
 
 // Public, crawlable, no session required — same tier as CategoryLanding.jsx
 // and SharedStack.jsx. Reuses the already-tested getNewTools() util (the same
@@ -12,6 +13,8 @@ import { timeAgo } from '../utils/communityData'
 // 30-day window instead of 7 so a public SEO page isn't empty most weeks.
 export default function NewTools() {
   const tools = getNewTools(30).filter((t) => !isCatalogNoise(t))
+  // The newest tool on this page, not the build time — see utils/freshness.js.
+  const updated = newestDiscovery(tools)
 
   useHead({
     title: `New AI tools this month (${tools.length} added) — Toolnaut`,
@@ -23,6 +26,7 @@ export default function NewTools() {
       '@type': 'CollectionPage',
       name: `New AI tools this month (${tools.length} added)`,
       url: `${SITE}/new`,
+      ...(updated ? { dateModified: updated } : {}),
       mainEntity: {
         '@type': 'ItemList',
         numberOfItems: tools.length,
@@ -58,6 +62,11 @@ export default function NewTools() {
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">
         NEWEST AI TOOLS ADDED TO TOOLNAUT
       </h1>
+      {updated && (
+        <p className="mt-2 text-xs text-slate-400">
+          Updated <time dateTime={updated}>{formatUpdated(updated)}</time>
+        </p>
+      )}
       <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300">
         {tools.length > 0
           ? `${tools.length} tool${tools.length === 1 ? '' : 's'} added in the last 30 days, discovered automatically by Toolnaut's radar pipeline — nothing here is sponsored.`

@@ -15,7 +15,7 @@ import CometProgress from '../components/ui/CometProgress'
 import GalaxyExplorer from '../components/ui/GalaxyExplorer'
 import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import useSmoothScroll from '../hooks/useSmoothScroll'
-import { BRAND } from '../config'
+import { BRAND, SOCIALS } from '../config'
 import { useAnalytics } from '../hooks/useAnalytics'
 import { useSpaceAudio } from '../hooks/useSpaceAudio'
 import { EVENTS } from '../utils/analyticsEvents'
@@ -70,6 +70,10 @@ export default function Landing() {
         name: 'Toolnaut',
         url: 'https://toolnaut.xyz',
         logo: 'https://toolnaut.xyz/og.png',
+        // Ties this site to the brand profiles so an answer engine treats them as
+        // one entity. Built from SOCIALS, the list the footer renders, so the
+        // schema can never name an account the page itself does not link.
+        sameAs: SOCIALS.map((s) => s.url),
         description:
           'Toolnaut maps AI tools to the work you actually do — your role, goal, budget and skill '
           + 'level — and shows why each one fits.',

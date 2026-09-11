@@ -11,6 +11,8 @@
   <url><loc>https://toolnaut.xyz/tools/learning</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://toolnaut.xyz/new</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://toolnaut.xyz/search</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://toolnaut.xyz/example</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://toolnaut.xyz/methodology</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://toolnaut.xyz/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://toolnaut.xyz/changelog</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://toolnaut.xyz/support</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>

@@ -1,6 +1,7 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { useHead, SITE } from '../utils/head'
 import { TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../utils/toolsCatalog'
+import { newestDiscovery, formatUpdated } from '../utils/freshness'
 
 // One-line, honest descriptions — no per-tool editorial content is invented,
 // this just frames what the domain's filtered tool list already contains.
@@ -24,6 +25,9 @@ export default function CategoryLanding() {
   // every render, and a route change from /tools/design to /tools/nonsense
   // would otherwise change the count and throw.
   const tools = meta ? TOOLS.filter((t) => t.category === domain) : []
+  // Only tools the radar added carry a date. A category with none shows no
+  // "updated" date at all rather than an invented one — see utils/freshness.js.
+  const updated = newestDiscovery(tools)
 
   // These six pages are the strongest organic-search assets on the site —
   // "best AI tools for design" is exactly what someone types — and every one of
@@ -43,6 +47,7 @@ export default function CategoryLanding() {
             '@type': 'CollectionPage',
             name: `Best AI tools for ${meta.name}`,
             url: `${SITE}/tools/${domain}`,
+            ...(updated ? { dateModified: updated } : {}),
             mainEntity: {
               '@type': 'ItemList',
               numberOfItems: tools.length,
@@ -69,6 +74,11 @@ export default function CategoryLanding() {
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">
         BEST AI TOOLS FOR {meta.name.toUpperCase()}
       </h1>
+      {updated && (
+        <p className="mt-2 text-xs text-slate-400">
+          Updated <time dateTime={updated}>{formatUpdated(updated)}</time>
+        </p>
+      )}
       <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300">
         {DOMAIN_BLURB[domain] || `${tools.length} tools in this category.`}
       </p>
