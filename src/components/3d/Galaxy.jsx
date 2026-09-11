@@ -26,13 +26,15 @@ function makeCoreTexture() {
 }
 
 // Procedural spiral galaxy: dense golden core, violet mid-band, blue outer arms.
-// `descend` (STARCHART landing): as you scroll the whole disk SINKS and its
-// tilt opens toward face-on — so scrolling reads as "descending into the world."
-export default function Galaxy({ reduced, spin = !reduced, descend = false }) {
+// `count` overrides the reduced/full default so the scene can scale the point
+// budget to what the device actually sustains. Vertex count — not resolution —
+// is what costs here: hiding the canvas entirely and forcing dpr to 1 both left
+// frame time unchanged at 133ms, while a page with no WebGL held 16.7ms.
+export default function Galaxy({ reduced, spin = !reduced, count: countProp }) {
   const group = useRef()
 
   const { positions, colors } = useMemo(() => {
-    const count = reduced ? 24000 : 70000
+    const count = countProp ?? (reduced ? 24000 : 70000)
     const positions = new Float32Array(count * 3)
     const colors = new Float32Array(count * 3)
 
@@ -69,7 +71,7 @@ export default function Galaxy({ reduced, spin = !reduced, descend = false }) {
       colors[i * 3 + 2] = c.b * b
     }
     return { positions, colors }
-  }, [reduced])
+  }, [reduced, countProp])
 
   const coreTex = useMemo(makeCoreTexture, [])
 
@@ -89,14 +91,6 @@ export default function Galaxy({ reduced, spin = !reduced, descend = false }) {
     // slow sidereal rotation + scroll-coupled sweep
     const base = spin ? clock.elapsedTime * 0.018 : 0
     group.current.rotation.y = base + p * 2.4
-
-    if (descend) {
-      // eased so the "diving in" feels weighted, not linear — the disk sinks
-      // below the fold and its tilt opens as the reader travels deeper.
-      const e = p * p * (3 - 2 * p)
-      group.current.position.y = -3.1 - e * 6
-      group.current.rotation.x = 0.12 + e * 0.5
-    }
   })
 
   return (

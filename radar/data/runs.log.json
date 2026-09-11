@@ -1,0 +1,275 @@
+[
+  {
+    "at": "2026-08-25T09:25:10.610Z",
+    "counts": {
+      "candidates": 73,
+      "filtered": 12,
+      "new": 5,
+      "skipped": 0,
+      "published": 5,
+      "review": 0,
+      "rejected": 0,
+      "courses": 5
+    }
+  },
+  {
+    "at": "2026-08-26T02:18:24.360Z",
+    "counts": {
+      "candidates": 76,
+      "filtered": 12,
+      "new": 23,
+      "skipped": 2,
+      "published": 21,
+      "review": 2,
+      "rejected": 0,
+      "courses": 21
+    }
+  },
+  {
+    "at": "2026-08-27T06:10:30.704Z",
+    "counts": {
+      "candidates": 76,
+      "filtered": 17,
+      "new": 22,
+      "skipped": 3,
+      "published": 21,
+      "review": 1,
+      "rejected": 0,
+      "courses": 21
+    }
+  },
+  {
+    "at": "2026-08-28T09:13:13.222Z",
+    "counts": {
+      "candidates": 78,
+      "filtered": 13,
+      "new": 14,
+      "skipped": 11,
+      "published": 13,
+      "review": 1,
+      "rejected": 0,
+      "courses": 13
+    }
+  },
+  {
+    "at": "2026-08-28T20:56:00.761Z",
+    "counts": {
+      "candidates": 79,
+      "filtered": 9,
+      "new": 15,
+      "skipped": 10,
+      "published": 15,
+      "review": 0,
+      "rejected": 0,
+      "courses": 15
+    }
+  },
+  {
+    "at": "2026-08-29T03:23:03.469Z",
+    "counts": {
+      "candidates": 79,
+      "filtered": 9,
+      "new": 2,
+      "skipped": 23,
+      "published": 2,
+      "review": 0,
+      "rejected": 0,
+      "courses": 2
+    }
+  },
+  {
+    "at": "2026-08-29T14:30:52.619Z",
+    "counts": {
+      "candidates": 80,
+      "filtered": 14,
+      "new": 9,
+      "skipped": 16,
+      "published": 8,
+      "review": 1,
+      "rejected": 0,
+      "courses": 8
+    }
+  },
+  {
+    "at": "2026-08-29T23:35:59.438Z",
+    "counts": {
+      "candidates": 80,
+      "filtered": 12,
+      "new": 10,
+      "skipped": 15,
+      "published": 9,
+      "review": 1,
+      "rejected": 0,
+      "courses": 9
+    }
+  },
+  {
+    "at": "2026-08-30T14:25:49.215Z",
+    "counts": {
+      "candidates": 73,
+      "filtered": 11,
+      "new": 13,
+      "skipped": 12,
+      "published": 0,
+      "review": 13,
+      "rejected": 0,
+      "courses": 0
+    }
+  },
+  {
+    "at": "2026-08-30T23:53:08.057Z",
+    "counts": {
+      "candidates": 76,
+      "filtered": 11,
+      "new": 8,
+      "skipped": 17,
+      "published": 8,
+      "review": 0,
+      "rejected": 0,
+      "courses": 8
+    }
+  },
+  {
+    "at": "2026-08-31T17:05:26.037Z",
+    "counts": {
+      "candidates": 76,
+      "filtered": 15,
+      "new": 14,
+      "skipped": 11,
+      "published": 0,
+      "review": 14,
+      "rejected": 0,
+      "courses": 0
+    }
+  },
+  {
+    "at": "2026-09-01T00:47:42.422Z",
+    "counts": {
+      "candidates": 78,
+      "filtered": 16,
+      "new": 10,
+      "skipped": 15,
+      "published": 9,
+      "review": 1,
+      "rejected": 0,
+      "courses": 9
+    }
+  },
+  {
+    "at": "2026-09-01T14:10:39.887Z",
+    "counts": {
+      "candidates": 81,
+      "filtered": 17,
+      "new": 9,
+      "skipped": 16,
+      "published": 9,
+      "review": 0,
+      "rejected": 0,
+      "courses": 9
+    }
+  },
+  {
+    "at": "2026-09-01T23:34:11.678Z",
+    "counts": {
+      "candidates": 77,
+      "filtered": 13,
+      "new": 14,
+      "skipped": 11,
+      "published": 13,
+      "review": 1,
+      "rejected": 0,
+      "courses": 13
+    }
+  },
+  {
+    "at": "2026-09-02T13:42:33.502Z",
+    "counts": {
+      "candidates": 81,
+      "filtered": 13,
+      "new": 14,
+      "skipped": 11,
+      "published": 14,
+      "review": 0,
+      "rejected": 0,
+      "courses": 14
+    }
+  },
+  {
+    "at": "2026-09-02T23:33:29.474Z",
+    "counts": {
+      "candidates": 81,
+      "filtered": 15,
+      "new": 9,
+      "skipped": 16,
+      "published": 9,
+      "review": 0,
+      "rejected": 0,
+      "courses": 9
+    }
+  },
+  {
+    "at": "2026-09-03T13:37:04.770Z",
+    "counts": {
+      "candidates": 76,
+      "filtered": 13,
+      "new": 16,
+      "skipped": 9,
+      "published": 16,
+      "review": 0,
+      "rejected": 0,
+      "courses": 16
+    }
+  },
+  {
+    "at": "2026-09-03T23:31:51.252Z",
+    "counts": {
+      "candidates": 74,
+      "filtered": 10,
+      "new": 13,
+      "skipped": 12,
+      "published": 13,
+      "review": 0,
+      "rejected": 0,
+      "courses": 13
+    }
+  },
+  {
+    "at": "2026-09-04T13:33:57.801Z",
+    "counts": {
+      "candidates": 72,
+      "filtered": 11,
+      "new": 11,
+      "skipped": 14,
+      "published": 8,
+      "review": 3,
+      "rejected": 0,
+      "courses": 8
+    }
+  },
+  {
+    "at": "2026-09-04T23:20:31.711Z",
+    "counts": {
+      "candidates": 77,
+      "filtered": 18,
+      "new": 13,
+      "skipped": 12,
+      "published": 12,
+      "review": 1,
+      "rejected": 0,
+      "courses": 12
+    }
+  },
+  {
+    "at": "2026-09-05T12:45:39.833Z",
+    "counts": {
+      "candidates": 74,
+      "filtered": 15,
+      "new": 8,
+      "skipped": 17,
+      "published": 8,
+      "review": 0,
+      "rejected": 0,
+      "courses": 8
+    }
+  }
+]

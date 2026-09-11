@@ -1,4 +1,5 @@
-import { useId, useState } from 'react'
+import { useState } from 'react'
+import Wordmark from './Wordmark'
 
 // "Naut" — the Toolnaut mascot. One alien character with three moods:
 //   happy   — the default resting face (6A)
@@ -96,55 +97,35 @@ export default function Mascot({ mood = 'happy', size = 32, className = '', titl
   )
 }
 
-// Brand lockup: the mascot + "Toolnaut" wordmark. The mascot perks up to
+// Brand lockup: the mascot + the Toolnaut wordmark. The mascot perks up to
 // "curious" on hover — a small taste of the mood system reacting to the user.
-// The "o" in Toolnaut, drawn as a ringed planet in the sticker style used across
-// the app: bold black outline, flat fill, and a ring that passes behind the top
-// of the planet and in front of the bottom. Colours come from the theme vars, so
-// it retints with the play modes. Sized in `em` to scale with the wrapping text.
-function GalaxyO() {
-  // clipPath ids must be unique — the logo renders more than once per page.
-  const clipId = `tn-ring-${useId().replace(/:/g, '')}`
-  const ring = (
-    <g transform="rotate(-20 60 60)">
-      <ellipse cx="60" cy="60" rx="55" ry="17" fill="none" stroke="#000" strokeWidth="10" />
-      <ellipse cx="60" cy="60" rx="55" ry="17" fill="none" stroke="var(--arcade-yellow)" strokeWidth="6.5" />
-    </g>
-  )
+//
+// The wordmark itself lives in Wordmark.jsx: the ringed-planet "o" that used to
+// sit here was replaced by the infinity mark, and that glyph is now shared by
+// every surface that shows the name rather than being redrawn per component.
 
-  return (
-    <svg
-      viewBox="0 0 120 120"
-      aria-hidden="true"
-      style={{
-        width: '1.18em',
-        height: '1.18em',
-        display: 'inline-block',
-        verticalAlign: '-0.20em',
-        margin: '0 -0.10em',
-      }}
-    >
-      <defs>
-        <clipPath id={clipId}>
-          {/* lower half, tilted with the ring — the part that passes in front */}
-          <rect x="-20" y="60" width="170" height="90" transform="rotate(-20 60 60)" />
-        </clipPath>
-      </defs>
-
-      {ring}
-
-      <circle cx="60" cy="60" r="33" fill="var(--lime)" stroke="#000" strokeWidth="6" />
-      <circle cx="72" cy="44" r="7.5" fill="none" stroke="#000" strokeWidth="4" />
-      <circle cx="49" cy="62" r="4" fill="none" stroke="#000" strokeWidth="3.4" />
-      <circle cx="74" cy="70" r="2.6" fill="#000" />
-      <path d="M42 66 a20 20 0 0 1 8 -18" fill="none" stroke="#fff" strokeWidth="4.5" strokeLinecap="round" />
-
-      <g clipPath={`url(#${clipId})`}>{ring}</g>
-    </svg>
-  )
+// beta defaults ON: the product is a public beta, and the tag belongs to the
+// LOCKUP, not to one page. It used to ride only the hero's centre wordmark, so
+// the app shell, the intake and the nav all showed the name with no version —
+// and the one place that did say beta was the wordmark we removed.
+// Logo scale, in one place.
+//
+// Seven call sites each hard-coded their own size and they drifted: the landing
+// nav rendered the mark at 68px while Pricing and About used 44 and the quiz
+// used 40, so the same brand shrank by a third depending on which page you
+// landed on. Sizes live here now, named by ROLE rather than by number, so a new
+// page picks a role instead of inventing a size.
+//
+//   page    a standalone page's own header — the brand moment
+//   chrome  persistent navigation that sits alongside content all session
+//   compact dense bars and back-links, where the mark is a wayfinder
+export const LOGO = {
+  page: { size: 60, textClass: 'text-2xl sm:text-3xl' },
+  chrome: { size: 46, textClass: 'text-xl' },
+  compact: { size: 30, textClass: 'text-base' },
 }
 
-export function BrandLogo({ size = 30, wordmark = true, className = '', textClass = 'text-sm' }) {
+export function BrandLogo({ size = 30, wordmark = true, beta = true, className = '', textClass = 'text-sm' }) {
   const [hover, setHover] = useState(false)
   return (
     <span
@@ -154,8 +135,14 @@ export function BrandLogo({ size = 30, wordmark = true, className = '', textClas
     >
       <Mascot mood={hover ? 'curious' : 'happy'} size={size} />
       {wordmark && (
-        <span className={`font-display font-black italic tracking-[0.06em] text-white ${textClass}`}>
-          To<GalaxyO />l<span style={{ color: 'var(--lime)' }}>naut</span>
+        <Wordmark className={`tracking-[0.02em] text-white ${textClass}`} />
+      )}
+      {wordmark && beta && (
+        <span
+          className="-ml-0.5 self-start rounded-full border-2 border-black px-1.5 py-px font-display text-[8px] font-black uppercase tracking-[0.14em]"
+          style={{ background: 'var(--lime)', color: '#000' }}
+        >
+          beta
         </span>
       )}
     </span>

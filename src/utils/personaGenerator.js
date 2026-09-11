@@ -1,4 +1,6 @@
 import { TOOLS, CATEGORY_META } from './toolsCatalog'
+import { FLAGSHIP, starterScore } from './prominence'
+import { partitionByEligibility } from './eligibility'
 
 const DOMAIN_NOUN = {
   code: 'Builder',
@@ -74,33 +76,6 @@ function careerLine(role, stage) {
   return r || s
 }
 
-// Recognisable flagship tools per domain. The source data has no popularity
-// signal, so this small curated list keeps a fresh user's starter stack full
-// of names they'll actually recognise, with accessibility scoring as tiebreak.
-const FLAGSHIP = {
-  code: ['Claude Code', 'Cursor', 'GitHub Copilot', 'Windsurf', 'Replit'],
-  design: ['Midjourney', 'Canva', 'Figma', 'Adobe Firefly', 'Runway'],
-  writing: ['ChatGPT', 'Claude', 'Grammarly', 'Notion AI', 'Jasper'],
-  data: ['Perplexity', 'Julius', 'ChatGPT', 'Hex', 'Tableau'],
-  automation: ['Zapier', 'n8n', 'Make', 'Gumloop', 'Lindy'],
-  learning: ['NotebookLM', 'Khanmigo', 'Duolingo', 'Quizlet', 'Gamma'],
-}
-
-// Rank a domain's tools so the starter stack leads with recognisable flagships,
-// then favours approachable, active, low-cost picks for a fresh user.
-function starterScore(t, flagships) {
-  let s = 0
-  const rank = flagships.indexOf(t.name)
-  if (rank !== -1) s += 20 - rank // flagship order wins decisively
-  if (t.price === 'freemium') s += 3
-  else if (t.price === 'free') s += 2
-  if (t.level === 'beginner') s += 2
-  else if (t.level === 'intermediate') s += 1
-  if (t.status === 'Active') s += 1
-  if (t.year) s += Math.max(0, t.year - 2021) * 0.3 // gentle recency nudge
-  return s
-}
-
 // answers: { domain, role, career_stage, experience, goal, budget, pace,
 //            learning_style, blocker }
 export function generatePersona(answers) {
@@ -112,10 +87,25 @@ export function generatePersona(answers) {
   const career = careerLine(answers?.role, answers?.career_stage)
 
   const flagships = FLAGSHIP[domain] || []
-  const stack = TOOLS
-    .filter((t) => t.category === domain)
-    .sort((a, b) => starterScore(b, flagships) - starterScore(a, flagships) || a.name.localeCompare(b.name))
-    .slice(0, 3)
+  const byProminence = (a, b) =>
+    starterScore(b, flagships) - starterScore(a, flagships) || a.name.localeCompare(b.name)
+
+  // Budget is a HARD constraint, applied before prominence rather than as a
+  // score penalty afterwards. This path never called matchScore, so a
+  // "$0 - free only" answer was previously ignored outright here: three of six
+  // domains put a paid tool in the starter three, with Midjourney the top pick
+  // for design. The starter stack is the first thing a new visitor sees, so it
+  // is the worst possible place to contradict what they just told us.
+  const inDomain = TOOLS.filter((t) => t.category === domain)
+  const { eligible, excluded } = partitionByEligibility(inDomain, answers)
+
+  const stack = [...eligible].sort(byProminence).slice(0, 3)
+
+  // Surfaced, not silently dropped: the caller can show these as clearly
+  // labelled alternatives. Re-adding them to `stack` would defeat the filter,
+  // and hiding them entirely would leave the person wondering where the
+  // well-known tool went.
+  const excludedByBudget = [...excluded].sort(byProminence).slice(0, 3)
 
   const stage = answers?.career_stage
   const seniorish = stage === 'senior' || stage === 'founder' || answers?.role === 'founder' || answers?.role === 'manager'
@@ -127,6 +117,10 @@ export function generatePersona(answers) {
     career, // e.g. "Mid-level Developer" — null if role/stage unanswered
     category: { id: domain, name: meta.name, color: meta.color },
     stack,
+    excludedByBudget,
+    // True when the filter actually bit, so the UI can explain the gap instead
+    // of rendering an unexplained empty section.
+    constrained: excludedByBudget.length > 0,
     suggestedPlan:
       answers?.budget === 'free' || answers?.budget === 'low'
         ? 'Student'

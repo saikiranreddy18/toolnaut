@@ -1,27 +1,38 @@
 {
   "name": "toolnaut",
   "private": true,
-  "version": "0.4.6",
+  "version": "0.67.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/stamp-sw.mjs",
+    "build": "vite build && node scripts/stamp-sw.mjs && npm run prerender",
+    "prerender": "node scripts/prerender.mjs || echo prerender-step-failed",
     "preview": "vite preview",
     "smoke": "node scripts/smoke.mjs",
-    "test": "cd radar && node --test"
+    "test": "npm run test:radar && npm run test:app",
+    "radar:health": "node scripts/radar-health.mjs",
+    "report": "node scripts/daily-report.mjs",
+    "test:radar": "cd radar && node --test",
+    "test:app": "node --import ./test/register.mjs --test \"test/*.test.mjs\"",
+    "verify:live": "node scripts/verify-live-schema.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.0.0",
     "@react-three/fiber": "^9.0.0",
+    "@supabase/supabase-js": "^2.112.4",
     "framer-motion": "^12.0.0",
+    "lenis": "^1.3.26",
+    "razorpay": "^2.9.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.18.1",
     "three": "^0.177.0"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
     "@tailwindcss/vite": "^4.0.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "pdfjs-dist": "^4.10.38",
     "playwright": "^1.62.1",
     "tailwindcss": "^4.0.0",
     "vite": "^6.0.0"

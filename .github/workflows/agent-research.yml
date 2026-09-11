@@ -4,8 +4,17 @@ name: Agent · Research
 # "how do we grow the customer base" does not change in an hour. This agent
 # writes ISSUES and docs. It must never touch application code.
 on:
-  # schedule: disabled — the Claude routine now owns this.
-  #   - cron: "0 4 * * 1"   # Mondays 04:00 UTC (09:30 IST)
+  # Re-enabled, and moved from weekly to daily. This was commented out with the
+  # note "the Claude routine now owns this" — no such routine exists, and this
+  # agent had NEVER run, not once. Every "research" claim made about the product
+  # up to now came from nothing.
+  #
+  # Daily, not hourly. Hourly was asked for, but the prompt below tells the
+  # agent to exit when it has nothing genuinely new, and the funnel it studies
+  # does not change 24 times a day — hourly would spend the Featherless quota
+  # re-reading the same code to file the same issues.
+  schedule:
+    - cron: "0 4 * * *"   # daily 04:00 UTC (09:30 IST)
   workflow_dispatch:
 
 concurrency:

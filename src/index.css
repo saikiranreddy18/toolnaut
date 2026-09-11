@@ -27,8 +27,21 @@
 }
 
 html {
+  /* Kept for the no-Lenis case (touch, reduced motion), where it still gives
+     anchor links a smooth ride. */
   scroll-behavior: smooth;
   background: #0a0a0f;
+}
+
+/* Lenis adds .lenis to <html> while it is driving the scroll, and it CANNOT
+   coexist with native smooth scrolling: Lenis sets the position with scrollTo
+   every frame, and scroll-behavior:smooth makes the browser animate TO each of
+   those instead of applying them. Two smoothers fighting, and the result lands
+   as chunky steps — measured at 6 distinct positions across a 350px travel,
+   with 144px jumps, on real AMD hardware with lenis-smooth confirmed active.
+   This is the difference between the fix working and appearing not to. */
+html.lenis {
+  scroll-behavior: auto;
 }
 
 body {
@@ -128,7 +141,17 @@ button, a, input, select, textarea {
     radial-gradient(1.5px 1.5px at 88% 58%, rgba(216,180,254,0.85), transparent),
     radial-gradient(1px 1px at 6% 84%, rgba(255,255,255,0.65), transparent),
     radial-gradient(1.2px 1.2px at 94% 8%, rgba(255,255,255,0.8), transparent),
-    radial-gradient(1px 1px at 34% 92%, rgba(165,243,252,0.7), transparent);
+    radial-gradient(1px 1px at 34% 92%, rgba(165,243,252,0.7), transparent),
+    radial-gradient(1px 1px at 19% 41%, rgba(255,255,255,0.55), transparent),
+    radial-gradient(1.1px 1.1px at 47% 73%, rgba(224,231,255,0.7), transparent),
+    radial-gradient(1px 1px at 61% 18%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.3px 1.3px at 72% 55%, rgba(191,219,254,0.75), transparent),
+    radial-gradient(1px 1px at 83% 77%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1.1px 1.1px at 3% 37%, rgba(255,255,255,0.65), transparent),
+    radial-gradient(1px 1px at 52% 5%, rgba(165,243,252,0.6), transparent),
+    radial-gradient(1.2px 1.2px at 25% 88%, rgba(216,180,254,0.7), transparent),
+    radial-gradient(1px 1px at 91% 34%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 38% 57%, rgba(255,255,255,0.45), transparent);
   background-size: 520px 520px;
   animation: star-drift 160s linear infinite;
 }
@@ -150,6 +173,113 @@ button, a, input, select, textarea {
   .starfield::after {
     animation: none;
   }
+}
+
+/* ── Moonlight ────────────────────────────────────────────────────────────
+   Two skies, set by data-moon on <html> (see state/moonStore.js).
+
+   These are not one sky at two brightnesses. Looking up on a moonlit night you
+   see a glowing sky and FEWER faint stars, because the moon washes them out; on
+   a moonless night the sky goes black and the field fills in. Honouring that is
+   what makes the two settings feel like different nights.
+
+   Pure CSS off an attribute, so switching costs no re-render and every surface
+   that mounts .starfield changes at once. */
+
+/* Full moon: a soft disc glow high on the right, a lifted sky, softer stars. */
+[data-moon='full'] .starfield {
+  background:
+    radial-gradient(circle 220px at 84% 12%, rgba(226, 232, 240, 0.16), transparent 70%),
+    radial-gradient(ellipse 70% 55% at 84% 12%, rgba(148, 163, 184, 0.1), transparent),
+    radial-gradient(ellipse 55% 40% at 20% 10%, rgba(124, 58, 237, 0.14), transparent),
+    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(6, 182, 212, 0.1), transparent),
+    #0d0d15;
+}
+/* the moon itself — small, soft-edged, unmistakably a light source */
+[data-moon='full'] .starfield::before {
+  opacity: 0.72;
+}
+[data-moon='full'] .starfield::after {
+  opacity: 0.34;
+}
+
+/* THE MOON ITSELF.
+   Until now "full moon" was only a glow — a radial-gradient wash at 84% 12%
+   with no body in it, so the setting lit the sky from a light source that was
+   not there.
+
+   It hangs off body::after rather than .starfield because both of that
+   element's pseudo-elements are already spent on the two star layers, and
+   .starfield is rendered in seven separate places (AppShell, OnboardingShell,
+   About, Pricing, Legal, NotFound, Scene) — one rule here reaches all of them
+   without touching a single component.
+
+   Everything inside is a percentage of the moon's own 116px box, so the craters
+   stay welded to the disc at any viewport size. Positioned to sit under the
+   existing glow at 84% 12%, because a light source and its halo disagreeing
+   about where they are is worse than no moon at all. */
+[data-moon='full'] body::after {
+  content: '';
+  position: fixed;
+  top: 84px;
+  right: 168px;
+  width: 116px;
+  height: 116px;
+  /* The near side, drawn to the real layout in public/moon.svg — Imbrium high
+     on the west, Crisium alone by the eastern limb, Tycho's rays fanning
+     south. Gradients alone cannot do this: what makes a moon recognisable is
+     the specific arrangement of the maria, not a sphere with spots on it.
+     An SVG keeps it sharp at any size and costs about 2KB. */
+  background: url('/moon.svg') center / contain no-repeat;
+  /* Behind every surface: .starfield is z-0 and app content sits at z-10, so
+     the moon shares the sky's layer and never lands on top of text. */
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  /* Scenery, not a sticker. At full white with an 18px halo the disc read as
+     a foreground element pasted over the page; dimmed and softened it sits
+     back with the starfield where a moon belongs. */
+  opacity: 0.55;
+  box-shadow: 0 0 50px 12px rgba(226, 232, 240, 0.1);
+}
+
+/* Phones: smaller, and tucked in from the edge so it does not collide with the
+   header controls that live in that corner. */
+@media (max-width: 640px) {
+  [data-moon='full'] body::after {
+    top: 64px;
+    right: 26px;
+    width: 76px;
+    height: 76px;
+  }
+}
+
+/* No moon means no moon. */
+[data-moon='none'] body::after {
+  content: none;
+}
+
+/* ...and neither does the landing page, whatever the setting says. The disc
+   lands at the top right, in the corner already holding the nav, the BETA badge
+   and the headline's upper edge. The headline is why anyone is on this page;
+   the moon is scenery, so the moon gives way. The stored setting is untouched
+   and every other surface still honours it. */
+[data-page='landing'] body::after {
+  content: none;
+}
+
+/* No moon: the sky drops away and the field comes forward. */
+[data-moon='none'] .starfield {
+  background:
+    radial-gradient(ellipse 55% 40% at 20% 10%, rgba(124, 58, 237, 0.1), transparent),
+    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(6, 182, 212, 0.07), transparent),
+    #050508;
+}
+[data-moon='none'] .starfield::before {
+  opacity: 1;
+}
+[data-moon='none'] .starfield::after {
+  opacity: 0.8;
 }
 
 /* Comet scroll progress indicator */
@@ -342,6 +472,16 @@ html[data-theme='synth'] {
 .sticker:nth-child(even) { transform: rotate(1.5deg); }
 .sticker:hover { transform: rotate(0deg) translate(-1px, -1px); }
 
+/* Pricing is a COMPARISON, and a comparison has to line up.
+   The scattered rotation above is right where cards are browsed one at a time
+   (Find, Saved, Stack) — it reads as a pinboard. In a three-column price table
+   the same rotation puts each card's baseline at a different height, so the eye
+   cannot run across a row to compare a figure. .flat opts that row out and
+   nothing else. Declared after :nth-child(even) deliberately: both selectors
+   are specificity (0,2,0), so source order is what decides. */
+.sticker.flat { transform: none; }
+.sticker.flat:hover { transform: translate(-1px, -1px); }
+
 /* Chunky italic arcade display heading */
 .arcade-heading {
   font-family: 'Space Grotesk', system-ui, sans-serif;
@@ -355,6 +495,25 @@ html[data-theme='synth'] {
     -1px -1px 0 var(--hot-pink),
     2px 2px 0 var(--lime),
     4px 4px 0 rgba(0,0,0,0.6);
+}
+
+/* Section headings (18-24px).
+
+   The RGB split above is sized for the 30-48px page titles, where a 2px colour
+   offset reads as chrome around a ~6px stroke. At text-lg the strokes are about
+   3px, so the lime and pink copies land INSIDE the letterform instead of beside
+   it and the word reads as a smear — "RECOMMENDED FOR YOU" and "STARTER PICKS"
+   were the two worst cases. Section headings keep the face, weight and italic;
+   they drop the split for a single hard shadow, and give back the -0.02em
+   tracking, which also works against legibility once the type is small. */
+.arcade-heading.section {
+  letter-spacing: 0.005em;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.9);
+}
+
+/* Lime labels at 12-16px: 3px of shadow is a fifth of the cap height there. */
+.arcade-heading.lime.compact {
+  text-shadow: 2px 2px 0 #000;
 }
 
 .arcade-heading.outline {
@@ -506,4 +665,201 @@ html[data-theme='synth'] {
   border: 1px solid #000;
   animation: burst 1s ease-out forwards;
   z-index: 999;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ARCADE CABINET — sign-in modal
+   CSS, not WebGL. The landing already runs a 70k-particle R3F scene; a second
+   canvas inside a modal costs a context and a frame budget for a decorative
+   screen. Everything here is compositor-friendly (transform/opacity only).
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* the glass: scanlines + a soft vignette, sitting above the screen content */
+.crt-glass {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 10px;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.28) 0px,
+      rgba(0, 0, 0, 0.28) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    radial-gradient(ellipse 120% 120% at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* a single bright band drifting down the tube, like a refresh rolling */
+.crt-rollbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 22%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(163, 255, 46, 0.05) 40%,
+    rgba(255, 255, 255, 0.07) 50%,
+    rgba(163, 255, 46, 0.05) 60%,
+    transparent
+  );
+  animation: crt-roll 7s linear infinite;
+}
+@keyframes crt-roll {
+  from { transform: translateY(-120%); }
+  to   { transform: translateY(520%); }
+}
+
+/* the tube never sits perfectly still — a tiny brightness wobble reads as
+   "powered on" far more than any amount of added detail */
+.crt-flicker {
+  animation: crt-flicker 4.2s steps(1, end) infinite;
+}
+@keyframes crt-flicker {
+  0%, 96%, 100% { opacity: 1; }
+  97%           { opacity: 0.93; }
+  98%           { opacity: 1; }
+  99%           { opacity: 0.96; }
+}
+
+/* the planet: two rotating gradient layers reading as landmass over ocean */
+.planet-surface {
+  animation: planet-spin 48s linear infinite;
+}
+@keyframes planet-spin {
+  from { background-position: 0% 50%; }
+  to   { background-position: 200% 50%; }
+}
+
+/* joystick: springs back when released. The transition lives here so the
+   inline transform can be swapped without fighting a Framer spring. */
+.joystick-shaft {
+  transition: transform 480ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: 50% 100%;
+}
+
+/* cabinet buttons travel DOWN and lose their shadow, like a real keycap */
+.cab-btn {
+  transition: transform 90ms ease-out, box-shadow 90ms ease-out, filter 160ms;
+}
+.cab-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 #000 !important;
+}
+
+/* the launch: rocket climbs and the whole cabinet falls away beneath it */
+@keyframes rocket-climb {
+  0%   { transform: translateY(0) scale(1); opacity: 1; }
+  70%  { transform: translateY(-320px) scale(0.55); opacity: 1; }
+  100% { transform: translateY(-620px) scale(0.2); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crt-rollbar,
+  .crt-flicker,
+  .planet-surface {
+    animation: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SIGN-IN PANEL — arcade cabinet trim
+   Ported from the approved sign-in build. Three things carry that design and
+   none of them are decoration:
+     - a STEPPED perimeter, so the panel is a cut plate rather than a rounded box
+     - nested inset rings (pink between two blacks) instead of one border
+     - a chamfered corner, which is what makes it read as machined metal
+   Brand tokens stay Toolnaut's own; only the geometry is borrowed.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.signin-panel {
+  clip-path: polygon(0 0, 97% 0, 100% 3%, 100% 93%, 93% 100%, 0 100%);
+  box-shadow:
+    inset 0 0 0 5px var(--hot-pink),
+    inset 0 0 0 10px #09090a,
+    inset 0 0 0 14px #f5f1e8;
+}
+
+/* the pink rail down the inside edge */
+.signin-panel::before {
+  position: absolute;
+  top: 9px;
+  right: 7px;
+  bottom: 70px;
+  width: 9px;
+  content: '';
+  background: linear-gradient(#ff78ac, var(--hot-pink) 70%);
+  box-shadow: -5px 0 #050506;
+  pointer-events: none;
+}
+
+/* the cut corner, bottom right */
+.signin-panel::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 72px;
+  height: 72px;
+  content: '';
+  border-top: 8px solid #09090a;
+  background: var(--hot-pink);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  pointer-events: none;
+}
+
+/* The headline: Bungee, skewed, thick outline over a hard offset shadow. The
+   second line is squeezed horizontally so both lines end flush — the reference
+   does this and it is why the block reads as a stamped logotype. */
+.enter-heading {
+  padding-right: 26px;
+  font-family: 'Bungee', var(--font-display), sans-serif;
+  font-style: italic;
+  line-height: 0.82;
+  letter-spacing: -0.065em;
+  text-transform: uppercase;
+  transform: skewX(-8deg);
+}
+.enter-heading span,
+.enter-heading strong {
+  display: block;
+  -webkit-text-stroke: 3px #080809;
+  text-shadow: 7px 7px #080809;
+}
+.enter-heading strong {
+  font-size: 0.86em;
+  white-space: nowrap;
+  transform: skewX(8deg) scaleX(0.91);
+  transform-origin: left;
+}
+
+@media (max-width: 640px) {
+  .enter-heading span,
+  .enter-heading strong { -webkit-text-stroke-width: 2px; text-shadow: 4px 4px #080809; }
+  .signin-panel::after { width: 48px; height: 48px; }
+}
+
+/* Holographic sweep for the ticket's persona name: the gradient slides through
+   the clipped glyphs like light across foil. Guarded for reduced motion. */
+.holo-sweep { animation: holo-slide 5.5s ease-in-out infinite; }
+@keyframes holo-slide {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .holo-sweep { animation: none; }
+}
+
+/* The founder ribbon's marquee. Two copies of the strip sit side by side and
+   both slide left by exactly one copy's width, so as the first leaves the
+   second is already in its place — the seam never shows.
+   motion-reduce disables it in the component: a permanently scrolling strip is
+   a real problem for vestibular disorders, and the offer still reads fine
+   standing still. */
+@keyframes founder-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
 }

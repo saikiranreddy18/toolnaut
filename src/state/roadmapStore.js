@@ -2,14 +2,15 @@
 // plus a per-milestone checkpoint pass keyed by "<milestoneId>:quiz".
 // localStorage until the backend (Supabase) owns progress — the function
 // surface below is the seam a backend adapter would implement.
+import { read, write, remove } from './scopedStorage'
 const KEY = 'exus_roadmap_v1'
 
 export function loadRoadmapProgress() {
-  try { return JSON.parse(localStorage.getItem(KEY)) || {} } catch { return {} }
+  try { return read(KEY) || {} } catch { return {} }
 }
 
 function persist(p) {
-  try { localStorage.setItem(KEY, JSON.stringify(p)) } catch { /* storage blocked */ }
+  try { write(KEY, p) } catch { /* storage blocked */ }
   return p
 }
 
@@ -38,7 +39,7 @@ export function setQuizPassed(milestoneId) {
 // Progress keys aren't persona-scoped, so a retaken quiz must start clean —
 // otherwise the freshly generated roadmap inherits the old ticks.
 export function resetRoadmapProgress() {
-  try { localStorage.removeItem(KEY) } catch { /* storage blocked */ }
+  try { remove(KEY) } catch { /* storage blocked */ }
 }
 
 export function isQuizPassed(progress, milestoneId) {

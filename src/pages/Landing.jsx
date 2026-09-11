@@ -7,10 +7,14 @@ import RolesSection from '../components/sections/RolesSection'
 import AudienceSection from '../components/sections/AudienceSection'
 import PricingSection from '../components/sections/PricingSection'
 import FeaturesSection from '../components/sections/FeaturesSection'
+import StatsSection from '../components/sections/StatsSection'
+import FounderRibbon from '../components/ui/FounderRibbon'
+import { useHead } from '../utils/head'
 import CTASection from '../components/sections/CTASection'
 import CometProgress from '../components/ui/CometProgress'
 import GalaxyExplorer from '../components/ui/GalaxyExplorer'
-import { BrandLogo } from '../components/ui/Mascot'
+import { BrandLogo, LOGO } from '../components/ui/Mascot'
+import useSmoothScroll from '../hooks/useSmoothScroll'
 import { BRAND } from '../config'
 import { useAnalytics } from '../hooks/useAnalytics'
 import { useSpaceAudio } from '../hooks/useSpaceAudio'
@@ -35,11 +39,77 @@ function StaticSky() {
 }
 
 export default function Landing() {
+  // Eases the position between wheel notches. The wheel was raw: each notch
+  // jumped ~30px and decayed over five frames, which reads as stepping rather
+  // than gliding. scroll-behavior:smooth never touched this — it only applies
+  // to programmatic scrolls.
+  useSmoothScroll()
+
   const [booted, setBooted] = useState(false)
   const [explore, setExplore] = useState(false)
   const track = useAnalytics()
   const audio = useSpaceAudio()
   const navigate = useNavigate()
+
+  // Structured data for the homepage. The title and description already live
+  // in index.html and are correct there, so this adds only the schema.
+  //
+  // Organization and WebSite are the two that earn something concrete: the
+  // first tells Google what this company IS rather than inferring it from
+  // copy, the second declares the search endpoint that produces a sitelinks
+  // search box.
+  //
+  // Deliberately NO aggregateRating and no review count. There are no reviews
+  // yet, inventing them is the kind of fake data this project refuses, and
+  // Google penalises unverifiable review markup anyway.
+  useHead({
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Toolnaut',
+        url: 'https://toolnaut.xyz',
+        logo: 'https://toolnaut.xyz/og.png',
+        description:
+          'Toolnaut maps AI tools to the work you actually do — your role, goal, budget and skill '
+          + 'level — and shows why each one fits.',
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'customer support',
+          email: 'info@toolnaut.xyz',
+          url: 'https://toolnaut.xyz/support',
+        },
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Toolnaut',
+        url: 'https://toolnaut.xyz',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: 'https://toolnaut.xyz/search?q={search_term_string}',
+          },
+          'query-input': 'required name=search_term_string',
+        },
+      },
+    ],
+  })
+
+  // The moon is off HERE and only here. It is a real setting (moonStore, with a
+  // toggle in the theme picker) and it stays available on every other surface —
+  // but on the landing hero its disc sits at the top right, right where the
+  // nav, the BETA badge and the headline's upper corner already are. Three
+  // competing focal points in one corner, and the moon loses: it is scenery,
+  // and the headline is the reason the page exists.
+  //
+  // Marked on <html> rather than toggling the user's stored setting, so their
+  // choice survives the visit and comes back intact on the next page.
+  useEffect(() => {
+    document.documentElement.setAttribute('data-page', 'landing')
+    return () => document.documentElement.removeAttribute('data-page')
+  }, [])
 
   const hasWebGL = useMemo(webglAvailable, [])
   // calm = accessibility (static scene); mobile keeps the LIVE galaxy at
@@ -73,7 +143,7 @@ export default function Landing() {
   // QUIZ_START now fires on /quiz mount (single source of truth) —
   // HeroSection already tracks the CTA_CLICK.
   function openQuiz() {
-    navigate('/quiz')
+    navigate('/goal')
   }
 
   return (
@@ -97,15 +167,21 @@ export default function Landing() {
         )}
       </AnimatePresence>
 
+      {/* The ribbon sits above the nav inside the same fixed header, so it
+          travels with it instead of scrolling away — the countdown is only
+          useful while it is visible. Hidden during galaxy exploration along
+          with the rest of the chrome. */}
       <header className={`fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-[#060609]/90 via-[#060609]/50 to-transparent pb-3 transition-opacity duration-500 ${explore ? 'pointer-events-none opacity-0' : ''}`}>
+        <FounderRibbon />
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
           <a href="#hero" aria-label={BRAND}>
-            <BrandLogo size={60} textClass="text-2xl sm:text-3xl" />
+            <BrandLogo {...LOGO.page} />
           </a>
           <nav className="hidden items-center gap-6 text-sm text-slate-300 md:flex">
             <a href="#how-it-works" className="hover:text-white">How it works</a>
             <Link to="/pricing" className="hover:text-white">Pricing</Link>
             <Link to="/about" className="hover:text-white">About</Link>
+            <Link to="/search" className="hover:text-white">Search</Link>
             <a href="#contact" className="hover:text-white">Contact</a>
             <Link
               to="/app/stack"
@@ -128,12 +204,12 @@ export default function Landing() {
 
       <main className={`transition-opacity duration-500 ${explore ? 'pointer-events-none opacity-0' : ''}`}>
         <HeroSection onEnter={openQuiz} />
+        <StatsSection />
         <HowItWorksSection />
         <RolesSection />
         <AudienceSection />
         <FeaturesSection />
-        {/* Pricing hidden for now — restore by un-commenting: */}
-        {/* <PricingSection /> */}
+        <PricingSection />
         <CTASection />
       </main>
 

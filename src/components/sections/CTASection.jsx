@@ -2,14 +2,18 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { fadeUp, stagger } from '../ui/SectionShell'
 import { BRAND } from '../../config'
+import ContactSection from './ContactSection'
 import { useAnalytics, useSectionView } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
+import { loadSession } from '../../state/authStore'
 
-const CONTACT_EMAIL = 'hello@toolnaut.app'
 
 export default function CTASection() {
   const track = useAnalytics()
   const ref = useSectionView('cta')
+  // A signed-out visitor has no stack yet — "map your stack" below means the
+  // quiz, not the (session-gated) app, or this button breaks its own promise.
+  const openTarget = loadSession() ? '/app/stack' : '/goal'
 
   return (
     <section id="cta" ref={ref} className="relative z-10">
@@ -36,7 +40,7 @@ export default function CTASection() {
 
         <motion.div variants={fadeUp} className="mt-10 flex justify-center">
           <Link
-            to="/app/stack"
+            to={openTarget}
             onClick={() => track(EVENTS.CTA_CLICK, { cta: 'open_app', location: 'final_cta' })}
             className="nb-btn inline-block px-8 py-4 text-base"
           >
@@ -64,34 +68,16 @@ export default function CTASection() {
           }}
         />
 
-        <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-40 text-center">
-          {/* giant chromatic glitch app name — the ref2 centerpiece, here only */}
-          <p
-            aria-hidden="true"
-            data-text={BRAND}
-            className="glitch-outline select-none whitespace-nowrap text-[clamp(2.75rem,12vw,10rem)]"
-          >
-            {BRAND}
-          </p>
-
-          <div className="mx-auto mt-14 flex max-w-4xl flex-col items-center gap-6 border-t border-white/10 pt-8 md:flex-row md:justify-between">
-            <p className="font-display text-sm font-bold tracking-[0.35em] text-white">{BRAND}</p>
-            <nav className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-semibold text-white">
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                onClick={() => track(EVENTS.CTA_CLICK, { cta: 'contact', location: 'footer' })}
-                className="transition-colors hover:text-cyan-300"
-              >
-                Contact
-              </a>
-              <a href="#how-it-works" className="transition-colors hover:text-cyan-300">How it works</a>
-              <Link to="/pricing" className="transition-colors hover:text-cyan-300">Pricing</Link>
-              <Link to="/about" className="transition-colors hover:text-cyan-300">About</Link>
-            </nav>
-          </div>
-          <p className="mt-8 font-display text-xs font-bold uppercase tracking-widest text-slate-500">
-            © {new Date().getFullYear()} {BRAND}. All rights reserved.
-          </p>
+        {/* The contact block proper. This used to be a giant decorative
+            wordmark over a row of links, with the only actual way to reach
+            anyone being a mailto buried in that row. */}
+        <div className="relative">
+          {/* No bottom bar. The user drew a box around it and wrote "rem
+              this area": the copyright folds into the contact columns as one
+              small line, and the reveal mark becomes the true last thing on
+              the page. The clearance the bar's pb-28 provided for the fixed
+              corner controls moved into ContactSection's own padding. */}
+          <ContactSection />
         </div>
       </footer>
     </section>

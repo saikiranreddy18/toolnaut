@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { fadeUp } from './SectionShell'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
+import { formatPrice } from '../../utils/planData'
+import { useVisitorCountry } from '../../hooks/useVisitorCountry'
 
 // Sticker-shadow color per plan so the three pillars read lime / pink / cyan.
 const STICKER_VARIANT = { shishya: '', guru: 'pink', pandava: 'cyan' }
@@ -29,18 +31,31 @@ function PlanIcon({ type, color }) {
   )
 }
 
-export default function PricingPillar({ plan }) {
+export default function PricingPillar({ plan, currency = 'USD' }) {
+  // Regional plans price by country; everything else ignores it.
+  const country = useVisitorCountry()
   const track = useAnalytics()
 
   return (
-    <motion.div variants={fadeUp} className={`relative ${plan.lift}`}>
+    // h-full so the grid's items-stretch actually reaches the card: without it
+    // this wrapper sizes to its own content and the card's h-full resolves
+    // against that, leaving three different heights. plan.lift is dropped — it
+    // was a negative top margin that raised the featured plan out of the very
+    // row it exists to be compared across.
+    <motion.div variants={fadeUp} className="relative h-full">
       <div
-        className={`sticker ${STICKER_VARIANT[plan.id] ?? ''} relative flex h-full flex-col p-7 ${plan.featured ? 'md:scale-[1.03]' : ''}`}
+        className={`sticker flat ${STICKER_VARIANT[plan.id] ?? ''} relative flex h-full flex-col p-7 ${
+          // No scale on the featured plan. scale() grows from the centre, so it
+          // pushed PRO's top edge above STUDENT and TEAM and broke the row it is
+          // meant to be compared across. The MOST POPULAR tape and the pink edge
+          // already mark it, and neither moves it.
+          plan.featured ? 'md:z-10' : ''
+        }`}
         onMouseEnter={() => track(EVENTS.PLAN_HOVER, { plan: plan.id })}
       >
         {plan.badge && (
           <span className="tape-label absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap" style={{ fontSize: 10, padding: '5px 14px' }}>
-            {plan.badge}
+            {currency === 'INR' && plan.badgeINR ? plan.badgeINR : plan.badge}
           </span>
         )}
         <div className="flex items-start justify-between">
@@ -52,24 +67,46 @@ export default function PricingPillar({ plan }) {
         </div>
         <p className="mt-3 flex items-baseline gap-1">
           <span className="font-display text-5xl font-black italic text-white" style={{ textShadow: '3px 3px 0 #000' }}>
-            ${plan.price}
+            {/* A regionally priced plan ignores the currency toggle: it has one
+                real price per country, and letting the toggle quote the other
+                one would show a number the checkout will not charge. */}
+            {plan.currency === 'USD'
+              ? formatPrice(plan, country)
+              : currency === 'INR'
+                ? `₹${plan.priceINR.toLocaleString('en-IN')}`
+                : `$${plan.price}`}
           </span>
-          <span className="text-sm font-bold text-slate-400">/month</span>
+          {/* "/month" was a promise we do not keep. Nothing renews: there is no
+              Razorpay Subscription anywhere in the codebase, and a payment buys
+              a flat 30 days from activateEntitlement. Saying "per month" tells
+              someone their card will be charged again, and it will not be —
+              which is the kind of surprise that ends in a chargeback. */}
+          <span className="text-sm font-bold text-slate-400">
+            {plan.lifetime ? 'one time' : '/30 days'}
+          </span>
+        </p>
+        <p className="mt-1 text-[11px] font-bold uppercase tracking-wide text-slate-500">
+          {plan.lifetime ? 'Pay once · never expires' : 'One payment · does not auto-renew'}
         </p>
         <p className="mt-3 text-xs text-slate-400">{plan.audience}</p>
 
         <ul className="mt-6 flex-1 space-y-2.5 text-sm text-slate-200">
           {plan.plus && <li className="font-display font-black uppercase text-cyan-300">{plan.plus}</li>}
           {plan.features.map((f) => (
-            <li key={f} className="flex gap-2">
+            <li key={f.text} className="flex flex-wrap items-center gap-2">
               <span aria-hidden="true" style={{ color: plan.accent }}>✦</span>
-              {f}
+              {f.text}
+              {f.status === 'planned' && (
+                <span className="whitespace-nowrap rounded-full border border-slate-600 px-1.5 py-0.5 font-display text-[9px] font-black uppercase text-slate-500">
+                  planned
+                </span>
+              )}
             </li>
           ))}
         </ul>
 
         <Link
-          to="/quiz"
+          to="/goal"
           onClick={() => track(EVENTS.PLAN_SELECT, { plan: plan.id, price: plan.price })}
           className={`nb-btn ${plan.id === 'guru' ? 'pink' : plan.id === 'pandava' ? 'cyan' : ''} mt-8 block w-full py-3 text-center text-sm`}
         >

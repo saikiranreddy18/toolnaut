@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { CloseIcon, SendIcon } from './icons'
 
 // AI chat assistant stub. The panel UX (persistent across /app routes,
@@ -14,6 +14,21 @@ export default function ChatPanel({ personaName, onClose, idPrefix = 'chat' }) {
     },
   ])
   const [draft, setDraft] = useState('')
+  const closeBtnRef = useRef(null)
+
+  // The launcher button that opens this panel unmounts the instant it does
+  // (AppShell renders it only while !chatOpen), so the keyboard focus that
+  // opened it would otherwise land on <body> with nothing to tab from. Moving
+  // it onto the close button — and honoring Escape, standard for a dismissible
+  // panel — keeps a keyboard/screen-reader user oriented inside the panel.
+  useEffect(() => {
+    closeBtnRef.current?.focus()
+    function onKey(e) {
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [onClose])
 
   function send(e) {
     e.preventDefault()
@@ -38,6 +53,7 @@ export default function ChatPanel({ personaName, onClose, idPrefix = 'chat' }) {
           <p className="text-xs font-bold text-lime-400">Preview — replies are canned</p>
         </div>
         <button
+          ref={closeBtnRef}
           onClick={onClose}
           aria-label="Close assistant"
           className="press flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border-2 border-black bg-white/5 text-slate-300 hover:text-white"

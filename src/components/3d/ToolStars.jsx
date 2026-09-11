@@ -2,6 +2,8 @@ import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { TOOLS, CATEGORY_META } from '../../utils/toolsCatalog'
+import { isNewTool } from '../../utils/newTools'
+import { isCatalogNoise } from '../../utils/prominence'
 
 // The galaxy hosts ALL 704 catalog tools as star sprites. Each domain gets a
 // distinct color from CATEGORY_META, so the spiral arms literally colour by
@@ -47,6 +49,44 @@ function makeNameTexture(name, color) {
   ctx.fillText(name, w / 2, h / 2)
   ctx.shadowBlur = 0
   ctx.fillText(name, w / 2, h / 2)
+
+  const tex = new THREE.CanvasTexture(canvas)
+  tex.colorSpace = THREE.SRGBColorSpace
+  tex.anisotropy = 8
+  return tex
+}
+
+// Same canvas label with a lime NEW tag over the name — the daily arrivals.
+function makeNewNameTexture(name, color) {
+  const w = 1024
+  const h = 256
+  const canvas = document.createElement('canvas')
+  canvas.width = w
+  canvas.height = h
+  const ctx = canvas.getContext('2d')
+
+  let size = 104
+  ctx.font = `700 ${size}px "Space Grotesk", system-ui, sans-serif`
+  while (ctx.measureText(name).width > w - 120 && size > 44) {
+    size -= 6
+    ctx.font = `700 ${size}px "Space Grotesk", system-ui, sans-serif`
+  }
+  ctx.textAlign = 'center'
+  ctx.textBaseline = 'middle'
+  ctx.shadowColor = color
+  ctx.shadowBlur = 42
+  ctx.fillStyle = '#ffffff'
+  ctx.fillText(name, w / 2, h / 2 + 26)
+  ctx.shadowBlur = 0
+  ctx.fillText(name, w / 2, h / 2 + 26)
+
+  ctx.font = '900 44px "Space Grotesk", system-ui, sans-serif'
+  ctx.shadowColor = '#a3ff2e'
+  ctx.shadowBlur = 24
+  ctx.fillStyle = '#a3ff2e'
+  ctx.fillText('★ NEW', w / 2, 44)
+  ctx.shadowBlur = 0
+  ctx.fillText('★ NEW', w / 2, 44)
 
   const tex = new THREE.CanvasTexture(canvas)
   tex.colorSpace = THREE.SRGBColorSpace
@@ -106,6 +146,29 @@ export default function ToolStars() {
   }, [])
 
   const items = useMemo(() => {
+    // The stars that get a NEW nameplate: the freshest dozen REAL tools.
+    // Unfiltered, isNewTool matched 94 entries after a busy radar week —
+    // ninety-four floating labels is not a galaxy, it is a spreadsheet —
+    // and several were HN posts and repos, which isCatalogNoise already
+    // exists to keep out of everything the app recommends. Newest first,
+    // so "added today" genuinely reads as today.
+    // A nameplate needs a NAME. isCatalogNoise catches repo slugs and
+    // "Show HN:" prefixes, but the radar also ingests sentence-shaped HN
+    // titles ("I built an AI music generator with some harnesses") that
+    // pass it — a fine catalogue entry, a ridiculous star label. Products
+    // are called Edify, CaptureAgent, Headless Tools: short, few words,
+    // no clauses. Display gate only — recommendation filtering is
+    // prominence.js's job, and this does not touch it.
+    const looksLikeAName = (t) =>
+      t.name.length <= 24 && t.name.split(/\s+/).length <= 3 && !t.name.includes(',')
+
+    const newSlugs = new Set(
+      TOOLS.filter((t) => isNewTool(t) && !isCatalogNoise(t) && looksLikeAName(t))
+        .sort((a, b) => (b.discoveredAt || 0) - (a.discoveredAt || 0))
+        .slice(0, 12)
+        .map((t) => t.slug),
+    )
+
     // Deterministic order — sort by name so branch assignment is stable.
     const sorted = [...TOOLS].sort((a, b) => a.name.localeCompare(b.name))
     const total = sorted.length
@@ -125,6 +188,10 @@ export default function ToolStars() {
         tool,
         color,
         isFlagship: FLAGSHIP_NAMES.has(tool.name),
+        // The radar stamps discoveredAt on every nightly find. Nothing to
+        // configure — a tool added today rises here with its name on,
+        // automatically, and rotates out as newer arrivals displace it.
+        isNew: newSlugs.has(tool.slug),
         position: [
           Math.cos(branchAngle + spinAngle) * r + h1 * spread,
           h2 * spread * 0.6,
@@ -142,7 +209,10 @@ export default function ToolStars() {
   )
 
   const nameTextures = useMemo(
-    () => items.map((it) => (it.isFlagship ? makeNameTexture(it.tool.name, it.color) : null)),
+    () => items.map((it) =>
+      it.isNew ? makeNewNameTexture(it.tool.name, it.color)
+      : it.isFlagship ? makeNameTexture(it.tool.name, it.color)
+      : null),
     [items],
   )
 
@@ -227,7 +297,7 @@ export default function ToolStars() {
               blending={THREE.AdditiveBlending}
             />
           </sprite>
-          {item.isFlagship && nameTextures[i] && (
+          {(item.isFlagship || item.isNew) && nameTextures[i] && (
             <sprite
               ref={(el) => (nameRefs.current[i] = el)}
               position={[0, 0.34, 0]}

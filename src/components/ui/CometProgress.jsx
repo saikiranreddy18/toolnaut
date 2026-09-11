@@ -1,13 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 // The tiny comet that rides the right edge as you travel through the page.
+// Writes straight to the DOM (like Scene.jsx's scroll-opacity handler) so a
+// purely decorative position update never triggers a React re-render.
 export default function CometProgress() {
-  const [p, setP] = useState(0)
+  const cometRef = useRef(null)
 
   useEffect(() => {
     function onScroll() {
+      const el = cometRef.current
+      if (!el) return
       const max = document.documentElement.scrollHeight - window.innerHeight
-      setP(max > 0 ? window.scrollY / max : 0)
+      const p = max > 0 ? window.scrollY / max : 0
+      el.style.top = `calc(${(p * 100).toFixed(2)}% - 5px)`
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -16,7 +21,7 @@ export default function CometProgress() {
 
   return (
     <div className="comet-track" aria-hidden="true">
-      <div className="comet" style={{ top: `calc(${(p * 100).toFixed(2)}% - 5px)` }} />
+      <div ref={cometRef} className="comet" />
     </div>
   )
 }

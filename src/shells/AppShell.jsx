@@ -1,25 +1,38 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Link, Navigate, NavLink, Outlet, useLocation } from 'react-router-dom'
+import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
+import TrialBanner from '../components/app/TrialBanner'
 import { BRAND } from '../config'
-import { BrandLogo } from '../components/ui/Mascot'
+import { BrandLogo, LOGO } from '../components/ui/Mascot'
+import StreakPoints from '../components/app/StreakPoints'
 import { loadSession } from '../state/authStore'
+import { fetchEntitlement } from '../utils/entitlement'
 import { loadQuiz } from '../state/quizStore'
 import { generatePersona } from '../utils/personaGenerator'
 import { planLabel } from '../utils/planData'
 import ChatPanel from '../components/app/ChatPanel'
 import InstallPrompt from '../components/app/InstallPrompt'
-import { StackIcon, DiscoverIcon, LearningIcon, CommunityIcon, SettingsIcon, ChatIcon } from '../components/app/icons'
+import GuestImportPrompt from '../components/app/GuestImportPrompt'
+import SyncStatus from '../components/app/SyncStatus'
+import Avatar from '../components/app/Avatar'
+import { loadAvatar, AVATAR_EVENT } from '../state/avatarStore'
+import { StackIcon, DiscoverIcon, LearningIcon, CommunityIcon, SettingsIcon, ChatIcon, HeartIcon } from '../components/app/icons'
 
 const NAV = [
   { to: '/app/stack', label: 'STACK', Icon: StackIcon },
   { to: '/app/discover', label: 'FIND', Icon: DiscoverIcon },
+  { to: '/app/favorites', label: 'SAVED', Icon: HeartIcon },
   { to: '/app/learning', label: 'LEARN', Icon: LearningIcon },
   { to: '/app/community', label: 'SQUAD', Icon: CommunityIcon },
   { to: '/app/settings', label: 'ME', Icon: SettingsIcon },
 ]
 
 const UI_KEY = 'exus_ui_v1'
+
+function subscribeAvatar(onChange) {
+  window.addEventListener(AVATAR_EVENT, onChange)
+  return () => window.removeEventListener(AVATAR_EVENT, onChange)
+}
 
 function loadChatOpen() {
   try { return !!JSON.parse(localStorage.getItem(UI_KEY))?.chatOpen } catch { return false }
@@ -34,15 +47,63 @@ function saveChatOpen(open) {
 // the starfield keeps the "in space" feeling at zero GPU cost.
 export default function AppShell() {
   const location = useLocation()
+  const navigate = useNavigate()
   const session = loadSession()
   const [chatOpen, setChatOpen] = useState(loadChatOpen)
 
-  if (!session) {
-    return <Navigate to={`/auth/login?next=${encodeURIComponent(location.pathname)}`} replace />
-  }
+  // THE PAYWALL GATE. A signed-in (real, not simulated) user with no active
+  // entitlement is sent to /pay — but ONLY when the server itself says
+  // payments are switched on (PAYMENTS_ENABLED + Supabase configured). Three
+  // deliberate fail-opens: guests keep browsing the free beta, a failed check
+  // (unknown) lets the visit through rather than bricking the app on a
+  // network hiccup, and a deployment with payments off charges nobody and
+  // therefore blocks nobody.
+  useEffect(() => {
+    if (!session?.user || session.simulated) return
+    let on = true
+    fetchEntitlement().then((ent) => {
+      if (!on || ent.unknown) return
+      if (ent.configured && ent.paymentsEnabled && !ent.active) {
+        navigate('/pay', { replace: true })
+      }
+    })
+    return () => { on = false }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session?.user?.id])
+  const launcherRef = useRef(null)
+  const chatWasOpenRef = useRef(false)
+
+  // ChatPanel unmounts the launcher the instant it opens and moves focus onto
+  // its own close button; when it closes, send focus back here instead of
+  // leaving it on whatever the browser defaults to (<body>). Guarded by
+  // chatWasOpenRef so this never fires on mount (chatOpen starts false from
+  // loadChatOpen and must not steal focus on a page that never opened chat).
+  useEffect(() => {
+    if (chatOpen) {
+      chatWasOpenRef.current = true
+    } else if (chatWasOpenRef.current) {
+      chatWasOpenRef.current = false
+      launcherRef.current?.focus()
+    }
+  }, [chatOpen])
+
+  // NO SIGN-IN GATE.
+  //
+  // Supabase is wired to authentication and nothing else. Stack, favourites,
+  // quiz, roadmap, progress, streak and avatar are all localStorage, and no
+  // table is ever read or written — grep for `.from(` and there is nothing.
+  // So the redirect that used to sit here guarded no data. What it did cost was
+  // every visitor, reviewer and crawler unwilling to sign in first, which is a
+  // steep price for a DISCOVERY product whose whole job is to be browsed.
+  //
+  // Sign-in stays available and becomes load-bearing the day state moves
+  // server-side. Until then it must not stand in the doorway.
 
   const quiz = loadQuiz()
   const persona = quiz.completed ? generatePersona(quiz.answers) : null
+  // An unpicked avatar renders as no portrait rather than a placeholder face
+  // nobody chose. Subscribed so picking one in ME updates the shell instantly.
+  const avatarId = useSyncExternalStore(subscribeAvatar, loadAvatar, () => null)
 
   function toggleChat(open) {
     setChatOpen(open)
@@ -58,15 +119,30 @@ export default function AppShell() {
 
   return (
     <div className="relative flex min-h-dvh">
+      {/* keyboard/screen-reader users otherwise have to tab through the
+          sidebar persona card and 6 nav links (or the mobile top bar) on
+          every single page before reaching content — WCAG 2.4.1 */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-[var(--lime)] focus:px-4 focus:py-2 focus:font-display focus:text-sm focus:font-black focus:uppercase focus:text-black"
+      >
+        Skip to content
+      </a>
       <div className="starfield" aria-hidden="true" />
 
       {/* left sidebar — desktop */}
-      <aside className="sticky top-0 hidden h-dvh w-60 shrink-0 flex-col border-r border-white/10 px-4 py-5 lg:flex">
-        <Link to="/" className="px-4" aria-label={BRAND}>
-          <BrandLogo size={30} />
+      <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-white/10 px-4 py-5 lg:flex">
+        <Link to="/" aria-label={BRAND}>
+          <BrandLogo {...LOGO.chrome} />
         </Link>
 
-        <div className="sticker mt-6 p-4">
+        <div className="sticker mt-6 flex items-start gap-3 p-4">
+          {avatarId ? (
+            <Link to="/app/settings" className="shrink-0" aria-label="Your profile">
+              <Avatar id={avatarId} size={40} />
+            </Link>
+          ) : null}
+          <div className="min-w-0">
           <p className="font-display text-[10px] font-black uppercase tracking-widest text-lime-400">
             {persona ? '▸ Your persona' : '▸ No persona yet'}
           </p>
@@ -74,13 +150,16 @@ export default function AppShell() {
             {persona ? persona.name : 'Take the quiz'}
           </p>
           {persona ? (
-            <p className="mt-1 text-xs font-bold text-cyan-300">Plan: {planLabel(session.plan)}</p>
+            <p className="mt-1 text-xs font-bold text-cyan-300">Plan: {planLabel(session?.plan)}</p>
           ) : (
-            <Link to="/quiz" className="mt-1 inline-block text-xs font-bold text-cyan-300 underline decoration-2 underline-offset-2 hover:text-white">
+            <Link to="/goal" className="mt-1 inline-block text-xs font-bold text-cyan-300 underline decoration-2 underline-offset-2 hover:text-white">
               60 seconds →
             </Link>
           )}
+          </div>
         </div>
+
+        <SyncStatus />
 
         <nav className="mt-6 flex flex-col gap-1" aria-label="Sidebar">
           {NAV.map(({ to, label, Icon }) => (
@@ -91,25 +170,54 @@ export default function AppShell() {
           ))}
         </nav>
 
-        <div className="mt-auto px-4 text-xs text-slate-600">
-          Signed in as {session.user.name}
+        {/* What this browser has actually done: days returned, points earned.
+            Below the nav, not above it — the links are what someone came to
+            the rail to use, and a stat block sitting between the persona and
+            the navigation pushed them down for something nobody clicks.
+            mt-auto moves here so the pair sits at the foot of the rail. */}
+        <div className="mt-auto">
+          <StreakPoints />
+        </div>
+
+        {/* Identity when there is one; otherwise say plainly that this browser
+            is where the stack lives, which is the honest reason to sign in. */}
+        <div className="px-4 pt-4 text-xs text-slate-600">
+          {session ? (
+            `Signed in as ${session.user.name}`
+          ) : (
+            <Link
+              to="/auth/login?next=/app/stack"
+              className="underline decoration-dotted underline-offset-2 hover:text-slate-400"
+            >
+              Browsing as guest — saved to this browser. Sign in →
+            </Link>
+          )}
         </div>
       </aside>
 
       {/* main content */}
-      <main className="relative z-10 min-w-0 flex-1 pb-24 lg:pb-0">
+      <main id="main-content" tabIndex={-1} className="relative z-10 min-w-0 flex-1 pb-24 lg:pb-0">
         {/* mobile top bar — respects the notch */}
         <div className="sticky top-0 z-30 flex items-center justify-between border-b border-white/10 bg-[#0a0a0f]/85 px-5 py-4 pt-[max(1rem,env(safe-area-inset-top))] backdrop-blur-md lg:hidden">
           <Link to="/" aria-label={BRAND}>
-            <BrandLogo size={26} />
+            <BrandLogo {...LOGO.compact} />
           </Link>
-          {persona && (
-            <span className="rounded-full border border-exus-purple/50 bg-exus-purple/10 px-3 py-1 font-display text-xs text-cyan-300">
-              {persona.name}
-            </span>
-          )}
+          <Link to="/app/settings" className="flex items-center gap-2" aria-label="Your profile">
+            {persona && (
+              <span className="rounded-full border border-exus-purple/50 bg-exus-purple/10 px-3 py-1 font-display text-xs text-cyan-300">
+                {persona.name}
+              </span>
+            )}
+            {avatarId && <Avatar id={avatarId} size={32} title="" />}
+          </Link>
         </div>
         {/* warp-in: each screen arrives from deeper space */}
+        {/* Above the page, inside the same width, so it reads as part of the
+            app rather than a floating alert. Renders nothing for guests, for
+            paying customers, and when the check failed. */}
+        <div className="px-5 pt-4">
+          <TrialBanner />
+        </div>
         <motion.div
           key={location.pathname}
           initial={{ opacity: 0, y: 14, scale: 0.985 }}
@@ -138,10 +246,12 @@ export default function AppShell() {
       </AnimatePresence>
 
       <InstallPrompt />
+      <GuestImportPrompt />
 
       {/* chat launcher (both breakpoints when closed) */}
       {!chatOpen && (
         <button
+          ref={launcherRef}
           onClick={() => toggleChat(true)}
           aria-label="Open AI assistant"
           className="nb-btn fixed bottom-24 right-5 z-40 flex h-14 w-14 items-center justify-center !rounded-full !p-0 lg:bottom-6 lg:right-6"
@@ -173,7 +283,7 @@ export default function AppShell() {
         className="fixed inset-x-0 bottom-0 z-40 bg-[#0a0a0f]/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-md lg:hidden"
         style={{ borderTop: '2px solid var(--lime)' }}
       >
-        <div className="grid grid-cols-5">
+        <div className="grid grid-cols-6">
           {NAV.map(({ to, label, Icon }) => (
             <NavLink
               key={to}

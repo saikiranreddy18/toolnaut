@@ -45,6 +45,18 @@ export default function InstallPrompt() {
     try { localStorage.setItem(DISMISS_KEY, '1') } catch { /* storage blocked */ }
   }
 
+  // Marked role="dialog", which sets the standard expectation that Escape
+  // dismisses it — ChatPanel and GalaxyExplorer already honor this for the
+  // same reason.
+  useEffect(() => {
+    if (!show) return
+    function onKey(e) {
+      if (e.key === 'Escape') dismiss()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [show])
+
   async function install() {
     if (!deferred) return
     deferred.prompt()

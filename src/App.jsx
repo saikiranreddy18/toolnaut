@@ -4,24 +4,37 @@ import { MotionConfig } from 'framer-motion'
 import Landing from './pages/Landing'
 import OnboardingShell from './shells/OnboardingShell'
 import ThemePicker from './components/ui/ThemePicker'
+import ArrivalLaunch from './components/auth/ArrivalLaunch'
 import CursorStars from './components/ui/CursorStars'
 import { track, EVENTS } from './utils/analyticsEvents'
 
-const Quiz = lazy(() => import('./pages/Quiz'))
+const GoalChat = lazy(() => import('./pages/GoalChat'))
+const ExampleStack = lazy(() => import('./pages/ExampleStack'))
+const Checkout = lazy(() => import('./pages/Checkout'))
+const Methodology = lazy(() => import('./pages/Methodology'))
 const QuizResult = lazy(() => import('./pages/QuizResult'))
 const Login = lazy(() => import('./pages/auth/Login'))
 const AppShell = lazy(() => import('./shells/AppShell'))
 const Stack = lazy(() => import('./pages/app/Stack'))
 const Settings = lazy(() => import('./pages/app/Settings'))
 const Discover = lazy(() => import('./pages/app/Discover'))
+const Favorites = lazy(() => import('./pages/app/Favorites'))
+const Compare = lazy(() => import('./pages/app/Compare'))
 const ToolDetail = lazy(() => import('./pages/app/ToolDetail'))
 const Learning = lazy(() => import('./pages/app/Learning'))
 const Community = lazy(() => import('./pages/app/Community'))
 const Thread = lazy(() => import('./pages/app/Thread'))
-const NexusLanding = lazy(() => import('./pages/NexusLanding'))
 const Office = lazy(() => import('./pages/Office'))
 const About = lazy(() => import('./pages/About'))
 const Pricing = lazy(() => import('./pages/Pricing'))
+const Legal = lazy(() => import('./pages/Legal'))
+const Support = lazy(() => import('./pages/Support'))
+const SharedStack = lazy(() => import('./pages/SharedStack'))
+const CategoryLanding = lazy(() => import('./pages/CategoryLanding'))
+const NotFound = lazy(() => import('./pages/NotFound'))
+const NewTools = lazy(() => import('./pages/NewTools'))
+const SearchTools = lazy(() => import('./pages/SearchTools'))
+const Pay = lazy(() => import('./pages/Pay'))
 
 // Scroll + analytics on route change. initAnalytics() already fires the first
 // page_view, so skip the initial render to avoid double counting. Hash links
@@ -64,26 +77,55 @@ export default function App() {
     <BrowserRouter>
       <RouteEffects />
       <CursorStars />
+      {/* On every route — the picker itself decides what it offers per
+          surface: Moonlight on the intake pages and in-app, Galaxy detail
+          only where the 3D galaxy actually renders (the landing side). */}
       <ThemePicker />
+      <ArrivalLaunch />
       <Suspense fallback={<PageFallback />}>
         <MotionConfig reducedMotion="user">
           <Routes>
             <Route path="/" element={<Landing />} />
-            <Route path="/starchart" element={<NexusLanding />} />
             <Route path="/office" element={<Office />} />
             <Route path="/about" element={<About />} />
+            {/* Google requires both before an OAuth app can go to production,
+                and both previously resolved only via the SPA catch-all — which
+                served the landing page to anyone who clicked them. */}
+            <Route path="/privacy" element={<Legal />} />
+            <Route path="/terms" element={<Legal />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/support" element={<Support />} />
+            <Route path="/refunds" element={<Support />} />
+            {/* Both reachable without an account, on purpose: they are the
+                "see the value before you commit" half of the funnel. */}
+            <Route path="/example" element={<ExampleStack />} />
+            {/* Payment test harness. Not linked from anywhere and noindexed:
+                the beta still advertises that it takes no payment. */}
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/methodology" element={<Methodology />} />
+            <Route path="/s/:slugs" element={<SharedStack />} />
+            <Route path="/tools/:domain" element={<CategoryLanding />} />
+            <Route path="/new" element={<NewTools />} />
+            <Route path="/search" element={<SearchTools />} />
 
             <Route element={<OnboardingShell />}>
-              <Route path="/quiz" element={<Quiz />} />
+              <Route path="/goal" element={<GoalChat />} />
+              {/* the form-based quiz was replaced by the conversation; links,
+                  bookmarks and old analytics all still point at /quiz */}
+              <Route path="/quiz" element={<Navigate to="/goal" replace />} />
               <Route path="/quiz/result" element={<QuizResult />} />
               <Route path="/auth/login" element={<Login />} />
+              {/* The paywall. AppShell routes a signed-in, un-entitled user
+                  here whenever the server says payments are live. */}
+              <Route path="/pay" element={<Pay />} />
             </Route>
 
             <Route path="/app" element={<AppShell />}>
               <Route index element={<Navigate to="/app/stack" replace />} />
               <Route path="stack" element={<Stack />} />
               <Route path="discover" element={<Discover />} />
+              <Route path="favorites" element={<Favorites />} />
+              <Route path="compare" element={<Compare />} />
               <Route path="tools/:slug" element={<ToolDetail />} />
               <Route path="learning" element={<Learning />} />
               <Route path="community" element={<Community />} />
@@ -91,7 +133,15 @@ export default function App() {
               <Route path="settings" element={<Settings />} />
             </Route>
 
-            <Route path="*" element={<Landing />} />
+            {/* /starchart was a second landing page. The catch-all would render
+                Landing at that stale URL, which reads as duplicate content to a
+                crawler; redirecting corrects the address bar and the bookmark. */}
+            <Route path="/starchart" element={<Navigate to="/" replace />} />
+
+            {/* A real not-found page, not the landing page in disguise. Rendering
+                Landing here made every dead link look like the homepage — no
+                signal to the person, duplicate content for crawlers. */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </MotionConfig>
       </Suspense>

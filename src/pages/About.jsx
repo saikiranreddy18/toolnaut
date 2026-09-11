@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
+import { useHead } from '../utils/head'
 import { motion } from 'framer-motion'
-import { BrandLogo } from '../components/ui/Mascot'
+import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { BRAND } from '../config'
 
 // The story/pitch page — the accelerator-application answers, public.
@@ -24,15 +25,20 @@ const SECTIONS = [
 ]
 
 export default function About() {
+  useHead({
+    title: 'About Toolnaut — the role-aware AI tool map',
+    description: 'Why Toolnaut exists: 780+ AI tools is not a shortlist. Nine questions turn the catalogue into the handful that fit how you actually work.',
+    path: '/about',
+  })
   return (
     <div className="relative z-10 min-h-screen bg-[#0a0a0f]">
       <div className="starfield" aria-hidden="true" />
 
       <header className="relative mx-auto flex max-w-3xl items-center justify-between px-5 py-6">
         <Link to="/" aria-label={BRAND}>
-          <BrandLogo size={44} textClass="text-xl" />
+          <BrandLogo {...LOGO.page} />
         </Link>
-        <Link to="/quiz" className="nb-btn px-4 py-2 text-xs">
+        <Link to="/goal" className="nb-btn px-4 py-2 text-xs">
           ⚡ Find your stack
         </Link>
       </header>
@@ -77,7 +83,7 @@ export default function About() {
           viewport={{ once: true }}
           className="mt-14 text-center"
         >
-          <Link to="/quiz" className="nb-btn inline-block px-8 py-4 text-base">
+          <Link to="/goal" className="nb-btn inline-block px-8 py-4 text-base">
             🚀 Take the 60-second quiz
           </Link>
           <p className="mt-4 text-xs text-slate-500">

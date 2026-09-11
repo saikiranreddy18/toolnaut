@@ -22,10 +22,23 @@ const NVIDIA_URL = 'https://integrate.api.nvidia.com/v1/chat/completions'
 const FEATHERLESS_URL = 'https://api.featherless.ai/v1/chat/completions'
 const FEATHERLESS_MIN_TOKENS = 1024
 
+// Kimi-K3 thinks before it answers, and it is a large model on shared capacity.
+// A measured enrichment call — one tool, JSON out, 1024 max tokens — took 49
+// SECONDS end to end. The 30s default aborted every one of them ~19s early, so
+// the pipeline logged "operation was aborted due to timeout" for each tool and
+// silently fell back to the deterministic classifier. That fallback lowers the
+// record's confidence, which pushes it under the 0.75 publish threshold and
+// into the review queue — so the visible symptom was "the radar never publishes
+// anything", two steps removed from the actual cause.
+// 180s gives ~3.5x headroom over the measured figure. Override if the upstream
+// model changes.
+const DEFAULT_TIMEOUT_MS = 30000
+const FEATHERLESS_TIMEOUT_MS = Number(process.env.FEATHERLESS_TIMEOUT_MS) || 180000
+
 export async function callLLM(system, user, { json = false, maxTokens = 512 } = {}) {
   const { featherless, anthropic, nvidia, openai, openrouter } = config.llm
   if (featherless)
-    return chatCompletions(FEATHERLESS_URL, featherless, system, user, json, Math.max(maxTokens, FEATHERLESS_MIN_TOKENS))
+    return chatCompletions(FEATHERLESS_URL, featherless, system, user, json, Math.max(maxTokens, FEATHERLESS_MIN_TOKENS), true, FEATHERLESS_TIMEOUT_MS)
   if (anthropic) return anthropicCall(anthropic, system, user, json, maxTokens)
   if (nvidia) return chatCompletions(NVIDIA_URL, nvidia, system, user, json, maxTokens, false)
   if (openai) return chatCompletions('https://api.openai.com/v1/chat/completions', openai, system, user, json, maxTokens)
@@ -44,7 +57,7 @@ async function anthropicCall(cfg, system, user, json, maxTokens) {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({ model: cfg.model, max_tokens: maxTokens, system, messages: [{ role: 'user', content }] }),
-      signal: AbortSignal.timeout(30000),
+      signal: AbortSignal.timeout(DEFAULT_TIMEOUT_MS),
     })
     if (!res.ok) throw httpError(res, `Anthropic ${res.status}: ${await res.text()}`)
     return res.json()
@@ -55,7 +68,7 @@ async function anthropicCall(cfg, system, user, json, maxTokens) {
 // OpenAI + OpenRouter + NVIDIA share the chat-completions shape. Pass
 // useResponseFormat=false for providers that don't support the json_object
 // response_format param (NVIDIA); the prompt instruction still forces JSON.
-async function chatCompletions(url, cfg, system, user, json, maxTokens, useResponseFormat = true) {
+async function chatCompletions(url, cfg, system, user, json, maxTokens, useResponseFormat = true, timeoutMs = DEFAULT_TIMEOUT_MS) {
   const data = await retry(async () => {
     const res = await fetch(url, {
       method: 'POST',
@@ -69,7 +82,7 @@ async function chatCompletions(url, cfg, system, user, json, maxTokens, useRespo
           { role: 'user', content: json ? `${user}\n\nReturn only a JSON object.` : user },
         ],
       }),
-      signal: AbortSignal.timeout(30000),
+      signal: AbortSignal.timeout(timeoutMs),
     })
     if (!res.ok) throw httpError(res, `LLM ${res.status}: ${await res.text()}`)
     return res.json()

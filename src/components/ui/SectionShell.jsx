@@ -12,8 +12,13 @@ export const stagger = {
 }
 
 // Common wrapper: full-height stop on the scroll journey + section_view tracking.
-export default function SectionShell({ id, eyebrow, title, children, className = '' }) {
+// titleAs exists because these sections are reused as WHOLE PAGES. On the
+// landing page a section title is correctly an h2 under the hero's h1; on
+// /pricing the same component is the top of the document, and rendering h2
+// there left the page with no h1 at all — the only public route missing one.
+export default function SectionShell({ id, eyebrow, title, titleAs = 'h2', children, className = '' }) {
   const ref = useSectionView(id)
+  const Heading = motion[titleAs] || motion.h2
   return (
     <section id={id} ref={ref} className={`relative z-10 mx-auto w-full max-w-6xl px-5 py-24 md:py-32 ${className}`}>
       <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger}>
@@ -23,9 +28,9 @@ export default function SectionShell({ id, eyebrow, title, children, className =
           </motion.p>
         )}
         {title && (
-          <motion.h2 variants={fadeUp} className="arcade-heading mb-12 max-w-3xl text-3xl md:text-5xl">
+          <Heading variants={fadeUp} className="arcade-heading mb-12 max-w-3xl text-3xl md:text-5xl">
             {title}
-          </motion.h2>
+          </Heading>
         )}
         {children}
       </motion.div>

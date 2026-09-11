@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { generateRoadmap } from '../../utils/roadmapGenerator'
 import { CATEGORY_META } from '../../utils/toolsCatalog'
+import { loadQuiz } from '../../state/quizStore'
+import { QUESTIONS } from '../../utils/quizLogic'
 import { track, EVENTS } from '../../utils/analyticsEvents'
 import {
   loadRoadmapProgress,
@@ -206,15 +208,22 @@ export default function Learning() {
 
   if (!roadmap) {
     return (
-      <div className="relative z-10 flex min-h-[70dvh] flex-col items-center justify-center px-5 text-center">
-        <h1 className="arcade-heading text-2xl">ROADMAP NEEDS A PERSONA</h1>
-        <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-300">
-          Take the 60-second quiz and we'll chart a 4-week path through the exact
-          tools that fit how you work.
-        </p>
-        <Link to="/quiz" className="nb-btn mt-8 px-8 py-4 text-base">
-          ⚡ FIND MY PATH
-        </Link>
+      // Same container, eyebrow and heading as the filled page, so arriving
+      // without a persona does not read as a different screen — and the content
+      // lines up with every other page instead of floating in the middle. The
+      // pattern SAVED already uses for its empty state.
+      <div className="relative z-10 mx-auto max-w-5xl px-5 xl:max-w-6xl py-6 lg:py-10">
+        <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ LEARN</p>
+        <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR 4-WEEK<br/>ORBIT</h1>
+        <div className="mt-6">
+          <p className="max-w-md text-sm leading-relaxed text-slate-300">
+            No roadmap yet. Take the 60-second quiz and we'll chart a 4-week path
+            through the exact tools that fit how you work.
+          </p>
+          <Link to="/goal" className="nb-btn mt-5 inline-block min-h-11 px-5 py-2.5 text-xs">
+            ⚡ FIND MY PATH →
+          </Link>
+        </div>
       </div>
     )
   }
@@ -223,6 +232,18 @@ export default function Learning() {
 
   const firstIncomplete = milestones.findIndex((m) => !milestoneComplete(progress, m))
   const unlockedThrough = firstIncomplete === -1 ? milestones.length : firstIncomplete
+
+  // "What should I learn next?" answered literally, at the top, instead of
+  // leaving the user to scan four week-cards for the first unticked box.
+  // Everything here is read from progress the page already tracks.
+  const current = firstIncomplete === -1 ? null : milestones[firstIncomplete]
+  const nextStepIndex = current ? current.steps.findIndex((_, i) => !isStepDone(progress, current.id, i)) : -1
+  const awaitingCheckpoint = current && nextStepIndex === -1
+
+  // Their own stated weekly budget, not an invented estimate.
+  const paceLabel = QUESTIONS
+    .find((q) => q.id === 'pace')?.options
+    .find((o) => o.key === loadQuiz().answers?.pace)?.label || null
 
   function onToggle(m, i) {
     haptic.tap()
@@ -250,9 +271,39 @@ export default function Learning() {
   }
 
   return (
-    <div className="relative z-10 mx-auto max-w-2xl px-5 py-6 lg:py-10">
+    <div className="relative z-10 mx-auto max-w-5xl px-5 xl:max-w-6xl py-6 lg:py-10">
       <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ LEARN</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR 4-WEEK<br/>ORBIT</h1>
+
+        {/* Next move — the single answer to "what do I do now" */}
+        {current && (
+          <div className="sticker cyan mt-6 p-5">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="tape-label text-xs" style={{ transform: 'rotate(-2deg)' }}>
+                ▸ your next move
+              </span>
+              {paceLabel && (
+                <span className="font-display text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                  your pace: {paceLabel}/week
+                </span>
+              )}
+            </div>
+            <h2 className="arcade-heading lime compact mt-3 text-xl">
+              WEEK {current.week} · {current.title.toUpperCase()}
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-white">
+              {awaitingCheckpoint
+                ? 'Every step is ticked — clear the checkpoint below to unlock the next week.'
+                : current.steps[nextStepIndex]}
+            </p>
+            <a
+              href={`#${current.id}`}
+              className="nb-btn cyan mt-4 inline-block min-h-11 px-5 py-2.5 text-xs"
+            >
+              {awaitingCheckpoint ? 'GO TO CHECKPOINT →' : 'GO TO THIS STEP →'}
+            </a>
+          </div>
+        )}
 
         {/* overall progress — chunky arcade bar */}
         <div className="sticker mt-6 p-4 backdrop-blur-sm bg-black/20" style={{ transform: 'rotate(0)' }}>
@@ -297,6 +348,7 @@ export default function Learning() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: mi * 0.06, ease: [0.16, 1, 0.3, 1] }}
                 className="relative mb-6"
+                id={m.id}
               >
                 {/* node with glow effect */}
                 <span
@@ -333,7 +385,7 @@ export default function Learning() {
                       </span>
                     )}
                   </div>
-                  <h2 className="arcade-heading lime mt-2 text-lg">{m.title.toUpperCase()}</h2>
+                  <h2 className="arcade-heading lime compact mt-2 text-xl">{m.title.toUpperCase()}</h2>
                   <p className="mt-2 text-sm leading-relaxed text-slate-300">{m.focus}</p>
 
                   {locked ? (
@@ -391,7 +443,7 @@ export default function Learning() {
             className="sticker mt-2 p-5 text-center backdrop-blur-sm bg-black/20"
             style={{ transform: 'rotate(-1deg)' }}
           >
-            <p className="arcade-heading lime text-lg">🏆 ORBIT CLEARED</p>
+            <p className="arcade-heading lime compact text-xl">🏆 ORBIT CLEARED</p>
             <p className="mt-2 text-sm text-slate-300">
               You've mastered your starter stack — steps done and every checkpoint passed.
             </p>
