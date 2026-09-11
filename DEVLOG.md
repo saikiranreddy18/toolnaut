@@ -9,6 +9,66 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-11
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h,
+last run 2026-09-11 13:37 UTC (published 9 tools), previous run 2026-09-11
+00:07 UTC (published 15). 24 tools published in the last 24h, feed holds
+339 tools. Healthy and growing.
+
+**Researched today:** three research-hour runs before this one. 00:20 UTC
+logged a new gap — the public changelog only looks backward; nothing
+visitor-facing says what Toolnaut is building next, even though this
+backlog and DEVLOG already track it in detail (Linear/Notion pattern: a
+look-back and a look-forward as separate, linked surfaces). A later run
+deepened "stack overlap warning" (Whizi's "compare tool overlap" claim —
+every catalog record already carries `sourceCategory`, so flagging two
+same-category tools in one stack needs no new data). The 12:03 UTC run
+re-audited the already-shipped "Surface tool freshness" gap against how
+the codebase has grown since: `streakStore.js` has kept a real, dated
+visit log since that ship (for the streak dots) that nobody wired into
+Fresh Finds' fixed 7-day window — flipped that blocker and fully scoped
+the fix, now build-ready.
+
+**Shipped:** clickable tags —
+[`a1c0c9b`](https://github.com/saikiranreddy18/toolnaut/commit/a1c0c9b).
+Picked over the freshly-deepened Fresh Finds and stack-overlap gaps
+because it was the oldest OPEN entry with the most build-ready spec (found
+2026-08-29, deepened 2026-08-30 with corrected line numbers and an
+accessibility trap called out in advance), and it closes a real dead end:
+every catalog tool carries a `tags` array already load-bearing for
+Discover's free-text search, but nothing in the UI ever turned a tag into
+a link. `ToolDetail.jsx`'s tag chips and `ToolCard.jsx`'s new tag row
+(shared by Discover and Favorites, so this closes the gap on both at
+once) now link to `/app/discover?q=<tag>`, reusing the existing search
+predicate rather than adding a new filter or route. `ToolCard.jsx`'s tag
+row sits in its own `relative z-10` wrapper, matching the pattern the
+file's own header comment documents for keeping controls reachable above
+the card's stretched whole-card link — the exact trap the backlog entry
+flagged in advance.
+
+**Live on toolnaut.xyz** now that it's on master — pure client-side
+change, no new dependency, no new store, no new route. `npm test`
+(252/252), `npm run build` (17/17 routes prerendered), and `npm run
+smoke` (22/22 routes, 0 console errors) all green before push.
+
+**Queued next:** Fresh Finds visit-history personalization and stack
+overlap warning are both freshly deepened, small (S), and build-ready —
+the top two candidates for tomorrow. Also OPEN: first-session onboarding
+checklist, ratings & reviews, suggest-a-tool, PDF roadmap export,
+recently-viewed tools, command palette, Discover facet counts, tool
+graveyard page, embeddable "Featured on Toolnaut" badge, per-tool
+Alternatives SEO pages, RSS feed of new tools, tool visual
+identity/favicons, the 26-subcategory landing pages, changelog-looks-
+forward (roadmap page), public developer API, stack cost estimate (needs
+a radar schema change first), and leaderboard-goes-real (needs a Supabase
+RPC, scoped and ready — the migration must be hand-applied in the
+Supabase SQL editor before the client half can go live, unlike everything
+else in this list). Weekly alerts/Pro chat assistant and Team tier stay
+OPEN-but-not-concrete or REJECTED-for-build respectively.
+
+---
+
 ## 2026-09-10
 
 **Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h,

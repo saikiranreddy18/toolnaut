@@ -2992,7 +2992,12 @@ a client-side SPA with a static tool catalogue.
   build`, and `npm run smoke` (20/20 routes clean, including `/s/chatgpt`).
 
 ### Tags are collected and searched on, but never clickable — no tag-based browsing exists
-- **Status:** OPEN
+- **Status:** SHIPPED a1c0c9b — both halves built as scoped in the 2026-08-30
+  deepening: `ToolDetail.jsx`'s tag chips and `ToolCard.jsx`'s new tag row
+  (shared by Discover and Favorites) both link to `/app/discover?q=<tag>`,
+  reusing the existing search predicate. No dedicated filter chip row, no
+  `/tags/:tag` page — kept out per the original scope. Visible on the live
+  site immediately (client-side only, no pipeline dependency).
 - **Seen in:** Futurepedia (fetched fresh this run) renders a row of
   topic tags under every tool card (`#ai-chatbots`, `#code-assistant`, etc.)
   that are themselves links back into the directory, filtered to that tag —
