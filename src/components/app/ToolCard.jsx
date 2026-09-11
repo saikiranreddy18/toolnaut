@@ -137,6 +137,21 @@ export default function ToolCard({
           </label>
         )}
       </div>
+
+      {tool.tags?.length > 0 && (
+        <div className="relative z-10 mt-2 flex flex-wrap items-center gap-1.5">
+          {tool.tags.slice(0, 2).map((tag) => (
+            <Link
+              key={tag}
+              to={`/app/discover?q=${encodeURIComponent(tag)}`}
+              className="arcade-chip press"
+              style={{ padding: '4px 10px', fontSize: '9px' }}
+            >
+              {tag.toUpperCase()}
+            </Link>
+          ))}
+        </div>
+      )}
     </article>
   )
 }

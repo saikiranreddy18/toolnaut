@@ -131,7 +131,9 @@ export default function ToolDetail() {
         <span className="arcade-chip">{(tool.pricing || PRICE_LABELS[tool.price]).toUpperCase()}</span>
         <span className="arcade-chip">{LEVEL_LABELS[tool.level].toUpperCase()}</span>
         {tool.tags.slice(0, 4).map((tag) => (
-          <span key={tag} className="arcade-chip">{tag.toUpperCase()}</span>
+          <Link key={tag} to={`/app/discover?q=${encodeURIComponent(tag)}`} className="arcade-chip press">
+            {tag.toUpperCase()}
+          </Link>
         ))}
       </div>
 
