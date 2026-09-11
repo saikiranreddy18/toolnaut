@@ -23,6 +23,7 @@ import SkillGraph from '../../components/app/SkillGraph'
 import Avatar from '../../components/app/Avatar'
 import AvatarPicker from '../../components/app/AvatarPicker'
 import BillingCard from '../../components/app/BillingCard'
+import DeleteAccount from '../../components/app/DeleteAccount'
 import { loadAvatar } from '../../state/avatarStore'
 
 // ME — the control centre.
@@ -497,10 +498,13 @@ export default function Settings() {
       </div>
 
       {session && (
-        <div className="mt-10 border-t-2 border-white/10 pt-6">
+        <div className="mt-10 flex flex-wrap items-center gap-3 border-t-2 border-white/10 pt-6">
           <button onClick={handleSignOut} className="nb-btn pink min-h-11 px-4 py-2.5 text-xs">
             Sign out
           </button>
+          {/* The permanent way out, beside the temporary one. Confirmed by a
+              code emailed to the account; see components/app/DeleteAccount.jsx. */}
+          <DeleteAccount session={session} />
         </div>
       )}
     </div>

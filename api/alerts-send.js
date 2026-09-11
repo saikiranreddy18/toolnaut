@@ -19,21 +19,10 @@
 // dependency. SEND_CAP stays under that ceiling so one oversized run
 // degrades to "the rest go tomorrow" instead of hard 429s.
 import { alertsConfigured, rest } from './_alerts.js'
+import { sendEmail } from './_mail.js'
 
 const SITE = process.env.ALERTS_SITE_URL || 'https://toolnaut.xyz'
-// Sent from the company address, not resend.dev.
-//
-// A radar digest arriving from "onboarding@resend.dev" looks like something
-// forwarded by a stranger and lands in spam far more often. RESEND_FROM
-// overrides this.
-//
-// ROOT DOMAIN, ON INSTRUCTION. toolnaut.xyz already carries Google Workspace
-// MX (smtp.google.com, priority 1), so verifying the root in Resend means both
-// live side by side. Resend needs DKIM and SPF TXT records to SEND; its MX
-// record is only for bounce feedback, and if one is added it must stay at a
-// HIGHER priority number than Google's — priority 1 wins, and inverting that
-// would route real company mail away from Workspace. See docs/email-alerts.md.
-const FROM = process.env.RESEND_FROM || 'Toolnaut <info@toolnaut.xyz>'
+// The sender and its DNS notes live in _mail.js, shared with account deletion.
 const SEND_CAP = 80
 const WINDOW_DAYS = 7
 const TOOLS_PER_EMAIL = 10
@@ -71,31 +60,6 @@ function buildEmail(tools, token) {
       <a href="${SITE}/api/alerts-unsubscribe?token=${encodeURIComponent(token)}" style="color:#9ca3af;">Unsubscribe</a>
     </p>
   </div>`
-}
-
-async function sendEmail(key, to, subject, html) {
-  const res = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { 'content-type': 'application/json', authorization: `Bearer ${key}` },
-    body: JSON.stringify({ from: FROM, to: [to], subject, html }),
-    signal: AbortSignal.timeout(10_000),
-  })
-  if (!res.ok) {
-    const body = (await res.text()).slice(0, 400)
-    // 403 from Resend almost always means the FROM domain is not verified.
-    // Saying so plainly beats leaving a bare status code for someone to
-    // decode at 3am when the digest did not go out.
-    if (res.status === 403 || /domain/i.test(body)) {
-      console.error(
-        `resend REJECTED the sender "${FROM}" (${res.status}). The domain is ` +
-        `probably not verified in Resend, or RESEND_FROM does not match a ` +
-        `verified domain. Nothing was sent. Response: ${body}`,
-      )
-    } else {
-      console.error('resend', res.status, body)
-    }
-  }
-  return res.ok
 }
 
 export default async function handler(req, res) {
@@ -152,12 +116,19 @@ export default async function handler(req, res) {
 
     if (sent >= SEND_CAP) { skippedByCap++; continue }
 
-    const okSend = await sendEmail(
-      resendKey,
-      sub.email,
-      `${mine.length} new AI tool${mine.length === 1 ? '' : 's'} on your radar`,
-      buildEmail(mine, sub.unsubscribe_token),
-    )
+    const unsubscribeUrl = `${SITE}/api/alerts-unsubscribe?token=${encodeURIComponent(sub.unsubscribe_token)}`
+    const okSend = await sendEmail({
+      to: sub.email,
+      subject: `${mine.length} new AI tool${mine.length === 1 ? '' : 's'} on your radar`,
+      html: buildEmail(mine, sub.unsubscribe_token),
+      // RFC 8058 one-click unsubscribe. Gmail and Yahoo expect it from bulk
+      // senders and show their own Unsubscribe button for it — and it is a POST
+      // by definition, which is what lets the endpoint refuse to delete on GET.
+      headers: {
+        'List-Unsubscribe': `<${unsubscribeUrl}>`,
+        'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+      },
+    })
     if (!okSend) continue
     sent++
     // Stamp AFTER the send succeeds — a failed send retries next run.

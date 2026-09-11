@@ -5,7 +5,7 @@ import { getAccessToken } from '../../utils/entitlement'
 // that fits me".
 //
 // SHOWS THE SERVER'S ANSWER, NOT A LOCAL GUESS. The switch reads
-// /api/alerts-status on mount, so it reflects what is actually in the
+// /api/alerts on mount, so it reflects what is actually in the
 // subscriber table. A toggle that remembers its own position in localStorage
 // would cheerfully claim someone is subscribed when they are not, which for an
 // email preference is the worst kind of wrong.
@@ -33,7 +33,7 @@ export default function AlertSettings() {
       const token = await getAccessToken()
       if (!token) { if (alive) setState((s) => ({ ...s, loading: false })); return }
       try {
-        const r = await fetch('/api/alerts-status', { headers: { authorization: `Bearer ${token}` } })
+        const r = await fetch('/api/alerts', { headers: { authorization: `Bearer ${token}` } })
         const d = await r.json().catch(() => null)
         if (alive && d) setState({ loading: false, configured: Boolean(d.configured), subscribed: Boolean(d.subscribed), domains: d.domains || [] })
         else if (alive) setState((s) => ({ ...s, loading: false }))
@@ -49,7 +49,7 @@ export default function AlertSettings() {
     const token = await getAccessToken()
     if (!token) { setError('Sign in first.'); setBusy(false); return }
     try {
-      const r = await fetch('/api/alerts-toggle', {
+      const r = await fetch('/api/alerts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', authorization: `Bearer ${token}` },
         body: JSON.stringify({ enabled, domains }),

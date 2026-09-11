@@ -5,9 +5,27 @@ at 03:30 UTC (`vercel.json`), Resend over HTTP, no email dependency.
 
 ## Status
 
-The code is complete. As of 2 Sep 2026 it has **never sent anything**, because
-`alert_subscribers` was never created in Supabase — the cron was firing daily
-into a table that did not exist.
+**11 Sep 2026 — fixed: alerts stopped after the first email.** The pipeline was
+working: tools were fresh, the API was configured, Resend's DKIM and SPF records
+were published. What broke it was the unsubscribe link. A plain GET of
+`/api/alerts-unsubscribe?token=…` deleted the subscriber, and mail providers and
+security scanners (Gmail link protection, Outlook Safe Links, corporate filters)
+fetch every link in an incoming email to check it. So the first digest
+unsubscribed its own recipient on arrival, and every later run found nobody to
+send to.
+
+The link now opens a page with an Unsubscribe button, and only a POST deletes.
+Every digest also carries `List-Unsubscribe` + `List-Unsubscribe-Post`
+(RFC 8058), so Gmail and Yahoo show their own one-click Unsubscribe, which is a
+POST by definition. `test/alerts-unsubscribe.test.mjs` pins GET and HEAD as
+read-only.
+
+**Anyone who received that first email is no longer subscribed.** Their row was
+deleted by the scanner, so nothing will arrive until they turn alerts back on in
+Settings → Notifications. That includes the founder's own account.
+
+History: before 2 Sep it had never sent anything, because `alert_subscribers`
+did not exist yet.
 
 ## What has to be true for a single email to go out
 
