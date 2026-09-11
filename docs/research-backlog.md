@@ -4861,3 +4861,80 @@ a client-side SPA with a static tool catalogue.
   nothing Toolnaut doesn't already have.
 - **Found:** 2026-09-11 09:20 UTC
 - **Found:** 2026-09-11 03:20 UTC
+
+---
+
+### Fresh Finds ignores the one signal that would actually personalize it — visit history the streak dots already log
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — a self-audit of the already-shipped
+  "Surface tool freshness" gap above (found 2026-08-22, SHIPPED `2d7d192`)
+  against what the codebase has grown since. That entry's own "what this
+  would NOT include" list says: *"no per-user 'since your last visit'
+  personalization (would need visit tracking Toolnaut doesn't have)."*
+  Re-checked this run — the precondition it names no longer holds, the same
+  "a blocker shipped and nobody came back to flip it" shape as the leaderboard
+  gap above, just on a smaller feature.
+- **Gap:** `src/state/streakStore.js` (the file behind `Stack.jsx`'s seven
+  day-of-week streak dots) keeps a real, dated visit log: `days:
+  ['YYYY-MM-DD', ...]` of actual local calendar dates the person opened the
+  app, trimmed to the last 28 (`streakStore.js:18,24,88`), written by
+  `recordVisit()` on every `Stack.jsx` mount (`Stack.jsx:93`,
+  "idempotent within a calendar day, so calling it on every mount is safe")
+  and readable with zero side effects via `loadStreak()`
+  (`streakStore.js:69-72`) — already called read-only elsewhere
+  (`StreakPoints.jsx:43`, `Settings.jsx:80`) without ever recording a new
+  visit itself. None of that reaches `Discover.jsx`. Its Fresh Finds strip
+  hardcodes a fixed 7-day window for every visitor alike:
+  `const freshTools = useMemo(() => getNewTools(7)..., [])` (`Discover.jsx:141`),
+  labelled "🆕 New this week" (`Discover.jsx:191`) regardless of whether this
+  is someone's first-ever visit or their fifth visit today. `getNewTools`
+  itself (`src/utils/newTools.js:16-20`) already takes `days` as a parameter
+  — the fixed `7` is a call-site choice, not a hard limit in the utility.
+- **Why it matters:** the two failure directions both undercut the exact
+  "scannable digest" framing `FeaturesSection.jsx` sells Fresh Finds on. A
+  daily visitor sees the same handful of "new this week" tools re-served on
+  every visit, which reads as static, not fresh. A visitor who skipped three
+  weeks sees only the last 7 days and never learns about everything the
+  radar published while they were away — the exact tools most worth
+  surfacing to someone coming back are the ones this window silently drops.
+  Genuine per-user personalization here costs nothing new to track: the data
+  already exists, recorded for an unrelated feature (the streak dots), and
+  reading it changes nothing about how or when it's written.
+- **Smallest useful version (what to actually build):**
+  - New pure function in `streakStore.js`, e.g. `daysSinceLastVisit(days, now
+    = new Date())`: sort `days` (already local `YYYY-MM-DD` keys, string-
+    sortable), find the most recent entry strictly before `toDateKey(now)`,
+    and return the calendar-day difference; return `null` when no such entry
+    exists (empty log, or the only entry is today) so callers can tell "no
+    prior visit on record" apart from "visited yesterday." Mirrors the
+    existing calendar-day math `isNextCalendarDay`/`fromDateKey` in the same
+    file rather than introducing a second date-diffing approach.
+  - `Discover.jsx`: read `const { days } = loadStreak()` — a plain read, not
+    a new `recordVisit()` call, so this does not start tracking Discover
+    visits separately or touch what `Stack.jsx` already owns writing. Compute
+    `sinceLast = daysSinceLastVisit(days)` and replace the freshTools memo's
+    fixed `7` with `sinceLast == null ? 7 : Math.min(Math.max(sinceLast, 1), 30)`
+    — floor of 1 so "already visited earlier today, came back" still shows
+    something, cap of 30 (matches the streak log's own 28-day trim, rounded
+    up) so a dormant account doesn't get an unbounded dump.
+  - Swap the strip's heading to "🆕 New since you were last here" only when
+    `sinceLast != null`; keep exactly today's "🆕 New this week" copy and
+    behavior for anyone with no prior visit on record (first-ever Discover
+    visit, or a log wiped by cleared site data) — a personalized label only
+    appears when the personalization is real, same honesty rule this file
+    applies to every other badge/tile in the app (the Explorers-tile /
+    SUBSCRIBERS-tile distinction, the leaderboard's `IS_SAMPLE` badge, etc.).
+  - **What this would NOT include** (kept out to bound the diff): no change
+    to `recordVisit()` or `Stack.jsx` — Discover only *reads* the log Stack
+    already writes, never writes to it itself; no change to the separate
+    public `/new` feed (deliberately generic/unauthenticated, a different
+    surface); no second, dedicated "last saw Fresh Finds" timestamp — reusing
+    the one existing visit log is the entire point, adding a parallel one
+    would reintroduce the exact duplicated-state problem the streak-dots
+    rewrite (`streakStore.js`'s own header comment) was written to avoid; no
+    extending the underlying log's 28-day retention window.
+- **Build size:** S — one small pure function in an existing file
+  (`streakStore.js`), a ~6-line change to one `useMemo` and one heading string
+  in `Discover.jsx`. No backend, no schema change, no new store, no new
+  dependency.
+- **Found:** 2026-09-11 12:30 UTC
