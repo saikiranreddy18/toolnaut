@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { PLANS, formatPrice } from '../utils/planData'
+import { PLANS, formatPrice, isPlanOpen } from '../utils/planData'
 import { CONTACT_EMAIL as SUPPORT_EMAIL } from '../config'
 import { useVisitorCountry } from '../hooks/useVisitorCountry'
 import { useLocalPrice } from '../hooks/useLocalPrice'
@@ -50,8 +50,10 @@ export default function Pay() {
   // Restricted plans are dropped for visitors who cannot buy them. Undetermined
   // country shows everything: the server is the real gate, and hiding plans
   // during a slow geo lookup would cost sales to protect nothing.
+  // Closed limited offers are dropped too — the same rule the server applies,
+  // so nobody is shown a plan that checkout would refuse.
   const plans = PLANS.filter(
-    (p) => !(country && p.excludeCountries?.includes(country)),
+    (p) => isPlanOpen(p) && !(country && p.excludeCountries?.includes(country)),
   )
   const [chosen, setChosen] = useState('guru')
   const [ent, setEnt] = useState(null)

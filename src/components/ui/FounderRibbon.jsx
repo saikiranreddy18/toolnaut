@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { PLANS, formatPrice } from '../../utils/planData'
+import { PLANS, formatPrice, FOUNDER_DEADLINE } from '../../utils/planData'
 import { useLocalPrice } from '../../hooks/useLocalPrice'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
@@ -12,7 +12,8 @@ import { EVENTS } from '../../utils/analyticsEvents'
 // A countdown computed from page load is not a deadline, it is a lie that
 // resets for every visitor: come back on day nine and it still says ten days.
 // This counts toward one real instant, so the number here is the same number
-// everybody else is looking at.
+// everybody else is looking at. It lives on the founder plan in planData.js,
+// which is also where checkout reads it, so the ribbon cannot outlive the sale.
 //
 // PRICE IS INR, SHOWN LOCALLY WHERE POSSIBLE
 // Rs 29,999 is what the card is charged, worldwide. A visitor abroad also sees
@@ -20,7 +21,6 @@ import { EVENTS } from '../../utils/analyticsEvents'
 // because an unqualified "$360" would be a price the checkout never honours.
 // If the rate is unavailable they simply see rupees — nothing here invents a
 // number.
-export const FOUNDER_DEADLINE = '2026-09-10T00:00:00Z'
 
 function timeLeft(to, now) {
   const ms = Date.parse(to) - now

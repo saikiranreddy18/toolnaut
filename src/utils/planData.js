@@ -48,7 +48,11 @@ export const PLANS = [
     price: 360,
     priceINR: 29999,
     lifetime: true,
-    limitedUntil: '2026-09-10T00:00:00Z',
+    // Thirty days from the 2026-09-11 relaunch, closing at midnight India time
+    // (18:30 UTC) — the audience's midnight, not London's. One fixed instant,
+    // so every visitor counts down to the same moment. Move the sale here and
+    // only here: the ribbon, the paywall and checkout all read it.
+    limitedUntil: '2026-10-11T18:30:00Z',
     badge: 'FOUNDER',
     glow: 'rgba(255, 222, 46, 0.30)',
     accent: '#ffde2e',
@@ -172,4 +176,23 @@ export function priceFor(plan) {
 export function formatPrice(plan) {
   const p = priceFor(plan)
   return p ? `₹${p.amount.toLocaleString('en-IN')}` : ''
+}
+
+// ── limited offers ───────────────────────────────────────────────────────────
+// The founder offer's closing moment, read from the plan itself. The ribbon,
+// the offer card, the paywall and /api/create-order all take it from here, so
+// the countdown a visitor watches and the moment checkout closes are the same
+// instant by construction. It used to be typed into three files and enforced
+// in none: when the ribbon expired, /pay?plan=founder simply kept selling.
+export const FOUNDER_DEADLINE = PLANS.find((p) => p.id === 'founder')?.limitedUntil ?? null
+
+// Whether a plan can be bought at `now`. No limitedUntil means always open. A
+// limitedUntil that does not parse fails CLOSED: a typo should stop the sale
+// loudly, where the tests catch it, not keep selling a "limited" offer with no
+// limit.
+export function isPlanOpen(plan, now = Date.now()) {
+  if (!plan) return false
+  if (plan.limitedUntil == null) return true
+  const end = Date.parse(plan.limitedUntil)
+  return Number.isFinite(end) && now < end
 }

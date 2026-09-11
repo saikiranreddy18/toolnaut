@@ -14,7 +14,7 @@
 // looked up here from the same PLANS table the pricing page renders, which also
 // means the two can never drift.
 import crypto from 'node:crypto'
-import { PLANS, priceFor } from '../src/utils/planData.js'
+import { PLANS, priceFor, isPlanOpen } from '../src/utils/planData.js'
 
 // Razorpay works in the smallest currency unit. INR -> paise.
 const PAISE = 100
@@ -31,9 +31,16 @@ export function countryOf(req) {
   return String(req?.headers?.['x-vercel-ip-country'] || '').toUpperCase()
 }
 
-export function planToAmount(planId, country = '') {
+export function planToAmount(planId, country = '', now = Date.now()) {
   const plan = PLANS.find((p) => p.id === planId)
   if (!plan) return null
+  // A limited offer closes HERE. The ribbon hiding itself is presentation; this
+  // is the rule. Without it the founder countdown was urgency with nothing
+  // behind it. Checked at order creation only, deliberately: verify-payment
+  // and the webhook never call this, so an order opened at 23:59 and captured
+  // at 00:01 still provisions — refusing it then would be charged-but-not-
+  // provisioned all over again.
+  if (!isPlanOpen(plan, now)) return null
   // Geo-restricted plans are refused server-side. Hiding the card in the UI is
   // presentation; this is the rule. No plan is restricted today, but the shape
   // stays because it is the enforcement point if one ever is again.

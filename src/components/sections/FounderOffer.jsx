@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { explorerCount } from '../../utils/explorerCount'
-import { PLANS } from '../../utils/planData'
+import { PLANS, FOUNDER_DEADLINE } from '../../utils/planData'
 import { useVisitorCountry } from '../../hooks/useVisitorCountry'
 
 // Founder discount — the golden ribbon on the landing page.
@@ -10,9 +10,8 @@ import { useVisitorCountry } from '../../hooks/useVisitorCountry'
 // A countdown computed from load time is not a sale, it is a lie that resets
 // for every visitor and every deploy: someone who comes back on day nine still
 // sees ten days left. This counts toward one real moment, so the number a
-// visitor sees is the same number everybody else sees. Move the sale by editing
-// this one line.
-export const FOUNDER_DEADLINE = '2026-09-10T00:00:00Z'
+// visitor sees is the same number everybody else sees. The date lives on the
+// founder plan in planData.js — the one place to move the sale.
 // Price is no longer a constant here. It lives on the founder plan in
 // planData.js, which is also what /api/create-order charges — a number typed
 // twice is a number that will eventually disagree with itself.

@@ -7,9 +7,15 @@ import {
   originAllowed,
   MIN_PAISE,
 } from '../api/_razorpay.js'
-import { PLANS } from '../src/utils/planData.js'
+import { PLANS, isPlanOpen, FOUNDER_DEADLINE } from '../src/utils/planData.js'
+import { readFileSync } from 'node:fs'
 
 const SECRET = 'test_secret_not_a_real_key'
+
+// A moment every limited offer is open at, so the per-plan pricing loops test
+// pricing and not the calendar. Without it they would start failing the day
+// the founder offer closes, for a reason that has nothing to do with price.
+const OPEN = Date.parse('2026-01-01T00:00:00Z')
 const sign = (orderId, paymentId, secret = SECRET) =>
   crypto.createHmac('sha256', secret).update(`${orderId}|${paymentId}`).digest('hex')
 
@@ -86,7 +92,7 @@ test('every real plan prices from the catalogue, above the Razorpay minimum', ()
   // charging 29900 while telling Razorpay 'INR' would take ₹299 for something
   // sold at $299.
   for (const plan of PLANS) {
-    const priced = planToAmount(plan.id)
+    const priced = planToAmount(plan.id, '', OPEN)
     assert.ok(priced, `${plan.id} should be priceable`)
     const expectedCurrency = plan.currency === 'USD' ? 'USD' : 'INR'
     assert.equal(priced.currency, expectedCurrency, `${plan.id} currency`)
@@ -101,9 +107,9 @@ test('every plan costs the same in INR from every country', () => {
   // converted figure by currency.js, but that is a label — the charge is this,
   // and it must not vary by where the request came from.
   for (const plan of PLANS) {
-    const baseline = planToAmount(plan.id, 'IN')
+    const baseline = planToAmount(plan.id, 'IN', OPEN)
     for (const cc of ['US', 'GB', 'DE', 'AE', 'SG', '']) {
-      const priced = planToAmount(plan.id, cc)
+      const priced = planToAmount(plan.id, cc, OPEN)
       assert.ok(priced, `${plan.id} should price from ${cc || 'unknown'}`)
       assert.equal(priced.currency, 'INR', `${plan.id} must be charged in INR`)
       assert.equal(priced.paise, baseline.paise,
@@ -173,5 +179,39 @@ test('payments are OFF unless explicitly enabled', async () => {
   } finally {
     if (original === undefined) delete process.env.PAYMENTS_ENABLED
     else process.env.PAYMENTS_ENABLED = original
+  }
+})
+
+test('the founder offer sells until its deadline and is refused from that instant', () => {
+  const founder = PLANS.find((p) => p.id === 'founder')
+  assert.ok(founder?.limitedUntil, 'founder must carry a limitedUntil')
+  const end = Date.parse(founder.limitedUntil)
+  assert.ok(Number.isFinite(end), 'founder limitedUntil must parse')
+  assert.ok(planToAmount('founder', 'IN', end - 1), 'must sell one millisecond before')
+  assert.equal(planToAmount('founder', 'IN', end), null, 'must be refused at the deadline')
+  assert.equal(planToAmount('founder', 'US', end + 86_400_000), null, 'must stay refused after')
+})
+
+test('plans without a deadline never close', () => {
+  const far = Date.parse('2099-01-01T00:00:00Z')
+  for (const plan of PLANS.filter((p) => p.limitedUntil == null)) {
+    assert.ok(planToAmount(plan.id, 'IN', far), `${plan.id} must still sell in 2099`)
+  }
+})
+
+test('a malformed deadline fails closed', () => {
+  assert.equal(isPlanOpen({ id: 'x', limitedUntil: 'not a date' }, OPEN), false)
+  assert.equal(isPlanOpen({ id: 'x', limitedUntil: '2026-13-45' }, OPEN), false)
+  assert.equal(isPlanOpen(null, OPEN), false)
+})
+
+test('the ribbon and the offer card count down to the plan deadline, not their own', () => {
+  // The deadline was once typed into three files, drifted, and was enforced by
+  // none of them. A date literal reappearing in these components is that bug.
+  assert.equal(FOUNDER_DEADLINE, PLANS.find((p) => p.id === 'founder').limitedUntil)
+  for (const f of ['src/components/ui/FounderRibbon.jsx', 'src/components/sections/FounderOffer.jsx']) {
+    const src = readFileSync(new URL(`../${f}`, import.meta.url), 'utf8')
+    assert.doesNotMatch(src, /d{4}-d{2}-d{2}Td{2}:d{2}/, `${f} must not hardcode a deadline`)
+    assert.match(src, /FOUNDER_DEADLINE/, `${f} must use the shared deadline`)
   }
 })
