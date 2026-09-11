@@ -4943,3 +4943,129 @@ a client-side SPA with a static tool catalogue.
   in `Discover.jsx`. No backend, no schema change, no new store, no new
   dependency.
 - **Found:** 2026-09-11 12:30 UTC
+
+---
+
+### "Weekly trending tools" is sold on the Pro tier — the account data to build a real one already exists, unused
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — a self-audit of Toolnaut's own pricing
+  copy, the same shape as the leaderboard-real gap above (a feature promised
+  before its precondition existed, whose precondition has since quietly
+  landed). Trending/most-added rankings are also a standard directory pattern
+  worth naming for comparison: G2's "Trending" badge and Product Hunt's daily
+  ranking both surface real, aggregate usage signal rather than an editorial
+  pick, which is exactly the gap between what Toolnaut promises and what
+  `FLAGSHIP`/Fresh-Finds today actually are (curated and recency-based, never
+  usage-based).
+- **Gap:** `src/utils/planData.js:108` lists `planned('Weekly trending tools +
+  personalized alerts')` on the Pro tier's feature list (`planData.js:90-114`)
+  — an explicit, dated, unbuilt promise per this file's own `planned()`/`live()`
+  convention (`planData.js:17`, rendered as a distinct badge by
+  `PricingPillar.jsx:99`). Checked whether "trending" is buildable the same way
+  `prominence.js:21-23` rules out for the catalog itself ("the source data has
+  no popularity signal") — that comment is about radar/catalog data only.
+  Toolnaut's own account data is a different signal and was never checked
+  against it. `supabase/migrations/0002_user_state.sql:60-66` already created
+  `public.tool_refs` (`user_id`, `tool_slug`, `kind` in `('stack','saved')`,
+  `added_at`) specifically to mirror what's in every signed-in user's stack —
+  real per-account usage, not invented. `src/state/sync.js:75-105`'s
+  `pushAll()` already keeps it populated: called from `syncOnSignIn()`
+  (`sync.js:177-195`), itself fired from `authStore.js:81` and `:86` on every
+  session resolution and every `onAuthStateChange` event (sign-in, tab reload,
+  hourly token refresh) — so for any signed-in user with the app open, the
+  table tracks "what's currently in my stack" on an ongoing basis, not a
+  one-time snapshot. Nothing anywhere aggregates across users: grepped
+  `tool_refs` outside `sync.js`/its migration (`grep -rn tool_refs src/`) and
+  found only the one read path (`sync.js:139`, a user's own rows via
+  `.eq('user_id', id)`, RLS-restricted to that same user by
+  `tool_refs_select_own`, `0002_user_state.sql:75-77`) — there is no
+  cross-account count anywhere in the app today.
+- **One real caveat found this run, load-bearing for how this must be built:**
+  `pushAll()` deletes and reinserts every row on each sync
+  (`sync.js:100-104`), so `added_at` resets to "now" every time, not "when
+  this user first added it." That means a literal "added this week" query
+  would be meaningless — it would just measure "who happened to sync in the
+  last 7 days," not real recency. The honest version drops the time window
+  and the word "weekly" from the display entirely: a live count of "N members
+  currently have this in their stack," computed with no `added_at` filter at
+  all, sidesteps the bug rather than trying to fix reset semantics that
+  `pushAll()`'s own delete-then-insert design (documented as intentional,
+  `sync.js:75-79`'s comment on why a pure upsert would leave stale rows) isn't
+  meant to support. This is the same kind of precision-matching-only-what's-
+  real discipline the cost-estimate and Fresh-Finds entries in this file
+  already apply — ship the honest half of the claim, not the literal wording.
+- **Why it matters:** this is the exact pattern that already produced the
+  leaderboard-real finding above — a paid-tier promise sitting unbuilt for
+  months after the data it needed arrived for an unrelated reason
+  (`tool_refs` exists to power cross-device sync, not this). Showing real
+  adoption counts is also a trust-building signal in its own right, the same
+  family as `explorer_count()` replacing an invented "1,300 EXPLORERS" figure
+  (`0001_explorers.sql:1-10`) — a directory whose own numbers keep turning out
+  to be real, one gap at a time, is the credibility story `About.jsx`'s "built
+  solo... shipping fast" framing is trying to tell.
+- **Smallest useful version (what to actually build):**
+  - New migration `supabase/migrations/0009_tool_stack_counts.sql` (0001
+    through 0008 are already applied — `0008_account_deletion.sql` is the
+    most recent — so 0009 is next free, re-checked this run). Adds exactly
+    one function, no new table and no policy change to `tool_refs` (its
+    existing owner-only `select` policy is untouched — the function bypasses
+    it the same way `explorer_count()` bypasses `explorers` having no select
+    policy at all):
+    ```sql
+    create or replace function public.tool_stack_counts()
+      returns table (tool_slug text, member_count bigint)
+      language sql
+      security definer
+      set search_path = public
+      stable
+    as $$
+      select tool_slug, count(distinct user_id) as member_count
+      from public.tool_refs
+      where kind = 'stack'
+      group by tool_slug
+      having count(distinct user_id) >= 3
+    $$;
+    grant execute on function public.tool_stack_counts() to anon, authenticated;
+    ```
+    The `having >= 3` floor is deliberate: with a small early user base, a
+    count of 1 could be read as "who added this," which is exactly the kind
+    of individual exposure `explorers`' own "no select policy, aggregate
+    only" design was written to prevent — a floor keeps the aggregate from
+    ever being small enough to imply an identity.
+  - New `src/utils/trending.js`: `fetchTrending()` calls `syncAvailable()`
+    first (same feature-detection every sync-dependent feature in this file
+    already uses — unavailable or unmigrated both mean "show nothing," not an
+    error), then `supabase.rpc('tool_stack_counts')`, sorts by
+    `member_count` descending, and returns the top N slugs resolved through
+    `getTool()` — mirrors `leaderboard.js`'s proposed shape in the entry
+    above closely enough that both could share one migration-numbering
+    sequence if built together.
+  - Smallest visible surface: `ToolDetail.jsx` (reuses the existing `sticker`
+    card pattern at `ToolDetail.jsx:174`) — a real per-tool count is a much
+    stronger fit here than a homepage list, since it needs no editorial
+    ranking logic and reads naturally as "N Toolnaut members have this in
+    their stack" next to the tool a visitor is already looking at, only
+    rendered for that one tool's own count when it clears the floor. A
+    Discover-wide "trending" strip (sorted top-N across the catalog) is a
+    reasonable v2 but doubles the surface area for a first cut.
+  - Drop `planData.js:108`'s `planned()` entry down to `live()` once shipped,
+    or split it: "personalized alerts" stays `planned` (still needs the same
+    email backend the rejected weekly-digest entry above correctly rules out
+    building client-side) while "trending tools" moves to `live` — the two
+    halves of that one bullet have different buildability, and the pricing
+    page should not keep claiming the whole bullet is future work once half
+    of it ships.
+  - **What this would NOT include** (kept out to bound the diff): no time
+    window ("this week") per the caveat above — a live snapshot count only;
+    no per-tool breakdown by persona/role; no email/notification delivery
+    (that half stays the already-rejected weekly-digest gap); no change to
+    `tool_refs`'s existing RLS policies; no Discover-wide trending strip in
+    v1, per above; no counting `kind = 'saved'` (favorites) alongside stack
+    membership — mixing "actively using" with "bookmarked for later" would
+    muddy what the number means.
+- **Build size:** S/M — one additive SQL function over an existing table (no
+  new table, unlike the leaderboard gap above which needs a schema change),
+  one new client module mirroring `sync.js`'s existing feature-detection
+  pattern, one sticker in an already-existing page, one pricing-copy edit. No
+  new route, no new dependency.
+- **Found:** 2026-09-11 21:20 UTC
