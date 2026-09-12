@@ -5297,3 +5297,56 @@ a client-side SPA with a static tool catalogue.
   just correcting a description of behavior that already exists.
 - **Found & fixed:** 2026-09-12 09:00 UTC
 - **Found:** 2026-09-12 00:20 UTC
+
+### Cookie-consent gate for GA4 — analytics fires unconditionally, no opt-out exists
+- **Status:** OPEN — DEEPENED from a follow-up note left in the entry above
+  ("Privacy policy claimed analytics was off while GA4 was live in
+  production") into its own buildable spec, since that note was never a
+  top-level entry and wouldn't surface as a candidate on its own.
+- **Seen in:** not a competitor pattern — this is the direct consequence of
+  this backlog's own privacy-policy fix now being accurate about GA4 being
+  live. Standard practice on any EU-facing site running GA4 is a consent
+  gate before the tracking script loads; Google's own Consent Mode exists
+  specifically for this. Checked whether Toolnaut has any version of it:
+  grepped `src/` for `cookie|consent|gdpr` (case-insensitive) and got zero
+  hits outside `Legal.jsx`'s prose.
+- **Gap:** `src/main.jsx:15` calls `initAnalytics()` unconditionally on
+  every boot, before first paint and before the visitor has seen anything.
+  `src/utils/analyticsEvents.js:69`'s `initAnalytics()` injects the GA4
+  script tag and immediately fires `PAGE_VIEW` — no gate of any kind, no
+  banner, no opt-out. The privacy policy's "Cookies" section (fixed this
+  run, see above) now correctly *describes* GA4's cookies as a fact — but
+  describing tracking accurately after it already ran is not the same as
+  asking permission before it runs.
+- **Why it matters:** GDPR/UK-GDPR/PECR require consent *before*
+  non-essential tracking cookies are set, not a disclosure after the fact.
+  Today's fix made the policy honest about what happens; it did not make
+  what happens compliant. A public beta courting signups needs this closed
+  on its own timeline, not discovered via a complaint or a Play/App Store
+  review that checks for it.
+- **Build size:** M — no backend, one new store, one new component, one
+  call-site change, all client-side:
+  - `src/state/consentStore.js` (new, mirrors `themeStore.js`'s shape):
+    `loadConsent()`/`setConsent()` over one localStorage key (e.g.
+    `exus_consent_v1`, values `'granted' | 'denied' | null`), read/write
+    wrapped in try/catch per this repo's own localStorage rule.
+  - `src/components/CookieConsent.jsx` (new): a small bottom banner with
+    Accept/Decline, rendered only while `loadConsent()` is `null`, styled
+    to match the app's existing fixed-bar visual language rather than a
+    new pattern.
+  - `src/main.jsx`: replace the unconditional `initAnalytics()` call
+    (line 15) with a check — call it immediately if consent is already
+    `'granted'`; otherwise mount `<CookieConsent>` and call it from the
+    Accept handler. Decline never calls `initAnalytics()` — simplest
+    correct behavior with no server-side consent record to reconcile.
+  - `src/pages/Legal.jsx`: one added line in "Cookies" noting the choice
+    is asked for and can be changed — a "manage cookie preferences" link
+    that clears the localStorage key and reloads the banner is enough, no
+    settings page needed.
+- **What this would NOT include:** no IAB TCF / per-vendor consent
+  (exactly one non-essential vendor, GA4 — accept/decline covers it), no
+  geo-detection to show the banner only to EU visitors (simpler and safer
+  to ask everyone), no server-side consent log (nothing server-side exists
+  to log it to), no change to what GA4 collects — only whether it starts
+  before or after the visitor answers.
+- **Found:** 2026-09-12 12:08 UTC
