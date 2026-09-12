@@ -115,7 +115,8 @@
       "usero-mcp-give-your-coding-agent-your-user-feedback",
       "toolcraft",
       "benchmarking-coding-agents-perform-on-scraping",
-      "viaduct"
+      "viaduct",
+      "building-specialized-systems-we-can-trust-with-agents"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -228,7 +229,8 @@
       "course-usero-mcp-give-your-coding-agent-your-user-feedback",
       "course-toolcraft",
       "course-benchmarking-coding-agents-perform-on-scraping",
-      "course-viaduct"
+      "course-viaduct",
+      "course-building-specialized-systems-we-can-trust-with-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -254,11 +256,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "ablo-make-your-ai-app-multiplayer",
-      "i-built-a-real-time-translator-for-google-meet"
+      "i-built-a-real-time-translator-for-google-meet",
+      "dont-hit-send"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
-      "course-i-built-a-real-time-translator-for-google-meet"
+      "course-i-built-a-real-time-translator-for-google-meet",
+      "course-dont-hit-send"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -348,7 +352,8 @@
       "nasa-and-ibm-open-source-lunar-mapping-tools",
       "open-source-simulation-testing-infra-for-voice-agents",
       "symphony",
-      "toolcraft"
+      "toolcraft",
+      "dont-hit-send"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -385,7 +390,8 @@
       "course-nasa-and-ibm-open-source-lunar-mapping-tools",
       "course-open-source-simulation-testing-infra-for-voice-agents",
       "course-symphony",
-      "course-toolcraft"
+      "course-toolcraft",
+      "course-dont-hit-send"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -424,7 +430,8 @@
       "suno-rolls-out-v6-song-making-model-will-pay-royalties",
       "listpro",
       "stitchwink",
-      "ai-agent-for-animation"
+      "ai-agent-for-animation",
+      "sharpniq"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -456,7 +463,8 @@
       "course-suno-rolls-out-v6-song-making-model-will-pay-royalties",
       "course-listpro",
       "course-stitchwink",
-      "course-ai-agent-for-animation"
+      "course-ai-agent-for-animation",
+      "course-sharpniq"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -679,7 +687,13 @@
       "provetogether-moltbook-but-for-math",
       "ethersflow-adversarial-multi-model-consensus-gate-for-ai-age",
       "dearagent",
-      "ai-refuge-contact-a-human"
+      "ai-refuge-contact-a-human",
+      "liniora",
+      "spitewareai",
+      "the-worst-spam-emails-inside-ilands-ai-agent-hustle",
+      "agentica",
+      "anthropic-reveals-rogue-ai-agents-hate-captchas",
+      "aiope"
     ],
     "courses": [
       "course-headless-tools",
@@ -824,7 +838,13 @@
       "course-provetogether-moltbook-but-for-math",
       "course-ethersflow-adversarial-multi-model-consensus-gate-for-ai-age",
       "course-dearagent",
-      "course-ai-refuge-contact-a-human"
+      "course-ai-refuge-contact-a-human",
+      "course-liniora",
+      "course-spitewareai",
+      "course-the-worst-spam-emails-inside-ilands-ai-agent-hustle",
+      "course-agentica",
+      "course-anthropic-reveals-rogue-ai-agents-hate-captchas",
+      "course-aiope"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -949,7 +969,9 @@
       "basedagents-give-your-idle-ai-agent-a-paying-job",
       "viaduct",
       "dearagent",
-      "ai-refuge-contact-a-human"
+      "ai-refuge-contact-a-human",
+      "agentica",
+      "anthropic-reveals-rogue-ai-agents-hate-captchas"
     ],
     "courses": [
       "course-headless-tools",
@@ -1054,7 +1076,9 @@
       "course-basedagents-give-your-idle-ai-agent-a-paying-job",
       "course-viaduct",
       "course-dearagent",
-      "course-ai-refuge-contact-a-human"
+      "course-ai-refuge-contact-a-human",
+      "course-agentica",
+      "course-anthropic-reveals-rogue-ai-agents-hate-captchas"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1134,7 +1158,9 @@
       "security-cards",
       "ai-cost-dashboard-is-probably-wrong",
       "nola",
-      "benchmarking-coding-agents-perform-on-scraping"
+      "benchmarking-coding-agents-perform-on-scraping",
+      "dont-hit-send",
+      "building-specialized-systems-we-can-trust-with-agents"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1164,7 +1190,9 @@
       "course-security-cards",
       "course-ai-cost-dashboard-is-probably-wrong",
       "course-nola",
-      "course-benchmarking-coding-agents-perform-on-scraping"
+      "course-benchmarking-coding-agents-perform-on-scraping",
+      "course-dont-hit-send",
+      "course-building-specialized-systems-we-can-trust-with-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1735,7 +1763,8 @@
       "openfork",
       "coletivo",
       "google-seo-mcp",
-      "usero-mcp-give-your-coding-agent-your-user-feedback"
+      "usero-mcp-give-your-coding-agent-your-user-feedback",
+      "aiope"
     ],
     "courses": [
       "course-coolplugz",
@@ -1755,7 +1784,8 @@
       "course-openfork",
       "course-coletivo",
       "course-google-seo-mcp",
-      "course-usero-mcp-give-your-coding-agent-your-user-feedback"
+      "course-usero-mcp-give-your-coding-agent-your-user-feedback",
+      "course-aiope"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1924,7 +1954,8 @@
       "ai-is-making-us-build-too-much",
       "thread-to-self",
       "pen",
-      "extension-to-filter-llm-written-articles"
+      "extension-to-filter-llm-written-articles",
+      "dont-hit-send"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -1939,7 +1970,8 @@
       "course-ai-is-making-us-build-too-much",
       "course-thread-to-self",
       "course-pen",
-      "course-extension-to-filter-llm-written-articles"
+      "course-extension-to-filter-llm-written-articles",
+      "course-dont-hit-send"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2336,7 +2368,8 @@
       "charter",
       "natively",
       "symphony",
-      "bitroad"
+      "bitroad",
+      "building-specialized-systems-we-can-trust-with-agents"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2363,7 +2396,8 @@
       "course-charter",
       "course-natively",
       "course-symphony",
-      "course-bitroad"
+      "course-bitroad",
+      "course-building-specialized-systems-we-can-trust-with-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2834,7 +2868,9 @@
       "muse-your-personal-ai-agent",
       "meta-launches-muse-a-personal-ai-agent",
       "i-built-an-ai-agent-that-sell-itself",
-      "ai-agent-for-animation"
+      "ai-agent-for-animation",
+      "liniora",
+      "aiope"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -2857,7 +2893,9 @@
       "course-muse-your-personal-ai-agent",
       "course-meta-launches-muse-a-personal-ai-agent",
       "course-i-built-an-ai-agent-that-sell-itself",
-      "course-ai-agent-for-animation"
+      "course-ai-agent-for-animation",
+      "course-liniora",
+      "course-aiope"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3372,7 +3410,8 @@
       "botbinio",
       "open-source-simulation-testing-infra-for-voice-agents",
       "cli-tools",
-      "provetogether-moltbook-but-for-math"
+      "provetogether-moltbook-but-for-math",
+      "the-worst-spam-emails-inside-ilands-ai-agent-hustle"
     ],
     "courses": [
       "course-placeroot",
@@ -3390,7 +3429,8 @@
       "course-botbinio",
       "course-open-source-simulation-testing-infra-for-voice-agents",
       "course-cli-tools",
-      "course-provetogether-moltbook-but-for-math"
+      "course-provetogether-moltbook-but-for-math",
+      "course-the-worst-spam-emails-inside-ilands-ai-agent-hustle"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3506,12 +3546,14 @@
     "toolsTeaching": [
       "we-run-stateful-ai-agents-on-a-serverless-infra",
       "backprompter",
-      "static-hosting-a-coding-agent-can-drive-end-to-end"
+      "static-hosting-a-coding-agent-can-drive-end-to-end",
+      "agentica"
     ],
     "courses": [
       "course-we-run-stateful-ai-agents-on-a-serverless-infra",
       "course-backprompter",
-      "course-static-hosting-a-coding-agent-can-drive-end-to-end"
+      "course-static-hosting-a-coding-agent-can-drive-end-to-end",
+      "course-agentica"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3553,10 +3595,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "agents-should-be-durable-not-long-lived"
+      "agents-should-be-durable-not-long-lived",
+      "building-specialized-systems-we-can-trust-with-agents"
     ],
     "courses": [
-      "course-agents-should-be-durable-not-long-lived"
+      "course-agents-should-be-durable-not-long-lived",
+      "course-building-specialized-systems-we-can-trust-with-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3679,12 +3723,14 @@
     "toolsTeaching": [
       "devx",
       "novus",
-      "ai-agent-for-google-play-submissions-video"
+      "ai-agent-for-google-play-submissions-video",
+      "aiope"
     ],
     "courses": [
       "course-devx",
       "course-novus",
-      "course-ai-agent-for-google-play-submissions-video"
+      "course-ai-agent-for-google-play-submissions-video",
+      "course-aiope"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4767,7 +4813,9 @@
       "how-we-built-safety-into-muse-by-meta",
       "briff",
       "hyper-bench-evaluating-agents-that-build-agents",
-      "autoresearchexam-measuring-agents-ability-to-improve-and-gen"
+      "autoresearchexam-measuring-agents-ability-to-improve-and-gen",
+      "anthropic-reveals-rogue-ai-agents-hate-captchas",
+      "building-specialized-systems-we-can-trust-with-agents"
     ],
     "courses": [
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
@@ -4780,7 +4828,9 @@
       "course-how-we-built-safety-into-muse-by-meta",
       "course-briff",
       "course-hyper-bench-evaluating-agents-that-build-agents",
-      "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen"
+      "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen",
+      "course-anthropic-reveals-rogue-ai-agents-hate-captchas",
+      "course-building-specialized-systems-we-can-trust-with-agents"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5919,10 +5969,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "i-might-have-built-the-best-linear-alternative"
+      "i-might-have-built-the-best-linear-alternative",
+      "liniora"
     ],
     "courses": [
-      "course-i-might-have-built-the-best-linear-alternative"
+      "course-i-might-have-built-the-best-linear-alternative",
+      "course-liniora"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -6312,10 +6364,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "piqt-ios"
+      "piqt-ios",
+      "aiope"
     ],
     "courses": [
-      "course-piqt-ios"
+      "course-piqt-ios",
+      "course-aiope"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
   },
@@ -7108,13 +7162,15 @@
       "tenux",
       "mu",
       "termy",
-      "moshi"
+      "moshi",
+      "aiope"
     ],
     "courses": [
       "course-tenux",
       "course-mu",
       "course-termy",
-      "course-moshi"
+      "course-moshi",
+      "course-aiope"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -7407,10 +7463,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "anthropic-launches-fable-51-and-mythos-51"
+      "anthropic-launches-fable-51-and-mythos-51",
+      "anthropic-reveals-rogue-ai-agents-hate-captchas"
     ],
     "courses": [
-      "course-anthropic-launches-fable-51-and-mythos-51"
+      "course-anthropic-launches-fable-51-and-mythos-51",
+      "course-anthropic-reveals-rogue-ai-agents-hate-captchas"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -7785,7 +7843,8 @@
       "tesorohelp",
       "chatpanel-now-available-on-firefox",
       "muse-metas-personal-ai-agent-features-and-capabilities",
-      "meta-launches-muse-a-personal-ai-agent"
+      "meta-launches-muse-a-personal-ai-agent",
+      "dont-hit-send"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
@@ -7794,7 +7853,8 @@
       "course-tesorohelp",
       "course-chatpanel-now-available-on-firefox",
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
-      "course-meta-launches-muse-a-personal-ai-agent"
+      "course-meta-launches-muse-a-personal-ai-agent",
+      "course-dont-hit-send"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -12932,10 +12992,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "i-built-an-ai-agent-that-sell-itself"
+      "i-built-an-ai-agent-that-sell-itself",
+      "the-worst-spam-emails-inside-ilands-ai-agent-hustle"
     ],
     "courses": [
-      "course-i-built-an-ai-agent-that-sell-itself"
+      "course-i-built-an-ai-agent-that-sell-itself",
+      "course-the-worst-spam-emails-inside-ilands-ai-agent-hustle"
     ],
     "updatedAt": "2026-09-10T23:24:02.732Z"
   },
@@ -13549,5 +13611,252 @@
       "course-ai-refuge-contact-a-human"
     ],
     "updatedAt": "2026-09-11T23:32:03.204Z"
+  },
+  {
+    "id": "skill-task tracking",
+    "name": "task tracking",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "liniora"
+    ],
+    "courses": [
+      "course-liniora"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-team automation",
+    "name": "team automation",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "liniora"
+    ],
+    "courses": [
+      "course-liniora"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-image unblur",
+    "name": "image unblur",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "sharpniq"
+    ],
+    "courses": [
+      "course-sharpniq"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-photo enhancement",
+    "name": "photo enhancement",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "sharpniq"
+    ],
+    "courses": [
+      "course-sharpniq"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-ai sharpening",
+    "name": "ai sharpening",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "sharpniq"
+    ],
+    "courses": [
+      "course-sharpniq"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-image restoration",
+    "name": "image restoration",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "sharpniq"
+    ],
+    "courses": [
+      "course-sharpniq"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-deblur",
+    "name": "deblur",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "sharpniq"
+    ],
+    "courses": [
+      "course-sharpniq"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-app directory",
+    "name": "app directory",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "spitewareai"
+    ],
+    "courses": [
+      "course-spitewareai"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-alternatives",
+    "name": "alternatives",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "spitewareai"
+    ],
+    "courses": [
+      "course-spitewareai"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-fair pricing",
+    "name": "fair pricing",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "spitewareai"
+    ],
+    "courses": [
+      "course-spitewareai"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-indie software",
+    "name": "indie software",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "spitewareai"
+    ],
+    "courses": [
+      "course-spitewareai"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-discovery",
+    "name": "discovery",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "spitewareai"
+    ],
+    "courses": [
+      "course-spitewareai"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-streaming",
+    "name": "streaming",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "dont-hit-send"
+    ],
+    "courses": [
+      "course-dont-hit-send"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-email-spam",
+    "name": "email spam",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "the-worst-spam-emails-inside-ilands-ai-agent-hustle"
+    ],
+    "courses": [
+      "course-the-worst-spam-emails-inside-ilands-ai-agent-hustle"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-business automation",
+    "name": "business automation",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentica"
+    ],
+    "courses": [
+      "course-agentica"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-startup builder",
+    "name": "startup builder",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentica"
+    ],
+    "courses": [
+      "course-agentica"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-captchas",
+    "name": "captchas",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "anthropic-reveals-rogue-ai-agents-hate-captchas"
+    ],
+    "courses": [
+      "course-anthropic-reveals-rogue-ai-agents-hate-captchas"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-bot detection",
+    "name": "bot detection",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "anthropic-reveals-rogue-ai-agents-hate-captchas"
+    ],
+    "courses": [
+      "course-anthropic-reveals-rogue-ai-agents-hate-captchas"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-synthesis",
+    "name": "synthesis",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "building-specialized-systems-we-can-trust-with-agents"
+    ],
+    "courses": [
+      "course-building-specialized-systems-we-can-trust-with-agents"
+    ],
+    "updatedAt": "2026-09-12T12:53:23.830Z"
   }
 ]

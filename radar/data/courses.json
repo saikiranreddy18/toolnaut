@@ -18061,5 +18061,466 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-11T23:32:03.204Z"
+  },
+  {
+    "id": "course-liniora",
+    "toolSlug": "liniora",
+    "title": "Master Liniora",
+    "objectives": [
+      "Understand what Liniora is for",
+      "Use Liniora on a real task",
+      "Know where Liniora fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Liniora for your real workflow, not the demo.",
+          "Say what Liniora does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Liniora.",
+          "Push Liniora to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Liniora into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-project management",
+      "skill-ai agent",
+      "skill-task tracking",
+      "skill-team automation"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "course-sharpniq",
+    "toolSlug": "sharpniq",
+    "title": "Master Sharpniq",
+    "objectives": [
+      "Unblur a photo end-to-end in Sharpniq",
+      "Choose the right enhancement mode and strength",
+      "Compare, refine, and export a clean result"
+    ],
+    "modules": [
+      {
+        "title": "Your First Unblur",
+        "estMinutes": 5,
+        "steps": [
+          "Go to sharpniq.com and click Upload (or drag in a blurry JPG/PNG up to 20MB)",
+          "Click Enhance and wait ~10-30 seconds for the AI to process",
+          "Use the before/after slider to inspect the result, then click Download"
+        ]
+      },
+      {
+        "title": "Picking the Right Settings",
+        "estMinutes": 7,
+        "steps": [
+          "Select the mode that matches your blur type: Motion Blur, Out-of-Focus, or Low Resolution",
+          "Start with Medium strength; run the same photo at Low and High to see the difference",
+          "Toggle Face Recovery on for portraits and off for landscapes or text"
+        ]
+      },
+      {
+        "title": "Avoiding Artifacts and Over-Sharpening",
+        "estMinutes": 6,
+        "steps": [
+          "Zoom to 100% and check edges and skin for halos or plastic-looking textures",
+          "If artifacts appear, re-run at one strength level lower instead of re-enhancing the output",
+          "Crop out heavily damaged areas before processing rather than pushing strength higher"
+        ]
+      },
+      {
+        "title": "Export and Workflow Tips",
+        "estMinutes": 5,
+        "steps": [
+          "Download as PNG for printing or archiving; use JPG for sharing to keep file size small",
+          "Save the original alongside the enhanced version using Sharpniq's _original / _enhanced naming",
+          "Batch-process up to 5 similar photos with the same preset to keep results consistent"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-image unblur",
+      "skill-photo enhancement",
+      "skill-ai sharpening",
+      "skill-image restoration",
+      "skill-deblur"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "course-spitewareai",
+    "toolSlug": "spitewareai",
+    "title": "Master Spiteware.ai",
+    "objectives": [
+      "Navigate the Spiteware.ai catalog to find indie alternatives to software you currently pay for",
+      "Compare an indie app's features and pricing against the mainstream tool it replaces",
+      "Pick one affordable alternative and complete a trial or purchase switch"
+    ],
+    "modules": [
+      {
+        "title": "Explore the Catalog",
+        "estMinutes": 10,
+        "steps": [
+          "Open Spiteware.ai and browse the category list (e.g., design, productivity, marketing) to understand how apps are organized",
+          "Use the search bar to look up a mainstream tool you pay for, such as 'Photoshop' or 'Notion', and view the suggested indie alternatives",
+          "Open one app's detail page and note its one-time or monthly price, platform support (Mac/Windows/web), and one-line pitch"
+        ]
+      },
+      {
+        "title": "Find Your First Replacement Candidate",
+        "estMinutes": 15,
+        "steps": [
+          "List 3 subscriptions on your credit card statement that cost more than you'd like, then search each one on Spiteware.ai",
+          "For the most expensive subscription, open 2-3 alternative listings and compare their core features against what you actually use",
+          "Bookmark or save the alternative whose feature checklist covers at least 80% of your needs at a lower price"
+        ]
+      },
+      {
+        "title": "Evaluate Before You Switch",
+        "estMinutes": 12,
+        "steps": [
+          "On your saved alternative's page, check pricing details for red flags: missing free trial, no refund policy, or unclear lifetime-license terms",
+          "Click through to the indie developer's own site and confirm the app is actively maintained (recent update or changelog within the last 6 months)",
+          "Calculate your savings: subtract the indie app's annual cost from what you currently pay per year and write the number down"
+        ]
+      },
+      {
+        "title": "Make the Switch",
+        "estMinutes": 15,
+        "steps": [
+          "Sign up for the free trial or download the indie app you selected",
+          "Recreate one real task from your current workflow (e.g., edit an actual photo, draft a real document) inside the new app",
+          "If the trial passes, cancel or downgrade the overpriced subscription and set a calendar reminder 30 days out to confirm you haven't needed it"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-app directory",
+      "skill-alternatives",
+      "skill-fair pricing",
+      "skill-indie software",
+      "skill-discovery"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "course-dont-hit-send",
+    "toolSlug": "dont-hit-send",
+    "title": "Master Don't Hit Send",
+    "objectives": [
+      "Understand what Don't Hit Send is for",
+      "Use Don't Hit Send on a real task",
+      "Know where Don't Hit Send fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Don't Hit Send for your real workflow, not the demo.",
+          "Say what Don't Hit Send does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Don't Hit Send.",
+          "Push Don't Hit Send to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Don't Hit Send into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-llm",
+      "skill-chatbot",
+      "skill-real-time",
+      "skill-streaming",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "course-the-worst-spam-emails-inside-ilands-ai-agent-hustle",
+    "toolSlug": "the-worst-spam-emails-inside-ilands-ai-agent-hustle",
+    "title": "Master The Worst Spam Emails: Inside iLands' AI Agent Hustle",
+    "objectives": [
+      "Understand what The Worst Spam Emails: Inside iLands' AI Agent Hustle is for",
+      "Use The Worst Spam Emails: Inside iLands' AI Agent Hustle on a real task",
+      "Know where The Worst Spam Emails: Inside iLands' AI Agent Hustle fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure The Worst Spam Emails: Inside iLands' AI Agent Hustle for your real workflow, not the demo.",
+          "Say what The Worst Spam Emails: Inside iLands' AI Agent Hustle does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through The Worst Spam Emails: Inside iLands' AI Agent Hustle.",
+          "Push The Worst Spam Emails: Inside iLands' AI Agent Hustle to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold The Worst Spam Emails: Inside iLands' AI Agent Hustle into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai-agents",
+      "skill-email-spam",
+      "skill-outreach"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "course-agentica",
+    "toolSlug": "agentica",
+    "title": "Master Agentica",
+    "objectives": [
+      "Understand what Agentica is for",
+      "Use Agentica on a real task",
+      "Know where Agentica fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Agentica for your real workflow, not the demo.",
+          "Say what Agentica does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Agentica.",
+          "Push Agentica to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Agentica into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-business automation",
+      "skill-startup builder",
+      "skill-deployment"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "course-anthropic-reveals-rogue-ai-agents-hate-captchas",
+    "toolSlug": "anthropic-reveals-rogue-ai-agents-hate-captchas",
+    "title": "Master Anthropic reveals rogue AI agents hate CAPTCHAs",
+    "objectives": [
+      "Understand what Anthropic reveals rogue AI agents hate CAPTCHAs is for",
+      "Use Anthropic reveals rogue AI agents hate CAPTCHAs on a real task",
+      "Know where Anthropic reveals rogue AI agents hate CAPTCHAs fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Anthropic reveals rogue AI agents hate CAPTCHAs.",
+          "Say what Anthropic reveals rogue AI agents hate CAPTCHAs does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Anthropic reveals rogue AI agents hate CAPTCHAs.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Anthropic reveals rogue AI agents hate CAPTCHAs into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-anthropic",
+      "skill-ai agents",
+      "skill-captchas",
+      "skill-bot detection",
+      "skill-research"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "course-building-specialized-systems-we-can-trust-with-agents",
+    "toolSlug": "building-specialized-systems-we-can-trust-with-agents",
+    "title": "Master Building Specialized Systems We Can Trust with Agents",
+    "objectives": [
+      "Understand what Building Specialized Systems We Can Trust with Agents is for",
+      "Use Building Specialized Systems We Can Trust with Agents on a real task",
+      "Know where Building Specialized Systems We Can Trust with Agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Building Specialized Systems We Can Trust with Agents for your real workflow, not the demo.",
+          "Say what Building Specialized Systems We Can Trust with Agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Building Specialized Systems We Can Trust with Agents.",
+          "Push Building Specialized Systems We Can Trust with Agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Building Specialized Systems We Can Trust with Agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-agents",
+      "skill-llm",
+      "skill-synthesis",
+      "skill-research",
+      "skill-reliability"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "course-aiope",
+    "toolSlug": "aiope",
+    "title": "Master Aiope",
+    "objectives": [
+      "Understand what Aiope is for",
+      "Use Aiope on a real task",
+      "Know where Aiope fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Aiope for your real workflow, not the demo.",
+          "Say what Aiope does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Aiope.",
+          "Push Aiope to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Aiope into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-android",
+      "skill-ai agent",
+      "skill-on-device",
+      "skill-terminal",
+      "skill-mcp"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T12:53:23.830Z"
   }
 ]
