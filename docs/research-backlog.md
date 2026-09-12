@@ -4336,7 +4336,7 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### Curated tool bundles ("Collections") — the multi-tool middle step between Discover and the quiz, missing entirely
-- **Status:** OPEN
+- **Status:** OPEN — DEEPENED 2026-09-12 03:20 UTC, see cross-reference below
 - **Seen in:** Product Hunt Collections (producthunt.com/collections) — themed,
   curated lists of multiple products ("GIF Apps," "Marketing Tools," "X for Y")
   that Product Hunt itself describes as having two intents, personal
@@ -4416,10 +4416,38 @@ a client-side SPA with a static tool catalogue.
     codebase; nav/footer placement not scoped here — flagged for whoever
     builds this to pick the least intrusive spot in `Landing.jsx` rather than
     guessed in advance.
+- **Cross-reference found this run — this is also the Free tier's own
+  unmet promise:** `src/utils/capabilityMatrix.js:62-66` carries a
+  `'Workflow templates'` row rendered by `CapabilityMatrix.jsx` on
+  `/pricing`, and unlike every other Free-column cell in that table
+  (Personalised stack, Discovery, Comparison, Alerts, Learning, Exports,
+  Collaboration — all `status: 'live'`), Workflow templates is the one
+  capability marked `status: 'planned'` **even in the Free column**, with
+  copy that already reads `'A few samples'`
+  (`capabilityMatrix.js:63`) — i.e. the pricing page already advertises
+  a specific, small, free-tier feature shape (a handful of sample
+  workflows) that has never been built. This isn't a false claim — the
+  "planned" pill correctly stops it from reading as live, so it doesn't
+  join the already-SHIPPED "Pricing" reconciliation entry above — but it
+  is a live product page naming, in writing, almost exactly the feature
+  this entry independently arrived at from a competitor pattern. A
+  hand-curated Collection ("here's a themed set of tools that work
+  together") is the same shape as a "workflow template" ("here's a
+  sample workflow's toolset") close enough that building this gap's
+  smallest useful version *is* shipping "a few samples." Confirmed no
+  other backlog entry references `capabilityMatrix.js`'s Workflow-templates
+  row (`grep -n "Workflow templates" docs/research-backlog.md` — only this
+  edit and the source file itself match). Whoever builds Collections
+  should flip `capabilityMatrix.js:63`'s Free-column `status` from
+  `'planned'` to `'live'` as the last step — small, in-scope, and it turns
+  an already-published promise true instead of leaving it planned right
+  next to the feature that fulfils it.
 - **Build size:** S/M — one new data file, two new pages closely mirroring
   `CategoryLanding.jsx`/`SharedStack.jsx`'s existing markup and adopt
-  pattern, two new routes, a small `prerender.mjs` `ROUTES` addition. No
-  backend, no new dependency, no radar/schema change.
+  pattern, two new routes, a small `prerender.mjs` `ROUTES` addition, and
+  (per the cross-reference above) a one-line `status` flip in
+  `capabilityMatrix.js`. No backend, no new dependency, no radar/schema
+  change.
 - **Found:** 2026-09-10 09:07 UTC
 
 ---
