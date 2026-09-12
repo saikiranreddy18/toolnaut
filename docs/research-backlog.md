@@ -2468,8 +2468,38 @@ a client-side SPA with a static tool catalogue.
   No backend, no new dependency, no new store, no new scoring logic — reuses
   the exact matching query `ToolDetail.jsx` already runs.
 - **Found:** 2026-08-28 06:10 UTC
-
-### Public "new tools" feed — the freshness data is real, but the only place it renders is behind the login wall
+- **Deepened 2026-09-12 06:07 UTC — one exclusion-note claim is now stale,
+  and the shipped fix it names creates one small new follow-on:** the geo
+  work that landed since this entry was written (`d182656`, "entity links,
+  real freshness dates, Bing, fuller sitemap") added `scripts/stamp-sitemap.mjs`
+  plus `stampSitemap()` in `src/utils/freshness.js`, so the "no generator
+  script exists anywhere in `scripts/`" line above is no longer accurate —
+  read both files in full to confirm what actually changed before assuming
+  more than this. It is **not** a sitemap generator in the sense this gap
+  needs: `stampSitemap()` (`freshness.js:47-61`) only adds `<lastmod>` to
+  URLs the static `sitemap.xml` already lists, and it does so by matching
+  two hardcoded path shapes — `${site}/new` and `${site}/tools/${category}`
+  (`freshness.js:51,61`) — nothing else. `public/sitemap.xml` itself is
+  still exactly 18 hand-written `<url>` entries (confirmed by counting
+  `<url>` tags directly), no per-tool or per-alternatives rows, no loop over
+  the catalog. So the core plan above is unaffected: whoever builds this
+  still hand-adds a small number of `/alternatives/:slug` lines to
+  `sitemap.xml`, the same manual way the existing 18 were added. The one
+  real, small addition this shipped feature creates: those hand-added
+  `/alternatives/:slug` rows will render with **no** `<lastmod>` unless
+  `stampSitemap()` is also extended with a third match arm keyed the same
+  way as the `/tools/${category}` one — the alternatives page's freshness
+  signal would naturally be the newest `discoveredAt` among the *same*
+  `sourceCategory`/`category` tools the page itself lists, i.e. the same
+  date `/tools/${category}` already computes for that tool's category,
+  looked up by the target tool's own category rather than the URL's literal
+  category segment. Not required to ship the page — the page works and is
+  crawlable without a `lastmod` — but worth doing in the same PR since the
+  match arm is a small, mechanical addition to an already-open function,
+  not a new subsystem, and skipping it would mean these pages ship "stale by
+  construction" from day one, one inconsistency this backlog would otherwise
+  flag on sight (see the freshness/lastmod gap this same commit was built
+  to close for other pages).
 - **Status:** SHIPPED f075d88
 - **Seen in:** Product Hunt's entire homepage *is* a chronological feed of
   newly launched products — freshness is the whole product, not a side
