@@ -1531,15 +1531,15 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-26 12:15 UTC
 
 ### Weekly discovery digest email & personalized alerts (Student/Pro tiers, unbuildable client-side)
-- **Status:** OPEN (copy-accuracy only) — MOSTLY SHIPPED, discovered this run
-  (2026-09-02 21:09 UTC). The subscribe UI and delivery pipeline this entry's
-  2026-09-01 deepening spec'd as "smallest useful version" already exist,
-  built directly on `master` between this routine's runs (not by this
-  routine) — see the second deepening below for the full trace. What's left
-  is not a build, it's three stale `planned(...)` copy lines that now
-  undersell a real feature, plus a literal-accuracy mismatch ("weekly" /
-  "trending") between the promised copy and what actually ships. Do not
-  mark this fully SHIPPED or re-reject it without reading the second
+- **Status:** SHIPPED (this run, copy-accuracy fix — see bottom of entry for
+  the production verification and the exact `planData.js` edit). The
+  subscribe UI and delivery pipeline this entry's 2026-09-01 deepening
+  spec'd as "smallest useful version" already exist, built directly on
+  `master` between this routine's runs (not by this routine) — see the
+  second deepening below for the full trace. What was left was not a build,
+  it was three stale `planned(...)` copy lines that undersold a real
+  feature, plus a literal-accuracy mismatch ("weekly" / "trending") between
+  the promised copy and what actually ships. Read the second
   deepening below.
 - **Original rejection (now stale, kept for history):** REJECTED — needs a
   backend/email-delivery system; logged so future research hours don't
@@ -1789,6 +1789,40 @@ a client-side SPA with a static tool catalogue.
   - **Build size (re-corrected):** S — three one-line copy edits in
     `planData.js`, contingent on confirming `0007_alert_subscribers.sql` is
     applied in production first (operational check, not a code change).
+- **Verified live 2026-09-12 21:07 UTC, this run — the one blocking caveat
+  is now confirmed, copy corrected:** the production check the entry above
+  called unverifiable from inside the repo turned out to be answerable two
+  ways
+  without any credentials: an unauthenticated `GET
+  https://toolnaut.xyz/api/alerts` returned `401 {"error":"Sign in to read
+  your alert settings"}` rather than the `200 {"configured":false,...}`
+  `alerts.js` returns when `alertsConfigured` is false — `alertsConfigured`
+  is true in production today, so `SUPABASE_URL` and
+  `SUPABASE_SERVICE_ROLE_KEY` are both set live. Separately, `7a6b301`
+  (2026-09-11, "fix(alerts): stop link scanners unsubscribing people")
+  diagnoses a real production incident against this exact feature and
+  states plainly: "live tools.json carried 145 tools inside the 7-day
+  window, the alerts API was configured, and Resend's DKIM and SPF records
+  were published" — i.e. real subscribers, a real send, a real bug found by
+  watching it run, now fixed. The migration lineage and the send pipeline
+  are demonstrably live, not just wired-and-waiting.
+  - Applied the corrected copy in `src/utils/planData.js`: the Founder and
+    Student lines both flip from `planned('Weekly discovery digest email')`
+    to `live('New tool alerts, by email')`; the Pro line flips from
+    `planned('Weekly trending tools + personalized alerts')` to
+    `live('Personalized new-tool alerts, by email')` — dropping "weekly"
+    (the send is daily-checked, freshness-triggered, not calendar-weekly)
+    and "trending" (the ranking signal is `discoveredAt` recency only, no
+    stars/points join yet — that's the separate, still-OPEN "popularity
+    signal" gap) per this entry's own "don't oversell either" reasoning.
+  - `capabilityMatrix.js` needed no change, as already noted above — its
+    Alerts row was already correctly `live` for the free-tier in-app strip
+    and correctly still `planned` for the Pro/Team-specific capabilities
+    (price-change alerts, stack-drift, org-wide alerts) that were never part
+    of this claim.
+  - Grepped `Weekly discovery digest|Weekly trending tools` across `src/`
+    and `test/` after the edit: no other reference to the stale phrasing
+    exists to update.
 
 ### Final-page CTA broke its own "no signup wall" promise
 - **Status:** FIXED (this commit) — small demonstrable bug, fixed in this run
