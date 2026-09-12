@@ -5069,3 +5069,111 @@ a client-side SPA with a static tool catalogue.
   pattern, one sticker in an already-existing page, one pricing-copy edit. No
   new route, no new dependency.
 - **Found:** 2026-09-11 21:20 UTC
+
+---
+
+### Compare already works entirely off a URL, but it's the one such feature that isn't public
+- **Status:** OPEN
+- **Seen in:** StackShare's public "stackups" (`stackshare.io/stackups/<a>-vs-<b>`,
+  cited already in this file's shipped Share/Export gap for a different
+  reason) are permanent, crawlable, head-to-head pages — the same mechanism
+  G2 runs at scale (`g2.com/compare/<a>-vs-<b>`, e.g. the live
+  "Capterra vs. G2" page found this run). Both treat a *specific pair* of
+  products as its own indexable URL, distinct from a general "browse and
+  filter" page — "notion ai vs jasper," "chatgpt vs claude," "X vs Y" are
+  buyer-intent searches (someone already evaluating two named products) with
+  no equivalent inside Toolnaut today, and unlike the already-open
+  "Alternatives" gap above (one tool → many substitutes, new matching logic
+  needed), this pattern is a *specific, named pair* — the exact shape
+  Toolnaut's own Compare feature already renders.
+- **Gap:** `src/pages/app/Compare.jsx` already does the real work — its
+  entire state is `?tools=<slug>,<slug>,...` in the URL
+  (`Compare.jsx:26`, comment at `Compare.jsx:12-13`: "Comparison state lives
+  entirely in the `?tools=` query string... no persisted/named comparisons")
+  resolved purely via `getTool()` (`Compare.jsx:27`), rendered as a real
+  side-by-side table (`rows`, `Compare.jsx:45-58`: category, price, level,
+  developer, year, audience, status, tags) with no session or account
+  required to compute any of it — the one row that needs quiz state
+  (`Fit`, `Compare.jsx:55-58`) is already conditional and simply omitted
+  when `quiz.completed` is false (`Compare.jsx:23-24`), exactly the
+  guest-safe fallback this backlog's other gaps use elsewhere. Despite that,
+  the route is `/app/compare` (`App.jsx:130`), nested inside
+  `<Route path="/app" element={<AppShell />}>` (`App.jsx:125`) alongside
+  genuinely session-shaped pages (`Settings`, `Community`). `scripts/
+  prerender.mjs:13-16`'s own header comment excludes it by name in spirit —
+  "Authenticated and per-visitor routes (`/app/*`...) are deliberately NOT
+  prerendered" — and confirmed by its `ROUTES` array (`prerender.mjs:26-`
+  through `/tools/code`) never listing it. `public/sitemap.xml` has zero
+  compare-related URL. `scripts/smoke.mjs:32` does render
+  `/app/compare?tools=chatgpt,claude` today, but only as an
+  authenticated-app smoke check, not as a public page — smoke passing is not
+  the same claim as indexable. A search visitor who types "chatgpt vs
+  claude" and lands on Toolnaut today gets nothing; the exact page that
+  would answer that query is already built and tested one route prefix
+  away.
+- **Why it matters:** this is the cheapest gap this backlog has found yet —
+  zero new comparison logic, zero new data, the entire table-rendering code
+  already exists and is already exercised by CI. The only thing missing is
+  a public door to it, the same "expose what's already built one level
+  further" shape as the Alternatives and public-search gaps that shipped
+  fastest here. Named-pair comparison queries are also higher-intent than
+  the broad category pages Toolnaut already publishes (`/tools/:domain`) —
+  a visitor searching a specific pair has already narrowed to two products
+  and is deciding between them, the same buyer-stage StackShare and G2 both
+  built dedicated URL patterns to catch.
+- **Smallest useful version (what to actually build):**
+  - New public route `/compare/:slugs` in `src/App.jsx`, alongside
+    `/s/:slugs` (`App.jsx:108`) — same tier, outside `AppShell`, no session
+    needed. Reuse the exact same comma-joined, URI-encoded slug format
+    `shareStack.js`'s `encodeStackSlugs`/`decodeStackSlugs` already define
+    (`/compare/chatgpt,claude,gemini`) rather than inventing a second
+    encoding — one shared util, two consumers.
+  - New `src/pages/PublicCompare.jsx`, modeled directly on `SharedStack.jsx`:
+    resolve slugs the same way, drop unknown ones silently (a stale/mistyped
+    link degrades, per `SharedStack.jsx:15`'s pattern), and render the exact
+    same `rows` table `Compare.jsx:45-58` builds (category/price/level/dev/
+    since/audience/status/tags), reusing `Compare.jsx`'s table + stacked-card
+    JSX largely as-is — this is a rendering fork of an existing page, not a
+    new design. No `Fit` row (no quiz context makes sense on a page a
+    stranger lands on cold — `Alternatives.jsx`'s planned page doesn't
+    invent a fit score either, same restraint). No "Add to stack"/toggle
+    buttons in v1 — `SharedStack.jsx`'s single "adopt" CTA already covers
+    that job; a comparison page's job is answering "which one," and a
+    "Build my own stack" CTA linking to `/goal` (same as `SharedStack.jsx`
+    and `Alternatives.jsx`'s empty-state pattern) is enough.
+  - `useHead()` (`SharedStack.jsx:7,26-46`'s exact pattern) with a title
+    literally containing "vs" — `"{Tool A} vs {Tool B} — compared |
+    Toolnaut"` for the two-tool case (the common query shape), falling back
+    to a joined list for 3-4 — plus the same `ItemList` JSON-LD
+    `SharedStack.jsx:32-43` already emits, so this ships with structured
+    data on day one rather than needing a follow-up.
+  - `Compare.jsx` (the authenticated version) gets one small addition: when
+    a signed-in user builds a comparison, surface a "Copy public link"
+    action next to "BACK TO FIND" that points at `/compare/{slugs}` — same
+    one-line addition `Stack.jsx`'s share button already made for
+    `SharedStack`, so the two halves (build it signed-in, land on it
+    signed-out) connect the same way share/adopt already do.
+  - `scripts/smoke.mjs`'s route array needs one addition (e.g.
+    `/compare/chatgpt,claude`), and `public/sitemap.xml` gets a small
+    hand-picked set of high-traffic pairs (chatgpt-vs-claude,
+    chatgpt-vs-gemini, notion-ai-vs-jasper or whichever catalog entries are
+    best-known) — same manual-seed approach the Alternatives gap above
+    already scopes for the same reason (no sitemap-generator script exists
+    yet; writing one is a separate, bigger change).
+  - **What this would NOT include** (kept out to bound the diff): no
+    dynamic sitemap generation for the combinatorial space of all possible
+    tool pairs (same restraint as Alternatives); no stack-adoption/"add all"
+    action in v1 (kept to `SharedStack`'s existing job); no new comparison
+    logic, scoring, or "winner" verdict — same nothing-invented rule this
+    whole file applies (`Alternatives.jsx`'s no-scoring restraint, above);
+    no OG image generation; no changing `/app/compare`'s existing
+    behavior or route for signed-in users beyond the one new "copy public
+    link" action.
+- **Build size:** S — one new page (`PublicCompare.jsx`, a rendering fork of
+  the already-shipped `Compare.jsx` table using `SharedStack.jsx`'s public-
+  page shell), one new public route, one small addition to `Compare.jsx`,
+  one smoke-route line, a handful of hand-picked sitemap entries. No
+  backend, no new dependency, no new store, no new matching or scoring
+  logic — every data field the table needs is already read by the
+  authenticated page today.
+- **Found:** 2026-09-12 00:20 UTC
