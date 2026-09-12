@@ -3,6 +3,7 @@ import { getTool, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/
 import { matchScore, fitBand } from '../../utils/matchScore'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
+import { encodeStackSlugs } from '../../utils/shareStack'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { markActed } from '../../utils/funnel'
 import { EVENTS } from '../../utils/analyticsEvents'
@@ -14,6 +15,7 @@ import { Fragment, useEffect, useState } from 'react'
 export default function Compare() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [stack, setStack] = useState(loadStack)
+  const [copied, setCopied] = useState(false)
   const track = useAnalytics()
 
   // Opening a comparison is itself the qualifying action — there is no
@@ -30,6 +32,16 @@ export default function Compare() {
     const next = tools.filter((t) => t.slug !== slug).map((t) => t.slug)
     if (next.length === 0) setSearchParams({})
     else setSearchParams({ tools: next.join(',') })
+  }
+
+  async function copyPublicLink() {
+    haptic.tap()
+    const url = `${window.location.origin}/compare/${encodeStackSlugs(slugs)}`
+    try {
+      await navigator.clipboard.writeText(url)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1600)
+    } catch { /* clipboard blocked */ }
   }
 
   function toggleStack(tool) {
@@ -171,9 +183,14 @@ export default function Compare() {
             })}
           </div>
 
-          <Link to="/app/discover" className="nb-btn dark mt-8 inline-block px-5 py-2.5 text-xs">
-            ← BACK TO FIND
-          </Link>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Link to="/app/discover" className="nb-btn dark px-5 py-2.5 text-xs">
+              ← BACK TO FIND
+            </Link>
+            <button onClick={copyPublicLink} className="nb-btn px-5 py-2.5 text-xs">
+              {copied ? '✓ LINK COPIED' : '🔗 COPY PUBLIC LINK'}
+            </button>
+          </div>
         </>
       )}
     </div>

@@ -18,4 +18,10 @@
   <url><loc>https://toolnaut.xyz/support</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://toolnaut.xyz/privacy</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://toolnaut.xyz/terms</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://toolnaut.xyz/compare/chatgpt,claude</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://toolnaut.xyz/compare/chatgpt,gemini</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://toolnaut.xyz/compare/claude,gemini</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://toolnaut.xyz/compare/notion-ai,jasper</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://toolnaut.xyz/compare/cursor,github-copilot</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://toolnaut.xyz/compare/perplexity,chatgpt</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>
