@@ -1225,5 +1225,33 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "holaos-an-opensourced-workspace-that-alternative-to-claude",
+    "name": "HolaOS––An Opensourced workspace that alternative to Claude",
+    "category": "automation",
+    "sourceCategory": "Productivity & Meetings",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Show HN: HolaOS––An Opensourced workspace that alternative to Claude",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://github.com/holaboss-ai/holaOS",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "automation"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49659974",
+    "discoveredAt": "2026-09-11T23:32:03.204Z",
+    "updatedAt": "2026-09-11T23:32:03.204Z",
+    "contentHash": "ff364659c0c22d45",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]

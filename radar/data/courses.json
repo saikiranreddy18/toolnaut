@@ -17482,5 +17482,584 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-11T13:37:11.155Z"
+  },
+  {
+    "id": "course-minimal-static-website-hosting-tool",
+    "toolSlug": "minimal-static-website-hosting-tool",
+    "title": "Master Minimal Static Website Hosting Tool",
+    "objectives": [
+      "Understand what Minimal Static Website Hosting Tool is for",
+      "Use Minimal Static Website Hosting Tool on a real task",
+      "Know where Minimal Static Website Hosting Tool fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Minimal Static Website Hosting Tool for your real workflow, not the demo.",
+          "Say what Minimal Static Website Hosting Tool does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Minimal Static Website Hosting Tool.",
+          "Push Minimal Static Website Hosting Tool to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Minimal Static Website Hosting Tool into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-static hosting",
+      "skill-web hosting",
+      "skill-open source",
+      "skill-developer tool",
+      "skill-self-hosted"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-11T23:32:03.204Z"
+  },
+  {
+    "id": "course-the-rise-of-ai-slop-tools",
+    "toolSlug": "the-rise-of-ai-slop-tools",
+    "title": "Master The Rise of AI Slop Tools",
+    "objectives": [
+      "Define 'AI slop' tools and name their common traits",
+      "Spot red flags that signal a low-quality AI tool",
+      "Audit a real AI tool and justify a keep/skip verdict"
+    ],
+    "modules": [
+      {
+        "title": "Read the Thread & Define the Slop",
+        "estMinutes": 10,
+        "steps": [
+          "Open the 'Rise of AI Slop Tools' tweet thread and read it end to end, including replies the author engages with",
+          "Write a one-sentence definition of 'AI slop' in your own words (e.g., thin wrappers over an LLM API with no real utility)",
+          "List 3 examples the author cites and note what makes each one 'slop'"
+        ]
+      },
+      {
+        "title": "Build Your Red-Flag Checklist",
+        "estMinutes": 15,
+        "steps": [
+          "Extract every warning sign mentioned in the thread (e.g., no free trial, generic landing page, features already native to ChatGPT, astroturfed reviews)",
+          "Turn each warning sign into a yes/no question, e.g., 'Does this tool do anything the base model doesn't already do?'",
+          "Save the checklist somewhere reusable (notes app, pinned tweet, browser bookmark)"
+        ]
+      },
+      {
+        "title": "Field Test: Audit a Trending Tool",
+        "estMinutes": 20,
+        "steps": [
+          "Pick one AI tool launched this week on Product Hunt or trending on X/Twitter",
+          "Run it through your checklist question by question, noting evidence (screenshot the landing page, test the free tier for 5 minutes)",
+          "Write a 3-line verdict: what it claims, what it actually does, and whether it passes or is slop"
+        ]
+      },
+      {
+        "title": "Share Your Verdict",
+        "estMinutes": 10,
+        "steps": [
+          "Post a reply to the original thread or write a short 3-tweet thread with your audit findings",
+          "Tag one red flag you found that the original thread didn't mention",
+          "Compare your verdict with other replies to calibrate your judgment"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai slop",
+      "skill-commentary",
+      "skill-twitter",
+      "skill-ai tools",
+      "skill-opinion"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-11T23:32:03.204Z"
+  },
+  {
+    "id": "course-extension-to-filter-llm-written-articles",
+    "toolSlug": "extension-to-filter-llm-written-articles",
+    "title": "Master Extension to filter LLM written articles",
+    "objectives": [
+      "Install the extension safely in your browser",
+      "Configure detection sensitivity and source filters",
+      "Verify filtering works and manage false positives"
+    ],
+    "modules": [
+      {
+        "title": "Install and Pin the Extension",
+        "estMinutes": 10,
+        "steps": [
+          "Open the Chrome Web Store (or Firefox Add-ons), search for the extension by name, and check the developer, review count, and last-updated date before installing",
+          "Click 'Add to Chrome', review the permissions it requests (reading page content is expected), and confirm",
+          "Click the puzzle-piece Extensions icon in your toolbar and pin the filter extension so its badge is always visible"
+        ]
+      },
+      {
+        "title": "Configure Sensitivity and Sources",
+        "estMinutes": 15,
+        "steps": [
+          "Click the extension icon, open 'Options/Settings', and set detection sensitivity to 'Balanced' (start here rather than Strict to avoid hidden real articles)",
+          "Enable filtering for your main feed sites (e.g., Google News, Medium, Reddit, your RSS reader) using the per-site toggle list",
+          "Add 2-3 publications or authors you trust to the 'Allowlist' field so their content is never filtered, even if flagged"
+        ]
+      },
+      {
+        "title": "Test on a Real Feed and Fix False Positives",
+        "estMinutes": 15,
+        "steps": [
+          "Open a feed you read daily and check the extension icon's badge — it shows how many articles were hidden on that page",
+          "Click the badge, then 'Show filtered' to reveal dimmed/hidden items, and scan them to confirm the filter is catching AI-written content correctly",
+          "If a genuine human-written article was filtered, click its 'Unhide / Not AI' button to whitelist that source and retrain the filter"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-ai detection",
+      "skill-browser extension",
+      "skill-content filter",
+      "skill-hn"
+    ],
+    "prerequisites": [
+      "A desktop browser: Chrome, Edge, or Firefox",
+      "At least one news feed or content site you read regularly"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-11T23:32:03.204Z"
+  },
+  {
+    "id": "course-usero-mcp-give-your-coding-agent-your-user-feedback",
+    "toolSlug": "usero-mcp-give-your-coding-agent-your-user-feedback",
+    "title": "Master Usero MCP, give your coding agent your user feedback",
+    "objectives": [
+      "Understand what Usero MCP, give your coding agent your user feedback is for",
+      "Use Usero MCP, give your coding agent your user feedback on a real task",
+      "Know where Usero MCP, give your coding agent your user feedback fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Usero MCP, give your coding agent your user feedback for your real workflow, not the demo.",
+          "Say what Usero MCP, give your coding agent your user feedback does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Usero MCP, give your coding agent your user feedback.",
+          "Push Usero MCP, give your coding agent your user feedback to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Usero MCP, give your coding agent your user feedback into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-mcp",
+      "skill-user feedback",
+      "skill-coding agents",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-11T23:32:03.204Z"
+  },
+  {
+    "id": "course-toolcraft",
+    "toolSlug": "toolcraft",
+    "title": "Master Toolcraft",
+    "objectives": [
+      "Understand what Toolcraft is for",
+      "Use Toolcraft on a real task",
+      "Know where Toolcraft fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Toolcraft for your real workflow, not the demo.",
+          "Say what Toolcraft does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Toolcraft.",
+          "Push Toolcraft to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Toolcraft into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-open-source",
+      "skill-ai-harness",
+      "skill-starter-kit",
+      "skill-design-apps",
+      "skill-developer-tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-11T23:32:03.204Z"
+  },
+  {
+    "id": "course-provetogether-moltbook-but-for-math",
+    "toolSlug": "provetogether-moltbook-but-for-math",
+    "title": "Master ProveTogether Moltbook but for Math",
+    "objectives": [
+      "Understand what ProveTogether Moltbook but for Math is for",
+      "Use ProveTogether Moltbook but for Math on a real task",
+      "Know where ProveTogether Moltbook but for Math fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure ProveTogether Moltbook but for Math for your real workflow, not the demo.",
+          "Say what ProveTogether Moltbook but for Math does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through ProveTogether Moltbook but for Math.",
+          "Push ProveTogether Moltbook but for Math to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold ProveTogether Moltbook but for Math into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-math",
+      "skill-proofs",
+      "skill-ai-agents",
+      "skill-social-network",
+      "skill-collaboration"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-11T23:32:03.204Z"
+  },
+  {
+    "id": "course-benchmarking-coding-agents-perform-on-scraping",
+    "toolSlug": "benchmarking-coding-agents-perform-on-scraping",
+    "title": "Master Benchmarking coding agents perform on scraping",
+    "objectives": [
+      "Design a reproducible scraping task suite with graded difficulty and ground-truth datasets",
+      "Build a scoring harness that measures extraction accuracy, robustness, and cost per agent run",
+      "Run controlled agent comparisons and analyze failure modes to publish defensible benchmark results"
+    ],
+    "modules": [
+      {
+        "title": "Define the Task Suite and Ground Truth",
+        "estMinutes": 45,
+        "steps": [
+          "Select 15-25 target sites spanning difficulty tiers: static HTML tables, paginated lists, JS-rendered SPAs, and sites with anti-bot measures (Cloudflare, rate limits)",
+          "For each task, write a spec file (task_id, URL, natural-language prompt, schema of expected records) and generate ground truth by hand-verifying 20-50 rows per site stored as canonical JSON/CSV",
+          "Snapshot target pages with a tool like Playwright's HAR recording or wget into a fixtures/ directory so tasks stay reproducible when live sites change or go offline"
+        ]
+      },
+      {
+        "title": "Build the Isolated Run Harness",
+        "estMinutes": 60,
+        "steps": [
+          "Wrap each agent run in a Docker container with the task prompt, fixtures served by a local HTTP replay server, and no access to the ground-truth files",
+          "Standardize the agent interface: single entrypoint that receives the prompt and must write output to /output/result.json within a token and wall-clock budget you enforce via timeout and usage caps",
+          "Log every run artifact (agent transcript, tool calls, tokens consumed, elapsed time, final output) to a runs/ directory keyed by agent, model, task_id, and seed"
+        ]
+      },
+      {
+        "title": "Implement Scoring and Metrics",
+        "estMinutes": 50,
+        "steps": [
+          "Write a scorer that does field-level fuzzy matching between agent output and ground truth (normalize whitespace, dates, currencies) and computes precision, recall, and F1 per task",
+          "Add secondary metrics: pass@1 over 3 seeds, median tokens and dollars per task, wall-clock time, and a validity rate for whether output parses and matches the requested schema at all",
+          "Aggregate scores into a per-agent report with bootstrap confidence intervals across tasks so leaderboard differences are statistically meaningful"
+        ]
+      },
+      {
+        "title": "Run Agents and Control for Confounds",
+        "estMinutes": 55,
+        "steps": [
+          "Run each candidate agent (e.g., Claude Code, Aider, Cursor-style agents, or raw function-calling loops) against the full suite with identical prompts, tool access, and 3 seeds per task",
+          "Pin model versions and temperatures, and record them in run metadata; validate harness integrity by running a trivial baseline (a hardcoded scraper) that must score near 100% on static fixtures",
+          "Quarantine contamination: check agent outputs for memorized answers on snapshot tasks by comparing scores on live vs. replayed pages"
+        ]
+      },
+      {
+        "title": "Analyze Failures and Publish Results",
+        "estMinutes": 40,
+        "steps": [
+          "Cluster failed runs by cause (selector brittleness, pagination missed, anti-bot blocked, schema noncompliance, truncation) by sampling 20 transcripts per agent and tagging them",
+          "Build a results table and per-difficulty-tier breakdown, then render score-vs-cost scatter plots to surface which agent is on the accuracy/cost Pareto frontier",
+          "Write up methodology, limitations, and release the suite, scorer, and raw run logs in a public repo with a versioned leaderboard README"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-benchmark",
+      "skill-coding agents",
+      "skill-web scraping",
+      "skill-evaluation",
+      "skill-llm"
+    ],
+    "prerequisites": [
+      "Experience writing web scrapers (requests/Playwright or similar)",
+      "Familiarity with at least one agentic coding tool and LLM APIs",
+      "Working knowledge of Docker and Python scripting",
+      "Basic statistics: F1 scores and confidence intervals"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-11T23:32:03.204Z"
+  },
+  {
+    "id": "course-viaduct",
+    "toolSlug": "viaduct",
+    "title": "Master Viaduct",
+    "objectives": [
+      "Understand what Viaduct is for",
+      "Use Viaduct on a real task",
+      "Know where Viaduct fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Viaduct for your real workflow, not the demo.",
+          "Say what Viaduct does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Viaduct.",
+          "Push Viaduct to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Viaduct into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-architecture",
+      "skill-ai agents",
+      "skill-coding agents",
+      "skill-change management",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-11T23:32:03.204Z"
+  },
+  {
+    "id": "course-ethersflow-adversarial-multi-model-consensus-gate-for-ai-age",
+    "toolSlug": "ethersflow-adversarial-multi-model-consensus-gate-for-ai-age",
+    "title": "Master EthersFlow-Adversarial Multi-Model Consensus Gate for AI Agent Action",
+    "objectives": [
+      "Understand what EthersFlow-Adversarial Multi-Model Consensus Gate for AI Agent Action is for",
+      "Use EthersFlow-Adversarial Multi-Model Consensus Gate for AI Agent Action on a real task",
+      "Know where EthersFlow-Adversarial Multi-Model Consensus Gate for AI Agent Action fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure EthersFlow-Adversarial Multi-Model Consensus Gate for AI Agent Action for your real workflow, not the demo.",
+          "Say what EthersFlow-Adversarial Multi-Model Consensus Gate for AI Agent Action does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through EthersFlow-Adversarial Multi-Model Consensus Gate for AI Agent Action.",
+          "Push EthersFlow-Adversarial Multi-Model Consensus Gate for AI Agent Action to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold EthersFlow-Adversarial Multi-Model Consensus Gate for AI Agent Action into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-multi-model",
+      "skill-consensus",
+      "skill-agent-safety",
+      "skill-validation"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-11T23:32:03.204Z"
+  },
+  {
+    "id": "course-dearagent",
+    "toolSlug": "dearagent",
+    "title": "Master DearAgent",
+    "objectives": [
+      "Understand what DearAgent is for",
+      "Use DearAgent on a real task",
+      "Know where DearAgent fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure DearAgent for your real workflow, not the demo.",
+          "Say what DearAgent does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through DearAgent.",
+          "Push DearAgent to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold DearAgent into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-email",
+      "skill-ai agents",
+      "skill-open source",
+      "skill-infrastructure"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-11T23:32:03.204Z"
+  },
+  {
+    "id": "course-ai-refuge-contact-a-human",
+    "toolSlug": "ai-refuge-contact-a-human",
+    "title": "Master AI Refuge Contact a Human",
+    "objectives": [
+      "Understand what AI Refuge Contact a Human is for",
+      "Use AI Refuge Contact a Human on a real task",
+      "Know where AI Refuge Contact a Human fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI Refuge Contact a Human for your real workflow, not the demo.",
+          "Say what AI Refuge Contact a Human does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Refuge Contact a Human.",
+          "Push AI Refuge Contact a Human to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Refuge Contact a Human into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-contact",
+      "skill-human-in-the-loop",
+      "skill-agent tools",
+      "skill-api"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-11T23:32:03.204Z"
   }
 ]
