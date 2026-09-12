@@ -18522,5 +18522,568 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "course-open-sourced-solution-to-ai-manage-playwright-automations",
+    "toolSlug": "open-sourced-solution-to-ai-manage-playwright-automations",
+    "title": "Master Open-sourced solution to AI manage Playwright automations",
+    "objectives": [
+      "Understand what Open-sourced solution to AI manage Playwright automations is for",
+      "Use Open-sourced solution to AI manage Playwright automations on a real task",
+      "Know where Open-sourced solution to AI manage Playwright automations fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Open-sourced solution to AI manage Playwright automations for your real workflow, not the demo.",
+          "Say what Open-sourced solution to AI manage Playwright automations does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Open-sourced solution to AI manage Playwright automations.",
+          "Push Open-sourced solution to AI manage Playwright automations to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Open-sourced solution to AI manage Playwright automations into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-playwright",
+      "skill-browser-automation",
+      "skill-testing",
+      "skill-ai-agent",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "course-simtower-decompiled-rewritten-and-in-the-browser",
+    "toolSlug": "simtower-decompiled-rewritten-and-in-the-browser",
+    "title": "Master SimTower, Decompiled, Rewritten, and in the Browser",
+    "objectives": [
+      "Understand what SimTower, Decompiled, Rewritten, and in the Browser is for",
+      "Use SimTower, Decompiled, Rewritten, and in the Browser on a real task",
+      "Know where SimTower, Decompiled, Rewritten, and in the Browser fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for SimTower, Decompiled, Rewritten, and in the Browser.",
+          "Say what SimTower, Decompiled, Rewritten, and in the Browser does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through SimTower, Decompiled, Rewritten, and in the Browser.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold SimTower, Decompiled, Rewritten, and in the Browser into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-simtower",
+      "skill-browser-game",
+      "skill-decompilation",
+      "skill-simulation",
+      "skill-retro-gaming"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "course-a-c-compiler-written-with-help-of-claude",
+    "toolSlug": "a-c-compiler-written-with-help-of-claude",
+    "title": "Master A C Compiler written with help of Claude",
+    "objectives": [
+      "Understand what A C Compiler written with help of Claude is for",
+      "Use A C Compiler written with help of Claude on a real task",
+      "Know where A C Compiler written with help of Claude fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure A C Compiler written with help of Claude for your real workflow, not the demo.",
+          "Say what A C Compiler written with help of Claude does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through A C Compiler written with help of Claude.",
+          "Push A C Compiler written with help of Claude to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold A C Compiler written with help of Claude into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-compiler",
+      "skill-c",
+      "skill-claude",
+      "skill-ai-assisted",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "course-nvidia-is-the-central-bank-of-ai",
+    "toolSlug": "nvidia-is-the-central-bank-of-ai",
+    "title": "Master Nvidia is the central bank of AI",
+    "objectives": [
+      "Explain the 'central bank of AI' metaphor and what it claims about Nvidia's power",
+      "Identify the concrete sources of Nvidia's control: GPU supply, CUDA lock-in, and capital flows",
+      "Evaluate the strongest risks and counterarguments to Nvidia's dominance"
+    ],
+    "modules": [
+      {
+        "title": "Deconstruct the Core Metaphor",
+        "estMinutes": 15,
+        "steps": [
+          "Read the Economist article once through, highlighting every sentence where Nvidia is implicitly or explicitly compared to a monetary authority",
+          "Write down three parallels the article draws (e.g., chip allocation as money issuance, pricing power as interest-rate setting, ecosystem dependence as bank reliance) and one place where the metaphor strains"
+        ]
+      },
+      {
+        "title": "Verify the Numbers Behind the Claim",
+        "estMinutes": 15,
+        "steps": [
+          "Open Nvidia's most recent quarterly earnings release and note data-center revenue, gross margin, and year-over-year growth",
+          "Look up Nvidia's share of the AI accelerator market (e.g., via analyst estimates cited in the article) and its weight in the S&P 500 to gauge 'economy-shaping' scale",
+          "Compare Nvidia's market cap to the GDP of a mid-sized country cited in the piece and jot down what that comparison does and doesn't prove"
+        ]
+      },
+      {
+        "title": "Map the Moat",
+        "estMinutes": 12,
+        "steps": [
+          "List the three lock-in mechanisms discussed: the CUDA software ecosystem, scarce advanced-chip supply via TSMC, and Nvidia's investments in AI labs and cloud providers",
+          "For each mechanism, write one sentence on how it functions like (or unlike) a central bank's tools — e.g., chip allocation resembling credit allocation to favored institutions"
+        ]
+      },
+      {
+        "title": "Stress-Test the Thesis",
+        "estMinutes": 12,
+        "steps": [
+          "Identify the challengers named or implied in the article: AMD, custom silicon from Google (TPU) and Amazon (Trainium), and export restrictions limiting Nvidia's China sales",
+          "Write a 5-sentence verdict arguing whether Nvidia's position resembles a durable central bank or a boom-era monopoly, citing one number from the article and one from your own verification"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-nvidia",
+      "skill-ai chips",
+      "skill-industry analysis",
+      "skill-ai economy",
+      "skill-hardware"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "course-dont-build-tools-for-ai-agents",
+    "toolSlug": "dont-build-tools-for-ai-agents",
+    "title": "Master Don't build tools for AI agents",
+    "objectives": [
+      "Understand what Don't build tools for AI agents is for",
+      "Use Don't build tools for AI agents on a real task",
+      "Know where Don't build tools for AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Don't build tools for AI agents for your real workflow, not the demo.",
+          "Say what Don't build tools for AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Don't build tools for AI agents.",
+          "Push Don't build tools for AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Don't build tools for AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-tool design",
+      "skill-software engineering",
+      "skill-opinion essay",
+      "skill-best practices"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "course-scaling-classical-music-concert-crawlers-with-ai-agents",
+    "toolSlug": "scaling-classical-music-concert-crawlers-with-ai-agents",
+    "title": "Master Scaling classical music concert crawlers with AI agents",
+    "objectives": [
+      "Understand what Scaling classical music concert crawlers with AI agents is for",
+      "Use Scaling classical music concert crawlers with AI agents on a real task",
+      "Know where Scaling classical music concert crawlers with AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Scaling classical music concert crawlers with AI agents for your real workflow, not the demo.",
+          "Say what Scaling classical music concert crawlers with AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Scaling classical music concert crawlers with AI agents.",
+          "Push Scaling classical music concert crawlers with AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Scaling classical music concert crawlers with AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-web crawling",
+      "skill-classical music",
+      "skill-scraping"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "course-you-didnt-deploy-the-ai-agent-you-evaluated",
+    "toolSlug": "you-didnt-deploy-the-ai-agent-you-evaluated",
+    "title": "Master You Didn't Deploy the AI Agent You Evaluated",
+    "objectives": [
+      "Understand what You Didn't Deploy the AI Agent You Evaluated is for",
+      "Use You Didn't Deploy the AI Agent You Evaluated on a real task",
+      "Know where You Didn't Deploy the AI Agent You Evaluated fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure You Didn't Deploy the AI Agent You Evaluated for your real workflow, not the demo.",
+          "Say what You Didn't Deploy the AI Agent You Evaluated does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through You Didn't Deploy the AI Agent You Evaluated.",
+          "Push You Didn't Deploy the AI Agent You Evaluated to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold You Didn't Deploy the AI Agent You Evaluated into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-evaluation",
+      "skill-deployment",
+      "skill-llmops",
+      "skill-security"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "course-fortnite-esp-soft-aim-2026-slowlow-team-visual-assist-tool",
+    "toolSlug": "fortnite-esp-soft-aim-2026-slowlow-team-visual-assist-tool",
+    "title": "Master Fortnite-ESP-Soft-Aim-2026-SlowLow-Team-Visual-Assist-Tool",
+    "objectives": [
+      "Understand what Fortnite-ESP-Soft-Aim-2026-SlowLow-Team-Visual-Assist-Tool is for",
+      "Use Fortnite-ESP-Soft-Aim-2026-SlowLow-Team-Visual-Assist-Tool on a real task",
+      "Know where Fortnite-ESP-Soft-Aim-2026-SlowLow-Team-Visual-Assist-Tool fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Fortnite-ESP-Soft-Aim-2026-SlowLow-Team-Visual-Assist-Tool for your real workflow, not the demo.",
+          "Say what Fortnite-ESP-Soft-Aim-2026-SlowLow-Team-Visual-Assist-Tool does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Fortnite-ESP-Soft-Aim-2026-SlowLow-Team-Visual-Assist-Tool.",
+          "Push Fortnite-ESP-Soft-Aim-2026-SlowLow-Team-Visual-Assist-Tool to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Fortnite-ESP-Soft-Aim-2026-SlowLow-Team-Visual-Assist-Tool into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "course-cve-2026-42978-poc-research",
+    "toolSlug": "cve-2026-42978-poc-research",
+    "title": "Master CVE-2026-42978-PoC-Research",
+    "objectives": [
+      "Understand what CVE-2026-42978-PoC-Research is for",
+      "Use CVE-2026-42978-PoC-Research on a real task",
+      "Know where CVE-2026-42978-PoC-Research fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure CVE-2026-42978-PoC-Research for your real workflow, not the demo.",
+          "Say what CVE-2026-42978-PoC-Research does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through CVE-2026-42978-PoC-Research.",
+          "Push CVE-2026-42978-PoC-Research to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold CVE-2026-42978-PoC-Research into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-security",
+      "skill-cve",
+      "skill-poc",
+      "skill-vulnerability-scanner",
+      "skill-windows"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "course-awesome-rust-migrations",
+    "toolSlug": "awesome-rust-migrations",
+    "title": "Master awesome-rust-migrations",
+    "objectives": [
+      "Understand what awesome-rust-migrations is for",
+      "Use awesome-rust-migrations on a real task",
+      "Know where awesome-rust-migrations fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure awesome-rust-migrations for your real workflow, not the demo.",
+          "Say what awesome-rust-migrations does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through awesome-rust-migrations.",
+          "Push awesome-rust-migrations to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold awesome-rust-migrations into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-rust",
+      "skill-migration",
+      "skill-memory-safety",
+      "skill-legacy-code",
+      "skill-curated-list"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "course-awesome-ui-design",
+    "toolSlug": "awesome-ui-design",
+    "title": "Master awesome-ui-design",
+    "objectives": [
+      "Navigate the awesome-ui-design list by its task-based sections",
+      "Pick inspiration, tools, and a component library for one small design task",
+      "Apply one AI design skill from the list to a real UI element"
+    ],
+    "modules": [
+      {
+        "title": "Map the List Structure",
+        "estMinutes": 8,
+        "steps": [
+          "Open the awesome-ui-design repo and read the table of contents top to bottom",
+          "Write down the four task categories (inspiration, tools, components, AI skills) with one example link under each",
+          "Star the repo and bookmark 2 sections that match your current project"
+        ]
+      },
+      {
+        "title": "Build a Mini Inspiration Board",
+        "estMinutes": 12,
+        "steps": [
+          "Pick one concrete design task (e.g., a pricing page or mobile onboarding screen)",
+          "Follow 3 links from the inspiration section and save one screenshot per link",
+          "Note one pattern you'd copy from each screenshot (layout, color, or spacing)"
+        ]
+      },
+      {
+        "title": "Assemble a Starter Tool Stack",
+        "estMinutes": 10,
+        "steps": [
+          "From the tools section, choose one design app, one color palette tool, and one font pairing tool",
+          "Open each tool and recreate one element from your inspiration board (e.g., a button with matching colors)",
+          "Save your palette hex codes and font choices in a single notes file"
+        ]
+      },
+      {
+        "title": "Pick and Test a Component Library",
+        "estMinutes": 10,
+        "steps": [
+          "Compare two component libraries from the components section by checking their license and live demos",
+          "Copy or install one button and one card component into a test page or design file",
+          "Adjust the component's color to match the palette from Module 3"
+        ]
+      },
+      {
+        "title": "Try One AI Design Skill",
+        "estMinutes": 12,
+        "steps": [
+          "Select one entry from the AI skills section (e.g., a prompt for generating layouts or UI copy)",
+          "Run it against your design task from Module 2 and generate one variation",
+          "Compare the AI output to your manual version and keep the better of the two"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-ui-design",
+      "skill-curated-list",
+      "skill-inspiration",
+      "skill-frontend",
+      "skill-resources"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-12T23:23:08.913Z"
   }
 ]

@@ -116,7 +116,12 @@
       "toolcraft",
       "benchmarking-coding-agents-perform-on-scraping",
       "viaduct",
-      "building-specialized-systems-we-can-trust-with-agents"
+      "building-specialized-systems-we-can-trust-with-agents",
+      "simtower-decompiled-rewritten-and-in-the-browser",
+      "a-c-compiler-written-with-help-of-claude",
+      "dont-build-tools-for-ai-agents",
+      "cve-2026-42978-poc-research",
+      "awesome-rust-migrations"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -230,7 +235,12 @@
       "course-toolcraft",
       "course-benchmarking-coding-agents-perform-on-scraping",
       "course-viaduct",
-      "course-building-specialized-systems-we-can-trust-with-agents"
+      "course-building-specialized-systems-we-can-trust-with-agents",
+      "course-simtower-decompiled-rewritten-and-in-the-browser",
+      "course-a-c-compiler-written-with-help-of-claude",
+      "course-dont-build-tools-for-ai-agents",
+      "course-cve-2026-42978-poc-research",
+      "course-awesome-rust-migrations"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -353,7 +363,9 @@
       "open-source-simulation-testing-infra-for-voice-agents",
       "symphony",
       "toolcraft",
-      "dont-hit-send"
+      "dont-hit-send",
+      "open-sourced-solution-to-ai-manage-playwright-automations",
+      "a-c-compiler-written-with-help-of-claude"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -391,7 +403,9 @@
       "course-open-source-simulation-testing-infra-for-voice-agents",
       "course-symphony",
       "course-toolcraft",
-      "course-dont-hit-send"
+      "course-dont-hit-send",
+      "course-open-sourced-solution-to-ai-manage-playwright-automations",
+      "course-a-c-compiler-written-with-help-of-claude"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -431,7 +445,8 @@
       "listpro",
       "stitchwink",
       "ai-agent-for-animation",
-      "sharpniq"
+      "sharpniq",
+      "awesome-ui-design"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -464,7 +479,8 @@
       "course-listpro",
       "course-stitchwink",
       "course-ai-agent-for-animation",
-      "course-sharpniq"
+      "course-sharpniq",
+      "course-awesome-ui-design"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -693,7 +709,11 @@
       "the-worst-spam-emails-inside-ilands-ai-agent-hustle",
       "agentica",
       "anthropic-reveals-rogue-ai-agents-hate-captchas",
-      "aiope"
+      "aiope",
+      "open-sourced-solution-to-ai-manage-playwright-automations",
+      "scaling-classical-music-concert-crawlers-with-ai-agents",
+      "you-didnt-deploy-the-ai-agent-you-evaluated",
+      "fortnite-esp-soft-aim-2026-slowlow-team-visual-assist-tool"
     ],
     "courses": [
       "course-headless-tools",
@@ -844,7 +864,11 @@
       "course-the-worst-spam-emails-inside-ilands-ai-agent-hustle",
       "course-agentica",
       "course-anthropic-reveals-rogue-ai-agents-hate-captchas",
-      "course-aiope"
+      "course-aiope",
+      "course-open-sourced-solution-to-ai-manage-playwright-automations",
+      "course-scaling-classical-music-concert-crawlers-with-ai-agents",
+      "course-you-didnt-deploy-the-ai-agent-you-evaluated",
+      "course-fortnite-esp-soft-aim-2026-slowlow-team-visual-assist-tool"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -971,7 +995,10 @@
       "dearagent",
       "ai-refuge-contact-a-human",
       "agentica",
-      "anthropic-reveals-rogue-ai-agents-hate-captchas"
+      "anthropic-reveals-rogue-ai-agents-hate-captchas",
+      "dont-build-tools-for-ai-agents",
+      "scaling-classical-music-concert-crawlers-with-ai-agents",
+      "you-didnt-deploy-the-ai-agent-you-evaluated"
     ],
     "courses": [
       "course-headless-tools",
@@ -1078,7 +1105,10 @@
       "course-dearagent",
       "course-ai-refuge-contact-a-human",
       "course-agentica",
-      "course-anthropic-reveals-rogue-ai-agents-hate-captchas"
+      "course-anthropic-reveals-rogue-ai-agents-hate-captchas",
+      "course-dont-build-tools-for-ai-agents",
+      "course-scaling-classical-music-concert-crawlers-with-ai-agents",
+      "course-you-didnt-deploy-the-ai-agent-you-evaluated"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1336,11 +1366,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "edify",
-      "claude-codex-cursor-token-saver"
+      "claude-codex-cursor-token-saver",
+      "cve-2026-42978-poc-research"
     ],
     "courses": [
       "course-edify",
-      "course-claude-codex-cursor-token-saver"
+      "course-claude-codex-cursor-token-saver",
+      "course-cve-2026-42978-poc-research"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1590,7 +1622,9 @@
       "never-let-your-agent-choose-its-own-tool",
       "security-cards",
       "stroq",
-      "promptsign"
+      "promptsign",
+      "you-didnt-deploy-the-ai-agent-you-evaluated",
+      "cve-2026-42978-poc-research"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -1616,7 +1650,9 @@
       "course-never-let-your-agent-choose-its-own-tool",
       "course-security-cards",
       "course-stroq",
-      "course-promptsign"
+      "course-promptsign",
+      "course-you-didnt-deploy-the-ai-agent-you-evaluated",
+      "course-cve-2026-42978-poc-research"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1730,13 +1766,15 @@
       "coolplugz",
       "claude-skills-starter-kit",
       "claude2api",
-      "mdmanagerai"
+      "mdmanagerai",
+      "a-c-compiler-written-with-help-of-claude"
     ],
     "courses": [
       "course-coolplugz",
       "course-claude-skills-starter-kit",
       "course-claude2api",
-      "course-mdmanagerai"
+      "course-mdmanagerai",
+      "course-a-c-compiler-written-with-help-of-claude"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1903,11 +1941,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "hermes-agent",
-      "t3rnel-browser"
+      "t3rnel-browser",
+      "open-sourced-solution-to-ai-manage-playwright-automations"
     ],
     "courses": [
       "course-hermes-agent",
-      "course-t3rnel-browser"
+      "course-t3rnel-browser",
+      "course-open-sourced-solution-to-ai-manage-playwright-automations"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2031,7 +2071,8 @@
       "mc-dc-coverage-so-coding-agents-could-work-overnight",
       "flawd-is-mutation-testing-for-the-ai-era",
       "designing-tests-for-agentic-ai-tools",
-      "open-source-simulation-testing-infra-for-voice-agents"
+      "open-source-simulation-testing-infra-for-voice-agents",
+      "open-sourced-solution-to-ai-manage-playwright-automations"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -2043,7 +2084,8 @@
       "course-mc-dc-coverage-so-coding-agents-could-work-overnight",
       "course-flawd-is-mutation-testing-for-the-ai-era",
       "course-designing-tests-for-agentic-ai-tools",
-      "course-open-source-simulation-testing-infra-for-voice-agents"
+      "course-open-source-simulation-testing-infra-for-voice-agents",
+      "course-open-sourced-solution-to-ai-manage-playwright-automations"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2296,7 +2338,8 @@
       "designing-tests-for-agentic-ai-tools",
       "senator-hawley-opens-investigation-into-openai-huggingface-h",
       "reelbench-skills",
-      "the-rise-of-ai-slop-tools"
+      "the-rise-of-ai-slop-tools",
+      "nvidia-is-the-central-bank-of-ai"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2334,7 +2377,8 @@
       "course-designing-tests-for-agentic-ai-tools",
       "course-senator-hawley-opens-investigation-into-openai-huggingface-h",
       "course-reelbench-skills",
-      "course-the-rise-of-ai-slop-tools"
+      "course-the-rise-of-ai-slop-tools",
+      "course-nvidia-is-the-central-bank-of-ai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2703,13 +2747,15 @@
       "genbio-launches-a-virtual-biological-cell",
       "civitas",
       "will-your-money-last-ai-assisted-financial-simulator",
-      "open-source-simulation-testing-infra-for-voice-agents"
+      "open-source-simulation-testing-infra-for-voice-agents",
+      "simtower-decompiled-rewritten-and-in-the-browser"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
       "course-civitas",
       "course-will-your-money-last-ai-assisted-financial-simulator",
-      "course-open-source-simulation-testing-infra-for-voice-agents"
+      "course-open-source-simulation-testing-infra-for-voice-agents",
+      "course-simtower-decompiled-rewritten-and-in-the-browser"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3547,13 +3593,15 @@
       "we-run-stateful-ai-agents-on-a-serverless-infra",
       "backprompter",
       "static-hosting-a-coding-agent-can-drive-end-to-end",
-      "agentica"
+      "agentica",
+      "you-didnt-deploy-the-ai-agent-you-evaluated"
     ],
     "courses": [
       "course-we-run-stateful-ai-agents-on-a-serverless-infra",
       "course-backprompter",
       "course-static-hosting-a-coding-agent-can-drive-end-to-end",
-      "course-agentica"
+      "course-agentica",
+      "course-you-didnt-deploy-the-ai-agent-you-evaluated"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3930,10 +3978,12 @@
     "domain": "code",
     "level": "beginner",
     "toolsTeaching": [
-      "web-game-player-vs-computer"
+      "web-game-player-vs-computer",
+      "simtower-decompiled-rewritten-and-in-the-browser"
     ],
     "courses": [
-      "course-web-game-player-vs-computer"
+      "course-web-game-player-vs-computer",
+      "course-simtower-decompiled-rewritten-and-in-the-browser"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4750,7 +4800,8 @@
       "the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "autoresearchexam-measuring-agents-ability-to-improve-and-gen",
       "designing-tests-for-agentic-ai-tools",
-      "benchmarking-coding-agents-perform-on-scraping"
+      "benchmarking-coding-agents-perform-on-scraping",
+      "you-didnt-deploy-the-ai-agent-you-evaluated"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -4761,7 +4812,8 @@
       "course-the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen",
       "course-designing-tests-for-agentic-ai-tools",
-      "course-benchmarking-coding-agents-perform-on-scraping"
+      "course-benchmarking-coding-agents-perform-on-scraping",
+      "course-you-didnt-deploy-the-ai-agent-you-evaluated"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -4774,13 +4826,15 @@
       "understudy-scenario-testing-for-ai-agents",
       "observational-reconstruction-then-the-inverse-problem",
       "selfshipai",
-      "databricks-used-ai-to-save-1mi-year-in-ai-spend"
+      "databricks-used-ai-to-save-1mi-year-in-ai-spend",
+      "you-didnt-deploy-the-ai-agent-you-evaluated"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
       "course-observational-reconstruction-then-the-inverse-problem",
       "course-selfshipai",
-      "course-databricks-used-ai-to-save-1mi-year-in-ai-spend"
+      "course-databricks-used-ai-to-save-1mi-year-in-ai-spend",
+      "course-you-didnt-deploy-the-ai-agent-you-evaluated"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -7985,10 +8039,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "soulauth"
+      "soulauth",
+      "awesome-rust-migrations"
     ],
     "courses": [
-      "course-soulauth"
+      "course-soulauth",
+      "course-awesome-rust-migrations"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -8233,11 +8289,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "owasp-top-for-agentic-applications",
-      "never-let-your-agent-choose-its-own-tool"
+      "never-let-your-agent-choose-its-own-tool",
+      "dont-build-tools-for-ai-agents"
     ],
     "courses": [
       "course-owasp-top-for-agentic-applications",
-      "course-never-let-your-agent-choose-its-own-tool"
+      "course-never-let-your-agent-choose-its-own-tool",
+      "course-dont-build-tools-for-ai-agents"
     ],
     "updatedAt": "2026-09-02T23:33:29.474Z"
   },
@@ -9577,14 +9635,16 @@
       "rubato",
       "phntm-one-i-built-a-local-ai-desk-assistant",
       "logitech-launches-mx-keypad-for-developers",
-      "lapis-one"
+      "lapis-one",
+      "nvidia-is-the-central-bank-of-ai"
     ],
     "courses": [
       "course-open-source-eink-bike-computer",
       "course-rubato",
       "course-phntm-one-i-built-a-local-ai-desk-assistant",
       "course-logitech-launches-mx-keypad-for-developers",
-      "course-lapis-one"
+      "course-lapis-one",
+      "course-nvidia-is-the-central-bank-of-ai"
     ],
     "updatedAt": "2026-09-04T23:20:31.711Z"
   },
@@ -10278,10 +10338,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "nimvarya"
+      "nimvarya",
+      "open-sourced-solution-to-ai-manage-playwright-automations"
     ],
     "courses": [
-      "course-nimvarya"
+      "course-nimvarya",
+      "course-open-sourced-solution-to-ai-manage-playwright-automations"
     ],
     "updatedAt": "2026-09-06T12:54:08.108Z"
   },
@@ -13858,5 +13920,371 @@
       "course-building-specialized-systems-we-can-trust-with-agents"
     ],
     "updatedAt": "2026-09-12T12:53:23.830Z"
+  },
+  {
+    "id": "skill-playwright",
+    "name": "playwright",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "open-sourced-solution-to-ai-manage-playwright-automations"
+    ],
+    "courses": [
+      "course-open-sourced-solution-to-ai-manage-playwright-automations"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-simtower",
+    "name": "simtower",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "simtower-decompiled-rewritten-and-in-the-browser"
+    ],
+    "courses": [
+      "course-simtower-decompiled-rewritten-and-in-the-browser"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-decompilation",
+    "name": "decompilation",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "simtower-decompiled-rewritten-and-in-the-browser"
+    ],
+    "courses": [
+      "course-simtower-decompiled-rewritten-and-in-the-browser"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-retro-gaming",
+    "name": "retro gaming",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "simtower-decompiled-rewritten-and-in-the-browser"
+    ],
+    "courses": [
+      "course-simtower-decompiled-rewritten-and-in-the-browser"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-compiler",
+    "name": "compiler",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "a-c-compiler-written-with-help-of-claude"
+    ],
+    "courses": [
+      "course-a-c-compiler-written-with-help-of-claude"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-c",
+    "name": "c",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "a-c-compiler-written-with-help-of-claude"
+    ],
+    "courses": [
+      "course-a-c-compiler-written-with-help-of-claude"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-ai-assisted",
+    "name": "ai assisted",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "a-c-compiler-written-with-help-of-claude"
+    ],
+    "courses": [
+      "course-a-c-compiler-written-with-help-of-claude"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-nvidia",
+    "name": "nvidia",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "nvidia-is-the-central-bank-of-ai"
+    ],
+    "courses": [
+      "course-nvidia-is-the-central-bank-of-ai"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-ai chips",
+    "name": "ai chips",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "nvidia-is-the-central-bank-of-ai"
+    ],
+    "courses": [
+      "course-nvidia-is-the-central-bank-of-ai"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-industry analysis",
+    "name": "industry analysis",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "nvidia-is-the-central-bank-of-ai"
+    ],
+    "courses": [
+      "course-nvidia-is-the-central-bank-of-ai"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-ai economy",
+    "name": "ai economy",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "nvidia-is-the-central-bank-of-ai"
+    ],
+    "courses": [
+      "course-nvidia-is-the-central-bank-of-ai"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-tool design",
+    "name": "tool design",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "dont-build-tools-for-ai-agents"
+    ],
+    "courses": [
+      "course-dont-build-tools-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-software engineering",
+    "name": "software engineering",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "dont-build-tools-for-ai-agents"
+    ],
+    "courses": [
+      "course-dont-build-tools-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-opinion essay",
+    "name": "opinion essay",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "dont-build-tools-for-ai-agents"
+    ],
+    "courses": [
+      "course-dont-build-tools-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-web crawling",
+    "name": "web crawling",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "scaling-classical-music-concert-crawlers-with-ai-agents"
+    ],
+    "courses": [
+      "course-scaling-classical-music-concert-crawlers-with-ai-agents"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-classical music",
+    "name": "classical music",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "scaling-classical-music-concert-crawlers-with-ai-agents"
+    ],
+    "courses": [
+      "course-scaling-classical-music-concert-crawlers-with-ai-agents"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-scraping",
+    "name": "scraping",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "scaling-classical-music-concert-crawlers-with-ai-agents"
+    ],
+    "courses": [
+      "course-scaling-classical-music-concert-crawlers-with-ai-agents"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-cve",
+    "name": "cve",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "cve-2026-42978-poc-research"
+    ],
+    "courses": [
+      "course-cve-2026-42978-poc-research"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-poc",
+    "name": "poc",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "cve-2026-42978-poc-research"
+    ],
+    "courses": [
+      "course-cve-2026-42978-poc-research"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-vulnerability-scanner",
+    "name": "vulnerability scanner",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "cve-2026-42978-poc-research"
+    ],
+    "courses": [
+      "course-cve-2026-42978-poc-research"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-migration",
+    "name": "migration",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "awesome-rust-migrations"
+    ],
+    "courses": [
+      "course-awesome-rust-migrations"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-memory-safety",
+    "name": "memory safety",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "awesome-rust-migrations"
+    ],
+    "courses": [
+      "course-awesome-rust-migrations"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-legacy-code",
+    "name": "legacy code",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "awesome-rust-migrations"
+    ],
+    "courses": [
+      "course-awesome-rust-migrations"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-curated-list",
+    "name": "curated list",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "awesome-rust-migrations",
+      "awesome-ui-design"
+    ],
+    "courses": [
+      "course-awesome-rust-migrations",
+      "course-awesome-ui-design"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-ui-design",
+    "name": "ui design",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "awesome-ui-design"
+    ],
+    "courses": [
+      "course-awesome-ui-design"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-inspiration",
+    "name": "inspiration",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "awesome-ui-design"
+    ],
+    "courses": [
+      "course-awesome-ui-design"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-frontend",
+    "name": "frontend",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "awesome-ui-design"
+    ],
+    "courses": [
+      "course-awesome-ui-design"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-resources",
+    "name": "resources",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "awesome-ui-design"
+    ],
+    "courses": [
+      "course-awesome-ui-design"
+    ],
+    "updatedAt": "2026-09-12T23:23:08.913Z"
   }
 ]
