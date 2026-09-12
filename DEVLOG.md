@@ -9,6 +9,68 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-12
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h
+window, most recent 2026-09-12 12:53 UTC publishing 9 tools, feed holds 359
+tools. Healthy and growing.
+
+**Researched today:** four runs before this one. 00:19 UTC logged today's
+feature pick directly — `Compare.jsx` already renders a full side-by-side
+table off nothing but a `?tools=` query string and needs no session, but
+lived behind `AppShell`'s auth guard with zero public door to it. 03:18 UTC
+tied the still-open Collections gap to a concrete unmet promise on the
+pricing page (`capabilityMatrix.js` sells "workflow templates" as live on
+Free while marking that row `planned`). 06:29 UTC corrected a stale
+exclusion note on the Alternatives-page gap now that `stamp-sitemap.mjs`
+exists. 09:18 UTC caught and fixed a real bug outside the backlog process:
+`Legal.jsx` told visitors GA4 analytics was off while the live bundle
+showed it actively firing — fixed same-run (`5213178`), with the real
+follow-up (a cookie-consent gate, a behavior change rather than a copy
+fix) correctly left as its own OPEN item rather than bundled in. Note: PR
+#44 tried to promote that follow-up into its own top-level backlog entry
+but was never merged — the substance already lives as a follow-up note on
+the GA4 entry below, so nothing is lost, but that PR is stale and can be
+closed.
+
+**Shipped:** public comparison pages —
+[`cba2691`](https://github.com/saikiranreddy18/toolnaut/commit/cba2691).
+Picked over Collections (needs a new curation format, bigger than one run)
+and the Alternatives gap (needs new matching logic) because this one
+needed neither: `Compare.jsx`'s entire table already renders off a plain
+slug list with no session dependency, so the whole build was a rendering
+fork behind a new public route. Added `PublicCompare.jsx` at
+`/compare/:slugs`, reusing `shareStack.js`'s slug encode/decode as-is and
+`SharedStack.jsx`'s public-page shell (`useHead`, `ItemList` JSON-LD,
+silent-drop-unknown-slugs). `Compare.jsx` gained a "Copy public link"
+action next to Back to Find, mirroring `Stack.jsx`'s existing share
+button. `scripts/smoke.mjs` and `public/sitemap.xml` (six hand-picked
+pairs: chatgpt/claude/gemini/perplexity, notion-ai/jasper,
+cursor/github-copilot) both updated. No scoring, no "winner" verdict, no
+stack-adoption action — matches the entry's own scope.
+
+**Live on toolnaut.xyz** now that it's on master — pure client-side
+addition, no new dependency, no new store. `npm test` (252/252), `npm run
+build` (17/17 routes prerendered, three.js stays in its own chunk), and
+`npm run smoke` (23/23 routes including the new `/compare/chatgpt,claude`,
+0 console errors) all green before push.
+
+**Queued next:** Collections (curated multi-tool bundles, now tied to a
+real pricing-page promise) and per-tool Alternatives pages are the two
+biggest well-specced OPEN gaps. Smaller and build-ready: cookie-consent
+gate for GA4, first-session onboarding checklist, ratings & reviews,
+suggest-a-tool, PDF roadmap export, recently-viewed tools, command
+palette, Discover facet counts, tool graveyard page, "Featured on
+Toolnaut" badge, RSS feed of new tools, access-method facet, stack cost
+estimate, stack overlap warning, Fresh Finds visit-history
+personalization, weekly trending tools, leaderboard-goes-real. Also
+worth a look: 13 open PRs sitting unmerged on this repo (several going
+back to late August), including the old `/vs/:slugA,:slugB` version of
+today's shipped gap (#40) which today's direct-to-master ship makes
+redundant.
+
+---
+
 ## 2026-09-11
 
 **Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h,

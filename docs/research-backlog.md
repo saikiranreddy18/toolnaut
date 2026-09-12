@@ -5131,7 +5131,13 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### Compare already works entirely off a URL, but it's the one such feature that isn't public
-- **Status:** OPEN
+- **Status:** SHIPPED cba2691 — built as scoped below: `PublicCompare.jsx` at
+  `/compare/:slugs`, reusing `shareStack.js`'s existing encode/decode (no new
+  util) and `SharedStack.jsx`'s public-page shell. `Compare.jsx` gained a
+  "Copy public link" action. Added `/compare/chatgpt,claude` to
+  `scripts/smoke.mjs` and six hand-picked pairs to `public/sitemap.xml`. No
+  scoring/verdict, no stack-adoption action, no dynamic sitemap generation —
+  exactly the exclusions this entry scoped in advance.
 - **Seen in:** StackShare's public "stackups" (`stackshare.io/stackups/<a>-vs-<b>`,
   cited already in this file's shipped Share/Export gap for a different
   reason) are permanent, crawlable, head-to-head pages — the same mechanism
