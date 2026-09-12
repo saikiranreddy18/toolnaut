@@ -12,15 +12,18 @@ import Wordmark from '../components/ui/Wordmark'
 // "worked" while actually rendering the landing page to anyone who clicked them.
 //
 // Written from what the app verifiably does, not from a template. Every claim
-// below was checked against the code: the localStorage keys are the real ones,
-// analytics genuinely is not collecting (no measurement ID is configured), and
-// the only third parties that receive anything are the three named.
+// below was checked against the code and, for analytics, the live production
+// bundle: VITE_GA4_ID is set (src/utils/analyticsEvents.js:67), so GA4 is
+// actually loading and firing events — this page previously said the
+// opposite because it was written before that env var got configured, and
+// nothing came back to update it. Re-check against the deployed bundle
+// before trusting this comment, not just the source.
 //
 // NOT LEGAL ADVICE. This is an honest description of the product's behaviour,
 // which is the part a template gets wrong. Have someone qualified read it before
 // relying on it commercially.
 
-const UPDATED = '27 August 2026'
+const UPDATED = '12 September 2026'
 
 function Section({ title, children }) {
   return (
@@ -84,23 +87,30 @@ function Privacy() {
           <strong className="text-white">Vercel</strong> — hosts the site and, like any web
           host, processes standard request logs including IP address.
         </p>
+        <p>
+          <strong className="text-white">Google Analytics (GA4)</strong> — product-usage
+          analytics. Receives anonymous events such as which pages and sections you view,
+          buttons you click, and product milestones like completing the quiz or starting a
+          trial. It does not receive your name, email, account id or anything you typed in
+          the quiz, and GA4 does not log your full IP address.
+        </p>
       </Section>
 
       <Section title="Analytics">
         <p>
-          The app contains analytics code, but{' '}
-          <strong className="text-white">it is not currently collecting anything</strong> —
-          no measurement ID is configured, so no events are sent and no analytics cookies
-          are set. If that changes we will update this page and say so plainly rather than
-          quietly switching it on.
+          <strong className="text-white">Analytics is active.</strong> We use Google
+          Analytics to see aggregate product usage — which pages get used, where people
+          drop off, whether a feature gets touched at all. It is not tied to your name,
+          email or account, and it never sees anything you typed in the quiz. If it is ever
+          turned off again, we will update this page and say so.
         </p>
       </Section>
 
       <Section title="Cookies">
         <p>
-          No advertising or tracking cookies. Signing in sets a session token so you stay
-          signed in; that is the only cookie-like storage that is not a preference you set
-          yourself.
+          No advertising cookies. Google Analytics sets its own first-party cookies to
+          recognise repeat visits, and signing in sets a session token so you stay signed
+          in. Neither is used to advertise to you, and neither is sold to anyone.
         </p>
       </Section>
 

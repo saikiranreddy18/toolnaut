@@ -5234,4 +5234,66 @@ a client-side SPA with a static tool catalogue.
   backend, no new dependency, no new store, no new matching or scoring
   logic — every data field the table needs is already read by the
   authenticated page today.
+
+### Privacy policy claimed analytics was off while GA4 was live in production
+- **Status:** FIXED (this commit) — small demonstrable bug in a legal
+  document, fixed in this run rather than logged as OPEN; entry kept for the
+  record per this backlog's own audit trail.
+- **Seen in:** not a competitor pattern — found continuing this backlog's own
+  "does the copy match the code" sweep, this time pointed at `Legal.jsx`
+  (`/privacy`, `/terms`), which had never been checked before. Its own header
+  comment claims every line was verified against the code, which made it the
+  obvious next thing to re-verify against the *deployed* app rather than just
+  the source.
+- **Gap:** `Legal.jsx`'s Analytics section said, in bold: "it is not
+  currently collecting anything — no measurement ID is configured, so no
+  events are sent." `src/utils/analyticsEvents.js:67` reads `VITE_GA4_ID`
+  from the environment, and `.env.example` documents it as a real, supported
+  variable — so whether the claim is true depends on Vercel's production env,
+  not on anything visible in the repo. Fetched the live bundle
+  (`curl https://toolnaut.xyz/`, then the `index-*.js` chunk it references)
+  and grepped for `googletagmanager`: the minified `ec="G-Y9EF7PD5SW"` is
+  sitting right next to the `gtag/js?id=` call, unconditionally — meaning
+  Google Analytics is not only configured, it is actively loading and firing
+  the full event set in `EVENTS` (page views, section views, CTA clicks, quiz
+  progress, funnel/activation events, checkout/subscription lifecycle) on
+  every real visitor today. The privacy policy was last updated 27 August;
+  someone set `VITE_GA4_ID` in Vercel after that without coming back to flip
+  this section — exactly the "quietly switching it on" scenario the same
+  paragraph promised wouldn't happen.
+- **Why it matters:** every other gap this file has found is a marketing
+  page overselling a feature. This one is a **privacy policy** telling
+  visitors a specific, checkable claim about data collection that is false on
+  the live site — the one page whose entire job is to be accurate, and the
+  one place a false claim carries actual legal/compliance exposure (GDPR/CCPA
+  disclosure obligations), not just a bad look. Also checked whether the same
+  thing happened to Sentry (`VITE_SENTRY_DSN`, also read at build time,
+  `.env.example`'s other analytics-adjacent knob): grepped the live bundle for
+  `ingest.*sentry.io` and found nothing, so error reporting really is inert as
+  documented — this is specifically a GA4-only miss, not a systemic one.
+- **Fix shipped this run:** `Legal.jsx`'s Analytics section now says
+  analytics is active and names what GA4 actually collects (page/section
+  views, clicks, quiz and funnel milestones) versus what it doesn't (name,
+  email, account id, anything typed in the quiz; GA4 doesn't log full IPs).
+  Added a fourth named entry to "Third parties" for Google Analytics,
+  matching the existing Supabase/Featherless/Vercel entries' format. Updated
+  "Cookies" to acknowledge GA4's first-party measurement cookies instead of
+  claiming zero tracking cookies exist. Updated the file's own top-of-file
+  comment, which is what caused this in the first place, to say the analytics
+  claim must be re-checked against the live bundle (not just the source) since
+  the on/off state lives in Vercel env config no repo diff would ever show.
+  Bumped "Last updated" to today. Text-only change to one file, no new
+  dependency, no behavior change to analytics itself — this documents what is
+  already happening, it does not add or remove tracking.
+- **What this would NOT include:** no consent banner, no gating GA4 behind
+  opt-in, no changing whether analytics runs at all — that is a real product/
+  legal decision (whether EU visitors need a cookie-consent gate before GA4's
+  measurement cookies are allowed to fire) that deserves its own deliberate
+  gap and build, not a same-run bundled decision. Logging it here as a
+  follow-up: **OPEN — cookie-consent gate for GA4**, build size M (a small
+  consent banner component, a localStorage-backed choice, and wrapping
+  `initAnalytics()`'s call site in `main.jsx` behind it), not attempted in
+  this run because it changes real behavior (whether events fire) rather than
+  just correcting a description of behavior that already exists.
+- **Found & fixed:** 2026-09-12 09:00 UTC
 - **Found:** 2026-09-12 00:20 UTC
