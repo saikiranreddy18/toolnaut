@@ -121,7 +121,10 @@
       "a-c-compiler-written-with-help-of-claude",
       "dont-build-tools-for-ai-agents",
       "cve-2026-42978-poc-research",
-      "awesome-rust-migrations"
+      "awesome-rust-migrations",
+      "astah-pro-mcp",
+      "agentsdock-an-ide-designed-for-agentic-ai-research",
+      "ai-security-tool"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -240,7 +243,10 @@
       "course-a-c-compiler-written-with-help-of-claude",
       "course-dont-build-tools-for-ai-agents",
       "course-cve-2026-42978-poc-research",
-      "course-awesome-rust-migrations"
+      "course-awesome-rust-migrations",
+      "course-astah-pro-mcp",
+      "course-agentsdock-an-ide-designed-for-agentic-ai-research",
+      "course-ai-security-tool"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -713,7 +719,11 @@
       "open-sourced-solution-to-ai-manage-playwright-automations",
       "scaling-classical-music-concert-crawlers-with-ai-agents",
       "you-didnt-deploy-the-ai-agent-you-evaluated",
-      "fortnite-esp-soft-aim-2026-slowlow-team-visual-assist-tool"
+      "fortnite-esp-soft-aim-2026-slowlow-team-visual-assist-tool",
+      "meshdrive-and-local-ai-agent-for-fs",
+      "402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
+      "indias-first-ai-agentic-e-commerce-platform",
+      "grove"
     ],
     "courses": [
       "course-headless-tools",
@@ -868,7 +878,11 @@
       "course-open-sourced-solution-to-ai-manage-playwright-automations",
       "course-scaling-classical-music-concert-crawlers-with-ai-agents",
       "course-you-didnt-deploy-the-ai-agent-you-evaluated",
-      "course-fortnite-esp-soft-aim-2026-slowlow-team-visual-assist-tool"
+      "course-fortnite-esp-soft-aim-2026-slowlow-team-visual-assist-tool",
+      "course-meshdrive-and-local-ai-agent-for-fs",
+      "course-402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
+      "course-indias-first-ai-agentic-e-commerce-platform",
+      "course-grove"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -998,7 +1012,10 @@
       "anthropic-reveals-rogue-ai-agents-hate-captchas",
       "dont-build-tools-for-ai-agents",
       "scaling-classical-music-concert-crawlers-with-ai-agents",
-      "you-didnt-deploy-the-ai-agent-you-evaluated"
+      "you-didnt-deploy-the-ai-agent-you-evaluated",
+      "402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
+      "indias-first-ai-agentic-e-commerce-platform",
+      "agentsdock-an-ide-designed-for-agentic-ai-research"
     ],
     "courses": [
       "course-headless-tools",
@@ -1108,7 +1125,10 @@
       "course-anthropic-reveals-rogue-ai-agents-hate-captchas",
       "course-dont-build-tools-for-ai-agents",
       "course-scaling-classical-music-concert-crawlers-with-ai-agents",
-      "course-you-didnt-deploy-the-ai-agent-you-evaluated"
+      "course-you-didnt-deploy-the-ai-agent-you-evaluated",
+      "course-402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
+      "course-indias-first-ai-agentic-e-commerce-platform",
+      "course-agentsdock-an-ide-designed-for-agentic-ai-research"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1288,7 +1308,8 @@
       "starwell",
       "bitroad",
       "swiftime",
-      "ai-refuge-contact-a-human"
+      "ai-refuge-contact-a-human",
+      "402cron-pay-per-delivery-cron-scheduling-for-ai-agents"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1301,7 +1322,8 @@
       "course-starwell",
       "course-bitroad",
       "course-swiftime",
-      "course-ai-refuge-contact-a-human"
+      "course-ai-refuge-contact-a-human",
+      "course-402cron-pay-per-delivery-cron-scheduling-for-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1624,7 +1646,8 @@
       "stroq",
       "promptsign",
       "you-didnt-deploy-the-ai-agent-you-evaluated",
-      "cve-2026-42978-poc-research"
+      "cve-2026-42978-poc-research",
+      "ai-security-tool"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -1652,7 +1675,8 @@
       "course-stroq",
       "course-promptsign",
       "course-you-didnt-deploy-the-ai-agent-you-evaluated",
-      "course-cve-2026-42978-poc-research"
+      "course-cve-2026-42978-poc-research",
+      "course-ai-security-tool"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1802,7 +1826,9 @@
       "coletivo",
       "google-seo-mcp",
       "usero-mcp-give-your-coding-agent-your-user-feedback",
-      "aiope"
+      "aiope",
+      "astah-pro-mcp",
+      "grove"
     ],
     "courses": [
       "course-coolplugz",
@@ -1823,7 +1849,9 @@
       "course-coletivo",
       "course-google-seo-mcp",
       "course-usero-mcp-give-your-coding-agent-your-user-feedback",
-      "course-aiope"
+      "course-aiope",
+      "course-astah-pro-mcp",
+      "course-grove"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2538,7 +2566,8 @@
       "charter",
       "reelbench-skills",
       "minimal-static-website-hosting-tool",
-      "dearagent"
+      "dearagent",
+      "meshdrive-and-local-ai-agent-for-fs"
     ],
     "courses": [
       "course-limitless-library",
@@ -2574,7 +2603,8 @@
       "course-charter",
       "course-reelbench-skills",
       "course-minimal-static-website-hosting-tool",
-      "course-dearagent"
+      "course-dearagent",
+      "course-meshdrive-and-local-ai-agent-for-fs"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2866,10 +2896,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "aristra-your-life-os"
+      "aristra-your-life-os",
+      "astah-pro-mcp"
     ],
     "courses": [
-      "course-aristra-your-life-os"
+      "course-aristra-your-life-os",
+      "course-astah-pro-mcp"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3103,12 +3135,14 @@
     "toolsTeaching": [
       "aifi-on-aws",
       "mu",
-      "datalume"
+      "datalume",
+      "meshdrive-and-local-ai-agent-for-fs"
     ],
     "courses": [
       "course-aifi-on-aws",
       "course-mu",
-      "course-datalume"
+      "course-datalume",
+      "course-meshdrive-and-local-ai-agent-for-fs"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3457,7 +3491,8 @@
       "open-source-simulation-testing-infra-for-voice-agents",
       "cli-tools",
       "provetogether-moltbook-but-for-math",
-      "the-worst-spam-emails-inside-ilands-ai-agent-hustle"
+      "the-worst-spam-emails-inside-ilands-ai-agent-hustle",
+      "ai-security-tool"
     ],
     "courses": [
       "course-placeroot",
@@ -3476,7 +3511,8 @@
       "course-open-source-simulation-testing-infra-for-voice-agents",
       "course-cli-tools",
       "course-provetogether-moltbook-but-for-math",
-      "course-the-worst-spam-emails-inside-ilands-ai-agent-hustle"
+      "course-the-worst-spam-emails-inside-ilands-ai-agent-hustle",
+      "course-ai-security-tool"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4393,13 +4429,15 @@
       "ta",
       "darwin-vm",
       "cli-tools",
-      "noodle-computer"
+      "noodle-computer",
+      "grove"
     ],
     "courses": [
       "course-ta",
       "course-darwin-vm",
       "course-cli-tools",
-      "course-noodle-computer"
+      "course-noodle-computer",
+      "course-grove"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4869,7 +4907,8 @@
       "hyper-bench-evaluating-agents-that-build-agents",
       "autoresearchexam-measuring-agents-ability-to-improve-and-gen",
       "anthropic-reveals-rogue-ai-agents-hate-captchas",
-      "building-specialized-systems-we-can-trust-with-agents"
+      "building-specialized-systems-we-can-trust-with-agents",
+      "agentsdock-an-ide-designed-for-agentic-ai-research"
     ],
     "courses": [
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
@@ -4884,7 +4923,8 @@
       "course-hyper-bench-evaluating-agents-that-build-agents",
       "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen",
       "course-anthropic-reveals-rogue-ai-agents-hate-captchas",
-      "course-building-specialized-systems-we-can-trust-with-agents"
+      "course-building-specialized-systems-we-can-trust-with-agents",
+      "course-agentsdock-an-ide-designed-for-agentic-ai-research"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5304,14 +5344,16 @@
       "owasp-top-for-agentic-applications",
       "scaling-agentic-ai-pilots-across-the-enterprise",
       "making-your-data-ready-for-agentic-ai",
-      "designing-tests-for-agentic-ai-tools"
+      "designing-tests-for-agentic-ai-tools",
+      "agentsdock-an-ide-designed-for-agentic-ai-research"
     ],
     "courses": [
       "course-why-agentic-ai-needs-a-strong-identity-foundation",
       "course-owasp-top-for-agentic-applications",
       "course-scaling-agentic-ai-pilots-across-the-enterprise",
       "course-making-your-data-ready-for-agentic-ai",
-      "course-designing-tests-for-agentic-ai-tools"
+      "course-designing-tests-for-agentic-ai-tools",
+      "course-agentsdock-an-ide-designed-for-agentic-ai-research"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -7092,11 +7134,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "calprep",
-      "bee"
+      "bee",
+      "402cron-pay-per-delivery-cron-scheduling-for-ai-agents"
     ],
     "courses": [
       "course-calprep",
-      "course-bee"
+      "course-bee",
+      "course-402cron-pay-per-delivery-cron-scheduling-for-ai-agents"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -7876,12 +7920,14 @@
     "toolsTeaching": [
       "local-ai-assistants-can-be-user-friendly-too",
       "sageling",
-      "phntm-one-i-built-a-local-ai-desk-assistant"
+      "phntm-one-i-built-a-local-ai-desk-assistant",
+      "meshdrive-and-local-ai-agent-for-fs"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
       "course-sageling",
-      "course-phntm-one-i-built-a-local-ai-desk-assistant"
+      "course-phntm-one-i-built-a-local-ai-desk-assistant",
+      "course-meshdrive-and-local-ai-agent-for-fs"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -10723,10 +10769,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "automatically-save-60-on-amazon"
+      "automatically-save-60-on-amazon",
+      "indias-first-ai-agentic-e-commerce-platform"
     ],
     "courses": [
-      "course-automatically-save-60-on-amazon"
+      "course-automatically-save-60-on-amazon",
+      "course-indias-first-ai-agentic-e-commerce-platform"
     ],
     "updatedAt": "2026-09-06T23:10:17.799Z"
   },
@@ -11322,10 +11370,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "catenary"
+      "catenary",
+      "agentsdock-an-ide-designed-for-agentic-ai-research"
     ],
     "courses": [
-      "course-catenary"
+      "course-catenary",
+      "course-agentsdock-an-ide-designed-for-agentic-ai-research"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -14174,10 +14224,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "cve-2026-42978-poc-research"
+      "cve-2026-42978-poc-research",
+      "ai-security-tool"
     ],
     "courses": [
-      "course-cve-2026-42978-poc-research"
+      "course-cve-2026-42978-poc-research",
+      "course-ai-security-tool"
     ],
     "updatedAt": "2026-09-12T23:23:08.913Z"
   },
@@ -14286,5 +14338,161 @@
       "course-awesome-ui-design"
     ],
     "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "skill-uml",
+    "name": "uml",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "astah-pro-mcp"
+    ],
+    "courses": [
+      "course-astah-pro-mcp"
+    ],
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "skill-modeling",
+    "name": "modeling",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "astah-pro-mcp"
+    ],
+    "courses": [
+      "course-astah-pro-mcp"
+    ],
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "skill-diagrams",
+    "name": "diagrams",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "astah-pro-mcp"
+    ],
+    "courses": [
+      "course-astah-pro-mcp"
+    ],
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "skill-file system",
+    "name": "file system",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "meshdrive-and-local-ai-agent-for-fs"
+    ],
+    "courses": [
+      "course-meshdrive-and-local-ai-agent-for-fs"
+    ],
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "skill-cron",
+    "name": "cron",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "402cron-pay-per-delivery-cron-scheduling-for-ai-agents"
+    ],
+    "courses": [
+      "course-402cron-pay-per-delivery-cron-scheduling-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "skill-e-commerce",
+    "name": "e commerce",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "indias-first-ai-agentic-e-commerce-platform"
+    ],
+    "courses": [
+      "course-indias-first-ai-agentic-e-commerce-platform"
+    ],
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "skill-india",
+    "name": "india",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "indias-first-ai-agentic-e-commerce-platform"
+    ],
+    "courses": [
+      "course-indias-first-ai-agentic-e-commerce-platform"
+    ],
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "skill-development",
+    "name": "development",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "agentsdock-an-ide-designed-for-agentic-ai-research"
+    ],
+    "courses": [
+      "course-agentsdock-an-ide-designed-for-agentic-ai-research"
+    ],
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "skill-devsecops",
+    "name": "devsecops",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-security-tool"
+    ],
+    "courses": [
+      "course-ai-security-tool"
+    ],
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "skill-ctf",
+    "name": "ctf",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-security-tool"
+    ],
+    "courses": [
+      "course-ai-security-tool"
+    ],
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "skill-apple apps",
+    "name": "apple apps",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "grove"
+    ],
+    "courses": [
+      "course-grove"
+    ],
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "skill-ai assistants",
+    "name": "ai assistants",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "grove"
+    ],
+    "courses": [
+      "course-grove"
+    ],
+    "updatedAt": "2026-09-13T13:49:13.602Z"
   }
 ]

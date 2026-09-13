@@ -19085,5 +19085,344 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-09-12T23:23:08.913Z"
+  },
+  {
+    "id": "course-astah-pro-mcp",
+    "toolSlug": "astah-pro-mcp",
+    "title": "Master Astah Pro MCP",
+    "objectives": [
+      "Understand what Astah Pro MCP is for",
+      "Use Astah Pro MCP on a real task",
+      "Know where Astah Pro MCP fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Astah Pro MCP for your real workflow, not the demo.",
+          "Say what Astah Pro MCP does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Astah Pro MCP.",
+          "Push Astah Pro MCP to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Astah Pro MCP into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-mcp",
+      "skill-uml",
+      "skill-modeling",
+      "skill-diagrams",
+      "skill-ai-assistant"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "course-meshdrive-and-local-ai-agent-for-fs",
+    "toolSlug": "meshdrive-and-local-ai-agent-for-fs",
+    "title": "Master MeshDrive and Local AI Agent for FS",
+    "objectives": [
+      "Understand what MeshDrive and Local AI Agent for FS is for",
+      "Use MeshDrive and Local AI Agent for FS on a real task",
+      "Know where MeshDrive and Local AI Agent for FS fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure MeshDrive and Local AI Agent for FS for your real workflow, not the demo.",
+          "Say what MeshDrive and Local AI Agent for FS does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through MeshDrive and Local AI Agent for FS.",
+          "Push MeshDrive and Local AI Agent for FS to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold MeshDrive and Local AI Agent for FS into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-local ai",
+      "skill-file system",
+      "skill-agent",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "course-402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
+    "toolSlug": "402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
+    "title": "Master 402cron: Pay-per-delivery cron scheduling for AI agents",
+    "objectives": [
+      "Understand what 402cron: Pay-per-delivery cron scheduling for AI agents is for",
+      "Use 402cron: Pay-per-delivery cron scheduling for AI agents on a real task",
+      "Know where 402cron: Pay-per-delivery cron scheduling for AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure 402cron: Pay-per-delivery cron scheduling for AI agents for your real workflow, not the demo.",
+          "Say what 402cron: Pay-per-delivery cron scheduling for AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through 402cron: Pay-per-delivery cron scheduling for AI agents.",
+          "Push 402cron: Pay-per-delivery cron scheduling for AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold 402cron: Pay-per-delivery cron scheduling for AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-cron",
+      "skill-scheduling",
+      "skill-api"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "course-indias-first-ai-agentic-e-commerce-platform",
+    "toolSlug": "indias-first-ai-agentic-e-commerce-platform",
+    "title": "Master India's First AI Agentic E-Commerce Platform",
+    "objectives": [
+      "Understand what India's First AI Agentic E-Commerce Platform is for",
+      "Use India's First AI Agentic E-Commerce Platform on a real task",
+      "Know where India's First AI Agentic E-Commerce Platform fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure India's First AI Agentic E-Commerce Platform for your real workflow, not the demo.",
+          "Say what India's First AI Agentic E-Commerce Platform does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through India's First AI Agentic E-Commerce Platform.",
+          "Push India's First AI Agentic E-Commerce Platform to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold India's First AI Agentic E-Commerce Platform into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-e-commerce",
+      "skill-ai agents",
+      "skill-india",
+      "skill-shopping"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "course-agentsdock-an-ide-designed-for-agentic-ai-research",
+    "toolSlug": "agentsdock-an-ide-designed-for-agentic-ai-research",
+    "title": "Master AgentsDock: An IDE designed for agentic AI research",
+    "objectives": [
+      "Understand what AgentsDock: An IDE designed for agentic AI research is for",
+      "Use AgentsDock: An IDE designed for agentic AI research on a real task",
+      "Know where AgentsDock: An IDE designed for agentic AI research fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AgentsDock: An IDE designed for agentic AI research for your real workflow, not the demo.",
+          "Say what AgentsDock: An IDE designed for agentic AI research does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AgentsDock: An IDE designed for agentic AI research.",
+          "Push AgentsDock: An IDE designed for agentic AI research to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AgentsDock: An IDE designed for agentic AI research into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ide",
+      "skill-ai agents",
+      "skill-agentic ai",
+      "skill-research",
+      "skill-development"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "course-ai-security-tool",
+    "toolSlug": "ai-security-tool",
+    "title": "Master ai-security-tool",
+    "objectives": [
+      "Understand what ai-security-tool is for",
+      "Use ai-security-tool on a real task",
+      "Know where ai-security-tool fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure ai-security-tool for your real workflow, not the demo.",
+          "Say what ai-security-tool does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through ai-security-tool.",
+          "Push ai-security-tool to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold ai-security-tool into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-security",
+      "skill-vulnerability-scanner",
+      "skill-devsecops",
+      "skill-ctf",
+      "skill-ai-agents"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "course-grove",
+    "toolSlug": "grove",
+    "title": "Master grove",
+    "objectives": [
+      "Understand what grove is for",
+      "Use grove on a real task",
+      "Know where grove fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure grove for your real workflow, not the demo.",
+          "Say what grove does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through grove.",
+          "Push grove to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold grove into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-mcp",
+      "skill-macos",
+      "skill-apple apps",
+      "skill-ai assistants"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-13T13:49:13.602Z"
   }
 ]
