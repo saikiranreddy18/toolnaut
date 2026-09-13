@@ -35,6 +35,7 @@ const NewTools = lazy(() => import('./pages/NewTools'))
 const Support = lazy(() => import('./pages/Support'))
 const SearchTools = lazy(() => import('./pages/SearchTools'))
 const Pay = lazy(() => import('./pages/Pay'))
+const MiroFish = lazy(() => import('./pages/app/MiroFish'))
 
 // Scroll + analytics on route change. initAnalytics() already fires the first
 // page_view, so skip the initial render to avoid double counting. Hash links
@@ -133,6 +134,7 @@ export default function App() {
               <Route path="community" element={<Community />} />
               <Route path="community/:id" element={<Thread />} />
               <Route path="settings" element={<Settings />} />
+              <Route path="mirofish" element={<MiroFish />} />
             </Route>
 
             {/* /starchart was a second landing page. The catch-all would render

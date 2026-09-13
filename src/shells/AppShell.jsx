@@ -15,7 +15,7 @@ import GuestImportPrompt from '../components/app/GuestImportPrompt'
 import SyncStatus from '../components/app/SyncStatus'
 import Avatar from '../components/app/Avatar'
 import { loadAvatar, AVATAR_EVENT } from '../state/avatarStore'
-import { StackIcon, DiscoverIcon, LearningIcon, CommunityIcon, SettingsIcon, ChatIcon, HeartIcon } from '../components/app/icons'
+import { StackIcon, DiscoverIcon, LearningIcon, CommunityIcon, SettingsIcon, ChatIcon, HeartIcon, MiroFishIcon } from '../components/app/icons'
 
 const NAV = [
   { to: '/app/stack', label: 'STACK', Icon: StackIcon },
@@ -23,6 +23,7 @@ const NAV = [
   { to: '/app/favorites', label: 'SAVED', Icon: HeartIcon },
   { to: '/app/learning', label: 'LEARN', Icon: LearningIcon },
   { to: '/app/community', label: 'SQUAD', Icon: CommunityIcon },
+  { to: '/app/mirofish', label: 'PREDICT', Icon: MiroFishIcon },
   { to: '/app/settings', label: 'ME', Icon: SettingsIcon },
 ]
 
