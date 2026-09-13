@@ -5492,3 +5492,87 @@ a client-side SPA with a static tool catalogue.
   button plus a ~6-line download helper in `Settings.jsx`. No backend, no
   new dependency, no new route, no schema change.
 - **Found:** 2026-09-13 06:35 UTC
+
+---
+
+### "Skip to content" exists for signed-in users only — every public page a visitor sees first has none
+
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern this time — it's a standard the app
+  already half-implements and documents the reasoning for. WCAG 2.4.1 ("Bypass
+  Blocks") requires a mechanism to skip repeated navigation blocks; it's a
+  baseline expectation on any content site with a persistent header, which is
+  exactly what every G2/Capterra/Futurepedia category page also provides.
+- **Gap:** `src/shells/AppShell.jsx:122-130` already has a real skip link,
+  with its own comment citing the WCAG rule: "keyboard/screen-reader users
+  otherwise have to tab through the sidebar persona card and 6 nav links...
+  on every single page before reaching content." It targets
+  `<main id="main-content" tabIndex={-1}>` at `AppShell.jsx:199`. That
+  mechanism exists nowhere else. Grepped `main-content|id="main` across
+  `src/` — the only two hits are those same two lines. `App.jsx` routes 20+
+  pages directly (`Landing`, `Pricing`, `Legal`, `About`, `Changelog`,
+  `Support`, `CategoryLanding`, `NewTools`, `SearchTools`, `ExampleStack`,
+  `SharedStack`, `PublicCompare`, `Office`) plus everything under
+  `OnboardingShell.jsx` (`/goal`, `/quiz/result`, `/auth/login`, `/pay`) —
+  none of them, and neither shell wrapper, render a skip link or a landmark
+  a skip link could target. There is no shared header/nav component either
+  (grepped `SiteHeader|MarketingHeader|PublicHeader|PageHeader`, zero hits) —
+  each page rolls its own `<header>` inline, confirmed in `Landing.jsx:178-
+  189` (a fixed header with 5 links/anchors — How it works, Pricing, About,
+  Search, Contact — before the hero) and `Pricing.jsx:83-90` (logo + a CTA
+  link) as two examples of the same shape repeated per page. The one page
+  that got this right is, ironically, the one fewest first-time visitors
+  ever reach: everything a signed-out visitor sees on the way in — the
+  landing page, the pricing page, the quiz itself — has no bypass mechanism
+  at all.
+- **Why it matters:** this is the inverse of most gaps in this file, which
+  affect a feature some users opt into. A skip link is infrastructure every
+  keyboard or screen-reader visitor benefits from on every page, and the
+  pages missing it are the highest-traffic ones by construction — nobody
+  reaches `/app/*` without first passing through `/` and usually `/goal`.
+  AppShell's own comment already states the WCAG requirement as settled
+  product reasoning; the other 20+ routes just never got the five lines that
+  satisfy it.
+- **Smallest useful version (what to actually build):**
+  - New `src/components/ui/SkipLink.jsx`: extract `AppShell.jsx:125-130`'s
+    JSX verbatim into a tiny reusable component taking a `targetId` prop
+    (defaults to `"main-content"`) — same `sr-only focus:not-sr-only`
+    Tailwind pattern, same "Skip to content" copy, so the visual/focus
+    behavior a keyboard user already gets in `/app/*` is identical elsewhere.
+    `AppShell.jsx` switches to rendering `<SkipLink />` instead of its inline
+    version — a pure extraction, no behavior change there.
+  - `App.jsx`: render `<SkipLink />` once, outside `<Routes>` (alongside
+    `ThemePicker`/`ArrivalLaunch` at `App.jsx:85-86`, which already mount
+    once for every route the same way). Because `AppShell.jsx` renders its
+    own `<main id="main-content">` internally, and the top-level `<SkipLink
+    />` would otherwise point at nothing on the other 20+ routes, the fix
+    needs a landmark for those too.
+  - `OnboardingShell.jsx:27-29`: give the existing `<main>` wrapping
+    `<Outlet />` `id="main-content" tabIndex={-1}` — one wrapper already
+    exists here, so this is a one-line change covering `/goal`, `/quiz/
+    result`, `/auth/login`, `/pay` in one place.
+  - The remaining pages routed directly in `App.jsx` (`Landing`, `Pricing`,
+    `Legal`, `About`, `Changelog`, `Support`, `CategoryLanding`, `NewTools`,
+    `SearchTools`, `ExampleStack`, `SharedStack`, `PublicCompare`, `Office`)
+    have no shared wrapper to patch once — each would need its own outermost
+    element given the id. That's 13 one-line edits (add `id="main-content"
+    tabIndex={-1}` to each page's existing root `<div>` or equivalent), not
+    a new abstraction — introducing a wrapping layout route for pages this
+    varied in structure (one owns a WebGL canvas, others are plain content)
+    is exactly the kind of premature abstraction this repo's own style rules
+    warn against for a one-line-per-file fix.
+  - **What this would NOT include** (kept out to bound the diff): no
+    redesign of any page's header/nav markup; no new shared header
+    component (that's a separate, much larger refactor this gap doesn't
+    require); no focus-management changes beyond the skip link itself (no
+    route-change focus reset — that's a different WCAG criterion and a
+    separate gap if it's ever found missing); no change to `AppShell.jsx`'s
+    existing behavior, only extracting its skip link into a shared
+    component.
+- **Build size:** S — one new 8-line component (`SkipLink.jsx`, a verbatim
+  extraction), one mount point in `App.jsx`, one attribute change in
+  `OnboardingShell.jsx`, and one `id`/`tabIndex` attribute added to each of
+  13 existing page roots. No backend, no new dependency, no new route, no
+  visual change for a mouse user (the link is `sr-only` until focused,
+  identical to the one AppShell already ships).
+- **Found:** 2026-09-13 15:07 UTC
