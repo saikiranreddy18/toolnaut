@@ -5429,3 +5429,66 @@ a client-side SPA with a static tool catalogue.
   `main.jsx`, and one new mount point in `App.jsx`. No backend, no new
   dependency, no schema change.
 - **Found:** 2026-09-13 00:08 UTC
+
+---
+
+### "Download my data" has no counterpart to the "Delete my account" flow that already exists
+- **Status:** OPEN
+- **Seen in:** not a competitor in this file's usual AI-directory set —
+  Futurepedia/TAAFT/G2 are anonymous browse-only catalogs with no accounts to
+  export from, so this doesn't apply to them. The pattern instead is general
+  account-hygiene practice on any product that already offers account
+  deletion: GitHub's Settings pairs "Export account data" directly above
+  "Delete account"; Discord's Privacy settings offers "Request all of my
+  data" beside its account-deletion flow; it's also the GDPR Article 20 /
+  CCPA right-to-know shape (access/portability), the same regulatory family
+  this file's cookie-consent and privacy-policy entries above already treat
+  as real exposure, not just a nice-to-have.
+- **Gap:** Toolnaut already ships the harder half of this pair —
+  `src/components/app/DeleteAccount.jsx` is a careful three-step, code-
+  confirmed permanent-deletion flow (warn → emailed code → done), sitting in
+  `Settings.jsx:500-508` next to Sign out. There is no "download my data"
+  action anywhere beside it. Confirmed with `grep -rn "new Blob\|createObjectURL\|download=" src/` (zero hits) and `grep -rn "export.*data\|Download my data" src/` (zero hits outside this backlog file) — no export utility exists for a user's own account data, only server-side scripts under `radar/` and `scripts/` that export the tool catalog, an unrelated thing. Yet `Settings.jsx` already assembles nearly the whole record on screen every time it renders: quiz answers (`quiz.answers` against `QUESTIONS`, `Settings.jsx:272-289`), the derived persona, stack tools and favorites (`Settings.jsx:76-108`'s `stats` memo, sourced from `loadStack()`/`loadFavorites()`), roadmap progress and streak days (`loadRoadmapProgress()`/`loadStreak()`), and sky prefs (`loadTheme()`/`loadMoon()`/`loadCursor()`/`loadAvatar()`, all imported at the top of the file). The data is already loaded into memory for display; it is never offered as a file.
+- **Why it matters:** this is the one sequencing a careful user would actually want and today can't get — get a copy first, then decide whether to delete — and the product currently only builds the irreversible half. It costs nothing new to fetch (every value already flows through `Settings.jsx` for on-screen display) and it's the same kind of unprompted trust signal this file keeps finding value in elsewhere (real explorer counts instead of an invented figure, an honest "note" field on uncertain tools): showing someone their own data without them having to file a support request for it.
+- **Smallest useful version (what to actually build):**
+  - New pure util `src/utils/exportUserData.js`: `buildUserDataExport()`
+    calls the same read functions `Settings.jsx` already imports —
+    `loadSession()` (name/email/provider only, never a token), `loadQuiz()`,
+    `loadStack()`, `loadFavorites()`, `loadProgress()`,
+    `loadRoadmapProgress()`, `loadStreak()`, `loadTheme()`, `loadMoon()`,
+    `loadCursor()`, `loadAvatar()` — and returns one plain object plus an
+    `exportedAt` ISO timestamp. No new store, no new read path; every one of
+    these calls already tolerates a throwing localStorage per this repo's
+    own rule, so the aggregator inherits that for free.
+  - `Settings.jsx`: one "Download my data" button in the same action row as
+    `DeleteAccount` (`Settings.jsx:500-508`), calling
+    `buildUserDataExport()`, `JSON.stringify(data, null, 2)`, and the
+    standard zero-dependency browser pattern — `new Blob([...], {type:
+    'application/json'})`, `URL.createObjectURL`, a synthetic `<a download>`
+    click, then `URL.revokeObjectURL` — the same native-API-only approach
+    the PDF-roadmap-export entry above already established for this
+    codebase (`window.print()`, no library) rather than adding a download
+    dependency for one button. Shown for guests too, not just signed-in
+    accounts — a guest's stack/quiz/roadmap data is just as real and just as
+    exportable, it's simply scoped to this browser instead of an account
+    (same framing `Settings.jsx`'s own guest ACCOUNT card already uses).
+  - **What this would NOT include** (kept out to bound the diff): no
+    server-side data in v1 — alert-subscription state (`alert_subscribers`),
+    payment/entitlement history, and `tool_refs` sync rows all live in
+    Supabase behind their own authenticated reads (`entitlement.js`,
+    `sync.js`) that `Settings.jsx` itself doesn't inline into this export
+    today either; a signed-in user's local stores are already the
+    synced/hydrated copy per `syncOnSignIn()`, so v1's export is complete for
+    everything the app actually shows them, just not for raw billing
+    records. Adding those is a separately-shippable v2, not a reason to hold
+    this diff for a bigger fetch; no CSV format (JSON matches what's being
+    exported — nested objects like `roadmapProgress` don't flatten cleanly);
+    no email-delivered export (GitHub's async "we'll email you a link"
+    flow exists because their exports are large server-side archives —
+    everything here is already client-side and instant, so there is no wait
+    to hide behind an email).
+- **Build size:** S — one new pure util (`exportUserData.js`, trivially
+  `node --test`-able like this file's other pure-function gaps), one
+  button plus a ~6-line download helper in `Settings.jsx`. No backend, no
+  new dependency, no new route, no schema change.
+- **Found:** 2026-09-13 06:35 UTC
