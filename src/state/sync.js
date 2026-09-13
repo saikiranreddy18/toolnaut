@@ -93,15 +93,30 @@ export async function pushAll() {
     const { error: pErr } = await supabase.from('profiles').upsert(profile)
     if (pErr) throw pErr
 
-    const rows = [
-      ...stack.map((s) => ({ user_id: id, tool_slug: s, kind: 'stack' })),
-      ...saved.map((s) => ({ user_id: id, tool_slug: s, kind: 'saved' })),
-    ]
     const { error: dErr } = await supabase.from('tool_refs').delete().eq('user_id', id)
     if (dErr) throw dErr
-    if (rows.length) {
-      const { error: iErr } = await supabase.from('tool_refs').insert(rows)
-      if (iErr) throw iErr
+
+    // Stack and saved are inserted SEPARATELY. The database caps saved tools on
+    // the Student plan (migration 0010); in one combined insert, hitting that
+    // cap also threw away the stack, and after the delete above the server was
+    // left with neither.
+    if (stack.length) {
+      const { error } = await supabase.from('tool_refs').insert(stack.map((s) => ({ user_id: id, tool_slug: s, kind: 'stack' })))
+      if (error) throw error
+    }
+    if (saved.length) {
+      const savedRows = saved.map((s) => ({ user_id: id, tool_slug: s, kind: 'saved' }))
+      const { error } = await supabase.from('tool_refs').insert(savedRows)
+      const cap = Number(/saved_limit_reached:(\d+)/.exec(error?.message || '')?.[1])
+      if (error && Number.isFinite(cap)) {
+        // Over the plan cap, saved before the cap existed or on another device.
+        // Keep the first cap tools on the server and leave the rest on this
+        // device, rather than failing the whole sync and syncing nothing.
+        const { error: again } = await supabase.from('tool_refs').insert(savedRows.slice(0, cap))
+        if (again) throw again
+      } else if (error) {
+        throw error
+      }
     }
 
     // Progress is append-only by nature — a completed step does not un-complete

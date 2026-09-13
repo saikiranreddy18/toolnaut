@@ -9,6 +9,9 @@ import { loadSession } from '../state/authStore'
 import { fetchEntitlement } from '../utils/entitlement'
 import { useEntitlement } from '../hooks/useEntitlement'
 import PlanChip from '../components/app/PlanChip'
+import SaveLimitNotice from '../components/app/SaveLimitNotice'
+import { savedLimitFor } from '../utils/planData'
+import { setSavedLimit } from '../utils/saveLimit'
 import { loadQuiz } from '../state/quizStore'
 import { generatePersona } from '../utils/personaGenerator'
 import ChatPanel from '../components/app/ChatPanel'
@@ -53,6 +56,8 @@ export default function AppShell() {
   const session = loadSession()
   // One entitlement read for both plan chips (desktop rail and mobile bar).
   const ent = useEntitlement()
+  // Publish the plan saved-tools limit for the save buttons on every page.
+  useEffect(() => { setSavedLimit(savedLimitFor(ent)) }, [ent.loading, ent.unknown, ent.active, ent.trial, ent.plan]) // eslint-disable-line react-hooks/exhaustive-deps
   const [chatOpen, setChatOpen] = useState(loadChatOpen)
 
   // The first-run tour. Delayed a beat so the shell has laid out before the
@@ -274,6 +279,7 @@ export default function AppShell() {
       <InstallPrompt />
       <GuestImportPrompt />
       <AppTour open={tour} onClose={() => setTour(false)} />
+      <SaveLimitNotice />
 
       {/* chat launcher (both breakpoints when closed) */}
       {!chatOpen && (

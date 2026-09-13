@@ -105,13 +105,21 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
           ))}
         </ul>
 
-        <Link
-          to="/goal"
-          onClick={() => track(EVENTS.PLAN_SELECT, { plan: plan.id, price: plan.price })}
-          className={`nb-btn ${plan.id === 'guru' ? 'pink' : plan.id === 'pandava' ? 'cyan' : ''} mt-8 block w-full py-3 text-center text-sm`}
-        >
-          Reserve {plan.name} at launch
-        </Link>
+        {plan.onSale === false ? (
+          // Off sale until its features exist (see planData). The card stays so
+          // the tiers can still be compared, but nothing here takes money.
+          <span aria-disabled="true" className="nb-btn dark mt-8 block w-full cursor-not-allowed py-3 text-center text-sm opacity-70">
+            Coming soon
+          </span>
+        ) : (
+          <Link
+            to="/goal"
+            onClick={() => track(EVENTS.PLAN_SELECT, { plan: plan.id, price: plan.price })}
+            className={`nb-btn ${plan.id === 'guru' ? 'pink' : plan.id === 'pandava' ? 'cyan' : ''} mt-8 block w-full py-3 text-center text-sm`}
+          >
+            Reserve {plan.name} at launch
+          </Link>
+        )}
       </div>
     </motion.div>
   )

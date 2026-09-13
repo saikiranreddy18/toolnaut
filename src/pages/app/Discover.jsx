@@ -9,6 +9,7 @@ import { compareByNewest, compareByName } from '../../utils/sortResults'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { loadFavorites, addFavorite, removeFavorite } from '../../state/favoritesStore'
+import { allowSave } from '../../utils/saveLimit'
 import { markActed } from '../../utils/funnel'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
@@ -89,6 +90,8 @@ export default function Discover() {
     if (favorites.includes(tool.slug)) {
       setFavorites(removeFavorite(tool.slug))
     } else {
+      // The plan saved-tools limit (Student: 10). Shows the upgrade notice.
+      if (!allowSave(favorites.length)) return
       haptic.select()
       setFavorites(addFavorite(tool.slug))
       markActed(track, 'save', { slug: tool.slug, surface: 'discover' })

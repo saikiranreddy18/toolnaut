@@ -73,6 +73,10 @@ export const PLANS = [
     tier: 'Solo',
     price: 3,
     priceINR: 299,
+    // "Save up to 10 favorite tools", enforced: the app refuses an 11th save and
+    // the database refuses it too (supabase/migrations/0010_saved_limit.sql,
+    // which must carry the same number; a test checks).
+    limits: { saved: 10 },
     badge: null,
     glow: 'rgba(251, 113, 133, 0.28)',
     accent: '#fb7185',
@@ -114,6 +118,11 @@ export const PLANS = [
   },
   {
     id: 'pandava',
+    // OFF SALE. Every Team feature on this card is still planned, so selling it
+    // for Rs 4,999 bought exactly what Student buys for Rs 299. isPlanOpen()
+    // returns false, which stops checkout and hides it from /pay; the pricing
+    // card stays, marked Coming soon. Existing Team purchases keep their access.
+    onSale: false,
     name: 'Team',
     icon: 'team',
     tier: 'Team',
@@ -192,7 +201,19 @@ export const FOUNDER_DEADLINE = PLANS.find((p) => p.id === 'founder')?.limitedUn
 // limit.
 export function isPlanOpen(plan, now = Date.now()) {
   if (!plan) return false
+  // A plan taken off sale is closed however long its offer would have run.
+  if (plan.onSale === false) return false
   if (plan.limitedUntil == null) return true
   const end = Date.parse(plan.limitedUntil)
   return Number.isFinite(end) && now < end
+}
+
+// The saved-tools limit an entitlement carries, or null for no limit.
+//
+// Only an active, paid plan with a limit is capped. A trial is full access,
+// a lapsed plan is sent to the paywall anyway, and an unknown or still-loading
+// check must never block a save; the database enforces the rule regardless.
+export function savedLimitFor(ent) {
+  if (!ent || ent.loading || ent.unknown || !ent.active || ent.trial) return null
+  return PLANS.find((p) => p.id === ent.plan)?.limits?.saved ?? null
 }

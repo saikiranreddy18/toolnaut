@@ -5,6 +5,7 @@ import { matchScore, matchReasons, fitBand } from '../../utils/matchScore'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { loadFavorites, addFavorite, removeFavorite } from '../../state/favoritesStore'
+import { allowSave } from '../../utils/saveLimit'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
@@ -81,6 +82,8 @@ export default function ToolDetail() {
     if (favorited) {
       setFavorites(removeFavorite(tool.slug))
     } else {
+      // The plan saved-tools limit (Student: 10). Shows the upgrade notice.
+      if (!allowSave(favorites.length)) return
       haptic.select()
       setFavorites(addFavorite(tool.slug))
       track(EVENTS.CTA_CLICK, { cta: 'add_favorite', tool: tool.slug, location: 'detail' })

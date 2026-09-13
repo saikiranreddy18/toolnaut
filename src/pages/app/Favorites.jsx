@@ -5,6 +5,7 @@ import { matchScore, matchReasonShort } from '../../utils/matchScore'
 import { byProminence, recognisableStarters } from '../../utils/prominence'
 import { loadQuiz } from '../../state/quizStore'
 import { loadFavorites, addFavorite, removeFavorite } from '../../state/favoritesStore'
+import { allowSave } from '../../utils/saveLimit'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
@@ -64,6 +65,8 @@ export default function Favorites() {
     if (favoriteSlugs.includes(tool.slug)) {
       setFavoriteSlugs(removeFavorite(tool.slug))
     } else {
+      // The plan saved-tools limit (Student: 10). Shows the upgrade notice.
+      if (!allowSave(favoriteSlugs.length)) return
       haptic.select()
       setFavoriteSlugs(addFavorite(tool.slug))
       track(EVENTS.CTA_CLICK, { cta: 'add_favorite', tool: tool.slug, location: 'saved' })

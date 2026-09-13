@@ -91,7 +91,7 @@ test('every real plan prices from the catalogue, above the Razorpay minimum', ()
   // else in INR. The amount must be derived from the price in THAT currency —
   // charging 29900 while telling Razorpay 'INR' would take ₹299 for something
   // sold at $299.
-  for (const plan of PLANS) {
+  for (const plan of PLANS.filter((p) => p.onSale !== false)) {
     const priced = planToAmount(plan.id, '', OPEN)
     assert.ok(priced, `${plan.id} should be priceable`)
     const expectedCurrency = plan.currency === 'USD' ? 'USD' : 'INR'
@@ -106,7 +106,7 @@ test('every plan costs the same in INR from every country', () => {
   // One price worldwide is the current rule. Visitors abroad are SHOWN a
   // converted figure by currency.js, but that is a label — the charge is this,
   // and it must not vary by where the request came from.
-  for (const plan of PLANS) {
+  for (const plan of PLANS.filter((p) => p.onSale !== false)) {
     const baseline = planToAmount(plan.id, 'IN', OPEN)
     for (const cc of ['US', 'GB', 'DE', 'AE', 'SG', '']) {
       const priced = planToAmount(plan.id, cc, OPEN)
@@ -141,10 +141,10 @@ test('an unknown or malformed plan is refused', () => {
 
 test('a client-supplied amount cannot influence the price', () => {
   // The whole point: planToAmount's only input is the id. There is no argument
-  // an attacker could add to make the Team plan cost less.
-  const team = PLANS.find((p) => p.id === 'pandava')
-  assert.equal(planToAmount(team.id).paise, Math.round(team.priceINR * 100))
-  assert.equal(planToAmount(team.id, { amount: 100 })?.paise, Math.round(team.priceINR * 100))
+  // an attacker could add to make the Pro plan cost less.
+  const pro = PLANS.find((p) => p.id === 'guru')
+  assert.equal(planToAmount(pro.id).paise, Math.round(pro.priceINR * 100))
+  assert.equal(planToAmount(pro.id, { amount: 100 })?.paise, Math.round(pro.priceINR * 100))
 })
 
 // ── origin ───────────────────────────────────────────────────────────────────
@@ -194,7 +194,7 @@ test('the founder offer sells until its deadline and is refused from that instan
 
 test('plans without a deadline never close', () => {
   const far = Date.parse('2099-01-01T00:00:00Z')
-  for (const plan of PLANS.filter((p) => p.limitedUntil == null)) {
+  for (const plan of PLANS.filter((p) => p.limitedUntil == null && p.onSale !== false)) {
     assert.ok(planToAmount(plan.id, 'IN', far), `${plan.id} must still sell in 2099`)
   }
 })
@@ -214,4 +214,14 @@ test('the ribbon and the offer card count down to the plan deadline, not their o
     assert.doesNotMatch(src, /d{4}-d{2}-d{2}Td{2}:d{2}/, `${f} must not hardcode a deadline`)
     assert.match(src, /FOUNDER_DEADLINE/, `${f} must use the shared deadline`)
   }
+})
+
+test('a plan taken off sale cannot be bought, and other plans still can', () => {
+  // Team is off sale until its team features exist. Checkout must refuse it
+  // from every country, and pausing it must not close any other plan.
+  const team = PLANS.find((p) => p.id === 'pandava')
+  assert.equal(team.onSale, false)
+  assert.equal(isPlanOpen(team, OPEN), false)
+  for (const cc of ['IN', 'US', '']) assert.equal(planToAmount('pandava', cc, OPEN), null)
+  for (const id of ['shishya', 'guru']) assert.ok(planToAmount(id, 'IN', OPEN), id + ' must still sell')
 })
