@@ -102,11 +102,13 @@ export default function StatsSection() {
             {community.map((s) => (
               <div
                 key={s.k}
-                className="rounded-2xl border-[3px] border-black px-3 py-5 text-center"
-                style={{ background: '#12121c', boxShadow: '3px 3px 0 #000' }}
+                className="rounded-2xl border-[3px] border-black bg-[#12121c]/80 px-4 py-6 text-center"
+                style={{ boxShadow: '4px 4px 0 #000' }}
               >
-                <p className="font-display text-2xl font-black tabular-nums text-white md:text-3xl">{s.n}</p>
-                <p className="mt-1.5 font-display text-[9px] font-black uppercase tracking-[0.14em] text-slate-400">
+                {/* Same card and number treatment as the counted row above. The
+                    seeded tiles stay marked by the Preview figures chip. */}
+                <p className="arcade-heading text-3xl md:text-4xl" style={{ color: 'var(--lime)' }}>{s.n}</p>
+                <p className="mt-2 font-display text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">
                   {s.k}
                 </p>
                 {s.real && (
