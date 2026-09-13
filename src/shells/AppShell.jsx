@@ -17,6 +17,13 @@ import Avatar from '../components/app/Avatar'
 import { loadAvatar, AVATAR_EVENT } from '../state/avatarStore'
 import { StackIcon, DiscoverIcon, LearningIcon, CommunityIcon, SettingsIcon, ChatIcon, HeartIcon, MiroFishIcon, ResearchIcon } from '../components/app/icons'
 
+const FeedbackIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" />
+    <path d="M12 6v6l4 2" />
+  </svg>
+)
+
 const NAV = [
   { to: '/app/stack', label: 'STACK', Icon: StackIcon },
   { to: '/app/discover', label: 'FIND', Icon: DiscoverIcon },
@@ -24,6 +31,7 @@ const NAV = [
   { to: '/app/learning', label: 'LEARN', Icon: LearningIcon },
   { to: '/app/community', label: 'SQUAD', Icon: CommunityIcon },
   { to: '/app/synthetic-users', label: 'RESEARCH', Icon: ResearchIcon },
+  { to: '/app/feedback-solutions', label: 'SOLUTIONS', Icon: FeedbackIcon },
   { to: '/app/mirofish', label: 'PREDICT', Icon: MiroFishIcon },
   { to: '/app/settings', label: 'ME', Icon: SettingsIcon },
 ]
