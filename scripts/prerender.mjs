@@ -16,11 +16,25 @@
 // depends on that visitor's localStorage, so a shared static copy would be
 // wrong for everyone.
 import { spawn, execSync } from 'node:child_process'
+import net from 'node:net'
 import { mkdirSync, writeFileSync, copyFileSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { chromium } from 'playwright'
 
-const PORT = 4321
+// The first free port from 4321 up, not a fixed one. A fixed port meant a
+// leftover preview from any other checkout silently took the snapshot's place;
+// the identity check below would catch that, but not being blocked by it at
+// all is better than failing cleanly.
+const PORT = await new Promise((resolve, reject) => {
+  const tryPort = (p) => {
+    if (p > 4400) return reject(new Error('prerender: no free port between 4321 and 4400'))
+    const probe = net.createServer()
+    probe.once('error', () => tryPort(p + 1))
+    probe.once('listening', () => probe.close(() => resolve(p)))
+    probe.listen(p, '127.0.0.1')
+  }
+  tryPort(4321)
+})
 const base = `http://127.0.0.1:${PORT}`
 const DIST = 'dist'
 
@@ -112,6 +126,27 @@ for (;;) {
   try { await fetch(base); break } catch {
     if (Date.now() > deadline) { console.error('prerender: preview never came up'); process.exit(1) }
     await new Promise((r) => setTimeout(r, 400))
+  }
+}
+
+// Make sure the server answering is OURS. --strictPort makes vite exit when the
+// port is taken, but that exit is silent (stdio is ignored), and the loop above
+// only asks whether ANYTHING answers. A leftover preview from another checkout
+// held the same port, and every page was snapshotted from that other build:
+// /privacy and /terms came back blank because the stale bundle crashed on them,
+// and every other route shipped someone else's HTML without a sign.
+//
+// dist/sw.js carries a per-build hash stamped by stamp-sw, so a byte-for-byte
+// match proves the server is serving this dist and not a stranger's.
+{
+  const ours = readFileSync(join(DIST, 'sw.js'), 'utf8')
+  let served = ''
+  try { served = await (await fetch(`${base}/sw.js`)).text() } catch { /* compared below */ }
+  if (served !== ours) {
+    note(`preview: FAILED — port ${PORT} is serving a different build (another preview server is probably still running). Stop it and rebuild.`)
+    note('RESULT: 0 routes prerendered — serving the SPA shell')
+    writeFileSync(join(DIST, '_prerender-status.txt'), status.join('\n') + '\n')
+    process.exit(0)
   }
 }
 
