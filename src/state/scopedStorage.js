@@ -89,6 +89,7 @@ export const PORTABLE_KEYS = [
   'exus_replies_v1',
   'exus_upvotes_v1',
   'exus_funnel_v1',
+  'exus_recently_viewed_v1',
 ]
 
 // Keys that only exist because a PERSON did something. Deliberately excludes

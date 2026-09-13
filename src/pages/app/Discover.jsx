@@ -1,9 +1,10 @@
 import { useMemo, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
+import { TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS, getTool } from '../../utils/toolsCatalog'
 import { matchScore, matchReasonShort } from '../../utils/matchScore'
 import { byProminence, isCatalogNoise } from '../../utils/prominence'
 import { getNewTools } from '../../utils/newTools'
+import { loadRecentlyViewed } from '../../state/recentlyViewedStore'
 import { matchesQuery } from '../../utils/search'
 import { compareByNewest, compareByName } from '../../utils/sortResults'
 import { loadQuiz } from '../../state/quizStore'
@@ -154,6 +155,14 @@ export default function Discover() {
   // catalog's few non-products could possibly land.
   const freshTools = useMemo(() => getNewTools(7).filter((t) => !isCatalogNoise(t)).slice(0, 8), [])
 
+  // A personalised rail, not a catalog-wide one: computed once from whatever
+  // was already recorded, no live subscription needed since nothing on this
+  // page itself adds to the history (only ToolDetail does).
+  const recentlyViewed = useMemo(
+    () => loadRecentlyViewed().map((slug) => getTool(slug)).filter((t) => t && !isCatalogNoise(t)).slice(0, 6),
+    [],
+  )
+
   // For the no-results state: the categories that actually still have tools,
   // so every suggested escape route is guaranteed to lead somewhere.
   const suggestedCats = useMemo(
@@ -209,6 +218,24 @@ export default function Discover() {
           </div>
           <div className="no-scrollbar -mx-5 mt-2 flex gap-3 overflow-x-auto px-5 sm:mx-0 sm:px-0">
             {freshTools.map((tool) => (
+              <Link
+                key={tool.slug}
+                to={`/app/tools/${tool.slug}`}
+                className="sticker group flex w-40 shrink-0 flex-col p-3"
+              >
+                <span className="arcade-heading lime compact text-sm group-hover:opacity-80">{tool.name.toUpperCase()}</span>
+                <span className="mt-1 line-clamp-2 text-[10px] leading-relaxed text-slate-300">{tool.blurb}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {recentlyViewed.length > 0 && (
+        <div className="mt-6">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500">👀 Continue browsing</h2>
+          <div className="no-scrollbar -mx-5 mt-2 flex gap-3 overflow-x-auto px-5 sm:mx-0 sm:px-0">
+            {recentlyViewed.map((tool) => (
               <Link
                 key={tool.slug}
                 to={`/app/tools/${tool.slug}`}

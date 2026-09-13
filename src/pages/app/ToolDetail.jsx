@@ -1,10 +1,11 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getTool, TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
 import { matchScore, matchReasons, fitBand } from '../../utils/matchScore'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { loadFavorites, addFavorite, removeFavorite } from '../../state/favoritesStore'
+import { recordView } from '../../state/recentlyViewedStore'
 import { allowSave } from '../../utils/saveLimit'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
@@ -35,6 +36,12 @@ export default function ToolDetail() {
     const sameDomain = TOOLS.filter((t) => t.category === tool.category && t.sourceCategory !== tool.sourceCategory && t.slug !== tool.slug)
     return [...sameSource, ...sameDomain].slice(0, 3)
   }, [tool])
+
+  // Records on mount and whenever the slug changes — clicking a related-tool
+  // link keeps this same component instance mounted, per the comment above.
+  useEffect(() => {
+    if (tool) recordView(tool.slug)
+  }, [tool?.slug])
 
   if (!tool) {
     return (
