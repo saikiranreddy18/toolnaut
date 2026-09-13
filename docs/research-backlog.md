@@ -1174,7 +1174,14 @@ a client-side SPA with a static tool catalogue.
   now build on, not a substitute for it.
 
 ### Recently viewed tools
-- **Status:** OPEN
+- **Status:** SHIPPED 113f375 — built as scoped below: `recentlyViewedStore.js`
+  (localStorage, capped at 12, most-recent-first, no duplicates), a
+  `useEffect` in `ToolDetail.jsx` recording on mount/slug-change, and a
+  "Continue browsing" strip on `Discover.jsx` below "New this week", hidden
+  when empty. Also added `exus_recently_viewed_v1` to scopedStorage's
+  `PORTABLE_KEYS` (migrates on sign-in) but not `AUTHORED_KEYS` (passive,
+  doesn't gate the guest-import prompt) — a nuance this entry predates,
+  since per-account storage scoping shipped after this gap was found.
 - **Seen in:** Amazon's "Recently viewed items" rail is the canonical version
   of this pattern; G2 and Capterra both surface a "recently viewed" strip on
   category pages so a buyer comparing several product pages in one session can
@@ -3372,7 +3379,27 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-30 12:20 UTC
 
 ### No tool has a visual identity — 704 catalog entries, zero logos or favicons anywhere
-- **Status:** OPEN
+- **Status:** OPEN — ATTEMPTED AND REVERTED 2026-09-13, see note below before
+  retrying as-specified
+- **Attempt note (2026-09-13):** built exactly as scoped (`faviconUrl.js`,
+  `<img>` in `ToolCard.jsx`/`ToolDetail.jsx`, `onError` hiding) and it passed
+  `npm test`/`npm run build`, but `npm run smoke` failed on every `/app/*`
+  route rendering a tool grid (`/app/stack`, `/app/discover`,
+  `/app/favorites`, `/app/tools/chatgpt`) — `page.goto(..., { waitUntil:
+  'networkidle' })` timed out because dozens of `google.com/s2/favicons`
+  requests never resolved. Root-caused with a standalone Playwright script:
+  in *that day's* execution sandbox, headless Chromium could not complete
+  ANY external request at all (a direct `page.goto('https://www.google.com/
+  ...')` also hung to timeout) while the *shell's own* `curl` to the same URL
+  succeeded in <100ms — a sandbox-specific Chromium egress restriction, not
+  an app bug, and not something reproducible outside that sandbox. Reverted
+  rather than shipped, per the hard "if any check fails, abandon" rule — GitHub
+  Actions' `ubuntu-latest` runners likely have normal internet and might
+  render this fine, but that's unverified from here. Before rebuilding this:
+  either confirm the run's sandbox permits real external Chromium requests
+  first (a 5-second throwaway check, same script pattern), or land it behind
+  a CI-only pass and let the actual `ci.yml` smoke job be the verifier instead
+  of a local one.
 - **Seen in:** a problem area rather than one competitor, checked directly
   against every directory this file already studies. Futurepedia, There's An
   AI For That, Product Hunt and G2/Capterra all render a tool's actual logo
@@ -4330,7 +4357,15 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### Stack cost estimate — competitors model total spend, our catalog can't yet
-- **Status:** OPEN — needs a radar schema change before it's buildable, see below
+- **Status:** PARTIALLY SHIPPED aeaedd0 (honest-counts version) — the
+  dollar-amount version below is still OPEN and still needs the radar schema
+  change. `aeaedd0` (2026-09-13, undocumented at the time — recovered and
+  logged here retroactively) added `src/utils/stackCost.js` +
+  `src/components/app/StackCost.jsx`, wired into `Stack.jsx`, showing "2 free
+  · 1 freemium · 1 paid" or "nothing to pay for" — counts only, never a
+  dollar figure, so it sidesteps the missing `priceAmount` data entirely
+  rather than waiting on it. Everything below (`$60-100/mo`-style estimates)
+  is still blocked exactly as described.
 - **Seen in:** Whizi (whizi.io) is built specifically around "calculate real AI
   subscription costs, compare tool overlap, find wasted spend, and decide
   when consolidating tools saves money"; several 2026 AI-pricing aggregators

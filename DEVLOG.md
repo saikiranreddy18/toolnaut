@@ -9,6 +9,84 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-13
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h
+window, most recent 2026-09-13 13:49 UTC publishing 7 tools, previous run
+2026-09-12 23:23 UTC publishing 11. 18 tools published in the last 24h, feed
+holds 377 tools. Healthy and growing.
+
+**Researched today:** three research-hour runs before this one. 00:11 UTC
+promoted the GA4 consent-gate follow-up (a compliance gap flagged two days
+ago but never given its own entry) to a standalone, build-ready gap. 06:21
+UTC logged a new one: account deletion already has a careful, code-confirmed
+flow, but there's no counterpart to download a copy of your own data first —
+`Settings.jsx` already assembles nearly the whole record in memory for
+on-screen display and never offers it as a file. 15:18 UTC caught a real
+accessibility gap: `AppShell.jsx` has a real WCAG 2.4.1 skip-to-content link,
+but it only covers signed-in `/app/*` routes — every page a first-time
+visitor actually lands on first (landing, pricing, the quiz funnel, category
+pages) has none.
+
+**Separately, outside this backlog process:** five large features and two
+smaller fixes landed on master between 13:33-17:56 UTC today — a first-run
+product tour, real subscriber-count stats and truthful legal pages; a
+step-rail from quiz to signed-in app plus a real plan/upgrade chip; honest
+stack-cost counts ("2 free · 1 freemium · 1 paid"); enforcing the advertised
+Student 10-saved-tool limit and taking Team off sale; verified tool
+integrations, training links, discovery-event tracking and a one-question
+survey; plus a community stat-card styling fix and a prerender snapshot/port
+bug fix. These read as a direct audit sprint (`TOOLNAUT_AUDIT_REPORT.md`
+sits in the repo root) rather than the daily backlog-drain process — none of
+the five touched `docs/research-backlog.md`. Cross-checked all five against
+the open backlog: only the stack-cost commit (`aeaedd0`) overlaps an
+existing entry, now marked PARTIALLY SHIPPED — it ships honest counts only;
+the dollar-amount version that entry originally scoped is still blocked on
+a `radar/schema.js` change and a backfill.
+
+**Shipped (this run):** Recently viewed tools —
+[`113f375`](https://github.com/saikiranreddy18/toolnaut/commit/113f375).
+Picked over today's freshly-logged GA4/data-export/skip-link gaps (all real,
+but none had gone through a deepening pass yet) because it was the oldest
+fully-specced OPEN entry (found 2026-08-26) with no external dependency.
+First tried the higher-ranked "no tool has a visual identity" gap (favicons
+via Google's `s2/favicons` service) — built exactly as scoped and it passed
+`npm test`/`npm run build`, but `npm run smoke` timed out on every route
+rendering a tool grid. Root-caused with a throwaway script: in this run's
+sandbox, headless Chromium could not complete ANY external network request
+at all (even a direct nav to google.com hung to timeout) while the shell's
+own `curl` to the identical URL succeeded in under 100ms — a sandbox-specific
+Chromium egress restriction, not an app bug. Reverted rather than ship
+unverified, and logged the finding directly on that backlog entry for
+whoever retries it next (worth a quick sandbox-egress check first, or
+verifying via CI instead of locally). Built Recently Viewed instead:
+`recentlyViewedStore.js` mirrors `favoritesStore.js`'s shape (12-slug cap,
+most-recent-first, no duplicate entries on a re-view), `ToolDetail.jsx`
+records a view on mount and on every slug change, and `Discover.jsx` gets a
+"Continue browsing" strip below "New this week," reusing its markup
+verbatim. Also added the new storage key to `scopedStorage.js`'s
+`PORTABLE_KEYS` so it migrates on sign-in without gating the guest-import
+prompt (it's passive telemetry, same treatment as the streak).
+
+**Live on toolnaut.xyz** now that it's on master — pure client-side
+addition, no new dependency, no new route, no new backend touch. `npm test`
+(275/275), `npm run build` (17/17 routes prerendered, three.js stays in its
+own chunk), and `npm run smoke` (23/23 routes, 0 console errors) all green
+before push.
+
+**Queued next:** the favicon/visual-identity gap is still the single
+highest-value OPEN item on this list — retry once the next run's sandbox is
+confirmed to allow real external Chromium requests, or verify it through CI
+rather than a local smoke run. Also freshly logged and build-ready: the GA4
+consent gate, "download my data" export, and the public-page skip-to-content
+link. Still OPEN from prior days: command palette, tool graveyard page,
+embeddable "Featured on Toolnaut" badge, per-tool Alternatives SEO pages,
+RSS feed of new tools, Discover facet counts, Collections (curated bundles),
+stack-overlap warning, weekly trending tools, and the dollar-amount half of
+stack cost.
+
+---
+
 ## 2026-09-12
 
 **Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h
