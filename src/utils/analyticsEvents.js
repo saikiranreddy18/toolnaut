@@ -59,6 +59,13 @@ export const EVENTS = {
   TRIAL_STARTED: 'trial_started',
   TRIAL_EXPIRED: 'trial_expired',
 
+  // First-run tour of /app. Skipped-vs-completed is the useful pair: a tour
+  // everyone escapes on step one is worse than no tour.
+  TOUR_STARTED: 'tour_started',
+  TOUR_STEP: 'tour_step',
+  TOUR_COMPLETED: 'tour_completed',
+  TOUR_SKIPPED: 'tour_skipped',
+
   // retention
   RETURNED_7D: 'returned_7d',
   RETURNED_30D: 'returned_30d',

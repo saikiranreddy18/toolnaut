@@ -13,6 +13,7 @@ import { planLabel } from '../utils/planData'
 import ChatPanel from '../components/app/ChatPanel'
 import InstallPrompt from '../components/app/InstallPrompt'
 import GuestImportPrompt from '../components/app/GuestImportPrompt'
+import AppTour, { tourSeen, TOUR_REPLAY_EVENT } from '../components/app/AppTour'
 import SyncStatus from '../components/app/SyncStatus'
 import Avatar from '../components/app/Avatar'
 import { loadAvatar, AVATAR_EVENT } from '../state/avatarStore'
@@ -50,6 +51,25 @@ export default function AppShell() {
   const navigate = useNavigate()
   const session = loadSession()
   const [chatOpen, setChatOpen] = useState(loadChatOpen)
+
+  // The first-run tour. Delayed a beat so the shell has laid out before the
+  // spotlight measures real elements, and it stands down when another dialog
+  // (the guest-import prompt) already owns the screen — two modals arguing
+  // over a new arrival is worse than either alone.
+  const [tour, setTour] = useState(false)
+  useEffect(() => {
+    // Replay from Settings: the shell is already mounted, so it has to be told.
+    const replay = () => setTour(true)
+    window.addEventListener(TOUR_REPLAY_EVENT, replay)
+    if (tourSeen()) return () => window.removeEventListener(TOUR_REPLAY_EVENT, replay)
+    const id = setTimeout(() => {
+      if (!document.querySelector('[role=dialog]')) setTour(true)
+    }, 900)
+    return () => {
+      clearTimeout(id)
+      window.removeEventListener(TOUR_REPLAY_EVENT, replay)
+    }
+  }, [])
 
   // THE PAYWALL GATE. A signed-in (real, not simulated) user with no active
   // entitlement is sent to /pay — but ONLY when the server itself says
@@ -163,7 +183,7 @@ export default function AppShell() {
 
         <nav className="mt-6 flex flex-col gap-1" aria-label="Sidebar">
           {NAV.map(({ to, label, Icon }) => (
-            <NavLink key={to} to={to} className={navLinkClass}>
+            <NavLink key={to} to={to} data-tour={to} className={navLinkClass}>
               <Icon />
               {label}
             </NavLink>
@@ -247,12 +267,14 @@ export default function AppShell() {
 
       <InstallPrompt />
       <GuestImportPrompt />
+      <AppTour open={tour} onClose={() => setTour(false)} />
 
       {/* chat launcher (both breakpoints when closed) */}
       {!chatOpen && (
         <button
           ref={launcherRef}
           onClick={() => toggleChat(true)}
+          data-tour="chat"
           aria-label="Open AI assistant"
           className="nb-btn fixed bottom-24 right-5 z-40 flex h-14 w-14 items-center justify-center !rounded-full !p-0 lg:bottom-6 lg:right-6"
         >
@@ -288,6 +310,7 @@ export default function AppShell() {
             <NavLink
               key={to}
               to={to}
+              data-tour={to}
               className={({ isActive }) =>
                 `press relative flex min-h-16 flex-col items-center justify-center gap-1 text-[10px] font-black tracking-widest uppercase transition-colors ${
                   isActive ? 'text-lime-300' : 'text-slate-500'

@@ -34,7 +34,6 @@ export const SEEDED = true
 // climb, and RankCard says "preview — leaderboard not live yet" on its face.
 // Do not reintroduce it as a displayed count.
 export const EXPLORERS = 1300
-export const SUBSCRIBERS = 84
 
 // Where a brand-new explorer enters the ranking. Sits one past EXPLORERS on
 // purpose: joining puts you at the back of the queue, and every point moves you
@@ -42,14 +41,9 @@ export const SUBSCRIBERS = 84
 // count replaces the seeded one.
 export const STARTING_RANK = EXPLORERS + 1
 
-export function conversionRate() {
-  if (!EXPLORERS) return 0
-  return (SUBSCRIBERS / EXPLORERS) * 100
-}
-
-export function conversionLabel() {
-  return `${conversionRate().toFixed(1)}%`
-}
+// Subscribers and conversion used to be seeded here too (84, and a rate
+// computed from it). Both are now counted — see utils/subscriberCount.js — and
+// the placeholders are deleted so nothing can display them again.
 
 // How much score it takes to climb one place. Set by testing the small cases,
 // not by taste: at 20, adding three tools (15 points) moved you zero places —

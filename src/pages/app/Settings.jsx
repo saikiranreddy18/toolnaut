@@ -24,6 +24,7 @@ import Avatar from '../../components/app/Avatar'
 import AvatarPicker from '../../components/app/AvatarPicker'
 import BillingCard from '../../components/app/BillingCard'
 import DeleteAccount from '../../components/app/DeleteAccount'
+import { replayTour } from '../../components/app/AppTour'
 import { loadAvatar } from '../../state/avatarStore'
 
 // ME — the control centre.
@@ -112,6 +113,11 @@ export default function Settings() {
   async function handleSignOut() {
     await signOut()
     navigate('/', { replace: true })
+  }
+
+  function handleReplayTour() {
+    replayTour()
+    navigate('/app/stack')
   }
 
   function handleRetake() {
@@ -497,16 +503,23 @@ export default function Settings() {
       {/* destructive action — visually separated per nav guidelines */}
       </div>
 
-      {session && (
-        <div className="mt-10 flex flex-wrap items-center gap-3 border-t-2 border-white/10 pt-6">
+      <div className="mt-10 flex flex-wrap items-center gap-3 border-t-2 border-white/10 pt-6">
+        {/* Outside the signed-in check on purpose: guests use /app too, and
+            the tour is about the app rather than the account. */}
+        <button onClick={handleReplayTour} className="nb-btn dark min-h-11 px-4 py-2.5 text-xs">
+          Replay the tour
+        </button>
+        {session && (
+          <>
           <button onClick={handleSignOut} className="nb-btn pink min-h-11 px-4 py-2.5 text-xs">
             Sign out
           </button>
           {/* The permanent way out, beside the temporary one. Confirmed by a
               code emailed to the account; see components/app/DeleteAccount.jsx. */}
           <DeleteAccount session={session} />
-        </div>
-      )}
+          </>
+        )}
+      </div>
     </div>
   )
 }

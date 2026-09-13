@@ -1,29 +1,29 @@
 import { Link, useLocation } from 'react-router-dom'
 import { BrandLogo, LOGO } from '../components/ui/Mascot'
-import { BRAND } from '../config'
-import Wordmark from '../components/ui/Wordmark'
+import { BRAND, CONTACT_EMAIL } from '../config'
+import { REFUND_WINDOW_DAYS } from './Support'
 
 // Privacy policy and terms, rendered from one component because they share a
 // layout and differ only in body.
 //
 // Google requires both before an OAuth app can be published to production, and
-// it checks that the URLs resolve. Until now /privacy and /terms returned HTTP
-// 200 purely because the SPA rewrite serves index.html for any path — so both
-// "worked" while actually rendering the landing page to anyone who clicked them.
+// Razorpay expects a merchant to publish them too.
 //
-// Written from what the app verifiably does, not from a template. Every claim
-// below was checked against the code and, for analytics, the live production
-// bundle: VITE_GA4_ID is set (src/utils/analyticsEvents.js:67), so GA4 is
-// actually loading and firing events — this page previously said the
-// opposite because it was written before that env var got configured, and
-// nothing came back to update it. Re-check against the deployed bundle
-// before trusting this comment, not just the source.
+// WRITTEN FROM WHAT THE CODE DOES, AND REWRITTEN WHEN THAT CHANGED
+// The previous version described a free, browser-only beta with Google or
+// GitHub sign-in and no server storage. By September 2026 none of that was
+// true: signed-in stacks and progress sync to Supabase, plans are sold through
+// Razorpay, alert and account-deletion emails go out through Resend, crash
+// reports go to Sentry, and GitHub sign-in is not offered. A policy that
+// describes a product which no longer exists is worse than a short one, because
+// people rely on it. Each section below was checked against the code on the
+// date in UPDATED — re-check whenever a new third party or table is added.
 //
 // NOT LEGAL ADVICE. This is an honest description of the product's behaviour,
 // which is the part a template gets wrong. Have someone qualified read it before
 // relying on it commercially.
 
-const UPDATED = '12 September 2026'
+const UPDATED = '13 September 2026'
 
 function Section({ title, children }) {
   return (
@@ -36,95 +36,128 @@ function Section({ title, children }) {
   )
 }
 
+const Strong = ({ children }) => <strong className="text-white">{children}</strong>
+
+function Mail() {
+  return (
+    <a href={`mailto:${CONTACT_EMAIL}`} className="font-bold underline underline-offset-4" style={{ color: 'var(--cyan)' }}>
+      {CONTACT_EMAIL}
+    </a>
+  )
+}
+
 function Privacy() {
   return (
     <>
       <Section title="The short version">
         <p>
-          {BRAND} has no user database for anything except sign-in. Your quiz answers,
-          your stack, your roadmap progress, your streak and your saved tools are stored
-          in <strong className="text-white">your own browser</strong>, not on our servers.
-          Clearing your browser data deletes them permanently, and they do not follow you
-          to another device.
+          We keep what we need to run your account and nothing to sell. If you use {BRAND} without
+          signing in, your answers, stack and progress stay in <Strong>your own browser</Strong>. If
+          you sign in, we store your account and a copy of your stack and progress so they follow you
+          to other devices. If you buy a plan, we keep a record of the payment.
         </p>
-        <p>We do not sell data. We do not run advertising. There are no third-party trackers.</p>
+        <p>We do not sell data. We do not run advertising. We do not use advertising trackers.</p>
       </Section>
 
-      <Section title="What stays in your browser">
+      <Section title="If you do not sign in">
         <p>
-          Stored in localStorage on your device: your intake answers and anything you
-          typed in your own words, your persona and recommended stack, tools you have
-          added or favourited, roadmap progress, your day streak, community drafts, and
-          your display preferences such as theme and moonlight.
-        </p>
-        <p>None of it is transmitted to us. We cannot read it, recover it, or delete it for you.</p>
-      </Section>
-
-      <Section title="What we receive when you sign in">
-        <p>
-          Sign-in is handled by Supabase using Google or GitHub. If you sign in, we
-          receive your <strong className="text-white">email address, display name and
-          profile picture</strong> from that provider, and Supabase stores them so the
-          account exists on your next visit. We never see or store your password — there
-          isn't one.
-        </p>
-        <p>You can ask us to delete your account and everything attached to it at any time.</p>
-      </Section>
-
-      <Section title="Third parties">
-        <p>
-          <strong className="text-white">Supabase</strong> — authentication and account
-          storage. Receives your email, name and avatar when you sign in.
-        </p>
-        <p>
-          <strong className="text-white">Featherless AI</strong> — powers the assistant in
-          the intake conversation. When you type an answer in your own words, that sentence
-          and the question it answers are sent to be interpreted. Nothing identifying is
-          attached: no name, no email, no account id. If you only tap the suggested options,
-          nothing is sent at all.
-        </p>
-        <p>
-          <strong className="text-white">Vercel</strong> — hosts the site and, like any web
-          host, processes standard request logs including IP address.
-        </p>
-        <p>
-          <strong className="text-white">Google Analytics (GA4)</strong> — product-usage
-          analytics. Receives anonymous events such as which pages and sections you view,
-          buttons you click, and product milestones like completing the quiz or starting a
-          trial. It does not receive your name, email, account id or anything you typed in
-          the quiz, and GA4 does not log your full IP address.
+          Everything is stored in your browser's local storage: your intake answers, your persona and
+          recommended stack, tools you save, roadmap progress, your day streak, community posts and
+          drafts, and display preferences such as theme and sky. None of it is sent to us, and clearing
+          your browser data deletes it permanently.
         </p>
       </Section>
 
-      <Section title="Analytics">
+      <Section title="If you sign in">
         <p>
-          <strong className="text-white">Analytics is active.</strong> We use Google
-          Analytics to see aggregate product usage — which pages get used, where people
-          drop off, whether a feature gets touched at all. It is not tied to your name,
-          email or account, and it never sees anything you typed in the quiz. If it is ever
-          turned off again, we will update this page and say so.
+          Sign-in is handled by <Strong>Supabase</Strong>, with Google or a one-time link sent to your
+          email. We receive your <Strong>email address, display name and profile picture</Strong>.
+          There is no password to store.
         </p>
+        <p>
+          While you are signed in, we also store on our servers: your intake answers and whether you
+          finished the intake, your chosen avatar, the tools in your stack and your saved tools, and
+          which roadmap steps you have completed. This is what lets your progress follow you to another
+          device. Community posts, your streak and display preferences stay in your browser only.
+        </p>
+      </Section>
+
+      <Section title="If you buy a plan">
+        <p>
+          Payments are processed by <Strong>Razorpay</Strong>. We never see or store your card number,
+          UPI PIN or bank login. We keep a record of each payment: the plan, the amount, its status, the
+          dates, and Razorpay's order and payment reference numbers. Razorpay also sends us payment
+          notifications, which can include the email address, phone number and payment method used; we
+          keep these so payments and refunds can be reconciled.
+        </p>
+      </Section>
+
+      <Section title="Emails we send">
+        <p>
+          <Strong>New-tool alerts</Strong> are off until you turn them on in Settings. When they are on,
+          we store your email address and the categories you chose. Every alert has an unsubscribe link.
+        </p>
+        <p>
+          <Strong>Account deletion codes</Strong> are sent to your account's email when you ask to delete
+          your account. We store only a scrambled form of the code, never the code itself, and it expires
+          after 10 minutes.
+        </p>
+      </Section>
+
+      <Section title="Other services that receive data">
+        <p>
+          <Strong>Supabase</Strong> stores your account and synced data. <Strong>Razorpay</Strong> processes
+          payments. <Strong>Resend</Strong> delivers our emails.
+        </p>
+        <p>
+          <Strong>Featherless AI</Strong> powers the assistant. When you type an answer in your own words
+          during the intake, or send a message to the in-app assistant, that text is sent to be answered.
+          Your name, email and account id are not attached.
+        </p>
+        <p>
+          <Strong>Google Analytics</Strong> receives anonymous product-usage events, such as which pages
+          you view, which buttons you press, and milestones like finishing the intake. It does not receive
+          your name, email, account id or anything you type.
+        </p>
+        <p>
+          <Strong>Sentry</Strong> receives a technical report when a page crashes, describing the error and
+          the page it happened on, so we can fix it. Reports are configured not to include your IP address,
+          name or email.
+        </p>
+        <p>
+          <Strong>Vercel</Strong> hosts the site and, like any web host, processes standard request logs,
+          including IP addresses.
+        </p>
+      </Section>
+
+      <Section title="Deleting your data">
+        <p>
+          You can delete your account yourself: <Strong>Settings → Delete account</Strong>. We email a code
+          to confirm it is you, then permanently erase your account, profile, intake answers, stack, saved
+          tools, roadmap progress, alert settings and sign-in.
+        </p>
+        <p>
+          Payment records are the one exception. Indian tax law requires businesses to keep transaction
+          records, and refunds and disputes must still be traceable, so we keep them after deletion with
+          your name, email, phone number and payment-method details removed.
+        </p>
+        <p>If you never signed in, clearing your browser data removes everything.</p>
       </Section>
 
       <Section title="Cookies">
         <p>
-          No advertising cookies. Google Analytics sets its own first-party cookies to
-          recognise repeat visits, and signing in sets a session token so you stay signed
-          in. Neither is used to advertise to you, and neither is sold to anyone.
+          No advertising cookies. Google Analytics sets its own first-party cookies to recognise repeat
+          visits, and signing in stores a session token so you stay signed in. Neither is used to advertise
+          to you.
         </p>
       </Section>
 
       <Section title="Children">
-        <p>{BRAND} is not directed at children under 13 and we do not knowingly collect their data.</p>
+        <p>{BRAND} is not directed at children under 13, and we do not knowingly collect their data.</p>
       </Section>
 
       <Section title="Contact">
-        <p>
-          Questions, or a request to delete your account:{' '}
-          <a href="mailto:info@toolnaut.xyz" className="font-bold underline underline-offset-4" style={{ color: 'var(--cyan)' }}>
-            info@toolnaut.xyz
-          </a>
-        </p>
+        <p>Questions about your data, or a request we can help with: <Mail /></p>
       </Section>
     </>
   )
@@ -135,70 +168,83 @@ function Terms() {
     <>
       <Section title="What this is">
         <p>
-          {BRAND} recommends AI tools based on answers you give about your role, budget and
-          how you work, and generates a learning roadmap around them. It is free to use and
-          currently in beta.
+          {BRAND} recommends AI tools based on answers you give about your role, experience, budget and
+          goals, and builds a learning roadmap around them.
+        </p>
+      </Section>
+
+      <Section title="Trial and plans">
+        <p>
+          New accounts get <Strong>7 days of full access free</Strong>, with no card required. After that,
+          access needs a paid plan. Current plans and prices are on the{' '}
+          <Link to="/pricing" className="font-bold underline underline-offset-4" style={{ color: 'var(--cyan)' }}>pricing page</Link>.
+        </p>
+        <p>
+          Every plan is a <Strong>one-time payment</Strong>, charged in Indian Rupees through Razorpay. A
+          30-day plan gives 30 days of access and then ends. <Strong>Nothing renews automatically</Strong>:
+          we do not store your card, and you are never charged again unless you go through checkout again.
+          A plan described as never expiring does not expire.
+        </p>
+      </Section>
+
+      <Section title="Refunds">
+        <p>
+          Email <Mail /> within <Strong>{REFUND_WINDOW_DAYS} days</Strong> of paying and we refund the full
+          amount, no reason needed. Details are on the{' '}
+          <Link to="/support" className="font-bold underline underline-offset-4" style={{ color: 'var(--cyan)' }}>support page</Link>.
         </p>
       </Section>
 
       <Section title="Recommendations are opinions">
         <p>
-          Our suggestions are generated from a catalogue and a scoring model. They are not
-          professional, financial or career advice, and we make no promise that a
-          recommended tool will suit you, remain available, keep its pricing, or continue
-          to exist. Check anything that matters before you rely on it.
+          Our suggestions are generated from a catalogue and a scoring model. They are not professional,
+          financial or career advice, and we make no promise that a recommended tool will suit you, remain
+          available, keep its pricing, or continue to exist. Check anything that matters before relying on it.
         </p>
         <p>
-          Tool details in the catalogue come from public sources and automated discovery.
-          They can be out of date or wrong.
+          Tool details come from public sources and automated discovery, and can be out of date or wrong.
         </p>
       </Section>
 
-      <Section title="Beta software">
+      <Section title="Your data and progress">
         <p>
-          Features may change or disappear. Because your progress is stored in your own
-          browser rather than on our servers, clearing browser data will delete it and{' '}
-          <strong className="text-white">we cannot recover it</strong>. Treat anything you
-          build here as impermanent for now.
+          If you use {BRAND} without signing in, your progress lives only in your browser, and clearing
+          browser data deletes it — we cannot recover it. Signing in keeps a copy on our servers. Our{' '}
+          <Link to="/privacy" className="font-bold underline underline-offset-4" style={{ color: 'var(--cyan)' }}>privacy policy</Link>{' '}
+          explains what is stored.
         </p>
       </Section>
 
       <Section title="Your account">
         <p>
-          Do not use {BRAND} to break the law, to abuse or harass anyone, or to attack the
-          service. We may suspend accounts that do.
+          Do not use {BRAND} to break the law, to abuse or harass anyone, or to attack the service. We may
+          suspend accounts that do. You can delete your account at any time from Settings.
         </p>
       </Section>
 
       <Section title="Other people's tools">
         <p>
-          We link to third-party AI tools. We do not operate them and are not responsible
-          for them. Their own terms and pricing apply, and names and trademarks belong to
-          their owners.
+          We link to third-party AI tools. We do not operate them and are not responsible for them. Their
+          own terms and pricing apply, and their names and trademarks belong to their owners.
         </p>
       </Section>
 
       <Section title="Liability">
         <p>
-          {BRAND} is provided as-is, without warranties. To the extent the law allows, we
-          are not liable for losses arising from using it, including anything lost through
-          browser storage being cleared.
+          {BRAND} is provided as-is, without warranties. To the extent the law allows, we are not liable for
+          losses arising from using it, including anything lost through browser storage being cleared.
         </p>
       </Section>
 
       <Section title="Changes">
         <p>
-          We may update these terms. Continuing to use {BRAND} after a change means you
-          accept it.
+          We may update these terms, and the date at the top changes when we do. Continuing to use {BRAND}
+          after a change means you accept it.
         </p>
       </Section>
 
       <Section title="Contact">
-        <p>
-          <a href="mailto:info@toolnaut.xyz" className="font-bold underline underline-offset-4" style={{ color: 'var(--cyan)' }}>
-            info@toolnaut.xyz
-          </a>
-        </p>
+        <p><Mail /></p>
       </Section>
     </>
   )
@@ -225,15 +271,19 @@ export default function Legal() {
 
         {isPrivacy ? <Privacy /> : <Terms />}
 
-        <div className="mt-14 border-t border-white/10 pt-6">
-          <Link
-            to={isPrivacy ? '/terms' : '/privacy'}
-            className="font-bold underline underline-offset-4"
-            style={{ color: 'var(--lime)' }}
-          >
-            {isPrivacy ? 'Terms of Service' : 'Privacy Policy'} →
-          </Link>
-        </div>
+        <footer className="mt-14 border-t border-white/10 pt-6">
+          <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm" aria-label="Legal">
+            <Link to={isPrivacy ? '/terms' : '/privacy'} className="font-bold underline underline-offset-4" style={{ color: 'var(--lime)' }}>
+              {isPrivacy ? 'Terms of Service' : 'Privacy Policy'} →
+            </Link>
+            <Link to="/support" className="font-bold text-slate-400 underline underline-offset-4 hover:text-white">
+              Support &amp; refunds
+            </Link>
+          </nav>
+          <p className="mt-6 text-xs text-slate-500">
+            © {new Date().getFullYear()} {BRAND}. All rights reserved. Tool names and trademarks belong to their owners.
+          </p>
+        </footer>
       </div>
     </div>
   )
