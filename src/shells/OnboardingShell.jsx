@@ -1,5 +1,6 @@
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { BrandLogo, LOGO } from '../components/ui/Mascot'
+import FlowSteps from '../components/onboarding/FlowSteps'
 
 // Shell for /quiz and /quiz/result (and later /auth/*): dimmed nebula ambience,
 // CSS-only — the WebGL galaxy lives on the landing page and never mounts here.
@@ -23,6 +24,12 @@ export default function OnboardingShell() {
           </div>
         </header>
       )}
+
+      {/* The four-step path from quiz to app, so every onboarding screen says
+          where you are and what comes next. */}
+      <div className={`relative z-20 ${ownsItsMark ? 'pt-4' : 'pt-20'}`}>
+        <FlowSteps />
+      </div>
 
       <main className="relative z-10">
         <Outlet />

@@ -7,9 +7,10 @@ import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import StreakPoints from '../components/app/StreakPoints'
 import { loadSession } from '../state/authStore'
 import { fetchEntitlement } from '../utils/entitlement'
+import { useEntitlement } from '../hooks/useEntitlement'
+import PlanChip from '../components/app/PlanChip'
 import { loadQuiz } from '../state/quizStore'
 import { generatePersona } from '../utils/personaGenerator'
-import { planLabel } from '../utils/planData'
 import ChatPanel from '../components/app/ChatPanel'
 import InstallPrompt from '../components/app/InstallPrompt'
 import GuestImportPrompt from '../components/app/GuestImportPrompt'
@@ -50,6 +51,8 @@ export default function AppShell() {
   const location = useLocation()
   const navigate = useNavigate()
   const session = loadSession()
+  // One entitlement read for both plan chips (desktop rail and mobile bar).
+  const ent = useEntitlement()
   const [chatOpen, setChatOpen] = useState(loadChatOpen)
 
   // The first-run tour. Delayed a beat so the shell has laid out before the
@@ -170,7 +173,7 @@ export default function AppShell() {
             {persona ? persona.name : 'Take the quiz'}
           </p>
           {persona ? (
-            <p className="mt-1 text-xs font-bold text-cyan-300">Plan: {planLabel(session?.plan)}</p>
+            <PlanChip ent={ent} className="mt-2" />
           ) : (
             <Link to="/goal" className="mt-1 inline-block text-xs font-bold text-cyan-300 underline decoration-2 underline-offset-2 hover:text-white">
               60 seconds →
@@ -222,6 +225,8 @@ export default function AppShell() {
           <Link to="/" aria-label={BRAND}>
             <BrandLogo {...LOGO.compact} />
           </Link>
+          <div className="flex items-center gap-2">
+          <PlanChip ent={ent} compact />
           <Link to="/app/settings" className="flex items-center gap-2" aria-label="Your profile">
             {persona && (
               <span className="rounded-full border border-exus-purple/50 bg-exus-purple/10 px-3 py-1 font-display text-xs text-cyan-300">
@@ -230,6 +235,7 @@ export default function AppShell() {
             )}
             {avatarId && <Avatar id={avatarId} size={32} title="" />}
           </Link>
+          </div>
         </div>
         {/* warp-in: each screen arrives from deeper space */}
         {/* Above the page, inside the same width, so it reads as part of the

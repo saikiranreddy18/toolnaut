@@ -339,8 +339,14 @@ export default function QuizResult() {
             onClick={() => haptic.success()}
             className="nb-btn inline-block px-8 py-4 text-base"
           >
-            🚀 enter your universe
+            Save my stack — sign in →
           </Link>
+          {/* The step the old label hid: the result is saved to an account, and
+              the account is where the app opens. Said plainly, with the trial
+              terms, so nobody wonders what the button commits them to. */}
+          <p className="-mt-1 text-xs text-slate-400">
+            Next: sign in, then your app opens. 7 days free, no card needed.
+          </p>
 
           <div className="flex items-center gap-6 pt-2">
             <Link
