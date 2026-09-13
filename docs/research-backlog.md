@@ -803,10 +803,13 @@ a client-side SPA with a static tool catalogue.
     `TrialBanner.jsx:39`. No new dependency, no new route.
 
 ### Per-route page title & meta description (SEO/social, every page shares one)
-- **Status:** SHIPPED (this run, sha to follow the DEVLOG-visible fix commit)
-  — the hook, its prerender bug fix, and all five originally-scoped call
-  sites (plus the two blocked ones' own resolution) are now done; see the
-  2026-08-31 12:22 UTC deepening below for the closing piece.
+- **Status:** SHIPPED, but PARTIALLY REOPENED 2026-09-13 21:20 UTC — the
+  `ToolDetail`/`Compare` follow-up this entry closed itself against on
+  2026-08-31 ("still gated behind AppShell") is now stale: the gate is gone.
+  See the 2026-09-13 21:20 UTC deepening below, appended after the original
+  closing note rather than rewritten into it, so the discovery trail stays
+  intact. The hook, its prerender bug fix, and the five originally-scoped
+  top-level call sites are still correctly SHIPPED and unaffected.
 - **Seen in:** every directory competitor treats per-listing metadata as
   table stakes because it's their primary organic-search channel — G2 and
   Capterra generate a unique `<title>`/description per product page keyed off
@@ -1013,6 +1016,73 @@ a client-side SPA with a static tool catalogue.
   routes this deepening's own earlier note found blocked (`ToolDetail`,
   `Compare`) remain the one open follow-up — still gated behind `AppShell`,
   still a separate, larger routing decision, not part of this gap's scope.
+- **Deepened 2026-09-13 21:20 UTC — the blocking premise is gone; re-scoped
+  as a two-line fix, no routing decision needed.** Re-read `AppShell.jsx`
+  end to end rather than trusting this entry's own 2026-08-25 note. The hard
+  redirect that note described (`AppShell.jsx:57-59`, unauthenticated visitor
+  → `/auth/login`) no longer exists anywhere in the file. In its place,
+  `AppShell.jsx:118-130` carries a block comment titled "NO SIGN-IN GATE"
+  that states the removal as a deliberate, already-shipped decision: "the
+  redirect that used to sit here guarded no data... every visitor, reviewer
+  and crawler unwilling to sign in first[paid a steep price]... Sign-in stays
+  available and becomes load-bearing the day state moves server-side. Until
+  then it must not stand in the doorway." `git log -p -S"NO SIGN-IN GATE" --
+  src/shells/AppShell.jsx` shows this comment already present in the v0.69.1
+  release commit (2026-09-10), so the gate has been gone for several days —
+  this file simply never got told. Live-checked to be sure the comment
+  matches behavior, not just intent: `ToolDetail`/`Compare` are still nested
+  under `<Route path="/app" element={<AppShell />}>` (`App.jsx:127`, with
+  `Compare`/`ToolDetail` at `App.jsx:132-133`), and nothing above that route
+  or inside `AppShell` calls `navigate()` on a missing session — the only
+  `navigate('/pay', ...)` in the file fires solely for a real, non-simulated
+  signed-in session with an inactive paid entitlement (`AppShell.jsx:89-96`),
+  which does not apply to a signed-out crawler or guest.
+  This means the two-line fix this entry's own "smallest useful version"
+  scoped back on 2026-08-25 is now buildable exactly as originally written,
+  with no route change: `ToolDetail.jsx` and `Compare.jsx` each get one
+  `import { useHead } from '../../utils/head'` and one `useHead({ title,
+  description, path, jsonLd })` call, matching the pattern already live in
+  `CategoryLanding.jsx`/`Pricing.jsx`/`About.jsx`/`NewTools.jsx`/
+  `SharedStack.jsx` — `ToolDetail.jsx` already has every field this needs in
+  scope at render time (`tool.name`, `tool.blurb`, `tool.price`,
+  `tool.category`), so this is copy-the-pattern work, not new design.
+  A second, independent reason this is now worth doing rather than a nice-
+  to-have: `PublicCompare.jsx:44`, `SharedStack.jsx:41`, `CategoryLanding.jsx:59`,
+  and `NewTools.jsx:38` — four pages that are already public, prerendered,
+  and SHIPPED with real JSON-LD — all cite `${SITE}/app/tools/${t.slug}` as
+  the canonical `url` for every tool they list, in structured data a crawler
+  is meant to trust. Right now that URL, when actually visited, carries the
+  homepage's generic title/description, no canonical of its own, and no
+  JSON-LD — Toolnaut's own shipped structured data is pointing crawlers at
+  704 pages that fail the exact per-page SEO hygiene this backlog already
+  built and shipped everywhere else. Fixing `ToolDetail.jsx` closes that
+  inconsistency, not just a standalone nice-to-have.
+  **What this does NOT fix, named honestly:** `ToolDetail`/`Compare` are
+  still absent from `scripts/prerender.mjs`'s `ROUTES` list and from
+  `public/sitemap.xml`. `useHead()` alone helps a JS-executing crawler
+  (Google, and per this repo's own `robots.txt` reasoning, likely Bing) but
+  does nothing for a crawler that does not render JS before reading a page's
+  `<title>`/meta, the same limitation this gap's base entry already named for
+  social unfurlers. Prerendering all ~700 `ToolDetail` slugs is a materially
+  bigger, slower build step than this file's S-sizing bias fits in one run
+  (`prerender.mjs` drives a real headless browser per route; 6 category
+  pages today vs. 700+ tool pages is a different order of build-time cost,
+  worth measuring before committing to it) and a full sitemap for all 704
+  slugs needs the generator this backlog has now flagged as missing five
+  separate times (this entry's own cross-references: the Alternatives-pages
+  entry above, the RSS-feed entry, the source-categories entry, the
+  page-title-forward "changelog" entry) without ever building it — that
+  generator is the next real gap once this two-line fix ships, not part of
+  it.
+  **Also stale from the same cause, for whoever picks up the entries below:**
+  the "Per-tool 'Alternatives' SEO pages" entry (this file, "Gap" section)
+  and the JSON-LD entry's "What this would NOT include" both justify
+  skipping `ToolDetail` with "still behind AppShell's session guard" —
+  same stale premise, not yet corrected in either entry's own text to keep
+  this deepening in one place rather than three near-duplicate edits.
+  **Build size of the reopened follow-up:** S — two `useHead()` call sites
+  using data already in scope, zero routing change, zero new file. Ships
+  independently of the sitemap/prerender follow-up named above.
 
 ### Pro chat assistant & the entire Team tier are unbacked and unbuildable client-side
 - **Status:** OPEN (Gap 1 only) — PARTIALLY REOPENED 2026-09-01 15:20 UTC. Gap
