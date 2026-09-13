@@ -5337,3 +5337,95 @@ a client-side SPA with a static tool catalogue.
   just correcting a description of behavior that already exists.
 - **Found & fixed:** 2026-09-12 09:00 UTC
 - **Found:** 2026-09-12 00:20 UTC
+
+---
+
+### Cookie-consent gate for GA4 — flagged as a follow-up in the entry above, never promoted to its own gap
+- **Status:** OPEN
+- **Seen in:** the previous entry's own "what this would NOT include" section named
+  this and left it unbuilt; a GitHub Actions run titled "docs(research):
+  promote the GA4 consent-gate follow-up to its own gap" exists in this repo's
+  history (`issue_comment`-triggered, both attempts came back `skipped`), so a
+  prior session tried and the promotion never landed — re-verified against
+  current master before writing this up fresh rather than trusting that title.
+  The pattern itself is the standard one: Cookiebot and Osano (the two most
+  widely embedded consent-management platforms) both block
+  non-essential/analytics scripts until an explicit accept, and the
+  requirement is not stylistic — GDPR/ePrivacy treats a non-essential
+  measurement cookie fired before consent as a compliance violation for EU
+  visitors, which is exactly the exposure the previous entry flagged and did
+  not close.
+- **Gap:** confirmed still open by reading the current files. `src/main.jsx:15`
+  calls `initAnalytics()` unconditionally on every boot, for every visitor,
+  before any consent choice could exist. `src/utils/analyticsEvents.js:67-92`:
+  `initAnalytics()` reads `GA_ID` from `import.meta.env.VITE_GA4_ID` and, when
+  set (confirmed live in production by the previous entry's bundle check),
+  synchronously injects the `googletagmanager.com/gtag/js` script and calls
+  `gtag('config', GA_ID)` — no gate, no consent check, nothing conditional
+  before the script tag is appended to `document.head`. `Legal.jsx`'s Analytics
+  section (just corrected by the previous entry to describe this behavior
+  honestly) still only *describes* GA4 firing unconditionally — it does not
+  claim a consent gate exists, so the copy is no longer false, but the
+  underlying behavior it now accurately describes is still the gap. Grepped
+  `consent|Cookiebot|CookieYes|osano` across `src/`: zero hits outside this
+  backlog file itself — no banner component, no stored choice, nothing.
+- **Why it matters:** this is the one open compliance-shaped gap in a file
+  otherwise full of marketing-copy-vs-reality gaps. A false line of privacy-
+  policy copy (the previous entry) is embarrassing when caught; a live
+  analytics cookie firing on an EU visitor's first paint with no consent
+  mechanism is a live GDPR/ePrivacy exposure for as long as `VITE_GA4_ID`
+  stays set in Vercel, which the previous entry confirmed it already is. It
+  also blocks the honest half of the Legal.jsx fix from being a complete
+  story: the page can describe what GA4 collects, but until this ships it
+  cannot honestly say a visitor had any choice in the matter.
+- **Smallest useful version (what to actually build):**
+  - New `src/state/consentStore.js`, same tiny shape as `moonStore.js`
+    (`loadMoon`/`setMoon`): `loadConsent()` reads a single key
+    (`exus_consent_v1`) via a try/catch localStorage read (per this repo's own
+    rule that every `localStorage` read must tolerate the API throwing, not
+    just returning null) and returns `'granted' | 'denied' | null` (`null`
+    means "never asked" — distinct from an explicit decline, so the banner
+    only shows once and a decline is remembered, not re-asked every visit).
+    `setConsent(value)` writes it the same guarded way `setMoon` does.
+  - `src/main.jsx`: only call `initAnalytics()` when `GA_ID` would actually be
+    used AND consent is `'granted'` — restructure so `analyticsEvents.js`
+    exports a `canInitAnalytics()` (checks `GA_ID` is set) and `main.jsx`
+    gates the existing `initAnalytics()` call on
+    `loadConsent() === 'granted'`. When consent is `null` (never asked) and
+    `GA_ID` is set, render a small consent banner instead of firing anything —
+    the banner's own "Accept" action is what calls `initAnalytics()` for the
+    first time, same-session, not a page reload.
+  - New `src/components/ConsentBanner.jsx`: a small fixed bottom bar, mirroring
+    `InstallPrompt.jsx`'s existing shape closely (`sticker fixed inset-x-4
+    bottom-[...] z-[70]` positioning, `role="dialog"`, Escape-to-dismiss,
+    dismissal remembered via a guarded localStorage write) rather than
+    inventing a new interaction pattern — the difference is only the two
+    buttons (Accept/Decline instead of Install/Dismiss) and one line of copy
+    plus a link to `/privacy#analytics`. Unlike `InstallPrompt`, which mounts
+    only inside `AppShell.jsx:248` (signed-in app routes only), this must
+    mount at the root in `App.jsx` alongside `ThemePicker` (`App.jsx:85`) so
+    it covers every route GA4 fires on, marketing pages included — rendered
+    only when `GA_ID` is set and `loadConsent()` is `null`. Accept calls
+    `setConsent('granted')` then `initAnalytics()`; Decline calls
+    `setConsent('denied')` and renders nothing further — no retry prompt on
+    the next visit.
+  - No geo-detection (no IP lookup, no "only show this to EU visitors"): the
+    banner shows to every visitor when GA4 is configured, the same blanket
+    approach `InstallPrompt` and the moon/theme pickers already take to every
+    visitor alike — simpler, and errs toward more consent asked rather than
+    less, which is the safe direction for a compliance-shaped feature.
+  - **What this would NOT include** (kept out to bound the diff): no
+    granular per-category cookie controls (analytics vs. marketing vs.
+    functional) — there is exactly one non-essential script (GA4) to gate, so
+    a single accept/decline choice covers the entire real surface; no consent-
+    string/IAB TCF integration; no blocking Supabase auth or Vercel's own
+    infra cookies, which are functionally essential and out of scope for a
+    "non-essential tracking" gate; no changing `track()`'s no-`gtag` fallback
+    behavior (still an inert `dataLayer.push`, same as today when `GA_ID` is
+    unset in dev).
+- **Build size:** M — one new tiny state module (mirrors `moonStore.js`
+  almost exactly), one new banner component (mirrors `InstallPrompt.jsx`'s
+  fixed-bar pattern), a small restructure of `initAnalytics()`'s call site in
+  `main.jsx`, and one new mount point in `App.jsx`. No backend, no new
+  dependency, no schema change.
+- **Found:** 2026-09-13 00:08 UTC
