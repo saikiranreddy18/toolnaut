@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import StackCost from '../../components/app/StackCost'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { loadQuiz } from '../../state/quizStore'
@@ -314,6 +315,8 @@ export default function Stack() {
           <span className="font-display text-xs font-bold uppercase tracking-widest text-slate-500">
             {allStackTools.length} tool{allStackTools.length === 1 ? '' : 's'} locked in
           </span>
+          {/* What the stack costs, as counts: see components/app/StackCost.jsx. */}
+          <StackCost tools={allStackTools} />
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {allStackTools.map((tool, i) => {
