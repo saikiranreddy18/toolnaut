@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
 import { matchScore, matchReasonShort } from '../../utils/matchScore'
@@ -62,12 +62,23 @@ export default function Discover() {
   const price = searchParams.get('price') || ''
   const level = searchParams.get('level') || ''
   const sort = searchParams.get('sort') || 'match'
+  // Search is counted once per visit, not once per keystroke.
+  const searchedRef = useRef(false)
 
   function setParam(key, value) {
     const next = new URLSearchParams(searchParams)
     if (value) next.set(key, value)
     else next.delete(key)
     setSearchParams(next, { replace: key === 'q' })
+    // Discoverability: whether the filters and search get used at all.
+    if (key === 'q') {
+      if (value && !searchedRef.current) {
+        searchedRef.current = true
+        track(EVENTS.SEARCH_USED, {})
+      }
+    } else if (value) {
+      track(EVENTS.FILTER_USED, { filter: key, value })
+    }
   }
 
   function toggleCompare(slug) {
@@ -256,7 +267,7 @@ export default function Discover() {
             {suggestedCats.map(([id, meta]) => (
               <button
                 key={id}
-                onClick={() => { setSearchParams({ cat: id }); haptic.tap() }}
+                onClick={() => { setSearchParams({ cat: id }); track(EVENTS.FILTER_USED, { filter: 'cat', value: id, from: 'empty_state' }); haptic.tap() }}
                 className="arcade-chip press min-h-11 cursor-pointer"
               >
                 {meta.name}

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import StackCost from '../../components/app/StackCost'
+import StackSurvey from '../../components/app/StackSurvey'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { loadQuiz } from '../../state/quizStore'
@@ -365,6 +366,9 @@ export default function Stack() {
       </section>
 
       {/* Today's drop — one unexplored, high-scoring pick per day */}
+      {/* One fixed-choice question about what stops people trying their stack. */}
+      <StackSurvey hasStack={allStackTools.length > 0} />
+
       {daily && (
         <motion.section
           {...cardIn(1)}

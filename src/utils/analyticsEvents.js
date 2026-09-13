@@ -66,6 +66,17 @@ export const EVENTS = {
   TOUR_COMPLETED: 'tour_completed',
   TOUR_SKIPPED: 'tour_skipped',
 
+  // Discoverability: do people actually find and use what is already built?
+  FILTER_USED: 'filter_used',
+  SEARCH_USED: 'search_used',
+  COMPARE_OPENED: 'compare_opened',
+  LEARN_RESOURCE_CLICKED: 'learn_resource_clicked',
+  INTEGRATION_SOURCE_CLICKED: 'integration_source_clicked',
+  // The one-question survey after the stack page. Fixed choices only.
+  SURVEY_SHOWN: 'survey_shown',
+  SURVEY_ANSWERED: 'survey_answered',
+  SURVEY_DISMISSED: 'survey_dismissed',
+
   // retention
   RETURNED_7D: 'returned_7d',
   RETURNED_30D: 'returned_30d',

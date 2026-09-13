@@ -11,6 +11,7 @@ import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
 import { HeartIcon } from '../../components/app/icons'
 import TrustPanel from '../../components/app/TrustPanel'
+import ToolResources from '../../components/app/ToolResources'
 
 export default function ToolDetail() {
   const { slug } = useParams()
@@ -198,6 +199,9 @@ export default function ToolDetail() {
       {/* Reasoning sits with the decision, before the page moves on to other
           products. */}
       <TrustPanel tool={tool} answers={quiz.completed ? quiz.answers : null} />
+
+      {/* Verified integrations and official training, each linked to its source. */}
+      <ToolResources tool={tool} />
 
       {related.length > 0 && (
         <div className="mt-10">

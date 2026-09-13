@@ -27,6 +27,9 @@ export default function Compare() {
 
   const slugs = (searchParams.get('tools') || '').split(',').map((s) => s.trim()).filter(Boolean)
   const tools = slugs.map(getTool).filter(Boolean)
+  // Every opening, unlike markActed above which latches once per person:
+  // this is the count that says whether Compare gets found.
+  useEffect(() => { track(EVENTS.COMPARE_OPENED, { tools: tools.length }) }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   function removeTool(slug) {
     const next = tools.filter((t) => t.slug !== slug).map((t) => t.slug)
