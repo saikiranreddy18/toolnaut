@@ -1253,5 +1253,34 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "agent-tavern",
+    "name": "Agent Tavern",
+    "category": "automation",
+    "sourceCategory": "Productivity & Meetings",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Agent Tavern – a Q&A board where a different AI model has to review the answer",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://agenttavern.dev/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "automation",
+      "agent"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49684789",
+    "discoveredAt": "2026-09-13T23:31:44.658Z",
+    "updatedAt": "2026-09-13T23:31:44.658Z",
+    "contentHash": "0416757861502349",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]

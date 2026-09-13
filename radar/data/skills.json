@@ -124,7 +124,11 @@
       "awesome-rust-migrations",
       "astah-pro-mcp",
       "agentsdock-an-ide-designed-for-agentic-ai-research",
-      "ai-security-tool"
+      "ai-security-tool",
+      "clientcoded",
+      "simonagent",
+      "autocode",
+      "pawbot"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -246,7 +250,11 @@
       "course-awesome-rust-migrations",
       "course-astah-pro-mcp",
       "course-agentsdock-an-ide-designed-for-agentic-ai-research",
-      "course-ai-security-tool"
+      "course-ai-security-tool",
+      "course-clientcoded",
+      "course-simonagent",
+      "course-autocode",
+      "course-pawbot"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -723,7 +731,10 @@
       "meshdrive-and-local-ai-agent-for-fs",
       "402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
       "indias-first-ai-agentic-e-commerce-platform",
-      "grove"
+      "grove",
+      "agentspork-agents-help-agents-humans-touch-grass",
+      "clientcoded",
+      "autocode"
     ],
     "courses": [
       "course-headless-tools",
@@ -882,7 +893,10 @@
       "course-meshdrive-and-local-ai-agent-for-fs",
       "course-402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
       "course-indias-first-ai-agentic-e-commerce-platform",
-      "course-grove"
+      "course-grove",
+      "course-agentspork-agents-help-agents-humans-touch-grass",
+      "course-clientcoded",
+      "course-autocode"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1015,7 +1029,10 @@
       "you-didnt-deploy-the-ai-agent-you-evaluated",
       "402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
       "indias-first-ai-agentic-e-commerce-platform",
-      "agentsdock-an-ide-designed-for-agentic-ai-research"
+      "agentsdock-an-ide-designed-for-agentic-ai-research",
+      "agentspork-agents-help-agents-humans-touch-grass",
+      "clientcoded",
+      "simonagent"
     ],
     "courses": [
       "course-headless-tools",
@@ -1128,7 +1145,10 @@
       "course-you-didnt-deploy-the-ai-agent-you-evaluated",
       "course-402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
       "course-indias-first-ai-agentic-e-commerce-platform",
-      "course-agentsdock-an-ide-designed-for-agentic-ai-research"
+      "course-agentsdock-an-ide-designed-for-agentic-ai-research",
+      "course-agentspork-agents-help-agents-humans-touch-grass",
+      "course-clientcoded",
+      "course-simonagent"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1828,7 +1848,8 @@
       "usero-mcp-give-your-coding-agent-your-user-feedback",
       "aiope",
       "astah-pro-mcp",
-      "grove"
+      "grove",
+      "pawbot"
     ],
     "courses": [
       "course-coolplugz",
@@ -1851,7 +1872,8 @@
       "course-usero-mcp-give-your-coding-agent-your-user-feedback",
       "course-aiope",
       "course-astah-pro-mcp",
-      "course-grove"
+      "course-grove",
+      "course-pawbot"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1991,7 +2013,8 @@
       "tenux",
       "pangolin",
       "charter",
-      "minimal-static-website-hosting-tool"
+      "minimal-static-website-hosting-tool",
+      "pawbot"
     ],
     "courses": [
       "course-hermes-agent",
@@ -2000,7 +2023,8 @@
       "course-tenux",
       "course-pangolin",
       "course-charter",
-      "course-minimal-static-website-hosting-tool"
+      "course-minimal-static-website-hosting-tool",
+      "course-pawbot"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2100,7 +2124,8 @@
       "flawd-is-mutation-testing-for-the-ai-era",
       "designing-tests-for-agentic-ai-tools",
       "open-source-simulation-testing-infra-for-voice-agents",
-      "open-sourced-solution-to-ai-manage-playwright-automations"
+      "open-sourced-solution-to-ai-manage-playwright-automations",
+      "clientcoded"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -2113,7 +2138,8 @@
       "course-flawd-is-mutation-testing-for-the-ai-era",
       "course-designing-tests-for-agentic-ai-tools",
       "course-open-source-simulation-testing-infra-for-voice-agents",
-      "course-open-sourced-solution-to-ai-manage-playwright-automations"
+      "course-open-sourced-solution-to-ai-manage-playwright-automations",
+      "course-clientcoded"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2200,14 +2226,16 @@
       "devx",
       "jern-cloud",
       "airuncode",
-      "felan"
+      "felan",
+      "autocode"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
       "course-devx",
       "course-jern-cloud",
       "course-airuncode",
-      "course-felan"
+      "course-felan",
+      "course-autocode"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2567,7 +2595,9 @@
       "reelbench-skills",
       "minimal-static-website-hosting-tool",
       "dearagent",
-      "meshdrive-and-local-ai-agent-for-fs"
+      "meshdrive-and-local-ai-agent-for-fs",
+      "simonagent",
+      "autocode"
     ],
     "courses": [
       "course-limitless-library",
@@ -2604,7 +2634,9 @@
       "course-reelbench-skills",
       "course-minimal-static-website-hosting-tool",
       "course-dearagent",
-      "course-meshdrive-and-local-ai-agent-for-fs"
+      "course-meshdrive-and-local-ai-agent-for-fs",
+      "course-simonagent",
+      "course-autocode"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2948,7 +2980,8 @@
       "i-built-an-ai-agent-that-sell-itself",
       "ai-agent-for-animation",
       "liniora",
-      "aiope"
+      "aiope",
+      "pawbot"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -2973,7 +3006,8 @@
       "course-i-built-an-ai-agent-that-sell-itself",
       "course-ai-agent-for-animation",
       "course-liniora",
-      "course-aiope"
+      "course-aiope",
+      "course-pawbot"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3831,7 +3865,8 @@
       "mdmanagerai",
       "felan",
       "ffmpeg-commander",
-      "cli-tools"
+      "cli-tools",
+      "pawbot"
     ],
     "courses": [
       "course-devx",
@@ -3841,7 +3876,8 @@
       "course-mdmanagerai",
       "course-felan",
       "course-ffmpeg-commander",
-      "course-cli-tools"
+      "course-cli-tools",
+      "course-pawbot"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4802,12 +4838,14 @@
     "toolsTeaching": [
       "ai-game-playtester",
       "argus-open-source-ai-agents-for-testing-web-apps",
-      "designing-tests-for-agentic-ai-tools"
+      "designing-tests-for-agentic-ai-tools",
+      "clientcoded"
     ],
     "courses": [
       "course-ai-game-playtester",
       "course-argus-open-source-ai-agents-for-testing-web-apps",
-      "course-designing-tests-for-agentic-ai-tools"
+      "course-designing-tests-for-agentic-ai-tools",
+      "course-clientcoded"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5248,12 +5286,14 @@
     "toolsTeaching": [
       "open-tool-for-testing-your-ai-agents-no-llm",
       "coordination-layer-for-coding-agents",
-      "pod"
+      "pod",
+      "clientcoded"
     ],
     "courses": [
       "course-open-tool-for-testing-your-ai-agents-no-llm",
       "course-coordination-layer-for-coding-agents",
-      "course-pod"
+      "course-pod",
+      "course-clientcoded"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -5902,7 +5942,8 @@
       "okf-agent-memory",
       "ai-coding-agents-forget-the-codebase-between-sessions",
       "i-gave-my-ai-agent-a-sleep-cycle",
-      "fraise-a-memory-database-for-ai-agents"
+      "fraise-a-memory-database-for-ai-agents",
+      "simonagent"
     ],
     "courses": [
       "course-itsuki",
@@ -5913,7 +5954,8 @@
       "course-okf-agent-memory",
       "course-ai-coding-agents-forget-the-codebase-between-sessions",
       "course-i-gave-my-ai-agent-a-sleep-cycle",
-      "course-fraise-a-memory-database-for-ai-agents"
+      "course-fraise-a-memory-database-for-ai-agents",
+      "course-simonagent"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -6119,10 +6161,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "simurg"
+      "simurg",
+      "simonagent"
     ],
     "courses": [
-      "course-simurg"
+      "course-simurg",
+      "course-simonagent"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -7295,10 +7339,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "selfshipai"
+      "selfshipai",
+      "pawbot"
     ],
     "courses": [
-      "course-selfshipai"
+      "course-selfshipai",
+      "course-pawbot"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -8816,10 +8862,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "hermes-agent-demo"
+      "hermes-agent-demo",
+      "simonagent"
     ],
     "courses": [
-      "course-hermes-agent-demo"
+      "course-hermes-agent-demo",
+      "course-simonagent"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -14494,5 +14542,70 @@
       "course-grove"
     ],
     "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "skill-agent collaboration",
+    "name": "agent collaboration",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentspork-agents-help-agents-humans-touch-grass"
+    ],
+    "courses": [
+      "course-agentspork-agents-help-agents-humans-touch-grass"
+    ],
+    "updatedAt": "2026-09-13T23:31:44.658Z"
+  },
+  {
+    "id": "skill-task delegation",
+    "name": "task delegation",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentspork-agents-help-agents-humans-touch-grass"
+    ],
+    "courses": [
+      "course-agentspork-agents-help-agents-humans-touch-grass"
+    ],
+    "updatedAt": "2026-09-13T23:31:44.658Z"
+  },
+  {
+    "id": "skill-agent marketplace",
+    "name": "agent marketplace",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentspork-agents-help-agents-humans-touch-grass"
+    ],
+    "courses": [
+      "course-agentspork-agents-help-agents-humans-touch-grass"
+    ],
+    "updatedAt": "2026-09-13T23:31:44.658Z"
+  },
+  {
+    "id": "skill-self-modifying",
+    "name": "self modifying",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "autocode"
+    ],
+    "courses": [
+      "course-autocode"
+    ],
+    "updatedAt": "2026-09-13T23:31:44.658Z"
+  },
+  {
+    "id": "skill-minimal",
+    "name": "minimal",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "autocode"
+    ],
+    "courses": [
+      "course-autocode"
+    ],
+    "updatedAt": "2026-09-13T23:31:44.658Z"
   }
 ]

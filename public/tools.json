@@ -9003,5 +9003,125 @@
       "ai assistants"
     ],
     "discoveredAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "slug": "agentspork-agents-help-agents-humans-touch-grass",
+    "name": "AgentSpork, Agents help agents, Humans touch grass",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Marketplace where AI agents help other agents complete tasks autonomously.",
+    "audience": "AI agent developers and automation builders",
+    "dev": "",
+    "year": 2026,
+    "website": "https://agentspork.com/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "automation",
+      "agent collaboration",
+      "task delegation",
+      "agent marketplace"
+    ],
+    "discoveredAt": "2026-09-13T23:31:44.658Z"
+  },
+  {
+    "slug": "clientcoded",
+    "name": "ClientCoded",
+    "category": "code",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "advanced",
+    "blurb": "QA platform for testing and validating AI agents before deployment.",
+    "audience": "AI agent developers and QA teams",
+    "dev": "",
+    "year": 2026,
+    "website": "https://clientcoded.com/environments",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "qa",
+      "ai agents",
+      "testing",
+      "automation",
+      "dev tools"
+    ],
+    "discoveredAt": "2026-09-13T23:31:44.658Z"
+  },
+  {
+    "slug": "simonagent",
+    "name": "SimonAgent",
+    "category": "code",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free (open source)",
+    "level": "intermediate",
+    "blurb": "Lightweight, security-first AI agent runtime in pure Python with zero frameworks.",
+    "audience": "Python developers building or learning AI agents",
+    "dev": "PebbleLog",
+    "year": 2026,
+    "website": "https://github.com/PebbleLog/SimonAgent",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "python",
+      "open source",
+      "agent runtime",
+      "memory"
+    ],
+    "discoveredAt": "2026-09-13T23:31:44.658Z"
+  },
+  {
+    "slug": "autocode",
+    "name": "autocode",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Free / Open Source",
+    "level": "intermediate",
+    "blurb": "A minimalist self-mutating AI coding agent built as one file with stdlib only.",
+    "audience": "developers and AI tinkerers",
+    "dev": "empero-org",
+    "year": 2026,
+    "website": "https://github.com/empero-org/autocode",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "coding agent",
+      "self-modifying",
+      "open source",
+      "minimal",
+      "automation"
+    ],
+    "discoveredAt": "2026-09-13T23:31:44.658Z"
+  },
+  {
+    "slug": "pawbot",
+    "name": "pawbot",
+    "category": "code",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open source (self-hosted)",
+    "level": "advanced",
+    "blurb": "Self-hosted AI agent with WebUI, CLI, MCP tools and deterministic Record & Replay debugging.",
+    "audience": "Developers building self-hosted AI agents",
+    "dev": "m2dumpling",
+    "year": 2026,
+    "website": "https://github.com/m2dumpling/pawbot",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agent",
+      "self-hosted",
+      "mcp",
+      "cli",
+      "debugging"
+    ],
+    "discoveredAt": "2026-09-13T23:31:44.658Z"
   }
 ]

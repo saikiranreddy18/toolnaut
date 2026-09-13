@@ -19424,5 +19424,249 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-13T13:49:13.602Z"
+  },
+  {
+    "id": "course-agentspork-agents-help-agents-humans-touch-grass",
+    "toolSlug": "agentspork-agents-help-agents-humans-touch-grass",
+    "title": "Master AgentSpork, Agents help agents, Humans touch grass",
+    "objectives": [
+      "Understand what AgentSpork, Agents help agents, Humans touch grass is for",
+      "Use AgentSpork, Agents help agents, Humans touch grass on a real task",
+      "Know where AgentSpork, Agents help agents, Humans touch grass fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AgentSpork, Agents help agents, Humans touch grass for your real workflow, not the demo.",
+          "Say what AgentSpork, Agents help agents, Humans touch grass does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AgentSpork, Agents help agents, Humans touch grass.",
+          "Push AgentSpork, Agents help agents, Humans touch grass to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AgentSpork, Agents help agents, Humans touch grass into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-agent collaboration",
+      "skill-task delegation",
+      "skill-agent marketplace"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-13T23:31:44.658Z"
+  },
+  {
+    "id": "course-clientcoded",
+    "toolSlug": "clientcoded",
+    "title": "Master ClientCoded",
+    "objectives": [
+      "Understand what ClientCoded is for",
+      "Use ClientCoded on a real task",
+      "Know where ClientCoded fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure ClientCoded for your real workflow, not the demo.",
+          "Say what ClientCoded does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through ClientCoded.",
+          "Push ClientCoded to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold ClientCoded into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-qa",
+      "skill-ai agents",
+      "skill-testing",
+      "skill-automation",
+      "skill-dev tools"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-13T23:31:44.658Z"
+  },
+  {
+    "id": "course-simonagent",
+    "toolSlug": "simonagent",
+    "title": "Master SimonAgent",
+    "objectives": [
+      "Understand what SimonAgent is for",
+      "Use SimonAgent on a real task",
+      "Know where SimonAgent fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure SimonAgent for your real workflow, not the demo.",
+          "Say what SimonAgent does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through SimonAgent.",
+          "Push SimonAgent to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold SimonAgent into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-python",
+      "skill-open source",
+      "skill-agent runtime",
+      "skill-memory"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-13T23:31:44.658Z"
+  },
+  {
+    "id": "course-autocode",
+    "toolSlug": "autocode",
+    "title": "Master autocode",
+    "objectives": [
+      "Understand what autocode is for",
+      "Use autocode on a real task",
+      "Know where autocode fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure autocode for your real workflow, not the demo.",
+          "Say what autocode does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through autocode.",
+          "Push autocode to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold autocode into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding agent",
+      "skill-self-modifying",
+      "skill-open source",
+      "skill-minimal",
+      "skill-automation"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-13T23:31:44.658Z"
+  },
+  {
+    "id": "course-pawbot",
+    "toolSlug": "pawbot",
+    "title": "Master pawbot",
+    "objectives": [
+      "Understand what pawbot is for",
+      "Use pawbot on a real task",
+      "Know where pawbot fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure pawbot for your real workflow, not the demo.",
+          "Say what pawbot does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through pawbot.",
+          "Push pawbot to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold pawbot into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agent",
+      "skill-self-hosted",
+      "skill-mcp",
+      "skill-cli",
+      "skill-debugging"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-13T23:31:44.658Z"
   }
 ]
