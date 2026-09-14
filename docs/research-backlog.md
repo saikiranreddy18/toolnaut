@@ -5759,3 +5759,79 @@ a client-side SPA with a static tool catalogue.
   established honest-absence pattern (`—`) from the same table. No backend,
   no new dependency, no new route, no schema change.
 - **Found:** 2026-09-14 03:20 UTC
+
+---
+
+### "Weekly Fresh Finds" promises role-matching — Discover's new-tools rail is domain-blind
+- **Status:** OPEN
+- **Seen in:** another marketing-copy-vs-reality audit of
+  `src/components/sections/FeaturesSection.jsx` (same method that produced the
+  Live Tool Comparison entry directly above — every tile's copy checked
+  against the page it describes). The competitor pattern being claimed is
+  real: There's An AI For That and Futurepedia both frame their "new tools"
+  surfaces as filtered to a visitor's stated interests/category, not a flat
+  firehose — that's the entire pitch of a role-aware discovery product versus
+  a plain changelog.
+- **Gap:** `FeaturesSection.jsx:11` sells "Weekly Fresh Finds" as "New tools
+  matched to your evolving role, delivered in one scannable digest." The
+  in-app surface this describes is `Discover.jsx`'s "🆕 New this week" strip.
+  Its data comes from `freshTools = useMemo(() => getNewTools(7).filter((t)
+  => !isCatalogNoise(t)).slice(0, 8), [])` (`Discover.jsx:156`) — an empty
+  dependency array. `getNewTools()` (`src/utils/newTools.js:15-19`) filters
+  the full 704-tool catalog by `discoveredAt` age and sorts by recency only;
+  it takes no domain/category/persona argument and has none to take. The
+  result: every visitor, regardless of role, sees the exact same eight tools
+  in the exact same order — a designer and a data engineer looking at
+  Discover in the same hour get an identical strip. This is not a hypothetical
+  miss: `answers` (the completed quiz's `{ domain, role, ... }`, `domain` one
+  of the 6 galaxy categories: code/design/writing/data/automation/learning)
+  is already loaded in this exact component (`Discover.jsx:59`) and already
+  drives the main grid's ranking two lines below (`matchScore(tool, answers)`
+  at `Discover.jsx:126`, `tieBreak = byProminence(answers?.domain)` at
+  `Discover.jsx:117`) — the signal the promise needs is sitting unused four
+  lines from the code that would need it.
+- **Why it matters:** this is the same "one feature tile, one broken promise"
+  shape the Live Tool Comparison entry above found in the tile right next to
+  it, on the same audit pass. Fresh Finds is the one strip a returning user
+  is most likely to actually scan (it's above the fold, right under the
+  search box), and "matched to your evolving role" is the specific hook that
+  differentiates it from a plain "recently added" list — which is exactly
+  what it currently is. A marketer opens Discover and the "new" rail is just
+  as likely to be five coding-agent CLIs as anything in their own domain.
+- **Smallest useful version (what to actually build):**
+  - `Discover.jsx`: change `freshTools`'s memo to depend on `answers?.domain`
+    and, when it's set, stably sort the (already recency-ordered) candidate
+    list so same-domain tools come first, keeping `.slice(0, 8)`:
+    `const candidates = getNewTools(7).filter((t) => !isCatalogNoise(t))` then
+    `answers?.domain ? [...candidates].sort((a, b) => (a.category ===
+    answers.domain ? 0 : 1) - (b.category === answers.domain ? 0 : 1)) :
+    candidates`. `Array.prototype.sort` is spec-stable, so within each group
+    (matching / not matching) the existing recency order is preserved — this
+    is a pure reorder, not a new ranking function, and mirrors the
+    `tieBreak`/`byProminence` comparator idiom already used two lines above
+    in this same file.
+  - Heading honesty: only claim personalization when it's real. Compute
+    `hasDomainMatch = answers?.domain && candidates.some((t) => t.category
+    === answers.domain)` and swap the strip's fixed "🆕 New this week"
+    (`Discover.jsx:191`) for `` 🆕 New in ${CATEGORY_META[answers.domain].name} ``
+    only when `hasDomainMatch` is true (a week where nothing new landed in the
+    visitor's own domain keeps today's generic heading, never a false
+    personalized label) — same rule the Fresh Finds visit-history entry above
+    already applies to its own heading swap, and the Explorers/leaderboard
+    honest-absence convention this whole file keeps citing.
+  - **What this would NOT include** (kept out to bound the diff): no change
+    to `getNewTools()` or `newTools.js` — filtering stays a pure
+    recency/age function, the reordering happens at the one call site that
+    has persona context; no change to the separate public `/new` feed
+    (unauthenticated, no persona to match against — same exclusion the
+    visit-history entry above already carries); no combining with that
+    entry's visit-history window logic in the same pass — that changes *how
+    many days* count as fresh, this changes *which of those* sort first, and
+    reviewing both diffs together is easier than shipping them tangled into
+    one change to the same `useMemo`; no new persona-affinity scoring beyond
+    the exact-domain-match boolean this table already carries via `category`.
+- **Build size:** S — one `useMemo` dependency/sort change and one
+  conditional heading string in `Discover.jsx`, reusing fields (`category`,
+  `answers.domain`) and a comparator idiom already live in the same file. No
+  backend, no new dependency, no new route, no schema change.
+- **Found:** 2026-09-14 06:10 UTC
