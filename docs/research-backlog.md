@@ -2611,6 +2611,27 @@ a client-side SPA with a static tool catalogue.
   construction" from day one, one inconsistency this backlog would otherwise
   flag on sight (see the freshness/lastmod gap this same commit was built
   to close for other pages).
+- **Deepened 2026-09-14 00:09 UTC — this entry's "Gap" section is also stale,
+  same cause the per-route-meta gap named and flagged for cleanup here.** The
+  "Gap" text above (2026-08-28) says `ToolDetail.jsx`'s RELATED TOOLS section
+  is "gated: it only renders inside `/app/tools/:slug`, behind `AppShell`'s
+  session guard... invisible to a search crawler or a signed-out visitor...
+  the one place they are rendered is behind a login-equivalent wall." That
+  guard is gone — confirmed the same way the per-route-meta gap's 2026-09-13
+  21:20 UTC deepening confirmed it: `AppShell.jsx:118-130`'s own "NO SIGN-IN
+  GATE" comment has been live since the v0.69.1 release commit
+  (2026-09-10), and nothing in `AppShell.jsx` or above `ToolDetail`'s route
+  redirects a signed-out visitor. A crawler or cold signed-out visitor
+  landing on `/app/tools/notion-ai` today gets the full page, RELATED TOOLS
+  section included — not a login screen. This does not change this gap's
+  plan or build size: the dedicated `/alternatives/:slug` page is still the
+  right thing to build (a full page beats a 3-item sidebar section for the
+  "chatgpt alternatives"-shaped search query this gap targets, and the
+  sidebar is still worth linking from, per the existing plan above), but the
+  "why it matters" framing that RELATED TOOLS is invisible to a crawler is
+  no longer accurate and should not be cited as a reason `/alternatives/:slug`
+  is the *only* way this data reaches a crawler — it's the better way, not
+  the only way, now that `ToolDetail` itself is reachable.
 - **Status:** SHIPPED f075d88
 - **Seen in:** Product Hunt's entire homepage *is* a chronological feed of
   newly launched products — freshness is the whole product, not a side
@@ -2831,6 +2852,26 @@ a client-side SPA with a static tool catalogue.
   `NewTools`, `SharedStack`) are done. Verified with `npm test` (76/76),
   `npm run build` + prerender, and `npm run smoke` (20/20 routes, 0 console
   errors).
+- **Deepened 2026-09-14 00:09 UTC — this entry's own exclusion note is stale,
+  flagged for correction by the per-route-meta gap's 2026-09-13 21:20 UTC
+  deepening.** The "what this would NOT include" bullet above excuses
+  skipping `ToolDetail`/`Compare` JSON-LD with "still behind `AppShell`'s
+  session guard... no point marking up a page a crawler can't reach." That
+  guard was removed in the v0.69.1 release (2026-09-10) — `AppShell.jsx`
+  no longer redirects a signed-out visitor, so both routes are crawlable
+  today. This entry stays SHIPPED as originally scoped (its three named call
+  sites are still the correct three to have built first), but adding
+  `ItemList`/`SoftwareApplication` JSON-LD to `ToolDetail`/`Compare` is no
+  longer blocked — it now rides on exactly the same two-line `useHead()` fix
+  the per-route-meta gap already re-scoped (`ToolDetail.jsx`/`Compare.jsx`
+  each get one `useHead({ title, description, path, jsonLd })` call), not a
+  new build. Worth doing in that same change rather than as a fourth call
+  site opened separately: `ToolDetail.jsx` already has one tool's own
+  fields in scope, not a list, so its schema is a single
+  `SoftwareApplication` object rather than the `ItemList` shape the three
+  shipped call sites use — `buildItemListSchema()` as scoped above does not
+  directly apply; a small sibling builder for one tool is the small
+  remaining gap here, not a blocker.
 
 ### No public search — every "type a keyword" path is behind the login wall
 - **Status:** SHIPPED (this run — sha in DEVLOG)
