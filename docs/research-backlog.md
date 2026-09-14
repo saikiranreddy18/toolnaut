@@ -3470,6 +3470,25 @@ a client-side SPA with a static tool catalogue.
   first (a 5-second throwaway check, same script pattern), or land it behind
   a CI-only pass and let the actual `ci.yml` smoke job be the verifier instead
   of a local one.
+- **Re-check (2026-09-14 09:06 UTC):** ran the exact throwaway check against
+  today's sandbox — `page.goto('https://www.google.com/s2/favicons?domain=
+  openai.com&sz=64', { waitUntil: 'networkidle' })` in headless Chromium timed
+  out at 8s, while a plain shell `curl` to the identical URL from the same
+  container returned in 0.37s. Same split as the original attempt, different
+  day — this is not a one-off flake, it's a standing property of this local
+  execution sandbox (headless Chromium here cannot complete external network
+  requests at all, regardless of target). Confidence this is sandbox-specific
+  and not an app or CI issue is now higher, not lower: two independent runs,
+  identical symptom. **Do not attempt a local build-and-verify of this gap
+  again** — `npm run smoke` will fail here every time regardless of the code.
+  The only forward path is building it exactly as scoped below, letting
+  `npm test`/`npm run build` pass locally (neither touches network-in-
+  Chromium), and trusting `ci.yml`'s own smoke job on GitHub Actions'
+  `ubuntu-latest` runner as the real verifier — that runner has normal
+  internet egress and is a different environment than this one. If a future
+  feature run ships this, say explicitly in the PR/digest that local smoke
+  was not run for this reason, so a red CI smoke result is treated as a real
+  signal to fix, not dismissed as "probably the sandbox again."
 - **Seen in:** a problem area rather than one competitor, checked directly
   against every directory this file already studies. Futurepedia, There's An
   AI For That, Product Hunt and G2/Capterra all render a tool's actual logo
