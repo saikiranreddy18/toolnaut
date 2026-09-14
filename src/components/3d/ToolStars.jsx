@@ -81,9 +81,9 @@ function makeNewNameTexture(name, color) {
   ctx.fillText(name, w / 2, h / 2 + 26)
 
   ctx.font = '900 44px "Space Grotesk", system-ui, sans-serif'
-  ctx.shadowColor = '#a3ff2e'
+  ctx.shadowColor = '#7cf5ff'
   ctx.shadowBlur = 24
-  ctx.fillStyle = '#a3ff2e'
+  ctx.fillStyle = '#7cf5ff'
   ctx.fillText('★ NEW', w / 2, 44)
   ctx.shadowBlur = 0
   ctx.fillText('★ NEW', w / 2, 44)

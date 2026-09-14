@@ -40,7 +40,7 @@ export default function ToolResources({ tool }) {
           {integ.summary && <p className="mt-2 text-sm font-bold text-white">{integ.summary}</p>}
           <ul className="mt-3 flex flex-wrap gap-2" aria-label={integ.kind === 'works_in' ? 'Where it works' : 'Integrations'}>
             {names.map((n) => (
-              <li key={n} className="rounded-full border-2 border-black bg-white/5 px-2.5 py-1 text-xs font-bold text-slate-200">
+              <li key={n} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-bold text-slate-200">
                 {n}
               </li>
             ))}
@@ -85,7 +85,7 @@ export default function ToolResources({ tool }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => track(EVENTS.LEARN_RESOURCE_CLICKED, { tool: tool.slug, kind: r.kind })}
-                  className="group flex items-center justify-between gap-3 rounded-lg border-2 border-black bg-white/5 px-3 py-2.5 transition-colors hover:bg-white/10"
+                  className="group flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 transition-colors hover:bg-white/10"
                 >
                   <span className="text-sm font-bold text-white">{r.title}</span>
                   <span className="flex shrink-0 items-center gap-2">

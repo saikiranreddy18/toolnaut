@@ -28,7 +28,7 @@ function CopyPrompt({ text }) {
     } catch { /* clipboard blocked */ }
   }
   return (
-    <div className="mt-3 rounded-lg border-2 border-black bg-black/40 p-3">
+    <div className="mt-3 rounded-lg border border-white/10 bg-black/40 p-3">
       <div className="flex items-center justify-between">
         <span className="font-display text-[10px] font-black uppercase tracking-widest text-slate-400">
           Prompt to try
@@ -88,7 +88,7 @@ function LessonStep({ done, step, lesson, onToggle }) {
             transition={{ duration: 0.22, ease: 'easeOut' }}
             className="overflow-hidden"
           >
-            <div className="ml-8 mb-2 rounded-lg border-l-2 pl-3" style={{ borderColor: 'rgba(163,255,46,0.4)' }}>
+            <div className="ml-8 mb-2 rounded-lg border-l-2 pl-3" style={{ borderColor: 'rgba(124, 245, 255,0.4)' }}>
               <p className="text-xs leading-relaxed text-slate-300">{lesson.body}</p>
               {lesson.action && (
                 <p className="mt-2 text-xs leading-relaxed font-semibold" style={{ color: 'var(--lime)' }}>
@@ -110,7 +110,7 @@ function Checkpoint({ quiz, passed, onPass }) {
 
   if (passed) {
     return (
-      <div className="mt-3 rounded-lg border-2 border-black p-3" style={{ background: 'rgba(163,255,46,0.1)' }}>
+      <div className="mt-3 rounded-lg border border-white/10 p-3" style={{ background: 'rgba(124, 245, 255,0.1)' }}>
         <p className="font-display text-xs font-black uppercase tracking-widest" style={{ color: 'var(--lime)' }}>
           ✓ Checkpoint cleared
         </p>
@@ -132,7 +132,7 @@ function Checkpoint({ quiz, passed, onPass }) {
   }
 
   return (
-    <div className="mt-4 rounded-xl border-2 border-black p-4" style={{ background: 'rgba(255,46,163,0.06)' }}>
+    <div className="mt-4 rounded-xl border border-white/10 p-4" style={{ background: 'rgba(179, 136, 255,0.06)' }}>
       <p className="font-display text-xs font-black uppercase tracking-widest" style={{ color: 'var(--hot-pink)' }}>
         ▸ Checkpoint · pass to clear the week
       </p>
@@ -155,7 +155,7 @@ function Checkpoint({ quiz, passed, onPass }) {
                       className="press flex w-full items-center gap-2 rounded-lg border-2 px-3 py-2 text-left text-xs font-medium"
                       style={{
                         borderColor: showCorrect ? 'var(--lime)' : showWrong ? 'var(--hot-pink)' : isChosen ? '#fff' : '#2a2740',
-                        background: showCorrect ? 'rgba(163,255,46,0.15)' : showWrong ? 'rgba(255,46,163,0.12)' : isChosen ? 'rgba(255,255,255,0.06)' : 'transparent',
+                        background: showCorrect ? 'rgba(124, 245, 255,0.15)' : showWrong ? 'rgba(179, 136, 255,0.12)' : isChosen ? 'rgba(255,255,255,0.06)' : 'transparent',
                         color: showCorrect ? 'var(--lime)' : '#fff',
                       }}
                     >
@@ -279,7 +279,7 @@ export default function Learning() {
         {current && (
           <div className="sticker cyan mt-6 p-5">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="tape-label text-xs" style={{ transform: 'rotate(-2deg)' }}>
+              <span className="tape-label text-xs" style={{ transform: 'rotate(0deg)' }}>
                 ▸ your next move
               </span>
               {paceLabel && (
@@ -317,7 +317,7 @@ export default function Learning() {
           </div>
           <div
             className="mt-3 h-3 overflow-hidden rounded-full"
-            style={{ border: '2px solid #000', background: 'rgba(255,255,255,0.06)', boxShadow: '2px 2px 0 #000' }}
+            style={{ border: '2px solid #000', background: 'rgba(255,255,255,0.06)', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
           >
             <motion.div
               className="h-full"
@@ -357,10 +357,10 @@ export default function Learning() {
                     border: '2px solid #000',
                     background: complete ? 'var(--lime)' : locked ? '#0a0a0f' : 'var(--hot-pink)',
                     boxShadow: complete
-                      ? '0 0 10px var(--lime), 2px 2px 0 #000'
+                      ? '0 0 10px var(--lime), 0 10px 28px -14px rgba(0,0,0,0.7)'
                       : locked
                         ? '2px 2px 0 #2a2740'
-                        : '0 0 10px var(--hot-pink), 2px 2px 0 #000',
+                        : '0 0 10px var(--hot-pink), 0 10px 28px -14px rgba(0,0,0,0.7)',
                     color: '#000',
                   }}
                   aria-hidden="true"
@@ -393,7 +393,7 @@ export default function Learning() {
                       🔒 Finish week {m.week - 1} to unlock.
                     </p>
                   ) : (
-                    <div className="mt-3 border-t-2 pt-3" style={{ borderColor: 'rgba(163,255,46,0.15)' }}>
+                    <div className="mt-3 border-t-2 pt-3" style={{ borderColor: 'rgba(124, 245, 255,0.15)' }}>
                       {m.styleTip && (
                         <p className="mb-3 text-xs italic leading-relaxed text-slate-400">
                           💡 {m.styleTip}
@@ -441,7 +441,7 @@ export default function Learning() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             className="sticker mt-2 p-5 text-center backdrop-blur-sm bg-black/20"
-            style={{ transform: 'rotate(-1deg)' }}
+            style={{ transform: 'rotate(0deg)' }}
           >
             <p className="arcade-heading lime compact text-xl">🏆 ORBIT CLEARED</p>
             <p className="mt-2 text-sm text-slate-300">

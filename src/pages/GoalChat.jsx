@@ -271,8 +271,8 @@ export default function GoalChat() {
               <span
                 className="mx-auto inline-flex items-center gap-[7px] rounded-full px-[13px] py-[7px] text-[11px] font-medium leading-none"
                 style={{
-                  background: 'rgba(163,255,46,.10)',
-                  border: '1px solid rgba(163,255,46,.32)',
+                  background: 'rgba(124, 245, 255,.10)',
+                  border: '1px solid rgba(124, 245, 255,.32)',
                   color: 'var(--lime)',
                 }}
               >
@@ -329,10 +329,10 @@ export default function GoalChat() {
                 <div
                   className={
                     m.from === 'user'
-                      ? 'max-w-[85%] rounded-2xl rounded-br-md border-[3px] border-black px-4 py-2.5 text-sm font-bold text-black'
+                      ? 'max-w-[85%] rounded-2xl rounded-br-md border border-white/10 px-4 py-2.5 text-sm font-bold text-black'
                       : 'max-w-[88%] rounded-2xl rounded-bl-md border-2 border-white/10 bg-white/[0.05] px-4 py-2.5 text-sm leading-relaxed text-slate-200'
                   }
-                  style={m.from === 'user' ? { background: 'var(--lime)', boxShadow: '3px 3px 0 #000' } : undefined}
+                  style={m.from === 'user' ? { background: 'var(--lime)', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' } : undefined}
                 >
                   {m.text}
                   {m.hint && <span className="mt-1.5 block text-xs text-slate-400">{m.hint}</span>}
@@ -385,7 +385,7 @@ export default function GoalChat() {
                   data-testid="goal-chip"
                   onClick={() => answer(opt.key)}
                   className="cursor-pointer rounded-full border border-[#2b2b3a] bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold text-slate-200 transition-colors hover:border-[var(--lime)] hover:bg-[var(--lime)] hover:text-black"
-                  style={{ boxShadow: '2px 2px 0 #000' }}
+                  style={{ boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
                 >
                   {opt.label}
                 </button>
@@ -413,7 +413,7 @@ export default function GoalChat() {
               disabled={done || !draft.trim()}
               aria-label="Send answer"
               className="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full text-black transition-opacity disabled:cursor-not-allowed disabled:opacity-30"
-              style={{ background: 'var(--lime)', boxShadow: '2px 2px 0 #000' }}
+              style={{ background: 'var(--lime)', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
             >
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M4 12h15M13 6l6 6-6 6" />

@@ -18,13 +18,13 @@ const isLive = (cell) => cell.status === 'live'
 function Cell({ cell, emphasis }) {
   return (
     <td
-      className="border-t-2 border-black/60 px-3 py-3 align-top text-sm"
-      style={{ background: emphasis ? 'rgba(163,255,46,0.05)' : 'transparent' }}
+      className="border-t-2 border-white/10/60 px-3 py-3 align-top text-sm"
+      style={{ background: emphasis ? 'rgba(124, 245, 255,0.05)' : 'transparent' }}
     >
       <span className={isLive(cell) ? 'text-white' : 'text-slate-500'}>{cell.text}</span>
       {isLive(cell) ? (
         <span
-          className="ml-2 whitespace-nowrap rounded-full border-2 border-black px-1.5 py-0.5 font-display text-[9px] font-black uppercase"
+          className="ml-2 whitespace-nowrap rounded-full border border-white/10 px-1.5 py-0.5 font-display text-[9px] font-black uppercase"
           style={{ background: 'var(--lime)', color: '#000' }}
         >
           live
@@ -50,8 +50,8 @@ export default function CapabilityMatrix() {
       </p>
 
       <div
-        className="mt-6 rounded-2xl border-[3px] border-black p-3"
-        style={{ background: '#12121b', boxShadow: '6px 6px 0 #000' }}
+        className="mt-6 rounded-2xl border border-white/10 p-3"
+        style={{ background: '#12121b', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
       >
         {/* the table scrolls in its own box rather than pushing the page wide */}
         <div className="overflow-x-auto">
@@ -65,7 +65,7 @@ export default function CapabilityMatrix() {
                   <th
                     key={t.id}
                     className="px-3 pb-3"
-                    style={{ background: t.id === 'free' ? 'rgba(163,255,46,0.05)' : 'transparent' }}
+                    style={{ background: t.id === 'free' ? 'rgba(124, 245, 255,0.05)' : 'transparent' }}
                   >
                     <span className="font-display text-base font-black uppercase text-white">{t.name}</span>
                     <span className="ml-2 font-display text-[10px] font-black uppercase tracking-wide text-slate-500">
@@ -80,7 +80,7 @@ export default function CapabilityMatrix() {
                 <tr key={row.capability}>
                   <th
                     scope="row"
-                    className="border-t-2 border-black/60 px-3 py-3 align-top text-sm font-semibold text-slate-300"
+                    className="border-t-2 border-white/10/60 px-3 py-3 align-top text-sm font-semibold text-slate-300"
                   >
                     {row.capability}
                   </th>

@@ -68,11 +68,11 @@ export default function FounderOffer() {
   return (
     <section aria-labelledby="founder-offer" className="px-5 py-6 sm:py-8">
       <div
-        className="relative mx-auto flex max-w-4xl flex-col gap-5 overflow-hidden rounded-2xl border-2 border-black p-5 sm:p-6"
+        className="relative mx-auto flex max-w-4xl flex-col gap-5 overflow-hidden rounded-2xl border border-white/10 p-5 sm:p-6"
         style={{
-          background: 'linear-gradient(135deg, rgba(255,222,46,0.14), rgba(255,140,46,0.10) 55%, rgba(255,222,46,0.06))',
+          background: 'linear-gradient(135deg, rgba(255, 214, 107,0.14), rgba(255, 184, 107,0.10) 55%, rgba(255, 214, 107,0.06))',
           borderColor: 'var(--arcade-yellow)',
-          boxShadow: '4px 4px 0 #000',
+          boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)',
         }}
       >
         <div className="flex flex-wrap items-center gap-3">
@@ -117,7 +117,7 @@ export default function FounderOffer() {
               {units.map((u) => (
                 <div
                   key={u.k}
-                  className="flex min-w-[3.25rem] flex-col items-center rounded-xl border-2 border-black bg-black/50 px-2 py-1.5"
+                  className="flex min-w-[3.25rem] flex-col items-center rounded-xl border border-white/10 bg-black/50 px-2 py-1.5"
                 >
                   <span className="font-display text-xl font-black tabular-nums text-white sm:text-2xl">
                     {pad(u.v)}

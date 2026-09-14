@@ -46,7 +46,7 @@ export default function ToolCard({
           {isNewTool(tool) && (
             <span
               className="rounded-full px-2 py-0.5 font-display text-[10px] font-black"
-              style={{ background: 'var(--hot-pink)', color: '#000', border: '2px solid #000', boxShadow: '2px 2px 0 #000' }}
+              style={{ background: 'var(--hot-pink)', color: '#000', border: '2px solid #000', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
             >
               NEW
             </span>
@@ -58,7 +58,7 @@ export default function ToolCard({
           {showFit && fitBand(tool.score) && (
             <span
               className="rounded-full px-2 py-0.5 font-display text-[10px] font-black uppercase tracking-wide"
-              style={{ background: 'var(--lime)', color: '#000', border: '2px solid #000', boxShadow: '2px 2px 0 #000' }}
+              style={{ background: 'var(--lime)', color: '#000', border: '2px solid #000', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
               title={`${fitBand(tool.score).label} for your persona — based on your field, budget and experience`}
             >
               {fitBand(tool.score).label}
@@ -69,7 +69,7 @@ export default function ToolCard({
           {tool.status && tool.status !== 'Active' && (
             <span
               className="rounded-full px-2 py-0.5 font-display text-[10px] font-black uppercase"
-              style={{ background: 'var(--hot-pink)', color: '#fff', border: '2px solid #000', boxShadow: '2px 2px 0 #000' }}
+              style={{ background: 'var(--hot-pink)', color: '#fff', border: '2px solid #000', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
               title={tool.note || tool.status}
             >
               {tool.status}

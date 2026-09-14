@@ -41,11 +41,11 @@ export default function FlowSteps() {
                 aria-current={here ? 'step' : undefined}
               >
                 <span
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-black font-display text-[10px] font-black"
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/10 font-display text-[10px] font-black"
                   style={{
                     background: here ? 'var(--lime)' : done ? 'var(--cyan)' : '#1a1a26',
                     color: here || done ? '#000' : '#64748b',
-                    boxShadow: here ? '2px 2px 0 #000' : 'none',
+                    boxShadow: here ? '0 10px 28px -14px rgba(0,0,0,0.7)' : 'none',
                   }}
                   aria-hidden="true"
                 >

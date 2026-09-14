@@ -87,7 +87,7 @@ export default function Thread() {
       </div>
 
       {/* replies */}
-      <div className="mt-8 border-t-2 pt-6" style={{ borderColor: 'rgba(163,255,46,0.2)' }}>
+      <div className="mt-8 border-t-2 pt-6" style={{ borderColor: 'rgba(124, 245, 255,0.2)' }}>
         <p className="arcade-heading section text-xl">
           {thread.replies.length} {thread.replies.length === 1 ? 'REPLY' : 'REPLIES'}
         </p>
@@ -125,7 +125,7 @@ export default function Thread() {
           style={{
             background: 'rgba(20,18,31,0.95)',
             border: '2px solid #000',
-            boxShadow: '3px 3px 0 #000',
+            boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)',
           }}
         >
           <label htmlFor="reply-input" className="sr-only">Write a reply</label>
@@ -141,7 +141,7 @@ export default function Thread() {
             aria-label="Send reply"
             disabled={!draft.trim()}
             className="press flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full transition-opacity disabled:opacity-40"
-            style={{ background: 'var(--lime)', color: '#000', border: '2px solid #000', boxShadow: '2px 2px 0 #000' }}
+            style={{ background: 'var(--lime)', color: '#000', border: '2px solid #000', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
           >
             <SendIcon />
           </button>

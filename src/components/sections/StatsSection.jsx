@@ -33,7 +33,7 @@ const NEON_CARD = {
   background:
     'linear-gradient(#12121c, #12121c) padding-box, ' +
     'linear-gradient(135deg, var(--lime) 0%, var(--cyan) 100%) border-box',
-  boxShadow: '4px 4px 0 #000, 0 0 18px -6px rgba(34, 211, 238, 0.45)',
+  boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7), 0 0 18px -6px rgba(138, 180, 255, 0.45)',
 }
 
 function StatCard({ n, k, live }) {
@@ -93,7 +93,7 @@ export default function StatsSection() {
           <motion.div variants={fadeUp} className="mt-10">
             <div className="mb-3 flex justify-center">
               <span
-                className="rounded-full border-2 border-black px-3 py-1 font-display text-[10px] font-black uppercase tracking-[0.2em] text-slate-300"
+                className="rounded-full border border-white/10 px-3 py-1 font-display text-[10px] font-black uppercase tracking-[0.2em] text-slate-300"
                 style={{ background: '#12121c' }}
               >
                 The community

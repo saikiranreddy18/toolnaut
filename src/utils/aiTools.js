@@ -20,7 +20,7 @@ export const AI_TOOLS = [
   { name: 'Jasper', mono: 'J', color: '#8b5cf6' },
   { name: 'Grammarly', mono: 'Gr', color: '#15c39a' },
   { name: 'Synthesia', mono: 'Sy', color: '#38bdf8' },
-  { name: 'Suno', mono: 'Su', color: '#ffde2e' },
+  { name: 'Suno', mono: 'Su', color: '#ffd66b' },
   { name: 'Luma', mono: 'L', color: '#60c5f8' },
   { name: 'DeepL', mono: 'DL', color: '#4aa3e8' },
   { name: 'Replit', mono: 'Re', color: '#f26207' },
@@ -36,5 +36,5 @@ export const AI_TOOLS = [
   { name: 'Llama', mono: 'Ll', color: '#60a5fa' },
   { name: 'Mistral', mono: 'Mi', color: '#ff7000' },
   { name: 'Groq', mono: 'Gq', color: '#f97316' },
-  { name: 'NotebookLM', mono: 'NL', color: '#ff8c2e' },
+  { name: 'NotebookLM', mono: 'NL', color: '#ffb86b' },
 ]

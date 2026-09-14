@@ -54,7 +54,7 @@ function ProgressRing({ value }) {
       <circle cx="19" cy="19" r={r} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="3" />
       <circle
         cx="19" cy="19" r={r} fill="none"
-        stroke="#22d3ee" strokeWidth="3" strokeLinecap="round"
+        stroke="#8ab4ff" strokeWidth="3" strokeLinecap="round"
         strokeDasharray={c}
         strokeDashoffset={c * (1 - value)}
         transform="rotate(-90 19 19)"
@@ -380,11 +380,11 @@ export default function Stack() {
             aria-hidden="true"
           />
           <div className="flex items-center justify-between gap-2">
-            <span className="tape-label text-xs" style={{ transform: 'rotate(-4deg)' }}>
+            <span className="tape-label text-xs" style={{ transform: 'rotate(0deg)' }}>
               ✦ today's drop
             </span>
             {/* Band, not a percentage — see fitBand in matchScore.js. */}
-            <span className="font-display text-sm font-black uppercase tracking-wide" style={{ color: 'var(--lime)', textShadow: '2px 2px 0 #000' }}>
+            <span className="font-display text-sm font-black uppercase tracking-wide" style={{ color: 'var(--lime)', textShadow: 'none' }}>
               {fitBand(daily.score)?.label || ''}
             </span>
           </div>

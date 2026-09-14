@@ -212,7 +212,7 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
 
             {/* HUD */}
             <div className="absolute inset-0 flex flex-col justify-between p-3 font-mono text-[10px] leading-relaxed md:p-4 md:text-xs">
-              <div style={{ color: 'var(--lime)', textShadow: '0 0 8px rgba(163,255,46,0.55)' }}>
+              <div style={{ color: 'var(--lime)', textShadow: '0 0 8px rgba(124, 245, 255,0.55)' }}>
                 {!booted ? (
                   BOOT_LINES.map((l) => <div key={l}>{l}</div>)
                 ) : (
@@ -228,7 +228,7 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
 
               <div className="flex items-end justify-between gap-2">
                 <span
-                  className="truncate rounded border-2 border-black bg-black/70 px-2 py-1"
+                  className="truncate rounded border border-white/10 bg-black/70 px-2 py-1"
                   style={{ color: 'var(--cyan)' }}
                 >
                   {toolName ? `◂ ${toolName}` : 'MISSION: BUILD YOUR STACK'}
@@ -289,18 +289,18 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
             style={{ outlineColor: 'var(--cyan)' }}
           >
               <div
-                className="absolute bottom-0 left-1/2 h-3.5 w-14 -translate-x-1/2 rounded-[50%] border-[3px] border-black"
+                className="absolute bottom-0 left-1/2 h-3.5 w-14 -translate-x-1/2 rounded-[50%] border border-white/10"
                 style={{ background: 'linear-gradient(#3a3a46, #1c1c24)' }}
               />
               <div
-                className="joystick-shaft absolute bottom-[7px] left-1/2 h-9 w-3 rounded-full border-[3px] border-black"
+                className="joystick-shaft absolute bottom-[7px] left-1/2 h-9 w-3 rounded-full border border-white/10"
                 style={{
                   background: 'linear-gradient(90deg, #c01f7b, var(--hot-pink) 55%, #ff7ac6)',
                   transform: `translateX(-50%) rotate(${tilt.x}deg)`,
                 }}
               >
                 <span
-                  className="absolute -top-4 left-1/2 h-7 w-7 -translate-x-1/2 rounded-full border-[3px] border-black"
+                  className="absolute -top-4 left-1/2 h-7 w-7 -translate-x-1/2 rounded-full border border-white/10"
                   style={{
                     background: 'radial-gradient(circle at 32% 28%, #ff9ad4, var(--hot-pink) 58%, #a81a68)',
                   }}
@@ -323,11 +323,11 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
                 {[0, 1, 2, 3, 4, 5].map((i) => (
                   <span
                     key={i}
-                    className="flex h-4 w-4 items-center justify-center rounded-[2px] border border-black font-display text-[8px] font-black transition-colors duration-150"
+                    className="flex h-4 w-4 items-center justify-center rounded-[2px] border border-white/10 font-display text-[8px] font-black transition-colors duration-150"
                     style={{
                       background: lamp === i ? 'var(--lime)' : '#17171d',
                       color: lamp === i ? '#000' : '#4b5563',
-                      boxShadow: lamp === i ? '0 0 8px rgba(163,255,46,0.7)' : 'none',
+                      boxShadow: lamp === i ? '0 0 8px rgba(124, 245, 255,0.7)' : 'none',
                     }}
                   >
                     {i + 1}
@@ -335,7 +335,7 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
                 ))}
               </span>
               <span
-                className="rounded border border-black px-1.5 py-0.5 font-mono text-[8px] tracking-[0.14em]"
+                className="rounded border border-white/10 px-1.5 py-0.5 font-mono text-[8px] tracking-[0.14em]"
                 style={{ background: '#07070b', color: 'var(--cyan)' }}
               >
                 CREDIT {playing ? 'FREE' : String(TOOLS.length).padStart(4, '0')}
@@ -363,10 +363,10 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
                   onPointerUp={() => setPressed(null)}
                   onPointerLeave={() => setPressed(null)}
                   onClick={() => { haptic.tap(); b.run?.() }}
-                  className="cab-btn h-9 w-9 rounded-full border-[3px] border-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+                  className="cab-btn h-9 w-9 rounded-full border border-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
                   style={{
                     background: b.color,
-                    boxShadow: pressed === b.id ? '0 0 0 #000' : '3px 3px 0 #000',
+                    boxShadow: pressed === b.id ? '0 0 0 #000' : '0 10px 28px -14px rgba(0,0,0,0.7)',
                     filter: pressed === b.id ? 'brightness(0.85)' : 'none',
                     outlineColor: 'var(--cyan)',
                   }}
@@ -394,7 +394,7 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
           }}
         >
           <span
-            className="flex items-center gap-1.5 rounded-full border-2 border-black px-3 py-1 font-display text-[10px] font-black uppercase tracking-[0.14em]"
+            className="flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 font-display text-[10px] font-black uppercase tracking-[0.14em]"
             style={{ background: '#15151c', color: 'var(--lime)' }}
           >
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">

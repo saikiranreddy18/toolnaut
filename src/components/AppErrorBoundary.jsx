@@ -54,7 +54,7 @@ export default class AppErrorBoundary extends React.Component {
           </p>
           <button style={btn} onClick={() => window.location.reload()}>Reload the page</button>
           <p style={{ ...muted, marginTop: '18px', fontSize: '13px' }}>
-            Still stuck? <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#22d3ee' }}>{CONTACT_EMAIL}</a>
+            Still stuck? <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#8ab4ff' }}>{CONTACT_EMAIL}</a>
             {REPORTING_CONFIGURED && this.state.ref ? <><br />Reference: <code>{this.state.ref}</code></> : null}
           </p>
         </div>

@@ -50,8 +50,8 @@ export default function Checkout() {
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">PAY FOR A PLAN</h1>
 
       <div
-        className="mt-6 rounded-2xl border-[3px] border-black p-5"
-        style={{ background: '#1a0d15', boxShadow: '5px 5px 0 #000' }}
+        className="mt-6 rounded-2xl border border-white/10 p-5"
+        style={{ background: '#1a0d15', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
       >
         <p className="text-sm text-slate-300">
           <strong className="text-white">Toolnaut is still in free public beta.</strong>{' '}
@@ -63,8 +63,8 @@ export default function Checkout() {
 
       {!PAYMENTS_ON && (
         <div
-          className="mt-6 rounded-2xl border-[3px] border-black p-5"
-          style={{ background: '#15151f', boxShadow: '5px 5px 0 #000' }}
+          className="mt-6 rounded-2xl border border-white/10 p-5"
+          style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
         >
           <h2 className="font-display text-lg font-black italic" style={{ color: 'var(--lime)' }}>
             Payments are not available yet
@@ -87,8 +87,8 @@ export default function Checkout() {
         {PLANS.filter((p) => !p.hiddenFromPricing).map((plan) => (
           <div
             key={plan.id}
-            className="rounded-2xl border-[3px] border-black p-5"
-            style={{ background: '#15151f', boxShadow: '5px 5px 0 #000' }}
+            className="rounded-2xl border border-white/10 p-5"
+            style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
           >
             <p
               className="font-display text-[10px] font-black uppercase tracking-widest"
@@ -122,8 +122,8 @@ export default function Checkout() {
       </div>
 
       <div
-        className="mt-8 rounded-2xl border-[3px] border-black p-5"
-        style={{ background: '#15151f', boxShadow: '5px 5px 0 #000' }}
+        className="mt-8 rounded-2xl border border-white/10 p-5"
+        style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
       >
         <h3 className="font-display text-sm font-black italic text-white">Test cards</h3>
         <p className="mt-2 text-sm text-slate-300">

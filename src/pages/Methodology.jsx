@@ -158,7 +158,7 @@ export default function Methodology() {
         </p>
       </Block>
 
-      <div className="mt-10 rounded-2xl border-[3px] border-black p-5" style={{ background: '#15151f', boxShadow: '5px 5px 0 #000' }}>
+      <div className="mt-10 rounded-2xl border border-white/10 p-5" style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>
         <p className="text-sm text-slate-300">
           Want to see what this produces before signing up?{' '}
           <Link to="/example" className="font-semibold underline underline-offset-2" style={{ color: 'var(--lime)' }}>

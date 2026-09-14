@@ -32,7 +32,7 @@ function StaticSky() {
       aria-hidden="true"
       style={{
         background:
-          'radial-gradient(ellipse 60% 40% at 30% 20%, rgba(179, 136, 255,0.25), transparent), radial-gradient(ellipse 50% 40% at 75% 70%, rgba(34, 211, 238,0.18), transparent), #060609',
+          'radial-gradient(ellipse 60% 40% at 30% 20%, rgba(179, 136, 255,0.25), transparent), radial-gradient(ellipse 50% 40% at 75% 70%, rgba(138, 180, 255,0.18), transparent), #060609',
       }}
     />
   )
@@ -223,8 +223,8 @@ export default function Landing() {
       <div
         id="tool-tooltip"
         aria-hidden="true"
-        className="pointer-events-none fixed z-[85] -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-full border-2 border-black bg-[var(--lime)] px-4 py-1.5 font-display text-xs font-black uppercase italic tracking-wide text-black"
-        style={{ opacity: 0, transition: 'opacity 0.15s ease', boxShadow: '3px 3px 0 #000' }}
+        className="pointer-events-none fixed z-[85] -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-full border border-white/10 bg-[var(--lime)] px-4 py-1.5 font-display text-xs font-black uppercase tracking-wide text-black"
+        style={{ opacity: 0, transition: 'opacity 0.15s ease', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
       />
 
       {/* persistent scene controls: sound + galaxy exploration */}

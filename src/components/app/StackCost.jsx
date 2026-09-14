@@ -19,7 +19,7 @@ export default function StackCost({ tools }) {
       {COST_BUCKETS.filter((x) => b[x.key]).map((x) => (
         <span
           key={x.key}
-          className="rounded-full border-2 border-black px-2 py-0.5 font-display text-[10px] font-black uppercase tracking-wider text-black"
+          className="rounded-full border border-white/10 px-2 py-0.5 font-display text-[10px] font-black uppercase tracking-wider text-black"
           style={{ background: x.color }}
           aria-hidden="true"
         >
@@ -32,7 +32,7 @@ export default function StackCost({ tools }) {
         </span>
       )}
       {!b.paid && !b.unknown && (
-        <span className="font-display text-[10px] font-bold uppercase tracking-wider text-lime-300" aria-hidden="true">
+        <span className="font-display text-[10px] font-bold uppercase tracking-wider text-(--lime)" aria-hidden="true">
           · nothing to pay for
         </span>
       )}

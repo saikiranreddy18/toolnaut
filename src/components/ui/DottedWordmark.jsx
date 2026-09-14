@@ -274,7 +274,7 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut', bg =
           // shown plainly with no mask), full strength would fight the links
           // for legibility — it is a backdrop there, not the subject.
           opacity: bg && alwaysOn ? 0.16 : revealed ? 1 : 0.92,
-          filter: 'drop-shadow(0 0 14px rgba(163,255,46,0.28)) drop-shadow(0 0 26px rgba(232,236,244,0.12))',
+          filter: 'drop-shadow(0 0 14px rgba(124, 245, 255,0.28)) drop-shadow(0 0 26px rgba(232,236,244,0.12))',
         }}
       >
         {renderMark(true)}

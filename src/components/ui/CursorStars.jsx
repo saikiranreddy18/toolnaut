@@ -56,10 +56,10 @@ export default function CursorStars() {
       const css = getComputedStyle(document.documentElement)
       const v = (name, fallback) => (css.getPropertyValue(name) || '').trim() || fallback
       return {
-        lime: v('--lime', '#a3ff2e'),
-        pink: v('--hot-pink', '#ff2ea3'),
-        cyan: v('--cyan', '#22d3ee'),
-        gold: v('--arcade-yellow', '#ffde2e'),
+        lime: v('--lime', '#7cf5ff'),
+        pink: v('--hot-pink', '#b388ff'),
+        cyan: v('--cyan', '#8ab4ff'),
+        gold: v('--arcade-yellow', '#ffd66b'),
       }
     }
 

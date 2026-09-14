@@ -107,11 +107,11 @@ export default function AlertSettings() {
           aria-label="New tool alerts"
           disabled={busy}
           onClick={() => save(!state.subscribed, state.domains)}
-          className="relative mt-0.5 h-7 w-12 shrink-0 rounded-full border-2 border-black transition-colors disabled:opacity-50"
+          className="relative mt-0.5 h-7 w-12 shrink-0 rounded-full border border-white/10 transition-colors disabled:opacity-50"
           style={{ background: state.subscribed ? 'var(--lime)' : '#334155' }}
         >
           <span
-            className="absolute top-0.5 h-5 w-5 rounded-full border-2 border-black bg-white transition-all"
+            className="absolute top-0.5 h-5 w-5 rounded-full border border-white/10 bg-white transition-all"
             style={{ left: state.subscribed ? '1.5rem' : '0.125rem' }}
           />
         </button>
@@ -132,7 +132,7 @@ export default function AlertSettings() {
                   aria-pressed={on}
                   disabled={busy}
                   onClick={() => toggleDomain(d.key)}
-                  className="rounded-full border-2 border-black px-3 py-1 text-xs font-bold transition-colors disabled:opacity-50"
+                  className="rounded-full border border-white/10 px-3 py-1 text-xs font-bold transition-colors disabled:opacity-50"
                   style={{
                     background: on ? 'var(--lime)' : 'transparent',
                     color: on ? '#000' : '#cbd5e1',

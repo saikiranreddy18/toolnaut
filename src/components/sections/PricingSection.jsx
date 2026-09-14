@@ -91,11 +91,11 @@ export default function PricingSection({ titleAs = 'h2' }) {
             <div className="sticker mt-8 overflow-x-auto p-2" style={{ transform: 'none' }}>
               <table className="w-full min-w-[560px] text-sm">
                 <thead>
-                  <tr className="border-b-2 border-black text-left font-display font-black uppercase italic">
+                  <tr className="border-b-2 border-white/10 text-left font-display font-black uppercase">
                     <th className="p-4 text-slate-400">Feature</th>
                     {/* Prices from PLANS, in the rupees actually charged. These were
                         typed as "$3 / $8 / $50" and matched nothing checkout takes. */}
-                    <th className="p-4 text-lime-400">Student · {formatPrice(PLANS.find((p) => p.id === 'shishya'))}</th>
+                    <th className="p-4 text-(--lime)">Student · {formatPrice(PLANS.find((p) => p.id === 'shishya'))}</th>
                     <th className="p-4" style={{ color: 'var(--hot-pink)' }}>Pro · {formatPrice(PLANS.find((p) => p.id === 'guru'))}</th>
                     <th className="p-4 text-cyan-300">Team · {formatPrice(PLANS.find((p) => p.id === 'pandava'))}</th>
                   </tr>

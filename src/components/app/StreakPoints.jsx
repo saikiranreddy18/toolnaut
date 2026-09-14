@@ -54,8 +54,8 @@ export default function StreakPoints() {
 
   return (
     <div
-      className="mt-4 flex items-start gap-3 rounded-xl border-[3px] border-black px-3.5 py-3"
-      style={{ background: '#15151f', boxShadow: '4px 4px 0 #000' }}
+      className="mt-4 flex items-start gap-3 rounded-xl border border-white/10 px-3.5 py-3"
+      style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
     >
       <Stat
         label="Streak"

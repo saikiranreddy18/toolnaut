@@ -148,7 +148,7 @@ export default function ExampleStack() {
       </p>
 
       {/* the inputs, shown plainly, so it is obvious what produced the result */}
-      <div className="mt-7 rounded-2xl border-[3px] border-black p-5" style={{ background: '#15151f', boxShadow: '5px 5px 0 #000' }}>
+      <div className="mt-7 rounded-2xl border border-white/10 p-5" style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>
         <p className="font-display text-[11px] font-black uppercase tracking-[0.16em] text-slate-400">The answers this came from</p>
         <dl className="mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2">
           {EXAMPLE_PROFILE.map(([k, v]) => (
@@ -161,9 +161,9 @@ export default function ExampleStack() {
       </div>
 
       {persona && (
-        <div className="mt-6 rounded-2xl border-[3px] border-black p-5" style={{ background: '#0f1a12', boxShadow: '5px 5px 0 #000' }}>
+        <div className="mt-6 rounded-2xl border border-white/10 p-5" style={{ background: '#0f1a12', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>
           <p className="font-display text-[11px] font-black uppercase tracking-[0.16em]" style={{ color: 'var(--lime)' }}>Your profile reads as</p>
-          <p className="mt-2 font-display text-2xl font-black uppercase italic text-white">{persona.name}</p>
+          <p className="mt-2 font-display text-2xl font-black uppercase text-white">{persona.name}</p>
           <p className="mt-1 text-sm text-slate-300">{persona.tagline}</p>
         </div>
       )}
@@ -185,12 +185,12 @@ export default function ExampleStack() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 * i, duration: 0.4 }}
-              className="rounded-2xl border-[3px] border-black p-4"
-              style={{ background: '#15151f', boxShadow: '4px 4px 0 #000' }}
+              className="rounded-2xl border border-white/10 p-4"
+              style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
             >
               <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                 <span className="font-display text-base font-black uppercase text-white">{t.name}</span>
-                <span className="rounded-full border-2 border-black px-2 py-0.5 font-display text-[10px] font-black uppercase" style={{ background: 'var(--lime)', color: '#000' }}>
+                <span className="rounded-full border border-white/10 px-2 py-0.5 font-display text-[10px] font-black uppercase" style={{ background: 'var(--lime)', color: '#000' }}>
                   {t.price || t.pricing || 'see site'}
                 </span>
                 <span className="ml-auto font-display text-[10px] font-black uppercase tracking-[0.12em]" style={{ color: t.core ? 'var(--lime)' : '#64748b' }}>
@@ -219,7 +219,7 @@ export default function ExampleStack() {
           </p>
           <ol className="mt-5 grid gap-3">
             {roadmap.map((w, i) => (
-              <li key={i} className="rounded-2xl border-[3px] border-black p-4" style={{ background: '#15151f', boxShadow: '4px 4px 0 #000' }}>
+              <li key={i} className="rounded-2xl border border-white/10 p-4" style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>
                 <p className="font-display text-[11px] font-black uppercase tracking-[0.16em]" style={{ color: 'var(--lime)' }}>
                   Week {i + 1}
                 </p>
@@ -234,7 +234,7 @@ export default function ExampleStack() {
       )}
 
       {/* ── the ask, placed AFTER the value, which is the whole point ── */}
-      <div className="mt-10 rounded-2xl border-[3px] p-6 text-center" style={{ borderColor: 'var(--hot-pink)', background: '#1a0f16', boxShadow: '6px 6px 0 #000' }}>
+      <div className="mt-10 rounded-2xl border-[3px] p-6 text-center" style={{ borderColor: 'var(--hot-pink)', background: '#1a0f16', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>
         <p className="font-display text-xl font-black uppercase text-white">Now do it for your role</p>
         <p className="mx-auto mt-2 max-w-md text-sm text-slate-300">
           Nine questions, about ten minutes.{' '}

@@ -123,7 +123,7 @@ export default function ArrivalLaunch() {
           <motion.div
             className="absolute left-1/2 top-[62%] h-[46vmin] w-[46vmin] -translate-x-1/2 rounded-full"
             style={{
-              background: 'radial-gradient(circle, rgba(255,46,163,0.42), transparent 68%)',
+              background: 'radial-gradient(circle, rgba(179, 136, 255,0.42), transparent 68%)',
               filter: 'blur(6px)',
             }}
             initial={{ opacity: 0, scale: 0.6 }}

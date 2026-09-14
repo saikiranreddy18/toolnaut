@@ -96,10 +96,10 @@ export default function Community() {
           already says its rows are placeholders; the feed said nothing, so the
           one invented thing on the page was the one thing unlabelled. */}
       {seededCount > 0 && (
-        <div className="mt-6 rounded-xl border-2 border-black p-3" style={{ background: 'rgba(255,46,163,0.08)' }}>
+        <div className="mt-6 rounded-xl border border-white/10 p-3" style={{ background: 'rgba(179, 136, 255,0.08)' }}>
           <p className="text-xs leading-relaxed text-slate-300">
             <span
-              className="mr-2 inline-block rounded-full border-2 border-black px-2 py-0.5 align-middle font-display text-[9px] font-black uppercase tracking-[0.12em] text-black"
+              className="mr-2 inline-block rounded-full border border-white/10 px-2 py-0.5 align-middle font-display text-[9px] font-black uppercase tracking-[0.12em] text-black"
               style={{ background: 'var(--hot-pink)' }}
             >
               Preview

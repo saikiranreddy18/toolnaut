@@ -80,7 +80,7 @@ export default function FounderRibbon() {
       <span aria-hidden="true">✦</span>
       <span className="flex items-center gap-1.5">Ends in <Clock /></span>
       <span aria-hidden="true">✦</span>
-      <span className="rounded-full border-2 border-black px-3 py-0.5">CLAIM IT →</span>
+      <span className="rounded-full border border-white/10 px-3 py-0.5">CLAIM IT →</span>
     </span>
   )
 
@@ -94,7 +94,7 @@ export default function FounderRibbon() {
       {/* Skewed and over-wide so the ends run off screen — a strip of tape
           slapped across the page rather than a tidy bar sitting in a slot. The
           rotation is what stops it reading as another navigation row. */}
-      <div className="relative -mx-4 overflow-hidden border-y-[3px] border-black py-3 sm:py-3.5 [transform:rotate(-0.6deg)_scale(1.03)]">
+      <div className="relative -mx-4 overflow-hidden border-y-[3px] border-white/10 py-3 sm:py-3.5 [transform:rotate(0deg)_scale(1.03)]">
         <div
           className="absolute inset-0"
           style={{ background: 'linear-gradient(90deg, var(--arcade-yellow), var(--arcade-orange) 50%, var(--arcade-yellow))' }}

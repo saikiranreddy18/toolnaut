@@ -26,7 +26,7 @@ export default function RankCard() {
         </h2>
         {(IS_SAMPLE || SEEDED) && (
           <span
-            className="rounded-full border-2 border-black px-2.5 py-0.5 font-display text-[9px] font-black uppercase tracking-[0.12em] text-black"
+            className="rounded-full border border-white/10 px-2.5 py-0.5 font-display text-[9px] font-black uppercase tracking-[0.12em] text-black"
             style={{ background: 'var(--hot-pink)' }}
           >
             Preview — leaderboard not live yet
@@ -36,8 +36,8 @@ export default function RankCard() {
 
       {/* your standing */}
       <div
-        className="rounded-2xl border-[3px] border-black p-5"
-        style={{ background: 'linear-gradient(135deg, rgba(163, 255, 46,0.14), rgba(34, 211, 238,0.10))', boxShadow: '5px 5px 0 #000' }}
+        className="rounded-2xl border border-white/10 p-5"
+        style={{ background: 'linear-gradient(135deg, rgba(124, 245, 255,0.14), rgba(138, 180, 255,0.10))', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
       >
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>

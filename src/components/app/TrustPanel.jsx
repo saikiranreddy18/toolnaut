@@ -67,8 +67,8 @@ export default function TrustPanel({ tool, answers }) {
 
   return (
     <section
-      className="mt-6 rounded-2xl border-[3px] border-black p-5"
-      style={{ background: '#12121b', boxShadow: '5px 5px 0 #000' }}
+      className="mt-6 rounded-2xl border border-white/10 p-5"
+      style={{ background: '#12121b', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
     >
       <h2 className="arcade-heading compact text-base" style={{ color: 'var(--lime)' }}>
         WHY THIS IS HERE
@@ -98,7 +98,7 @@ export default function TrustPanel({ tool, answers }) {
                 <Link
                   key={a.slug}
                   to={`/app/tools/${a.slug}`}
-                  className="rounded-full border-2 border-black px-2.5 py-1 text-xs font-semibold text-white transition-transform hover:scale-105"
+                  className="rounded-full border border-white/10 px-2.5 py-1 text-xs font-semibold text-white transition-transform hover:scale-105"
                   style={{ background: '#1c1c28' }}
                 >
                   {a.name}

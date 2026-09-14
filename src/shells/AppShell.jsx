@@ -141,7 +141,7 @@ export default function AppShell() {
   const navLinkClass = ({ isActive }) =>
     `flex items-center gap-3 rounded-xl border-2 px-4 py-2.5 font-display text-sm font-black uppercase tracking-widest transition-all ${
       isActive
-        ? 'border-black bg-[var(--lime)] text-black shadow-[3px_3px_0_#000]'
+        ? 'border-white/10 bg-[var(--lime)] text-black shadow-[3px_3px_0_#000]'
         : 'border-transparent text-slate-400 hover:bg-white/5 hover:text-white'
     }`
 
@@ -171,10 +171,10 @@ export default function AppShell() {
             </Link>
           ) : null}
           <div className="min-w-0">
-          <p className="font-display text-[10px] font-black uppercase tracking-widest text-lime-400">
+          <p className="font-display text-[10px] font-black uppercase tracking-widest text-(--lime)">
             {persona ? '▸ Your persona' : '▸ No persona yet'}
           </p>
-          <p className="mt-1 font-display text-sm font-black uppercase italic text-white">
+          <p className="mt-1 font-display text-sm font-black uppercase text-white">
             {persona ? persona.name : 'Take the quiz'}
           </p>
           {persona ? (
@@ -325,7 +325,7 @@ export default function AppShell() {
               data-tour={to}
               className={({ isActive }) =>
                 `press relative flex min-h-16 flex-col items-center justify-center gap-1 text-[10px] font-black tracking-widest uppercase transition-colors ${
-                  isActive ? 'text-lime-300' : 'text-slate-500'
+                  isActive ? 'text-(--lime)' : 'text-slate-500'
                 }`
               }
               style={({ isActive }) => isActive ? { color: 'var(--lime)' } : {}}
@@ -336,7 +336,7 @@ export default function AppShell() {
                     <motion.span
                       layoutId="nav-glow"
                       className="absolute -top-[2px] h-1 w-14 rounded-full"
-                      style={{ background: 'var(--lime)', boxShadow: '0 0 14px var(--lime), 0 0 32px rgba(163,255,46,0.6)' }}
+                      style={{ background: 'var(--lime)', boxShadow: '0 0 14px var(--lime), 0 0 32px rgba(124, 245, 255,0.6)' }}
                       aria-hidden="true"
                     />
                   )}

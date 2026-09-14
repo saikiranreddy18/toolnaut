@@ -50,8 +50,8 @@ html.lenis {
 
 body {
   font-family: var(--font-sans);
-  color: #e7e7f0;
-  background: #0a0a0f;
+  color: #e7e9ff;
+  background: #05060f;
   overflow-x: hidden;
   overscroll-behavior-y: none;
   -webkit-tap-highlight-color: transparent;
@@ -106,16 +106,16 @@ button, a, input, select, textarea {
 }
 
 .glow-btn {
-  box-shadow: 0 0 24px rgba(179, 136, 255, 0.45), 0 0 60px rgba(34, 211, 238, 0.18);
+  box-shadow: 0 0 24px rgba(179, 136, 255, 0.45), 0 0 60px rgba(138, 180, 255, 0.18);
   transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 .glow-btn:hover {
-  box-shadow: 0 0 36px rgba(179, 136, 255, 0.75), 0 0 90px rgba(34, 211, 238, 0.35);
+  box-shadow: 0 0 36px rgba(179, 136, 255, 0.75), 0 0 90px rgba(138, 180, 255, 0.35);
   transform: translateY(-2px);
 }
 
 .text-glow {
-  text-shadow: 0 0 30px rgba(179, 136, 255, 0.6), 0 0 80px rgba(34, 211, 238, 0.25);
+  text-shadow: 0 0 30px rgba(179, 136, 255, 0.6), 0 0 80px rgba(138, 180, 255, 0.25);
 }
 
 /* CSS-only starfield for in-app screens — the space feeling without a WebGL
@@ -127,7 +127,7 @@ button, a, input, select, textarea {
   pointer-events: none;
   background:
     radial-gradient(ellipse 55% 40% at 20% 10%, rgba(179, 136, 255, 0.14), transparent),
-    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(34, 211, 238, 0.1), transparent),
+    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(138, 180, 255, 0.1), transparent),
     #0a0a0f;
 }
 .starfield::before,
@@ -196,7 +196,7 @@ button, a, input, select, textarea {
     radial-gradient(circle 220px at 84% 12%, rgba(226, 232, 240, 0.16), transparent 70%),
     radial-gradient(ellipse 70% 55% at 84% 12%, rgba(148, 163, 184, 0.1), transparent),
     radial-gradient(ellipse 55% 40% at 20% 10%, rgba(179, 136, 255, 0.14), transparent),
-    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(34, 211, 238, 0.1), transparent),
+    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(138, 180, 255, 0.1), transparent),
     #0d0d15;
 }
 /* the moon itself — small, soft-edged, unmistakably a light source */
@@ -276,7 +276,7 @@ button, a, input, select, textarea {
 [data-moon='none'] .starfield {
   background:
     radial-gradient(ellipse 55% 40% at 20% 10%, rgba(179, 136, 255, 0.1), transparent),
-    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(34, 211, 238, 0.07), transparent),
+    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(138, 180, 255, 0.07), transparent),
     #050508;
 }
 [data-moon='none'] .starfield::before {
@@ -302,13 +302,13 @@ button, a, input, select, textarea {
   width: 10px;
   height: 10px;
   border-radius: 9999px;
-  background: #22d3ee;
+  background: #8ab4ff;
   transform: translateX(-50%);
-  box-shadow: 0 0 12px #22d3ee, 0 -14px 22px 2px rgba(34, 211, 238, 0.35);
+  box-shadow: 0 0 12px #8ab4ff, 0 -14px 22px 2px rgba(138, 180, 255, 0.35);
 }
 
 :focus-visible {
-  outline: 2px solid #22d3ee;
+  outline: 2px solid #8ab4ff;
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -341,8 +341,8 @@ button, a, input, select, textarea {
 
 /* Streak flame glow */
 @keyframes flame-pulse {
-  0%, 100% { box-shadow: 0 0 8px #ff8c2e, 0 0 16px #ff2ea3; }
-  50% { box-shadow: 0 0 12px #ff8c2e, 0 0 24px #ff2ea3; }
+  0%, 100% { box-shadow: 0 0 8px #ffb86b, 0 0 16px #b388ff; }
+  50% { box-shadow: 0 0 12px #ffb86b, 0 0 24px #b388ff; }
 }
 .streak-flame {
   animation: flame-pulse 2s ease-in-out infinite;
@@ -367,199 +367,143 @@ button, a, input, select, textarea {
   box-shadow: 0 0 24px rgba(179, 136, 255, 0.15), 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* ===== ARCADE NEUBRUTALISM LAYER ===== */
+/* ===== SPACE DESIGN SYSTEM ===== */
+/* One look: clean panels floating in deep space. Toolnaut is an AI universe —
+   tools and companies are the stars — so the interface is the calm instrument
+   you navigate it with, not the spectacle.
 
+   The variable names are the old arcade ones so the ~300 existing class and
+   style references keep working; their VALUES are the cosmic palette:
+     --lime           primary      starlight cyan  (button fills, links)
+     --hot-pink       secondary    nebula violet
+     --cyan           tertiary     comet blue
+     --arcade-yellow  highlight    star gold, sparingly
+   --lime fills buttons, so it must stay light enough for dark text. */
 :root {
-  --lime: #a3ff2e;
-  --hot-pink: #ff2ea3;
-  --cyan: #22d3ee;
-  --ink-hard: #000;
-  --arcade-yellow: #ffde2e;
-  --arcade-orange: #ff8c2e;
+  --lime: #7cf5ff;
+  --hot-pink: #b388ff;
+  --cyan: #8ab4ff;
+  --ink-hard: #05060f;
+  --arcade-yellow: #ffd66b;
+  --arcade-orange: #ffb86b;
+
+  --space-bg: #05060f;
+  --space-panel: rgba(13, 16, 36, 0.78);
+  --space-line: rgba(160, 175, 255, 0.14);
+  --space-line-strong: rgba(124, 245, 255, 0.38);
+  --space-text: #e7e9ff;
+  --space-muted: #9aa3c7;
+  --space-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.85);
 }
 
-/* ===== PLAY MODES — swap the arcade accent trio per theme ===== */
-/* --lime is the primary (button fill, needs black-legible brightness),
-   --hot-pink the secondary, --cyan the tertiary. Applied via data-theme on
-   <html> and persisted by themeStore. */
+/* ===== SKY THEMES — alternative cosmic palettes ===== */
+/* Each swaps the accent trio: --lime primary (button fill, so it must stay
+   light enough for dark text), --hot-pink secondary, --cyan tertiary. Applied
+   via data-theme on <html>, persisted by themeStore. The ids are the old
+   ones ('toxic', 'synth') so a saved choice keeps working; the palettes are
+   now soft space colours rather than arcade neon. */
 html[data-theme='solar'] {
-  --lime: #ffc42e;
-  --hot-pink: #ff5d5d;
-  --cyan: #ff8f1f;
-  --arcade-yellow: #ffe14d;
-  --arcade-orange: #ff6a1f;
+  --lime: #ffd66b;
+  --hot-pink: #ff9e7a;
+  --cyan: #ffb86b;
+  --arcade-yellow: #ffe7a3;
+  --arcade-orange: #ff9e7a;
 }
 html[data-theme='toxic'] {
-  --lime: #7fff2a;
-  --hot-pink: #2affea;
-  --cyan: #b6ff3a;
-  --arcade-yellow: #d6ff2e;
-  --arcade-orange: #2affb0;
+  --lime: #8ff5c5;
+  --hot-pink: #6ee7f9;
+  --cyan: #5eead4;
+  --arcade-yellow: #d9f99d;
+  --arcade-orange: #5eead4;
 }
 html[data-theme='synth'] {
-  --lime: #45e0ff;
-  --hot-pink: #ff5cc8;
-  --cyan: #b388ff;
-  --arcade-yellow: #ff5cc8;
+  --lime: #d6a8ff;
+  --hot-pink: #ff8ad8;
+  --cyan: #8ab4ff;
+  --arcade-yellow: #ffc2f0;
   --arcade-orange: #b388ff;
 }
 
-/* Chunky brutalist button — black border + hard offset shadow, click depresses */
+/* Buttons: a pill of light with a soft glow. No hard shadow, no black rim. */
 .nb-btn {
   background: var(--lime);
-  color: #000;
-  border: 3px solid #000;
+  color: #05060f;
+  border: 1px solid transparent;
   border-radius: 999px;
-  box-shadow: 4px 4px 0 #000;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: 0 8px 26px -12px var(--lime);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease, background-color 0.2s ease;
   cursor: pointer;
 }
-.nb-btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 #000; }
-.nb-btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 #000; }
+.nb-btn:hover { filter: brightness(1.07); box-shadow: 0 10px 32px -10px var(--lime); }
+.nb-btn:active { transform: translateY(1px) scale(0.99); }
+.nb-btn:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
 
-.nb-btn.pink { background: var(--hot-pink); color: #fff; }
-.nb-btn.cyan { background: var(--cyan, #22d3ee); color: #000; }
-.nb-btn.dark { background: #0a0a0f; color: var(--lime); border-color: var(--lime); box-shadow: 4px 4px 0 var(--lime); }
-.nb-btn.dark:active { box-shadow: 0 0 0 var(--lime); }
+.nb-btn.pink { background: var(--hot-pink); color: #0b0718; box-shadow: 0 8px 26px -12px var(--hot-pink); }
+.nb-btn.pink:hover { box-shadow: 0 10px 32px -10px var(--hot-pink); }
+.nb-btn.cyan { background: var(--cyan); color: #05060f; box-shadow: 0 8px 26px -12px var(--cyan); }
+.nb-btn.cyan:hover { box-shadow: 0 10px 32px -10px var(--cyan); }
+.nb-btn.dark {
+  background: rgba(124, 245, 255, 0.06);
+  color: var(--lime);
+  border-color: var(--space-line-strong);
+  box-shadow: none;
+}
+.nb-btn.dark:hover { background: rgba(124, 245, 255, 0.12); box-shadow: 0 0 22px -10px var(--lime); }
 
-/* Sticker card — tilted with hard offset shadow, alternating tilts */
+/* Panels: deep-space glass with a thin starlit edge that brightens on hover.
+   Always straight — the old alternating tilt is gone everywhere. No backdrop
+   blur on purpose: dozens of blurred cards cost real frames on low-end phones. */
 .sticker {
-  background: rgba(14, 14, 24, 0.75);
-  border: 2px solid #000;
-  border-radius: 16px;
-  box-shadow: 4px 4px 0 var(--lime);
-  transform: rotate(-1.5deg);
-  transition: transform 0.2s ease;
+  background: var(--space-panel);
+  border: 1px solid var(--space-line);
+  border-radius: 18px;
+  box-shadow: var(--space-shadow);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.sticker.pink { box-shadow: 4px 4px 0 var(--hot-pink); }
-.sticker.cyan { box-shadow: 4px 4px 0 var(--cyan); }
-.sticker:nth-child(even) { transform: rotate(1.5deg); }
-.sticker:hover { transform: rotate(0deg) translate(-1px, -1px); }
+.sticker:hover { border-color: var(--space-line-strong); box-shadow: var(--space-shadow), 0 0 30px -14px var(--lime); }
+.sticker.pink { border-color: rgba(179, 136, 255, 0.2); }
+.sticker.pink:hover { border-color: rgba(179, 136, 255, 0.5); box-shadow: var(--space-shadow), 0 0 30px -14px var(--hot-pink); }
+.sticker.cyan { border-color: rgba(138, 180, 255, 0.2); }
+.sticker.cyan:hover { border-color: rgba(138, 180, 255, 0.5); box-shadow: var(--space-shadow), 0 0 30px -14px var(--cyan); }
+.sticker.flat,
+.app-calm .sticker { transform: none; }
 
-/* Pricing is a COMPARISON, and a comparison has to line up.
-   The scattered rotation above is right where cards are browsed one at a time
-   (Find, Saved, Stack) — it reads as a pinboard. In a three-column price table
-   the same rotation puts each card's baseline at a different height, so the eye
-   cannot run across a row to compare a figure. .flat opts that row out and
-   nothing else. Declared after :nth-child(even) deliberately: both selectors
-   are specificity (0,2,0), so source order is what decides. */
-.sticker.flat { transform: none; }
-.sticker.flat:hover { transform: translate(-1px, -1px); }
-
-/* Inside the app, cards sit straight. The scattered tilt is personality for
-   the landing page; in a tool someone uses daily it reads as clutter and makes
-   rows harder to scan. .app-calm is set on AppShell's root. */
-.app-calm .sticker,
-.app-calm .sticker:nth-child(even) { transform: none; }
-.app-calm .sticker:hover { transform: translate(-1px, -1px); }
-
-/* Chunky italic arcade display heading */
+/* Headings: clean, confident Space Grotesk. No italic slab, no RGB split. */
 .arcade-heading {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-weight: 900;
-  font-style: italic;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-  line-height: 0.92;
-  color: #fff;
-  text-shadow:
-    -1px -1px 0 var(--hot-pink),
-    2px 2px 0 var(--lime),
-    4px 4px 0 rgba(0,0,0,0.6);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
+  color: var(--space-text);
+  text-shadow: none;
 }
-
-/* Section headings (18-24px).
-
-   The RGB split above is sized for the 30-48px page titles, where a 2px colour
-   offset reads as chrome around a ~6px stroke. At text-lg the strokes are about
-   3px, so the lime and pink copies land INSIDE the letterform instead of beside
-   it and the word reads as a smear — "RECOMMENDED FOR YOU" and "STARTER PICKS"
-   were the two worst cases. Section headings keep the face, weight and italic;
-   they drop the split for a single hard shadow, and give back the -0.02em
-   tracking, which also works against legibility once the type is small. */
-.arcade-heading.section {
-  letter-spacing: 0.005em;
-  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.9);
-}
-
-/* Lime labels at 12-16px: 3px of shadow is a fifth of the cap height there. */
-.arcade-heading.lime.compact {
-  text-shadow: 2px 2px 0 #000;
-}
-
-.arcade-heading.outline {
-  color: transparent;
-  -webkit-text-stroke: 2px var(--lime);
-  text-shadow: 4px 4px 0 var(--hot-pink);
-}
-
-.arcade-heading.lime {
-  color: var(--lime);
-  text-shadow: 3px 3px 0 #000;
-}
-
-.arcade-heading.split {
-  color: var(--lime);
-}
+.arcade-heading.section { letter-spacing: -0.005em; }
+.arcade-heading.lime { color: var(--lime); }
+.arcade-heading.outline { color: transparent; -webkit-text-stroke: 1px var(--lime); }
+.arcade-heading.split { color: var(--lime); }
 .arcade-heading.split .cyan-line { color: var(--cyan); }
 .arcade-heading.split .pink-line { color: var(--hot-pink); }
 
-/* RGB-split outlined wordmark (matches the reference exactly): three stacked
-   stroked copies of the text — red / green / blue — offset horizontally and
-   blended with `screen` on the dark surface, so where the channels align the
-   outline reads white and where they separate you get pure R/G/B fringes.
-   Needs a `data-text` attribute equal to the text for the pseudo-copies. */
-.glitch-outline {
-  position: relative;
-  display: inline-block;
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  line-height: 0.86;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(0, 255, 90, 0.95);     /* green channel (center) */
-}
-.glitch-outline::before,
-.glitch-outline::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: transparent;
-  mix-blend-mode: screen;
-  pointer-events: none;
-}
-.glitch-outline::before {
-  -webkit-text-stroke: 1px rgba(255, 0, 60, 0.85);     /* red channel, shifted left */
-  transform: translateX(-2px);
-}
-.glitch-outline::after {
-  -webkit-text-stroke: 1px rgba(0, 90, 255, 0.85);     /* blue channel, shifted right */
-  transform: translateX(2px);
-}
-
-/* Retro grid backdrop */
+/* Faint star-chart grid */
 .retro-grid {
   background-image:
-    linear-gradient(rgba(163,255,46,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(163,255,46,0.08) 1px, transparent 1px);
+    linear-gradient(rgba(124, 245, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 245, 255, 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
   mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
   -webkit-mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
 }
 
-/* Level badge — chunky pixel style with black border */
+/* Level badge */
 .level-badge {
   background: linear-gradient(135deg, var(--arcade-yellow), var(--arcade-orange));
-  border: 3px solid #000;
-  border-radius: 14px;
-  box-shadow: 3px 3px 0 #000;
-  color: #000;
-  transform: rotate(-2deg);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px -12px var(--arcade-yellow);
+  color: #1a1205;
 }
 
 /* Day-streak dots (M T W T F …) */
@@ -567,67 +511,67 @@ html[data-theme='synth'] {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  border: 2px solid #000;
+  border: 1px solid var(--space-line);
   display: grid;
   place-items: center;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 11px;
-  background: rgba(255,255,255,0.05);
-  color: rgba(255,255,255,0.5);
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--space-muted);
+  font-family: var(--font-display);
 }
 .day-dot.done {
   background: var(--lime);
-  color: #000;
-  box-shadow: 0 0 14px var(--lime), 3px 3px 0 #000;
+  border-color: transparent;
+  color: #05060f;
+  box-shadow: 0 0 16px -2px var(--lime);
 }
 .day-dot.today {
   background: var(--hot-pink);
-  color: #fff;
-  box-shadow: 0 0 14px var(--hot-pink), 3px 3px 0 #000;
-  animation: dot-bounce 1s ease-in-out infinite;
+  border-color: transparent;
+  color: #0b0718;
+  box-shadow: 0 0 16px -2px var(--hot-pink);
+  animation: dot-bounce 1.6s ease-in-out infinite;
 }
 
 @keyframes dot-bounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-3px); }
 }
 
-/* Chunky arcade chip / pill */
+/* Chips / pills */
 .arcade-chip {
-  background: transparent;
-  border: 2px solid rgba(163,255,46,0.4);
+  background: rgba(124, 245, 255, 0.04);
+  border: 1px solid var(--space-line);
   border-radius: 999px;
   padding: 8px 14px;
-  color: var(--lime);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 11px;
-  letter-spacing: 0.06em;
+  color: var(--space-muted);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.01em;
   transition: all 0.15s ease;
   cursor: pointer;
 }
+.arcade-chip:hover { color: var(--space-text); border-color: var(--space-line-strong); }
 .arcade-chip.on {
-  background: var(--lime);
-  color: #000;
-  border-color: #000;
-  box-shadow: 3px 3px 0 #000;
+  background: rgba(124, 245, 255, 0.14);
+  color: var(--lime);
+  border-color: var(--space-line-strong);
+  box-shadow: 0 0 20px -10px var(--lime);
 }
 
-/* Diagonal marquee-style label (like the "level up your savings" tape) */
+/* Small label pill (was a tilted strip of tape) */
 .tape-label {
   display: inline-block;
-  background: #fff;
-  color: #000;
-  padding: 8px 20px;
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-weight: 900;
-  font-style: italic;
+  background: rgba(124, 245, 255, 0.1);
+  color: var(--lime);
+  padding: 5px 12px;
+  border: 1px solid var(--space-line-strong);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
-  transform: rotate(-6deg);
-  box-shadow: 3px 3px 0 #000;
-  border: 2px solid #000;
 }
 
 /* Pixel confetti — square particles instead of round */
@@ -676,9 +620,9 @@ html[data-theme='synth'] {
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(163, 255, 46, 0.05) 40%,
+    rgba(124, 245, 255, 0.05) 40%,
     rgba(255, 255, 255, 0.07) 50%,
-    rgba(163, 255, 46, 0.05) 60%,
+    rgba(124, 245, 255, 0.05) 60%,
     transparent
   );
   animation: crt-roll 7s linear infinite;
@@ -751,70 +695,21 @@ html[data-theme='synth'] {
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .signin-panel {
-  clip-path: polygon(0 0, 97% 0, 100% 3%, 100% 93%, 93% 100%, 0 100%);
-  box-shadow:
-    inset 0 0 0 5px var(--hot-pink),
-    inset 0 0 0 10px #09090a,
-    inset 0 0 0 14px #f5f1e8;
+  border-radius: 22px;
+  box-shadow: inset 0 0 0 1px var(--space-line-strong), 0 30px 80px -30px rgba(0, 0, 0, 0.9);
 }
+.signin-panel::before,
+.signin-panel::after { content: none; }
 
-/* the pink rail down the inside edge */
-.signin-panel::before {
-  position: absolute;
-  top: 9px;
-  right: 7px;
-  bottom: 70px;
-  width: 9px;
-  content: '';
-  background: linear-gradient(#ff78ac, var(--hot-pink) 70%);
-  box-shadow: -5px 0 #050506;
-  pointer-events: none;
-}
-
-/* the cut corner, bottom right */
-.signin-panel::after {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 72px;
-  height: 72px;
-  content: '';
-  border-top: 8px solid #09090a;
-  background: var(--hot-pink);
-  clip-path: polygon(100% 0, 100% 100%, 0 100%);
-  pointer-events: none;
-}
-
-/* The headline: Bungee, skewed, thick outline over a hard offset shadow. The
-   second line is squeezed horizontally so both lines end flush — the reference
-   does this and it is why the block reads as a stamped logotype. */
+/* The sign-in headline: clean display type. */
 .enter-heading {
-  padding-right: 26px;
-  font-family: 'Bungee', var(--font-display), sans-serif;
-  font-style: italic;
-  line-height: 0.82;
-  letter-spacing: -0.065em;
-  text-transform: uppercase;
-  transform: skewX(-8deg);
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.025em;
 }
 .enter-heading span,
-.enter-heading strong {
-  display: block;
-  -webkit-text-stroke: 3px #080809;
-  text-shadow: 7px 7px #080809;
-}
-.enter-heading strong {
-  font-size: 0.86em;
-  white-space: nowrap;
-  transform: skewX(8deg) scaleX(0.91);
-  transform-origin: left;
-}
-
-@media (max-width: 640px) {
-  .enter-heading span,
-  .enter-heading strong { -webkit-text-stroke-width: 2px; text-shadow: 4px 4px #080809; }
-  .signin-panel::after { width: 48px; height: 48px; }
-}
+.enter-heading strong { display: block; }
 
 /* Holographic sweep for the ticket's persona name: the gradient slides through
    the clipped glyphs like light across foil. Guarded for reduced motion. */

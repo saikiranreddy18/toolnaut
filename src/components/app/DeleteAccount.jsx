@@ -174,7 +174,7 @@ export default function DeleteAccount({ session }) {
                     type="button"
                     onClick={requestCode}
                     disabled={busy || cooldown > 0}
-                    className="min-h-11 rounded-md border-2 border-black bg-rose-500 px-4 py-2.5 text-xs font-black text-white disabled:opacity-50"
+                    className="min-h-11 rounded-md border border-white/10 bg-rose-500 px-4 py-2.5 text-xs font-black text-white disabled:opacity-50"
                   >
                     {busy ? 'Sending…' : cooldown > 0 ? `Wait ${cooldown}s` : 'Email me a code'}
                   </button>
@@ -198,7 +198,7 @@ export default function DeleteAccount({ session }) {
                   autoComplete="one-time-code"
                   maxLength={7}
                   disabled={busy}
-                  className="mt-1.5 w-full rounded-md border-2 border-black bg-slate-900 px-3 py-3 text-center font-mono text-2xl tracking-[0.4em] text-white tabular-nums focus-visible:outline focus-visible:outline-2 focus-visible:outline-rose-300"
+                  className="mt-1.5 w-full rounded-md border border-white/10 bg-slate-900 px-3 py-3 text-center font-mono text-2xl tracking-[0.4em] text-white tabular-nums focus-visible:outline focus-visible:outline-2 focus-visible:outline-rose-300"
                   placeholder="••••••"
                 />
                 {error && <p role="alert" className="mt-3 text-xs font-semibold text-rose-400">{error}</p>}
@@ -218,7 +218,7 @@ export default function DeleteAccount({ session }) {
                   <button
                     type="submit"
                     disabled={busy || digits.length !== 6}
-                    className="min-h-11 rounded-md border-2 border-black bg-rose-500 px-4 py-2.5 text-xs font-black text-white disabled:opacity-50"
+                    className="min-h-11 rounded-md border border-white/10 bg-rose-500 px-4 py-2.5 text-xs font-black text-white disabled:opacity-50"
                   >
                     {busy ? 'Deleting…' : 'Delete my account permanently'}
                   </button>

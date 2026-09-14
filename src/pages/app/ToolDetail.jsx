@@ -115,7 +115,7 @@ export default function ToolDetail() {
         {score != null && (
           <span
             className="rounded-full px-3 py-1 font-display text-xs font-black uppercase"
-            style={{ background: 'var(--lime)', color: '#000', border: '2px solid #000', boxShadow: '2px 2px 0 #000' }}
+            style={{ background: 'var(--lime)', color: '#000', border: '2px solid #000', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
           >
             {fitBand(score)?.label || 'MATCH'}
           </span>
@@ -123,7 +123,7 @@ export default function ToolDetail() {
         {tool.status && tool.status !== 'Active' && (
           <span
             className="rounded-full px-3 py-1 font-display text-xs font-black uppercase"
-            style={{ background: 'var(--hot-pink)', color: '#fff', border: '2px solid #000', boxShadow: '2px 2px 0 #000' }}
+            style={{ background: 'var(--hot-pink)', color: '#fff', border: '2px solid #000', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
           >
             {tool.status}
           </span>
@@ -173,10 +173,10 @@ export default function ToolDetail() {
           onClick={toggleFavorite}
           aria-label={favorited ? `Remove ${tool.name} from saved` : `Save ${tool.name}`}
           aria-pressed={favorited}
-          className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-black ${
+          className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/10 ${
             favorited ? 'bg-[var(--hot-pink)] text-white' : 'bg-transparent text-slate-400 hover:text-white'
           }`}
-          style={{ boxShadow: '3px 3px 0 #000' }}
+          style={{ boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
         >
           <HeartIcon filled={favorited} />
         </button>

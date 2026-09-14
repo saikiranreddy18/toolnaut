@@ -137,7 +137,7 @@ export function useRazorpay() {
         image: 'https://toolnaut.xyz/checkout-logo.png',
 
         theme: {
-          color: '#a3ff2e',
+          color: '#7cf5ff',
           // The panel behind the modal, so the arcade dark carries through
           // instead of Razorpay's default grey wash.
           backdrop_color: 'rgba(10, 10, 18, 0.92)',

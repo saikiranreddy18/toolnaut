@@ -60,7 +60,7 @@ export default function SearchTools() {
           style={{
             background: 'rgba(20,18,31,0.9)',
             border: '2px solid #000',
-            boxShadow: '3px 3px 0 #000',
+            boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)',
           }}
         />
       </div>

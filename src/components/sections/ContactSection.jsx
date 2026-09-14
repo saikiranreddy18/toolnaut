@@ -89,8 +89,8 @@ export default function ContactSection() {
                     aria-label={s.label}
                     title={s.label}
                     onClick={() => track(EVENTS.CTA_CLICK, { cta: 'social', network: s.id })}
-                    className="flex h-9 w-9 items-center justify-center rounded-md border-2 border-black transition-transform hover:scale-110"
-                    style={{ background: '#1b1b24', color: 'var(--lime)', boxShadow: '2px 2px 0 #000' }}
+                    className="flex h-9 w-9 items-center justify-center rounded-md border border-white/10 transition-transform hover:scale-110"
+                    style={{ background: '#1b1b24', color: 'var(--lime)', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                       <path d={ICONS[s.id] || ICONS.github} />

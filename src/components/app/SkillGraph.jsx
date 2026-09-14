@@ -7,7 +7,7 @@ export default function SkillGraph({ tools, progress }) {
   return (
     <div className="sticker p-4">
       <div className="mb-3 flex items-center justify-between">
-        <h2 className="tape-label text-xs" style={{ transform: 'rotate(-2deg)' }}>
+        <h2 className="tape-label text-xs" style={{ transform: 'rotate(0deg)' }}>
           📊 Skills graph
         </h2>
         <span className="font-display text-[10px] font-bold uppercase tracking-widest text-slate-500">

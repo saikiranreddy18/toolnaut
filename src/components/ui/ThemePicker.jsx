@@ -79,7 +79,7 @@ export default function ThemePicker() {
               >
                 <span className="flex gap-1" aria-hidden="true">
                   {t.swatch.map((c) => (
-                    <span key={c} className="h-3.5 w-3.5 rounded-full border-2 border-black" style={{ background: c }} />
+                    <span key={c} className="h-3.5 w-3.5 rounded-full border border-white/10" style={{ background: c }} />
                   ))}
                 </span>
                 <span className="font-display text-xs font-black uppercase tracking-wider text-white">{t.name}</span>

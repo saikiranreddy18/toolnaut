@@ -209,7 +209,7 @@ export default function AppTour({ open, onClose }) {
           <rect
             x={hole.x} y={hole.y} width={hole.w} height={hole.h} rx="16"
             fill="none" stroke="var(--lime)" strokeWidth="3"
-            style={{ filter: 'drop-shadow(0 0 14px rgba(163,255,46,0.7))' }}
+            style={{ filter: 'drop-shadow(0 0 14px rgba(124, 245, 255,0.7))' }}
           />
         )}
       </svg>
@@ -222,7 +222,7 @@ export default function AppTour({ open, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-start justify-between gap-3">
-          <p className="font-display text-[10px] font-black uppercase tracking-[0.2em] text-lime-400">
+          <p className="font-display text-[10px] font-black uppercase tracking-[0.2em] text-(--lime)">
             {i + 1} of {steps.length}
           </p>
           <button

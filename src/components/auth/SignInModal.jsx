@@ -170,7 +170,7 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
               ref={closeRef}
               onClick={onClose}
               aria-label="Close sign in"
-              className="absolute z-[8] flex h-10 w-10 items-center justify-center rounded-full border-[3px] border-black text-white transition-transform hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+              className="absolute z-[8] flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white transition-transform hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
               style={{
                 // Inside the frame, not floating beside it. The clip-path cuts
                 // the panel above 3% and right of 97%, so this sits below and
@@ -182,7 +182,7 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
                 // the button's own size puts the safe corner at 12.8% / 6.9%.
                 top: '13%', right: '7%',
                 background: 'var(--hot-pink)',
-                boxShadow: '3px 3px 0 #000',
+                boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)',
                 outlineColor: 'var(--cyan)',
               }}
             >
@@ -213,8 +213,8 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
 
             {/* the real catalogue size, read at render */}
             <div
-              className="absolute z-[6] hidden -translate-x-1/2 rotate-[-8deg] rounded-lg border-[3px] border-black bg-white px-2.5 py-1.5 lg:block"
-              style={{ left: '8.24%', top: '62%', boxShadow: '3px 3px 0 #000' }}
+              className="absolute z-[6] hidden -translate-x-1/2 rotate-[-8deg] rounded-lg border border-white/10 bg-white px-2.5 py-1.5 lg:block"
+              style={{ left: '8.24%', top: '62%', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
             >
               <p className="font-display text-xs font-black uppercase leading-none text-black">
                 {TOOLS.length}+
@@ -289,7 +289,7 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
                       key={p.id}
                       onClick={() => useProvider(p.id)}
                       disabled={Boolean(busy)}
-                      className="cab-btn flex min-h-[3.25rem] items-center gap-3 rounded-lg border-[3px] border-black px-4 py-3 font-bold disabled:opacity-60"
+                      className="cab-btn flex min-h-[3.25rem] items-center gap-3 rounded-lg border border-white/10 px-4 py-3 font-bold disabled:opacity-60"
                       style={{
                         background: p.dark ? '#0d0d0f' : 'var(--lime)',
                         color: p.dark ? '#f8f7f1' : '#0a0a0c',
@@ -326,8 +326,8 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
                 {linkSent ? (
                   <div
                     role="status"
-                    className="rounded-xl border-[3px] border-black px-4 py-4 text-center"
-                    style={{ background: 'var(--lime)', boxShadow: '4px 4px 0 #000' }}
+                    className="rounded-xl border border-white/10 px-4 py-4 text-center"
+                    style={{ background: 'var(--lime)', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
                   >
                     <p className="font-display text-sm font-black uppercase text-black">Check your inbox</p>
                     <p className="mt-1 text-xs text-black/75">
@@ -338,7 +338,7 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
                   <form onSubmit={sendLink} noValidate>
                     <label
                       htmlFor="signin-email"
-                      className="flex min-h-[3.25rem] items-center gap-3 rounded-lg border-[3px] border-black px-3 focus-within:outline focus-within:outline-[3px] focus-within:outline-offset-[3px]"
+                      className="flex min-h-[3.25rem] items-center gap-3 rounded-lg border border-white/10 px-3 focus-within:outline focus-within:outline-[3px] focus-within:outline-offset-[3px]"
                       style={{ background: '#f8f4eb', boxShadow: '4px 4px 0 #1b1b1d', outlineColor: 'var(--cyan)' }}
                     >
                       <svg
@@ -364,7 +364,7 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
                     <button
                       type="submit"
                       disabled={Boolean(busy)}
-                      className="cab-btn mt-3.5 min-h-[3.25rem] w-full rounded-lg border-[3px] border-black px-5 font-display font-black uppercase tracking-wide text-[#10110b] disabled:opacity-60"
+                      className="cab-btn mt-3.5 min-h-[3.25rem] w-full rounded-lg border border-white/10 px-5 font-display font-black uppercase tracking-wide text-[#10110b] disabled:opacity-60"
                       style={{
                         background: 'var(--lime)',
                         boxShadow: '5px 5px 0 #171719, inset 0 2px rgba(255,255,255,0.42)',

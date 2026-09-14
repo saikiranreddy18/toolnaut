@@ -48,7 +48,7 @@ export default function PlanChip({ ent, compact = false, className = '' }) {
     return (
       <Link
         to="/app/settings"
-        className={`inline-flex items-center gap-1.5 rounded-full border-2 border-black px-2.5 py-0.5 font-display text-[10px] font-black uppercase tracking-wider text-black ${className}`}
+        className={`inline-flex items-center gap-1.5 rounded-full border border-white/10 px-2.5 py-0.5 font-display text-[10px] font-black uppercase tracking-wider text-black ${className}`}
         style={{ background: 'var(--cyan)' }}
         title="Your plan and billing"
       >

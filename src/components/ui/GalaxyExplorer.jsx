@@ -143,7 +143,7 @@ export default function GalaxyExplorer({ onClose }) {
         <button onClick={() => zoomBy(1.25)} aria-label="Zoom out" className="nb-btn dark h-11 w-11 !rounded-full !p-0 text-xl">−</button>
       </div>
 
-      <p className="tape-label pointer-events-none absolute bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px]" style={{ transform: 'translateX(-50%) rotate(-1.5deg)' }}>
+      <p className="tape-label pointer-events-none absolute bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px]" style={{ transform: 'translateX(-50%) rotate(0deg)' }}>
         Drag to orbit · Scroll to zoom · Zoom in to meet the tools
       </p>
     </motion.div>

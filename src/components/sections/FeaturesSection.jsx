@@ -4,11 +4,11 @@ import Tilt from '../ui/Tilt'
 
 const FEATURES = [
   { name: 'Role-Aware Discovery', text: 'Not generic lists. Recommendations that understand your role and rank tools by fit.', accent: '#b388ff' },
-  { name: 'Smart Learning Paths', text: 'From first tool to full stack, sequenced for your level and your available time.', accent: '#22d3ee' },
-  { name: 'Live Tool Comparison', text: 'Side-by-side capability, pricing, and integration comparisons kept current.', accent: '#ff2ea3' },
-  { name: 'Progress Tracking', text: 'A skills graph that grows with you and shows exactly where the gaps are.', accent: '#ffde2e' },
-  { name: 'Signal over Noise', text: 'We watch the release firehose so you only hear about tools that matter to you.', accent: '#a3ff2e' },
-  { name: 'Weekly Fresh Finds', text: 'New tools matched to your evolving role, delivered in one scannable digest.', accent: '#ff8c2e' },
+  { name: 'Smart Learning Paths', text: 'From first tool to full stack, sequenced for your level and your available time.', accent: '#8ab4ff' },
+  { name: 'Live Tool Comparison', text: 'Side-by-side capability, pricing, and integration comparisons kept current.', accent: '#b388ff' },
+  { name: 'Progress Tracking', text: 'A skills graph that grows with you and shows exactly where the gaps are.', accent: '#ffd66b' },
+  { name: 'Signal over Noise', text: 'We watch the release firehose so you only hear about tools that matter to you.', accent: '#7cf5ff' },
+  { name: 'Weekly Fresh Finds', text: 'New tools matched to your evolving role, delivered in one scannable digest.', accent: '#ffb86b' },
 ]
 
 function Spark({ color }) {
@@ -30,12 +30,12 @@ export default function FeaturesSection() {
               max={6}
             >
               <div
-                className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border-2 border-black bg-white/5"
-                style={{ boxShadow: '2px 2px 0 #000' }}
+                className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5"
+                style={{ boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
               >
                 <Spark color={f.accent} />
               </div>
-              <h3 className="mb-2 font-display text-lg font-black uppercase italic text-white">{f.name}</h3>
+              <h3 className="mb-2 font-display text-lg font-black uppercase text-white">{f.name}</h3>
               <p className="text-sm leading-relaxed text-slate-300">{f.text}</p>
             </Tilt>
           </motion.div>

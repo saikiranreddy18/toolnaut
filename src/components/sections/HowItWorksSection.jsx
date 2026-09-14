@@ -36,8 +36,8 @@ export default function HowItWorksSection() {
           <defs>
             <linearGradient id="pathGrad" x1="0" x2="1000" gradientUnits="userSpaceOnUse">
               <stop stopColor="#b388ff" />
-              <stop offset="0.5" stopColor="#22d3ee" />
-              <stop offset="1" stopColor="#ff2ea3" />
+              <stop offset="0.5" stopColor="#8ab4ff" />
+              <stop offset="1" stopColor="#b388ff" />
             </linearGradient>
           </defs>
         </svg>
@@ -49,10 +49,10 @@ export default function HowItWorksSection() {
                 className={`sticker ${i % 3 === 0 ? '' : i % 3 === 1 ? 'pink' : 'cyan'} h-full p-6`}
                 max={8}
               >
-                <p className="font-display text-4xl font-black italic text-lime-400" style={{ textShadow: '2px 2px 0 #000' }}>
+                <p className="font-display text-4xl font-black italic text-(--lime)" style={{ textShadow: 'none' }}>
                   {String(i + 1).padStart(2, '0')}
                 </p>
-                <h3 className="mt-3 font-display text-xl font-black uppercase italic text-white">{s.name}</h3>
+                <h3 className="mt-3 font-display text-xl font-black uppercase text-white">{s.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-300">{s.text}</p>
               </Tilt>
             </motion.div>

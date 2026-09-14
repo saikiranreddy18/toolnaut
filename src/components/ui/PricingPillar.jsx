@@ -20,8 +20,8 @@ const ICON_PATH = {
 function PlanIcon({ type, color }) {
   return (
     <span
-      className="flex h-11 w-11 items-center justify-center rounded-xl border-2 border-black bg-white/5"
-      style={{ boxShadow: '2px 2px 0 #000' }}
+      className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5"
+      style={{ boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
       aria-hidden="true"
     >
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -60,13 +60,13 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
         )}
         <div className="flex items-start justify-between">
           <div>
-            <p className="font-display text-[11px] font-black uppercase tracking-[0.3em] text-lime-400">{plan.tier}</p>
-            <h3 className="mt-1 font-display text-2xl font-black uppercase italic text-white">{plan.name}</h3>
+            <p className="font-display text-[11px] font-black uppercase tracking-[0.3em] text-(--lime)">{plan.tier}</p>
+            <h3 className="mt-1 font-display text-2xl font-black uppercase text-white">{plan.name}</h3>
           </div>
           <PlanIcon type={plan.icon} color={plan.accent} />
         </div>
         <p className="mt-3 flex items-baseline gap-1">
-          <span className="font-display text-5xl font-black italic text-white" style={{ textShadow: '3px 3px 0 #000' }}>
+          <span className="font-display text-5xl font-black italic text-white" style={{ textShadow: 'none' }}>
             {/* A regionally priced plan ignores the currency toggle: it has one
                 real price per country, and letting the toggle quote the other
                 one would show a number the checkout will not charge. */}

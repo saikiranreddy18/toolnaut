@@ -1,13 +1,14 @@
-// Play-mode themes: each swaps the arcade accent trio (--lime/--hot-pink/--cyan)
+// Sky themes: each swaps the accent trio (--lime/--hot-pink/--cyan)
 // via a data-theme attribute on <html>, defined in index.css. Persisted so the
 // choice survives reloads. 'nebula' is the default (no attribute = :root values).
 const KEY = 'exus_theme_v1'
 
 export const THEMES = [
-  { id: 'nebula', name: 'Nebula', swatch: ['#a3ff2e', '#ff2ea3', '#22d3ee'] },
-  { id: 'solar', name: 'Solar', swatch: ['#ffc42e', '#ff5d5d', '#ff8f1f'] },
-  { id: 'toxic', name: 'Toxic', swatch: ['#7fff2a', '#2affea', '#b6ff3a'] },
-  { id: 'synth', name: 'Synth', swatch: ['#45e0ff', '#ff5cc8', '#b388ff'] },
+  { id: 'nebula', name: 'Nebula', swatch: ['#7cf5ff', '#b388ff', '#8ab4ff'] },
+  { id: 'solar', name: 'Solar', swatch: ['#ffd66b', '#ff9e7a', '#ffb86b'] },
+  // ids kept from the arcade era so saved choices still resolve
+  { id: 'toxic', name: 'Aurora', swatch: ['#8ff5c5', '#6ee7f9', '#5eead4'] },
+  { id: 'synth', name: 'Pulsar', swatch: ['#d6a8ff', '#ff8ad8', '#8ab4ff'] },
 ]
 
 export function loadTheme() {

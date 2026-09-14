@@ -8,11 +8,11 @@ export const LEVEL_LABELS = { beginner: "Beginner", intermediate: "Intermediate"
 // 6 galaxy domains (persona / match scoring)
 export const CATEGORY_META = {
   code: { name: "Code", color: "#b388ff" },
-  design: { name: "Design", color: "#ff2ea3" },
-  writing: { name: "Writing", color: "#ffde2e" },
-  data: { name: "Data", color: "#22d3ee" },
-  automation: { name: "Automation", color: "#a3ff2e" },
-  learning: { name: "Learning", color: "#ff8c2e" },
+  design: { name: "Design", color: "#ff8ad8" },
+  writing: { name: "Writing", color: "#ffd66b" },
+  data: { name: "Data", color: "#7cf5ff" },
+  automation: { name: "Automation", color: "#8ab4ff" },
+  learning: { name: "Learning", color: "#ffb86b" },
 }
 
 // 26 real categories from the source data (Discover filter)

@@ -66,8 +66,8 @@ export default function GuestImportPrompt() {
           initial={{ y: 24, scale: 0.97 }}
           animate={{ y: 0, scale: 1 }}
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full max-w-md rounded-2xl border-[3px] border-black bg-[#12121c] p-6"
-          style={{ boxShadow: '6px 6px 0 #000' }}
+          className="w-full max-w-md rounded-2xl border border-white/10 bg-[#12121c] p-6"
+          style={{ boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
         >
           <h2 id="import-title" className="arcade-heading section text-xl sm:text-2xl">
             BRING YOUR WORK WITH YOU?

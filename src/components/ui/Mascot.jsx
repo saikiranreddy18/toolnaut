@@ -139,7 +139,7 @@ export function BrandLogo({ size = 30, wordmark = true, beta = true, className =
       )}
       {wordmark && beta && (
         <span
-          className="-ml-0.5 self-start rounded-full border-2 border-black px-1.5 py-px font-display text-[8px] font-black uppercase tracking-[0.14em]"
+          className="-ml-0.5 self-start rounded-full border border-white/10 px-1.5 py-px font-display text-[8px] font-black uppercase tracking-[0.14em]"
           style={{ background: 'var(--lime)', color: '#000' }}
         >
           beta
