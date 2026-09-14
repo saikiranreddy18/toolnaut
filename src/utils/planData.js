@@ -82,8 +82,9 @@ export const PLANS = [
     accent: '#fb7185',
     audience: 'Students, hobbyists, solo learners exploring AI',
     features: [
-      live('Personalized AI tool discovery (up to 5 categories)'),
-      live('Basic learning paths (beginner to intermediate)'),
+      live('Personalized AI tool discovery (all categories)'),
+      live('Tool stack builder with save & share'),
+      live('4-week learning roadmap with progress tracking'),
       live('Community access (in-app forum)'),
       live('New tool alerts, by email'),
       live('Save up to 10 favorite tools'),
@@ -105,13 +106,13 @@ export const PLANS = [
     audience: 'Freelancers, professionals, serious learners',
     plus: 'Everything in Student, plus:',
     features: [
-      live('Unlimited tool discovery (all categories)'),
-      live('Advanced learning paths (beginner → senior)'),
-      live('Custom tool stack builder with save & share'),
-      planned('AI-powered chat assistant (Claude-powered Q&A)'),
-      live('Personalized new-tool alerts, by email'),
+      // ONLY WHAT PRO ADDS. This list used to repeat discovery, learning paths,
+      // the stack builder, alerts and progress tracking as Pro benefits, and the
+      // comparison table marked them missing from Student. Student has every one
+      // of them, so both were untrue. What Pro really adds today is the saved-tools
+      // limit lifted (enforced in the app and in 0010_saved_limit.sql).
       live('Unlimited favorite tools'),
-      live('Progress tracking + skill badges'),
+      planned('AI-powered chat assistant (Claude-powered Q&A)'),
       planned('Priority email support'),
       planned('Export learning roadmaps as PDF'),
     ],
@@ -158,14 +159,16 @@ export const PLANS = [
 // Each cell is true (live, included), false (not included at this tier), or
 // 'planned' (designed, not built — must never render as an included check).
 export const COMPARISON = [
-  ['Tool discovery', '5 categories', 'Unlimited', 'Unlimited'],
-  ['Learning paths', 'Basic', 'Advanced', 'Advanced'],
+  // Discovery, learning, the stack builder and progress are the same on every
+  // plan. Saved tools is the one enforced difference.
+  ['Tool discovery', 'All categories', 'All categories', 'All categories'],
+  ['Learning paths', '4-week roadmap', '4-week roadmap', '4-week roadmap'],
   ['Saved favorites', '10', 'Unlimited', 'Unlimited'],
   ['AI chat assistant', false, 'planned', 'planned'],
-  ['Stack builder + share', false, true, true],
-  ['Progress tracking + badges', false, true, true],
+  ['Stack builder + share', true, true, true],
+  ['Progress tracking + badges', true, true, true],
   ['PDF roadmap export', false, 'planned', 'planned'],
-  ['Seats', '1', '1', 'Up to 5'],
+  ['Seats', '1', '1', 'planned'],
   ['Team analytics dashboard', false, false, 'planned'],
   ['Admin controls', false, false, 'planned'],
   ['Quarterly stack audits', false, false, 'planned'],

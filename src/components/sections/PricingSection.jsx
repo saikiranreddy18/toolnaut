@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import SectionShell, { fadeUp } from '../ui/SectionShell'
 import PricingPillar from '../ui/PricingPillar'
-import { PLANS, COMPARISON } from '../../utils/planData'
+import { PLANS, COMPARISON, formatPrice } from '../../utils/planData'
 import { initialCurrency, fetchCountry, savedCurrency, saveCurrency } from '../../utils/region'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
@@ -93,9 +93,11 @@ export default function PricingSection({ titleAs = 'h2' }) {
                 <thead>
                   <tr className="border-b-2 border-black text-left font-display font-black uppercase italic">
                     <th className="p-4 text-slate-400">Feature</th>
-                    <th className="p-4 text-lime-400">Student · $3</th>
-                    <th className="p-4" style={{ color: 'var(--hot-pink)' }}>Pro · $8</th>
-                    <th className="p-4 text-cyan-300">Team · $50</th>
+                    {/* Prices from PLANS, in the rupees actually charged. These were
+                        typed as "$3 / $8 / $50" and matched nothing checkout takes. */}
+                    <th className="p-4 text-lime-400">Student · {formatPrice(PLANS.find((p) => p.id === 'shishya'))}</th>
+                    <th className="p-4" style={{ color: 'var(--hot-pink)' }}>Pro · {formatPrice(PLANS.find((p) => p.id === 'guru'))}</th>
+                    <th className="p-4 text-cyan-300">Team · {formatPrice(PLANS.find((p) => p.id === 'pandava'))}</th>
                   </tr>
                 </thead>
                 <tbody>
