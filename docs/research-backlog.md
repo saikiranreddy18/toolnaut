@@ -198,6 +198,35 @@ a client-side SPA with a static tool catalogue.
   for a follow-up wording pass (out of scope for this feature — a one-line
   content edit, not a build) once the table ships and the bigger mismatch
   (comparison exists at all) is closed.
+- **Verification 2026-09-14 12:09 UTC:** the 2026-08-24 note above asserted
+  "the other five either ship... or have an OPEN spec" for the five
+  `FeaturesSection.jsx` tiles besides this one, but only cited evidence for
+  Progress Tracking — the other four were waved through on inspection, not
+  checked. That gap in rigor was real: the "Weekly Fresh Finds" entry
+  (bottom of this file, found 2026-09-14 06:10 UTC) shows the same tile
+  actually failing its own promise once someone looked closely (domain-blind
+  ranking despite claiming "matched to your evolving role"). Went back and
+  checked the two tiles nobody had individually verified:
+  - **Smart Learning Paths** ("sequenced for your level and your available
+    time") — real. `roadmapGenerator.js:66-79,84-119` slices both `steps`
+    and `lessons` by `PACE_STEPS[pace]` (`micro:2, light:3, steady:3,
+    deep:4`, line 54) reading `quiz.answers.pace`, and branches copy on
+    `level === 'beginner' || 'dabbler'` throughout `stepsFor`/`lessonsFor`.
+    Both halves of the claim (level, pace/time) genuinely drive the
+    generated roadmap content, not just a label.
+  - **Signal over Noise** ("we watch the release firehose so you only hear
+    about tools that matter to you") — real, if read as "filtered, not
+    literally per-user personalized." `isCatalogNoise()` (`src/utils/
+    prominence.js:70`) strips junk/repo-shaped radar candidates from every
+    tool-facing surface (`Discover.jsx:156,162`, `NewTools.jsx:15`,
+    `ToolStars.jsx:166`) before anything reaches the user, and Discover's
+    main grid separately re-ranks by `matchScore(tool, answers)`
+    (`Discover.jsx:126`) — so the firehose is both filtered and, on the
+    highest-traffic surface, personalized.
+  No new gap here — both tiles hold up. Recording this so a future run
+  doesn't re-spend an hour re-verifying the same two claims, and so nobody
+  treats the original "the other five ship" line as checked when only one
+  of the five actually was.
 
 ### Surface tool freshness ("new this week")
 - **Status:** SHIPPED 2d7d192f7f8b9d3a3110e8dcbb33117c23bf5b2e
