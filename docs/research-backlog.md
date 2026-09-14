@@ -5681,3 +5681,81 @@ a client-side SPA with a static tool catalogue.
   visual change for a mouse user (the link is `sr-only` until focused,
   identical to the one AppShell already ships).
 - **Found:** 2026-09-13 15:07 UTC
+
+---
+
+### "Live Tool Comparison" promises integration comparisons — Compare.jsx has none
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — a marketing-copy-vs-reality audit of
+  `src/components/sections/FeaturesSection.jsx`, the same file/method that
+  produced several other gaps in this backlog (the pattern this run followed:
+  every promise in `src/components/sections/` checked against the actual page
+  it describes). Capterra/G2-style comparison tables are the competitor
+  reference the already-shipped "Side-by-side tool comparison" gap above cited
+  for the feature itself; this entry is about one specific column of that
+  table that was promised but never built.
+- **Gap:** `FeaturesSection.jsx:8` lists a tile named "Live Tool Comparison"
+  with the copy "Side-by-side capability, pricing, and **integration**
+  comparisons kept current." Read `src/pages/app/Compare.jsx` and its public
+  fork `src/pages/PublicCompare.jsx` in full: both build their table from a
+  hardcoded `rows`/`ROWS` array (`Compare.jsx:60-69`, `PublicCompare.jsx:10-18`)
+  of exactly eight fields — Category, Price, Level, Developer, Since,
+  Audience, Status, Tags (`Compare.jsx` adds a ninth, Fit, only when a quiz is
+  on file) — and neither imports `resourcesFor` or anything from
+  `src/data/toolResources.js`. Grepped `integration` across both files: zero
+  hits. Yet the data the promise describes already exists and is already
+  verified: `toolResources.js` (added this month, `VERIFIED = '2026-09-13'`)
+  carries real, sourced integration lists for 10 catalog slugs — including
+  `zapier`, `make`, and `n8n`, three tools that are exactly the kind of
+  interchangeable automation platforms someone would open Compare specifically
+  to weigh against each other on this axis — and is already rendered on
+  `ToolDetail.jsx` via `ToolResources.jsx`'s "WORKS WITH" section. The data
+  exists, is verified, and is wired into one page; the page the promise
+  actually names has never read it.
+- **Why it matters:** this is the same one-sided-promise shape this file keeps
+  finding (a feature tile claims three things, one is missing), except here
+  the missing third isn't even a build gap — the exact dataset the copy
+  promises was shipped weeks after the promise was written and nobody
+  connected the two. A visitor who opens Compare specifically to decide
+  between Zapier, Make and n8n — the highest-intent moment this feature
+  exists for — gets Category/Price/Level/Developer/Since/Audience/Status/Tags
+  and nothing about what each one actually connects to, despite Toolnaut
+  having already done and sourced that research.
+- **Smallest useful version (what to actually build):**
+  - `Compare.jsx`: import `resourcesFor` from `../../data/toolResources` and
+    add one row to the `rows` array (same shape as every other row, no new
+    rendering path): `{ label: 'Integrations', get: (t) => { const r =
+    resourcesFor(t.slug)?.integrations; return r ? (r.summary || `${r.names.length}+
+    verified`) : '—' }}`. Tools with no verified data show `—`, the same
+    honest-absence convention `Developer`/`Since`/`Audience` already use in
+    this exact table (`Compare.jsx:64-66`) — never a fabricated "not
+    available" claim or an empty cell.
+  - `PublicCompare.jsx`: the identical row, added to `ROWS`
+    (`PublicCompare.jsx:10-18`), importing `resourcesFor` from
+    `../data/toolResources` (one directory shallower than `Compare.jsx`'s
+    import path). Both tables must move together — they're deliberately
+    described in this file's own header comment as "same table-building
+    logic" (`PublicCompare.jsx:7`), and a shared row array extracted from
+    both would be the correct long-term fix but is a larger refactor than
+    this gap needs; a duplicated one-line addition matches the duplication
+    that already exists between these two files today.
+  - A tool's exact integration list is intentionally not spelled out in the
+    comparison cell — a 30-name list (`otter-ai` has 32) would blow out a
+    table cell width the other seven rows all keep to one line. The count/
+    summary is the compare-table-appropriate signal; anyone who wants the
+    full sourced list already has it one click away on `ToolDetail.jsx`,
+    which every tool name in the comparison table already links to.
+  - **What this would NOT include** (kept out to bound the diff): no
+    backfilling integration data for the 694 catalog slugs `toolResources.js`
+    doesn't cover yet — that's the ongoing, separately-paced research effort
+    the file's own `REVIEW_DUE` comment already describes, not something to
+    rush for this row; no linking the count itself to an anchor on
+    `ToolDetail.jsx`'s integrations section (the existing tool-name link
+    already goes to that page); no changing `ToolResources.jsx` or
+    `toolResources.js` at all — this is a read-only consumer of data that
+    already exists in the exact shape it's needed.
+- **Build size:** S — one new row (~3 lines) in each of two existing files,
+  reusing an already-exported function (`resourcesFor`) and an already-
+  established honest-absence pattern (`—`) from the same table. No backend,
+  no new dependency, no new route, no schema change.
+- **Found:** 2026-09-14 03:20 UTC
