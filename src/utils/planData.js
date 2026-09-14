@@ -78,8 +78,8 @@ export const PLANS = [
     // which must carry the same number; a test checks).
     limits: { saved: 10 },
     badge: null,
-    glow: 'rgba(251, 113, 133, 0.28)',
-    accent: '#fb7185',
+    glow: 'rgba(163, 255, 46, 0.28)',
+    accent: '#a3ff2e',
     audience: 'Students, hobbyists, solo learners exploring AI',
     features: [
       live('Personalized AI tool discovery (all categories)'),
@@ -100,8 +100,8 @@ export const PLANS = [
     price: 8,
     priceINR: 799,
     badge: 'Most Popular',
-    glow: 'rgba(124, 58, 237, 0.5)',
-    accent: '#7c3aed',
+    glow: 'rgba(255, 46, 163, 0.4)',
+    accent: '#ff2ea3',
     featured: true,
     audience: 'Freelancers, professionals, serious learners',
     plus: 'Everything in Student, plus:',
@@ -136,8 +136,8 @@ export const PLANS = [
     // ₹999 follows the same ~×100 PPP ratio as the tiers ($50 -> ₹4,999);
     // adjust here if the seat price should differ.
     badgeINR: 'Up to 5 seats · ₹999 per seat for 30 days',
-    glow: 'rgba(6, 182, 212, 0.4)',
-    accent: '#06b6d4',
+    glow: 'rgba(34, 211, 238, 0.4)',
+    accent: '#22d3ee',
     audience: 'Startups, agencies, research teams, enterprise pods',
     plus: 'Everything in Pro, plus:',
     features: [

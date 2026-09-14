@@ -54,7 +54,7 @@ function ProgressRing({ value }) {
       <circle cx="19" cy="19" r={r} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="3" />
       <circle
         cx="19" cy="19" r={r} fill="none"
-        stroke="#06b6d4" strokeWidth="3" strokeLinecap="round"
+        stroke="#22d3ee" strokeWidth="3" strokeLinecap="round"
         strokeDasharray={c}
         strokeDashoffset={c * (1 - value)}
         transform="rotate(-90 19 19)"

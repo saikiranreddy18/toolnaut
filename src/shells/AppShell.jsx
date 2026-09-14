@@ -146,7 +146,7 @@ export default function AppShell() {
     }`
 
   return (
-    <div className="relative flex min-h-dvh">
+    <div className="app-calm relative flex min-h-dvh">
       {/* keyboard/screen-reader users otherwise have to tab through the
           sidebar persona card and 6 nav links (or the mobile top bar) on
           every single page before reaching content — WCAG 2.4.1 */}

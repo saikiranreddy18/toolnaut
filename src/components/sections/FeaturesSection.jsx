@@ -3,12 +3,12 @@ import SectionShell, { fadeUp } from '../ui/SectionShell'
 import Tilt from '../ui/Tilt'
 
 const FEATURES = [
-  { name: 'Role-Aware Discovery', text: 'Not generic lists. Recommendations that understand your role and rank tools by fit.', accent: '#7c3aed' },
-  { name: 'Smart Learning Paths', text: 'From first tool to full stack, sequenced for your level and your available time.', accent: '#06b6d4' },
-  { name: 'Live Tool Comparison', text: 'Side-by-side capability, pricing, and integration comparisons kept current.', accent: '#ec4899' },
-  { name: 'Progress Tracking', text: 'A skills graph that grows with you and shows exactly where the gaps are.', accent: '#f59e0b' },
-  { name: 'Signal over Noise', text: 'We watch the release firehose so you only hear about tools that matter to you.', accent: '#84cc16' },
-  { name: 'Weekly Fresh Finds', text: 'New tools matched to your evolving role, delivered in one scannable digest.', accent: '#fb7185' },
+  { name: 'Role-Aware Discovery', text: 'Not generic lists. Recommendations that understand your role and rank tools by fit.', accent: '#b388ff' },
+  { name: 'Smart Learning Paths', text: 'From first tool to full stack, sequenced for your level and your available time.', accent: '#22d3ee' },
+  { name: 'Live Tool Comparison', text: 'Side-by-side capability, pricing, and integration comparisons kept current.', accent: '#ff2ea3' },
+  { name: 'Progress Tracking', text: 'A skills graph that grows with you and shows exactly where the gaps are.', accent: '#ffde2e' },
+  { name: 'Signal over Noise', text: 'We watch the release firehose so you only hear about tools that matter to you.', accent: '#a3ff2e' },
+  { name: 'Weekly Fresh Finds', text: 'New tools matched to your evolving role, delivered in one scannable digest.', accent: '#ff8c2e' },
 ]
 
 function Spark({ color }) {
