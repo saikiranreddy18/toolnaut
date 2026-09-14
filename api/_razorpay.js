@@ -14,6 +14,7 @@
 // looked up here from the same PLANS table the pricing page renders, which also
 // means the two can never drift.
 import crypto from 'node:crypto'
+import { hit, clientIp } from './_security.js'
 import { PLANS, priceFor, isPlanOpen } from '../src/utils/planData.js'
 
 // Razorpay works in the smallest currency unit. INR -> paise.
@@ -99,23 +100,13 @@ export function originAllowed(origin) {
 // Per-IP sliding window in instance memory, same honest caveat as chat.js: this
 // bounds one warm instance, not the whole fleet. Tighter than chat's 20/min
 // because a legitimate visitor opens checkout a handful of times at most.
-const WINDOW_MS = 60_000
-const MAX_PER_WINDOW = 10
-const hits = new Map()
-
+// Now backed by the shared limiter in _security.js; the exports keep their
+// names so create-order and verify-payment are unchanged.
 export function rateLimited(ip) {
-  const now = Date.now()
-  const list = (hits.get(ip) || []).filter((t) => now - t < WINDOW_MS)
-  if (list.length >= MAX_PER_WINDOW) { hits.set(ip, list); return true }
-  list.push(now)
-  hits.set(ip, list)
-  if (hits.size > 5000) hits.clear()
-  return false
+  return hit('payments', ip, { max: 10 })
 }
 
-export function clientIp(req) {
-  return String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown'
-}
+export { clientIp }
 
 // ── signature ────────────────────────────────────────────────────────────────
 // HMAC-SHA256 over "<order_id>|<payment_id>" keyed with the secret.

@@ -18,6 +18,7 @@
 // holding the address is strictly better than holding it.
 import { alertsConfigured, DOMAIN_KEYS, rest } from './_alerts.js'
 import { getUserFromRequest } from './_supabase.js'
+import { rateLimit } from './_security.js'
 
 async function readSettings(email, res) {
   const { ok, json } = await rest(
@@ -66,6 +67,8 @@ async function writeSettings(email, body, res) {
 }
 
 export default async function handler(req, res) {
+  if (rateLimit(req, res, 'alerts', { max: 30 })) return
+
   if (req.method === 'GET') {
     // Honest unconfigured state: Settings explains it rather than showing a
     // switch that silently does nothing.

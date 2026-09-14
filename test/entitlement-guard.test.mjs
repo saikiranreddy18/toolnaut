@@ -118,8 +118,15 @@ test('the entitlement endpoint is never edge-cached', () => {
   assert.doesNotMatch(m[1], /public/, `Cache-Control is "${m[1]}" — must not be shared-cacheable`)
 })
 
-test('metrics are admin-guarded and closed when unconfigured', () => {
+test('metrics are admin-guarded and closed when unconfigured', async () => {
   const src = read('api/metrics.js')
   assert.match(src, /METRICS_SECRET/)
-  assert.match(src, /if\s*\(!secret\s*\|\|/, 'an unset secret must close the endpoint, not open it')
+  // The guard now lives in bearerMatches (api/_security.js), a constant-time
+  // comparison. Check the guarantee itself, not the wording of one if-statement.
+  assert.match(src, /bearerMatches\(req\.headers\.authorization, secret\)/, 'metrics must use the constant-time guard')
+  const { bearerMatches } = await import('../api/_security.js')
+  for (const unset of [undefined, null, '']) {
+    assert.equal(bearerMatches('Bearer ', unset), false, 'an unset secret must close the endpoint, not open it')
+    assert.equal(bearerMatches(`Bearer ${unset}`, unset), false)
+  }
 })

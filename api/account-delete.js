@@ -18,6 +18,7 @@
 import { originAllowed } from './_razorpay.js'
 import { rest, getUserFromRequest, supabaseConfigured } from './_supabase.js'
 import { sendEmail, mailConfigured } from './_mail.js'
+import { rateLimit, securityLog } from './_security.js'
 import {
   generateCode, hashCode, checkCode, cooldownLeft,
   CODE_TTL_MS, MAX_ATTEMPTS, REASON_MESSAGES,
@@ -199,8 +200,13 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'POST only' })
   }
   if (!originAllowed(req.headers.origin)) {
+    securityLog('origin_rejected', req, { origin: String(req.headers.origin || '').slice(0, 80) })
     return res.status(403).json({ error: 'Forbidden' })
   }
+
+  // On top of the per-account code cooldown and attempt limit: this stops one
+  // client cycling through many accounts' tokens.
+  if (rateLimit(req, res, 'account-delete', { max: 10 })) return
   if (!supabaseConfigured || !mailConfigured()) {
     return res.status(503).json({ error: 'Account deletion is not available on this deployment yet.' })
   }

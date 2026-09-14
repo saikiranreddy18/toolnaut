@@ -19,6 +19,8 @@
 // a conversation someone is waiting on. K3 also costs 4 concurrency units against a
 // plan limit of 4, meaning one visitor at a time.
 
+import { rateLimit, securityLog } from './_security.js'
+
 const FEATHERLESS_URL = 'https://api.featherless.ai/v1/chat/completions'
 const MODEL = process.env.FEATHERLESS_CHAT_MODEL || 'Qwen/Qwen2.5-7B-Instruct'
 
@@ -82,19 +84,8 @@ export function originAllowed(origin) {
 // starts needs a shared store (Upstash/KV) to stop. What it does reliably
 // stop is the cheap case: one client hammering one warm instance in a loop,
 // which is also the case that actually burns tokens fastest.
-const WINDOW_MS = 60_000
-const MAX_PER_WINDOW = 20
-const hits = new Map() // ip -> number[] of timestamps
-function rateLimited(ip) {
-  const now = Date.now()
-  const list = (hits.get(ip) || []).filter((t) => now - t < WINDOW_MS)
-  if (list.length >= MAX_PER_WINDOW) { hits.set(ip, list); return true }
-  list.push(now)
-  hits.set(ip, list)
-  // cap the map so an IP-rotating attacker cannot grow instance memory forever
-  if (hits.size > 5000) hits.clear()
-  return false
-}
+// 20 AI requests a minute per client, via the shared limiter in _security.js.
+const CHAT_PER_MINUTE = 20
 
 // Validates and NORMALISES the payload — the handler uses only what this
 // returns, so a field that skipped validation cannot reach the prompt.
@@ -184,18 +175,13 @@ export default async function handler(req, res) {
   }
 
   if (!originAllowed(req.headers.origin)) {
+    securityLog('origin_rejected', req, { origin: String(req.headers.origin || '').slice(0, 80) })
     return res.status(403).json({ error: 'Forbidden' })
   }
 
-  // x-forwarded-for is client-settable in general, but on Vercel the platform
-  // prepends the real client IP; the first entry is the trustworthy one there.
-  const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown'
-  if (rateLimited(ip)) {
-    // Standard header so well-behaved clients know when to come back; the
-    // window is 60s, so the worst-case wait is one minute.
-    res.setHeader('Retry-After', '60')
-    return res.status(429).json({ error: 'Too many requests' })
-  }
+  // AI generation costs money per call, so it is the endpoint most worth
+  // limiting. Answers 429 with Retry-After and logs the first refusal.
+  if (rateLimit(req, res, 'chat', { max: CHAT_PER_MINUTE })) return
 
   const key = process.env.FEATHERLESS_API_KEY
   // No key configured is not an error the visitor should see. The client has a

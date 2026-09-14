@@ -9,13 +9,15 @@
 // derived it is omitted rather than approximated — a made-up MRR is worse than
 // a missing one, because someone will make a decision on it.
 import { rest, supabaseConfigured } from './_supabase.js'
+import { bearerMatches, securityLog } from './_security.js'
 import { PLANS } from '../src/utils/planData.js'
 
 const DAY = 86_400_000
 
 export default async function handler(req, res) {
   const secret = process.env.METRICS_SECRET
-  if (!secret || req.headers.authorization !== `Bearer ${secret}`) {
+  if (!bearerMatches(req.headers.authorization, secret)) {
+    securityLog('admin_secret_rejected', req, { endpoint: 'metrics', configured: Boolean(secret) })
     return res.status(401).json({ error: 'Unauthorized' })
   }
   if (!supabaseConfigured) {

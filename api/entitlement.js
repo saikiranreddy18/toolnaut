@@ -6,6 +6,7 @@
 // distinguish "you need to pay" from "there is nothing to pay yet" — the
 // paywall must never lock someone in front of a gateway that is off.
 import { paymentsEnabled } from './_razorpay.js'
+import { rateLimit } from './_security.js'
 import { supabaseConfigured, rest, getUserFromRequest } from './_supabase.js'
 
 // How long a new account gets everything, free, before the paywall applies.
@@ -21,6 +22,11 @@ export default async function handler(req, res) {
 
   // Entitlements are per-user truth — never cache them at the edge.
   res.setHeader('Cache-Control', 'no-store')
+
+  // Generous: the app asks this several times per page, and many Indian
+  // mobile and campus users share one public IP. It exists to stop a script,
+  // not a busy household.
+  if (rateLimit(req, res, 'entitlement', { max: 120 })) return
 
   const base = { payments_enabled: paymentsEnabled(), configured: supabaseConfigured }
 

@@ -19,6 +19,7 @@
 // dependency. SEND_CAP stays under that ceiling so one oversized run
 // degrades to "the rest go tomorrow" instead of hard 429s.
 import { alertsConfigured, rest } from './_alerts.js'
+import { bearerMatches, securityLog } from './_security.js'
 import { sendEmail } from './_mail.js'
 
 const SITE = process.env.ALERTS_SITE_URL || 'https://toolnaut.xyz'
@@ -68,7 +69,8 @@ export default async function handler(req, res) {
   // closed, not open — anyone finding the URL must not be able to drain the
   // day's email quota.
   const secret = process.env.CRON_SECRET
-  if (!secret || req.headers.authorization !== `Bearer ${secret}`) {
+  if (!bearerMatches(req.headers.authorization, secret)) {
+    securityLog('admin_secret_rejected', req, { endpoint: 'cron', configured: Boolean(secret) })
     return res.status(401).json({ error: 'Unauthorized' })
   }
 

@@ -9,6 +9,7 @@
 // lives. The trust boundary is identical: the service-role key and Razorpay
 // secret exist only here, never in the browser bundle.
 import crypto from 'node:crypto'
+import { securityLog } from './_security.js'
 
 const SUPABASE_URL =
   process.env.SUPABASE_URL ||
@@ -50,7 +51,12 @@ export async function getUserFromRequest(req) {
       headers: { apikey: SERVICE_KEY, authorization: `Bearer ${token}` },
       signal: AbortSignal.timeout(6000),
     })
-    if (!res.ok) return null
+    if (!res.ok) {
+      // A token was presented and the auth server refused it: expired, revoked
+      // or forged. Worth recording; a burst of these is an attack signal.
+      securityLog('auth_token_rejected', req, { status: res.status })
+      return null
+    }
     const user = await res.json()
     return user?.id ? { id: user.id, email: user.email || null } : null
   } catch {
