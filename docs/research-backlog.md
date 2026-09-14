@@ -5811,7 +5811,7 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### "Weekly Fresh Finds" promises role-matching — Discover's new-tools rail is domain-blind
-- **Status:** OPEN
+- **Status:** SHIPPED 6552af5
 - **Seen in:** another marketing-copy-vs-reality audit of
   `src/components/sections/FeaturesSection.jsx` (same method that produced the
   Live Tool Comparison entry directly above — every tile's copy checked
