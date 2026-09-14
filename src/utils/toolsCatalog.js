@@ -7,7 +7,7 @@ export const LEVEL_LABELS = { beginner: "Beginner", intermediate: "Intermediate"
 
 // 6 galaxy domains (persona / match scoring)
 export const CATEGORY_META = {
-  code: { name: "Code", color: "#22c55e" },
+  code: { name: "Code", color: "#b388ff" },
   design: { name: "Design", color: "#ff2ea3" },
   writing: { name: "Writing", color: "#ffde2e" },
   data: { name: "Data", color: "#22d3ee" },
