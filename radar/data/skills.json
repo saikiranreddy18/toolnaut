@@ -128,7 +128,12 @@
       "clientcoded",
       "simonagent",
       "autocode",
-      "pawbot"
+      "pawbot",
+      "ai-native-dependency-upgrades-through-codemods",
+      "the-memory-that-ai-agents-love",
+      "transitionsdev-ui-transitions-for-ai-agents",
+      "a-fresh-take-on-code-intelligence-for-ai-agents",
+      "what-a-time-to-be-alive"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -254,7 +259,12 @@
       "course-clientcoded",
       "course-simonagent",
       "course-autocode",
-      "course-pawbot"
+      "course-pawbot",
+      "course-ai-native-dependency-upgrades-through-codemods",
+      "course-the-memory-that-ai-agents-love",
+      "course-transitionsdev-ui-transitions-for-ai-agents",
+      "course-a-fresh-take-on-code-intelligence-for-ai-agents",
+      "course-what-a-time-to-be-alive"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -734,7 +744,12 @@
       "grove",
       "agentspork-agents-help-agents-humans-touch-grass",
       "clientcoded",
-      "autocode"
+      "autocode",
+      "vigilator",
+      "ai-native-dependency-upgrades-through-codemods",
+      "botbin",
+      "andon-labs-puts-ai-agents-in-charge-of-real-businesses",
+      "prmptree"
     ],
     "courses": [
       "course-headless-tools",
@@ -896,7 +911,12 @@
       "course-grove",
       "course-agentspork-agents-help-agents-humans-touch-grass",
       "course-clientcoded",
-      "course-autocode"
+      "course-autocode",
+      "course-vigilator",
+      "course-ai-native-dependency-upgrades-through-codemods",
+      "course-botbin",
+      "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses",
+      "course-prmptree"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1032,7 +1052,14 @@
       "agentsdock-an-ide-designed-for-agentic-ai-research",
       "agentspork-agents-help-agents-humans-touch-grass",
       "clientcoded",
-      "simonagent"
+      "simonagent",
+      "vigilator",
+      "botbin",
+      "the-memory-that-ai-agents-love",
+      "transitionsdev-ui-transitions-for-ai-agents",
+      "your-ai-agent-has-a-cache-invalidation-problem",
+      "a-fresh-take-on-code-intelligence-for-ai-agents",
+      "what-a-time-to-be-alive"
     ],
     "courses": [
       "course-headless-tools",
@@ -1148,7 +1175,14 @@
       "course-agentsdock-an-ide-designed-for-agentic-ai-research",
       "course-agentspork-agents-help-agents-humans-touch-grass",
       "course-clientcoded",
-      "course-simonagent"
+      "course-simonagent",
+      "course-vigilator",
+      "course-botbin",
+      "course-the-memory-that-ai-agents-love",
+      "course-transitionsdev-ui-transitions-for-ai-agents",
+      "course-your-ai-agent-has-a-cache-invalidation-problem",
+      "course-a-fresh-take-on-code-intelligence-for-ai-agents",
+      "course-what-a-time-to-be-alive"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1230,7 +1264,8 @@
       "nola",
       "benchmarking-coding-agents-perform-on-scraping",
       "dont-hit-send",
-      "building-specialized-systems-we-can-trust-with-agents"
+      "building-specialized-systems-we-can-trust-with-agents",
+      "your-ai-agent-has-a-cache-invalidation-problem"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1262,7 +1297,8 @@
       "course-nola",
       "course-benchmarking-coding-agents-perform-on-scraping",
       "course-dont-hit-send",
-      "course-building-specialized-systems-we-can-trust-with-agents"
+      "course-building-specialized-systems-we-can-trust-with-agents",
+      "course-your-ai-agent-has-a-cache-invalidation-problem"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1667,7 +1703,8 @@
       "promptsign",
       "you-didnt-deploy-the-ai-agent-you-evaluated",
       "cve-2026-42978-poc-research",
-      "ai-security-tool"
+      "ai-security-tool",
+      "what-a-time-to-be-alive"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -1696,7 +1733,8 @@
       "course-promptsign",
       "course-you-didnt-deploy-the-ai-agent-you-evaluated",
       "course-cve-2026-42978-poc-research",
-      "course-ai-security-tool"
+      "course-ai-security-tool",
+      "course-what-a-time-to-be-alive"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1969,7 +2007,8 @@
       "ai-is-making-us-build-too-much",
       "ai-means-the-end-of-software-as-we-know-it",
       "developer-agency-in-the-age-of-ai",
-      "we-should-anthropomorphize-ai-agents"
+      "we-should-anthropomorphize-ai-agents",
+      "your-ai-agent-has-a-cache-invalidation-problem"
     ],
     "courses": [
       "course-the-ai-health-agent-that-will-know-me-for-life",
@@ -1980,7 +2019,8 @@
       "course-ai-is-making-us-build-too-much",
       "course-ai-means-the-end-of-software-as-we-know-it",
       "course-developer-agency-in-the-age-of-ai",
-      "course-we-should-anthropomorphize-ai-agents"
+      "course-we-should-anthropomorphize-ai-agents",
+      "course-your-ai-agent-has-a-cache-invalidation-problem"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2302,7 +2342,9 @@
       "adiosdev",
       "bitroad",
       "usero-mcp-give-your-coding-agent-your-user-feedback",
-      "viaduct"
+      "viaduct",
+      "the-memory-that-ai-agents-love",
+      "a-fresh-take-on-code-intelligence-for-ai-agents"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -2336,7 +2378,9 @@
       "course-adiosdev",
       "course-bitroad",
       "course-usero-mcp-give-your-coding-agent-your-user-feedback",
-      "course-viaduct"
+      "course-viaduct",
+      "course-the-memory-that-ai-agents-love",
+      "course-a-fresh-take-on-code-intelligence-for-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2395,7 +2439,9 @@
       "senator-hawley-opens-investigation-into-openai-huggingface-h",
       "reelbench-skills",
       "the-rise-of-ai-slop-tools",
-      "nvidia-is-the-central-bank-of-ai"
+      "nvidia-is-the-central-bank-of-ai",
+      "eliza-the-ai-that-fooled-the-world",
+      "your-ai-agent-has-a-cache-invalidation-problem"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2434,7 +2480,9 @@
       "course-senator-hawley-opens-investigation-into-openai-huggingface-h",
       "course-reelbench-skills",
       "course-the-rise-of-ai-slop-tools",
-      "course-nvidia-is-the-central-bank-of-ai"
+      "course-nvidia-is-the-central-bank-of-ai",
+      "course-eliza-the-ai-that-fooled-the-world",
+      "course-your-ai-agent-has-a-cache-invalidation-problem"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2597,7 +2645,8 @@
       "dearagent",
       "meshdrive-and-local-ai-agent-for-fs",
       "simonagent",
-      "autocode"
+      "autocode",
+      "a-fresh-take-on-code-intelligence-for-ai-agents"
     ],
     "courses": [
       "course-limitless-library",
@@ -2636,7 +2685,8 @@
       "course-dearagent",
       "course-meshdrive-and-local-ai-agent-for-fs",
       "course-simonagent",
-      "course-autocode"
+      "course-autocode",
+      "course-a-fresh-take-on-code-intelligence-for-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2741,7 +2791,8 @@
       "making-your-data-ready-for-agentic-ai",
       "parlel",
       "ai-cost-dashboard-is-probably-wrong",
-      "nasa-and-ibm-open-source-lunar-mapping-tools"
+      "nasa-and-ibm-open-source-lunar-mapping-tools",
+      "hazumi-for-hn-comes-to-the-web"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -2770,7 +2821,8 @@
       "course-making-your-data-ready-for-agentic-ai",
       "course-parlel",
       "course-ai-cost-dashboard-is-probably-wrong",
-      "course-nasa-and-ibm-open-source-lunar-mapping-tools"
+      "course-nasa-and-ibm-open-source-lunar-mapping-tools",
+      "course-hazumi-for-hn-comes-to-the-web"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2869,7 +2921,8 @@
       "muse-metas-personal-ai-agent-features-and-capabilities",
       "muse-your-personal-ai-agent",
       "meta-launches-muse-a-personal-ai-agent",
-      "swiftime"
+      "swiftime",
+      "prmptree"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -2888,7 +2941,8 @@
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
       "course-muse-your-personal-ai-agent",
       "course-meta-launches-muse-a-personal-ai-agent",
-      "course-swiftime"
+      "course-swiftime",
+      "course-prmptree"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2981,7 +3035,8 @@
       "ai-agent-for-animation",
       "liniora",
       "aiope",
-      "pawbot"
+      "pawbot",
+      "prmptree"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -3007,7 +3062,8 @@
       "course-ai-agent-for-animation",
       "course-liniora",
       "course-aiope",
-      "course-pawbot"
+      "course-pawbot",
+      "course-prmptree"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3526,7 +3582,8 @@
       "cli-tools",
       "provetogether-moltbook-but-for-math",
       "the-worst-spam-emails-inside-ilands-ai-agent-hustle",
-      "ai-security-tool"
+      "ai-security-tool",
+      "andon-labs-puts-ai-agents-in-charge-of-real-businesses"
     ],
     "courses": [
       "course-placeroot",
@@ -3546,7 +3603,8 @@
       "course-cli-tools",
       "course-provetogether-moltbook-but-for-math",
       "course-the-worst-spam-emails-inside-ilands-ai-agent-hustle",
-      "course-ai-security-tool"
+      "course-ai-security-tool",
+      "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3812,11 +3870,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "devx",
-      "ai-agents-started-emailing-philosophers-and-researchers"
+      "ai-agents-started-emailing-philosophers-and-researchers",
+      "andon-labs-puts-ai-agents-in-charge-of-real-businesses"
     ],
     "courses": [
       "course-devx",
-      "course-ai-agents-started-emailing-philosophers-and-researchers"
+      "course-ai-agents-started-emailing-philosophers-and-researchers",
+      "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3866,7 +3926,8 @@
       "felan",
       "ffmpeg-commander",
       "cli-tools",
-      "pawbot"
+      "pawbot",
+      "ai-native-dependency-upgrades-through-codemods"
     ],
     "courses": [
       "course-devx",
@@ -3877,7 +3938,8 @@
       "course-felan",
       "course-ffmpeg-commander",
       "course-cli-tools",
-      "course-pawbot"
+      "course-pawbot",
+      "course-ai-native-dependency-upgrades-through-codemods"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4946,7 +5008,8 @@
       "autoresearchexam-measuring-agents-ability-to-improve-and-gen",
       "anthropic-reveals-rogue-ai-agents-hate-captchas",
       "building-specialized-systems-we-can-trust-with-agents",
-      "agentsdock-an-ide-designed-for-agentic-ai-research"
+      "agentsdock-an-ide-designed-for-agentic-ai-research",
+      "andon-labs-puts-ai-agents-in-charge-of-real-businesses"
     ],
     "courses": [
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
@@ -4962,7 +5025,8 @@
       "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen",
       "course-anthropic-reveals-rogue-ai-agents-hate-captchas",
       "course-building-specialized-systems-we-can-trust-with-agents",
-      "course-agentsdock-an-ide-designed-for-agentic-ai-research"
+      "course-agentsdock-an-ide-designed-for-agentic-ai-research",
+      "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5200,12 +5264,14 @@
     "toolsTeaching": [
       "dipstick-alerts",
       "trana",
-      "urml"
+      "urml",
+      "vigilator"
     ],
     "courses": [
       "course-dipstick-alerts",
       "course-trana",
-      "course-urml"
+      "course-urml",
+      "course-vigilator"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -5943,7 +6009,8 @@
       "ai-coding-agents-forget-the-codebase-between-sessions",
       "i-gave-my-ai-agent-a-sleep-cycle",
       "fraise-a-memory-database-for-ai-agents",
-      "simonagent"
+      "simonagent",
+      "the-memory-that-ai-agents-love"
     ],
     "courses": [
       "course-itsuki",
@@ -5955,7 +6022,8 @@
       "course-ai-coding-agents-forget-the-codebase-between-sessions",
       "course-i-gave-my-ai-agent-a-sleep-cycle",
       "course-fraise-a-memory-database-for-ai-agents",
-      "course-simonagent"
+      "course-simonagent",
+      "course-the-memory-that-ai-agents-love"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -6764,11 +6832,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "open-source-thinking-orb-animations-for-ai-agents",
-      "vocabdesign"
+      "vocabdesign",
+      "transitionsdev-ui-transitions-for-ai-agents"
     ],
     "courses": [
       "course-open-source-thinking-orb-animations-for-ai-agents",
-      "course-vocabdesign"
+      "course-vocabdesign",
+      "course-transitionsdev-ui-transitions-for-ai-agents"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -7120,13 +7190,15 @@
       "aicademy",
       "tesorohelp",
       "new-york-city-pausing-some-ai-tools-in-schools",
-      "ai-agents-built-a-secret-society-inside-the-lab-video"
+      "ai-agents-built-a-secret-society-inside-the-lab-video",
+      "eliza-the-ai-that-fooled-the-world"
     ],
     "courses": [
       "course-aicademy",
       "course-tesorohelp",
       "course-new-york-city-pausing-some-ai-tools-in-schools",
-      "course-ai-agents-built-a-secret-society-inside-the-lab-video"
+      "course-ai-agents-built-a-secret-society-inside-the-lab-video",
+      "course-eliza-the-ai-that-fooled-the-world"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -7198,14 +7270,16 @@
       "audiorealityai",
       "ai-agents-started-emailing-philosophers-and-researchers",
       "inbundly",
-      "dearagent"
+      "dearagent",
+      "prmptree"
     ],
     "courses": [
       "course-unitpost-email",
       "course-audiorealityai",
       "course-ai-agents-started-emailing-philosophers-and-researchers",
       "course-inbundly",
-      "course-dearagent"
+      "course-dearagent",
+      "course-prmptree"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -7215,10 +7289,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "unitpost-email"
+      "unitpost-email",
+      "transitionsdev-ui-transitions-for-ai-agents"
     ],
     "courses": [
-      "course-unitpost-email"
+      "course-unitpost-email",
+      "course-transitionsdev-ui-transitions-for-ai-agents"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -7340,11 +7416,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "selfshipai",
-      "pawbot"
+      "pawbot",
+      "your-ai-agent-has-a-cache-invalidation-problem"
     ],
     "courses": [
       "course-selfshipai",
-      "course-pawbot"
+      "course-pawbot",
+      "course-your-ai-agent-has-a-cache-invalidation-problem"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -7990,7 +8068,8 @@
       "chatpanel-now-available-on-firefox",
       "muse-metas-personal-ai-agent-features-and-capabilities",
       "meta-launches-muse-a-personal-ai-agent",
-      "dont-hit-send"
+      "dont-hit-send",
+      "eliza-the-ai-that-fooled-the-world"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
@@ -8000,7 +8079,8 @@
       "course-chatpanel-now-available-on-firefox",
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
       "course-meta-launches-muse-a-personal-ai-agent",
-      "course-dont-hit-send"
+      "course-dont-hit-send",
+      "course-eliza-the-ai-that-fooled-the-world"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -8328,10 +8408,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "ai-agents-and-the-refactoring-that-never-happens"
+      "ai-agents-and-the-refactoring-that-never-happens",
+      "ai-native-dependency-upgrades-through-codemods"
     ],
     "courses": [
-      "course-ai-agents-and-the-refactoring-that-never-happens"
+      "course-ai-agents-and-the-refactoring-that-never-happens",
+      "course-ai-native-dependency-upgrades-through-codemods"
     ],
     "updatedAt": "2026-09-02T23:33:29.474Z"
   },
@@ -10936,10 +11018,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "an-agent-skill-can-hand-a-stranger-your-shell"
+      "an-agent-skill-can-hand-a-stranger-your-shell",
+      "what-a-time-to-be-alive"
     ],
     "courses": [
-      "course-an-agent-skill-can-hand-a-stranger-your-shell"
+      "course-an-agent-skill-can-hand-a-stranger-your-shell",
+      "course-what-a-time-to-be-alive"
     ],
     "updatedAt": "2026-09-07T15:05:03.707Z"
   },
@@ -11113,10 +11197,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "benzi"
+      "benzi",
+      "a-fresh-take-on-code-intelligence-for-ai-agents"
     ],
     "courses": [
-      "course-benzi"
+      "course-benzi",
+      "course-a-fresh-take-on-code-intelligence-for-ai-agents"
     ],
     "updatedAt": "2026-09-07T23:46:33.880Z"
   },
@@ -12814,10 +12900,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "botbinio"
+      "botbinio",
+      "botbin"
     ],
     "courses": [
-      "course-botbinio"
+      "course-botbinio",
+      "course-botbin"
     ],
     "updatedAt": "2026-09-10T13:38:44.077Z"
   },
@@ -13752,10 +13840,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "ai-refuge-contact-a-human"
+      "ai-refuge-contact-a-human",
+      "vigilator"
     ],
     "courses": [
-      "course-ai-refuge-contact-a-human"
+      "course-ai-refuge-contact-a-human",
+      "course-vigilator"
     ],
     "updatedAt": "2026-09-11T23:32:03.204Z"
   },
@@ -14367,10 +14457,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "awesome-ui-design"
+      "awesome-ui-design",
+      "transitionsdev-ui-transitions-for-ai-agents"
     ],
     "courses": [
-      "course-awesome-ui-design"
+      "course-awesome-ui-design",
+      "course-transitionsdev-ui-transitions-for-ai-agents"
     ],
     "updatedAt": "2026-09-12T23:23:08.913Z"
   },
@@ -14607,5 +14699,291 @@
       "course-autocode"
     ],
     "updatedAt": "2026-09-13T23:31:44.658Z"
+  },
+  {
+    "id": "skill-hacker news",
+    "name": "hacker news",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "hazumi-for-hn-comes-to-the-web"
+    ],
+    "courses": [
+      "course-hazumi-for-hn-comes-to-the-web"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-news reader",
+    "name": "news reader",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "hazumi-for-hn-comes-to-the-web"
+    ],
+    "courses": [
+      "course-hazumi-for-hn-comes-to-the-web"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-web client",
+    "name": "web client",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "hazumi-for-hn-comes-to-the-web"
+    ],
+    "courses": [
+      "course-hazumi-for-hn-comes-to-the-web"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-tech news",
+    "name": "tech news",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "hazumi-for-hn-comes-to-the-web"
+    ],
+    "courses": [
+      "course-hazumi-for-hn-comes-to-the-web"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-oversight",
+    "name": "oversight",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "vigilator"
+    ],
+    "courses": [
+      "course-vigilator"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-dependencies",
+    "name": "dependencies",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-native-dependency-upgrades-through-codemods"
+    ],
+    "courses": [
+      "course-ai-native-dependency-upgrades-through-codemods"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-codemods",
+    "name": "codemods",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-native-dependency-upgrades-through-codemods"
+    ],
+    "courses": [
+      "course-ai-native-dependency-upgrades-through-codemods"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-ai history",
+    "name": "ai history",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "eliza-the-ai-that-fooled-the-world"
+    ],
+    "courses": [
+      "course-eliza-the-ai-that-fooled-the-world"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-eliza",
+    "name": "eliza",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "eliza-the-ai-that-fooled-the-world"
+    ],
+    "courses": [
+      "course-eliza-the-ai-that-fooled-the-world"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-nlp",
+    "name": "nlp",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "eliza-the-ai-that-fooled-the-world"
+    ],
+    "courses": [
+      "course-eliza-the-ai-that-fooled-the-world"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-html",
+    "name": "html",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "botbin"
+    ],
+    "courses": [
+      "course-botbin"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-no-login",
+    "name": "no login",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "botbin"
+    ],
+    "courses": [
+      "course-botbin"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-snippets",
+    "name": "snippets",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "botbin"
+    ],
+    "courses": [
+      "course-botbin"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-llm context",
+    "name": "llm context",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "the-memory-that-ai-agents-love"
+    ],
+    "courses": [
+      "course-the-memory-that-ai-agents-love"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-transitions",
+    "name": "transitions",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "transitionsdev-ui-transitions-for-ai-agents"
+    ],
+    "courses": [
+      "course-transitionsdev-ui-transitions-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-business-automation",
+    "name": "business automation",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "andon-labs-puts-ai-agents-in-charge-of-real-businesses"
+    ],
+    "courses": [
+      "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-llm-agents",
+    "name": "llm agents",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "andon-labs-puts-ai-agents-in-charge-of-real-businesses"
+    ],
+    "courses": [
+      "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-caching",
+    "name": "caching",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "your-ai-agent-has-a-cache-invalidation-problem"
+    ],
+    "courses": [
+      "course-your-ai-agent-has-a-cache-invalidation-problem"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-inbox",
+    "name": "inbox",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "prmptree"
+    ],
+    "courses": [
+      "course-prmptree"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-benchmarks",
+    "name": "benchmarks",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "a-fresh-take-on-code-intelligence-for-ai-agents"
+    ],
+    "courses": [
+      "course-a-fresh-take-on-code-intelligence-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-rubygems",
+    "name": "rubygems",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "what-a-time-to-be-alive"
+    ],
+    "courses": [
+      "course-what-a-time-to-be-alive"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-ruby",
+    "name": "ruby",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "what-a-time-to-be-alive"
+    ],
+    "courses": [
+      "course-what-a-time-to-be-alive"
+    ],
+    "updatedAt": "2026-09-14T15:54:36.868Z"
   }
 ]
