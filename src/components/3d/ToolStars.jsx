@@ -36,10 +36,10 @@ function makeNameTexture(name, color) {
   const ctx = canvas.getContext('2d')
 
   let size = 116
-  ctx.font = `700 ${size}px "Space Grotesk", system-ui, sans-serif`
+  ctx.font = `700 ${size}px "Inter", system-ui, sans-serif`
   while (ctx.measureText(name).width > w - 120 && size > 48) {
     size -= 6
-    ctx.font = `700 ${size}px "Space Grotesk", system-ui, sans-serif`
+    ctx.font = `700 ${size}px "Inter", system-ui, sans-serif`
   }
   ctx.textAlign = 'center'
   ctx.textBaseline = 'middle'
@@ -66,10 +66,10 @@ function makeNewNameTexture(name, color) {
   const ctx = canvas.getContext('2d')
 
   let size = 104
-  ctx.font = `700 ${size}px "Space Grotesk", system-ui, sans-serif`
+  ctx.font = `700 ${size}px "Inter", system-ui, sans-serif`
   while (ctx.measureText(name).width > w - 120 && size > 44) {
     size -= 6
-    ctx.font = `700 ${size}px "Space Grotesk", system-ui, sans-serif`
+    ctx.font = `700 ${size}px "Inter", system-ui, sans-serif`
   }
   ctx.textAlign = 'center'
   ctx.textBaseline = 'middle'
@@ -80,10 +80,10 @@ function makeNewNameTexture(name, color) {
   ctx.shadowBlur = 0
   ctx.fillText(name, w / 2, h / 2 + 26)
 
-  ctx.font = '900 44px "Space Grotesk", system-ui, sans-serif'
-  ctx.shadowColor = '#7cf5ff'
+  ctx.font = '900 44px "Inter", system-ui, sans-serif'
+  ctx.shadowColor = '#ffffff'
   ctx.shadowBlur = 24
-  ctx.fillStyle = '#7cf5ff'
+  ctx.fillStyle = '#ffffff'
   ctx.fillText('★ NEW', w / 2, 44)
   ctx.shadowBlur = 0
   ctx.fillText('★ NEW', w / 2, 44)

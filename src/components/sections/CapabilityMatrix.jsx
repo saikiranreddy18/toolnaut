@@ -19,7 +19,7 @@ function Cell({ cell, emphasis }) {
   return (
     <td
       className="border-t-2 border-white/10/60 px-3 py-3 align-top text-sm"
-      style={{ background: emphasis ? 'rgba(124, 245, 255,0.05)' : 'transparent' }}
+      style={{ background: emphasis ? 'rgba(255, 255, 255,0.05)' : 'transparent' }}
     >
       <span className={isLive(cell) ? 'text-white' : 'text-slate-500'}>{cell.text}</span>
       {isLive(cell) ? (
@@ -65,7 +65,7 @@ export default function CapabilityMatrix() {
                   <th
                     key={t.id}
                     className="px-3 pb-3"
-                    style={{ background: t.id === 'free' ? 'rgba(124, 245, 255,0.05)' : 'transparent' }}
+                    style={{ background: t.id === 'free' ? 'rgba(255, 255, 255,0.05)' : 'transparent' }}
                   >
                     <span className="font-display text-base font-black uppercase text-white">{t.name}</span>
                     <span className="ml-2 font-display text-[10px] font-black uppercase tracking-wide text-slate-500">

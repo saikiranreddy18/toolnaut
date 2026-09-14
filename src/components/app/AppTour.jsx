@@ -209,7 +209,7 @@ export default function AppTour({ open, onClose }) {
           <rect
             x={hole.x} y={hole.y} width={hole.w} height={hole.h} rx="16"
             fill="none" stroke="var(--lime)" strokeWidth="3"
-            style={{ filter: 'drop-shadow(0 0 14px rgba(124, 245, 255,0.7))' }}
+            style={{ filter: 'drop-shadow(0 0 14px rgba(255, 255, 255,0.7))' }}
           />
         )}
       </svg>

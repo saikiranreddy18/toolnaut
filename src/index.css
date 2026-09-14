@@ -7,15 +7,15 @@
      every existing text-exus-* / bg-exus-* class uses the same colours as the
      rest of the site AND follows the theme picker. Violet is the one fixed
      extra, kept so categories can still have distinct colours. */
-  --color-exus-purple: #b388ff;
+  --color-exus-purple: #d4d4d8;
   --color-exus-cyan: var(--cyan);
   --color-exus-pink: var(--hot-pink);
   --color-exus-gold: var(--arcade-yellow);
   --color-exus-lime: var(--lime);
   --color-exus-peach: var(--arcade-orange);
 
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
   --animate-float: float 6s ease-in-out infinite;
@@ -50,8 +50,8 @@ html.lenis {
 
 body {
   font-family: var(--font-sans);
-  color: #e7e9ff;
-  background: #05060f;
+  color: #fafafa;
+  background: #000000;
   overflow-x: hidden;
   overscroll-behavior-y: none;
   -webkit-tap-highlight-color: transparent;
@@ -79,7 +79,7 @@ button, a, input, select, textarea {
 }
 
 ::selection {
-  background: rgba(179, 136, 255, 0.55);
+  background: rgba(212, 212, 216, 0.55);
   color: #fff;
 }
 
@@ -106,16 +106,16 @@ button, a, input, select, textarea {
 }
 
 .glow-btn {
-  box-shadow: 0 0 24px rgba(179, 136, 255, 0.45), 0 0 60px rgba(138, 180, 255, 0.18);
+  box-shadow: 0 0 24px rgba(212, 212, 216, 0.45), 0 0 60px rgba(161, 161, 170, 0.18);
   transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 .glow-btn:hover {
-  box-shadow: 0 0 36px rgba(179, 136, 255, 0.75), 0 0 90px rgba(138, 180, 255, 0.35);
+  box-shadow: 0 0 36px rgba(212, 212, 216, 0.75), 0 0 90px rgba(161, 161, 170, 0.35);
   transform: translateY(-2px);
 }
 
 .text-glow {
-  text-shadow: 0 0 30px rgba(179, 136, 255, 0.6), 0 0 80px rgba(138, 180, 255, 0.25);
+  text-shadow: 0 0 30px rgba(212, 212, 216, 0.6), 0 0 80px rgba(161, 161, 170, 0.25);
 }
 
 /* CSS-only starfield for in-app screens — the space feeling without a WebGL
@@ -126,8 +126,8 @@ button, a, input, select, textarea {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 55% 40% at 20% 10%, rgba(179, 136, 255, 0.14), transparent),
-    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(138, 180, 255, 0.1), transparent),
+    radial-gradient(ellipse 55% 40% at 20% 10%, rgba(212, 212, 216, 0.14), transparent),
+    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(161, 161, 170, 0.1), transparent),
     #0a0a0f;
 }
 .starfield::before,
@@ -195,8 +195,8 @@ button, a, input, select, textarea {
   background:
     radial-gradient(circle 220px at 84% 12%, rgba(226, 232, 240, 0.16), transparent 70%),
     radial-gradient(ellipse 70% 55% at 84% 12%, rgba(148, 163, 184, 0.1), transparent),
-    radial-gradient(ellipse 55% 40% at 20% 10%, rgba(179, 136, 255, 0.14), transparent),
-    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(138, 180, 255, 0.1), transparent),
+    radial-gradient(ellipse 55% 40% at 20% 10%, rgba(212, 212, 216, 0.14), transparent),
+    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(161, 161, 170, 0.1), transparent),
     #0d0d15;
 }
 /* the moon itself — small, soft-edged, unmistakably a light source */
@@ -275,8 +275,8 @@ button, a, input, select, textarea {
 /* No moon: the sky drops away and the field comes forward. */
 [data-moon='none'] .starfield {
   background:
-    radial-gradient(ellipse 55% 40% at 20% 10%, rgba(179, 136, 255, 0.1), transparent),
-    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(138, 180, 255, 0.07), transparent),
+    radial-gradient(ellipse 55% 40% at 20% 10%, rgba(212, 212, 216, 0.1), transparent),
+    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(161, 161, 170, 0.07), transparent),
     #050508;
 }
 [data-moon='none'] .starfield::before {
@@ -302,13 +302,13 @@ button, a, input, select, textarea {
   width: 10px;
   height: 10px;
   border-radius: 9999px;
-  background: #8ab4ff;
+  background: #a1a1aa;
   transform: translateX(-50%);
-  box-shadow: 0 0 12px #8ab4ff, 0 -14px 22px 2px rgba(138, 180, 255, 0.35);
+  box-shadow: 0 0 12px #a1a1aa, 0 -14px 22px 2px rgba(161, 161, 170, 0.35);
 }
 
 :focus-visible {
-  outline: 2px solid #8ab4ff;
+  outline: 2px solid #a1a1aa;
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -341,8 +341,8 @@ button, a, input, select, textarea {
 
 /* Streak flame glow */
 @keyframes flame-pulse {
-  0%, 100% { box-shadow: 0 0 8px #ffb86b, 0 0 16px #b388ff; }
-  50% { box-shadow: 0 0 12px #ffb86b, 0 0 24px #b388ff; }
+  0%, 100% { box-shadow: 0 0 8px #a1a1aa, 0 0 16px #d4d4d8; }
+  50% { box-shadow: 0 0 12px #a1a1aa, 0 0 24px #d4d4d8; }
 }
 .streak-flame {
   animation: flame-pulse 2s ease-in-out infinite;
@@ -363,135 +363,135 @@ button, a, input, select, textarea {
   background: rgba(14, 14, 24, 0.5);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(179, 136, 255, 0.25);
-  box-shadow: 0 0 24px rgba(179, 136, 255, 0.15), 0 12px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(212, 212, 216, 0.25);
+  box-shadow: 0 0 24px rgba(212, 212, 216, 0.15), 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* ===== SPACE DESIGN SYSTEM ===== */
-/* One look: clean panels floating in deep space. Toolnaut is an AI universe —
-   tools and companies are the stars — so the interface is the calm instrument
-   you navigate it with, not the spectacle.
+/* ===== MONOCHROME DESIGN SYSTEM ===== */
+/* Near-black and white, in the spirit of Grok / xAI. Toolnaut is still an AI
+   universe — the galaxy and the stars stay — but the interface around it is
+   quiet: black, white and a scale of greys, faint borders, no glow. Colour is
+   reserved for meaning only (errors red, warnings amber), which is what lets
+   those few moments of colour actually register.
 
-   The variable names are the old arcade ones so the ~300 existing class and
-   style references keep working; their VALUES are the cosmic palette:
-     --lime           primary      starlight cyan  (button fills, links)
-     --hot-pink       secondary    nebula violet
-     --cyan           tertiary     comet blue
-     --arcade-yellow  highlight    star gold, sparingly
-   --lime fills buttons, so it must stay light enough for dark text. */
+   Variable names are kept from earlier systems so the existing references keep
+   working; their values are now greys:
+     --lime      primary    white   (button fill, key text)
+     --hot-pink  secondary  zinc-300
+     --cyan      tertiary   zinc-400 */
 :root {
-  --lime: #7cf5ff;
-  --hot-pink: #b388ff;
-  --cyan: #8ab4ff;
-  --ink-hard: #05060f;
-  --arcade-yellow: #ffd66b;
-  --arcade-orange: #ffb86b;
+  --lime: #ffffff;
+  --hot-pink: #d4d4d8;
+  --cyan: #a1a1aa;
+  --ink-hard: #000000;
+  --arcade-yellow: #e4e4e7;
+  --arcade-orange: #a1a1aa;
 
-  --space-bg: #05060f;
-  --space-panel: rgba(13, 16, 36, 0.78);
-  --space-line: rgba(160, 175, 255, 0.14);
-  --space-line-strong: rgba(124, 245, 255, 0.38);
-  --space-text: #e7e9ff;
-  --space-muted: #9aa3c7;
-  --space-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.85);
+  --space-bg: #000000;
+  --space-panel: rgba(255, 255, 255, 0.025);
+  --space-panel-hover: rgba(255, 255, 255, 0.045);
+  --space-line: rgba(255, 255, 255, 0.08);
+  --space-line-strong: rgba(255, 255, 255, 0.18);
+  --space-text: #fafafa;
+  --space-muted: #a1a1aa;
 }
 
-/* ===== SKY THEMES — alternative cosmic palettes ===== */
-/* Each swaps the accent trio: --lime primary (button fill, so it must stay
-   light enough for dark text), --hot-pink secondary, --cyan tertiary. Applied
-   via data-theme on <html>, persisted by themeStore. The ids are the old
-   ones ('toxic', 'synth') so a saved choice keeps working; the palettes are
-   now soft space colours rather than arcade neon. */
+/* ===== SKY THEMES — subtle monochrome tints ===== */
+/* Optional, and deliberately quiet: a warm, a cool and a dark tint of the same
+   black-and-white system. Ids are the historical ones so saved choices still
+   resolve (solar = Ivory, toxic = Frost, synth = Graphite). */
 html[data-theme='solar'] {
-  --lime: #ffd66b;
-  --hot-pink: #ff9e7a;
-  --cyan: #ffb86b;
-  --arcade-yellow: #ffe7a3;
-  --arcade-orange: #ff9e7a;
+  --lime: #f6f1e7;
+  --hot-pink: #d9d2c5;
+  --cyan: #a8a296;
+  --arcade-yellow: #ede6d9;
+  --arcade-orange: #a8a296;
 }
 html[data-theme='toxic'] {
-  --lime: #8ff5c5;
-  --hot-pink: #6ee7f9;
-  --cyan: #5eead4;
-  --arcade-yellow: #d9f99d;
-  --arcade-orange: #5eead4;
+  --lime: #eef4fa;
+  --hot-pink: #cad4de;
+  --cyan: #98a5b3;
+  --arcade-yellow: #e2e9f0;
+  --arcade-orange: #98a5b3;
 }
 html[data-theme='synth'] {
-  --lime: #d6a8ff;
-  --hot-pink: #ff8ad8;
-  --cyan: #8ab4ff;
-  --arcade-yellow: #ffc2f0;
-  --arcade-orange: #b388ff;
+  --lime: #e4e4e4;
+  --hot-pink: #bababa;
+  --cyan: #858585;
+  --arcade-yellow: #d6d6d6;
+  --arcade-orange: #858585;
 }
 
-/* Buttons: a pill of light with a soft glow. No hard shadow, no black rim. */
+/* Buttons. Primary: a white pill with black text. The .pink / .cyan / .dark
+   variants are all the quiet secondary pill now: a faint fill and a hairline. */
 .nb-btn {
   background: var(--lime);
-  color: #05060f;
+  color: #000000;
   border: 1px solid transparent;
   border-radius: 999px;
-  box-shadow: 0 8px 26px -12px var(--lime);
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease, background-color 0.2s ease;
+  box-shadow: none;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
   cursor: pointer;
 }
-.nb-btn:hover { filter: brightness(1.07); box-shadow: 0 10px 32px -10px var(--lime); }
-.nb-btn:active { transform: translateY(1px) scale(0.99); }
-.nb-btn:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+.nb-btn:hover { background: #e4e4e7; }
+.nb-btn:active { transform: scale(0.98); }
+.nb-btn:focus-visible { outline: 2px solid #ffffff; outline-offset: 3px; }
 
-.nb-btn.pink { background: var(--hot-pink); color: #0b0718; box-shadow: 0 8px 26px -12px var(--hot-pink); }
-.nb-btn.pink:hover { box-shadow: 0 10px 32px -10px var(--hot-pink); }
-.nb-btn.cyan { background: var(--cyan); color: #05060f; box-shadow: 0 8px 26px -12px var(--cyan); }
-.nb-btn.cyan:hover { box-shadow: 0 10px 32px -10px var(--cyan); }
-.nb-btn.dark {
-  background: rgba(124, 245, 255, 0.06);
-  color: var(--lime);
+.nb-btn.pink,
+.nb-btn.cyan {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fafafa;
   border-color: var(--space-line-strong);
-  box-shadow: none;
 }
-.nb-btn.dark:hover { background: rgba(124, 245, 255, 0.12); box-shadow: 0 0 22px -10px var(--lime); }
+.nb-btn.pink:hover,
+.nb-btn.cyan:hover { background: rgba(255, 255, 255, 0.14); }
+.nb-btn.dark {
+  background: transparent;
+  color: #fafafa;
+  border-color: var(--space-line-strong);
+}
+.nb-btn.dark:hover { background: rgba(255, 255, 255, 0.06); }
 
-/* Panels: deep-space glass with a thin starlit edge that brightens on hover.
-   Always straight — the old alternating tilt is gone everywhere. No backdrop
-   blur on purpose: dozens of blurred cards cost real frames on low-end phones. */
+/* Panels: barely there. A faint fill and a hairline that firms up on hover. */
 .sticker {
   background: var(--space-panel);
   border: 1px solid var(--space-line);
-  border-radius: 18px;
-  box-shadow: var(--space-shadow);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 20px;
+  box-shadow: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
-.sticker:hover { border-color: var(--space-line-strong); box-shadow: var(--space-shadow), 0 0 30px -14px var(--lime); }
-.sticker.pink { border-color: rgba(179, 136, 255, 0.2); }
-.sticker.pink:hover { border-color: rgba(179, 136, 255, 0.5); box-shadow: var(--space-shadow), 0 0 30px -14px var(--hot-pink); }
-.sticker.cyan { border-color: rgba(138, 180, 255, 0.2); }
-.sticker.cyan:hover { border-color: rgba(138, 180, 255, 0.5); box-shadow: var(--space-shadow), 0 0 30px -14px var(--cyan); }
+.sticker:hover { background: var(--space-panel-hover); border-color: var(--space-line-strong); }
+.sticker.pink,
+.sticker.cyan { border-color: var(--space-line); }
+.sticker.pink:hover,
+.sticker.cyan:hover { border-color: var(--space-line-strong); }
 .sticker.flat,
 .app-calm .sticker { transform: none; }
 
-/* Headings: clean, confident Space Grotesk. No italic slab, no RGB split. */
+/* Headings: tight, confident, white. */
 .arcade-heading {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   font-style: normal;
-  letter-spacing: -0.015em;
-  line-height: 1.08;
+  letter-spacing: -0.03em;
+  line-height: 1.06;
   color: var(--space-text);
   text-shadow: none;
 }
-.arcade-heading.section { letter-spacing: -0.005em; }
-.arcade-heading.lime { color: var(--lime); }
-.arcade-heading.outline { color: transparent; -webkit-text-stroke: 1px var(--lime); }
-.arcade-heading.split { color: var(--lime); }
-.arcade-heading.split .cyan-line { color: var(--cyan); }
-.arcade-heading.split .pink-line { color: var(--hot-pink); }
+.arcade-heading.section { letter-spacing: -0.02em; }
+.arcade-heading.lime,
+.arcade-heading.split { color: var(--space-text); }
+.arcade-heading.outline { color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6); }
+.arcade-heading.split .cyan-line,
+.arcade-heading.split .pink-line { color: var(--space-muted); }
 
 /* Faint star-chart grid */
 .retro-grid {
   background-image:
-    linear-gradient(rgba(124, 245, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 245, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: 40px 40px;
   mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
   -webkit-mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
@@ -499,11 +499,11 @@ html[data-theme='synth'] {
 
 /* Level badge */
 .level-badge {
-  background: linear-gradient(135deg, var(--arcade-yellow), var(--arcade-orange));
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 12px;
-  box-shadow: 0 8px 24px -12px var(--arcade-yellow);
-  color: #1a1205;
+  background: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  box-shadow: none;
+  color: #000000;
 }
 
 /* Day-streak dots (M T W T F …) */
@@ -514,63 +514,42 @@ html[data-theme='synth'] {
   border: 1px solid var(--space-line);
   display: grid;
   place-items: center;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 11px;
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--space-muted);
+  background: transparent;
+  color: #71717a;
   font-family: var(--font-display);
 }
-.day-dot.done {
-  background: var(--lime);
-  border-color: transparent;
-  color: #05060f;
-  box-shadow: 0 0 16px -2px var(--lime);
-}
-.day-dot.today {
-  background: var(--hot-pink);
-  border-color: transparent;
-  color: #0b0718;
-  box-shadow: 0 0 16px -2px var(--hot-pink);
-  animation: dot-bounce 1.6s ease-in-out infinite;
-}
-
-@keyframes dot-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
+.day-dot.done { background: #ffffff; border-color: #ffffff; color: #000000; }
+.day-dot.today { background: transparent; border-color: #ffffff; color: #ffffff; }
 
 /* Chips / pills */
 .arcade-chip {
-  background: rgba(124, 245, 255, 0.04);
+  background: transparent;
   border: 1px solid var(--space-line);
   border-radius: 999px;
   padding: 8px 14px;
   color: var(--space-muted);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 12px;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.005em;
   transition: all 0.15s ease;
   cursor: pointer;
 }
 .arcade-chip:hover { color: var(--space-text); border-color: var(--space-line-strong); }
-.arcade-chip.on {
-  background: rgba(124, 245, 255, 0.14);
-  color: var(--lime);
-  border-color: var(--space-line-strong);
-  box-shadow: 0 0 20px -10px var(--lime);
-}
+.arcade-chip.on { background: #ffffff; color: #000000; border-color: #ffffff; box-shadow: none; }
 
-/* Small label pill (was a tilted strip of tape) */
+/* Small label pill */
 .tape-label {
   display: inline-block;
-  background: rgba(124, 245, 255, 0.1);
-  color: var(--lime);
+  background: rgba(255, 255, 255, 0.05);
+  color: #d4d4d8;
   padding: 5px 12px;
-  border: 1px solid var(--space-line-strong);
+  border: 1px solid var(--space-line);
   border-radius: 999px;
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -620,9 +599,9 @@ html[data-theme='synth'] {
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(124, 245, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.05) 40%,
     rgba(255, 255, 255, 0.07) 50%,
-    rgba(124, 245, 255, 0.05) 60%,
+    rgba(255, 255, 255, 0.05) 60%,
     transparent
   );
   animation: crt-roll 7s linear infinite;

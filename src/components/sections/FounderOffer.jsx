@@ -70,7 +70,7 @@ export default function FounderOffer() {
       <div
         className="relative mx-auto flex max-w-4xl flex-col gap-5 overflow-hidden rounded-2xl border border-white/10 p-5 sm:p-6"
         style={{
-          background: 'linear-gradient(135deg, rgba(255, 214, 107,0.14), rgba(255, 184, 107,0.10) 55%, rgba(255, 214, 107,0.06))',
+          background: 'linear-gradient(135deg, rgba(228, 228, 231,0.14), rgba(161, 161, 170,0.10) 55%, rgba(228, 228, 231,0.06))',
           borderColor: 'var(--arcade-yellow)',
           boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)',
         }}

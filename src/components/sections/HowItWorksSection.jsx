@@ -35,9 +35,9 @@ export default function HowItWorksSection() {
           />
           <defs>
             <linearGradient id="pathGrad" x1="0" x2="1000" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#b388ff" />
-              <stop offset="0.5" stopColor="#8ab4ff" />
-              <stop offset="1" stopColor="#b388ff" />
+              <stop stopColor="#d4d4d8" />
+              <stop offset="0.5" stopColor="#a1a1aa" />
+              <stop offset="1" stopColor="#d4d4d8" />
             </linearGradient>
           </defs>
         </svg>

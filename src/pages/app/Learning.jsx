@@ -88,7 +88,7 @@ function LessonStep({ done, step, lesson, onToggle }) {
             transition={{ duration: 0.22, ease: 'easeOut' }}
             className="overflow-hidden"
           >
-            <div className="ml-8 mb-2 rounded-lg border-l-2 pl-3" style={{ borderColor: 'rgba(124, 245, 255,0.4)' }}>
+            <div className="ml-8 mb-2 rounded-lg border-l-2 pl-3" style={{ borderColor: 'rgba(255, 255, 255,0.4)' }}>
               <p className="text-xs leading-relaxed text-slate-300">{lesson.body}</p>
               {lesson.action && (
                 <p className="mt-2 text-xs leading-relaxed font-semibold" style={{ color: 'var(--lime)' }}>
@@ -110,7 +110,7 @@ function Checkpoint({ quiz, passed, onPass }) {
 
   if (passed) {
     return (
-      <div className="mt-3 rounded-lg border border-white/10 p-3" style={{ background: 'rgba(124, 245, 255,0.1)' }}>
+      <div className="mt-3 rounded-lg border border-white/10 p-3" style={{ background: 'rgba(255, 255, 255,0.1)' }}>
         <p className="font-display text-xs font-black uppercase tracking-widest" style={{ color: 'var(--lime)' }}>
           ✓ Checkpoint cleared
         </p>
@@ -132,7 +132,7 @@ function Checkpoint({ quiz, passed, onPass }) {
   }
 
   return (
-    <div className="mt-4 rounded-xl border border-white/10 p-4" style={{ background: 'rgba(179, 136, 255,0.06)' }}>
+    <div className="mt-4 rounded-xl border border-white/10 p-4" style={{ background: 'rgba(212, 212, 216,0.06)' }}>
       <p className="font-display text-xs font-black uppercase tracking-widest" style={{ color: 'var(--hot-pink)' }}>
         ▸ Checkpoint · pass to clear the week
       </p>
@@ -155,7 +155,7 @@ function Checkpoint({ quiz, passed, onPass }) {
                       className="press flex w-full items-center gap-2 rounded-lg border-2 px-3 py-2 text-left text-xs font-medium"
                       style={{
                         borderColor: showCorrect ? 'var(--lime)' : showWrong ? 'var(--hot-pink)' : isChosen ? '#fff' : '#2a2740',
-                        background: showCorrect ? 'rgba(124, 245, 255,0.15)' : showWrong ? 'rgba(179, 136, 255,0.12)' : isChosen ? 'rgba(255,255,255,0.06)' : 'transparent',
+                        background: showCorrect ? 'rgba(255, 255, 255,0.15)' : showWrong ? 'rgba(212, 212, 216,0.12)' : isChosen ? 'rgba(255,255,255,0.06)' : 'transparent',
                         color: showCorrect ? 'var(--lime)' : '#fff',
                       }}
                     >
@@ -393,7 +393,7 @@ export default function Learning() {
                       🔒 Finish week {m.week - 1} to unlock.
                     </p>
                   ) : (
-                    <div className="mt-3 border-t-2 pt-3" style={{ borderColor: 'rgba(124, 245, 255,0.15)' }}>
+                    <div className="mt-3 border-t-2 pt-3" style={{ borderColor: 'rgba(255, 255, 255,0.15)' }}>
                       {m.styleTip && (
                         <p className="mb-3 text-xs leading-relaxed text-slate-400">
                           💡 {m.styleTip}

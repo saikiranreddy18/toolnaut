@@ -165,7 +165,7 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut', bg =
     : `radial-gradient(circle ${REVEAL_RADIUS}px at var(--mx, -999px) var(--my, -999px), #000 0%, rgba(0,0,0,0.6) 45%, transparent 72%)`
 
   const textStyle = {
-    fontFamily: "Bungee, 'Space Grotesk', system-ui, sans-serif",
+    fontFamily: "Bungee, 'Inter', system-ui, sans-serif",
     fontSize: FONT_SIZE,
     fontStyle: 'italic',
     letterSpacing: '0.01em',
@@ -274,7 +274,7 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut', bg =
           // shown plainly with no mask), full strength would fight the links
           // for legibility — it is a backdrop there, not the subject.
           opacity: bg && alwaysOn ? 0.16 : revealed ? 1 : 0.92,
-          filter: 'drop-shadow(0 0 14px rgba(124, 245, 255,0.28)) drop-shadow(0 0 26px rgba(232,236,244,0.12))',
+          filter: 'drop-shadow(0 0 14px rgba(255, 255, 255,0.28)) drop-shadow(0 0 26px rgba(232,236,244,0.12))',
         }}
       >
         {renderMark(true)}

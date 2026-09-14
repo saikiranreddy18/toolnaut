@@ -63,8 +63,8 @@ export function timeAgo(ts) {
 
 export const TYPE_META = {
   question: { label: 'Question', color: 'var(--cyan)' },
-  showcase: { label: 'Showcase', color: '#b388ff' },
-  discussion: { label: 'Discussion', color: '#b388ff' },
+  showcase: { label: 'Showcase', color: '#d4d4d8' },
+  discussion: { label: 'Discussion', color: '#d4d4d8' },
 }
 
 export const FORUM_CATEGORIES = [

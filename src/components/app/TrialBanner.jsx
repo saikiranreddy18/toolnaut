@@ -82,8 +82,8 @@ export default function TrialBanner() {
 
 function Banner({ tone, children }) {
   const tones = {
-    rose: { bg: 'rgba(244,63,94,0.14)', border: '#ffb86b', text: '#fecdd3' },
-    amber: { bg: 'rgba(255, 214, 107,0.12)', border: 'var(--arcade-yellow)', text: '#fde68a' },
+    rose: { bg: 'rgba(244,63,94,0.14)', border: '#a1a1aa', text: '#fecdd3' },
+    amber: { bg: 'rgba(228, 228, 231,0.12)', border: 'var(--arcade-yellow)', text: '#fde68a' },
     slate: { bg: 'rgba(148,163,184,0.10)', border: '#475569', text: '#cbd5e1' },
   }
   const t = tones[tone] || tones.slate

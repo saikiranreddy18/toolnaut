@@ -37,7 +37,7 @@ export default function RankCard() {
       {/* your standing */}
       <div
         className="rounded-2xl border border-white/10 p-5"
-        style={{ background: 'linear-gradient(135deg, rgba(124, 245, 255,0.14), rgba(138, 180, 255,0.10))', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
+        style={{ background: 'linear-gradient(135deg, rgba(255, 255, 255,0.14), rgba(161, 161, 170,0.10))', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
       >
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>

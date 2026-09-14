@@ -4,11 +4,11 @@
 const KEY = 'exus_theme_v1'
 
 export const THEMES = [
-  { id: 'nebula', name: 'Nebula', swatch: ['#7cf5ff', '#b388ff', '#8ab4ff'] },
-  { id: 'solar', name: 'Solar', swatch: ['#ffd66b', '#ff9e7a', '#ffb86b'] },
-  // ids kept from the arcade era so saved choices still resolve
-  { id: 'toxic', name: 'Aurora', swatch: ['#8ff5c5', '#6ee7f9', '#5eead4'] },
-  { id: 'synth', name: 'Pulsar', swatch: ['#d6a8ff', '#ff8ad8', '#8ab4ff'] },
+  { id: 'nebula', name: 'Mono', swatch: ['#ffffff', '#d4d4d8', '#a1a1aa'] },
+  // ids kept from earlier eras so saved choices still resolve
+  { id: 'solar', name: 'Ivory', swatch: ['#f6f1e7', '#d9d2c5', '#a8a296'] },
+  { id: 'toxic', name: 'Frost', swatch: ['#eef4fa', '#cad4de', '#98a5b3'] },
+  { id: 'synth', name: 'Graphite', swatch: ['#e4e4e4', '#bababa', '#858585'] },
 ]
 
 export function loadTheme() {

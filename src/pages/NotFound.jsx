@@ -34,7 +34,7 @@ export default function NotFound() {
           THIS PAGE<br />DOES NOT EXIST
         </h1>
         <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-slate-300">
-          Nothing lives at <code className="rounded bg-white/10 px-1.5 py-0.5 text-xs text-cyan-300">{pathname}</code>.
+          Nothing lives at <code className="rounded bg-white/10 px-1.5 py-0.5 text-xs text-zinc-300">{pathname}</code>.
           The link may be old, or the page may have moved.
         </p>
 

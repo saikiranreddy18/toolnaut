@@ -63,7 +63,7 @@ export default function PlanChip({ ent, compact = false, className = '' }) {
     return (
       <div className={`flex flex-wrap items-center gap-2 ${className}`}>
         {!compact && (
-          <span className="font-display text-[10px] font-black uppercase tracking-wider text-cyan-300">
+          <span className="font-display text-[10px] font-black uppercase tracking-wider text-zinc-300">
             Trial · {ent.days ?? 0}d left
           </span>
         )}

@@ -180,7 +180,7 @@ export default function AppShell() {
           {persona ? (
             <PlanChip ent={ent} className="mt-2" />
           ) : (
-            <Link to="/goal" className="mt-1 inline-block text-xs font-bold text-cyan-300 underline decoration-2 underline-offset-2 hover:text-white">
+            <Link to="/goal" className="mt-1 inline-block text-xs font-bold text-zinc-300 underline decoration-2 underline-offset-2 hover:text-white">
               60 seconds →
             </Link>
           )}
@@ -234,7 +234,7 @@ export default function AppShell() {
           <PlanChip ent={ent} compact />
           <Link to="/app/settings" className="flex items-center gap-2" aria-label="Your profile">
             {persona && (
-              <span className="rounded-full border border-exus-purple/50 bg-exus-purple/10 px-3 py-1 font-display text-xs text-cyan-300">
+              <span className="rounded-full border border-exus-purple/50 bg-exus-purple/10 px-3 py-1 font-display text-xs text-zinc-300">
                 {persona.name}
               </span>
             )}
@@ -336,7 +336,7 @@ export default function AppShell() {
                     <motion.span
                       layoutId="nav-glow"
                       className="absolute -top-[2px] h-1 w-14 rounded-full"
-                      style={{ background: 'var(--lime)', boxShadow: '0 0 14px var(--lime), 0 0 32px rgba(124, 245, 255,0.6)' }}
+                      style={{ background: 'var(--lime)', boxShadow: '0 0 14px var(--lime), 0 0 32px rgba(255, 255, 255,0.6)' }}
                       aria-hidden="true"
                     />
                   )}

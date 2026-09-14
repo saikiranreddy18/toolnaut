@@ -206,7 +206,7 @@ export default function DeleteAccount({ session }) {
                   {cooldown > 0 ? (
                     <span>No email? You can ask for a new code in {cooldown}s.</span>
                   ) : (
-                    <button type="button" onClick={requestCode} disabled={busy} className="font-bold text-cyan-300 underline underline-offset-2 disabled:opacity-50">
+                    <button type="button" onClick={requestCode} disabled={busy} className="font-bold text-zinc-300 underline underline-offset-2 disabled:opacity-50">
                       Send a new code
                     </button>
                   )}

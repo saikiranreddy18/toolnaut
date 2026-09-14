@@ -54,8 +54,8 @@ export const PLANS = [
     // only here: the ribbon, the paywall and checkout all read it.
     limitedUntil: '2026-10-11T18:30:00Z',
     badge: 'FOUNDER',
-    glow: 'rgba(255, 214, 107, 0.30)',
-    accent: '#ffd66b',
+    glow: 'rgba(228, 228, 231, 0.30)',
+    accent: '#e4e4e7',
     audience: 'Early backers — one payment, kept for good',
     features: [
       live('Everything in Pro, permanently'),
@@ -78,8 +78,8 @@ export const PLANS = [
     // which must carry the same number; a test checks).
     limits: { saved: 10 },
     badge: null,
-    glow: 'rgba(124, 245, 255, 0.28)',
-    accent: '#7cf5ff',
+    glow: 'rgba(255, 255, 255, 0.28)',
+    accent: '#ffffff',
     audience: 'Students, hobbyists, solo learners exploring AI',
     features: [
       live('Personalized AI tool discovery (all categories)'),
@@ -100,8 +100,8 @@ export const PLANS = [
     price: 8,
     priceINR: 799,
     badge: 'Most Popular',
-    glow: 'rgba(179, 136, 255, 0.4)',
-    accent: '#b388ff',
+    glow: 'rgba(212, 212, 216, 0.4)',
+    accent: '#d4d4d8',
     featured: true,
     audience: 'Freelancers, professionals, serious learners',
     plus: 'Everything in Student, plus:',
@@ -136,8 +136,8 @@ export const PLANS = [
     // ₹999 follows the same ~×100 PPP ratio as the tiers ($50 -> ₹4,999);
     // adjust here if the seat price should differ.
     badgeINR: 'Up to 5 seats · ₹999 per seat for 30 days',
-    glow: 'rgba(138, 180, 255, 0.4)',
-    accent: '#8ab4ff',
+    glow: 'rgba(161, 161, 170, 0.4)',
+    accent: '#a1a1aa',
     audience: 'Startups, agencies, research teams, enterprise pods',
     plus: 'Everything in Pro, plus:',
     features: [

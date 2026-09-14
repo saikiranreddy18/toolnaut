@@ -25,7 +25,7 @@ function makeCoreTexture() {
   return tex
 }
 
-// Procedural spiral galaxy: dense golden core, violet mid-band, blue outer arms.
+// Procedural spiral galaxy in monochrome: bright white core, silver arms, dim grey edge.
 // `count` overrides the reduced/full default so the scene can scale the point
 // budget to what the device actually sustains. Vertex count — not resolution —
 // is what costs here: hiding the canvas entirely and forcing dpr to 1 both left
@@ -38,9 +38,9 @@ export default function Galaxy({ reduced, spin = !reduced, count: countProp }) {
     const positions = new Float32Array(count * 3)
     const colors = new Float32Array(count * 3)
 
-    const inside = new THREE.Color('#ffc98a')
-    const mid = new THREE.Color('#b184f5')
-    const outside = new THREE.Color('#4aa3e8')
+    const inside = new THREE.Color('#ffffff')
+    const mid = new THREE.Color('#c8c8d0')
+    const outside = new THREE.Color('#6b6b76')
     const c = new THREE.Color()
 
     for (let i = 0; i < count; i++) {

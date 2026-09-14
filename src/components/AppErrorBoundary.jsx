@@ -18,7 +18,7 @@ const wrap = {
 const card = { maxWidth: '460px', textAlign: 'center' }
 const btn = {
   marginTop: '20px', padding: '11px 22px', borderRadius: '10px', border: 0,
-  background: '#b388ff', color: '#fff', fontSize: '15px', fontWeight: 600, cursor: 'pointer',
+  background: '#d4d4d8', color: '#fff', fontSize: '15px', fontWeight: 600, cursor: 'pointer',
 }
 const muted = { color: '#9a9ab0', fontSize: '14px', lineHeight: 1.6 }
 
@@ -46,7 +46,7 @@ export default class AppErrorBoundary extends React.Component {
       <div style={wrap}>
         <div style={card}>
           <div style={{ fontSize: '40px', marginBottom: '12px' }}>🛰️</div>
-          <h1 style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: '24px', margin: '0 0 10px' }}>
+          <h1 style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: '24px', margin: '0 0 10px' }}>
             Something broke on our side
           </h1>
           <p style={muted}>
@@ -54,7 +54,7 @@ export default class AppErrorBoundary extends React.Component {
           </p>
           <button style={btn} onClick={() => window.location.reload()}>Reload the page</button>
           <p style={{ ...muted, marginTop: '18px', fontSize: '13px' }}>
-            Still stuck? <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#8ab4ff' }}>{CONTACT_EMAIL}</a>
+            Still stuck? <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#a1a1aa' }}>{CONTACT_EMAIL}</a>
             {REPORTING_CONFIGURED && this.state.ref ? <><br />Reference: <code>{this.state.ref}</code></> : null}
           </p>
         </div>

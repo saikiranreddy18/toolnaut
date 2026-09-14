@@ -24,21 +24,16 @@ import { subscriberCount, conversionPercent } from '../../utils/subscriberCount'
 // and an unavailable one is not a licence to make one up. Conversion needs
 // both counts, so it disappears if either does.
 
-// The neon edge: a lime-to-cyan gradient running round the border, drawn with
-// the padding-box / border-box background trick so it follows the rounded
-// corners exactly. The hard black offset shadow stays, so these still read as
-// the same arcade cards as everything else on the page.
-const NEON_CARD = {
-  border: '3px solid transparent',
-  background:
-    'linear-gradient(#12121c, #12121c) padding-box, ' +
-    'linear-gradient(135deg, var(--lime) 0%, var(--cyan) 100%) border-box',
-  boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7), 0 0 18px -6px rgba(138, 180, 255, 0.45)',
+// A plain panel, the same as every other card: a faint border on black, no
+// gradient edge and no glow. The number carries the emphasis, not the frame.
+const PANEL = {
+  border: '1px solid rgba(255, 255, 255, 0.08)',
+  background: 'rgba(255, 255, 255, 0.025)',
 }
 
 function StatCard({ n, k, live }) {
   return (
-    <motion.div variants={fadeUp} className="rounded-2xl px-4 py-6 text-center" style={NEON_CARD}>
+    <motion.div variants={fadeUp} className="rounded-2xl px-4 py-6 text-center" style={PANEL}>
       <p className="arcade-heading text-3xl md:text-4xl" style={{ color: 'var(--lime)' }}>{n}</p>
       <p className="mt-2 font-display text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">{k}</p>
       {live && (

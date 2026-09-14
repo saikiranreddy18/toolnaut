@@ -17,7 +17,7 @@ export default function QuizResult() {
   // Pixel confetti burst — square particles in arcade palette. Declared before
   // the completed-quiz redirect below so hook order stays stable.
   useEffect(() => {
-    const colors = ['var(--lime)', 'var(--hot-pink)', 'var(--cyan)', '#ffd66b', '#b388ff']
+    const colors = ['var(--lime)', 'var(--hot-pink)', 'var(--cyan)', '#e4e4e7', '#d4d4d8']
     const timers = []
     const nodes = []
     for (let i = 0; i < 40; i++) {
@@ -94,7 +94,7 @@ export default function QuizResult() {
             hash of the answers — same answers, same ticket. */}
         {/* nebula environment behind the ticket, like the reference's sky */}
         <div className="pointer-events-none absolute inset-x-0 top-24 -z-10 mx-auto h-[560px] max-w-5xl" aria-hidden="true" style={{
-          background: 'radial-gradient(42% 55% at 22% 30%, rgba(45,212,191,0.16), transparent 70%), radial-gradient(38% 50% at 80% 65%, rgba(179, 136, 255,0.18), transparent 70%), radial-gradient(30% 40% at 60% 20%, rgba(179, 136, 255,0.10), transparent 70%)',
+          background: 'radial-gradient(42% 55% at 22% 30%, rgba(45,212,191,0.16), transparent 70%), radial-gradient(38% 50% at 80% 65%, rgba(212, 212, 216,0.18), transparent 70%), radial-gradient(30% 40% at 60% 20%, rgba(212, 212, 216,0.10), transparent 70%)',
           filter: 'blur(6px)',
         }} />
 
@@ -180,7 +180,7 @@ export default function QuizResult() {
               <div className="mt-4 flex justify-center">
                 <span
                   className="rounded-full px-3 py-0.5 font-display text-[9px] font-black uppercase tracking-[0.16em] text-black"
-                  style={{ background: 'var(--lime)', boxShadow: '0 0 16px rgba(124, 245, 255,0.45)' }}
+                  style={{ background: 'var(--lime)', boxShadow: '0 0 16px rgba(255, 255, 255,0.45)' }}
                 >
                   🎯 your starter kit
                 </span>
@@ -218,7 +218,7 @@ export default function QuizResult() {
 
             <div className="relative overflow-hidden px-4 py-5 md:py-6" style={{ borderTop: '2px dashed rgba(255,255,255,0.16)', background: 'rgba(5,5,10,0.45)' }}>
               <div className="pointer-events-none absolute inset-0 opacity-60" aria-hidden="true" style={{
-                background: 'radial-gradient(70% 55% at 65% 72%, rgba(45,212,191,0.35), rgba(179, 136, 255,0.30) 40%, rgba(179, 136, 255,0.16) 62%, transparent 78%)',
+                background: 'radial-gradient(70% 55% at 65% 72%, rgba(45,212,191,0.35), rgba(212, 212, 216,0.30) 40%, rgba(212, 212, 216,0.16) 62%, transparent 78%)',
                 filter: 'blur(2px)',
               }} />
               <div className="absolute inset-y-3 left-0 hidden border-l-2 border-dashed border-white/15 md:block" aria-hidden="true" />
@@ -250,7 +250,7 @@ export default function QuizResult() {
                 className="mt-3 h-12 w-full rounded-lg"
                 aria-hidden="true"
                 style={{
-                  background: 'radial-gradient(circle at 60% 45%, rgba(163,255,216,0.5), rgba(179, 136, 255,0.45) 35%, rgba(138, 180, 255,0.25) 60%, transparent 75%), radial-gradient(circle at 30% 70%, rgba(179, 136, 255,0.3), transparent 60%), #0a0a12',
+                  background: 'radial-gradient(circle at 60% 45%, rgba(163,255,216,0.5), rgba(212, 212, 216,0.45) 35%, rgba(161, 161, 170,0.25) 60%, transparent 75%), radial-gradient(circle at 30% 70%, rgba(212, 212, 216,0.3), transparent 60%), #0a0a12',
                   border: '1px solid rgba(255,255,255,0.08)',
                 }}
               />
@@ -351,7 +351,7 @@ export default function QuizResult() {
           <div className="flex items-center gap-6 pt-2">
             <Link
               to="/pricing"
-              className="font-display text-xs font-bold uppercase tracking-wider text-cyan-300 underline decoration-2 decoration-cyan-400/60 underline-offset-4 hover:text-white"
+              className="font-display text-xs font-bold uppercase tracking-wider text-zinc-300 underline decoration-2 decoration-zinc-400/60 underline-offset-4 hover:text-white"
             >
               see the plans
             </Link>

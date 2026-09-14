@@ -32,7 +32,7 @@ function StaticSky() {
       aria-hidden="true"
       style={{
         background:
-          'radial-gradient(ellipse 60% 40% at 30% 20%, rgba(179, 136, 255,0.25), transparent), radial-gradient(ellipse 50% 40% at 75% 70%, rgba(138, 180, 255,0.18), transparent), #060609',
+          'radial-gradient(ellipse 60% 40% at 30% 20%, rgba(212, 212, 216,0.25), transparent), radial-gradient(ellipse 50% 40% at 75% 70%, rgba(161, 161, 170,0.18), transparent), #060609',
       }}
     />
   )

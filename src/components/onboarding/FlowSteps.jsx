@@ -53,7 +53,7 @@ export default function FlowSteps() {
                 </span>
                 <span
                   className={`whitespace-nowrap font-display text-[10px] font-black uppercase tracking-wider ${
- here ? 'text-white' : done ? 'text-cyan-300' : 'text-slate-500'
+ here ? 'text-white' : done ? 'text-zinc-300' : 'text-slate-500'
  } ${here ? '' : 'hidden sm:inline'}`}
                 >
                   {s.label}

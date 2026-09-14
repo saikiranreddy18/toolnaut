@@ -97,7 +97,7 @@ export default function PricingSection({ titleAs = 'h2' }) {
                         typed as "$3 / $8 / $50" and matched nothing checkout takes. */}
                     <th className="p-4 text-(--lime)">Student · {formatPrice(PLANS.find((p) => p.id === 'shishya'))}</th>
                     <th className="p-4" style={{ color: 'var(--hot-pink)' }}>Pro · {formatPrice(PLANS.find((p) => p.id === 'guru'))}</th>
-                    <th className="p-4 text-cyan-300">Team · {formatPrice(PLANS.find((p) => p.id === 'pandava'))}</th>
+                    <th className="p-4 text-zinc-300">Team · {formatPrice(PLANS.find((p) => p.id === 'pandava'))}</th>
                   </tr>
                 </thead>
                 <tbody>

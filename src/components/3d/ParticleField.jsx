@@ -38,8 +38,8 @@ export default function ParticleField({ reduced, mobile = false, count: countPro
   const starTex = useMemo(() => makeGlowTexture('rgba(255,255,255,1)', 'rgba(255,255,255,0)'), [])
   const nebulae = useMemo(
     () => [
-      { tex: makeGlowTexture('rgba(124,58,237,0.14)', 'rgba(124,58,237,0)'), pos: [-20, 9, -34], scale: 46 },
-      { tex: makeGlowTexture('rgba(6,182,212,0.10)', 'rgba(6,182,212,0)'), pos: [22, -10, -38], scale: 50 },
+      { tex: makeGlowTexture('rgba(255, 255, 255,0.14)', 'rgba(255, 255, 255,0)'), pos: [-20, 9, -34], scale: 46 },
+      { tex: makeGlowTexture('rgba(255, 255, 255,0.10)', 'rgba(255, 255, 255,0)'), pos: [22, -10, -38], scale: 50 },
     ],
     [],
   )

@@ -111,8 +111,8 @@ export default function Scene({ mode = 'full' }) {
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 90% 70% at 50% 40%, rgba(124,58,237,0.20), transparent 60%),' +
-              'radial-gradient(ellipse 70% 50% at 50% 45%, rgba(34,211,238,0.12), transparent 55%), #060609',
+              'radial-gradient(ellipse 90% 70% at 50% 40%, rgba(255, 255, 255,0.20), transparent 60%),' +
+              'radial-gradient(ellipse 70% 50% at 50% 45%, rgba(255, 255, 255,0.12), transparent 55%), #060609',
           }}
         />
       </div>

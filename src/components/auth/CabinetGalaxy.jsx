@@ -52,8 +52,8 @@ export default function CabinetGalaxy({ tiltRef }) {
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 120% 80% at 50% 62%, rgba(124,58,237,0.35), transparent 60%),' +
-            'radial-gradient(ellipse 90% 60% at 50% 58%, rgba(34,211,238,0.28), transparent 55%), #05070c',
+            'radial-gradient(ellipse 120% 80% at 50% 62%, rgba(255, 255, 255,0.35), transparent 60%),' +
+            'radial-gradient(ellipse 90% 60% at 50% 58%, rgba(255, 255, 255,0.28), transparent 55%), #05070c',
         }}
         aria-hidden="true"
       />

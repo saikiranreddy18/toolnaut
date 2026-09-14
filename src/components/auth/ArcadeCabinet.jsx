@@ -212,7 +212,7 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
 
             {/* HUD */}
             <div className="absolute inset-0 flex flex-col justify-between p-3 font-mono text-[10px] leading-relaxed md:p-4 md:text-xs">
-              <div style={{ color: 'var(--lime)', textShadow: '0 0 8px rgba(124, 245, 255,0.55)' }}>
+              <div style={{ color: 'var(--lime)', textShadow: '0 0 8px rgba(255, 255, 255,0.55)' }}>
                 {!booted ? (
                   BOOT_LINES.map((l) => <div key={l}>{l}</div>)
                 ) : (
@@ -327,7 +327,7 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
                     style={{
                       background: lamp === i ? 'var(--lime)' : '#17171d',
                       color: lamp === i ? '#000' : '#4b5563',
-                      boxShadow: lamp === i ? '0 0 8px rgba(124, 245, 255,0.7)' : 'none',
+                      boxShadow: lamp === i ? '0 0 8px rgba(255, 255, 255,0.7)' : 'none',
                     }}
                   >
                     {i + 1}

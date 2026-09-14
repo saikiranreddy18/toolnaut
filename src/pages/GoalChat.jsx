@@ -271,8 +271,8 @@ export default function GoalChat() {
               <span
                 className="mx-auto inline-flex items-center gap-[7px] rounded-full px-[13px] py-[7px] text-[11px] font-medium leading-none"
                 style={{
-                  background: 'rgba(124, 245, 255,.10)',
-                  border: '1px solid rgba(124, 245, 255,.32)',
+                  background: 'rgba(255, 255, 255,.10)',
+                  border: '1px solid rgba(255, 255, 255,.32)',
                   color: 'var(--lime)',
                 }}
               >

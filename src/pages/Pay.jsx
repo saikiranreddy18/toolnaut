@@ -182,7 +182,7 @@ export default function Pay() {
           stops someone paying a second time because the app still looks
           locked. */}
       {status === 'provisioning' && (
-        <div className="mt-5 rounded-xl border-2 px-4 py-3" style={{ borderColor: 'var(--arcade-yellow)', background: 'rgba(255, 214, 107,0.10)' }}>
+        <div className="mt-5 rounded-xl border-2 px-4 py-3" style={{ borderColor: 'var(--arcade-yellow)', background: 'rgba(228, 228, 231,0.10)' }}>
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--arcade-yellow)' }}>
             Payment received — unlocking your plan…
           </p>

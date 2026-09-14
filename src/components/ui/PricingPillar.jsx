@@ -91,7 +91,7 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
         <p className="mt-3 text-xs text-slate-400">{plan.audience}</p>
 
         <ul className="mt-6 flex-1 space-y-2.5 text-sm text-slate-200">
-          {plan.plus && <li className="font-display font-black uppercase text-cyan-300">{plan.plus}</li>}
+          {plan.plus && <li className="font-display font-black uppercase text-zinc-300">{plan.plus}</li>}
           {plan.features.map((f) => (
             <li key={f.text} className="flex flex-wrap items-center gap-2">
               <span aria-hidden="true" style={{ color: plan.accent }}>✦</span>
