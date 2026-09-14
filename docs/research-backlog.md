@@ -5883,3 +5883,89 @@ a client-side SPA with a static tool catalogue.
   `answers.domain`) and a comparator idiom already live in the same file. No
   backend, no new dependency, no new route, no schema change.
 - **Found:** 2026-09-14 06:10 UTC
+
+---
+
+### The changelog exists, nobody signed in ever sees it — and it stopped being kept up the moment that gap opened
+
+- **Status:** OPEN
+- **Seen in:** an in-app "what's new" surface — distinct from a public
+  changelog page, which Toolnaut already has — is standard retention
+  practice on products that ship often: Linear's app shell carries a
+  changelog entry point with an unread indicator, Notion opens a "What's New"
+  panel from inside the workspace, GitHub's global nav bell links to release
+  notes, Vercel's dashboard links out to `vercel.com/changelog`. The common
+  shape is the same in each: the announcement lives where the *existing,
+  signed-in* user already is, not only on the marketing site they signed up
+  from once and may never revisit.
+- **Gap:** the "Public 'What's New' changelog" gap above shipped `/changelog`
+  (`src/pages/Changelog.jsx`) and one footer link from
+  `ContactSection.jsx:43-50` — but `ContactSection` only renders on marketing
+  pages (`Landing.jsx`, `Pricing.jsx`, etc.), never inside `AppShell`. Read
+  `AppShell.jsx` in full: it renders no footer at all (grepped
+  `footer|Footer|ContactSection` across the file — zero hits), and its `NAV`
+  array (`AppShell.jsx:26-33`) has exactly six items — Stack, Find, Saved,
+  Learn, Squad, Me — none of them Changelog. Also grepped `changelog` across
+  `src/shells/` and `src/pages/app/` — zero hits anywhere in the signed-in
+  surface. A visitor who signs up from the landing page footer link, or who
+  never notices that link at all (it's one of nine links in a three-column
+  footer group), has no path back to `/changelog` short of typing the URL
+  from memory. The people this page is written for — the ones who already
+  trust Toolnaut enough to have a stack — are exactly the ones who never see
+  it once they're inside `/app/*`.
+  - **Compounding finding:** `src/utils/changelogData.js`'s own header
+    comment says "add one entry here whenever the daily feature run marks a
+    backlog gap SHIPPED" — but its newest entry is dated `2026-09-05`, nine
+    days and roughly a dozen SHIPPED entries ago as of this run (public
+    search, sort control, tags-as-browsing, structured data, pricing
+    reconciliation, and more all shipped after that date per this file's own
+    SHIPPED log and `DEVLOG.md`). The two gaps reinforce each other: the page
+    stopped being visited by its author internally in the same way it's
+    invisible to users, so nobody was looking at it to notice it had gone
+    stale. Backfilling the missing entries is content work for whoever picks
+    this up (or the next feature run touching `changelogData.js`), not a
+    reason to hold the code change below.
+- **Why it matters:** this is the same shape as the "Weekly Fresh Finds is
+  domain-blind" and "Live Tool Comparison has no integrations row" entries
+  directly above — a feature that shipped correctly for one context but is
+  missing from the highest-value context. Here the highest-value context is
+  starker: the changelog's entire purpose (per its own entry above) is
+  proving continuous investment to a skeptical visitor, and the audience
+  best positioned to notice and appreciate that proof — people who already
+  converted — structurally cannot reach it once they're using the product.
+- **Smallest useful version (what to actually build):**
+  - New `src/state/changelogSeenStore.js`, same shape as `themeStore.js`
+    (`loadX`/`saveX`, try/catch around every `localStorage` call per this
+    repo's own rule): `loadChangelogSeen()` returns the last-seen date
+    string or `null`; `markChangelogSeen(date)` writes it.
+  - `AppShell.jsx`: import `CHANGELOG` from `../utils/changelogData` (already
+    newest-first, so `CHANGELOG[0].date` is the latest entry) and the new
+    store. Compute `hasUnseen = CHANGELOG[0].date !== loadChangelogSeen()`.
+    Add one `Link to="/changelog"` in the sidebar footer block, next to the
+    existing "Signed in as X" / "Browsing as guest" line (`AppShell.jsx:212-
+    223`, the one static-info block signed-in and guest sessions already
+    share) — label "✨ What's new", a small lime dot appended when
+    `hasUnseen` is true, matching the existing dot-badge visual language this
+    codebase already uses for the shipped "streak points" indicator. Call
+    `markChangelogSeen(CHANGELOG[0].date)` on click, not on mount, so the dot
+    stays honest for someone who notices it but hasn't actually looked yet.
+  - Mobile top bar (`AppShell.jsx:229-244`): the same link, icon-only (no
+    room for the label at this width — same constraint the existing
+    `PlanChip compact` / `Avatar size={32}` icons in this exact bar already
+    respect), placed between `PlanChip` and the profile `Link`.
+  - **What this would NOT include** (kept out to bound the diff): no new
+    modal/panel/dropdown preview of entries (Notion's pattern) — a direct
+    link to the already-shipped `/changelog` page is the smallest version
+    that closes the actual gap (unreachable), not a richer one (in-place
+    reading); no changing `CHANGELOG`'s data shape or `Changelog.jsx` itself;
+    no cross-device sync of the seen-date (it's a `localStorage` UI
+    convenience, same tier as `chatOpen` in this same file, not state worth a
+    Supabase round-trip); no automated backfill of the nine missing days of
+    entries — that's a content task, listed above as a separate, non-blocking
+    follow-up for whoever picks this up.
+- **Build size:** S — one new ~10-line store module (trivially
+  `node --test`-able, no DOM dependency), two small link/badge additions in
+  `AppShell.jsx` (desktop sidebar footer + mobile top bar), reusing data and
+  a page that already ship. No backend, no new dependency, no new route, no
+  schema change.
+- **Found:** 2026-09-14 15:30 UTC
