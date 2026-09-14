@@ -68,8 +68,8 @@ export default function ChatPanel({ personaName, onClose, idPrefix = 'chat' }) {
           <div
             key={i}
             className={`max-w-[85%] rounded-2xl border border-white/10 px-4 py-2.5 text-sm leading-relaxed ${
-              m.role === 'user' ? 'ml-auto text-black' : 'bg-[#14141f] text-slate-200'
-            }`}
+ m.role === 'user' ? 'ml-auto text-black' : 'bg-[#14141f] text-slate-200'
+ }`}
             style={m.role === 'user'
               ? { background: 'var(--lime)', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }
               : { boxShadow: '3px 3px 0 var(--hot-pink)' }}

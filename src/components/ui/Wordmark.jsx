@@ -24,7 +24,7 @@ export default function Wordmark({ className = '', glow = true, style }) {
     <span
       role="img"
       aria-label="Toolnaut"
-      className={`inline-flex items-center whitespace-nowrap font-display font-black italic ${className}`}
+      className={`inline-flex items-center whitespace-nowrap font-display font-black ${className}`}
       style={style}
     >
       {/* The glyph is decorative; the lockup carries the name once, above. */}

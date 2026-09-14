@@ -259,7 +259,7 @@ export default function Stack() {
               <span className="font-display text-xs font-black tracking-wider">{level}</span>
             </div>
             <h1 className="arcade-heading mt-4 text-4xl sm:text-5xl">{persona.name.toUpperCase()}</h1>
-            <p className="mt-3 font-display text-sm font-bold italic text-white">{persona.tagline}</p>
+            <p className="mt-3 font-display text-sm font-bold text-white">{persona.tagline}</p>
           </div>
           <button
             onClick={copyShareLink}

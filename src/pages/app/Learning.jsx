@@ -395,7 +395,7 @@ export default function Learning() {
                   ) : (
                     <div className="mt-3 border-t-2 pt-3" style={{ borderColor: 'rgba(124, 245, 255,0.15)' }}>
                       {m.styleTip && (
-                        <p className="mb-3 text-xs italic leading-relaxed text-slate-400">
+                        <p className="mb-3 text-xs leading-relaxed text-slate-400">
                           💡 {m.styleTip}
                         </p>
                       )}

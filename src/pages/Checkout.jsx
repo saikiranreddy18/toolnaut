@@ -66,7 +66,7 @@ export default function Checkout() {
           className="mt-6 rounded-2xl border border-white/10 p-5"
           style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
         >
-          <h2 className="font-display text-lg font-black italic" style={{ color: 'var(--lime)' }}>
+          <h2 className="font-display text-lg font-black" style={{ color: 'var(--lime)' }}>
             Payments are not available yet
           </h2>
           <p className="mt-2 text-sm text-slate-300">
@@ -96,7 +96,7 @@ export default function Checkout() {
             >
               {plan.tier}
             </p>
-            <h2 className="mt-1 font-display text-lg font-black italic text-white">{plan.name}</h2>
+            <h2 className="mt-1 font-display text-lg font-black text-white">{plan.name}</h2>
             {/* The rupee figure is shown because that is what Razorpay will
                 actually charge. The server re-derives it from this same PLANS
                 entry, so the display and the charge cannot disagree. */}
@@ -125,7 +125,7 @@ export default function Checkout() {
         className="mt-8 rounded-2xl border border-white/10 p-5"
         style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
       >
-        <h3 className="font-display text-sm font-black italic text-white">Test cards</h3>
+        <h3 className="font-display text-sm font-black text-white">Test cards</h3>
         <p className="mt-2 text-sm text-slate-300">
           Card <code style={{ color: 'var(--lime)' }}>4111 1111 1111 1111</code>, any
           future expiry, any CVV, any name. Razorpay&apos;s test-mode UPI succeeds

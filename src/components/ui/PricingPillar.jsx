@@ -45,12 +45,12 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
     <motion.div variants={fadeUp} className="relative h-full">
       <div
         className={`sticker flat ${STICKER_VARIANT[plan.id] ?? ''} relative flex h-full flex-col p-7 ${
-          // No scale on the featured plan. scale() grows from the centre, so it
-          // pushed PRO's top edge above STUDENT and TEAM and broke the row it is
-          // meant to be compared across. The MOST POPULAR tape and the pink edge
-          // already mark it, and neither moves it.
-          plan.featured ? 'md:z-10' : ''
-        }`}
+ // No scale on the featured plan. scale() grows from the centre, so it
+ // pushed PRO's top edge above STUDENT and TEAM and broke the row it is
+ // meant to be compared across. The MOST POPULAR tape and the pink edge
+ // already mark it, and neither moves it.
+ plan.featured ? 'md:z-10' : ''
+ }`}
         onMouseEnter={() => track(EVENTS.PLAN_HOVER, { plan: plan.id })}
       >
         {plan.badge && (
@@ -66,7 +66,7 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
           <PlanIcon type={plan.icon} color={plan.accent} />
         </div>
         <p className="mt-3 flex items-baseline gap-1">
-          <span className="font-display text-5xl font-black italic text-white" style={{ textShadow: 'none' }}>
+          <span className="font-display text-5xl font-black text-white" style={{ textShadow: 'none' }}>
             {/* A regionally priced plan ignores the currency toggle: it has one
                 real price per country, and letting the toggle quote the other
                 one would show a number the checkout will not charge. */}

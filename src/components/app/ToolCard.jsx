@@ -116,8 +116,8 @@ export default function ToolCard({
           aria-label={isFavorite ? `Remove ${tool.name} from saved` : `Save ${tool.name}`}
           aria-pressed={isFavorite}
           className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/20 ${
-            isFavorite ? 'text-[var(--hot-pink)]' : 'text-slate-400 hover:text-white'
-          }`}
+ isFavorite ? 'text-[var(--hot-pink)]' : 'text-slate-400 hover:text-white'
+ }`}
         >
           <HeartIcon filled={isFavorite} />
         </button>

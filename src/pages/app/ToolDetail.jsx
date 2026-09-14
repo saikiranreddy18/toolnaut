@@ -174,8 +174,8 @@ export default function ToolDetail() {
           aria-label={favorited ? `Remove ${tool.name} from saved` : `Save ${tool.name}`}
           aria-pressed={favorited}
           className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/10 ${
-            favorited ? 'bg-[var(--hot-pink)] text-white' : 'bg-transparent text-slate-400 hover:text-white'
-          }`}
+ favorited ? 'bg-[var(--hot-pink)] text-white' : 'bg-transparent text-slate-400 hover:text-white'
+ }`}
           style={{ boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
         >
           <HeartIcon filled={favorited} />

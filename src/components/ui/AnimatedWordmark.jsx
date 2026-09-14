@@ -35,7 +35,7 @@ export default function AnimatedWordmark({ className = '' }) {
     <span
       role="img"
       aria-label="Toolnaut"
-      className={`relative inline-flex items-center whitespace-nowrap font-display font-black italic ${className}`}
+      className={`relative inline-flex items-center whitespace-nowrap font-display font-black ${className}`}
     >
       <motion.span aria-hidden="true" {...letter(0.15)}>T</motion.span>
 

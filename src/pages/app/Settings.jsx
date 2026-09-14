@@ -171,7 +171,7 @@ export default function Settings() {
             <div className="min-w-0 flex-1">
             <span className="arcade-chip on" style={{ fontSize: 10 }}>Persona</span>
             <p className="arcade-heading lime mt-3 text-2xl">{persona.name.toUpperCase()}</p>
-            <p className="mt-2 font-display text-sm font-bold italic text-white">{persona.tagline}</p>
+            <p className="mt-2 font-display text-sm font-bold text-white">{persona.tagline}</p>
             {persona.career && (
               <p className="mt-2 text-sm text-slate-400">
                 {persona.career} · home category{' '}

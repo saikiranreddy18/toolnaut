@@ -49,7 +49,7 @@ export default function HowItWorksSection() {
                 className={`sticker ${i % 3 === 0 ? '' : i % 3 === 1 ? 'pink' : 'cyan'} h-full p-6`}
                 max={8}
               >
-                <p className="font-display text-4xl font-black italic text-(--lime)" style={{ textShadow: 'none' }}>
+                <p className="font-display text-4xl font-black text-(--lime)" style={{ textShadow: 'none' }}>
                   {String(i + 1).padStart(2, '0')}
                 </p>
                 <h3 className="mt-3 font-display text-xl font-black uppercase text-white">{s.name}</h3>
