@@ -6148,3 +6148,84 @@ a client-side SPA with a static tool catalogue.
   `Stack.jsx`, one conditional "core" tag on cards already carrying the
   `starter` flag. No new route, no new file, no schema change, no backend.
 - **Found:** 2026-09-15 12:05 UTC
+
+---
+
+### Discover only ever ranks toward the mainstream — no "hidden gem" / serendipity path exists
+- **Status:** OPEN
+- **Seen in:** ToolFinder (toolfinder.com/tools — 1,452-tool directory) is the
+  one competitor from this file's own suggested-study list
+  (There's An AI For That, Futurepedia, ToolFinder, Product Hunt AI, G2/
+  Capterra) never actually checked here before now (grepped this file for
+  "ToolFinder": zero hits pre-this-entry). Fetched it directly: filters,
+  sort, an "Alternatives" page pattern and a "Deals" section all already
+  match gaps already OPEN or REJECTED in this backlog, but a separate open-
+  source clone under the same name (github.com/ayeshh899-creator/Toolfinder,
+  a personalised-recommendation/roadmap/comparison app with the same shape as
+  Toolnaut itself) documents a "Hidden Gems" discovery mode with a "Surprise
+  Me" action — explicitly framed as surfacing "high-leverage tools built by
+  focused indie developers," i.e. the opposite bias from a normal ranked
+  list.
+- **Gap:** Every ranking path in `src/pages/app/Discover.jsx` pulls toward
+  recognisability, never away from it. `byProminence()` and `starterScore()`
+  (`src/utils/prominence.js:37-48,88-96`) score a `FLAGSHIP` name (Claude
+  Code, Figma, ChatGPT, Zapier, etc. — `prominence.js:24-31`) up to +20 and
+  use it as the primary sort key once match score ties; `Discover.jsx:130-137`
+  sorts by match score then that same tieBreak for every `sort=` value
+  except `newest`/`name`. The two existing discovery rails reinforce the same
+  bias from different angles: `freshTools` (`Discover.jsx:159-165`) is
+  recency-scoped to 7 days, `recentlyViewed` (`Discover.jsx:172-175`) replays
+  the user's own click history — neither one is capable of surfacing an
+  active, real, unglamorous tool that's simply never been near the top of a
+  ranked list. `Stack.jsx`'s `toolOfTheDay()` (`Stack.jsx:25-34`) comes
+  closest to a daily-rotation mechanic but explicitly restricts its
+  candidate pool to `.slice(0, 12)` of the user's own top match-score
+  results — it rotates among the mainstream picks, it doesn't escape them.
+  Grepped `src/` for `random|surprise|shuffle|serendip|hidden gem` — the only
+  hits are animation jitter (`ParticleField.jsx`, `cursorEffects.js`,
+  `Galaxy.jsx`) and one `Math.random()` in `AppErrorBoundary.jsx`, nothing
+  discovery-facing.
+- **Why it matters:** with 700+ tools and a ranking system that always
+  surfaces the same handful of flagships first (by design — `starterScore`'s
+  own comment says a first-time user "reads five names they've never heard
+  of and concludes the recommendations are noise," which is the right call
+  for the *default* view), there is no second path for the opposite kind of
+  user: someone who already knows Figma and Cursor and wants the catalog's
+  actual long tail. Right now that requires manually clicking through every
+  filter combination — the 700-tool catalog's breadth is Toolnaut's real
+  differentiator over a 50-tool curated list, and nothing in the product
+  currently sells it.
+- **Smallest useful version (what to actually build):**
+  - `prominence.js`: export one new pure function, `isFlagship(t)` — `t.name`
+    tested against the union of all `FLAGSHIP` domain arrays (a `Set` built
+    once at module scope, same pattern the file already uses for `REPO_SLUG`/
+    `FORUM_POST`/`LINK_LIST` regexes). No change to `starterScore` or
+    `byProminence` — both stay exactly as they are for the ranked views.
+  - `Discover.jsx`: one new `useMemo`, `hiddenGems`, filtering
+    `TOOLS.filter(t => !isCatalogNoise(t) && t.status === 'Active' &&
+    !isFlagship(t))`, then a deterministic daily rotation through that pool
+    using the exact `Math.floor(Date.now() / 86400000)` pattern
+    `toolOfTheDay()` already establishes — same tool for every visitor all
+    day, a new slice tomorrow, no per-user state and nothing to persist.
+    Slice to 6, matching `recentlyViewed`'s rail size.
+  - One new rail section, placed after `recentlyViewed`
+    (`Discover.jsx:247-260`ish), reusing the identical sticker-card markup
+    those two rails already share (`Discover.jsx:233-245`) — same
+    `w-40 shrink-0` card, same `arcade-heading lime compact` name, same
+    blurb line-clamp — headed `💎 Hidden gems` with one line of subcopy
+    ("real tools, way off the beaten path"). No new visual language to
+    design.
+  - **What this would NOT include** (kept out to bound the diff): no
+    "Surprise Me" button that jumps elsewhere (ToolFinder's version
+    navigates to a single random tool page — a rail the user can ignore or
+    scroll is lower-risk for a first cut and reuses this page's existing
+    rail pattern instead of adding a new interaction); no popularity-based
+    weighting (that's the separate, still-OPEN GitHub-stars/HN-points gap);
+    no dedicated `/hidden-gems` route; no exclusion of tools already in the
+    user's stack (unlike `toolOfTheDay`, browsing your own catalog is the
+    point here, not converting a specific pick).
+- **Build size:** S — one small pure function reusing exports already in
+  `prominence.js`, one `useMemo` and one rail block in `Discover.jsx` copied
+  from a pattern already in the same file twice. No new route, no new state,
+  no backend.
+- **Found:** 2026-09-15 21:06 UTC
