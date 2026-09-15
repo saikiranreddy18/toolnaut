@@ -24,7 +24,7 @@ function Block({ title, children }) {
   return (
     <section className="mt-9">
       <h2 className="arcade-heading section text-xl sm:text-2xl">{title}</h2>
-      <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-300">{children}</div>
+      <div className="mt-3 space-y-3 text-sm leading-relaxed text-zinc-300">{children}</div>
     </section>
   )
 }
@@ -48,15 +48,15 @@ export default function Methodology() {
           <BrandLogo {...LOGO.page} />
         </Link>
         <Link to="/goal" className="nb-btn px-4 py-2 text-xs">
-          ⚡ Find your stack
+          Find your stack
         </Link>
       </header>
 
-      <p className="mt-6 font-display text-xs font-black uppercase tracking-[0.2em]" style={{ color: 'var(--lime)' }}>
-        ▸ Trust
+      <p className="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">
+        Trust
       </p>
-      <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">HOW WE CHOOSE</h1>
-      <p className="mt-4 text-sm leading-relaxed text-slate-300">
+      <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">How we choose</h1>
+      <p className="mt-4 text-sm leading-relaxed text-zinc-300">
         {TOOLS.length.toLocaleString()} tools are in the catalogue
         {updated ? `, last added to ${updated}` : ''}. Here is exactly how they get
         there, how they get ranked for you, and what we do not check.
@@ -159,7 +159,7 @@ export default function Methodology() {
       </Block>
 
       <div className="mt-10 rounded-2xl border border-white/10 p-5" style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>
-        <p className="text-sm text-slate-300">
+        <p className="text-sm text-zinc-300">
           Want to see what this produces before signing up?{' '}
           <Link to="/example" className="font-semibold underline underline-offset-2" style={{ color: 'var(--lime)' }}>
             Look at a full example stack →

@@ -216,10 +216,10 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
               className="absolute z-[6] hidden -translate-x-1/2 rotate-[-8deg] rounded-lg border border-white/10 bg-white px-2.5 py-1.5 lg:block"
               style={{ left: '8.24%', top: '62%', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
             >
-              <p className="font-display text-xs font-black uppercase leading-none text-black">
+              <p className="font-display text-xs font-semibold uppercase leading-none text-black">
                 {TOOLS.length}+
               </p>
-              <p className="font-display text-[9px] font-black uppercase leading-none text-black">AI tools</p>
+              <p className="font-display text-[9px] font-semibold leading-none text-black">AI tools</p>
             </div>
 
             {/* The frame does not box the content in — it OVERLAYS it. The
@@ -319,7 +319,7 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
 
                 <div className="my-5 flex items-center gap-3" aria-hidden="true">
                   <span className="h-0.5 flex-1 bg-black/25" />
-                  <span className="font-display text-xs font-black uppercase text-neutral-600">or</span>
+                  <span className="font-display text-xs font-semibold uppercase text-neutral-600">or</span>
                   <span className="h-0.5 flex-1 bg-black/25" />
                 </div>
 
@@ -364,7 +364,7 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
                     <button
                       type="submit"
                       disabled={Boolean(busy)}
-                      className="cab-btn mt-3.5 min-h-[3.25rem] w-full rounded-lg border border-white/10 px-5 font-display font-black uppercase tracking-wide text-[#10110b] disabled:opacity-60"
+                      className="cab-btn mt-3.5 min-h-[3.25rem] w-full rounded-lg border border-white/10 px-5 font-display font-semibold text-[#10110b] disabled:opacity-60"
                       style={{
                         background: 'var(--lime)',
                         boxShadow: '5px 5px 0 #171719, inset 0 2px rgba(255,255,255,0.42)',

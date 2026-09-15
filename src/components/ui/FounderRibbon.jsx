@@ -121,7 +121,7 @@ export default function FounderRibbon({ compact = false }) {
 
         {/* the clock */}
         <div className="hidden items-center gap-3 sm:flex">
-          <span className="hidden text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500 lg:inline">Offer ends in</span>
+          <span className="hidden text-[11px] font-medium text-zinc-500 lg:inline">Offer ends in</span>
           <div className="flex items-center gap-1.5">
             {units.map(([v, k]) => (
               <span
@@ -129,7 +129,7 @@ export default function FounderRibbon({ compact = false }) {
                 className={`flex min-w-[40px] flex-col items-center rounded-lg border border-white/10 bg-white/[0.04] px-2 backdrop-blur ${compact ? 'py-0.5' : 'py-1'}`}
               >
                 <span className="text-[15px] font-semibold leading-none tabular-nums text-white">{pad(v)}</span>
-                {!compact && <span className="mt-0.5 text-[9px] uppercase tracking-wider text-zinc-500">{k}</span>}
+                {!compact && <span className="mt-0.5 text-[9px] text-zinc-500">{k}</span>}
               </span>
             ))}
           </div>

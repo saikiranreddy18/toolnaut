@@ -53,15 +53,15 @@ export default function SharedStack() {
 
   return (
     <div className="mx-auto max-w-4xl px-5 py-10 lg:py-16">
-      <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>
-        ▸ SHARED STACK
+      <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">
+        Shared stack
       </p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">
-        {tools.length > 0 ? `${tools.length} TOOL${tools.length === 1 ? '' : 'S'}` : 'STACK NOT FOUND'}
+        {tools.length > 0 ? `${tools.length} TOOL${tools.length === 1 ? '' : 'S'}` : 'Stack not found'}
       </h1>
 
       {tools.length === 0 ? (
-        <p className="mt-4 max-w-md text-sm text-slate-400">
+        <p className="mt-4 max-w-md text-sm text-zinc-400">
           This link doesn't point to any tools we recognize — it may be old, or
           mistyped.
         </p>
@@ -71,13 +71,13 @@ export default function SharedStack() {
             const meta = CATEGORY_META[tool.category] || { name: tool.category, color: 'var(--cyan)' }
             return (
               <div key={tool.slug} className="glass rounded-2xl p-5">
-                <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase text-slate-400">
+                <span className="flex items-center gap-1.5 text-[10px] font-bold text-zinc-400">
                   <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
                   <span className="truncate">{tool.sourceCategory}</span>
                 </span>
-                <p className="arcade-heading lime mt-2 text-base">{tool.name.toUpperCase()}</p>
-                <p className="mt-2 text-xs leading-relaxed text-slate-300">{tool.blurb}</p>
-                <div className="mt-3 flex items-center gap-2 text-[10px] font-bold uppercase text-slate-500">
+                <p className="arcade-heading mt-2 text-base">{tool.name}</p>
+                <p className="mt-2 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>
+                <div className="mt-3 flex items-center gap-2 text-[10px] font-bold text-zinc-500">
                   <span className="rounded-full border border-white/20 px-2 py-0.5">{PRICE_LABELS[tool.price]}</span>
                   <span className="rounded-full border border-white/20 px-2 py-0.5">{LEVEL_LABELS[tool.level]}</span>
                 </div>
@@ -90,16 +90,16 @@ export default function SharedStack() {
       {tools.length === 0 ? null : session ? (
         <div className="mt-10 flex flex-wrap items-center gap-4">
           {alreadyHasAll ? (
-            <p className="text-sm text-slate-400">You already have all {tools.length} of these.</p>
+            <p className="text-sm text-zinc-400">You already have all {tools.length} of these.</p>
           ) : (
             <button
               onClick={() => adoptAndGo('/app/stack')}
               className="glow-btn inline-block rounded-full bg-gradient-to-r from-exus-purple to-exus-cyan px-7 py-3 font-display text-sm font-semibold text-white"
             >
-              {added ? '✓ Added!' : `⚡ Add all ${tools.length} to my stack`}
+              {added ? '✓ Added!' : `Add all ${tools.length} to my stack`}
             </button>
           )}
-          <Link to="/app/stack" className="text-sm text-slate-400 underline underline-offset-4">
+          <Link to="/app/stack" className="text-sm text-zinc-400 underline underline-offset-4">
             View my stack instead
           </Link>
         </div>

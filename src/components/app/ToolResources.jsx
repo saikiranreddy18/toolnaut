@@ -34,13 +34,13 @@ export default function ToolResources({ tool }) {
     <div className="mt-8 grid gap-4 sm:grid-cols-2">
       {integ && (
         <section className="sticker p-5 sm:col-span-2" style={{ transform: 'rotate(0)' }} aria-labelledby="works-with">
-          <h2 id="works-with" className="arcade-heading lime compact text-lg">
-            ◆ {integ.kind === 'works_in' ? 'WORKS IN' : 'WORKS WITH'}
+          <h2 id="works-with" className="arcade-heading compact text-lg">
+            {integ.kind === 'works_in' ? 'Works in' : 'Works with'}
           </h2>
           {integ.summary && <p className="mt-2 text-sm font-bold text-white">{integ.summary}</p>}
           <ul className="mt-3 flex flex-wrap gap-2" aria-label={integ.kind === 'works_in' ? 'Where it works' : 'Integrations'}>
             {names.map((n) => (
-              <li key={n} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-bold text-slate-200">
+              <li key={n} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-bold text-zinc-200">
                 {n}
               </li>
             ))}
@@ -49,7 +49,7 @@ export default function ToolResources({ tool }) {
                 <button
                   type="button"
                   onClick={() => setAll((v) => !v)}
-                  className="rounded-full border-2 border-dashed border-slate-500 px-2.5 py-1 text-xs font-bold text-slate-300 hover:text-white"
+                  className="rounded-full border-2 border-dashed border-zinc-500 px-2.5 py-1 text-xs font-bold text-zinc-300 hover:text-white"
                   aria-expanded={all}
                 >
                   {all ? 'Show fewer' : `+${hidden} more`}
@@ -57,14 +57,14 @@ export default function ToolResources({ tool }) {
               </li>
             )}
           </ul>
-          <p className="mt-3 text-[11px] leading-relaxed text-slate-500">
+          <p className="mt-3 text-[11px] leading-relaxed text-zinc-500">
             {integ.note ? `${integ.note} ` : ''}Source:{' '}
             <a
               href={integ.source.url}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => track(EVENTS.INTEGRATION_SOURCE_CLICKED, { tool: tool.slug })}
-              className="underline underline-offset-2 hover:text-slate-300"
+              className="underline underline-offset-2 hover:text-zinc-300"
             >
               {integ.source.title}
             </a>{' '}
@@ -75,8 +75,8 @@ export default function ToolResources({ tool }) {
 
       {data.learn?.length > 0 && (
         <section className="sticker cyan p-5 sm:col-span-2" style={{ transform: 'rotate(0)' }} aria-labelledby="learn-it">
-          <h2 id="learn-it" className="arcade-heading lime compact text-lg">◆ LEARN IT</h2>
-          <p className="mt-1 text-xs text-slate-400">Official training from {tool.name}&apos;s makers.</p>
+          <h2 id="learn-it" className="arcade-heading compact text-lg">Learn it</h2>
+          <p className="mt-1 text-xs text-zinc-400">Official training from {tool.name}&apos;s makers.</p>
           <ul className="mt-3 space-y-2">
             {data.learn.map((r) => (
               <li key={r.url}>
@@ -89,10 +89,10 @@ export default function ToolResources({ tool }) {
                 >
                   <span className="text-sm font-bold text-white">{r.title}</span>
                   <span className="flex shrink-0 items-center gap-2">
-                    <span className="rounded-full px-2 py-0.5 font-display text-[9px] font-black uppercase tracking-wider text-black" style={{ background: 'var(--cyan)' }}>
+                    <span className="rounded-full px-2 py-0.5 font-display text-[9px] font-semibold text-black" style={{ background: 'var(--cyan)' }}>
                       {KIND_LABEL[r.kind]}
                     </span>
-                    <span aria-hidden="true" className="text-slate-400 group-hover:text-white">↗</span>
+                    <span aria-hidden="true" className="text-zinc-400 group-hover:text-white">↗</span>
                     <span className="sr-only">(opens in a new tab)</span>
                   </span>
                 </a>

@@ -82,7 +82,7 @@ export default function ThemePicker() {
                     <span key={c} className="h-3.5 w-3.5 rounded-full border border-white/10" style={{ background: c }} />
                   ))}
                 </span>
-                <span className="font-display text-xs font-black uppercase tracking-wider text-white">{t.name}</span>
+                <span className="font-display text-xs font-semibold uppercase tracking-wider text-white">{t.name}</span>
                 {active === t.id && <span className="ml-auto text-xs" style={{ color: 'var(--lime)' }}>✓</span>}
               </button>
             ))}
@@ -94,13 +94,13 @@ export default function ThemePicker() {
               <span className="flex flex-col">
                 <label
                   htmlFor="moonlight-switch"
-                  className="font-display text-xs font-black uppercase tracking-wider text-white"
+                  className="font-display text-xs font-semibold uppercase tracking-wider text-white"
                 >
                   Moonlight
                 </label>
                 {/* the hint has to say what changes, because the switch shows
                     the moon and not the sky it is lighting */}
-                <span className="text-[10px] text-slate-400">
+                <span className="text-[10px] text-zinc-400">
                   {moon === 'full' ? 'Lit sky, softer stars' : 'Deep dark, more stars'}
                 </span>
               </span>
@@ -116,7 +116,7 @@ export default function ThemePicker() {
             {showGalaxy && (
             <>
             <div className="my-1 h-px bg-white/10" role="separator" />
-            <p className="px-3 pb-1 font-display text-[9px] font-black uppercase tracking-[0.16em] text-slate-500">
+            <p className="px-3 pb-1 font-display text-[9px] font-semibold text-zinc-500">
               Galaxy
             </p>
             {/* The escape hatch for a machine the 3D is too heavy for. Every
@@ -131,7 +131,7 @@ export default function ThemePicker() {
                   aria-checked={gq === l.id}
                   onClick={() => pickGalaxy(l.id)}
                   title={l.hint}
-                  className="press flex-1 rounded-lg border-2 px-2 py-1.5 font-display text-[10px] font-black uppercase tracking-wider transition-colors"
+                  className="press flex-1 rounded-lg border-2 px-2 py-1.5 font-display text-[10px] font-semibold transition-colors"
                   style={{
                     borderColor: gq === l.id ? 'var(--lime)' : 'rgba(255,255,255,0.12)',
                     background: gq === l.id ? 'var(--lime)' : 'transparent',
@@ -142,7 +142,7 @@ export default function ThemePicker() {
                 </button>
               ))}
             </div>
-            <p className="px-3 pb-1 text-[10px] leading-snug text-slate-500">
+            <p className="px-3 pb-1 text-[10px] leading-snug text-zinc-500">
               {GALAXY_LEVELS.find((l) => l.id === gq)?.hint}
             </p>
             </>

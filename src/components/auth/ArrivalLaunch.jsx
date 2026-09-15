@@ -23,9 +23,9 @@ import PixelRocket from './PixelRocket'
 // setting exists to suppress.
 
 const BEATS = [
-  { at: 0, text: 'IGNITION' },
-  { at: 900, text: 'LIFTOFF' },
-  { at: 1750, text: 'WELCOME ABOARD' },
+  { at: 0, text: 'Ignition' },
+  { at: 900, text: 'Liftoff' },
+  { at: 1750, text: 'Welcome aboard' },
 ]
 
 export default function ArrivalLaunch() {
@@ -179,7 +179,7 @@ export default function ArrivalLaunch() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.24 }}
-                  className="font-display text-xs font-black uppercase tracking-[0.3em]"
+                  className="font-display text-xs font-semibold uppercase tracking-[0.3em]"
                   style={{ color: 'var(--lime)' }}
                 >
                   {BEATS[beat].text}

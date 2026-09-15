@@ -70,7 +70,7 @@ export default function About() {
           <BrandLogo {...LOGO.page} />
         </Link>
         <Link to="/goal" className="nb-btn px-4 py-2 text-xs">
-          ⚡ Find your stack
+          Find your stack
         </Link>
       </header>
 
@@ -78,10 +78,10 @@ export default function About() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="font-display text-xs font-black uppercase tracking-[0.3em]"
+          className="font-display text-xs font-semibold uppercase tracking-[0.3em]"
           style={{ color: 'var(--lime)' }}
         >
-          ▸ Our story
+          Our story
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 18 }}
@@ -102,8 +102,8 @@ export default function About() {
               className="sticker p-6 backdrop-blur-sm bg-black/20"
               style={{ transform: 'rotate(0)' }}
             >
-              <h2 className="arcade-heading lime text-lg">{s.q.toUpperCase()}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-slate-300">{s.a}</p>
+              <h2 className="arcade-heading text-lg">{s.q}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-300">{s.a}</p>
             </motion.section>
           ))}
         </div>
@@ -115,9 +115,9 @@ export default function About() {
           className="mt-14 text-center"
         >
           <Link to="/goal" className="nb-btn inline-block px-8 py-4 text-base">
-            🚀 Take the 60-second quiz
+            Take the 60-second quiz
           </Link>
-          <p className="mt-4 text-xs text-slate-500">
+          <p className="mt-4 text-xs text-zinc-500">
             {paymentsOn ? 'Free for 7 days, then a one-time pass' : 'Free while in beta'} · <Link to="/" className="underline underline-offset-2 hover:text-white">back home</Link>
           </p>
         </motion.div>

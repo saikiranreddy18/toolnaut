@@ -10,7 +10,7 @@ export default function SkillGraph({ tools, progress }) {
         <h2 className="tape-label text-xs" style={{ transform: 'rotate(0deg)' }}>
           📊 Skills graph
         </h2>
-        <span className="font-display text-[10px] font-bold uppercase tracking-widest text-slate-500">
+        <span className="font-display text-[10px] font-bold text-zinc-500">
           where the gaps are
         </span>
       </div>
@@ -26,12 +26,12 @@ export default function SkillGraph({ tools, progress }) {
                 <Link
                   to={`/app/discover?cat=${d.domain}`}
                   aria-label={`Explore ${d.name} tools — nothing in your stack yet`}
-                  className="-my-2 flex min-h-11 items-center px-1 text-[10px] font-bold uppercase tracking-widest text-slate-500 underline underline-offset-2 hover:text-white"
+                  className="-my-2 flex min-h-11 items-center px-1 text-[10px] font-bold text-zinc-500 underline underline-offset-2 hover:text-white"
                 >
                   Explore →
                 </Link>
               ) : (
-                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                <span className="text-[10px] font-bold text-zinc-500">
                   {d.count} tool{d.count === 1 ? '' : 's'}
                 </span>
               )}

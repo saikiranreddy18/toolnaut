@@ -23,13 +23,13 @@ import { myStanding } from '../../utils/communityStats'
 function Stat({ label, value, hint, color }) {
   return (
     <div className="min-w-0 flex-1">
-      <p className="font-display text-[9px] font-black uppercase tracking-[0.14em] text-slate-500">
+      <p className="font-display text-[9px] font-semibold text-zinc-500">
         {label}
       </p>
-      <p className="mt-0.5 font-display text-lg font-black leading-none" style={{ color }}>
+      <p className="mt-0.5 font-display text-lg font-semibold leading-none" style={{ color }}>
         {value}
       </p>
-      {hint && <p className="mt-1 truncate text-[10px] leading-tight text-slate-500">{hint}</p>}
+      {hint && <p className="mt-1 truncate text-[10px] leading-tight text-zinc-500">{hint}</p>}
     </div>
   )
 }

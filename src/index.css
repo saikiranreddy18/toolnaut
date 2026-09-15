@@ -126,9 +126,10 @@ button, a, input, select, textarea {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 55% 40% at 20% 10%, rgba(212, 212, 216, 0.14), transparent),
-    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(161, 161, 170, 0.1), transparent),
-    #0a0a0f;
+    radial-gradient(ellipse 55% 45% at 15% 12%, rgba(124, 58, 237, 0.16), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 88% 30%, rgba(14, 165, 233, 0.10), transparent 70%),
+    radial-gradient(ellipse 60% 45% at 55% 95%, rgba(236, 72, 153, 0.08), transparent 70%),
+    #030305;
 }
 .starfield::before,
 .starfield::after {

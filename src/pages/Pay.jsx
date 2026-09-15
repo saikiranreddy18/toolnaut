@@ -14,7 +14,7 @@ function LocalApprox({ amountINR }) {
   const local = useLocalPrice(amountINR)
   if (!local) return null
   return (
-    <span className="mt-1 block text-[10px] font-semibold text-slate-500">
+    <span className="mt-1 block text-[10px] font-semibold text-zinc-500">
       about {local.text} · charged in INR
     </span>
   )
@@ -99,13 +99,13 @@ export default function Pay() {
         <BrandLogo {...LOGO.page} />
       </Link>
 
-      <p className="font-display text-[10px] font-black uppercase tracking-[0.2em]" style={{ color: 'var(--lime)' }}>
-        ▸ one step before your universe
+      <p className="font-display text-[10px] font-semibold" style={{ color: 'var(--lime)' }}>
+        one step before your universe
       </p>
       <h1 className="mt-2 text-center font-display text-3xl font-semibold text-white">
         Pick your pass
       </h1>
-      <p className="mt-2 max-w-md text-center text-sm text-slate-400">
+      <p className="mt-2 max-w-md text-center text-sm text-zinc-400">
         {session?.user?.name ? `Signed in as ${session.user.name}. ` : ''}
         Your stack and roadmap unlock the moment the payment confirms.
       </p>
@@ -113,14 +113,14 @@ export default function Pay() {
           flat 30-day entitlement; there is no Razorpay Subscription behind it,
           so promising a monthly plan would be selling something that does not
           exist. */}
-      <p className="mt-3 max-w-md text-center text-xs leading-relaxed text-slate-500">
-        Each pass is a <span className="font-bold text-slate-300">one-time payment for 30 days</span> of
+      <p className="mt-3 max-w-md text-center text-xs leading-relaxed text-zinc-500">
+        Each pass is a <span className="font-bold text-zinc-300">one-time payment for 30 days</span> of
         access. Nothing renews automatically and you are never charged again —
         when the 30 days end, access simply stops.
       </p>
 
       {paymentsOff && (
-        <p className="mt-6 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center text-xs text-slate-300">
+        <p className="mt-6 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center text-xs text-zinc-300">
           Payments aren’t switched on for this deployment yet — nothing can be charged right now.
         </p>
       )}
@@ -137,24 +137,24 @@ export default function Pay() {
             style={{ borderColor: p.accent, boxShadow: `0 10px 30px -12px ${p.glow}` }}
           >
             {p.badge && (
-              <span className="font-display text-[9px] font-black uppercase tracking-[0.14em]" style={{ color: p.accent }}>
+              <span className="font-display text-[9px] font-semibold" style={{ color: p.accent }}>
                 {p.badge}
               </span>
             )}
             <p className="mt-1 font-display text-lg font-semibold text-white">{p.name}</p>
-            <p className="mt-1 font-display text-2xl font-black text-white">
+            <p className="mt-1 font-display text-2xl font-semibold text-white">
               {formatPrice(p)}
-              <span className="text-xs font-bold text-slate-400">
+              <span className="text-xs font-bold text-zinc-400">
                 {p.lifetime ? ' one time' : ' for 30 days'}
               </span>
             </p>
-            <p className="mt-1 font-display text-[9px] font-black uppercase tracking-[0.12em] text-slate-500">
+            <p className="mt-1 font-display text-[9px] font-semibold text-zinc-500">
               {p.lifetime ? 'One-time · never expires' : 'One-time · no auto-renewal'}
             </p>
             <LocalApprox amountINR={p.priceINR} />
-            <p className="mt-2 text-[11px] leading-relaxed text-slate-400">{p.audience}</p>
+            <p className="mt-2 text-[11px] leading-relaxed text-zinc-400">{p.audience}</p>
             <span
-              className="mt-4 inline-block rounded-full px-4 py-1.5 font-display text-[10px] font-black uppercase tracking-wider text-black"
+              className="mt-4 inline-block rounded-full px-4 py-1.5 font-display text-[10px] font-semibold text-black"
               style={{ background: 'var(--lime)' }}
             >
               {busy && chosen === p.id ? 'Opening…' : `Get ${p.name}`}
@@ -166,7 +166,7 @@ export default function Pay() {
       {/* Stated at the point of payment, not buried in the terms. Someone who
           believes this renews will not come back to re-buy, and will treat the
           lapse as a bug or a broken charge. */}
-      <p className="mt-5 text-[11px] leading-relaxed text-slate-400">
+      <p className="mt-5 text-[11px] leading-relaxed text-zinc-400">
         Every plan here is a one-time payment. Nothing auto-renews and your card
         is never stored or charged again.{' '}
         {plans.some((p) => p.lifetime)
@@ -175,7 +175,7 @@ export default function Pay() {
       </p>
 
       {status === 'verifying' && (
-        <p className="mt-5 text-xs font-bold uppercase tracking-widest text-slate-300">Confirming your payment…</p>
+        <p className="mt-5 text-xs font-bold uppercase tracking-widest text-zinc-300">Confirming your payment…</p>
       )}
       {/* Paid, but the plan is not on yet. Says both halves plainly: the money
           is safe AND we are still working — which is the truth, and is what
@@ -186,7 +186,7 @@ export default function Pay() {
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--arcade-yellow)' }}>
             Payment received — unlocking your plan…
           </p>
-          <p className="mt-1.5 text-[11px] leading-relaxed text-slate-300">
+          <p className="mt-1.5 text-[11px] leading-relaxed text-zinc-300">
             Your payment went through. We are switching your plan on now; this
             usually takes a few seconds. Do not pay again — if it is still not
             active in a minute, email {SUPPORT_EMAIL} and we will sort it.
@@ -202,7 +202,7 @@ export default function Pay() {
         <p className="mt-5 max-w-md text-center text-xs font-semibold" style={{ color: 'var(--hot-pink)' }}>{error}</p>
       )}
 
-      <div className="mt-8 flex items-center gap-5 text-xs text-slate-500">
+      <div className="mt-8 flex items-center gap-5 text-xs text-zinc-500">
         <Link to="/pricing" className="underline underline-offset-4 hover:text-white">Compare plans</Link>
         <button
           onClick={async () => { await signOut(); navigate('/') }}

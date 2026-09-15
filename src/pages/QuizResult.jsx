@@ -69,13 +69,13 @@ export default function QuizResult() {
 
   // Persona → arcade-style level nametag
   const experienceLevels = {
-    beginner: 'COSMIC ROOKIE',
-    dabbler: 'STAR CADET',
-    regular: 'GALAXY EXPLORER',
-    builder: 'STAR CAPTAIN',
-    teacher: 'COSMIC LEGEND',
+    beginner: 'Cosmic rookie',
+    dabbler: 'Star cadet',
+    regular: 'Galaxy explorer',
+    builder: 'Star captain',
+    teacher: 'Cosmic legend',
   }
-  const level = experienceLevels[quiz.answers?.experience] || 'STAR CADET'
+  const level = experienceLevels[quiz.answers?.experience] || 'Star cadet'
 
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-5">
@@ -133,7 +133,7 @@ export default function QuizResult() {
           <div className="grid md:grid-cols-[minmax(0,1fr)_148px]">
             <div className="px-5 py-6 text-center sm:px-7">
               <span
-                className="inline-flex -rotate-2 items-center gap-1.5 rounded-md px-3.5 py-1.5 font-display text-[10px] font-black uppercase tracking-[0.2em]"
+                className="inline-flex -rotate-2 items-center gap-1.5 rounded-md px-3.5 py-1.5 font-display text-[10px] font-semibold"
                 style={{
                   background: 'linear-gradient(180deg, #f9ecae 0%, #e8c96a 30%, #c9a23a 60%, #9a7a1e 100%)',
                   border: '1px solid #7c621a',
@@ -149,8 +149,8 @@ export default function QuizResult() {
                 {/* glow layer: same text, blurred, BEHIND the gradient — a
                     drop-shadow filter on background-clip text rasterises at
                     the element box and amputated the last glyphs. */}
-                <span aria-hidden="true" className="absolute inset-0 select-none" style={{ color: 'rgba(163,255,216,0.45)', filter: 'blur(12px)' }}>
-                  {persona.name.toUpperCase()}
+                <span aria-hidden="true" className="absolute inset-0 select-none" style={{ color: 'rgba(196,181,253,0.45)', filter: 'blur(12px)' }}>
+                  {persona.name}
                 </span>
                 <span
                   className="holo-sweep relative"
@@ -162,24 +162,24 @@ export default function QuizResult() {
                     color: 'transparent',
                   }}
                 >
-                  {persona.name.toUpperCase()}
+                  {persona.name}
                 </span>
               </h1>
 
               {persona.career && (
-                <p className="mt-2 font-display text-[9px] font-black uppercase tracking-[0.22em]" style={{ color: '#39d5c8' }}>
+                <p className="mt-2 font-display text-[9px] font-semibold" style={{ color: '#39d5c8' }}>
                   {persona.career} / {persona.category.name}
                 </p>
               )}
 
               <p className="mt-3 font-display text-xs font-bold text-white sm:text-sm">{persona.tagline}</p>
-              <p className="mt-1 text-[11px] text-slate-400">
+              <p className="mt-1 text-[11px] text-zinc-400">
                 We picked just {persona.stack.length} tools so you skip the endless search.
               </p>
 
               <div className="mt-4 flex justify-center">
                 <span
-                  className="rounded-full px-3 py-0.5 font-display text-[9px] font-black uppercase tracking-[0.16em] text-black"
+                  className="rounded-full px-3 py-0.5 font-display text-[9px] font-semibold text-black"
                   style={{ background: 'var(--lime)', boxShadow: '0 0 16px rgba(255, 255, 255,0.45)' }}
                 >
                   🎯 your starter kit
@@ -204,12 +204,12 @@ export default function QuizResult() {
                       }}
                     >
                       <div className="flex items-start justify-between gap-2">
-                        <p className="font-display text-[11px] font-black uppercase leading-tight" style={{ color: frame }}>
+                        <p className="font-display text-[11px] font-semibold leading-tight" style={{ color: frame }}>
                           {t.name}
                         </p>
-                        <span className="font-display text-xs font-black" style={{ color: frame }}>#{i + 1}</span>
+                        <span className="font-display text-xs font-semibold" style={{ color: frame }}>#{i + 1}</span>
                       </div>
-                      <p className="mt-1.5 line-clamp-2 text-[10px] leading-relaxed text-slate-300">{t.blurb}</p>
+                      <p className="mt-1.5 line-clamp-2 text-[10px] leading-relaxed text-zinc-300">{t.blurb}</p>
                     </motion.div>
                   )
                 })}
@@ -233,8 +233,8 @@ export default function QuizResult() {
                   ['Ticket ID', `#${ticketId}`],
                 ].map(([k, v]) => (
                   <div key={k}>
-                    <dt className="font-display text-[7px] font-black uppercase tracking-[0.18em]" style={{ color: '#39d5c8' }}>{k}</dt>
-                    <dd className="font-display text-[9px] font-black uppercase leading-tight text-white">{v}</dd>
+                    <dt className="font-display text-[7px] font-semibold" style={{ color: '#39d5c8' }}>{k}</dt>
+                    <dd className="font-display text-[9px] font-semibold leading-tight text-white">{v}</dd>
                   </div>
                 ))}
               </dl>
@@ -250,7 +250,7 @@ export default function QuizResult() {
                 className="mt-3 h-12 w-full rounded-lg"
                 aria-hidden="true"
                 style={{
-                  background: 'radial-gradient(circle at 60% 45%, rgba(163,255,216,0.5), rgba(212, 212, 216,0.45) 35%, rgba(161, 161, 170,0.25) 60%, transparent 75%), radial-gradient(circle at 30% 70%, rgba(212, 212, 216,0.3), transparent 60%), #0a0a12',
+                  background: 'radial-gradient(circle at 60% 45%, rgba(196,181,253,0.5), rgba(212, 212, 216,0.45) 35%, rgba(161, 161, 170,0.25) 60%, transparent 75%), radial-gradient(circle at 30% 70%, rgba(212, 212, 216,0.3), transparent 60%), #0a0a12',
                   border: '1px solid rgba(255,255,255,0.08)',
                 }}
               />
@@ -266,10 +266,10 @@ export default function QuizResult() {
             good" was reading a promise nobody made, and would rightly feel
             misled by a bad pick under a high number. */}
         <div className="mx-auto mt-4 max-w-xl rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-center">
-          <p className="font-display text-[10px] font-black uppercase tracking-[0.18em]" style={{ color: confidence.constrained ? 'var(--hot-pink)' : 'var(--lime)' }}>
+          <p className="font-display text-[10px] font-semibold" style={{ color: confidence.constrained ? 'var(--hot-pink)' : 'var(--lime)' }}>
             How well we know your needs: {confidence.constrained ? 'Limited by your answers' : confidence.label}
           </p>
-          <p className="mt-1.5 text-xs leading-relaxed text-slate-400">
+          <p className="mt-1.5 text-xs leading-relaxed text-zinc-400">
             {confidence.constrained
               ? `Your combination of answers narrows the field — only ${confidence.pool} tools score highly for it. The picks above are the best of a small pool; relaxing budget or level widens it.`
               : `Built from ${confidence.known.length} things you told us — ${confidence.known.slice(0, 3).join(', ')}${confidence.known.length > 3 ? '…' : ''} — and ${confidence.pool} tools that score highly for it.`}
@@ -283,12 +283,12 @@ export default function QuizResult() {
             than rating unfamiliar tools out of five. */}
         <div className="mt-4 text-center">
           {fit ? (
-            <p className="text-xs font-bold uppercase tracking-widest text-slate-500">
+            <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">
               {fit === 'yes' ? '✓ Noted — glad it fits.' : fit === 'mostly' ? '✓ Noted — tune it in FIND.' : '✓ Noted — a retake takes a minute.'}
             </p>
           ) : (
             <>
-              <p className="font-display text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">
+              <p className="font-display text-[10px] font-semibold text-zinc-400">
                 Does this kit fit what you need?
               </p>
               <div className="mt-2.5 flex flex-wrap items-center justify-center gap-2">
@@ -304,7 +304,7 @@ export default function QuizResult() {
                       writeScoped('exus_stack_feedback_v1', key)
                       track(EVENTS.STACK_FEEDBACK, { fit: key, band: confidence.band, pool: confidence.pool })
                     }}
-                    className="cursor-pointer rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold text-slate-200 transition-colors hover:border-[var(--lime)] hover:text-white"
+                    className="cursor-pointer rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold text-zinc-200 transition-colors hover:border-[var(--lime)] hover:text-white"
                   >
                     {label}
                   </button>
@@ -319,7 +319,7 @@ export default function QuizResult() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
-          className="mt-4 font-display text-sm font-bold text-slate-400"
+          className="mt-4 font-display text-sm font-bold text-zinc-400"
         >
           plan match:{' '}
           <span className="rounded-full bg-white/10 px-3 py-1 text-white" style={{ boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>
@@ -344,7 +344,7 @@ export default function QuizResult() {
           {/* The step the old label hid: the result is saved to an account, and
               the account is where the app opens. Said plainly, with the trial
               terms, so nobody wonders what the button commits them to. */}
-          <p className="-mt-1 text-xs text-slate-400">
+          <p className="-mt-1 text-xs text-zinc-400">
             Next: sign in, then your app opens. 7 days free, no card needed.
           </p>
 
@@ -357,7 +357,7 @@ export default function QuizResult() {
             </Link>
             <button
               onClick={retake}
-              className="cursor-pointer font-display text-xs font-bold uppercase tracking-wider text-slate-400 underline decoration-2 decoration-white/20 underline-offset-4 hover:text-white"
+              className="cursor-pointer font-display text-xs font-bold uppercase tracking-wider text-zinc-400 underline decoration-2 decoration-white/20 underline-offset-4 hover:text-white"
             >
               start over
             </button>

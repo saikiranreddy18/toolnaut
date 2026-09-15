@@ -87,12 +87,12 @@ export default function Favorites() {
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-8 lg:py-10 xl:max-w-6xl">
-      <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ SAVED</p>
-      <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR AI SHORTLIST</h1>
+      <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">Saved</p>
+      <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">Your AI shortlist</h1>
 
       {total === 0 ? (
         <div className="mt-6">
-          <p className="max-w-md text-sm leading-relaxed text-slate-300">
+          <p className="max-w-md text-sm leading-relaxed text-zinc-300">
             Nothing saved yet. Tap the heart on any tool in <span className="font-bold text-white">FIND</span> to
             park it here — no commitment, just a shortlist you can come back to
             before you commit anything to your stack.
@@ -103,8 +103,8 @@ export default function Favorites() {
 
           {starterPicks.length > 0 && (
             <div className="mt-12">
-              <h2 className="arcade-heading section text-xl sm:text-2xl">STARTER PICKS</h2>
-              <p className="mt-2 max-w-md text-sm text-slate-400">
+              <h2 className="arcade-heading section text-xl sm:text-2xl">Starter picks</h2>
+              <p className="mt-2 max-w-md text-sm text-zinc-400">
                 Your three highest-scoring tools right now. Save one to start the
                 shortlist.
               </p>
@@ -133,19 +133,19 @@ export default function Favorites() {
           {starterPicks.length === 0 && (
             <>
             <div className="sticker cyan mt-10 max-w-2xl p-5">
-              <p className="arcade-heading lime compact text-lg">◆ GET RANKED PICKS</p>
-              <p className="mt-2 text-sm leading-relaxed text-slate-300">
+              <p className="arcade-heading compact text-lg">Get ranked picks</p>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-300">
                 Answer nine questions and Toolnaut scores all {TOOLS.length} tools
                 against how you actually work — so this page can suggest, not just store.
               </p>
               <Link to="/goal" className="nb-btn cyan mt-4 inline-block min-h-11 px-4 py-2.5 text-xs">
-                TAKE THE 60-SECOND QUIZ
+                Take the 60-second quiz
               </Link>
             </div>
 
             <div className="mt-10">
-              <h2 className="arcade-heading section text-xl sm:text-2xl">START WITH A NAME YOU KNOW</h2>
-              <p className="mt-2 max-w-lg text-sm text-slate-400">
+              <h2 className="arcade-heading section text-xl sm:text-2xl">Start with a name you know</h2>
+              <p className="mt-2 max-w-lg text-sm text-zinc-400">
                 Recognisable tools across six kinds of work. Tap the heart to
                 shortlist one now — the quiz will rank it later.
               </p>
@@ -169,11 +169,11 @@ export default function Favorites() {
       ) : (
         <>
           <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3">
-            <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+            <p className="text-xs font-bold uppercase tracking-wider text-zinc-400">
               {total} tool{total === 1 ? '' : 's'} saved
             </p>
             <div className="flex items-center gap-2">
-              <label htmlFor="saved-sort" className="text-xs uppercase tracking-widest text-slate-600">Sort</label>
+              <label htmlFor="saved-sort" className="text-xs uppercase tracking-widest text-zinc-600">Sort</label>
               <select
                 id="saved-sort"
                 value={sort}
@@ -212,12 +212,12 @@ export default function Favorites() {
 
           {tools.length === 0 ? (
             <div className="mt-12">
-              <h2 className="arcade-heading section text-xl">NOTHING IN THIS CATEGORY</h2>
-              <p className="mt-2 text-sm text-slate-400">
+              <h2 className="arcade-heading section text-xl">Nothing in this category</h2>
+              <p className="mt-2 text-sm text-zinc-400">
                 You have saved tools, just none filed under this one.
               </p>
               <button onClick={() => setCat('')} className="nb-btn dark mt-4 min-h-11 px-4 py-2 text-xs">
-                SHOW ALL SAVED
+                Show all saved
               </button>
             </div>
           ) : (
@@ -237,7 +237,7 @@ export default function Favorites() {
             </div>
           )}
 
-          <p className="mt-10 text-sm text-slate-400">
+          <p className="mt-10 text-sm text-zinc-400">
             Ready to commit some of these?{' '}
             <Link to="/app/stack" className="font-bold underline underline-offset-2" style={{ color: 'var(--lime)' }}>
               Your stack

@@ -31,7 +31,7 @@ function Section({ title, children }) {
       <h2 className="font-display text-lg font-semibold" style={{ color: 'var(--lime)' }}>
         {title}
       </h2>
-      <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-300">{children}</div>
+      <div className="mt-3 space-y-3 text-sm leading-relaxed text-zinc-300">{children}</div>
     </section>
   )
 }
@@ -259,15 +259,15 @@ export default function Legal() {
       <div className="starfield" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto max-w-2xl px-5 py-16 md:py-24">
-        <Link to="/" className="inline-flex items-center gap-2.5 text-slate-400 hover:text-white" aria-label="Back to Toolnaut">
+        <Link to="/" className="inline-flex items-center gap-2.5 text-zinc-400 hover:text-white" aria-label="Back to Toolnaut">
           <span aria-hidden="true">←</span>
           <BrandLogo {...LOGO.compact} />
         </Link>
 
         <h1 className="arcade-heading mt-6 text-3xl md:text-4xl">
-          {isPrivacy ? 'PRIVACY POLICY' : 'TERMS OF SERVICE'}
+          {isPrivacy ? 'Privacy policy' : 'Terms of service'}
         </h1>
-        <p className="mt-3 font-mono text-xs text-slate-500">Last updated {UPDATED}</p>
+        <p className="mt-3 font-mono text-xs text-zinc-500">Last updated {UPDATED}</p>
 
         {isPrivacy ? <Privacy /> : <Terms />}
 
@@ -276,11 +276,11 @@ export default function Legal() {
             <Link to={isPrivacy ? '/terms' : '/privacy'} className="font-bold underline underline-offset-4" style={{ color: 'var(--lime)' }}>
               {isPrivacy ? 'Terms of Service' : 'Privacy Policy'} →
             </Link>
-            <Link to="/support" className="font-bold text-slate-400 underline underline-offset-4 hover:text-white">
+            <Link to="/support" className="font-bold text-zinc-400 underline underline-offset-4 hover:text-white">
               Support &amp; refunds
             </Link>
           </nav>
-          <p className="mt-6 text-xs text-slate-500">
+          <p className="mt-6 text-xs text-zinc-500">
             © {new Date().getFullYear()} {BRAND}. All rights reserved. Tool names and trademarks belong to their owners.
           </p>
         </footer>

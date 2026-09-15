@@ -27,20 +27,20 @@ export default function NotFound() {
       <div className="starfield" aria-hidden="true" />
       <meta name="robots" content="noindex" />
       <div className="relative z-10">
-        <p className="font-display text-xs font-black uppercase tracking-[0.3em]" style={{ color: 'var(--hot-pink)' }}>
-          ▸ 404 · LOST IN SPACE
+        <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">
+          404 · Lost in space
         </p>
         <h1 className="arcade-heading mt-3 text-4xl sm:text-5xl">
-          THIS PAGE<br />DOES NOT EXIST
+          This page<br />does not exist
         </h1>
-        <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-slate-300">
+        <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-zinc-300">
           Nothing lives at <code className="rounded bg-white/10 px-1.5 py-0.5 text-xs text-zinc-300">{pathname}</code>.
           The link may be old, or the page may have moved.
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link to="/app/discover" className="nb-btn min-h-11 px-6 py-3 text-sm">
-            🔭 BROWSE ALL TOOLS
+            Browse all tools
           </Link>
           <Link to="/" className="nb-btn dark min-h-11 px-6 py-3 text-sm">
             ← BACK TO START
@@ -49,7 +49,7 @@ export default function NotFound() {
 
         {/* the six category pages are the likeliest real destination for a
             mistyped tool URL, and they are public — no session needed */}
-        <p className="mt-10 font-display text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+        <p className="mt-10 font-display text-[10px] font-semibold text-zinc-500">
           Or jump into a category
         </p>
         <div className="mt-3 flex flex-wrap items-center justify-center gap-2">

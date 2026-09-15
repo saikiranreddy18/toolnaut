@@ -67,12 +67,12 @@ export default function AlertSettings() {
   }, [])
 
   if (state.loading) {
-    return <p className="text-sm text-slate-400">Loading your alert settings…</p>
+    return <p className="text-sm text-zinc-400">Loading your alert settings…</p>
   }
 
   if (!state.configured) {
     return (
-      <p className="text-sm leading-relaxed text-slate-400">
+      <p className="text-sm leading-relaxed text-zinc-400">
         Tool alerts are not switched on for this deployment yet. When they are,
         this is where you will turn them on and choose what counts as relevant.
       </p>
@@ -94,7 +94,7 @@ export default function AlertSettings() {
           <p className="font-display text-sm font-semibold text-white">
             New tool alerts
           </p>
-          <p className="mt-1 text-xs leading-relaxed text-slate-400">
+          <p className="mt-1 text-xs leading-relaxed text-zinc-400">
             An email when the radar finds a tool that fits what you do. Never
             more than one a day, and only when there is something new.
           </p>
@@ -119,7 +119,7 @@ export default function AlertSettings() {
 
       {state.subscribed && (
         <div className="mt-4">
-          <p className="font-display text-[10px] font-black uppercase tracking-[0.14em] text-slate-500">
+          <p className="font-display text-[10px] font-semibold text-zinc-500">
             What to tell you about
           </p>
           <div className="mt-2 flex flex-wrap gap-2">
@@ -143,7 +143,7 @@ export default function AlertSettings() {
               )
             })}
           </div>
-          <p className="mt-2 text-[11px] text-slate-500">
+          <p className="mt-2 text-[11px] text-zinc-500">
             {state.domains.length === 0
               ? 'Nothing selected means everything — you will hear about any new tool.'
               : `Only these ${state.domains.length === 1 ? 'alerts' : 'areas'}.`}

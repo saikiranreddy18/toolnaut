@@ -30,14 +30,14 @@ function CopyPrompt({ text }) {
   return (
     <div className="mt-3 rounded-lg border border-white/10 bg-black/40 p-3">
       <div className="flex items-center justify-between">
-        <span className="font-display text-[10px] font-black uppercase tracking-widest text-slate-400">
+        <span className="font-display text-[10px] font-semibold text-zinc-400">
           Prompt to try
         </span>
-        <button onClick={copy} className="press font-display text-[10px] font-black uppercase tracking-widest" style={{ color: 'var(--lime)' }}>
+        <button onClick={copy} className="press font-display text-[10px] font-semibold" style={{ color: 'var(--lime)' }}>
           {copied ? '✓ Copied' : 'Copy'}
         </button>
       </div>
-      <p className="mt-2 text-xs leading-relaxed text-slate-300">{text}</p>
+      <p className="mt-2 text-xs leading-relaxed text-zinc-300">{text}</p>
     </div>
   )
 }
@@ -64,14 +64,14 @@ function LessonStep({ done, step, lesson, onToggle }) {
               </svg>
             )}
           </span>
-          <span className={`text-sm leading-relaxed font-medium ${done ? 'text-slate-500 line-through' : 'text-white'}`}>
+          <span className={`text-sm leading-relaxed font-medium ${done ? 'text-zinc-500 line-through' : 'text-white'}`}>
             {step}
           </span>
         </button>
         {lesson && (
           <button
             onClick={() => { haptic.tap(); setOpen((v) => !v) }}
-            className="press mt-1.5 shrink-0 font-display text-[10px] font-black uppercase tracking-widest"
+            className="press mt-1.5 shrink-0 font-display text-[10px] font-semibold"
             style={{ color: open ? 'var(--hot-pink)' : '#6b6690' }}
             aria-expanded={open}
           >
@@ -89,10 +89,10 @@ function LessonStep({ done, step, lesson, onToggle }) {
             className="overflow-hidden"
           >
             <div className="ml-8 mb-2 rounded-lg border-l-2 pl-3" style={{ borderColor: 'rgba(255, 255, 255,0.4)' }}>
-              <p className="text-xs leading-relaxed text-slate-300">{lesson.body}</p>
+              <p className="text-xs leading-relaxed text-zinc-300">{lesson.body}</p>
               {lesson.action && (
                 <p className="mt-2 text-xs leading-relaxed font-semibold" style={{ color: 'var(--lime)' }}>
-                  ▸ {lesson.action}
+                  {lesson.action}
                 </p>
               )}
               {lesson.prompt && <CopyPrompt text={lesson.prompt} />}
@@ -111,7 +111,7 @@ function Checkpoint({ quiz, passed, onPass }) {
   if (passed) {
     return (
       <div className="mt-3 rounded-lg border border-white/10 p-3" style={{ background: 'rgba(255, 255, 255,0.1)' }}>
-        <p className="font-display text-xs font-black uppercase tracking-widest" style={{ color: 'var(--lime)' }}>
+        <p className="font-display text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--lime)' }}>
           ✓ Checkpoint cleared
         </p>
       </div>
@@ -133,8 +133,8 @@ function Checkpoint({ quiz, passed, onPass }) {
 
   return (
     <div className="mt-4 rounded-xl border border-white/10 p-4" style={{ background: 'rgba(212, 212, 216,0.06)' }}>
-      <p className="font-display text-xs font-black uppercase tracking-widest" style={{ color: 'var(--hot-pink)' }}>
-        ▸ Checkpoint · pass to clear the week
+      <p className="font-display text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--hot-pink)' }}>
+        Checkpoint · pass to clear the week
       </p>
       <div className="mt-3 space-y-4">
         {quiz.map((q, qi) => {
@@ -159,7 +159,7 @@ function Checkpoint({ quiz, passed, onPass }) {
                         color: showCorrect ? 'var(--lime)' : '#fff',
                       }}
                     >
-                      <span className="shrink-0 font-black">{showCorrect ? '✓' : showWrong ? '✕' : String.fromCharCode(65 + oi)}</span>
+                      <span className="shrink-0 font-semibold">{showCorrect ? '✓' : showWrong ? '✕' : String.fromCharCode(65 + oi)}</span>
                       {opt}
                     </button>
                   )
@@ -179,7 +179,7 @@ function Checkpoint({ quiz, passed, onPass }) {
         disabled={!allAnswered}
         className="nb-btn mt-4 w-full px-4 py-3 text-sm disabled:opacity-40"
       >
-        {submitted && !passedNow ? 'RETRY CHECK' : 'CHECK ANSWERS'}
+        {submitted && !passedNow ? 'Retry check' : 'Check answers'}
       </button>
     </div>
   )
@@ -213,15 +213,15 @@ export default function Learning() {
       // lines up with every other page instead of floating in the middle. The
       // pattern SAVED already uses for its empty state.
       <div className="relative z-10 mx-auto max-w-5xl px-5 xl:max-w-6xl py-6 lg:py-10">
-        <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ LEARN</p>
-        <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR 4-WEEK<br/>ORBIT</h1>
+        <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">Learn</p>
+        <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">Your 4-week<br/>Orbit</h1>
         <div className="mt-6">
-          <p className="max-w-md text-sm leading-relaxed text-slate-300">
+          <p className="max-w-md text-sm leading-relaxed text-zinc-300">
             No roadmap yet. Take the 60-second quiz and we'll chart a 4-week path
             through the exact tools that fit how you work.
           </p>
           <Link to="/goal" className="nb-btn mt-5 inline-block min-h-11 px-5 py-2.5 text-xs">
-            ⚡ FIND MY PATH →
+            Find my path →
           </Link>
         </div>
       </div>
@@ -272,24 +272,24 @@ export default function Learning() {
 
   return (
     <div className="relative z-10 mx-auto max-w-5xl px-5 xl:max-w-6xl py-6 lg:py-10">
-      <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ LEARN</p>
-      <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR 4-WEEK<br/>ORBIT</h1>
+      <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">Learn</p>
+      <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">Your 4-week<br/>Orbit</h1>
 
         {/* Next move — the single answer to "what do I do now" */}
         {current && (
           <div className="sticker cyan mt-6 p-5">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <span className="tape-label text-xs" style={{ transform: 'rotate(0deg)' }}>
-                ▸ your next move
+                your next move
               </span>
               {paceLabel && (
-                <span className="font-display text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                <span className="font-display text-[10px] font-bold text-zinc-500">
                   your pace: {paceLabel}/week
                 </span>
               )}
             </div>
-            <h2 className="arcade-heading lime compact mt-3 text-xl">
-              WEEK {current.week} · {current.title.toUpperCase()}
+            <h2 className="arcade-heading compact mt-3 text-xl">
+              Week {current.week} · {current.title}
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-white">
               {awaitingCheckpoint
@@ -308,10 +308,10 @@ export default function Learning() {
         {/* overall progress — chunky arcade bar */}
         <div className="sticker mt-6 p-4 backdrop-blur-sm bg-black/20" style={{ transform: 'rotate(0)' }}>
           <div className="flex items-center justify-between">
-            <span className="font-display text-xs font-black uppercase tracking-widest text-white">
+            <span className="font-display text-xs font-semibold uppercase tracking-widest text-white">
               {doneSteps} OF {totalSteps} STEPS
             </span>
-            <span className="font-display text-sm font-black" style={{ color: 'var(--lime)' }}>
+            <span className="font-display text-sm font-semibold" style={{ color: 'var(--lime)' }}>
               {pct}%
             </span>
           </div>
@@ -336,7 +336,7 @@ export default function Learning() {
             const locked = mi > unlockedThrough
             const complete = milestoneComplete(progress, m)
             const meta = m.tool ? CATEGORY_META[m.tool.category] : null
-            const statusLabel = complete ? 'CLEARED' : locked ? 'LOCKED' : 'IN PLAY'
+            const statusLabel = complete ? 'Cleared' : locked ? 'Locked' : 'In play'
             const statusColor = complete ? 'var(--lime)' : locked ? '#6b6690' : 'var(--hot-pink)'
             const stepsDone = allStepsDone(progress, m)
             const quizPassed = isQuizPassed(progress, m.id)
@@ -375,27 +375,27 @@ export default function Learning() {
                 {/* milestone card with backdrop blur */}
                 <div className={`sticker p-5 backdrop-blur-sm bg-black/20 ${locked ? 'opacity-50' : ''}`} style={{ transform: 'rotate(0)' }}>
                   <div className="flex items-center justify-between gap-3">
-                    <span className="font-display text-xs font-black uppercase tracking-widest" style={{ color: statusColor }}>
+                    <span className="font-display text-xs font-semibold uppercase tracking-widest" style={{ color: statusColor }}>
                       WEEK {m.week} · {statusLabel}
                     </span>
                     {meta && (
-                      <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase text-slate-400">
+                      <span className="flex items-center gap-1.5 text-[10px] font-bold text-zinc-400">
                         <span className="h-2 w-2 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
                         {meta.name}
                       </span>
                     )}
                   </div>
-                  <h2 className="arcade-heading lime compact mt-2 text-xl">{m.title.toUpperCase()}</h2>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-300">{m.focus}</p>
+                  <h2 className="arcade-heading compact mt-2 text-xl">{m.title}</h2>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-300">{m.focus}</p>
 
                   {locked ? (
-                    <p className="mt-3 text-xs font-bold uppercase tracking-wider text-slate-500">
+                    <p className="mt-3 text-xs font-bold uppercase tracking-wider text-zinc-500">
                       🔒 Finish week {m.week - 1} to unlock.
                     </p>
                   ) : (
                     <div className="mt-3 border-t-2 pt-3" style={{ borderColor: 'rgba(255, 255, 255,0.15)' }}>
                       {m.styleTip && (
-                        <p className="mb-3 text-xs leading-relaxed text-slate-400">
+                        <p className="mb-3 text-xs leading-relaxed text-zinc-400">
                           💡 {m.styleTip}
                         </p>
                       )}
@@ -413,8 +413,8 @@ export default function Learning() {
                         stepsDone ? (
                           <Checkpoint quiz={m.quiz} passed={quizPassed} onPass={() => onQuizPass(m)} />
                         ) : (
-                          <p className="mt-3 text-xs font-bold uppercase tracking-wider text-slate-500">
-                            ▸ Check off the steps to unlock the checkpoint.
+                          <p className="mt-3 text-xs font-bold uppercase tracking-wider text-zinc-500">
+                            Check off the steps to unlock the checkpoint.
                           </p>
                         )
                       )}
@@ -422,10 +422,10 @@ export default function Learning() {
                       {m.tool && (
                         <Link
                           to={`/app/tools/${m.tool.slug}`}
-                          className="press mt-3 inline-block font-display text-xs font-black uppercase tracking-wider underline underline-offset-4"
+                          className="press mt-3 inline-block font-display text-xs font-semibold uppercase tracking-wider underline underline-offset-4"
                           style={{ color: 'var(--lime)' }}
                         >
-                          OPEN {m.tool.name.toUpperCase()} →
+                          Open {m.tool.name} →
                         </Link>
                       )}
                     </div>
@@ -443,16 +443,16 @@ export default function Learning() {
             className="sticker mt-2 p-5 text-center backdrop-blur-sm bg-black/20"
             style={{ transform: 'rotate(0deg)' }}
           >
-            <p className="arcade-heading lime compact text-xl">🏆 ORBIT CLEARED</p>
-            <p className="mt-2 text-sm text-slate-300">
+            <p className="arcade-heading compact text-xl">🏆 ORBIT CLEARED</p>
+            <p className="mt-2 text-sm text-zinc-300">
               You've mastered your starter stack — steps done and every checkpoint passed.
             </p>
             <button onClick={share} className="nb-btn mt-4 px-6 py-3 text-sm">
               {shared ? '✓ COPIED — GO SHARE IT' : '🎓 SHARE MY BADGE'}
             </button>
-            <p className="mt-4 text-sm text-slate-300">
+            <p className="mt-4 text-sm text-zinc-300">
               Add more in{' '}
-              <Link to="/app/discover" className="font-black underline underline-offset-2" style={{ color: 'var(--lime)' }}>
+              <Link to="/app/discover" className="font-semibold underline underline-offset-2" style={{ color: 'var(--lime)' }}>
                 FIND
               </Link>{' '}
               to chart a new path.

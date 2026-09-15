@@ -34,7 +34,7 @@ export default function SyncStatus() {
 
   return (
     <p
-      className="px-4 pt-2 font-display text-[10px] font-black uppercase tracking-[0.14em]"
+      className="px-4 pt-2 font-display text-[10px] font-semibold"
       style={{ color: label.tone }}
       role="status"
       aria-live="polite"

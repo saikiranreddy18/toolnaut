@@ -114,7 +114,7 @@ export default function ContactSection() {
               ? 'Free to start · paid plans available.'
               : 'Free public beta · no card needed.'}
           </p>
-          <p className="mt-3 font-display text-[10px] font-bold uppercase tracking-widest text-zinc-600">
+          <p className="mt-3 font-display text-[10px] font-bold text-zinc-600">
             © {new Date().getFullYear()} Toolnaut · built in the open
           </p>
         </div>
@@ -123,7 +123,7 @@ export default function ContactSection() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {COLUMNS.map((col) => (
             <nav key={col.title} aria-label={col.title}>
-              <h3 className="font-display text-[11px] font-black uppercase tracking-[0.16em] text-white">
+              <h3 className="font-display text-[11px] font-semibold text-white">
                 {col.title}
               </h3>
               <ul className="mt-4 space-y-3">
@@ -141,7 +141,7 @@ export default function ContactSection() {
           ))}
 
           <div>
-            <h3 className="font-display text-[11px] font-black uppercase tracking-[0.16em] text-white">
+            <h3 className="font-display text-[11px] font-semibold text-white">
               Contact
             </h3>
             {/* Just the address. The paragraph that lived under it made

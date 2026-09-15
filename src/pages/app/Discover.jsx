@@ -173,17 +173,17 @@ export default function Discover() {
   const gridHeading = hasFilters
     ? `${results.length} RESULT${results.length === 1 ? '' : 'S'}`
     : answers
-      ? 'RECOMMENDED FOR YOU'
-      : 'ALL TOOLS'
+      ? 'Recommended for you'
+      : 'All tools'
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-8 lg:py-10 xl:max-w-6xl">
-      <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ FIND</p>
+      <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">FIND</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">
-        {TOOLS.length} TOOLS,<br/>RANKED FOR YOU
+        {TOOLS.length.toLocaleString()} tools,<br/>ranked for you
       </h1>
       {!answers && (
-        <p className="mt-3 text-sm text-slate-400">
+        <p className="mt-3 text-sm text-zinc-400">
           <Link to="/goal" className="font-bold underline underline-offset-2" style={{ color: 'var(--lime)' }}>
             Take the quiz
           </Link>{' '}
@@ -199,7 +199,7 @@ export default function Discover() {
           value={q}
           onChange={(e) => setParam('q', e.target.value)}
           placeholder='Try "video", "Anthropic" or "healthcare"...'
-          className="w-full rounded-full px-5 py-3.5 text-base text-white placeholder:text-slate-500 focus:outline-none"
+          className="w-full rounded-full px-5 py-3.5 text-base text-white placeholder:text-zinc-500 focus:outline-none"
           style={{
             background: 'rgba(20,18,31,0.9)',
             border: '2px solid #000',
@@ -211,8 +211,8 @@ export default function Discover() {
       {freshTools.length > 0 && (
         <div className="mt-6">
           <div className="flex items-center justify-between gap-2">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500">🆕 New this week</h2>
-            <Link to="/new" className="flex min-h-11 items-center text-[10px] font-bold uppercase tracking-widest text-exus-lime hover:opacity-80">
+            <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-500">New this week</h2>
+            <Link to="/new" className="flex min-h-11 items-center text-[10px] font-bold text-exus-lime hover:opacity-80">
               See the full feed →
             </Link>
           </div>
@@ -223,8 +223,8 @@ export default function Discover() {
                 to={`/app/tools/${tool.slug}`}
                 className="sticker group flex w-40 shrink-0 flex-col p-3"
               >
-                <span className="arcade-heading lime compact text-sm group-hover:opacity-80">{tool.name.toUpperCase()}</span>
-                <span className="mt-1 line-clamp-2 text-[10px] leading-relaxed text-slate-300">{tool.blurb}</span>
+                <span className="arcade-heading compact text-sm group-hover:opacity-80">{tool.name}</span>
+                <span className="mt-1 line-clamp-2 text-[10px] leading-relaxed text-zinc-300">{tool.blurb}</span>
               </Link>
             ))}
           </div>
@@ -233,7 +233,7 @@ export default function Discover() {
 
       {recentlyViewed.length > 0 && (
         <div className="mt-6">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500">👀 Continue browsing</h2>
+          <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-500">Continue browsing</h2>
           <div className="no-scrollbar -mx-5 mt-2 flex gap-3 overflow-x-auto px-5 sm:mx-0 sm:px-0">
             {recentlyViewed.map((tool) => (
               <Link
@@ -241,8 +241,8 @@ export default function Discover() {
                 to={`/app/tools/${tool.slug}`}
                 className="sticker group flex w-40 shrink-0 flex-col p-3"
               >
-                <span className="arcade-heading lime compact text-sm group-hover:opacity-80">{tool.name.toUpperCase()}</span>
-                <span className="mt-1 line-clamp-2 text-[10px] leading-relaxed text-slate-300">{tool.blurb}</span>
+                <span className="arcade-heading compact text-sm group-hover:opacity-80">{tool.name}</span>
+                <span className="mt-1 line-clamp-2 text-[10px] leading-relaxed text-zinc-300">{tool.blurb}</span>
               </Link>
             ))}
           </div>
@@ -260,19 +260,19 @@ export default function Discover() {
       </div>
 
       <div className="no-scrollbar -mx-5 mt-3 flex items-center gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
-        <span className="shrink-0 text-xs uppercase tracking-widest text-slate-600">Price</span>
+        <span className="shrink-0 text-xs uppercase tracking-widest text-zinc-600">Price</span>
         {PRICES.map((p) => (
           <Pill key={p} active={price === p} onClick={() => setParam('price', price === p ? '' : p)}>
             {PRICE_LABELS[p]}
           </Pill>
         ))}
-        <span className="ml-3 shrink-0 text-xs uppercase tracking-widest text-slate-600">Level</span>
+        <span className="ml-3 shrink-0 text-xs uppercase tracking-widest text-zinc-600">Level</span>
         {LEVELS.map((l) => (
           <Pill key={l} active={level === l} onClick={() => setParam('level', level === l ? '' : l)}>
             {LEVEL_LABELS[l]}
           </Pill>
         ))}
-        <span className="ml-3 shrink-0 text-xs uppercase tracking-widest text-slate-600">Sort</span>
+        <span className="ml-3 shrink-0 text-xs uppercase tracking-widest text-zinc-600">Sort</span>
         {SORTS.map(({ key, label }) => (
           <Pill key={key} active={sort === key} onClick={() => setParam('sort', key === 'match' ? '' : key)}>
             {label}
@@ -284,8 +284,8 @@ export default function Discover() {
         /* A dead end is where people leave. Name what was searched, then hand
            back routes that are known to have tools behind them. */
         <div className="mt-12">
-          <h2 className="arcade-heading section text-xl sm:text-2xl">NO TOOLS MATCH</h2>
-          <p className="mt-3 max-w-md text-sm text-slate-400">
+          <h2 className="arcade-heading section text-xl sm:text-2xl">No tools match</h2>
+          <p className="mt-3 max-w-md text-sm text-zinc-400">
             {q ? <>Nothing in the catalog matches “<span className="font-bold text-white">{q}</span>”</> : 'Nothing matches these filters'}
             {(cat || price || level) && ' with the filters you have on'}. Try a
             broader search, or jump into a category that has tools waiting:
@@ -305,7 +305,7 @@ export default function Discover() {
             onClick={() => setSearchParams({})}
             className="nb-btn dark mt-6 min-h-11 px-4 py-2 text-xs"
           >
-            CLEAR ALL FILTERS
+            Clear all filters
           </button>
         </div>
       ) : (
@@ -315,7 +315,7 @@ export default function Discover() {
             {hasFilters && (
               <button
                 onClick={() => setSearchParams({})}
-                className="press font-display text-[10px] font-black uppercase tracking-widest text-slate-400 underline underline-offset-4 hover:text-white"
+                className="press font-display text-[10px] font-semibold text-zinc-400 underline underline-offset-4 hover:text-white"
               >
                 Clear filters
               </button>
@@ -345,7 +345,7 @@ export default function Discover() {
           <div className="mt-8 flex flex-col items-center gap-3 pb-4">
             {/* aria-live so a screen reader hears the list grow after LOAD MORE
                 — the button stays put and nothing else announces the change. */}
-            <p aria-live="polite" className="text-xs font-bold uppercase tracking-wider text-slate-500">
+            <p aria-live="polite" className="text-xs font-bold uppercase tracking-wider text-zinc-500">
               Showing {visible.length} of {results.length} tools
             </p>
             {remaining > 0 && (
@@ -369,7 +369,7 @@ export default function Discover() {
           className="fixed inset-x-0 bottom-[calc(4.125rem+env(safe-area-inset-bottom))] z-40 flex flex-wrap items-center justify-center gap-3 px-5 py-4 lg:bottom-0"
           style={{ background: 'rgba(10,9,16,0.96)', borderTop: '2px solid #000', boxShadow: '0 -3px 0 #000' }}
         >
-          <p className="text-xs font-bold uppercase tracking-wider text-slate-300">
+          <p className="text-xs font-bold uppercase tracking-wider text-zinc-300">
             {compare.length} of {MAX_COMPARE} selected
           </p>
           <Link

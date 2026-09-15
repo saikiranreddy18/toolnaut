@@ -44,7 +44,7 @@ export default function Thread() {
     <div className="mx-auto flex min-h-[calc(100dvh-3.5rem)] max-w-2xl flex-col px-5 py-6 lg:min-h-0 lg:py-10">
       <button
         onClick={goBack}
-        className="press cursor-pointer self-start font-display text-sm text-slate-400 transition-colors hover:text-white"
+        className="press cursor-pointer self-start font-display text-sm text-zinc-400 transition-colors hover:text-white"
       >
         ← Back to community
       </button>
@@ -53,7 +53,7 @@ export default function Thread() {
       <div className="mt-5">
         <div className="flex items-center gap-2">
           <span
-            className="grid h-6 w-6 place-items-center rounded-full font-display text-xs font-black"
+            className="grid h-6 w-6 place-items-center rounded-full font-display text-xs font-semibold"
             style={{
               background: thread.type === 'question' ? 'var(--cyan)' : thread.type === 'showcase' ? 'var(--hot-pink)' : 'var(--lime)',
               color: thread.type === 'showcase' ? '#fff' : '#000',
@@ -64,14 +64,14 @@ export default function Thread() {
           </span>
           <Link
             to={`/app/community?cat=${thread.category}`}
-            className="font-display text-xs font-black uppercase tracking-widest"
+            className="font-display text-xs font-semibold uppercase tracking-widest"
             style={{ color: 'var(--lime)' }}
           >
             {catName}
           </Link>
         </div>
-        <h1 className="arcade-heading mt-3 text-2xl sm:text-3xl leading-tight">{thread.title.toUpperCase()}</h1>
-        <p className="mt-2 font-display text-xs font-black uppercase tracking-widest text-slate-500">
+        <h1 className="arcade-heading mt-3 text-2xl sm:text-3xl leading-tight">{thread.title}</h1>
+        <p className="mt-2 font-display text-xs font-semibold uppercase tracking-widest text-zinc-500">
           {thread.mine ? 'YOU' : thread.author} · {timeAgo(thread.at)}
         </p>
         {thread.body && <p className="mt-4 text-base leading-relaxed text-white font-medium">{thread.body}</p>}
@@ -82,14 +82,14 @@ export default function Thread() {
           className={`nb-btn mt-5 inline-flex items-center gap-2 px-4 py-2.5 text-xs ${thread.upvoted ? '' : 'dark'}`}
         >
           <UpvoteIcon />
-          ▲ {thread.upvotes} {thread.upvotes === 1 ? 'UPVOTE' : 'UPVOTES'}
+          ▲ {thread.upvotes} {thread.upvotes === 1 ? 'Upvote' : 'Upvotes'}
         </button>
       </div>
 
       {/* replies */}
       <div className="mt-8 border-t-2 pt-6" style={{ borderColor: 'rgba(255, 255, 255,0.2)' }}>
         <p className="arcade-heading section text-xl">
-          {thread.replies.length} {thread.replies.length === 1 ? 'REPLY' : 'REPLIES'}
+          {thread.replies.length} {thread.replies.length === 1 ? 'Reply' : 'Replies'}
         </p>
         <div className="mt-4 flex flex-col gap-3">
           {thread.replies.map((r, i) => {
@@ -102,15 +102,15 @@ export default function Thread() {
                 transition={{ duration: 0.25 }}
                 className={`sticker ${mine ? 'cyan' : ''} p-4`}
               >
-                <p className="font-display text-xs font-black uppercase tracking-widest" style={{ color: mine ? 'var(--lime)' : '#9d97bd' }}>
-                  {mine ? (session?.user.name?.toUpperCase() || 'YOU') : r.author.toUpperCase()} · {timeAgo(r.at)}
+                <p className="font-display text-xs font-semibold uppercase tracking-widest" style={{ color: mine ? 'var(--lime)' : '#9d97bd' }}>
+                  {mine ? (session?.user.name || 'You') : r.author} · {timeAgo(r.at)}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-white font-medium">{r.body}</p>
               </motion.div>
             )
           })}
           {thread.replies.length === 0 && (
-            <p className="text-sm font-bold text-slate-500">▸ No replies yet — start the thread.</p>
+            <p className="text-sm font-bold text-zinc-500">No replies yet — start the thread.</p>
           )}
         </div>
       </div>
@@ -134,7 +134,7 @@ export default function Thread() {
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
             placeholder="Add your reply…"
-            className="w-full bg-transparent text-base text-white placeholder:text-slate-500 focus:outline-none"
+            className="w-full bg-transparent text-base text-white placeholder:text-zinc-500 focus:outline-none"
           />
           <button
             type="submit"

@@ -77,7 +77,7 @@ export default function FounderOffer() {
       >
         <div className="flex flex-wrap items-center gap-3">
           <span
-            className="inline-flex items-center gap-2 rounded-full px-3 py-1 font-display text-[11px] font-black uppercase tracking-widest text-black"
+            className="inline-flex items-center gap-2 rounded-full px-3 py-1 font-display text-[11px] font-semibold text-black"
             style={{ background: 'linear-gradient(90deg, var(--arcade-yellow), var(--arcade-orange))' }}
           >
             {/* the dot carries "live"; the word says it too, so a viewer who
@@ -95,19 +95,19 @@ export default function FounderOffer() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 id="founder-offer" className="arcade-heading text-2xl sm:text-3xl" style={{ color: 'var(--arcade-yellow)' }}>
-              FOUNDER DISCOUNT
+              Founder discount
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-zinc-200">
               Lifetime access — pay once, keep it.
             </p>
             <p className="mt-3 flex items-baseline gap-2">
-              <span className="font-display text-4xl font-black text-white sm:text-5xl">${plan.price}</span>
-              <span className="font-display text-xs font-black uppercase tracking-widest text-zinc-400">one time · lifetime</span>
+              <span className="font-display text-4xl font-semibold text-white sm:text-5xl">${plan.price}</span>
+              <span className="font-display text-xs font-semibold uppercase tracking-widest text-zinc-400">one time · lifetime</span>
             </p>
           </div>
 
           <div className="shrink-0">
-            <p className="font-display text-[10px] font-black uppercase tracking-[0.18em] text-zinc-400">
+            <p className="font-display text-[10px] font-semibold text-zinc-400">
               Offer ends in
             </p>
             {/* aria-hidden because a live region that re-announces four numbers
@@ -119,10 +119,10 @@ export default function FounderOffer() {
                   key={u.k}
                   className="flex min-w-[3.25rem] flex-col items-center rounded-xl border border-white/10 bg-black/50 px-2 py-1.5"
                 >
-                  <span className="font-display text-xl font-black tabular-nums text-white sm:text-2xl">
+                  <span className="font-display text-xl font-semibold tabular-nums text-white sm:text-2xl">
                     {pad(u.v)}
                   </span>
-                  <span className="font-display text-[9px] font-black uppercase tracking-widest text-zinc-400">
+                  <span className="font-display text-[9px] font-semibold text-zinc-400">
                     {u.k}
                   </span>
                 </div>

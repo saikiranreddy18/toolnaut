@@ -131,17 +131,17 @@ export default function ExampleStack() {
           <BrandLogo {...LOGO.page} />
         </Link>
         <Link to="/goal" className="nb-btn px-4 py-2 text-xs">
-          ⚡ Find your stack
+          Find your stack
         </Link>
       </header>
 
-      <p className="mt-6 font-display text-xs font-black uppercase tracking-[0.2em]" style={{ color: 'var(--lime)' }}>
-        ▸ Example — nobody signed in
+      <p className="mt-6 text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">
+        Example — nobody signed in
       </p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">
-        A REAL STACK,<br />BUILT BY <Wordmark glow={false} />
+        A real stack,<br />built by <Wordmark glow={false} />
       </h1>
-      <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300">
+      <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-300">
         This is the actual output of the recommendation engine — the same one the
         app runs — for the profile below. Nothing here is mocked up. Answer for
         yourself and you get this for your own role.
@@ -149,11 +149,11 @@ export default function ExampleStack() {
 
       {/* the inputs, shown plainly, so it is obvious what produced the result */}
       <div className="mt-7 rounded-2xl border border-white/10 p-5" style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>
-        <p className="font-display text-[11px] font-black uppercase tracking-[0.16em] text-slate-400">The answers this came from</p>
+        <p className="font-display text-[11px] font-semibold text-zinc-400">The answers this came from</p>
         <dl className="mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2">
           {EXAMPLE_PROFILE.map(([k, v]) => (
             <div key={k} className="flex items-baseline gap-2 text-sm">
-              <dt className="w-24 shrink-0 text-slate-500">{k}</dt>
+              <dt className="w-24 shrink-0 text-zinc-500">{k}</dt>
               <dd className="font-semibold text-white">{v}</dd>
             </div>
           ))}
@@ -161,16 +161,16 @@ export default function ExampleStack() {
       </div>
 
       {persona && (
-        <div className="mt-6 rounded-2xl border border-white/10 p-5" style={{ background: '#0f1a12', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>
-          <p className="font-display text-[11px] font-black uppercase tracking-[0.16em]" style={{ color: 'var(--lime)' }}>Your profile reads as</p>
+        <div className="mt-6 rounded-2xl border border-white/10 p-5" style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.10), rgba(14,165,233,0.05))', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>
+          <p className="font-display text-[11px] font-semibold" style={{ color: 'var(--lime)' }}>Your profile reads as</p>
           <p className="mt-2 font-display text-2xl font-semibold text-white">{persona.name}</p>
-          <p className="mt-1 text-sm text-slate-300">{persona.tagline}</p>
+          <p className="mt-1 text-sm text-zinc-300">{persona.tagline}</p>
         </div>
       )}
 
       {/* ── the stack ── */}
-      <h2 className="arcade-heading section mt-10 text-xl sm:text-2xl">THE STACK</h2>
-      <p className="mt-2 text-sm text-slate-400">
+      <h2 className="arcade-heading section mt-10 text-xl sm:text-2xl">The stack</h2>
+      <p className="mt-2 text-sm text-zinc-400">
         The first three are the starter stack the engine recommends for this
         profile; the rest also score at the top for it. Every pick shows why it
         is here — recommendations without stated reasoning read as advertising.
@@ -190,14 +190,14 @@ export default function ExampleStack() {
             >
               <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                 <span className="font-display text-base font-semibold text-white">{t.name}</span>
-                <span className="rounded-full border border-white/10 px-2 py-0.5 font-display text-[10px] font-black uppercase" style={{ background: 'var(--lime)', color: '#000' }}>
+                <span className="rounded-full border border-white/10 px-2 py-0.5 font-display text-[10px] font-semibold" style={{ background: 'var(--lime)', color: '#000' }}>
                   {t.price || t.pricing || 'see site'}
                 </span>
-                <span className="ml-auto font-display text-[10px] font-black uppercase tracking-[0.12em]" style={{ color: t.core ? 'var(--lime)' : '#64748b' }}>
+                <span className="ml-auto font-display text-[10px] font-semibold" style={{ color: t.core ? 'var(--lime)' : '#64748b' }}>
                   {t.core ? 'Starter stack' : 'Also strong'}
                 </span>
               </div>
-              <p className="mt-2 text-sm leading-relaxed text-slate-300">{t.blurb}</p>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-300">{t.blurb}</p>
               {reason && (
                 <p className="mt-2 text-xs font-semibold" style={{ color: 'var(--cyan)' }}>
                   Why this one — {reason}
@@ -211,8 +211,8 @@ export default function ExampleStack() {
       {/* ── the learning plan ── */}
       {roadmap.length > 0 && (
         <>
-          <h2 className="arcade-heading section mt-10 text-xl sm:text-2xl">THE 4-WEEK PLAN</h2>
-          <p className="mt-2 text-sm text-slate-400">
+          <h2 className="arcade-heading section mt-10 text-xl sm:text-2xl">The 4-week plan</h2>
+          <p className="mt-2 text-sm text-zinc-400">
             A stack you cannot act on is a list. This is the shape of the plan the
             app schedules alongside it — with steps, lessons and a check per week
             once it is generated for your own answers.
@@ -220,12 +220,12 @@ export default function ExampleStack() {
           <ol className="mt-5 grid gap-3">
             {roadmap.map((w, i) => (
               <li key={i} className="rounded-2xl border border-white/10 p-4" style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>
-                <p className="font-display text-[11px] font-black uppercase tracking-[0.16em]" style={{ color: 'var(--lime)' }}>
+                <p className="font-display text-[11px] font-semibold" style={{ color: 'var(--lime)' }}>
                   Week {i + 1}
                 </p>
                 <p className="mt-1 font-semibold text-white">{w.title || `Week ${i + 1}`}</p>
                 {(w.summary || w.detail || w.description) && (
-                  <p className="mt-1 text-sm text-slate-300">{w.summary || w.detail || w.description}</p>
+                  <p className="mt-1 text-sm text-zinc-300">{w.summary || w.detail || w.description}</p>
                 )}
               </li>
             ))}
@@ -236,7 +236,7 @@ export default function ExampleStack() {
       {/* ── the ask, placed AFTER the value, which is the whole point ── */}
       <div className="mt-10 rounded-2xl border-[3px] p-6 text-center" style={{ borderColor: 'var(--hot-pink)', background: '#1a0f16', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>
         <p className="font-display text-xl font-semibold text-white">Now do it for your role</p>
-        <p className="mx-auto mt-2 max-w-md text-sm text-slate-300">
+        <p className="mx-auto mt-2 max-w-md text-sm text-zinc-300">
           Nine questions, about ten minutes.{' '}
           {paymentsOn
             ? 'No account until you want to save it.'
@@ -249,12 +249,12 @@ export default function ExampleStack() {
           }}
           className="nb-btn mt-5 px-7 py-3.5 text-base"
         >
-          ⚡ BUILD MY AI STACK — FREE
+          Build my AI stack — free
         </button>
-        <p className="mt-4 text-[11px] text-slate-500">
+        <p className="mt-4 text-[11px] text-zinc-500">
           Picks are scored from a catalogue of {TOOLS.length.toLocaleString()} tools
           {updated ? `, last updated ${updated}` : ''}.{' '}
-          <Link to="/methodology" className="underline underline-offset-2 hover:text-slate-300">How we choose</Link>
+          <Link to="/methodology" className="underline underline-offset-2 hover:text-zinc-300">How we choose</Link>
         </p>
       </div>
     </div>

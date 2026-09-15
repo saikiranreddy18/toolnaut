@@ -56,7 +56,7 @@ export default function BillingCard({ session }) {
   if (session.simulated || !isSupabaseConfigured) {
     return (
       <div className="sticker mt-4 p-5">
-        <p className="text-sm leading-relaxed text-slate-300">
+        <p className="text-sm leading-relaxed text-zinc-300">
           Billing needs a real signed-in account — this is a local dev session,
           so there is nothing to bill and nothing is charged.
         </p>
@@ -68,8 +68,8 @@ export default function BillingCard({ session }) {
     <div className="sticker mt-4 p-5">
       <dl className="divide-y divide-white/10">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 py-2.5 first:pt-0">
-          <dt className="text-xs text-slate-400">Current plan</dt>
-          <dd className="font-display text-xs font-black uppercase tracking-wide" style={{ color: 'var(--lime)' }}>
+          <dt className="text-xs text-zinc-400">Current plan</dt>
+          <dd className="text-sm font-medium" style={{ color: 'var(--lime)' }}>
             {ent === null ? 'Checking…'
               : ent.active ? `${planName(ent.plan)} · active`
               : 'Free beta'}
@@ -78,18 +78,18 @@ export default function BillingCard({ session }) {
         {ent?.active && ent.endsAt && (
           <>
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 py-2.5">
-              <dt className="text-xs text-slate-400">Access ends</dt>
+              <dt className="text-xs text-zinc-400">Access ends</dt>
               <dd className="text-xs font-bold text-white">{day(ent.endsAt)}</dd>
             </div>
             {/* The two rows a payer actually worries about. Both are facts, not
                 reassurance: no Razorpay Subscription exists, so there is
                 genuinely no future charge to disclose. */}
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 py-2.5">
-              <dt className="text-xs text-slate-400">Auto-renewal</dt>
+              <dt className="text-xs text-zinc-400">Auto-renewal</dt>
               <dd className="text-xs font-bold text-white">Off — this pass does not renew</dd>
             </div>
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 py-2.5">
-              <dt className="text-xs text-slate-400">Next charge</dt>
+              <dt className="text-xs text-zinc-400">Next charge</dt>
               <dd className="text-xs font-bold text-white">None</dd>
             </div>
           </>
@@ -103,18 +103,18 @@ export default function BillingCard({ session }) {
         </Link>
       )}
       {ent && !ent.active && !ent.paymentsEnabled && (
-        <p className="mt-3 text-xs leading-relaxed text-slate-500">
+        <p className="mt-3 text-xs leading-relaxed text-zinc-500">
           Paid plans aren’t open yet — everything current is part of the free beta.
         </p>
       )}
 
-      <p className="mt-5 font-display text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">
+      <p className="mt-5 font-display text-[10px] font-semibold text-zinc-400">
         Payment history
       </p>
       {history === null ? (
-        <p className="mt-2 text-xs text-slate-500">Loading…</p>
+        <p className="mt-2 text-xs text-zinc-500">Loading…</p>
       ) : history.length === 0 ? (
-        <p className="mt-2 text-xs leading-relaxed text-slate-500">
+        <p className="mt-2 text-xs leading-relaxed text-zinc-500">
           No payments yet. When you pay, every attempt shows here — amount,
           status and the payment id to quote if anything needs sorting out.
         </p>
@@ -122,12 +122,12 @@ export default function BillingCard({ session }) {
         <ul className="mt-2 divide-y divide-white/10">
           {history.map((t, i) => (
             <li key={t.razorpay_payment_id || i} className="flex flex-wrap items-baseline justify-between gap-x-4 py-2">
-              <span className="text-xs text-slate-300">
+              <span className="text-xs text-zinc-300">
                 {day(t.paid_at || t.created_at)} · {planName(t.plan_code)}
               </span>
               <span className="text-xs font-bold text-white">
                 {paise(t.amount_paise)}{' '}
-                <span className="font-display text-[10px] font-black uppercase" style={{ color: STATUS_COLOR[t.status] || '#94a3b8' }}>
+                <span className="font-display text-[10px] font-semibold" style={{ color: STATUS_COLOR[t.status] || '#94a3b8' }}>
                   {t.status}
                 </span>
               </span>

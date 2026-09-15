@@ -46,14 +46,14 @@ export default function ToolDetail() {
   if (!tool) {
     return (
       <div className="mx-auto flex min-h-[70dvh] max-w-md flex-col items-center justify-center px-5 text-center">
-        <h1 className="arcade-heading text-2xl">TOOL NOT FOUND</h1>
-        <p className="mt-3 text-sm leading-relaxed text-slate-300">
+        <h1 className="arcade-heading text-2xl">Tool not found</h1>
+        <p className="mt-3 text-sm leading-relaxed text-zinc-300">
           Nothing in the catalog is filed under
           {' '}<span className="font-bold text-white">{slug}</span>. It may have been
           renamed, or the link may be from an older build.
         </p>
         <Link to="/app/discover" className="nb-btn mt-6 min-h-11 px-5 py-2.5 text-xs">
-          BROWSE ALL TOOLS →
+          Browse all tools →
         </Link>
       </div>
     )
@@ -102,27 +102,27 @@ export default function ToolDetail() {
     <div className="mx-auto max-w-3xl px-5 py-8 lg:py-10">
       <button
         onClick={goBack}
-        className="press cursor-pointer font-display text-sm text-slate-400 transition-colors hover:text-white"
+        className="press cursor-pointer font-display text-sm text-zinc-400 transition-colors hover:text-white"
       >
-        {cameFromApp ? '← Back' : '← Back to FIND'}
+        {cameFromApp ? '← Back' : '← Back to Find'}
       </button>
 
       <div className="mt-6 flex flex-wrap items-center gap-3">
-        <span className="flex items-center gap-1.5 text-xs font-bold uppercase text-slate-400">
+        <span className="flex items-center gap-1.5 text-xs font-bold uppercase text-zinc-400">
           <span className="h-2.5 w-2.5 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
           {tool.sourceCategory}
         </span>
         {score != null && (
           <span
-            className="rounded-full px-3 py-1 font-display text-xs font-black uppercase"
+            className="rounded-full px-3 py-1 font-display text-xs font-semibold uppercase"
             style={{ background: 'var(--lime)', color: '#000', border: '2px solid #000', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
           >
-            {fitBand(score)?.label || 'MATCH'}
+            {fitBand(score)?.label || 'Match'}
           </span>
         )}
         {tool.status && tool.status !== 'Active' && (
           <span
-            className="rounded-full px-3 py-1 font-display text-xs font-black uppercase"
+            className="rounded-full px-3 py-1 font-display text-xs font-semibold uppercase"
             style={{ background: 'var(--hot-pink)', color: '#fff', border: '2px solid #000', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
           >
             {tool.status}
@@ -130,20 +130,20 @@ export default function ToolDetail() {
         )}
       </div>
 
-      <h1 className="arcade-heading mt-4 text-4xl sm:text-5xl">{tool.name.toUpperCase()}</h1>
+      <h1 className="arcade-heading mt-4 text-4xl sm:text-5xl">{tool.name}</h1>
       {(tool.dev || tool.year) && (
         <p className="mt-2 font-display text-sm font-semibold" style={{ color: 'var(--lime)' }}>
-          {tool.dev}{tool.dev && tool.year ? ' · ' : ''}{tool.year ? `SINCE ${tool.year}` : ''}
+          {tool.dev}{tool.dev && tool.year ? ' · ' : ''}{tool.year ? `Since ${tool.year}` : ''}
         </p>
       )}
       <p className="mt-4 max-w-xl text-base leading-relaxed text-white font-medium">{tool.blurb}</p>
 
       <div className="mt-5 flex flex-wrap items-center gap-2">
-        <span className="arcade-chip">{(tool.pricing || PRICE_LABELS[tool.price]).toUpperCase()}</span>
-        <span className="arcade-chip">{LEVEL_LABELS[tool.level].toUpperCase()}</span>
+        <span className="arcade-chip">{(tool.pricing || PRICE_LABELS[tool.price])}</span>
+        <span className="arcade-chip">{LEVEL_LABELS[tool.level]}</span>
         {tool.tags.slice(0, 4).map((tag) => (
           <Link key={tag} to={`/app/discover?q=${encodeURIComponent(tag)}`} className="arcade-chip press">
-            {tag.toUpperCase()}
+            {tag}
           </Link>
         ))}
       </div>
@@ -155,7 +155,7 @@ export default function ToolDetail() {
           rel="noopener noreferrer"
           className="nb-btn dark mt-5 inline-flex items-center gap-2 px-4 py-2 text-xs"
         >
-          VISIT WEBSITE
+          Visit website
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M7 17 17 7M7 7h10v10" />
           </svg>
@@ -167,14 +167,14 @@ export default function ToolDetail() {
           onClick={toggleStack}
           className={`nb-btn px-8 py-4 text-base ${added ? 'dark' : ''}`}
         >
-          {added ? '✓ IN MY STACK — REMOVE' : '⚡ ADD TO MY STACK'}
+          {added ? '✓ In my stack · Remove' : 'Add to my stack'}
         </button>
         <button
           onClick={toggleFavorite}
           aria-label={favorited ? `Remove ${tool.name} from saved` : `Save ${tool.name}`}
           aria-pressed={favorited}
           className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/10 ${
- favorited ? 'bg-[var(--hot-pink)] text-white' : 'bg-transparent text-slate-400 hover:text-white'
+ favorited ? 'bg-[var(--hot-pink)] text-white' : 'bg-transparent text-zinc-400 hover:text-white'
  }`}
           style={{ boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
         >
@@ -183,19 +183,19 @@ export default function ToolDetail() {
       </div>
 
       <div className="sticker mt-8 p-5" style={{ transform: 'rotate(0)' }}>
-        <p className="arcade-heading lime compact text-lg">◆ WHY IT FITS</p>
+        <p className="arcade-heading compact text-lg">Why it fits</p>
         {reasons.length > 0 ? (
           <ul className="mt-3 space-y-2">
             {reasons.map((r) => (
               <li key={r} className="flex gap-2 text-sm text-white">
-                <span className="mt-1 shrink-0 font-black" style={{ color: 'var(--lime)' }} aria-hidden="true">◆</span>
+                <span className="mt-1 shrink-0 font-semibold" style={{ color: 'var(--lime)' }} aria-hidden="true">◆</span>
                 {r}
               </li>
             ))}
           </ul>
         ) : (
-          <p className="mt-2 text-sm text-slate-300">
-            <Link to="/goal" className="font-black underline underline-offset-2" style={{ color: 'var(--lime)' }}>
+          <p className="mt-2 text-sm text-zinc-300">
+            <Link to="/goal" className="font-semibold underline underline-offset-2" style={{ color: 'var(--lime)' }}>
               Take the quiz
             </Link>{' '}
             and this becomes personal — fit, budget, learning curve, scored against your profile.
@@ -212,7 +212,7 @@ export default function ToolDetail() {
 
       {related.length > 0 && (
         <div className="mt-10">
-          <h2 className="arcade-heading section text-xl sm:text-2xl">RELATED TOOLS</h2>
+          <h2 className="arcade-heading section text-xl sm:text-2xl">Related tools</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-3">
             {related.map((r, i) => (
               <Link
@@ -220,8 +220,8 @@ export default function ToolDetail() {
                 to={`/app/tools/${r.slug}`}
                 className={`sticker ${i === 0 ? '' : i === 1 ? 'pink' : 'cyan'} p-4`}
               >
-                <p className="arcade-heading lime compact text-base">{r.name.toUpperCase()}</p>
-                <p className="mt-2 text-xs text-slate-300">{r.blurb}</p>
+                <p className="arcade-heading compact text-base">{r.name}</p>
+                <p className="mt-2 text-xs text-zinc-300">{r.blurb}</p>
               </Link>
             ))}
           </div>

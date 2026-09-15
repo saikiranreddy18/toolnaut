@@ -127,7 +127,7 @@ export default function RolesSection() {
                   <h3 className="font-display text-lg font-semibold text-white">
                     {r.name}
                   </h3>
-                  <span className="font-display text-[10px] font-black uppercase tracking-widest" style={{ color: r.color }}>
+                  <span className="font-display text-[10px] font-semibold" style={{ color: r.color }}>
                     {r.pts.length} stars
                   </span>
                 </div>

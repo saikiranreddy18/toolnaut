@@ -37,7 +37,7 @@ function StatCard({ n, k, live }) {
       <p className="arcade-heading text-3xl md:text-4xl" style={{ color: 'var(--lime)' }}>{n}</p>
       <p className="mt-2 text-[13px] text-zinc-400">{k}</p>
       {live && (
-        <p className="mt-1 font-display text-[8px] font-black uppercase tracking-[0.14em]" style={{ color: 'var(--cyan)' }}>
+        <p className="mt-1 font-display text-[8px] font-semibold" style={{ color: 'var(--cyan)' }}>
           Live count
         </p>
       )}
@@ -90,7 +90,7 @@ export default function StatsSection() {
           <motion.div variants={fadeUp} className="mt-10">
             <div className="mb-3 flex justify-center">
               <span
-                className="rounded-full border border-white/10 px-3 py-1 font-display text-[10px] font-black uppercase tracking-[0.2em] text-zinc-300"
+                className="rounded-full border border-white/10 px-3 py-1 font-display text-[10px] font-semibold text-zinc-300"
                 style={{ background: '#12121c' }}
               >
                 The community

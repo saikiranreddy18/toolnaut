@@ -49,10 +49,10 @@ function Row({ label, children }) {
   if (!children) return null
   return (
     <div className="flex flex-col gap-1 border-t border-white/10 py-3 sm:flex-row sm:gap-4">
-      <dt className="w-40 shrink-0 font-display text-[11px] font-black uppercase tracking-[0.12em] text-slate-500">
+      <dt className="w-40 shrink-0 font-display text-[11px] font-semibold text-zinc-500">
         {label}
       </dt>
-      <dd className="text-sm leading-relaxed text-slate-200">{children}</dd>
+      <dd className="text-sm leading-relaxed text-zinc-200">{children}</dd>
     </div>
   )
 }
@@ -71,7 +71,7 @@ export default function TrustPanel({ tool, answers }) {
       style={{ background: '#12121b', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
     >
       <h2 className="arcade-heading compact text-base" style={{ color: 'var(--lime)' }}>
-        WHY THIS IS HERE
+        Why this is here
       </h2>
 
       <dl className="mt-3">
@@ -81,12 +81,12 @@ export default function TrustPanel({ tool, answers }) {
 
         {/* The row a directory optimising for clicks would omit. */}
         <Row label="Watch out for">
-          {limitation || <span className="text-slate-400">Nothing specific flagged in the catalogue — check the vendor’s docs before committing.</span>}
+          {limitation || <span className="text-zinc-400">Nothing specific flagged in the catalogue — check the vendor’s docs before committing.</span>}
         </Row>
 
         <Row label="Pricing">
           {tool.price || tool.pricing || 'See the vendor’s site'}
-          <span className="ml-2 text-xs text-slate-500">(not independently verified)</span>
+          <span className="ml-2 text-xs text-zinc-500">(not independently verified)</span>
         </Row>
 
         <Row label="Learning curve">{LEVEL_CURVE[tool.level] || tool.level}</Row>

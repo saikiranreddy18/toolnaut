@@ -41,7 +41,7 @@ export default function FlowSteps() {
                 aria-current={here ? 'step' : undefined}
               >
                 <span
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/10 font-display text-[10px] font-black"
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/10 font-display text-[10px] font-semibold"
                   style={{
                     background: here ? 'var(--lime)' : done ? 'var(--cyan)' : '#1a1a26',
                     color: here || done ? '#000' : '#64748b',
@@ -52,8 +52,8 @@ export default function FlowSteps() {
                   {done ? '✓' : i + 1}
                 </span>
                 <span
-                  className={`whitespace-nowrap font-display text-[10px] font-black uppercase tracking-wider ${
- here ? 'text-white' : done ? 'text-zinc-300' : 'text-slate-500'
+                  className={`whitespace-nowrap text-[12px] font-medium ${
+ here ? 'text-white' : done ? 'text-zinc-300' : 'text-zinc-500'
  } ${here ? '' : 'hidden sm:inline'}`}
                 >
                   {s.label}

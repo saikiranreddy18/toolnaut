@@ -24,12 +24,12 @@ import { loadAvatar, AVATAR_EVENT } from '../state/avatarStore'
 import { StackIcon, DiscoverIcon, LearningIcon, CommunityIcon, SettingsIcon, ChatIcon, HeartIcon } from '../components/app/icons'
 
 const NAV = [
-  { to: '/app/stack', label: 'STACK', Icon: StackIcon },
-  { to: '/app/discover', label: 'FIND', Icon: DiscoverIcon },
-  { to: '/app/favorites', label: 'SAVED', Icon: HeartIcon },
-  { to: '/app/learning', label: 'LEARN', Icon: LearningIcon },
-  { to: '/app/community', label: 'SQUAD', Icon: CommunityIcon },
-  { to: '/app/settings', label: 'ME', Icon: SettingsIcon },
+  { to: '/app/stack', label: 'Stack', Icon: StackIcon },
+  { to: '/app/discover', label: 'Find', Icon: DiscoverIcon },
+  { to: '/app/favorites', label: 'Saved', Icon: HeartIcon },
+  { to: '/app/learning', label: 'Learn', Icon: LearningIcon },
+  { to: '/app/community', label: 'Squad', Icon: CommunityIcon },
+  { to: '/app/settings', label: 'Me', Icon: SettingsIcon },
 ]
 
 const UI_KEY = 'exus_ui_v1'
@@ -139,10 +139,10 @@ export default function AppShell() {
   }
 
   const navLinkClass = ({ isActive }) =>
-    `flex items-center gap-3 rounded-xl border-2 px-4 py-2.5 font-display text-sm font-black uppercase tracking-widest transition-all ${
+    `flex items-center gap-3 rounded-xl border-2 px-4 py-2.5 text-sm font-medium transition-all ${
       isActive
         ? 'border-white/10 bg-[var(--lime)] text-black shadow-[3px_3px_0_#000]'
-        : 'border-transparent text-slate-400 hover:bg-white/5 hover:text-white'
+        : 'border-transparent text-zinc-400 hover:bg-white/5 hover:text-white'
     }`
 
   return (
@@ -152,7 +152,7 @@ export default function AppShell() {
           every single page before reaching content — WCAG 2.4.1 */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-[var(--lime)] focus:px-4 focus:py-2 focus:font-display focus:text-sm focus:font-black focus:uppercase focus:text-black"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-[var(--lime)] focus:px-4 focus:py-2 focus:font-display focus:text-sm focus:font-semibold focus: focus:text-black"
       >
         Skip to content
       </a>
@@ -171,10 +171,10 @@ export default function AppShell() {
             </Link>
           ) : null}
           <div className="min-w-0">
-          <p className="font-display text-[10px] font-black uppercase tracking-widest text-(--lime)">
-            {persona ? '▸ Your persona' : '▸ No persona yet'}
+          <p className="font-display text-[10px] font-semibold text-(--lime)">
+            {persona ? 'Your persona' : 'No persona yet'}
           </p>
-          <p className="mt-1 font-display text-sm font-black uppercase text-white">
+          <p className="mt-1 font-display text-sm font-semibold text-white">
             {persona ? persona.name : 'Take the quiz'}
           </p>
           {persona ? (
@@ -209,13 +209,13 @@ export default function AppShell() {
 
         {/* Identity when there is one; otherwise say plainly that this browser
             is where the stack lives, which is the honest reason to sign in. */}
-        <div className="px-4 pt-4 text-xs text-slate-600">
+        <div className="px-4 pt-4 text-xs text-zinc-600">
           {session ? (
             `Signed in as ${session.user.name}`
           ) : (
             <Link
               to="/auth/login?next=/app/stack"
-              className="underline decoration-dotted underline-offset-2 hover:text-slate-400"
+              className="underline decoration-dotted underline-offset-2 hover:text-zinc-400"
             >
               Browsing as guest — saved to this browser. Sign in →
             </Link>
@@ -324,8 +324,8 @@ export default function AppShell() {
               to={to}
               data-tour={to}
               className={({ isActive }) =>
-                `press relative flex min-h-16 flex-col items-center justify-center gap-1 text-[10px] font-black tracking-widest uppercase transition-colors ${
-                  isActive ? 'text-(--lime)' : 'text-slate-500'
+                `press relative flex min-h-16 flex-col items-center justify-center gap-1 text-[11px] font-medium transition-colors ${
+                  isActive ? 'text-(--lime)' : 'text-zinc-500'
                 }`
               }
               style={({ isActive }) => isActive ? { color: 'var(--lime)' } : {}}

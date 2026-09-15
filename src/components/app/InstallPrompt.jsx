@@ -81,7 +81,7 @@ export default function InstallPrompt() {
           <img src="/icon.svg" alt="" width="44" height="44" className="shrink-0 rounded-xl" />
           <div className="min-w-0 flex-1">
             <p className="font-display text-sm font-semibold text-white">Add Toolnaut to your home screen</p>
-            <p className="mt-0.5 text-xs leading-snug text-slate-400">
+            <p className="mt-0.5 text-xs leading-snug text-zinc-400">
               {iosHint
                 ? 'Tap the Share icon, then "Add to Home Screen".'
                 : 'Launch the galaxy full-screen, like a native app.'}
@@ -95,7 +95,7 @@ export default function InstallPrompt() {
           <button
             onClick={dismiss}
             aria-label="Dismiss"
-            className="press flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full text-slate-400 hover:bg-white/10 hover:text-white"
+            className="press flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full text-zinc-400 hover:bg-white/10 hover:text-white"
           >
             <CloseIcon />
           </button>

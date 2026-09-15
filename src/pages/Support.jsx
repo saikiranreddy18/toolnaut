@@ -22,7 +22,7 @@ function Section({ title, children }) {
       <h2 className="font-display text-lg font-semibold" style={{ color: 'var(--lime)' }}>
         {title}
       </h2>
-      <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-300">{children}</div>
+      <div className="mt-3 space-y-3 text-sm leading-relaxed text-zinc-300">{children}</div>
     </section>
   )
 }
@@ -91,13 +91,13 @@ export default function Support() {
       <div className="starfield" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto max-w-2xl px-5 py-16 md:py-24">
-        <Link to="/" className="inline-flex items-center gap-2.5 text-slate-400 hover:text-white" aria-label="Back to Toolnaut">
+        <Link to="/" className="inline-flex items-center gap-2.5 text-zinc-400 hover:text-white" aria-label="Back to Toolnaut">
           <span aria-hidden="true">←</span>
           <BrandLogo {...LOGO.compact} />
         </Link>
 
         <h1 className="arcade-heading mt-6 text-3xl md:text-4xl">SUPPORT &amp; REFUNDS</h1>
-        <p className="mt-3 text-sm leading-relaxed text-slate-400">
+        <p className="mt-3 text-sm leading-relaxed text-zinc-400">
           A real person reads this inbox. Write to <Mail /> and you will get an
           answer.
         </p>
@@ -114,7 +114,7 @@ export default function Support() {
             Razorpay. Their processing usually takes 5–7 working days once we
             approve it — that part is out of our hands.
           </p>
-          <p className="text-slate-400">
+          <p className="text-zinc-400">
             Your paid access ends when the refund is processed. Anything you
             built — your stack, saved tools, roadmap progress — stays on your
             account and is still there if you come back.

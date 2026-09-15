@@ -85,7 +85,7 @@ export default function Pricing() {
           <BrandLogo {...LOGO.page} />
         </Link>
         <Link to="/goal" className="nb-btn px-4 py-2 text-xs">
-          ⚡ Find your stack
+          Find your stack
         </Link>
       </header>
 
@@ -99,7 +99,7 @@ export default function Pricing() {
 
       <CapabilityMatrix />
 
-      <p className="relative pb-16 text-center text-xs text-slate-500">
+      <p className="relative pb-16 text-center text-xs text-zinc-500">
         <Link to="/" className="underline underline-offset-2 hover:text-white">← Back home</Link>
       </p>
     </div>

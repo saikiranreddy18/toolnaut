@@ -70,23 +70,23 @@ export default function GuestImportPrompt() {
           style={{ boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
         >
           <h2 id="import-title" className="arcade-heading section text-xl sm:text-2xl">
-            BRING YOUR WORK WITH YOU?
+            Bring your work with you?
           </h2>
-          <p className="mt-3 text-sm leading-relaxed text-slate-300">
+          <p className="mt-3 text-sm leading-relaxed text-zinc-300">
             This browser has {bits.length > 1 ? bits.slice(0, -1).join(', ') + ' and ' + bits.slice(-1) : bits[0]} from
             before you signed in. Add it to your account?
           </p>
 
           <div className="mt-5 flex flex-col gap-2 sm:flex-row">
             <button onClick={keep} disabled={busy} className="nb-btn min-h-11 flex-1 px-5 py-3 text-sm disabled:opacity-50">
-              ⚡ ADD IT TO MY ACCOUNT
+              Add it to my account
             </button>
             <button onClick={fresh} disabled={busy} className="nb-btn dark min-h-11 px-5 py-3 text-sm disabled:opacity-50">
-              START FRESH
+              Start fresh
             </button>
           </div>
 
-          <p className="mt-4 text-xs leading-relaxed text-slate-500">
+          <p className="mt-4 text-xs leading-relaxed text-zinc-500">
             Starting fresh clears that guest data from this browser, so it is not
             handed to whoever signs in next. Your account still saves to this
             device only — there is no server copy yet.

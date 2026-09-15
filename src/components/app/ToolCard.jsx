@@ -38,14 +38,14 @@ export default function ToolCard({
   return (
     <article className={`sticker ${stickerColor} group relative flex flex-col p-4`}>
       <div className="flex items-start justify-between gap-3">
-        <span className="flex min-w-0 items-center gap-1.5 text-[10px] font-bold uppercase text-slate-400">
+        <span className="flex min-w-0 items-center gap-1.5 text-[10px] font-bold text-zinc-400">
           <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
           <span className="truncate">{tool.sourceCategory}</span>
         </span>
         <span className="flex shrink-0 items-center gap-1.5">
           {isNewTool(tool) && (
             <span
-              className="rounded-full px-2 py-0.5 font-display text-[10px] font-black"
+              className="rounded-full px-2 py-0.5 font-display text-[10px] font-semibold"
               style={{ background: 'var(--hot-pink)', color: '#000', border: '2px solid #000', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
             >
               NEW
@@ -57,7 +57,7 @@ export default function ToolCard({
               the tool. The band says exactly what it can support: an ordering. */}
           {showFit && fitBand(tool.score) && (
             <span
-              className="rounded-full px-2 py-0.5 font-display text-[10px] font-black uppercase tracking-wide"
+              className="rounded-full px-2 py-0.5 font-display text-[10px] font-semibold"
               style={{ background: 'var(--lime)', color: '#000', border: '2px solid #000', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
               title={`${fitBand(tool.score).label} for your persona — based on your field, budget and experience`}
             >
@@ -68,7 +68,7 @@ export default function ToolCard({
               decides whether to open the card at all — not only after. */}
           {tool.status && tool.status !== 'Active' && (
             <span
-              className="rounded-full px-2 py-0.5 font-display text-[10px] font-black uppercase"
+              className="rounded-full px-2 py-0.5 font-display text-[10px] font-semibold"
               style={{ background: 'var(--hot-pink)', color: '#fff', border: '2px solid #000', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
               title={tool.note || tool.status}
             >
@@ -78,26 +78,26 @@ export default function ToolCard({
         </span>
       </div>
 
-      <h3 className="arcade-heading lime compact mt-3 text-base">
+      <h3 className="arcade-heading compact mt-3 text-base">
         <Link
           to={`/app/tools/${tool.slug}`}
           className="after:absolute after:inset-0 after:content-[''] group-hover:opacity-80"
         >
-          {tool.name.toUpperCase()}
+          {tool.name}
         </Link>
       </h3>
 
       {/* Answers "why am I being shown this?" right where the score is, instead
           of only on the detail page the user has to open first. */}
       {reason && (
-        <p className="mt-1.5 text-[10px] font-bold uppercase tracking-wide" style={{ color: 'var(--lime)' }}>
-          ◆ {reason}
+        <p className="mt-1.5 text-[10px] font-bold" style={{ color: 'var(--lime)' }}>
+          {reason}
         </p>
       )}
 
-      <p className="mt-2 flex-1 text-xs leading-relaxed text-slate-300">{tool.blurb}</p>
+      <p className="mt-2 flex-1 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>
 
-      <div className="mt-3 flex items-center gap-2 text-[10px] font-bold uppercase text-slate-500">
+      <div className="mt-3 flex items-center gap-2 text-[10px] font-bold text-zinc-500">
         <span className="rounded-full border border-white/20 px-2 py-0.5">{PRICE_LABELS[tool.price]}</span>
         <span className="rounded-full border border-white/20 px-2 py-0.5">{LEVEL_LABELS[tool.level]}</span>
       </div>
@@ -109,20 +109,20 @@ export default function ToolCard({
           aria-pressed={inStack}
           className={`nb-btn min-h-11 px-4 py-2 text-xs ${inStack ? 'dark' : ''}`}
         >
-          {inStack ? '✓ IN STACK' : '⚡ ADD'}
+          {inStack ? '✓ In stack' : 'Add'}
         </button>
         <button
           onClick={() => onToggleFavorite(tool)}
           aria-label={isFavorite ? `Remove ${tool.name} from saved` : `Save ${tool.name}`}
           aria-pressed={isFavorite}
           className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/20 ${
- isFavorite ? 'text-[var(--hot-pink)]' : 'text-slate-400 hover:text-white'
+ isFavorite ? 'text-[var(--hot-pink)]' : 'text-zinc-400 hover:text-white'
  }`}
         >
           <HeartIcon filled={isFavorite} />
         </button>
         {compare && (
-          <label className="flex min-h-11 shrink-0 cursor-pointer items-center gap-1.5 rounded-full border border-white/20 px-2.5 text-[10px] font-bold uppercase text-slate-400 hover:text-white">
+          <label className="flex min-h-11 shrink-0 cursor-pointer items-center gap-1.5 rounded-full border border-white/20 px-2.5 text-[10px] font-bold text-zinc-400 hover:text-white">
             <input
               type="checkbox"
               checked={compare.checked}
@@ -147,7 +147,7 @@ export default function ToolCard({
               className="arcade-chip press"
               style={{ padding: '4px 10px', fontSize: '9px' }}
             >
-              {tag.toUpperCase()}
+              {tag}
             </Link>
           ))}
         </div>

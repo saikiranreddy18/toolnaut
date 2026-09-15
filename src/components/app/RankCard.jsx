@@ -26,7 +26,7 @@ export default function RankCard() {
         </h2>
         {(IS_SAMPLE || SEEDED) && (
           <span
-            className="rounded-full border border-white/10 px-2.5 py-0.5 font-display text-[9px] font-black uppercase tracking-[0.12em] text-black"
+            className="rounded-full border border-white/10 px-2.5 py-0.5 font-display text-[9px] font-semibold text-black"
             style={{ background: 'var(--hot-pink)' }}
           >
             Preview — leaderboard not live yet
@@ -41,7 +41,7 @@ export default function RankCard() {
       >
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <p className="font-display text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">
+            <p className="font-display text-[10px] font-semibold text-zinc-400">
               Rank
             </p>
             <p className="arcade-heading text-4xl" style={{ color: 'var(--lime)' }}>
@@ -49,28 +49,28 @@ export default function RankCard() {
             </p>
           </div>
           <div className="text-right">
-            <p className="font-display text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">
+            <p className="font-display text-[10px] font-semibold text-zinc-400">
               Score
             </p>
-            <p className="font-display text-3xl font-black tabular-nums text-white">
+            <p className="font-display text-3xl font-semibold tabular-nums text-white">
               {me.score.toLocaleString()}
             </p>
           </div>
         </div>
 
         {me.isNew ? (
-          <p className="mt-4 text-sm text-slate-300">
+          <p className="mt-4 text-sm text-zinc-300">
             Everyone starts at #{STARTING_RANK.toLocaleString()}. Tick your first roadmap step and
             you move {Math.round(SCORING.perRoadmapStep / POINTS_PER_PLACE)} places.{' '}
-            <Link to="/app/learning" className="font-black underline underline-offset-4" style={{ color: 'var(--lime)' }}>
+            <Link to="/app/learning" className="font-semibold underline underline-offset-4" style={{ color: 'var(--lime)' }}>
               Start the roadmap
             </Link>
           </p>
         ) : (
-          <p className="mt-4 text-sm text-slate-300">
+          <p className="mt-4 text-sm text-zinc-300">
             {me.stackSize} tools in your stack · {me.stepsDone} roadmap steps done
             {me.streakDays > 0 && ` · ${me.streakDays}-day streak`}. You have climbed{' '}
-            <span className="font-black" style={{ color: 'var(--lime)' }}>
+            <span className="font-semibold" style={{ color: 'var(--lime)' }}>
               {(STARTING_RANK - me.rank).toLocaleString()}
             </span>{' '}
             places.
@@ -87,7 +87,7 @@ export default function RankCard() {
                 {['#', 'Explorer', 'Streak', 'Score'].map((h, i) => (
                   <th
                     key={h}
-                    className={`px-4 py-2.5 font-display text-[9px] font-black uppercase tracking-[0.14em] text-slate-500 ${i > 1 ? 'text-right' : ''}`}
+                    className={`px-4 py-2.5 font-display text-[9px] font-semibold text-zinc-500 ${i > 1 ? 'text-right' : ''}`}
                   >
                     {h}
                   </th>
@@ -99,15 +99,15 @@ export default function RankCard() {
                 const meta = CATEGORY_META[row.domain] || { color: 'var(--cyan)' }
                 return (
                   <tr key={row.handle} className="border-b border-white/5 last:border-b-0">
-                    <td className="px-4 py-2.5 font-display text-xs font-black text-slate-500">{row.rank}</td>
+                    <td className="px-4 py-2.5 font-display text-xs font-semibold text-zinc-500">{row.rank}</td>
                     <td className="px-4 py-2.5">
                       <span className="flex items-center gap-2 text-sm font-bold text-white">
                         <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
                         {row.handle}
                       </span>
                     </td>
-                    <td className="px-4 py-2.5 text-right text-xs text-slate-400 tabular-nums">{row.streak}d</td>
-                    <td className="px-4 py-2.5 text-right font-display text-sm font-black tabular-nums text-slate-200">
+                    <td className="px-4 py-2.5 text-right text-xs text-zinc-400 tabular-nums">{row.streak}d</td>
+                    <td className="px-4 py-2.5 text-right font-display text-sm font-semibold tabular-nums text-zinc-200">
                       {row.score.toLocaleString()}
                     </td>
                   </tr>
@@ -118,7 +118,7 @@ export default function RankCard() {
         </div>
       </div>
 
-      <p className="mt-3 text-xs text-slate-500">
+      <p className="mt-3 text-xs text-zinc-500">
         {SCORING.perRoadmapStep} points a roadmap step · {SCORING.perStreakDay} a streak day ·{' '}
         {SCORING.perToolInStack} a tool. Your score is real and already counting; the names above are
         placeholders until accounts land.

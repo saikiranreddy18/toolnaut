@@ -24,7 +24,7 @@ export default function Changelog() {
           <BrandLogo {...LOGO.page} />
         </Link>
         <Link to="/goal" className="nb-btn px-4 py-2 text-xs">
-          ⚡ Find your stack
+          Find your stack
         </Link>
       </header>
 
@@ -32,10 +32,10 @@ export default function Changelog() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="font-display text-xs font-black uppercase tracking-[0.3em]"
+          className="font-display text-xs font-semibold uppercase tracking-[0.3em]"
           style={{ color: 'var(--lime)' }}
         >
-          ▸ What's new
+          What's new
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 18 }}
@@ -44,7 +44,7 @@ export default function Changelog() {
         >
           Shipping,<br />almost every day
         </motion.h1>
-        <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-400">
+        <p className="mt-4 max-w-xl text-sm leading-relaxed text-zinc-400">
           {BRAND} is a solo-built beta that keeps improving. This is a plain-language
           record of what changed and when — no jargon, no commit hashes.
         </p>
@@ -62,13 +62,13 @@ export default function Changelog() {
             >
               <time
                 dateTime={entry.date}
-                className="font-display text-[11px] font-black uppercase tracking-[0.16em]"
+                className="font-display text-[11px] font-semibold"
                 style={{ color: 'var(--lime)' }}
               >
                 {entry.date}
               </time>
               <h2 className="arcade-heading mt-2 text-lg">{entry.title}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-slate-300">{entry.body}</p>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-300">{entry.body}</p>
             </motion.article>
           ))}
         </div>
@@ -80,9 +80,9 @@ export default function Changelog() {
           className="mt-14 text-center"
         >
           <Link to="/goal" className="nb-btn inline-block px-8 py-4 text-base">
-            🚀 Take the 60-second quiz
+            Take the 60-second quiz
           </Link>
-          <p className="mt-4 text-xs text-slate-500">
+          <p className="mt-4 text-xs text-zinc-500">
             <Link to="/about" className="underline underline-offset-2 hover:text-white">our story</Link>
             {' · '}
             <Link to="/" className="underline underline-offset-2 hover:text-white">back home</Link>

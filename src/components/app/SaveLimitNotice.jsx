@@ -36,11 +36,11 @@ export default function SaveLimitNotice() {
       style={{ transform: 'translateX(-50%)' }}
     >
       <div className="flex items-start justify-between gap-3">
-        <p className="text-sm leading-relaxed text-slate-200">
+        <p className="text-sm leading-relaxed text-zinc-200">
           <strong className="text-white">Your Student plan saves up to {limit} tools.</strong>{' '}
           Remove one to save this, or upgrade to Pro for unlimited saved tools.
         </p>
-        <button type="button" onClick={() => setLimit(null)} aria-label="Dismiss" className="-mt-1 text-slate-400 hover:text-white">✕</button>
+        <button type="button" onClick={() => setLimit(null)} aria-label="Dismiss" className="-mt-1 text-zinc-400 hover:text-white">✕</button>
       </div>
       <div className="mt-3 flex flex-wrap gap-2">
         <Link

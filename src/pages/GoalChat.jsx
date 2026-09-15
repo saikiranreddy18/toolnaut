@@ -234,7 +234,7 @@ export default function GoalChat() {
         <button
           onClick={() => navigate('/')}
           aria-label="Leave and go back to the home page"
-          className="absolute right-0 top-1/2 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full text-slate-400 hover:bg-white/10 hover:text-white"
+          className="absolute right-0 top-1/2 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full text-zinc-400 hover:bg-white/10 hover:text-white"
         >
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
             <path d="M6 6l12 12M18 6L6 18" />
@@ -284,9 +284,9 @@ export default function GoalChat() {
                   each a single stroke. The old 37px/700 with a wrapping second
                   line read as body copy standing up straight — this is the page's
                   entire pitch and it carries the weight of one. */}
-              <h1 className="mt-4 max-w-3xl font-display font-black tracking-[-0.03em] text-white text-[clamp(1.8rem,4.6vw,2.7rem)] leading-[1.1]">
+              <h1 className="mt-4 max-w-3xl font-display font-semibold tracking-[-0.03em] text-white text-[clamp(1.8rem,4.6vw,2.7rem)] leading-[1.1]">
                 Tell Naut what you do.
-                <span className="block text-slate-500">
+                <span className="block text-zinc-500">
                   It builds it, plans it, grows it.
                 </span>
               </h1>
@@ -330,12 +330,12 @@ export default function GoalChat() {
                   className={
                     m.from === 'user'
                       ? 'max-w-[85%] rounded-2xl rounded-br-md border border-white/10 px-4 py-2.5 text-sm font-bold text-black'
-                      : 'max-w-[88%] rounded-2xl rounded-bl-md border-2 border-white/10 bg-white/[0.05] px-4 py-2.5 text-sm leading-relaxed text-slate-200'
+                      : 'max-w-[88%] rounded-2xl rounded-bl-md border-2 border-white/10 bg-white/[0.05] px-4 py-2.5 text-sm leading-relaxed text-zinc-200'
                   }
                   style={m.from === 'user' ? { background: 'var(--lime)', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' } : undefined}
                 >
                   {m.text}
-                  {m.hint && <span className="mt-1.5 block text-xs text-slate-400">{m.hint}</span>}
+                  {m.hint && <span className="mt-1.5 block text-xs text-zinc-400">{m.hint}</span>}
                 </div>
               </motion.div>
             ))}
@@ -355,7 +355,7 @@ export default function GoalChat() {
                     {[0, 1, 2].map((d) => (
                       <motion.span
                         key={d}
-                        className="h-1.5 w-1.5 rounded-full bg-slate-400"
+                        className="h-1.5 w-1.5 rounded-full bg-zinc-400"
                         animate={{ opacity: [0.3, 1, 0.3] }}
                         transition={{ duration: 1.1, repeat: Infinity, delay: d * 0.18 }}
                       />
@@ -374,8 +374,8 @@ export default function GoalChat() {
         {started && !done && !typing && question && (
           <div className="shrink-0 px-4 py-3" style={{ borderTop: '1px solid #23232f' }}>
             {unmatched && (
-              <p className="mb-2 font-display text-[10px] font-black uppercase tracking-[0.18em]" style={{ color: 'var(--hot-pink)' }}>
-                ▸ pick the closest one
+              <p className="mb-2 font-display text-[10px] font-semibold" style={{ color: 'var(--hot-pink)' }}>
+                pick the closest one
               </p>
             )}
             <div className="flex flex-wrap gap-2">
@@ -384,7 +384,7 @@ export default function GoalChat() {
                   key={opt.key}
                   data-testid="goal-chip"
                   onClick={() => answer(opt.key)}
-                  className="cursor-pointer rounded-full border border-[#2b2b3a] bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold text-slate-200 transition-colors hover:border-[var(--lime)] hover:bg-[var(--lime)] hover:text-black"
+                  className="cursor-pointer rounded-full border border-[#2b2b3a] bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold text-zinc-200 transition-colors hover:border-[var(--lime)] hover:bg-[var(--lime)] hover:text-black"
                   style={{ boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
                 >
                   {opt.label}
@@ -406,7 +406,7 @@ export default function GoalChat() {
               disabled={done}
               autoComplete="off"
               placeholder={done ? 'Charting your stack…' : 'Tell us what you do…'}
-              className="min-h-[44px] w-full rounded-xl border border-[#2b2b3a] bg-[#0a0a10] px-4 text-base text-white placeholder:text-slate-500 focus:border-[var(--lime)] focus:outline-none disabled:opacity-50"
+              className="min-h-[44px] w-full rounded-xl border border-[#2b2b3a] bg-[#0a0a10] px-4 text-base text-white placeholder:text-zinc-500 focus:border-[var(--lime)] focus:outline-none disabled:opacity-50"
             />
             <button
               type="submit"
@@ -424,7 +424,7 @@ export default function GoalChat() {
         </div>
       </div>
 
-      <p className="mx-auto mt-3 max-w-2xl text-center text-xs text-slate-500">
+      <p className="mx-auto mt-3 max-w-2xl text-center text-xs text-zinc-500">
         No account needed. Your answers stay in this browser.
       </p>
     </div>

@@ -42,7 +42,7 @@ export default function AvatarPicker({ onChange }) {
             {s.label}
           </button>
         ))}
-        <span className="ml-auto font-display text-[10px] font-bold uppercase tracking-widest text-slate-500">
+        <span className="ml-auto font-display text-[10px] font-bold text-zinc-500">
           {selected ? AVATARS.find((a) => a.id === selected)?.name : 'None picked'}
         </span>
       </div>
@@ -64,7 +64,7 @@ export default function AvatarPicker({ onChange }) {
               >
                 <Avatar id={a.id} size={52} title="" />
                 <span
-                  className="font-display text-[9px] font-black uppercase tracking-wider"
+                  className="font-display text-[9px] font-semibold"
                   style={{ color: isOn ? 'var(--lime)' : '#6b6690' }}
                 >
                   {a.name}

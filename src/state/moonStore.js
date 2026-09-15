@@ -31,15 +31,15 @@ export const MOONS = [
 export function loadMoon() {
   try {
     const id = localStorage.getItem(KEY)
-    return MOONS.some((m) => m.id === id) ? id : 'full'
+    return MOONS.some((m) => m.id === id) ? id : 'none'
   } catch {
-    return 'full'
+    return 'none'
   }
 }
 
 export function applyMoon(id) {
   const root = document.documentElement
-  root.setAttribute('data-moon', MOONS.some((m) => m.id === id) ? id : 'full')
+  root.setAttribute('data-moon', MOONS.some((m) => m.id === id) ? id : 'none')
 }
 
 export function setMoon(id) {

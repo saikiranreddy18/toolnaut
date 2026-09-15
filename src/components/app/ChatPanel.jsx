@@ -56,7 +56,7 @@ export default function ChatPanel({ personaName, onClose, idPrefix = 'chat' }) {
           ref={closeBtnRef}
           onClick={onClose}
           aria-label="Close assistant"
-          className="press flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 hover:text-white"
+          className="press flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 hover:text-white"
           style={{ boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
         >
           <CloseIcon />
@@ -68,7 +68,7 @@ export default function ChatPanel({ personaName, onClose, idPrefix = 'chat' }) {
           <div
             key={i}
             className={`max-w-[85%] rounded-2xl border border-white/10 px-4 py-2.5 text-sm leading-relaxed ${
- m.role === 'user' ? 'ml-auto text-black' : 'bg-[#14141f] text-slate-200'
+ m.role === 'user' ? 'ml-auto text-black' : 'bg-[#14141f] text-zinc-200'
  }`}
             style={m.role === 'user'
               ? { background: 'var(--lime)', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }
@@ -90,7 +90,7 @@ export default function ChatPanel({ personaName, onClose, idPrefix = 'chat' }) {
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
             placeholder="Ask about your stack..."
-            className="w-full bg-transparent text-base text-white placeholder:text-slate-500 focus:outline-none"
+            className="w-full bg-transparent text-base text-white placeholder:text-zinc-500 focus:outline-none"
           />
           <button
             type="submit"

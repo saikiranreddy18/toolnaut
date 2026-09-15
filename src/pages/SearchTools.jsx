@@ -44,8 +44,8 @@ export default function SearchTools() {
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-10 lg:py-16">
-      <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ SEARCH</p>
-      <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">FIND AN AI TOOL</h1>
+      <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">Search</p>
+      <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">Find an AI tool</h1>
 
       <div className="mt-6">
         <label htmlFor="public-tool-search" className="sr-only">Search tools</label>
@@ -56,7 +56,7 @@ export default function SearchTools() {
           autoFocus
           onChange={(e) => setSearchParams(e.target.value ? { q: e.target.value } : {}, { replace: true })}
           placeholder='Try "video editor", "Anthropic" or "healthcare"...'
-          className="w-full rounded-full px-5 py-3.5 text-base text-white placeholder:text-slate-500 focus:outline-none"
+          className="w-full rounded-full px-5 py-3.5 text-base text-white placeholder:text-zinc-500 focus:outline-none"
           style={{
             background: 'rgba(20,18,31,0.9)',
             border: '2px solid #000',
@@ -67,7 +67,7 @@ export default function SearchTools() {
 
       {!trimmed ? (
         <div className="mt-10">
-          <p className="max-w-xl text-sm leading-relaxed text-slate-400">
+          <p className="max-w-xl text-sm leading-relaxed text-zinc-400">
             Toolnaut tracks {TOOLS.length}+ AI tools across coding, design, writing, data,
             automation and learning — scouted daily, not a static list someone compiled once.
             Search by name, category, or the problem you're trying to solve, or jump straight
@@ -83,8 +83,8 @@ export default function SearchTools() {
         </div>
       ) : results.length === 0 ? (
         <div className="mt-10">
-          <h2 className="arcade-heading section text-xl sm:text-2xl">NO TOOLS MATCH</h2>
-          <p className="mt-3 max-w-md text-sm text-slate-400">
+          <h2 className="arcade-heading section text-xl sm:text-2xl">No tools match</h2>
+          <p className="mt-3 max-w-md text-sm text-zinc-400">
             Nothing in the catalog matches “<span className="font-bold text-white">{trimmed}</span>”. Try a
             broader search, or jump into a category that has tools waiting:
           </p>
@@ -108,7 +108,7 @@ export default function SearchTools() {
                 to={`/s/${encodeStackSlugs([tool.slug])}`}
                 className="glass block rounded-2xl p-5 transition-opacity hover:opacity-90"
               >
-                <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase text-slate-400">
+                <span className="flex items-center gap-1.5 text-[10px] font-bold text-zinc-400">
                   <span
                     className="h-2 w-2 shrink-0 rounded-full"
                     style={{ background: CATEGORY_META[tool.category]?.color }}
@@ -116,9 +116,9 @@ export default function SearchTools() {
                   />
                   <span className="truncate">{tool.sourceCategory}</span>
                 </span>
-                <p className="arcade-heading lime mt-2 text-base">{tool.name.toUpperCase()}</p>
-                <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-slate-300">{tool.blurb}</p>
-                <div className="mt-3 flex items-center gap-2 text-[10px] font-bold uppercase text-slate-500">
+                <p className="arcade-heading mt-2 text-base">{tool.name}</p>
+                <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>
+                <div className="mt-3 flex items-center gap-2 text-[10px] font-bold text-zinc-500">
                   <span className="rounded-full border border-white/20 px-2 py-0.5">{PRICE_LABELS[tool.price]}</span>
                   <span className="rounded-full border border-white/20 px-2 py-0.5">{LEVEL_LABELS[tool.level]}</span>
                 </div>
@@ -126,7 +126,7 @@ export default function SearchTools() {
             ))}
           </div>
           {results.length > RESULT_CAP && (
-            <p className="mt-6 text-xs font-bold uppercase tracking-wider text-slate-500">
+            <p className="mt-6 text-xs font-bold uppercase tracking-wider text-zinc-500">
               Showing {RESULT_CAP} of {results.length} — narrow your search for more specific results.
             </p>
           )}

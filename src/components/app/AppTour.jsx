@@ -222,27 +222,27 @@ export default function AppTour({ open, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-start justify-between gap-3">
-          <p className="font-display text-[10px] font-black uppercase tracking-[0.2em] text-(--lime)">
+          <p className="font-display text-[10px] font-semibold text-(--lime)">
             {i + 1} of {steps.length}
           </p>
           <button
             type="button"
             onClick={() => finish('skip')}
             aria-label="Close the tour"
-            className="-mt-1 text-slate-400 transition-colors hover:text-white"
+            className="-mt-1 text-zinc-400 transition-colors hover:text-white"
           >
             ✕
           </button>
         </div>
 
         <h2 id="tour-title" className="arcade-heading mt-2 text-lg">{step.title}</h2>
-        <p className="mt-2 text-sm leading-relaxed text-slate-300">{step.body}</p>
+        <p className="mt-2 text-sm leading-relaxed text-zinc-300">{step.body}</p>
 
         <div className="mt-4 flex items-center justify-between gap-3">
           <button
             type="button"
             onClick={() => finish('skip')}
-            className="text-xs font-bold text-slate-400 underline underline-offset-2 transition-colors hover:text-white"
+            className="text-xs font-bold text-zinc-400 underline underline-offset-2 transition-colors hover:text-white"
           >
             Skip
           </button>

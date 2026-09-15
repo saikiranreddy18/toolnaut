@@ -24,13 +24,13 @@ function Cell({ cell, emphasis }) {
       <span className={isLive(cell) ? 'text-white' : 'text-zinc-500'}>{cell.text}</span>
       {isLive(cell) ? (
         <span
-          className="ml-2 whitespace-nowrap rounded-full border border-white/10 px-1.5 py-0.5 font-display text-[9px] font-black uppercase"
+          className="ml-2 whitespace-nowrap rounded-full border border-white/10 px-1.5 py-0.5 font-display text-[9px] font-semibold"
           style={{ background: 'var(--lime)', color: '#000' }}
         >
           live
         </span>
       ) : (
-        <span className="ml-2 whitespace-nowrap rounded-full border border-zinc-600 px-1.5 py-0.5 font-display text-[9px] font-black uppercase text-zinc-500">
+        <span className="ml-2 whitespace-nowrap rounded-full border border-zinc-600 px-1.5 py-0.5 font-display text-[9px] font-semibold text-zinc-500">
           planned
         </span>
       )}
@@ -41,7 +41,7 @@ function Cell({ cell, emphasis }) {
 export default function CapabilityMatrix() {
   return (
     <section className="relative mx-auto max-w-5xl px-5 pb-14">
-      <h2 className="arcade-heading section text-xl sm:text-2xl">WHAT EACH TIER GETS</h2>
+      <h2 className="arcade-heading section text-xl sm:text-2xl">What each tier gets</h2>
       <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">
         Discovery is free and stays free — you should not have to pay to find out
         whether the recommendation is any good. A subscription would buy the
@@ -58,7 +58,7 @@ export default function CapabilityMatrix() {
           <table className="w-full min-w-[620px] border-collapse text-left">
             <thead>
               <tr>
-                <th className="px-3 pb-3 font-display text-[11px] font-black uppercase tracking-[0.14em] text-zinc-500">
+                <th className="px-3 pb-3 font-display text-[11px] font-semibold text-zinc-500">
                   Capability
                 </th>
                 {TIERS.map((t) => (
@@ -68,7 +68,7 @@ export default function CapabilityMatrix() {
                     style={{ background: t.id === 'free' ? 'rgba(255, 255, 255,0.05)' : 'transparent' }}
                   >
                     <span className="font-display text-base font-semibold text-white">{t.name}</span>
-                    <span className="ml-2 font-display text-[10px] font-black uppercase tracking-wide text-zinc-500">
+                    <span className="ml-2 font-display text-[10px] font-semibold text-zinc-500">
                       {t.note}
                     </span>
                   </th>

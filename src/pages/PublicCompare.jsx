@@ -50,14 +50,14 @@ export default function PublicCompare() {
 
   return (
     <div className="mx-auto max-w-5xl px-5 xl:max-w-6xl py-8 lg:py-10">
-      <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ COMPARE</p>
+      <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">Compare</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">
-        {tools.length > 0 ? `${tools.length} TOOLS SIDE BY SIDE` : 'NOTHING TO COMPARE'}
+        {tools.length > 0 ? `${tools.length} TOOLS SIDE BY SIDE` : 'Nothing to compare'}
       </h1>
 
       {tools.length === 0 ? (
         <div className="mt-8">
-          <p className="max-w-md text-sm text-slate-400">
+          <p className="max-w-md text-sm text-zinc-400">
             This link doesn't point to any tools we recognize — it may be old, or mistyped.
           </p>
           <Link to="/goal" className="nb-btn dark mt-5 inline-block px-5 py-2.5 text-xs">
@@ -77,19 +77,19 @@ export default function PublicCompare() {
                 const meta = CATEGORY_META[tool.category] || { color: 'var(--cyan)' }
                 return (
                   <div key={tool.slug} className="sticker flex flex-col p-4">
-                    <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase text-slate-400">
+                    <span className="flex items-center gap-1.5 text-[10px] font-bold text-zinc-400">
                       <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
                       <span className="truncate">{tool.sourceCategory}</span>
                     </span>
-                    <p className="arcade-heading lime compact mt-2 text-base">{tool.name.toUpperCase()}</p>
-                    <p className="mt-2 line-clamp-3 flex-1 text-xs leading-relaxed text-slate-300">{tool.blurb}</p>
+                    <p className="arcade-heading compact mt-2 text-base">{tool.name}</p>
+                    <p className="mt-2 line-clamp-3 flex-1 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>
                   </div>
                 )
               })}
 
               {ROWS.map((row) => (
                 <Fragment key={row.label}>
-                  <div className="flex items-center px-3 py-3 text-xs font-bold uppercase tracking-wider text-slate-500">
+                  <div className="flex items-center px-3 py-3 text-xs font-bold uppercase tracking-wider text-zinc-500">
                     {row.label}
                   </div>
                   {tools.map((tool) => (
@@ -111,17 +111,17 @@ export default function PublicCompare() {
               const meta = CATEGORY_META[tool.category] || { color: 'var(--cyan)' }
               return (
                 <div key={tool.slug} className="sticker p-4">
-                  <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase text-slate-400">
+                  <span className="flex items-center gap-1.5 text-[10px] font-bold text-zinc-400">
                     <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
                     <span className="truncate">{tool.sourceCategory}</span>
                   </span>
-                  <p className="arcade-heading lime compact mt-2 text-base">{tool.name.toUpperCase()}</p>
-                  <p className="mt-2 text-xs leading-relaxed text-slate-300">{tool.blurb}</p>
+                  <p className="arcade-heading compact mt-2 text-base">{tool.name}</p>
+                  <p className="mt-2 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>
                   <dl className="mt-3 space-y-1.5">
                     {ROWS.map((row) => (
                       <div key={row.label} className="flex justify-between gap-3 text-xs">
-                        <dt className="font-bold uppercase tracking-wider text-slate-500">{row.label}</dt>
-                        <dd className="text-right text-slate-200">{row.get(tool)}</dd>
+                        <dt className="font-bold text-zinc-500">{row.label}</dt>
+                        <dd className="text-right text-zinc-200">{row.get(tool)}</dd>
                       </div>
                     ))}
                   </dl>

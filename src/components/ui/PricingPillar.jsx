@@ -61,13 +61,13 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
         )}
         <div className="flex items-start justify-between">
           <div>
-            <p className="font-display text-[11px] font-black uppercase tracking-[0.3em] text-(--lime)">{plan.tier}</p>
+            <p className="font-display text-[11px] font-semibold text-(--lime)">{plan.tier}</p>
             <h3 className="mt-1 font-display text-2xl font-semibold text-white">{plan.name}</h3>
           </div>
           <PlanIcon type={plan.icon} color={plan.accent} />
         </div>
         <p className="mt-3 flex items-baseline gap-1">
-          <span className="font-display text-5xl font-black text-white" style={{ textShadow: 'none' }}>
+          <span className="font-display text-5xl font-semibold text-white" style={{ textShadow: 'none' }}>
             {/* A regionally priced plan ignores the currency toggle: it has one
                 real price per country, and letting the toggle quote the other
                 one would show a number the checkout will not charge. */}

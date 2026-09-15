@@ -44,11 +44,11 @@ import { loadAvatar } from '../../state/avatarStore'
 function StatTile({ label, value, sub, to }) {
   const inner = (
     <>
-      <p className="font-display text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">
+      <p className="font-display text-[10px] font-semibold text-zinc-400">
         {label}
       </p>
       <p className="arcade-heading mt-1 text-3xl" style={{ color: 'var(--lime)' }}>{value}</p>
-      {sub && <p className="mt-1 text-[11px] font-bold uppercase tracking-wide text-slate-500">{sub}</p>}
+      {sub && <p className="mt-1 text-[11px] font-bold text-zinc-500">{sub}</p>}
     </>
   )
   if (!to) return <div className="sticker p-4">{inner}</div>
@@ -143,16 +143,16 @@ export default function Settings() {
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-8 lg:py-10 xl:max-w-6xl">
-      <p className="font-display text-xs font-black uppercase tracking-[0.2em]" style={{ color: 'var(--lime)' }}>▸ ME</p>
-      <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">YOUR CONTROL CENTER</h1>
-      <p className="mt-3 max-w-lg text-sm leading-relaxed text-slate-300">
+      <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">ME</p>
+      <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">Your control center</h1>
+      <p className="mt-3 max-w-lg text-sm leading-relaxed text-zinc-300">
         Everything Toolnaut knows about you, and every dial that changes what it
         recommends.
       </p>
 
       {/* ── WHO YOU ARE ─────────────────────────────────────────────── */}
       <section className="mt-8">
-        <h2 className="arcade-heading section text-xl sm:text-2xl">WHO YOU ARE</h2>
+        <h2 className="arcade-heading section text-xl sm:text-2xl">Who you are</h2>
         {persona ? (
           <div className="sticker mt-4 flex flex-wrap items-start gap-5 p-5">
             <div className="shrink-0">
@@ -160,7 +160,7 @@ export default function Settings() {
                 <Avatar id={avatarId} size={84} />
               ) : (
                 <div
-                  className="grid h-[84px] w-[84px] place-items-center rounded-full font-display text-3xl font-black text-black"
+                  className="grid h-[84px] w-[84px] place-items-center rounded-full font-display text-3xl font-semibold text-black"
                   style={{ background: 'var(--lime)', border: '5px solid #12131b' }}
                   aria-hidden="true"
                 >
@@ -170,10 +170,10 @@ export default function Settings() {
             </div>
             <div className="min-w-0 flex-1">
             <span className="arcade-chip on" style={{ fontSize: 10 }}>Persona</span>
-            <p className="arcade-heading lime mt-3 text-2xl">{persona.name.toUpperCase()}</p>
+            <p className="arcade-heading mt-3 text-2xl">{persona.name}</p>
             <p className="mt-2 font-display text-sm font-bold text-white">{persona.tagline}</p>
             {persona.career && (
-              <p className="mt-2 text-sm text-slate-400">
+              <p className="mt-2 text-sm text-zinc-400">
                 {persona.career} · home category{' '}
                 <Link
                   to={`/app/discover?cat=${persona.category.id}`}
@@ -184,7 +184,7 @@ export default function Settings() {
                 </Link>
               </p>
             )}
-            <p className="mt-4 text-xs leading-relaxed text-slate-400">
+            <p className="mt-4 text-xs leading-relaxed text-zinc-400">
               This persona is what ranks all your tools, picks your starter stack
               and writes your 4-week path. Change the answers below and all three
               change with it.
@@ -193,13 +193,13 @@ export default function Settings() {
           </div>
         ) : (
           <div className="sticker cyan mt-4 p-5">
-            <p className="arcade-heading lime compact text-lg">◆ NO PERSONA YET</p>
-            <p className="mt-2 text-sm leading-relaxed text-slate-300">
+            <p className="arcade-heading compact text-lg">No persona yet</p>
+            <p className="mt-2 text-sm leading-relaxed text-zinc-300">
               Without one, tools are listed but not scored, and there is no
               roadmap to follow. Nine questions fixes that.
             </p>
             <Link to="/goal" className="nb-btn cyan mt-4 inline-block min-h-11 px-4 py-2.5 text-xs">
-              TAKE THE 60-SECOND QUIZ
+              Take the 60-second quiz
             </Link>
           </div>
         )}
@@ -214,8 +214,8 @@ export default function Settings() {
       {/* Explorer avatar — the profile had no face at all, so the sidebar and
           this page both fell back to a name string. */}
       <section className="mt-10 xl:mt-0 xl:mb-8 xl:break-inside-avoid">
-        <h2 className="arcade-heading section text-xl sm:text-2xl">YOUR EXPLORER</h2>
-        <p className="mt-2 max-w-lg text-sm text-slate-400">
+        <h2 className="arcade-heading section text-xl sm:text-2xl">Your explorer</h2>
+        <p className="mt-2 max-w-lg text-sm text-zinc-400">
           Sixteen of the crew. Your pick shows here and in the sidebar — tap the
           one you have chosen again to go back to your initial.
         </p>
@@ -225,8 +225,8 @@ export default function Settings() {
       </section>
 
       <section className="mt-10 xl:mt-0 xl:mb-8 xl:break-inside-avoid">
-        <h2 className="arcade-heading section text-xl sm:text-2xl">WHAT YOU HAVE DONE</h2>
-        <p className="mt-2 text-sm text-slate-400">
+        <h2 className="arcade-heading section text-xl sm:text-2xl">What you have done</h2>
+        <p className="mt-2 text-sm text-zinc-400">
           Counted from this browser. Tap any tile to go where it changes.
         </p>
         <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -256,9 +256,9 @@ export default function Settings() {
           </div>
         )}
 
-        <p className="mt-4 text-xs leading-relaxed text-slate-500">
-          Rank <span className="font-black text-slate-300">#{standing.rank.toLocaleString()}</span> ·
-          score <span className="font-black text-slate-300">{standing.score.toLocaleString()}</span>.
+        <p className="mt-4 text-xs leading-relaxed text-zinc-500">
+          Rank <span className="font-semibold text-zinc-300">#{standing.rank.toLocaleString()}</span> ·
+          score <span className="font-semibold text-zinc-300">{standing.score.toLocaleString()}</span>.
           Your score is computed from the numbers above.
           {SEEDED && ' The explorers you are ranked against are placeholders until accounts land.'}{' '}
           <Link to="/app/community" className="font-bold underline underline-offset-2" style={{ color: 'var(--lime)' }}>
@@ -270,8 +270,8 @@ export default function Settings() {
       {/* ── WHAT TOOLNAUT KNOWS ─────────────────────────────────────── */}
       {persona && (
         <section className="mt-10 xl:mt-0 xl:mb-8 xl:break-inside-avoid">
-          <h2 className="arcade-heading section text-xl sm:text-2xl">WHAT TOOLNAUT KNOWS</h2>
-          <p className="mt-2 max-w-lg text-sm text-slate-400">
+          <h2 className="arcade-heading section text-xl sm:text-2xl">What Toolnaut knows</h2>
+          <p className="mt-2 max-w-lg text-sm text-zinc-400">
             Your nine answers. Each one feeds a specific part of the product —
             this is the whole input, there is nothing hidden behind it.
           </p>
@@ -285,8 +285,8 @@ export default function Settings() {
                       ("Break it to learn it", "Too many tools to pick from")
                       overflowed the card instead of wrapping, and the answer
                       was clipped at the edge in the two-column layout. */}
-                  <dt className="min-w-0 flex-1 text-xs text-slate-400">{question.text}</dt>
-                  <dd className="min-w-0 max-w-[60%] text-right font-display text-xs font-black uppercase tracking-wide" style={{ color: option ? 'var(--lime)' : '#6b6690' }}>
+                  <dt className="min-w-0 flex-1 text-xs text-zinc-400">{question.text}</dt>
+                  <dd className="min-w-0 max-w-[60%] text-right text-sm font-medium" style={{ color: option ? 'var(--lime)' : '#6b6690' }}>
                     {option ? option.label : 'Not answered'}
                   </dd>
                 </div>
@@ -294,9 +294,9 @@ export default function Settings() {
             })}
           </dl>
           <button onClick={handleRetake} className="nb-btn cyan mt-4 min-h-11 px-4 py-2.5 text-xs">
-            UPDATE MY ANSWERS
+            Update my answers
           </button>
-          <p className="mt-2 text-xs text-slate-500">
+          <p className="mt-2 text-xs text-zinc-500">
             Retaking rebuilds your persona, starter stack and roadmap. Saved tools
             and tools you added yourself are kept; roadmap ticks are cleared,
             because the new path has different steps.
@@ -306,14 +306,14 @@ export default function Settings() {
 
       {/* ── SKY SETTINGS ────────────────────────────────────────────── */}
       <section className="mt-10 xl:mt-0 xl:mb-8 xl:break-inside-avoid">
-        <h2 className="arcade-heading section text-xl sm:text-2xl">SKY SETTINGS</h2>
-        <p className="mt-2 text-sm text-slate-400">
+        <h2 className="arcade-heading section text-xl sm:text-2xl">Sky settings</h2>
+        <p className="mt-2 text-sm text-zinc-400">
           Applies everywhere, saved to this browser.
         </p>
 
         <div className="sticker pink mt-4 p-5">
           <fieldset>
-            <legend className="font-display text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">
+            <legend className="font-display text-[10px] font-semibold text-zinc-400">
               Play mode
             </legend>
             <div className="mt-3 flex flex-wrap gap-2">
@@ -336,7 +336,7 @@ export default function Settings() {
           </fieldset>
 
           <fieldset className="mt-5">
-            <legend className="font-display text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">
+            <legend className="font-display text-[10px] font-semibold text-zinc-400">
               Moonlight
             </legend>
             <div className="mt-3 flex flex-wrap gap-2">
@@ -360,7 +360,7 @@ export default function Settings() {
               the harness never mounts a canvas, so the setting is honest about
               being a desktop thing rather than silently doing nothing. */}
           <fieldset className="mt-5">
-            <legend className="font-display text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">
+            <legend className="font-display text-[10px] font-semibold text-zinc-400">
               Cursor effect — move your mouse to preview
             </legend>
             <div className="mt-3 flex flex-wrap gap-2">
@@ -376,14 +376,14 @@ export default function Settings() {
                 </button>
               ))}
             </div>
-            <p className="mt-2 text-[11px] text-slate-500">
+            <p className="mt-2 text-[11px] text-zinc-500">
               Shown on devices with a mouse or trackpad. Turned off automatically
               when your system asks for reduced motion.
             </p>
           </fieldset>
 
           <fieldset className="mt-5">
-            <legend className="font-display text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">
+            <legend className="font-display text-[10px] font-semibold text-zinc-400">
               Effect size
             </legend>
             <div className="mt-3 flex flex-wrap gap-2">
@@ -408,10 +408,10 @@ export default function Settings() {
           question, and someone hunting for "how do I stop the emails" should
           find it before the delete-my-data controls. */}
       <section className="mt-10 xl:mt-0 xl:mb-8 xl:break-inside-avoid">
-        <h2 className="arcade-heading section text-xl sm:text-2xl">NOTIFICATIONS</h2>
+        <h2 className="arcade-heading section text-xl sm:text-2xl">Notifications</h2>
         <div className="sticker mt-4 p-5">
           {!session ? (
-            <p className="text-sm leading-relaxed text-slate-300">
+            <p className="text-sm leading-relaxed text-zinc-300">
               Sign in to turn on tool alerts — we send them to your account
               email, so there is nowhere to send them until there is an account.
             </p>
@@ -423,13 +423,13 @@ export default function Settings() {
 
       {/* ── ACCOUNT ─────────────────────────────────────────────────── */}
       <section className="mt-10 xl:mt-0 xl:mb-8 xl:break-inside-avoid">
-        <h2 className="arcade-heading section text-xl sm:text-2xl">ACCOUNT</h2>
+        <h2 className="arcade-heading section text-xl sm:text-2xl">Account</h2>
         {/* /app is open to guests, so this card has to answer "am I signed in?"
             rather than assume it. The guest copy names the real trade-off —
             one browser, no server copy — instead of nagging. */}
         {!session ? (
           <div className="sticker mt-4 p-5">
-            <p className="text-sm leading-relaxed text-slate-300">
+            <p className="text-sm leading-relaxed text-zinc-300">
               You are browsing as a guest. Everything you build — your stack,
               shortlist, roadmap progress and streak — is saved to this browser
               and nowhere else.
@@ -438,12 +438,12 @@ export default function Settings() {
               SIGN IN →
             </Link>
             {syncOn === true ? (
-              <p className="mt-3 text-xs leading-relaxed text-slate-500">
+              <p className="mt-3 text-xs leading-relaxed text-zinc-500">
                 Signing in saves your stack, shortlist and progress to your
                 account, so it's there the next time you sign in on any device.
               </p>
             ) : syncOn === false ? (
-              <p className="mt-3 text-xs leading-relaxed text-slate-500">
+              <p className="mt-3 text-xs leading-relaxed text-zinc-500">
                 Signing in does not sync anything yet — there is no server copy of
                 your stack. It reserves your account for when there is.
               </p>
@@ -453,20 +453,20 @@ export default function Settings() {
         <div className="sticker mt-4 p-5">
           <dl className="divide-y divide-white/10">
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 py-2.5 first:pt-0">
-              <dt className="text-xs text-slate-400">Signed in as</dt>
-              <dd className="font-display text-xs font-black uppercase tracking-wide text-white">
+              <dt className="text-xs text-zinc-400">Signed in as</dt>
+              <dd className="text-sm font-medium text-white">
                 {session?.user.name}
               </dd>
             </div>
             {session?.user.email && (
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 py-2.5">
-                <dt className="text-xs text-slate-400">Email</dt>
+                <dt className="text-xs text-zinc-400">Email</dt>
                 <dd className="text-xs font-bold text-white">{session.user.email}</dd>
               </div>
             )}
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 py-2.5">
-              <dt className="text-xs text-slate-400">Method</dt>
-              <dd className="font-display text-xs font-black uppercase tracking-wide text-white">
+              <dt className="text-xs text-zinc-400">Method</dt>
+              <dd className="text-sm font-medium text-white">
                 {session?.user.provider}
                 {session?.simulated && ' · simulated (dev preview)'}
               </dd>
@@ -476,12 +476,12 @@ export default function Settings() {
                 to the first person who actually pays. */}
           </dl>
           {syncOn === true ? (
-            <p className="mt-4 text-xs leading-relaxed text-slate-500">
+            <p className="mt-4 text-xs leading-relaxed text-zinc-500">
               Backed up to your account — signing in on another device brings
               your stack, shortlist and progress with it.
             </p>
           ) : syncOn === false ? (
-            <p className="mt-4 text-xs leading-relaxed text-slate-500">
+            <p className="mt-4 text-xs leading-relaxed text-zinc-500">
               Your stack, shortlist and progress live in this browser only — there
               is no server copy yet, so clearing site data clears them.
             </p>
@@ -495,7 +495,7 @@ export default function Settings() {
           nothing to bill and the ACCOUNT card already explains their state). */}
       {session && (
         <section className="mt-10 xl:mt-0 xl:mb-8 xl:break-inside-avoid">
-          <h2 className="arcade-heading section text-xl sm:text-2xl">BILLING</h2>
+          <h2 className="arcade-heading section text-xl sm:text-2xl">Billing</h2>
           <BillingCard session={session} />
         </section>
       )}

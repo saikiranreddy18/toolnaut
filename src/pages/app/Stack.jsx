@@ -138,18 +138,18 @@ export default function Stack() {
     const picks = recognisableStarters(TOOLS, 3)
     // This screen gates on PERSONA, but it was claiming the STACK was empty —
     // two different things. Add tools as a guest, skip the quiz, and the page
-    // said "YOUR STACK IS EMPTY" above the tools you had just added. Worse
+    // said "Your stack is empty" above the tools you had just added. Worse
     // after guest-import, where someone brings a stack to a new account and is
     // told they have nothing. Say what is actually missing.
     const started = addedSlugs.length > 0
 
     return (
       <div className="mx-auto max-w-4xl px-5 xl:max-w-6xl py-6 lg:py-10">
-        <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ STACK</p>
+        <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">Stack</p>
         <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">
-          {started ? <>{addedSlugs.length} TOOL{addedSlugs.length === 1 ? '' : 'S'},<br />NO PROFILE YET</> : <>YOUR STACK<br />IS EMPTY</>}
+          {started ? <>{addedSlugs.length} tool{addedSlugs.length === 1 ? '' : 's'},<br />no profile yet</> : <>Your stack<br />is empty</>}
         </h1>
-        <p className="mt-4 max-w-lg text-sm leading-relaxed text-slate-300">
+        <p className="mt-4 max-w-lg text-sm leading-relaxed text-zinc-300">
           {started ? (
             <>
               Your tools are saved. What is missing is the profile that ranks
@@ -167,7 +167,7 @@ export default function Stack() {
 
         {started && (
           <div className="sticker mt-6 p-4" style={{ transform: 'rotate(0)' }}>
-            <p className="font-display text-[10px] font-black uppercase tracking-widest text-slate-400">In your stack</p>
+            <p className="font-display text-[10px] font-semibold text-zinc-400">In your stack</p>
             <p className="mt-2 text-sm font-bold text-white">
               {addedSlugs.map((s) => getTool(s)?.name).filter(Boolean).join(' · ')}
             </p>
@@ -175,20 +175,20 @@ export default function Stack() {
         )}
 
         <div className="mt-6 flex flex-wrap items-center gap-3">
-          <Link to="/goal" className="nb-btn px-6 py-3 text-sm">⚡ BUILD MY STACK — 60 SECONDS</Link>
-          <Link to="/app/discover" className="nb-btn dark px-5 py-3 text-sm">BROWSE ALL TOOLS →</Link>
+          <Link to="/goal" className="nb-btn px-6 py-3 text-sm">Build my stack — 60 seconds</Link>
+          <Link to="/app/discover" className="nb-btn dark px-5 py-3 text-sm">Browse all tools →</Link>
         </div>
 
         <div className="sticker mt-8 p-5" style={{ transform: 'rotate(0)' }}>
-          <span className="tape-label text-xs">◆ what the quiz unlocks</span>
+          <span className="tape-label text-xs">what the quiz unlocks</span>
           <ul className="mt-4 space-y-2.5">
             {[
               ['A starter kit', 'three tools picked for your role, not a generic top-ten'],
               ['A match score', `every one of the ${TOOLS.length} tools ranked against how you work`],
               ['A 4-week path', 'a roadmap through the tools you end up with'],
             ].map(([title, body]) => (
-              <li key={title} className="flex gap-2.5 text-sm leading-relaxed text-slate-300">
-                <span className="mt-0.5 shrink-0 font-black" style={{ color: 'var(--lime)' }} aria-hidden="true">◆</span>
+              <li key={title} className="flex gap-2.5 text-sm leading-relaxed text-zinc-300">
+                <span className="mt-0.5 shrink-0 font-semibold" style={{ color: 'var(--lime)' }} aria-hidden="true">◆</span>
                 <span><span className="font-bold text-white">{title}</span> — {body}</span>
               </li>
             ))}
@@ -198,8 +198,8 @@ export default function Stack() {
         {picks.length > 0 && (
           <div className="mt-10">
             <div className="mb-4 flex flex-wrap items-center gap-3">
-              <span className="tape-label text-xs">⚡ start with a name you know</span>
-              <span className="font-display text-xs font-bold uppercase tracking-widest text-slate-500">
+              <span className="tape-label text-xs">start with a name you know</span>
+              <span className="font-display text-xs font-bold uppercase tracking-widest text-zinc-500">
                 add now — these carry into your stack
               </span>
             </div>
@@ -237,28 +237,28 @@ export default function Stack() {
 
   // Persona → arcade level nametag (mirrors QuizResult)
   const experienceLevels = {
-    beginner: 'COSMIC ROOKIE',
-    dabbler: 'STAR CADET',
-    regular: 'GALAXY EXPLORER',
-    builder: 'STAR CAPTAIN',
-    teacher: 'COSMIC LEGEND',
+    beginner: 'Cosmic rookie',
+    dabbler: 'Star cadet',
+    regular: 'Galaxy explorer',
+    builder: 'Star captain',
+    teacher: 'Cosmic legend',
   }
-  const level = experienceLevels[quiz.answers?.experience] || 'STAR CADET'
+  const level = experienceLevels[quiz.answers?.experience] || 'Star cadet'
 
   return (
     <div className="relative mx-auto max-w-4xl px-5 py-6 lg:py-10 xl:max-w-6xl">
       <motion.div {...cardIn(0)} className="relative">
-        <p className="font-display text-xs uppercase tracking-[0.2em] font-black capitalize" style={{ color: 'var(--lime)' }}>
-          ▸ {greeting}
+        <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">
+          {greeting}
         </p>
 
         <div className="mt-3 flex items-start justify-between gap-3">
           <div className="flex-1">
             <div className="level-badge inline-flex items-center gap-2 px-3 py-1.5">
               <span className="text-sm">⭐</span>
-              <span className="font-display text-xs font-black tracking-wider">{level}</span>
+              <span className="font-display text-xs font-semibold tracking-wider">{level}</span>
             </div>
-            <h1 className="arcade-heading mt-4 text-4xl sm:text-5xl">{persona.name.toUpperCase()}</h1>
+            <h1 className="arcade-heading mt-4 text-4xl sm:text-5xl">{persona.name}</h1>
             <p className="mt-3 font-display text-sm font-bold text-white">{persona.tagline}</p>
           </div>
           <button
@@ -272,10 +272,10 @@ export default function Stack() {
         {/* Day streak — 7 dots M T W T F S S */}
         <div className="mt-6 sticker p-4">
           <div className="mb-3 flex items-center justify-between">
-            <h2 className="font-display text-xs font-black uppercase tracking-widest text-white">
+            <h2 className="font-display text-xs font-semibold uppercase tracking-widest text-white">
               🔥 {streak}-day streak
             </h2>
-            <span className="font-display text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--lime)' }}>
+            <span className="font-display text-[10px] font-bold" style={{ color: 'var(--lime)' }}>
               keep it lit
             </span>
           </div>
@@ -290,7 +290,7 @@ export default function Stack() {
               </div>
             ))}
           </div>
-          <p className="mt-2 text-[10px] font-bold uppercase tracking-wider text-slate-500">
+          <p className="mt-2 text-[10px] font-bold text-zinc-500">
             {dots.filter((d) => d.visited).length} of 7 days this week
           </p>
         </div>
@@ -312,8 +312,8 @@ export default function Stack() {
           read as two unrelated features rather than one stack. */}
       <section className="relative mt-10">
         <div className="mb-5 flex flex-wrap items-center gap-3">
-          <h2 className="tape-label text-xs">⚡ your kit</h2>
-          <span className="font-display text-xs font-bold uppercase tracking-widest text-slate-500">
+          <h2 className="tape-label text-xs">your kit</h2>
+          <span className="font-display text-xs font-bold uppercase tracking-widest text-zinc-500">
             {allStackTools.length} tool{allStackTools.length === 1 ? '' : 's'} locked in
           </span>
           {/* What the stack costs, as counts: see components/app/StackCost.jsx. */}
@@ -327,14 +327,14 @@ export default function Stack() {
               <motion.article key={tool.name} {...cardIn(2 + Math.min(i, 6))} className={`sticker ${stickerColor} relative flex flex-col p-5`}>
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <h3 className="arcade-heading lime compact text-base sm:text-lg">
+                    <h3 className="arcade-heading compact text-base sm:text-lg">
                       {tool.slug ? (
                         <Link to={`/app/tools/${tool.slug}`} className="after:absolute after:inset-0 after:content-['']">
-                          {tool.name.toUpperCase()}
+                          {tool.name}
                         </Link>
-                      ) : tool.name.toUpperCase()}
+                      ) : tool.name}
                     </h3>
-                    <p className="mt-2 text-xs leading-relaxed text-slate-300">{tool.blurb}</p>
+                    <p className="mt-2 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>
                   </div>
                   <div className="shrink-0 text-center">
                     <ProgressRing value={statusIdx / (STATUSES.length - 1)} />
@@ -349,11 +349,11 @@ export default function Stack() {
                     {STATUSES[statusIdx]}
                   </button>
                   {tool.starter ? (
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">From your persona</span>
+                    <span className="text-[10px] font-bold text-zinc-500">From your persona</span>
                   ) : (
                     <button
                       onClick={() => setAddedSlugs(removeFromStack(tool.slug))}
-                      className="press min-h-11 px-2 font-display text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-[var(--hot-pink)]"
+                      className="press min-h-11 px-2 font-display text-[10px] font-semibold text-zinc-500 hover:text-[var(--hot-pink)]"
                     >
                       Remove
                     </button>
@@ -389,20 +389,20 @@ export default function Stack() {
             </span>
           </div>
           <div className="mt-5">
-            <h2 className="arcade-heading lime text-2xl">{daily.name.toUpperCase()}</h2>
+            <h2 className="arcade-heading text-2xl">{daily.name}</h2>
             {dailyReason && (
-              <p className="mt-1.5 text-[11px] font-bold uppercase tracking-wide" style={{ color: 'var(--lime)' }}>
-                ◆ {dailyReason} · not in your stack yet
+              <p className="mt-1.5 text-[11px] font-bold" style={{ color: 'var(--lime)' }}>
+                {dailyReason} · not in your stack yet
               </p>
             )}
-            <p className="mt-2 text-sm leading-relaxed text-slate-300">{daily.blurb}</p>
+            <p className="mt-2 text-sm leading-relaxed text-zinc-300">{daily.blurb}</p>
           </div>
           <div className="mt-5 flex items-center gap-3">
             <button
               onClick={() => { haptic.select(); setAddedSlugs(addToStack(daily.slug)) }}
               className="nb-btn min-h-11 flex-1 py-3 text-sm"
             >
-              ⚡ grab it
+              grab it
             </button>
             <Link
               to={`/app/tools/${daily.slug}`}
@@ -416,8 +416,8 @@ export default function Stack() {
 
       {/* Next up — the one place that says what to do after this screen */}
       <section className="sticker cyan mt-8 p-5">
-        <h2 className="arcade-heading lime compact text-lg">◆ NEXT UP</h2>
-        <ul className="mt-3 space-y-2.5 text-sm text-slate-300">
+        <h2 className="arcade-heading compact text-lg">Next up</h2>
+        <ul className="mt-3 space-y-2.5 text-sm text-zinc-300">
           {addedTools.length === 0 && (
             <li>
               <Link to="/app/discover" className="font-bold underline underline-offset-2" style={{ color: 'var(--lime)' }}>

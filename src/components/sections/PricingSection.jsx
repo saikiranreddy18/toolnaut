@@ -13,7 +13,7 @@ function Cell({ value }) {
   if (value === 'planned') {
     return (
       <span
-        className="whitespace-nowrap rounded-full border border-zinc-600 px-1.5 py-0.5 font-display text-[9px] font-black uppercase text-zinc-500"
+        className="whitespace-nowrap rounded-full border border-zinc-600 px-1.5 py-0.5 font-display text-[9px] font-semibold text-zinc-500"
         aria-label="planned, not yet built"
       >
         planned
@@ -46,7 +46,7 @@ export default function PricingSection({ titleAs = 'h2' }) {
   return (
     <SectionShell id="pricing" eyebrow="Pricing" titleAs={titleAs} title="Start solo. Scale with your team.">
       <div className="mb-6 flex items-center justify-center gap-2">
-        <span className="font-display text-[10px] font-black uppercase tracking-[0.18em] text-zinc-500">Prices in</span>
+        <span className="font-display text-[10px] font-semibold text-zinc-500">Prices in</span>
         {[['INR', '₹ INR'], ['USD', '$ USD']].map(([cur, label]) => (
           <button
             key={cur}
@@ -91,7 +91,7 @@ export default function PricingSection({ titleAs = 'h2' }) {
             <div className="sticker mt-8 overflow-x-auto p-2" style={{ transform: 'none' }}>
               <table className="w-full min-w-[560px] text-sm">
                 <thead>
-                  <tr className="border-b-2 border-white/10 text-left font-display font-black uppercase">
+                  <tr className="border-b-2 border-white/10 text-left font-display font-semibold">
                     <th className="p-4 text-zinc-400">Feature</th>
                     {/* Prices from PLANS, in the rupees actually charged. These were
                         typed as "$3 / $8 / $50" and matched nothing checkout takes. */}

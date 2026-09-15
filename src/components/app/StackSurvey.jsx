@@ -81,7 +81,7 @@ export default function StackSurvey({ hasStack }) {
             <h2 id="stack-survey-q" className="arcade-heading compact text-base">
               ONE QUICK QUESTION: WHAT&apos;S MOST LIKELY TO STOP YOU TRYING THESE TOOLS?
             </h2>
-            <button type="button" onClick={dismiss} className="shrink-0 text-xs font-bold text-slate-400 underline underline-offset-2 hover:text-white">
+            <button type="button" onClick={dismiss} className="shrink-0 text-xs font-bold text-zinc-400 underline underline-offset-2 hover:text-white">
               Not now
             </button>
           </div>
@@ -92,7 +92,7 @@ export default function StackSurvey({ hasStack }) {
               </button>
             ))}
           </div>
-          <p className="mt-3 text-[11px] text-slate-500">Anonymous. One tap, asked once.</p>
+          <p className="mt-3 text-[11px] text-zinc-500">Anonymous. One tap, asked once.</p>
         </>
       )}
     </section>

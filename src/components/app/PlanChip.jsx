@@ -48,7 +48,7 @@ export default function PlanChip({ ent, compact = false, className = '' }) {
     return (
       <Link
         to="/app/settings"
-        className={`inline-flex items-center gap-1.5 rounded-full border border-white/10 px-2.5 py-0.5 font-display text-[10px] font-black uppercase tracking-wider text-black ${className}`}
+        className={`inline-flex items-center gap-1.5 rounded-full border border-white/10 px-2.5 py-0.5 font-display text-[10px] font-semibold text-black ${className}`}
         style={{ background: 'var(--cyan)' }}
         title="Your plan and billing"
       >
@@ -63,7 +63,7 @@ export default function PlanChip({ ent, compact = false, className = '' }) {
     return (
       <div className={`flex flex-wrap items-center gap-2 ${className}`}>
         {!compact && (
-          <span className="font-display text-[10px] font-black uppercase tracking-wider text-zinc-300">
+          <span className="font-display text-[10px] font-semibold text-zinc-300">
             Trial · {ent.days ?? 0}d left
           </span>
         )}

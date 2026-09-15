@@ -62,9 +62,9 @@ export default function Community() {
     <div className="mx-auto max-w-5xl px-5 xl:max-w-6xl py-6 lg:py-10">
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1">
-          <p className="font-display text-xs uppercase tracking-[0.2em] font-black" style={{ color: 'var(--lime)' }}>▸ SQUAD</p>
-          <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">THE SIGNAL</h1>
-          <p className="mt-2 text-sm font-medium text-slate-300">
+          <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">Squad</p>
+          <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">The signal</h1>
+          <p className="mt-2 text-sm font-medium text-zinc-300">
             Where explorers compare stacks and answer each other's tool questions.
           </p>
         </div>
@@ -97,9 +97,9 @@ export default function Community() {
           one invented thing on the page was the one thing unlabelled. */}
       {seededCount > 0 && (
         <div className="mt-6 rounded-xl border border-white/10 p-3" style={{ background: 'rgba(212, 212, 216,0.08)' }}>
-          <p className="text-xs leading-relaxed text-slate-300">
+          <p className="text-xs leading-relaxed text-zinc-300">
             <span
-              className="mr-2 inline-block rounded-full border border-white/10 px-2 py-0.5 align-middle font-display text-[9px] font-black uppercase tracking-[0.12em] text-black"
+              className="mr-2 inline-block rounded-full border border-white/10 px-2 py-0.5 align-middle font-display text-[9px] font-semibold text-black"
               style={{ background: 'var(--hot-pink)' }}
             >
               Preview
@@ -137,33 +137,33 @@ export default function Community() {
             >
               <div className="flex items-center gap-2 text-[11px]">
                 <span
-                  className="grid h-6 w-6 place-items-center rounded-full font-display text-xs font-black"
+                  className="grid h-6 w-6 place-items-center rounded-full font-display text-xs font-semibold"
                   style={{ background: arcade.bg, color: arcade.color, border: '2px solid #000' }}
                 >
                   {letter}
                 </span>
-                <span className="font-display text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                <span className="font-display text-[10px] font-bold text-zinc-400">
                   {t.mine ? 'YOU' : t.author} · {timeAgo(t.at)}
                 </span>
                 {t.seed && (
-                  <span className="rounded-full border border-white/20 px-1.5 py-0.5 font-display text-[9px] font-black uppercase tracking-wider text-slate-500">
+                  <span className="rounded-full border border-white/20 px-1.5 py-0.5 font-display text-[9px] font-semibold text-zinc-500">
                     Example
                   </span>
                 )}
               </div>
 
               <Link to={`/app/community/${t.id}`} className="mt-3 block">
-                <h2 className="arcade-heading lime compact text-base sm:text-lg leading-tight">
-                  {t.title.toUpperCase()}
+                <h2 className="arcade-heading compact text-base sm:text-lg leading-tight">
+                  {t.title}
                 </h2>
-                <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-slate-300">{t.body}</p>
+                <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-zinc-300">{t.body}</p>
               </Link>
 
               <div className="mt-3 flex items-center gap-4 text-xs">
                 <button
                   onClick={() => upvote(t.id)}
                   aria-pressed={t.upvoted}
-                  className="press flex min-h-9 cursor-pointer items-center gap-1.5 font-display font-black uppercase tracking-wider"
+                  className="press flex min-h-9 cursor-pointer items-center gap-1.5 font-display font-semibold"
                   style={{ color: t.upvoted ? 'var(--lime)' : '#9d97bd' }}
                 >
                   <UpvoteIcon />
@@ -171,7 +171,7 @@ export default function Community() {
                 </button>
                 <Link
                   to={`/app/community/${t.id}`}
-                  className="flex min-h-9 items-center gap-1.5 font-display font-black uppercase tracking-wider text-slate-400"
+                  className="flex min-h-9 items-center gap-1.5 font-display font-semibold text-zinc-400"
                 >
                   <ReplyIcon />
                   💬 {t.replyCount}
@@ -185,8 +185,8 @@ export default function Community() {
       {shown.length === 0 && (
         /* Was a dead end: a headline, a sentence, and nothing to click. */
         <div className="mt-12">
-          <h2 className="arcade-heading section text-xl sm:text-2xl">NOTHING HERE YET</h2>
-          <p className="mt-3 max-w-md text-sm leading-relaxed text-slate-300">
+          <h2 className="arcade-heading section text-xl sm:text-2xl">Nothing here yet</h2>
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-zinc-300">
             No one has posted in{' '}
             <span className="font-bold text-white">
               {FORUM_CATEGORIES.find((c) => c.id === cat)?.name || 'this category'}
@@ -202,7 +202,7 @@ export default function Community() {
               + POST THE FIRST ONE
             </button>
             <button onClick={() => setCat('')} className="nb-btn dark min-h-11 px-4 py-2.5 text-xs">
-              SEE ALL CATEGORIES
+              See all categories
             </button>
           </div>
         </div>
@@ -246,7 +246,7 @@ function Composer({ homeCategory, onPost }) {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Ask something or share a win…"
-        className="w-full bg-transparent text-base font-semibold text-white placeholder:text-slate-500 focus:outline-none"
+        className="w-full bg-transparent text-base font-semibold text-white placeholder:text-zinc-500 focus:outline-none"
         autoFocus
       />
       <label htmlFor="post-body" className="sr-only">Details</label>
@@ -256,7 +256,7 @@ function Composer({ homeCategory, onPost }) {
         onChange={(e) => setBody(e.target.value)}
         placeholder="Add a little context (optional)"
         rows={3}
-        className="mt-2 w-full resize-none bg-transparent text-sm text-slate-300 placeholder:text-slate-600 focus:outline-none"
+        className="mt-2 w-full resize-none bg-transparent text-sm text-zinc-300 placeholder:text-zinc-600 focus:outline-none"
       />
 
       <div className="no-scrollbar -mx-4 mt-3 flex gap-2 overflow-x-auto px-4">
@@ -276,7 +276,7 @@ function Composer({ homeCategory, onPost }) {
         className="nb-btn wide mt-4 w-full py-3 text-sm disabled:opacity-40"
         style={{ display: 'block' }}
       >
-        ⚡ POST TO SIGNAL
+        Post to signal
       </button>
     </motion.form>
   )

@@ -44,16 +44,16 @@ export default function Checkout() {
         </Link>
       </header>
 
-      <p className="font-display text-xs font-black uppercase tracking-[0.2em]" style={{ color: 'var(--lime)' }}>
-        ▸ Checkout
+      <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">
+        Checkout
       </p>
-      <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">PAY FOR A PLAN</h1>
+      <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">Pay for a plan</h1>
 
       <div
         className="mt-6 rounded-2xl border border-white/10 p-5"
         style={{ background: '#1a0d15', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
       >
-        <p className="text-sm text-slate-300">
+        <p className="text-sm text-zinc-300">
           <strong className="text-white">Toolnaut is still in free public beta.</strong>{' '}
           This page exists so the payment integration can be exercised end to end.
           It runs against Razorpay in <strong className="text-white">test mode</strong>,
@@ -66,10 +66,10 @@ export default function Checkout() {
           className="mt-6 rounded-2xl border border-white/10 p-5"
           style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
         >
-          <h2 className="font-display text-lg font-black" style={{ color: 'var(--lime)' }}>
+          <h2 className="font-display text-lg font-semibold" style={{ color: 'var(--lime)' }}>
             Payments are not available yet
           </h2>
-          <p className="mt-2 text-sm text-slate-300">
+          <p className="mt-2 text-sm text-zinc-300">
             Toolnaut Pro is in early access. Billing, order records and
             cancellation are still being built, so checkout is switched off —
             on the server, not just here. Nothing can be charged.
@@ -91,19 +91,19 @@ export default function Checkout() {
             style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
           >
             <p
-              className="font-display text-[10px] font-black uppercase tracking-widest"
+              className="font-display text-[10px] font-semibold"
               style={{ color: plan.accent }}
             >
               {plan.tier}
             </p>
-            <h2 className="mt-1 font-display text-lg font-black text-white">{plan.name}</h2>
+            <h2 className="mt-1 font-display text-lg font-semibold text-white">{plan.name}</h2>
             {/* The rupee figure is shown because that is what Razorpay will
                 actually charge. The server re-derives it from this same PLANS
                 entry, so the display and the charge cannot disagree. */}
-            <p className="mt-2 font-display text-2xl font-black" style={{ color: 'var(--lime)' }}>
+            <p className="mt-2 font-display text-2xl font-semibold" style={{ color: 'var(--lime)' }}>
               ₹{plan.priceINR}
             </p>
-            <p className="mt-1 text-xs text-slate-500">one-time, test mode</p>
+            <p className="mt-1 text-xs text-zinc-500">one-time, test mode</p>
 
             {PAYMENTS_ON && <PayButton
               className="mt-4"
@@ -125,13 +125,13 @@ export default function Checkout() {
         className="mt-8 rounded-2xl border border-white/10 p-5"
         style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
       >
-        <h3 className="font-display text-sm font-black text-white">Test cards</h3>
-        <p className="mt-2 text-sm text-slate-300">
+        <h3 className="font-display text-sm font-semibold text-white">Test cards</h3>
+        <p className="mt-2 text-sm text-zinc-300">
           Card <code style={{ color: 'var(--lime)' }}>4111 1111 1111 1111</code>, any
           future expiry, any CVV, any name. Razorpay&apos;s test-mode UPI succeeds
           on <code style={{ color: 'var(--lime)' }}>success@razorpay</code>.
         </p>
-        <p className="mt-2 text-xs text-slate-500">
+        <p className="mt-2 text-xs text-zinc-500">
           Dismissing the window is treated as a cancellation, not a failure — nothing is charged.
         </p>
       </div>

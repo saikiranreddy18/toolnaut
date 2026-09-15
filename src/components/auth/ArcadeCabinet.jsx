@@ -187,9 +187,9 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
               className="flex w-full items-center justify-between gap-2 text-black"
               style={{ transform: 'skewX(7deg)', '--lime': '#000' }}
             >
-              <span aria-hidden="true" className="text-sm font-black">✦</span>
+              <span aria-hidden="true" className="text-sm font-semibold">✦</span>
               <Wordmark glow={false} className="text-lg tracking-[0.02em] md:text-xl" />
-              <span aria-hidden="true" className="text-sm font-black">✦</span>
+              <span aria-hidden="true" className="text-sm font-semibold">✦</span>
             </span>
           </div>
 
@@ -308,7 +308,7 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
               </div>
             </button>
               <span
-                className="font-display text-[9px] font-black uppercase tracking-[0.16em]"
+                className="font-display text-[9px] font-semibold"
                 style={{ color: playing ? 'var(--lime)' : '#6b7280' }}
               >
                 {playing ? '▶ Playing' : 'Play'}
@@ -323,7 +323,7 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
                 {[0, 1, 2, 3, 4, 5].map((i) => (
                   <span
                     key={i}
-                    className="flex h-4 w-4 items-center justify-center rounded-[2px] border border-white/10 font-display text-[8px] font-black transition-colors duration-150"
+                    className="flex h-4 w-4 items-center justify-center rounded-[2px] border border-white/10 font-display text-[8px] font-semibold transition-colors duration-150"
                     style={{
                       background: lamp === i ? 'var(--lime)' : '#17171d',
                       color: lamp === i ? '#000' : '#4b5563',
@@ -372,7 +372,7 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
                   }}
                 />
                 <span
-                  className="font-display text-[9px] font-black uppercase tracking-[0.16em]"
+                  className="font-display text-[9px] font-semibold"
                   style={{ color: b.color }}
                 >
                   {b.name}
@@ -394,7 +394,7 @@ export default function ArcadeCabinet({ launching = false, framed = true, onButt
           }}
         >
           <span
-            className="flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 font-display text-[10px] font-black uppercase tracking-[0.14em]"
+            className="flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 font-display text-[10px] font-semibold"
             style={{ background: '#15151c', color: 'var(--lime)' }}
           >
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
