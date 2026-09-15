@@ -4,6 +4,7 @@ import * as THREE from 'three'
 import { TOOLS, CATEGORY_META } from '../../utils/toolsCatalog'
 import { isNewTool } from '../../utils/newTools'
 import { isCatalogNoise } from '../../utils/prominence'
+import { galaxyState } from '../../state/galaxyStore'
 
 // The galaxy hosts ALL 704 catalog tools as star sprites. Each domain gets a
 // distinct color from CATEGORY_META, so the spiral arms literally colour by
@@ -269,6 +270,9 @@ export default function ToolStars() {
     }
 
     hovered.current = best
+    // GalaxyExplorer's click-vs-drag handler reads this to resolve a tap —
+    // same hit test the tooltip already runs, just also exposed off-frame.
+    galaxyState.hoveredTool = best >= 0 ? items[best].tool : null
     if (tooltip) {
       if (best >= 0) {
         tooltip.textContent = items[best].tool.name
