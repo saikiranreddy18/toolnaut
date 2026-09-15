@@ -5883,3 +5883,94 @@ a client-side SPA with a static tool catalogue.
   `answers.domain`) and a comparator idiom already live in the same file. No
   backend, no new dependency, no new route, no schema change.
 - **Found:** 2026-09-14 06:10 UTC
+
+---
+
+### The Founder offer's "plan preselected" checkout link doesn't preselect anything — the exact bug that was already found and fixed once, in the one place nobody checked it survived
+
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — a self-audit that started from
+  `planData.js:194-198`'s own comment ("when the ribbon expired,
+  `/pay?plan=founder` simply kept selling") and `FounderOffer.jsx:120-122`'s
+  ("This used to point at `/goal`, so the founder price could not actually
+  be paid — the offer was a poster. It now goes to the paywall with the plan
+  preselected."). That second comment is itself the record of a real,
+  already-fixed bug — the exact same shape as this file's "no credit card"
+  and "free public beta" audits, just inside the checkout flow instead of
+  marketing copy. Read the destination the fix promises against what it
+  actually does.
+- **Gap:** `FounderOffer.jsx:141` and `FounderRibbon.jsx:87` (the sitewide
+  countdown strip for the ₹29,999 lifetime offer — the single highest-value,
+  most time-pressured CTA on the site, "Ends in `Clock`" ticking down to
+  `FOUNDER_DEADLINE`) both link to `/pay?plan=founder`. Read `src/pages/
+  Pay.jsx` in full: it never reads the URL at all. Grepped the file for
+  `useLocation`, `window.location`, `URLSearchParams`, `useSearchParams`,
+  and `get('plan')` — zero hits on every one. The `chosen` state that
+  actually drives selection is hardcoded `useState('guru')` (`Pay.jsx:53`) —
+  it always starts on Pro, never Founder — and the only thing that sets it
+  afterward is `pay(planId)` (`Pay.jsx:73`), called exclusively from
+  clicking one of the four plan buttons rendered on the page
+  (`Pay.jsx:126-155`). Nothing in the render reads `chosen` for a visual
+  highlight either — it only distinguishes cards via `p.featured` (always
+  Pro, `planData.js:105`) and, mid-checkout, `busy && chosen === p.id ?
+  'Opening…' : ...` (`Pay.jsx:150`). A visitor who clicks "CLAIM FOUNDER
+  PRICE →" from a countdown ribbon lands on a page with four unlabelled,
+  unhighlighted plan cards (`PLANS.filter(isPlanOpen...)` includes Founder
+  since `Pay.jsx`'s filter checks `isPlanOpen`, not `hiddenFromPricing` —
+  confirmed by reading `Pay.jsx:52-56` against `planData.js:205-212`) and
+  has to find and click Founder themselves, same as if they had arrived from
+  any other link on the site. The one concession is ordering: `PLANS` is
+  declared founder-first (`planData.js:19`), so Founder happens to render as
+  the first card in the grid — but that is true regardless of which link
+  brought the visitor here, so it is not what "preselected" describes, and
+  gives no visual signal that arriving via the ribbon did anything at all.
+- **Why it matters:** this is the offer the product cares most about
+  converting — one payment, ₹29,999, framed everywhere else with real
+  urgency (a live countdown clock, a sitewide ribbon, its own landing
+  section) — and the one link built specifically to carry that urgency
+  through to checkout silently drops it. Someone who clicks a ticking clock
+  expecting the next screen to already know what they want, and instead
+  lands on an unranked four-card picker identical to the generic `/pricing →
+  /goal` path, has to re-decide under the same time pressure the ribbon just
+  created — exactly the kind of friction a time-limited offer's own checkout
+  link exists to remove. It is also a second instance of the precise defect
+  this codebase already paid down once (`FounderOffer.jsx`'s own comment
+  names the earlier bug — a link that looked wired but did not preselect
+  anything, because it pointed at `/goal`); the fix moved the destination to
+  `/pay?plan=founder` but never verified the query string itself does
+  anything there, so the same failure mode reopened one file over.
+- **Smallest useful version (what to actually build):**
+  - `Pay.jsx`: add `useLocation` (already the pattern `useNavigate` on the
+    next line uses from `react-router-dom`) and read the `plan` param:
+    `const requestedPlan = new URLSearchParams(useLocation().search).get('plan')`.
+  - Initialize `chosen` from it instead of the hardcoded literal:
+    `useState(() => plans.some((p) => p.id === requestedPlan) ? requestedPlan
+    : 'guru')` — falls back to today's exact default when the param is
+    absent, unknown, or names a plan that's closed/excluded for this visitor
+    (`plans` already carries that filtering, so this reuses it rather than
+    re-checking `isPlanOpen` a second time).
+  - Give the preselected card an actual visual signal, since `chosen`
+    currently only surfaces during the `busy` "Opening…" state: add a ring/
+    border treatment (e.g. an extra `ring-2` class keyed to `p.accent`, or a
+    small "YOUR PICK" tape-label reusing the same `tape-label`/badge pattern
+    `p.badge` already renders two lines above it) when `chosen === p.id` and
+    `requestedPlan` was actually present — so a plain `/pay` visit (no
+    param) never grows a badge nothing asked for.
+  - **What this would NOT include** (kept out to bound the diff): no change
+    to `startCheckout`, `pay()`, or anything past the click — this is
+    read-only URL parsing plus a class name, nothing touches a charge; no
+    scroll-into-view or auto-opening Razorpay's modal on load (a payment
+    sheet appearing before someone has looked at the page is the "before
+    first result" bad-upgrade-moment this codebase's own
+    `capabilityMatrix.js:BAD_UPGRADE_MOMENTS` already warns against, just
+    applied at the wrong end — auto-charging on arrival is worse, not
+    better); no touching `FounderRibbon.jsx`/`FounderOffer.jsx`'s existing
+    links, which are already correct — the bug is entirely on the receiving
+    end.
+- **Build size:** S — one URL read, one `useState` initializer change, one
+  conditional class/badge in `Pay.jsx`. No backend, no new dependency, no
+  new route, no schema change, no touch to any payment-verification code
+  path. Verifiable with `npm run smoke` (renders `/pay?plan=founder` and
+  `/pay` with no console error) since this repo has no component-level test
+  harness for page UI.
+- **Found:** 2026-09-15 03:20 UTC
