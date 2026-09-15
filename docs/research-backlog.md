@@ -5974,3 +5974,94 @@ a client-side SPA with a static tool catalogue.
   `/pay` with no console error) since this repo has no component-level test
   harness for page UI.
 - **Found:** 2026-09-15 03:20 UTC
+
+---
+
+### The galaxy promises to let you "meet the tools" — 704 of them render, zero are reachable
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — the promise is the feature's own UI
+  copy, not marketing copy. `GalaxyExplorer.jsx:146-148`'s persistent
+  on-screen label reads "Drag to orbit · Scroll to zoom · Zoom in to **meet
+  the tools**," and `ToolStars.jsx:8` (the component's own top-of-file
+  comment) states "The galaxy hosts ALL 704 catalog tools as star sprites."
+  Contrast with the directories this file studies elsewhere: Futurepedia's
+  and There's An AI For That's homepage tool grids are the click target
+  itself — every visible tile is a link to more information, zero extra taps
+  beyond the one that already shows you the tool.
+- **Gap:** Read `ToolStars.jsx` in full. Every one of the 704 `TOOLS` becomes
+  a sprite (`ToolStars.jsx:148-204`), and a per-frame screen-space hit test
+  (`ToolStars.jsx:225-269`) finds whichever star sits nearest the pointer and
+  writes its name into `#tool-tooltip` (`ToolStars.jsx:272-278`, the
+  `pointer-events-none` div `Landing.jsx:223-228` mounts). That is the entire
+  payoff: a floating text label with the tool's bare name, nothing else —
+  no category, no price, no blurb, no link. Grepped `ToolStars.jsx` for
+  `onClick|navigate|Link|href` — zero hits; the file has no click handling
+  of any kind, only the hover-distance test. `GalaxyExplorer.jsx` (the
+  full-screen "Explore the galaxy" mode, `Landing.jsx:250-256`) is worse: its
+  `surface` div (`GalaxyExplorer.jsx:124`) captures every `pointerdown`/
+  `pointermove`/`pointerup` for camera-orbit dragging (`GalaxyExplorer.jsx:59-
+  90`) and has no click branch either — so the one mode whose own on-screen
+  copy explicitly promises "meet the tools" is the mode where a would-be
+  click is consumed entirely by the orbit-drag layer. A visitor can zoom in
+  as close as the copy invites, read a name floating in space, and has no
+  next action — not even the un-gated `/search?q=` page one file away
+  (`SearchTools.jsx`, explicitly public and crawlable per its own top
+  comment: "no session required... answers the single most obvious thing a
+  first-time visitor expects") is reachable from here. The feature that puts
+  the entire catalog on screen at once is the one place in the app that
+  cannot answer "what is this."
+- **Why it matters:** this is the highest-visibility real estate on the
+  site — the literal first thing rendered behind the hero, and the thing
+  the "Explore the galaxy" button and its on-screen copy spend a dedicated
+  full-screen mode selling — and it dead-ends on a name. A visitor curious
+  enough to zoom toward a specific star has already shown more intent than
+  one idly scrolling past `FeaturesSection`, and gets nothing back for it:
+  no path to `/search?q=<name>` (already public, already built,
+  `SearchTools.jsx`), no path into the quiz, nothing. Every other
+  "see the value before you commit" gap this file has found and fixed —
+  public compare, public search, share links — was about giving a
+  signed-out visitor a next step; this is the one surface that visually
+  promises exactly that step and doesn't wire it up.
+- **Smallest useful version (what to actually build):**
+  - Scope this to `GalaxyExplorer`'s explore mode only, not the ambient
+    landing-page galaxy — explore mode is the one with the "meet the tools"
+    copy and the one where a visitor has deliberately opted in to
+    inspecting stars up close; the ambient background behind the hero is
+    decorative chrome sitting under scrollable page content and should stay
+    click-inert, the same way it is today.
+  - `ToolStars.jsx` already computes `hovered.current` (the index of the
+    nearest star within `HOVER_PX`) every frame — nothing new to calculate,
+    just something to act on. Lift it from a private ref to a tiny exported
+    accessor (e.g. a module-level `let hoveredToolIndex = -1` the frame loop
+    already writes, mirroring the plain-object pattern `galaxyStore.js`
+    already uses for `explore`/`zoom`/`rotX`/`rotY`) so `GalaxyExplorer.jsx`
+    can read it without prop-drilling through the R3F tree.
+  - `GalaxyExplorer.jsx`'s existing `onDown`/`onMove`/`onUp` handlers
+    already track pointer position for orbit-dragging — add a moved-distance
+    accumulator (reset on `onDown`, summed in `onMove`) and in `onUp`, only
+    when `galaxyState.explore` and total movement stays under a small
+    threshold (e.g. 6px, the standard "was this a click or a drag" cutoff)
+    and `hoveredToolIndex >= 0`, call `navigate` to
+    `/search?q=${encodeURIComponent(items[hoveredToolIndex].tool.name)}` —
+    reusing `SearchTools.jsx`'s existing public, unauthenticated `?q=` match
+    rather than building any new lookup or destination page.
+  - Swap `surface`'s cursor from the current constant `cursor-grab` to a
+    conditional `cursor-pointer` while `hoveredToolIndex >= 0`, so there is
+    a visible affordance that a star is now a target before the click lands.
+  - **What this would NOT include** (kept out to bound the diff): no
+    click-through on the ambient (non-explore) landing galaxy — that surface
+    stays exactly as inert as it is today; no new destination page or
+    "quick peek" card — routing to the existing public `/search?q=` results
+    page is the entire scope, it already renders category/price/blurb for
+    the matched tool; no touch/tap handling beyond what `GalaxyExplorer`'s
+    existing pointer-event handlers already receive (they are pointer
+    events, not mouse-only, so this should carry over to touch for free, but
+    verifying that is part of the build, not assumed here); no change to
+    `ToolStars.jsx`'s hover-tooltip behavior itself, only exposing the index
+    it already tracks.
+- **Build size:** S/M — one exported accessor in `ToolStars.jsx` (or a new
+  tiny shared module next to `galaxyStore.js`), a click-vs-drag distinction
+  plus one `navigate()` call and one cursor class added to
+  `GalaxyExplorer.jsx`. No backend, no new dependency, no new route (reuses
+  `/search`), no schema change.
+- **Found:** 2026-09-15 09:09 UTC
