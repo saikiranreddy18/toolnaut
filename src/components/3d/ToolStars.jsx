@@ -311,8 +311,12 @@ export default function ToolStars() {
     nameTextures.forEach((tex) => tex && tex.dispose())
   }, [geometry, material, nameTextures])
 
-  useFrame(({ clock, camera }) => {
+  useFrame(({ clock, camera, gl }) => {
     material.uniforms.uTime.value = clock.elapsedTime
+    // Track the renderer's CURRENT pixel ratio. The scene lowers its resolution
+    // when a device struggles; with a fixed ratio every star then doubled in
+    // size and went soft a few seconds after load.
+    material.uniforms.uPixelRatio.value = gl.getPixelRatio()
     const pts = pointsRef.current
     if (!pts) return
 

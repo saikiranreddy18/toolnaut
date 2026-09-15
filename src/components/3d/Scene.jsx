@@ -60,7 +60,9 @@ export default function Scene({ mode = 'full' }) {
 
   function degrade() {
     setQuality((q) => Math.max(QUALITY_FLOOR, +(q * 0.5).toFixed(3)))
-    setDpr((d) => Math.max(DPR_FLOOR, +(d - 0.25).toFixed(2)))
+    // Resolution is left alone: dropping it was measured to save nothing here
+    // (the cost is per-vertex), and it visibly swapped sharp stars for big soft
+    // ones a few seconds after load.
   }
 
   // Dim the universe while reading content sections; full brightness at the
@@ -145,7 +147,7 @@ export default function Scene({ mode = 'full' }) {
           threshold={0.75}
           flipflops={3}
           onDecline={degrade}
-          onFallback={() => { setQuality(QUALITY_FLOOR); setDpr(DPR_FLOOR) }}
+          onFallback={() => setQuality(QUALITY_FLOOR)}
         />
       </Canvas>
       {/* Nebula wash: three soft colour clouds behind the stars, so the sky
