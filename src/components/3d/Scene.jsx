@@ -148,6 +148,18 @@ export default function Scene({ mode = 'full' }) {
           onFallback={() => { setQuality(QUALITY_FLOOR); setDpr(DPR_FLOOR) }}
         />
       </Canvas>
+      {/* Nebula wash: three soft colour clouds behind the stars, so the sky
+          reads cosmic without any extra points to render. */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 55% 45% at 18% 22%, rgba(124,58,237,0.20), transparent 70%),' +
+            'radial-gradient(ellipse 50% 40% at 85% 35%, rgba(14,165,233,0.14), transparent 70%),' +
+            'radial-gradient(ellipse 60% 45% at 55% 85%, rgba(236,72,153,0.12), transparent 70%)',
+          mixBlendMode: 'screen',
+        }}
+      />
       {/* cinematic vignette */}
       <div
         className="pointer-events-none absolute inset-0"

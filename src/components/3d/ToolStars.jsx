@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import { TOOLS, CATEGORY_META } from '../../utils/toolsCatalog'
+import { TOOLS } from '../../utils/toolsCatalog'
 import { isNewTool } from '../../utils/newTools'
 import { isCatalogNoise } from '../../utils/prominence'
 
@@ -58,6 +58,18 @@ const FLAGSHIP_NAMES = new Set([
   'Stable Diffusion', 'Hugging Face', 'LangChain', 'Jasper', 'Synthesia',
   'DeepL', 'Pika', 'Descript', 'Otter', 'Whisper', 'Llama', 'Mistral',
 ])
+
+// Cosmic tint for the landing galaxy only. The app keeps its monochrome
+// category greys (CATEGORY_META); here each domain gets a soft nebula hue so
+// the arms read as a real, living sky.
+const COSMIC = {
+  code: '#7dd3fc',
+  design: '#f0abfc',
+  writing: '#c4b5fd',
+  data: '#93c5fd',
+  automation: '#fcd9a8',
+  learning: '#99f6e4',
+}
 
 const RADIUS = 13
 // A classic two-arm barred spiral, like the Milky Way: the brightest tools sit
@@ -191,7 +203,7 @@ export default function ToolStars() {
       const isFlagship = FLAGSHIP_NAMES.has(tool.name)
       return {
         tool,
-        color: CATEGORY_META[tool.category]?.color || '#d4d4d8',
+        color: COSMIC[tool.category] || '#c4b5fd',
         isFlagship,
         isNew: newSlugs.has(tool.slug),
         position: [x, y, z],
@@ -296,7 +308,7 @@ export default function ToolStars() {
     if (tooltip) {
       if (best >= 0) {
         tooltip.textContent = items[best].tool.name
-        tooltip.style.borderColor = 'rgba(255,255,255,0.35)'
+        tooltip.style.borderColor = `${items[best].color}99`
         tooltip.style.left = `${bestX}px`
         tooltip.style.top = `${bestY - 18}px`
         tooltip.style.opacity = '1'

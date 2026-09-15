@@ -59,7 +59,7 @@ export default function HeroSection({ onEnter }) {
         className="arcade-heading max-w-5xl text-[8.6vw] sm:text-5xl md:text-7xl leading-[0.96]"
         style={{ letterSpacing: '-0.02em' }}
       >
-        Build the AI workflow<br/>for your job
+        Build the <span className="bg-gradient-to-r from-[#a5b4fc] via-[#f0abfc] to-[#7dd3fc] bg-clip-text text-transparent">AI workflow</span><br/>for your job
       </motion.h1>
 
       {/* The time claim is the differentiator against "just search for it", so

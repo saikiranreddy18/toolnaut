@@ -11,9 +11,9 @@ function makeCoreTexture() {
   canvas.width = canvas.height = size
   const ctx = canvas.getContext('2d')
   const g = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2)
-  g.addColorStop(0, 'rgba(255,255,255,0.85)')
-  g.addColorStop(0.25, 'rgba(228,228,235,0.35)')
-  g.addColorStop(0.6, 'rgba(160,160,170,0.08)')
+  g.addColorStop(0, 'rgba(255,244,230,0.9)')
+  g.addColorStop(0.25, 'rgba(240,171,252,0.35)')
+  g.addColorStop(0.6, 'rgba(129,140,248,0.12)')
   g.addColorStop(1, 'rgba(0,0,0,0)')
   ctx.fillStyle = g
   ctx.fillRect(0, 0, size, size)
