@@ -61,7 +61,7 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
         <div className="flex items-start justify-between">
           <div>
             <p className="font-display text-[11px] font-black uppercase tracking-[0.3em] text-(--lime)">{plan.tier}</p>
-            <h3 className="mt-1 font-display text-2xl font-black uppercase text-white">{plan.name}</h3>
+            <h3 className="mt-1 font-display text-2xl font-semibold text-white">{plan.name}</h3>
           </div>
           <PlanIcon type={plan.icon} color={plan.accent} />
         </div>

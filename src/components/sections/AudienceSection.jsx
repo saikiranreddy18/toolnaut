@@ -23,7 +23,7 @@ export default function AudienceSection() {
           <motion.div key={a.label} variants={fadeUp} className="h-full">
             <Tilt className={`sticker ${i === 0 ? 'pink' : 'cyan'} h-full p-8`} max={6}>
               <span className="arcade-chip on" style={{ fontSize: 10 }}>{a.label}</span>
-              <h3 className="mt-5 font-display text-2xl font-black uppercase text-white">{a.title}</h3>
+              <h3 className="mt-5 font-display text-2xl font-semibold text-white">{a.title}</h3>
               <p className="mt-4 text-sm leading-relaxed text-slate-300">{a.text}</p>
             </Tilt>
           </motion.div>

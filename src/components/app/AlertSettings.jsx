@@ -91,7 +91,7 @@ export default function AlertSettings() {
     <div>
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <p className="font-display text-sm font-black uppercase tracking-wide text-white">
+          <p className="font-display text-sm font-semibold text-white">
             New tool alerts
           </p>
           <p className="mt-1 text-xs leading-relaxed text-slate-400">

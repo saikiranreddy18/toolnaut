@@ -59,7 +59,7 @@ export default function HeroSection({ onEnter }) {
         className="arcade-heading max-w-5xl text-[8.6vw] sm:text-5xl md:text-7xl leading-[0.96]"
         style={{ letterSpacing: '-0.02em' }}
       >
-        BUILD THE AI WORKFLOW<br/>FOR YOUR JOB
+        Build the AI workflow<br/>for your job
       </motion.h1>
 
       {/* The time claim is the differentiator against "just search for it", so
@@ -68,8 +68,8 @@ export default function HeroSection({ onEnter }) {
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.65, duration: 0.7 }}
-        className="mt-4 font-display text-lg font-black uppercase tracking-[0.06em] md:text-2xl"
-        style={{ color: 'var(--lime)', textShadow: '0 2px 12px rgba(0,0,0,0.95), 0 0 22px rgba(0,0,0,0.9)' }}
+        className="mt-5 font-display text-lg font-medium text-zinc-300 md:text-2xl"
+        style={{ letterSpacing: '-0.01em', textShadow: '0 2px 12px rgba(0,0,0,0.95), 0 0 22px rgba(0,0,0,0.9)' }}
       >
         In 10 minutes — not 10 hours of research
       </motion.p>
@@ -99,7 +99,7 @@ export default function HeroSection({ onEnter }) {
           }}
           className="nb-btn text-base px-8 py-4"
         >
-          ⚡ BUILD MY AI STACK — FREE
+          Build my AI stack — free
         </button>
 
         {/* The escape hatch for anyone not ready to answer questions. The page
@@ -112,7 +112,7 @@ export default function HeroSection({ onEnter }) {
           }}
           className="nb-btn dark text-base px-7 py-4"
         >
-          SEE AN EXAMPLE STACK
+          See an example stack
         </button>
       </motion.div>
 
@@ -143,7 +143,7 @@ export default function HeroSection({ onEnter }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 1, 0] }}
         transition={{ delay: 2.2, duration: 2.6, repeat: Infinity }}
-        className="absolute bottom-8 text-[11px] uppercase tracking-[0.35em] text-slate-500"
+        className="absolute bottom-8 text-[12px] tracking-[0.2em] text-zinc-400"
       >
         Scroll to explore
       </motion.div>

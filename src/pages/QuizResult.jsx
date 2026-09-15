@@ -145,7 +145,7 @@ export default function QuizResult() {
                 ★ {level}
               </span>
 
-              <h1 className="relative mt-4 font-display text-2xl font-black uppercase leading-[1.05] sm:text-3xl">
+              <h1 className="relative mt-4 font-display text-2xl font-semibold leading-[1.05] sm:text-3xl">
                 {/* glow layer: same text, blurred, BEHIND the gradient — a
                     drop-shadow filter on background-clip text rasterises at
                     the element box and amputated the last glyphs. */}
@@ -319,7 +319,7 @@ export default function QuizResult() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
-          className="mt-4 font-display text-sm font-bold uppercase tracking-wider text-slate-400"
+          className="mt-4 font-display text-sm font-bold text-slate-400"
         >
           plan match:{' '}
           <span className="rounded-full bg-white/10 px-3 py-1 text-white" style={{ boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>

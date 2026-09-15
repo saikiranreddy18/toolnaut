@@ -110,7 +110,7 @@ export default function Thread() {
             )
           })}
           {thread.replies.length === 0 && (
-            <p className="text-sm font-bold uppercase tracking-wider text-slate-500">▸ No replies yet — start the thread.</p>
+            <p className="text-sm font-bold text-slate-500">▸ No replies yet — start the thread.</p>
           )}
         </div>
       </div>

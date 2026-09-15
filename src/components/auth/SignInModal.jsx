@@ -329,7 +329,7 @@ export default function SignInModal({ open = true, onClose, next = '/app/stack' 
                     className="rounded-xl border border-white/10 px-4 py-4 text-center"
                     style={{ background: 'var(--lime)', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
                   >
-                    <p className="font-display text-sm font-black uppercase text-black">Check your inbox</p>
+                    <p className="font-display text-sm font-semibold text-black">Check your inbox</p>
                     <p className="mt-1 text-xs text-black/75">
                       We sent a sign-in link to {email}.
                     </p>

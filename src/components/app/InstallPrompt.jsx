@@ -80,7 +80,7 @@ export default function InstallPrompt() {
         >
           <img src="/icon.svg" alt="" width="44" height="44" className="shrink-0 rounded-xl" />
           <div className="min-w-0 flex-1">
-            <p className="font-display text-sm font-black uppercase text-white">Add Toolnaut to your home screen</p>
+            <p className="font-display text-sm font-semibold text-white">Add Toolnaut to your home screen</p>
             <p className="mt-0.5 text-xs leading-snug text-slate-400">
               {iosHint
                 ? 'Tap the Share icon, then "Add to Home Screen".'

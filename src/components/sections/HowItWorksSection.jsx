@@ -52,7 +52,7 @@ export default function HowItWorksSection() {
                 <p className="font-display text-4xl font-black text-(--lime)" style={{ textShadow: 'none' }}>
                   {String(i + 1).padStart(2, '0')}
                 </p>
-                <h3 className="mt-3 font-display text-xl font-black uppercase text-white">{s.name}</h3>
+                <h3 className="mt-3 font-display text-xl font-semibold text-white">{s.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-300">{s.text}</p>
               </Tilt>
             </motion.div>

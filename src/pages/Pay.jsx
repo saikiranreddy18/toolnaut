@@ -102,7 +102,7 @@ export default function Pay() {
       <p className="font-display text-[10px] font-black uppercase tracking-[0.2em]" style={{ color: 'var(--lime)' }}>
         ▸ one step before your universe
       </p>
-      <h1 className="mt-2 text-center font-display text-3xl font-black uppercase text-white">
+      <h1 className="mt-2 text-center font-display text-3xl font-semibold text-white">
         Pick your pass
       </h1>
       <p className="mt-2 max-w-md text-center text-sm text-slate-400">
@@ -141,7 +141,7 @@ export default function Pay() {
                 {p.badge}
               </span>
             )}
-            <p className="mt-1 font-display text-lg font-black uppercase text-white">{p.name}</p>
+            <p className="mt-1 font-display text-lg font-semibold text-white">{p.name}</p>
             <p className="mt-1 font-display text-2xl font-black text-white">
               {formatPrice(p)}
               <span className="text-xs font-bold text-slate-400">

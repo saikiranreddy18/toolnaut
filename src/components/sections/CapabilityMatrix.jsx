@@ -67,7 +67,7 @@ export default function CapabilityMatrix() {
                     className="px-3 pb-3"
                     style={{ background: t.id === 'free' ? 'rgba(255, 255, 255,0.05)' : 'transparent' }}
                   >
-                    <span className="font-display text-base font-black uppercase text-white">{t.name}</span>
+                    <span className="font-display text-base font-semibold text-white">{t.name}</span>
                     <span className="ml-2 font-display text-[10px] font-black uppercase tracking-wide text-slate-500">
                       {t.note}
                     </span>

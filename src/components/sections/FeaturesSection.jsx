@@ -35,7 +35,7 @@ export default function FeaturesSection() {
               >
                 <Spark color={f.accent} />
               </div>
-              <h3 className="mb-2 font-display text-lg font-black uppercase text-white">{f.name}</h3>
+              <h3 className="mb-2 font-display text-lg font-semibold text-white">{f.name}</h3>
               <p className="text-sm leading-relaxed text-slate-300">{f.text}</p>
             </Tilt>
           </motion.div>

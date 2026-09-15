@@ -132,7 +132,7 @@ export default function ToolDetail() {
 
       <h1 className="arcade-heading mt-4 text-4xl sm:text-5xl">{tool.name.toUpperCase()}</h1>
       {(tool.dev || tool.year) && (
-        <p className="mt-2 font-display text-sm font-black uppercase tracking-wider" style={{ color: 'var(--lime)' }}>
+        <p className="mt-2 font-display text-sm font-semibold" style={{ color: 'var(--lime)' }}>
           {tool.dev}{tool.dev && tool.year ? ' · ' : ''}{tool.year ? `SINCE ${tool.year}` : ''}
         </p>
       )}

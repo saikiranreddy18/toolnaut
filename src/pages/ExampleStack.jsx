@@ -163,7 +163,7 @@ export default function ExampleStack() {
       {persona && (
         <div className="mt-6 rounded-2xl border border-white/10 p-5" style={{ background: '#0f1a12', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>
           <p className="font-display text-[11px] font-black uppercase tracking-[0.16em]" style={{ color: 'var(--lime)' }}>Your profile reads as</p>
-          <p className="mt-2 font-display text-2xl font-black uppercase text-white">{persona.name}</p>
+          <p className="mt-2 font-display text-2xl font-semibold text-white">{persona.name}</p>
           <p className="mt-1 text-sm text-slate-300">{persona.tagline}</p>
         </div>
       )}
@@ -189,7 +189,7 @@ export default function ExampleStack() {
               style={{ background: '#15151f', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
             >
               <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <span className="font-display text-base font-black uppercase text-white">{t.name}</span>
+                <span className="font-display text-base font-semibold text-white">{t.name}</span>
                 <span className="rounded-full border border-white/10 px-2 py-0.5 font-display text-[10px] font-black uppercase" style={{ background: 'var(--lime)', color: '#000' }}>
                   {t.price || t.pricing || 'see site'}
                 </span>
@@ -235,7 +235,7 @@ export default function ExampleStack() {
 
       {/* ── the ask, placed AFTER the value, which is the whole point ── */}
       <div className="mt-10 rounded-2xl border-[3px] p-6 text-center" style={{ borderColor: 'var(--hot-pink)', background: '#1a0f16', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>
-        <p className="font-display text-xl font-black uppercase text-white">Now do it for your role</p>
+        <p className="font-display text-xl font-semibold text-white">Now do it for your role</p>
         <p className="mx-auto mt-2 max-w-md text-sm text-slate-300">
           Nine questions, about ten minutes.{' '}
           {paymentsOn

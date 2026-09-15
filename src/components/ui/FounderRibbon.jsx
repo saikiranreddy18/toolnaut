@@ -55,75 +55,24 @@ export default function FounderRibbon() {
   const inr = formatPrice(plan)
   const price = local ? `${inr} (~${local.text})` : inr
 
-  // A chunky black chip per unit. tabular-nums so ticking seconds do not shove
-  // the text beside them a pixel left and right every second.
-  const Clock = () => (
-    <span className="inline-flex items-center gap-1">
-      {[[left.days, 'D'], [left.hours, 'H'], [left.mins, 'M'], [left.secs, 'S']].map(([v, k]) => (
-        <span
-          key={k}
-          className="rounded-[4px] bg-black px-1.5 py-0.5 font-black tabular-nums"
-          style={{ color: 'var(--arcade-yellow)' }}
-        >
-          {pad(v)}<span className="opacity-50">{k}</span>
-        </span>
-      ))}
-    </span>
-  )
-
-  const message = (
-    <span className="flex items-center gap-3 whitespace-nowrap px-5">
-      <span className="rounded-[4px] bg-black px-2 py-0.5" style={{ color: 'var(--arcade-yellow)' }}>FOUNDER</span>
-      <span>Lifetime access · {price}</span>
-      <span aria-hidden="true">✦</span>
-      <span>Pay once, never expires</span>
-      <span aria-hidden="true">✦</span>
-      <span className="flex items-center gap-1.5">Ends in <Clock /></span>
-      <span aria-hidden="true">✦</span>
-      <span className="rounded-full border border-white/10 px-3 py-0.5">CLAIM IT →</span>
-    </span>
-  )
+  // A quiet bar, not a hazard strip. The deadline is real, so it only needs
+  // to be stated plainly: no marquee, no stripes, no ticking seconds.
+  const clock = left.days > 0 ? `${left.days}d ${pad(left.hours)}h` : `${pad(left.hours)}h ${pad(left.mins)}m`
 
   return (
     <Link
       to="/pay?plan=founder"
       onClick={() => track(EVENTS.UPGRADE_CLICKED, { plan: 'founder', surface: 'ribbon' })}
       aria-label={`Founder offer: lifetime access for ${inr}, one payment, never expires. Ends in ${left.days} days. Claim it.`}
-      className="group relative block"
+      className="group block border-b border-white/10 bg-black"
     >
-      {/* Skewed and over-wide so the ends run off screen — a strip of tape
-          slapped across the page rather than a tidy bar sitting in a slot. The
-          rotation is what stops it reading as another navigation row. */}
-      <div className="relative -mx-4 overflow-hidden border-y-[3px] border-white/10 py-3 sm:py-3.5 [transform:rotate(0deg)_scale(1.03)]">
-        <div
-          className="absolute inset-0"
-          style={{ background: 'linear-gradient(90deg, var(--arcade-yellow), var(--arcade-orange) 50%, var(--arcade-yellow))' }}
-          aria-hidden="true"
-        />
-        {/* Hazard stripes — the visual language of a deadline. Kept faint so
-            the words stay the thing you actually read. */}
-        <div
-          className="absolute inset-0 opacity-[0.13]"
-          style={{ backgroundImage: 'repeating-linear-gradient(-45deg, #000 0 10px, transparent 10px 20px)' }}
-          aria-hidden="true"
-        />
-        {/* aria-hidden on the moving copy: the accessible name above states the
-            whole offer once, and a screen reader should not have to chase a
-            scrolling strip or hear the seconds re-announced every tick. */}
-        <div
-          className="relative flex text-[13px] font-black uppercase tracking-wider text-black sm:text-[15px]"
-          aria-hidden="true"
-        >
-          {[0, 1].map((i) => (
-            <div
-              key={i}
-              className="flex shrink-0 items-center [animation:founder-marquee_32s_linear_infinite] motion-reduce:[animation:none]"
-            >
-              {message}
-              {message}
-            </div>
-          ))}
-        </div>
+      <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-4 py-2 text-[12px] text-zinc-400 sm:gap-3 sm:text-[13px]">
+        <span className="rounded-full border border-white/15 px-2 py-0.5 text-[11px] font-medium text-white">Founder offer</span>
+        <span className="hidden sm:inline">Lifetime access for {price}</span>
+        <span className="sm:hidden">Lifetime · {inr}</span>
+        <span aria-hidden="true" className="text-zinc-600">·</span>
+        <span className="tabular-nums">Ends in {clock}</span>
+        <span className="font-medium text-white transition group-hover:translate-x-0.5">Claim →</span>
       </div>
     </Link>
   )

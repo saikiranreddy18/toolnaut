@@ -33,7 +33,7 @@ export const CURSOR_EFFECTS = [
   const COLS = [];
   for (let i = 0; i <= STEPS; i++) {
     const t = i / STEPS;
-    COLS.push(((163 + 92 * t) | 0) + ',' + ((255 - 209 * t) | 0) + ',' + ((46 + 117 * t) | 0));
+    COLS.push(((255 - 90 * t) | 0) + ',' + ((255 - 90 * t) | 0) + ',' + ((255 - 80 * t) | 0));
   }
   const col = (t, a) => 'rgba(' + COLS[(Math.max(0, Math.min(1, t)) * STEPS) | 0] + ',' + a + ')';
   const PN = 260;
@@ -740,7 +740,7 @@ export const CURSOR_EFFECTS = [
   }
   for (let i = 0; i < LUT; i++) {
     const m = i / (LUT - 1);
-    const r = (34 + 221 * m) | 0, g = (211 - 165 * m) | 0, b = (238 - 75 * m) | 0;
+    const r = (255 - 95 * m) | 0, g = (255 - 95 * m) | 0, b = (255 - 85 * m) | 0;
     cols[i] = 'rgba(' + r + ',' + g + ',' + b + ',1)';
     core[i] = 'rgba(' + ((r + (255 - r) * 0.72) | 0) + ',' + ((g + (255 - g) * 0.72) | 0) + ',' + ((b + (255 - b) * 0.72) | 0) + ',1)';
   }
@@ -980,7 +980,7 @@ export const CURSOR_EFFECTS = [
     name: "GRAVITY LENS",
     blurb: "A dim starfield leans into your cursor's gravity well, brightening and swirling as space bends — click to collapse the lens.",
     make: (env) => {
-  const COLS = [[255,255,255],[34,211,238],[163,255,46],[255,46,163],[255,222,46]];
+  const COLS = [[255,255,255],[228,228,231],[212,212,216],[161,161,170],[244,244,245]];
   const LUT = COLS.map((c) => {
     const arr = [];
     for (let i = 0; i <= 24; i++) arr.push('rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + (i / 24).toFixed(3) + ')');

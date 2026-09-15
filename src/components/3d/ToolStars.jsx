@@ -60,10 +60,11 @@ const FLAGSHIP_NAMES = new Set([
 ])
 
 const RADIUS = 13
-const CORE = 0.9
-const ARMS = 4
-// Logarithmic-looking wind: how far an arm turns per unit of radius.
-const WIND = 0.42
+// A classic two-arm barred spiral, like the Milky Way: the brightest tools sit
+// on a short central bar, and two long arms leave its ends and wind about one
+// and a quarter turns out to the rim.
+const BAR = 2.6
+const TURNS = 1.25
 const REVEAL_FAR = 7
 const REVEAL_NEAR = 3.2
 const HOVER_PX = 18
@@ -164,16 +165,28 @@ export default function ToolStars() {
 
       // Radius grows with rank, with a little noise so rings do not show.
       const t = (i + h1 * 0.9) / total
-      const r = CORE + Math.pow(t, 0.75) * (RADIUS - CORE)
-      const arm = i % ARMS
-      const theta = (arm / ARMS) * Math.PI * 2 + r * WIND * Math.PI * 0.5
-      // Stars hug the arm near the centre and fan out toward the rim.
-      const spread = 0.18 + r * 0.06
-      const offA = (h2 - 0.5) * spread * 2
-      const offR = (h3 - 0.5) * spread
-      const x = Math.cos(theta + offA / Math.max(r, 1)) * (r + offR)
-      const z = Math.sin(theta + offA / Math.max(r, 1)) * (r + offR)
-      const y = (h4 - 0.5) * (0.5 - (r / RADIUS) * 0.35)
+      const r = 0.2 + Math.pow(t, 0.8) * (RADIUS - 0.2)
+      const arm = i % 2
+      let x
+      let z
+      if (r < BAR) {
+        // On the bar: a straight line through the core, slightly thickened.
+        const along = (arm ? -1 : 1) * r
+        x = along
+        z = (h2 - 0.5) * (0.35 + r * 0.12)
+      } else {
+        // On an arm: winds out from the end of the bar. The angle grows with
+        // the log of the radius, which is the shape real spiral arms follow.
+        const u = Math.log(r / BAR) / Math.log(RADIUS / BAR)
+        const theta = arm * Math.PI + u * TURNS * Math.PI * 2
+        // Arms are narrow where they leave the bar and fan out at the rim.
+        const spread = 0.22 + u * 1.1
+        const rr = r + (h3 - 0.5) * spread
+        const th = theta + ((h2 - 0.5) * spread) / r
+        x = Math.cos(th) * rr
+        z = Math.sin(th) * rr
+      }
+      const y = (h4 - 0.5) * (0.45 - (r / RADIUS) * 0.3)
 
       const isFlagship = FLAGSHIP_NAMES.has(tool.name)
       return {

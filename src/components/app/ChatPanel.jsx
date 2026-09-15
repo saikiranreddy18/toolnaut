@@ -49,7 +49,7 @@ export default function ChatPanel({ personaName, onClose, idPrefix = 'chat' }) {
     <div className="flex h-full flex-col">
       <div className="flex items-center justify-between border-b-2 px-4 py-3" style={{ borderColor: 'var(--lime)' }}>
         <div>
-          <p className="font-display text-sm font-black uppercase text-white">AI Copilot</p>
+          <p className="font-display text-sm font-semibold text-white">AI Copilot</p>
           <p className="text-xs font-bold text-(--lime)">Preview — replies are canned</p>
         </div>
         <button

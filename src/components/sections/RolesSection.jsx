@@ -124,7 +124,7 @@ export default function RolesSection() {
             <Link to={`/tools/${r.domain}`} className="block h-full">
               <Tilt className={`sticker ${TILTS[i % 3]} h-full p-6`} max={6}>
                 <div className="flex items-center justify-between">
-                  <h3 className="font-display text-lg font-black uppercase text-white">
+                  <h3 className="font-display text-lg font-semibold text-white">
                     {r.name}
                   </h3>
                   <span className="font-display text-[10px] font-black uppercase tracking-widest" style={{ color: r.color }}>

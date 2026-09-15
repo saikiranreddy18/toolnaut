@@ -19,7 +19,7 @@ export const REFUND_WINDOW_DAYS = 7
 function Section({ title, children }) {
   return (
     <section className="mt-10">
-      <h2 className="font-display text-lg font-black uppercase tracking-[0.12em]" style={{ color: 'var(--lime)' }}>
+      <h2 className="font-display text-lg font-semibold" style={{ color: 'var(--lime)' }}>
         {title}
       </h2>
       <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-300">{children}</div>

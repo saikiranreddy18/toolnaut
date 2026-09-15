@@ -21,7 +21,7 @@ export default function RankCard() {
   return (
     <section className="mb-8">
       <div className="mb-3 flex flex-wrap items-center gap-2">
-        <h2 className="font-display text-sm font-black uppercase tracking-[0.18em] text-white">
+        <h2 className="font-display text-sm font-semibold text-white">
           Your rank
         </h2>
         {(IS_SAMPLE || SEEDED) && (

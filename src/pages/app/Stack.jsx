@@ -384,7 +384,7 @@ export default function Stack() {
               ✦ today's drop
             </span>
             {/* Band, not a percentage — see fitBand in matchScore.js. */}
-            <span className="font-display text-sm font-black uppercase tracking-wide" style={{ color: 'var(--lime)', textShadow: 'none' }}>
+            <span className="font-display text-sm font-semibold" style={{ color: 'var(--lime)', textShadow: 'none' }}>
               {fitBand(daily.score)?.label || ''}
             </span>
           </div>
