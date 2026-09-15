@@ -82,7 +82,7 @@ export default function Scene({ mode = 'full' }) {
       if (!el) return
       const p = scrollProgress()
       const mid = Math.min(p / 0.14, (1 - p) / 0.12, 1)
-      el.style.opacity = String(1 - 0.55 * Math.max(0, Math.min(1, mid)))
+      el.style.opacity = String(1 - 0.68 * Math.max(0, Math.min(1, mid)))
     }
     function onScroll() {
       if (pending) return

@@ -12,7 +12,7 @@
 const KEY = 'exus_cursor_v1'
 export const CURSOR_EVENT = 'exus:cursor-changed'
 
-export const DEFAULT_CURSOR = { effect: 'plasma-ribbon', size: 1 }
+export const DEFAULT_CURSOR = { effect: 'plasma-ribbon', size: 0.7 }
 
 // Choice metadata for the Settings UI. The MODULES live in
 // utils/cursorEffects.js (lazy-loaded, ~53KB) — only names are needed to

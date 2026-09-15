@@ -36,7 +36,7 @@ function timeLeft(to, now) {
 
 const pad = (n) => String(n).padStart(2, '0')
 
-export default function FounderRibbon() {
+export default function FounderRibbon({ compact = false }) {
   const plan = PLANS.find((p) => p.id === 'founder')
   const local = useLocalPrice(plan?.priceINR)
   const track = useAnalytics()
@@ -50,7 +50,9 @@ export default function FounderRibbon() {
   // An expired sale renders nothing. A dead ribbon frozen at 00:00:00 is worse
   // than no ribbon — a countdown still shouting about a deadline that passed
   // reads as a site nobody maintains.
-  if (!plan || !left) return null
+  // Nor does it show while checkout is switched off: a "claim it" bar in front
+  // of a page that says no payment is taken is the page contradicting itself.
+  if (!plan || !left || import.meta.env.VITE_PAYMENTS_ENABLED !== 'true') return null
 
   const inr = formatPrice(plan)
   const price = local ? `${inr} (~${local.text})` : inr
@@ -90,7 +92,10 @@ export default function FounderRibbon() {
         style={{ background: 'linear-gradient(90deg, transparent, #a78bfa 25%, #f0abfc 50%, #7dd3fc 75%, transparent)' }}
       />
 
-      <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2.5 sm:px-6 md:py-3">
+      <div
+        className={`relative mx-auto flex items-center justify-between gap-4 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${compact ? 'py-1.5' : 'py-2.5 md:py-3'}`}
+        style={{ maxWidth: compact ? '100vw' : '72rem', paddingLeft: compact ? 24 : 20, paddingRight: compact ? 24 : 20 }}
+      >
         {/* the offer */}
         <div className="flex min-w-0 items-center gap-3">
           <span
@@ -108,7 +113,7 @@ export default function FounderRibbon() {
               <span className="hidden sm:inline">Lifetime access for {inr}</span>
               <span className="hidden font-normal text-zinc-400 lg:inline">{local ? ` (~${local.text})` : ''}</span>
             </p>
-            <p className="hidden truncate text-[12px] text-zinc-400 md:block">
+            <p className={`truncate text-[12px] text-zinc-400 ${compact ? 'hidden' : 'hidden md:block'}`}>
               Everything in Pro, forever · one payment · never renews
             </p>
           </div>
@@ -121,10 +126,10 @@ export default function FounderRibbon() {
             {units.map(([v, k]) => (
               <span
                 key={k}
-                className="flex min-w-[44px] flex-col items-center rounded-lg border border-white/10 bg-white/[0.04] px-2 py-1 backdrop-blur"
+                className={`flex min-w-[40px] flex-col items-center rounded-lg border border-white/10 bg-white/[0.04] px-2 backdrop-blur ${compact ? 'py-0.5' : 'py-1'}`}
               >
                 <span className="text-[15px] font-semibold leading-none tabular-nums text-white">{pad(v)}</span>
-                <span className="mt-0.5 text-[9px] uppercase tracking-wider text-zinc-500">{k}</span>
+                {!compact && <span className="mt-0.5 text-[9px] uppercase tracking-wider text-zinc-500">{k}</span>}
               </span>
             ))}
           </div>

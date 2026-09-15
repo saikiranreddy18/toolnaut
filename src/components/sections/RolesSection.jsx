@@ -113,7 +113,7 @@ export default function RolesSection() {
       eyebrow="Coordinates"
       title="Every role gets a different sky"
     >
-      <motion.p variants={fadeUp} className="-mt-6 mb-12 max-w-2xl text-base leading-relaxed text-slate-300 md:text-lg">
+      <motion.p variants={fadeUp} className="-mt-6 mb-12 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">
         Your map is drawn from your role — so a designer and an engineer never
         see the same stars.
       </motion.p>

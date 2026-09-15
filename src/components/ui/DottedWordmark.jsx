@@ -165,10 +165,10 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut', bg =
     : `radial-gradient(circle ${REVEAL_RADIUS}px at var(--mx, -999px) var(--my, -999px), #000 0%, rgba(0,0,0,0.6) 45%, transparent 72%)`
 
   const textStyle = {
-    fontFamily: "Bungee, 'Inter', system-ui, sans-serif",
+    fontFamily: "'Inter', system-ui, sans-serif",
     fontSize: FONT_SIZE,
-    fontStyle: 'italic',
-    letterSpacing: '0.01em',
+    fontWeight: 700,
+    letterSpacing: '-0.04em',
   }
 
   // SOLID, not dotted. The dotted outline was so faint that the whole band

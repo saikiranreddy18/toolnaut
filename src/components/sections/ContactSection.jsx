@@ -65,7 +65,7 @@ export default function ContactSection() {
   const updated = lastUpdatedLabel()
   const areaRef = useRef(null)
 
-  const linkClass = 'text-sm text-slate-400 transition-colors hover:text-white'
+  const linkClass = 'text-sm text-zinc-400 transition-colors hover:text-white'
 
   return (
     // ONE flat colour — Obsidian #020403, the user's swatch, full bleed. The
@@ -103,7 +103,7 @@ export default function ContactSection() {
 
           {/* Kept from the trust row this replaced. Both figures are read from
               the live catalogue, so the claim cannot go stale. */}
-          <p className="mt-6 text-xs text-slate-500">
+          <p className="mt-6 text-xs text-zinc-500">
             {count.toLocaleString()} tools{updated ? ` · catalogue updated ${updated}` : ''}
             <br />
             {/* DRIVEN BY THE PAYMENT SWITCH, not typed as a fact. This line was
@@ -111,10 +111,10 @@ export default function ContactSection() {
                 the only durable fix is to make the claim read the same flag the
                 server gates on, so it cannot be left behind again. */}
             {import.meta.env.VITE_PAYMENTS_ENABLED === 'true'
-              ? 'Free public beta — paid plans in early access.'
-              : 'Free public beta — no card, no payment taken.'}
+              ? 'Free to start · paid plans available.'
+              : 'Free public beta · no card needed.'}
           </p>
-          <p className="mt-3 font-display text-[10px] font-bold uppercase tracking-widest text-slate-600">
+          <p className="mt-3 font-display text-[10px] font-bold uppercase tracking-widest text-zinc-600">
             © {new Date().getFullYear()} Toolnaut · built in the open
           </p>
         </div>
@@ -157,7 +157,7 @@ export default function ContactSection() {
                   {CONTACT_EMAIL}
                 </a>
               </li>
-              <li className="text-xs text-slate-500">Corrections welcome.</li>
+              <li className="text-xs text-zinc-500">Corrections welcome.</li>
             </ul>
           </div>
         </div>

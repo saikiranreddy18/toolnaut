@@ -9,18 +9,18 @@ import { EVENTS } from '../../utils/analyticsEvents'
 
 function Cell({ value }) {
   if (value === true) return <span className="text-exus-lime" aria-label="included">✓</span>
-  if (value === false) return <span className="text-slate-600" aria-label="not included">✕</span>
+  if (value === false) return <span className="text-zinc-600" aria-label="not included">✕</span>
   if (value === 'planned') {
     return (
       <span
-        className="whitespace-nowrap rounded-full border border-slate-600 px-1.5 py-0.5 font-display text-[9px] font-black uppercase text-slate-500"
+        className="whitespace-nowrap rounded-full border border-zinc-600 px-1.5 py-0.5 font-display text-[9px] font-black uppercase text-zinc-500"
         aria-label="planned, not yet built"
       >
         planned
       </span>
     )
   }
-  return <span className="text-slate-200">{value}</span>
+  return <span className="text-zinc-200">{value}</span>
 }
 
 export default function PricingSection({ titleAs = 'h2' }) {
@@ -46,7 +46,7 @@ export default function PricingSection({ titleAs = 'h2' }) {
   return (
     <SectionShell id="pricing" eyebrow="Pricing" titleAs={titleAs} title="Start solo. Scale with your team.">
       <div className="mb-6 flex items-center justify-center gap-2">
-        <span className="font-display text-[10px] font-black uppercase tracking-[0.18em] text-slate-500">Prices in</span>
+        <span className="font-display text-[10px] font-black uppercase tracking-[0.18em] text-zinc-500">Prices in</span>
         {[['INR', '₹ INR'], ['USD', '$ USD']].map(([cur, label]) => (
           <button
             key={cur}
@@ -92,7 +92,7 @@ export default function PricingSection({ titleAs = 'h2' }) {
               <table className="w-full min-w-[560px] text-sm">
                 <thead>
                   <tr className="border-b-2 border-white/10 text-left font-display font-black uppercase">
-                    <th className="p-4 text-slate-400">Feature</th>
+                    <th className="p-4 text-zinc-400">Feature</th>
                     {/* Prices from PLANS, in the rupees actually charged. These were
                         typed as "$3 / $8 / $50" and matched nothing checkout takes. */}
                     <th className="p-4 text-(--lime)">Student · {formatPrice(PLANS.find((p) => p.id === 'shishya'))}</th>
@@ -103,7 +103,7 @@ export default function PricingSection({ titleAs = 'h2' }) {
                 <tbody>
                   {COMPARISON.map(([label, s, p, t]) => (
                     <tr key={label} className="border-b border-white/5 last:border-0">
-                      <td className="p-4 text-slate-300">{label}</td>
+                      <td className="p-4 text-zinc-300">{label}</td>
                       <td className="p-4"><Cell value={s} /></td>
                       <td className="p-4"><Cell value={p} /></td>
                       <td className="p-4"><Cell value={t} /></td>

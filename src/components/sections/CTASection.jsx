@@ -34,7 +34,7 @@ export default function CTASection() {
           Ready to find your AI stack?
         </motion.h2>
 
-        <motion.p variants={fadeUp} className="mx-auto mt-5 max-w-xl text-slate-300">
+        <motion.p variants={fadeUp} className="mx-auto mt-5 max-w-xl text-zinc-300">
           {BRAND} is live. Map your stack in about 60 seconds — no signup wall
           to get your first chart.
         </motion.p>
@@ -49,7 +49,7 @@ export default function CTASection() {
           </Link>
         </motion.div>
 
-        <motion.p variants={fadeUp} className="mt-4 text-sm text-slate-500">
+        <motion.p variants={fadeUp} className="mt-4 text-sm text-zinc-300" style={{ textShadow: '0 1px 12px rgba(0,0,0,0.95), 0 0 24px rgba(0,0,0,0.9)' }}>
           {paymentsOn ? 'Free to try — plans shown at checkout.' : 'No credit card. No commitment.'}
         </motion.p>
       </motion.div>

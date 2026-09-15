@@ -144,15 +144,15 @@ export default function HeroSection({ onEnter }) {
         initial={{ opacity: 0 }}
         animate={ready ? { opacity: 1 } : undefined}
         transition={{ delay: 1.05, duration: 0.7 }}
-        className="mt-7 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-full px-5 py-2.5 text-[12px] font-semibold text-slate-200"
+        className="mt-7 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-full px-5 py-2.5 text-[12px] font-semibold text-zinc-200"
         style={{ background: 'rgba(6,6,12,0.72)', border: '1px solid rgba(255,255,255,0.10)' }}
       >
         <li>✓ {paymentsOn ? 'Free to see a stack' : 'No credit card'}</li>
-        <li aria-hidden="true" className="text-slate-600">·</li>
+        <li aria-hidden="true" className="text-zinc-600">·</li>
         <li>✓ No account needed to see a stack</li>
-        <li aria-hidden="true" className="text-slate-600">·</li>
+        <li aria-hidden="true" className="text-zinc-600">·</li>
         <li>✓ {count.toLocaleString()} tools</li>
-        {updated && <li aria-hidden="true" className="text-slate-600">·</li>}
+        {updated && <li aria-hidden="true" className="text-zinc-600">·</li>}
         {updated && <li>✓ Updated {updated}</li>}
       </motion.ul>
 

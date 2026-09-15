@@ -86,7 +86,7 @@ export default function FounderOffer() {
             Flash sale live
           </span>
           {explorers !== null && (
-            <span className="text-xs font-semibold text-slate-300">
+            <span className="text-xs font-semibold text-zinc-300">
               {explorers.toLocaleString()} explorers already aboard
             </span>
           )}
@@ -97,17 +97,17 @@ export default function FounderOffer() {
             <h2 id="founder-offer" className="arcade-heading text-2xl sm:text-3xl" style={{ color: 'var(--arcade-yellow)' }}>
               FOUNDER DISCOUNT
             </h2>
-            <p className="mt-2 text-sm leading-relaxed text-slate-200">
+            <p className="mt-2 text-sm leading-relaxed text-zinc-200">
               Lifetime access — pay once, keep it.
             </p>
             <p className="mt-3 flex items-baseline gap-2">
               <span className="font-display text-4xl font-black text-white sm:text-5xl">${plan.price}</span>
-              <span className="font-display text-xs font-black uppercase tracking-widest text-slate-400">one time · lifetime</span>
+              <span className="font-display text-xs font-black uppercase tracking-widest text-zinc-400">one time · lifetime</span>
             </p>
           </div>
 
           <div className="shrink-0">
-            <p className="font-display text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">
+            <p className="font-display text-[10px] font-black uppercase tracking-[0.18em] text-zinc-400">
               Offer ends in
             </p>
             {/* aria-hidden because a live region that re-announces four numbers
@@ -122,7 +122,7 @@ export default function FounderOffer() {
                   <span className="font-display text-xl font-black tabular-nums text-white sm:text-2xl">
                     {pad(u.v)}
                   </span>
-                  <span className="font-display text-[9px] font-black uppercase tracking-widest text-slate-400">
+                  <span className="font-display text-[9px] font-black uppercase tracking-widest text-zinc-400">
                     {u.k}
                   </span>
                 </div>
@@ -141,7 +141,7 @@ export default function FounderOffer() {
           <Link to="/pay?plan=founder" className="nb-btn px-6 py-3 text-sm">
             CLAIM FOUNDER PRICE →
           </Link>
-          <Link to="/goal" className="text-[11px] text-slate-300 underline underline-offset-2">
+          <Link to="/goal" className="text-[11px] text-zinc-300 underline underline-offset-2">
             Or see your stack first — no account needed
           </Link>
         </div>

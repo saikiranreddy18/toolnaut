@@ -185,7 +185,7 @@ export default function Landing() {
           useful while it is visible. Hidden during galaxy exploration along
           with the rest of the chrome. */}
       <header className={`fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-black/60 backdrop-blur-xl backdrop-saturate-150 transition-opacity duration-500 ${explore ? 'pointer-events-none opacity-0' : ''}`}>
-        <FounderRibbon />
+        <FounderRibbon compact={scrolled} />
         <div
           className="mx-auto flex h-16 items-center justify-between transition-[max-width,padding] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
           style={{ maxWidth: scrolled ? '100vw' : '72rem', paddingLeft: scrolled ? 24 : 20, paddingRight: scrolled ? 24 : 20 }}
@@ -240,7 +240,7 @@ export default function Landing() {
       />
 
       {/* persistent scene controls: sound + galaxy exploration */}
-      <div className="fixed bottom-6 left-6 z-[76] flex items-center gap-2">
+      <div className="fixed bottom-6 left-6 z-[76] flex items-center gap-2 opacity-60 transition-opacity duration-300 hover:opacity-100 focus-within:opacity-100">
         <button
           onClick={toggleSound}
           aria-pressed={audio.on}
@@ -264,7 +264,7 @@ export default function Landing() {
           className="nb-btn dark inline-flex items-center gap-1.5 px-4 py-2 text-xs"
         >
           {!explore && <span>+</span>}
-          {explore ? 'Exit exploration' : 'Explore the galaxy'}
+          {explore ? 'Exit exploration' : 'Explore'}
         </button>
       </div>
 

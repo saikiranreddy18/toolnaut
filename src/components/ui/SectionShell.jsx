@@ -23,12 +23,13 @@ export default function SectionShell({ id, eyebrow, title, titleAs = 'h2', child
     <section id={id} ref={ref} className={`relative z-10 mx-auto w-full max-w-6xl px-5 py-24 md:py-32 ${className}`}>
       <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={stagger}>
         {eyebrow && (
-          <motion.p variants={fadeUp} className="mb-4 font-display text-xs font-black uppercase tracking-[0.3em] text-(--lime)">
-            ▸ {eyebrow}
+          <motion.p variants={fadeUp} className="mb-4 text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">
+            {eyebrow}
           </motion.p>
         )}
         {title && (
-          <Heading variants={fadeUp} className="arcade-heading mb-12 max-w-3xl text-3xl md:text-5xl">
+          <Heading variants={fadeUp} className="arcade-heading mb-12 max-w-3xl text-3xl md:text-5xl"
+            style={{ textShadow: '0 2px 24px rgba(0,0,0,0.8)' }}>
             {title}
           </Heading>
         )}

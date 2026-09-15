@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import SectionShell, { fadeUp, stagger } from '../ui/SectionShell'
 import { TOOLS, SOURCE_CATEGORIES } from '../../utils/toolsCatalog'
-import { QUESTIONS } from '../../utils/quizLogic'
+import { getNewTools } from '../../utils/newTools'
 import { explorerCount } from '../../utils/explorerCount'
 import { subscriberCount, conversionPercent } from '../../utils/subscriberCount'
 
@@ -35,7 +35,7 @@ function StatCard({ n, k, live }) {
   return (
     <motion.div variants={fadeUp} className="rounded-2xl px-4 py-6 text-center" style={PANEL}>
       <p className="arcade-heading text-3xl md:text-4xl" style={{ color: 'var(--lime)' }}>{n}</p>
-      <p className="mt-2 font-display text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">{k}</p>
+      <p className="mt-2 text-[13px] text-zinc-400">{k}</p>
       {live && (
         <p className="mt-1 font-display text-[8px] font-black uppercase tracking-[0.14em]" style={{ color: 'var(--cyan)' }}>
           Live count
@@ -49,8 +49,10 @@ export default function StatsSection() {
   const counted = [
     { n: TOOLS.length.toLocaleString(), k: 'AI tools mapped' },
     { n: SOURCE_CATEGORIES.length, k: 'Categories' },
-    { n: QUESTIONS.length, k: 'Questions asked' },
-    { n: '4', k: 'Week roadmap' },
+    // Both read from the catalogue: tools you can start on without paying, and
+    // the radar's finds from the last seven days (hidden when there are none).
+    { n: TOOLS.filter((t) => t.price === 'free' || t.price === 'freemium').length.toLocaleString(), k: 'Free to start' },
+    ...(getNewTools(7).length ? [{ n: getNewTools(7).length.toLocaleString(), k: 'New this week' }] : []),
   ]
 
   const [explorers, setExplorers] = useState(null)
@@ -80,7 +82,7 @@ export default function StatsSection() {
         variants={stagger}
         className="mx-auto max-w-4xl"
       >
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div className={`grid grid-cols-2 gap-4 ${counted.length === 4 ? 'md:grid-cols-4' : 'md:grid-cols-3'}`}>
           {counted.map((s) => <StatCard key={s.k} n={s.n} k={s.k} />)}
         </div>
 
@@ -88,7 +90,7 @@ export default function StatsSection() {
           <motion.div variants={fadeUp} className="mt-10">
             <div className="mb-3 flex justify-center">
               <span
-                className="rounded-full border border-white/10 px-3 py-1 font-display text-[10px] font-black uppercase tracking-[0.2em] text-slate-300"
+                className="rounded-full border border-white/10 px-3 py-1 font-display text-[10px] font-black uppercase tracking-[0.2em] text-zinc-300"
                 style={{ background: '#12121c' }}
               >
                 The community

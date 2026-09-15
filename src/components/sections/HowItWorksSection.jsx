@@ -53,7 +53,7 @@ export default function HowItWorksSection() {
                   {String(i + 1).padStart(2, '0')}
                 </p>
                 <h3 className="mt-3 font-display text-xl font-semibold text-white">{s.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-300">{s.text}</p>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-300">{s.text}</p>
               </Tilt>
             </motion.div>
           ))}

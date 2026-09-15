@@ -35,6 +35,7 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
   // Regional plans price by country; everything else ignores it.
   const country = useVisitorCountry()
   const track = useAnalytics()
+  const paymentsOn = import.meta.env.VITE_PAYMENTS_ENABLED === 'true'
 
   return (
     // h-full so the grid's items-stretch actually reaches the card: without it
@@ -81,18 +82,18 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
               a flat 30 days from activateEntitlement. Saying "per month" tells
               someone their card will be charged again, and it will not be —
               which is the kind of surprise that ends in a chargeback. */}
-          <span className="text-sm font-bold text-slate-400">
+          <span className="text-sm font-medium text-zinc-500">
             {plan.lifetime ? 'one time' : '/30 days'}
           </span>
         </p>
-        <p className="mt-1 text-[11px] font-bold uppercase tracking-wide text-slate-500">
-          {plan.lifetime ? 'Pay once · never expires' : 'One payment · does not auto-renew'}
+        <p className="mt-1 text-xs text-zinc-500">
+          {plan.lifetime ? 'Pay once, never expires' : 'One payment, does not auto-renew'}
         </p>
-        <p className="mt-3 text-xs text-slate-400">{plan.audience}</p>
+        <p className="mt-3 text-xs text-zinc-400">{plan.audience}</p>
 
         <ul className="mt-6 flex-1 space-y-3 text-[14px] leading-snug text-zinc-200">
           {plan.plus && <li className="font-medium text-zinc-300">{plan.plus}</li>}
-          {plan.features.map((f) => (
+          {plan.features.filter((f) => f.status !== 'planned').map((f) => (
             <li key={f.text} className={f.status === 'planned' ? 'flex items-start gap-2.5 text-zinc-500' : 'flex items-start gap-2.5'}>
               <svg className="mt-[3px] h-3.5 w-3.5 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3.5 8.5l3 3 6-7" stroke={f.status === 'planned' ? '#52525b' : '#ffffff'} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -103,6 +104,19 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
               </span>
             </li>
           ))}
+          {/* Planned items are summarised, not listed: a column of "not built
+              yet" reads as an unfinished product. The full list stays in the
+              comparison table for anyone who wants it. */}
+          {plan.features.some((f) => f.status === 'planned') && (
+            <li className="flex items-start gap-2.5 text-zinc-500">
+              <svg className="mt-[3px] h-3.5 w-3.5 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 3v10M3 8h10" stroke="#52525b" strokeWidth="1.6" strokeLinecap="round" />
+              </svg>
+              <span>
+                {plan.features.filter((f) => f.status === 'planned').length} more features on the roadmap
+              </span>
+            </li>
+          )}
         </ul>
 
         {plan.onSale === false ? (
@@ -113,11 +127,11 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
           </span>
         ) : (
           <Link
-            to="/goal"
+            to={paymentsOn ? '/pay' : '/goal'}
             onClick={() => track(EVENTS.PLAN_SELECT, { plan: plan.id, price: plan.price })}
             className={`nb-btn ${plan.id === 'guru' ? 'pink' : plan.id === 'pandava' ? 'cyan' : ''} mt-8 block w-full py-3 text-center text-sm`}
           >
-            Reserve {plan.name} at launch
+            {paymentsOn ? `Get ${plan.name}` : `Reserve ${plan.name} at launch`}
           </Link>
         )}
       </div>
