@@ -109,10 +109,10 @@ const vertexShader = /* glsl */ `
   varying float vAlpha;
   void main() {
     // Stars leave in a staggered wave so the spiral assembles, not snaps.
-    float k = clamp(uIntro * 1.15 - aPhase * 0.15, 0.0, 1.0);
+    float k = clamp(uIntro * 1.25 - aPhase * 0.25, 0.0, 1.0);
     float e = 1.0 - pow(1.0 - k, 3.0);
     // Swirl the dust around the core while it falls in.
-    float swirl = (1.0 - e) * 0.6;
+    float swirl = (1.0 - e) * 1.6;
     float cs = cos(swirl);
     float sn = sin(swirl);
     vec3 from = vec3(aStart.x * cs - aStart.z * sn, aStart.y, aStart.x * sn + aStart.z * cs);
@@ -260,17 +260,13 @@ export default function ToolStars() {
       size[i] = it.size
       phase[i] = it.phase
       index[i] = i
-      // Start on a wider, looser copy of the same spiral: each star sits on its
-      // own arm, pushed outward and rotated back. As the intro runs the arms
-      // wind in and tighten, so the galaxy looks connected and bright from the
-      // very first frame instead of assembling out of random dust.
-      const [px, py, pz] = it.position
-      const r0 = Math.hypot(px, pz)
-      const ang = Math.atan2(pz, px) - 1.1 - r0 * 0.06
-      const rr = r0 * 1.7 + 1.5
-      start[i * 3] = Math.cos(ang) * rr
-      start[i * 3 + 1] = py * 2
-      start[i * 3 + 2] = Math.sin(ang) * rr
+      // Start as scattered dust: every tool at a random spot across the whole
+      // view, then the intro pulls them all together into the spiral.
+      const a = hash(i + 401) * Math.PI * 2
+      const d = 2 + Math.sqrt(hash(i + 503)) * 20
+      start[i * 3] = Math.cos(a) * d
+      start[i * 3 + 1] = (hash(i + 601) - 0.5) * 12
+      start[i * 3 + 2] = Math.sin(a) * d
     })
     const g = new THREE.BufferGeometry()
     g.setAttribute('position', new THREE.BufferAttribute(pos, 3))
