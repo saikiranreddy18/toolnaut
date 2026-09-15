@@ -125,9 +125,9 @@ const vertexShader = /* glsl */ `
     gl_PointSize = size * uPixelRatio * (75.0 / -mv.z);
     gl_Position = projectionMatrix * mv;
     vColor = aColor;
-    // Dust is dimmer and smaller than a settled star.
-    gl_PointSize *= mix(0.55, 1.0, e);
-    vAlpha = min(1.0, breathe + glint + hovered) * mix(0.45, 1.0, e);
+    // Full brightness from the first frame: the stars are bright while they
+    // fly in, not only once the spiral has settled.
+    vAlpha = min(1.0, breathe + glint + hovered);
   }
 `
 
