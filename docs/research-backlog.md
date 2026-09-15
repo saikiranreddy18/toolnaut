@@ -6065,3 +6065,78 @@ a client-side SPA with a static tool catalogue.
   `GalaxyExplorer.jsx`. No backend, no new dependency, no new route (reuses
   `/search`), no schema change.
 - **Found:** 2026-09-15 09:09 UTC
+
+---
+
+### "Track progress against your role, not generic benchmarks" — no benchmark of either kind exists
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — the promise is the marketing copy's
+  own claim, checked against the app. `HowItWorksSection.jsx:9`'s "Master"
+  step (the fourth of the four steps every visitor sees on the landing page
+  before ever taking the quiz) reads: "Track progress against your role, not
+  generic benchmarks. Stay ahead as the field moves." `AudienceSection.jsx`
+  was read alongside it (same unaudited-sections note this backlog left at
+  line ~1942) but its two cards are aspirational scene-setting ("walk into
+  interviews with a working stack") with no discrete feature claim to check —
+  this entry only covers the checkable one.
+- **Gap:** Grepped the whole of `src/` for `against your role|generic
+  benchmark|peer|percentile|role-based|expected mastery` — the phrase exists
+  in exactly one place, `HowItWorksSection.jsx:9` itself. There is no
+  generic benchmark to contrast against, and no role-specific one either.
+  `progressStore.js` (`STATUSES = ['Not started', 'Exploring', 'Using
+  weekly', 'Mastered']`) stores one flat 4-state index per tool name,
+  identical in shape for every user regardless of role, and is read by
+  exactly two consumers: `Stack.jsx`'s per-card status pill
+  (`Stack.jsx:324`) and `SkillGraph.jsx`, which averages that index into a
+  bar per **domain** (`code`/`design`/`writing`/`data`/`automation`/
+  `learning` — `skillCoverage.js`'s six fixed categories), not per role.
+  Domain and role are different axes: `personaGenerator.js` already computes
+  a role-specific 3-tool starter stack (`persona.stack`, filtered and sorted
+  by `prominence.js`'s `starterScore` — `personaGenerator.js:100-102`) and a
+  readable role label (`career`, e.g. "Mid-level Developer",
+  `personaGenerator.js:117`), but nothing on `Stack.jsx` ever measures the
+  user's `progress` against `persona.stack` specifically — the page renders
+  `persona.stack` tools inside the same undifferentiated `allStackTools`
+  grid as everything added from Discover (`Stack.jsx:232-236`). A user has
+  no way to see "how am I doing against what a [role] is expected to have,"
+  which is exactly what the copy promises and what the "not generic
+  benchmarks" phrasing implies exists somewhere as a contrast.
+- **Why it matters:** This is the fourth of four steps sold on the landing
+  page as the payoff for finishing the other three — the moment a returning
+  user is told progress means something tied to their identity, not a
+  one-size bar. Right now `SkillGraph`'s bars are the same six domain labels
+  for a student and a founder alike; nothing on `/app/stack` ever surfaces
+  the word "role" next to the word "progress." A prospective user who reads
+  the landing page and later opens their dashboard finds a page that never
+  makes the comparison it was promised would happen.
+- **Smallest useful version (what to actually build):** the role-specific
+  benchmark already exists as data (`persona.stack`) — this is a display
+  gap, not a data-modeling one.
+  - Add one derived stat to `Stack.jsx`: of `persona.stack` (the 3 tools
+    chosen specifically for this user's role/experience/goal combo), how
+    many are at `STATUSES[3]` ("Mastered") in `progress`. Render as "2 of 3
+    core [career] tools mastered" near the existing streak/progress-ring
+    header (`Stack.jsx` top section, next to the `ProgressRing` component
+    already defined at the top of the file) — reuse `persona.career` for the
+    label, falling back to `persona.category.name` when `career` is null
+    (quiz answers that skipped role/stage).
+  - Visually distinguish the 3 `persona.stack` cards from added-from-Discover
+    cards in `allStackTools` with a small "core" tag — the `starter: true`
+    flag `Stack.jsx:233` already attaches to them exists for exactly this
+    but is currently unused for anything but internal filtering (checked:
+    grepped `.starter` in `Stack.jsx`, only read at line 233's own map, never
+    rendered).
+  - No new state, no new localStorage key — `persona.stack` and `progress`
+    are both already loaded on this page every render.
+  - **What this would NOT include** (deliberately out of scope for a first
+    cut): no cross-user peer comparison or percentile (would need a backend
+    this static SPA doesn't have — the same reason the leaderboard gap
+    elsewhere in this file stayed "precondition not flipped"), no per-role
+    "expected mastery timeline," no change to `SkillGraph`'s existing
+    domain view (it stays as a separate, complementary breakdown), no
+    rewording of the marketing copy as an alternative fix — the copy is a
+    reasonable promise, it just has nothing behind it yet.
+- **Build size:** S — one derived value and one small stat line in
+  `Stack.jsx`, one conditional "core" tag on cards already carrying the
+  `starter` flag. No new route, no new file, no schema change, no backend.
+- **Found:** 2026-09-15 12:05 UTC
