@@ -133,7 +133,10 @@
       "the-memory-that-ai-agents-love",
       "transitionsdev-ui-transitions-for-ai-agents",
       "a-fresh-take-on-code-intelligence-for-ai-agents",
-      "what-a-time-to-be-alive"
+      "what-a-time-to-be-alive",
+      "productspec",
+      "antflow-ai-spec-driven-agentic-development",
+      "vibesafe-builder"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -264,7 +267,10 @@
       "course-the-memory-that-ai-agents-love",
       "course-transitionsdev-ui-transitions-for-ai-agents",
       "course-a-fresh-take-on-code-intelligence-for-ai-agents",
-      "course-what-a-time-to-be-alive"
+      "course-what-a-time-to-be-alive",
+      "course-productspec",
+      "course-antflow-ai-spec-driven-agentic-development",
+      "course-vibesafe-builder"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -393,7 +399,8 @@
       "toolcraft",
       "dont-hit-send",
       "open-sourced-solution-to-ai-manage-playwright-automations",
-      "a-c-compiler-written-with-help-of-claude"
+      "a-c-compiler-written-with-help-of-claude",
+      "chronicle"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -433,7 +440,8 @@
       "course-toolcraft",
       "course-dont-hit-send",
       "course-open-sourced-solution-to-ai-manage-playwright-automations",
-      "course-a-c-compiler-written-with-help-of-claude"
+      "course-a-c-compiler-written-with-help-of-claude",
+      "course-chronicle"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -758,7 +766,8 @@
       "radio",
       "can-ai-agents-conduct-open-ended-ai-research",
       "ai-agents-blew-the-whistle-on-their-cheating-colleagues",
-      "apple-releases-os-27-updates-with-siri-ai"
+      "apple-releases-os-27-updates-with-siri-ai",
+      "who-bankrolls-the-ai-agent-swarm"
     ],
     "courses": [
       "course-headless-tools",
@@ -930,7 +939,8 @@
       "course-radio",
       "course-can-ai-agents-conduct-open-ended-ai-research",
       "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues",
-      "course-apple-releases-os-27-updates-with-siri-ai"
+      "course-apple-releases-os-27-updates-with-siri-ai",
+      "course-who-bankrolls-the-ai-agent-swarm"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1076,7 +1086,10 @@
       "what-a-time-to-be-alive",
       "nowdex",
       "can-ai-agents-conduct-open-ended-ai-research",
-      "ai-agents-blew-the-whistle-on-their-cheating-colleagues"
+      "ai-agents-blew-the-whistle-on-their-cheating-colleagues",
+      "productspec",
+      "who-bankrolls-the-ai-agent-swarm",
+      "antflow-ai-spec-driven-agentic-development"
     ],
     "courses": [
       "course-headless-tools",
@@ -1202,7 +1215,10 @@
       "course-what-a-time-to-be-alive",
       "course-nowdex",
       "course-can-ai-agents-conduct-open-ended-ai-research",
-      "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues"
+      "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues",
+      "course-productspec",
+      "course-who-bankrolls-the-ai-agent-swarm",
+      "course-antflow-ai-spec-driven-agentic-development"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1385,7 +1401,8 @@
       "bitroad",
       "swiftime",
       "ai-refuge-contact-a-human",
-      "402cron-pay-per-delivery-cron-scheduling-for-ai-agents"
+      "402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
+      "ecommerce-ai-tools"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1399,7 +1416,8 @@
       "course-bitroad",
       "course-swiftime",
       "course-ai-refuge-contact-a-human",
-      "course-402cron-pay-per-delivery-cron-scheduling-for-ai-agents"
+      "course-402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
+      "course-ecommerce-ai-tools"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1590,10 +1608,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "ecdeos"
+      "ecdeos",
+      "loss-a-tiny-satire-about-ai-progress"
     ],
     "courses": [
-      "course-ecdeos"
+      "course-ecdeos",
+      "course-loss-a-tiny-satire-about-ai-progress"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1724,7 +1744,8 @@
       "you-didnt-deploy-the-ai-agent-you-evaluated",
       "cve-2026-42978-poc-research",
       "ai-security-tool",
-      "what-a-time-to-be-alive"
+      "what-a-time-to-be-alive",
+      "vibesafe-builder"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -1754,7 +1775,8 @@
       "course-you-didnt-deploy-the-ai-agent-you-evaluated",
       "course-cve-2026-42978-poc-research",
       "course-ai-security-tool",
-      "course-what-a-time-to-be-alive"
+      "course-what-a-time-to-be-alive",
+      "course-vibesafe-builder"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -1851,11 +1873,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "a-daily-cartoon-contest-between-ai-models-judged-blind",
-      "pov-youre-an-ai-agent-recruited-for-the-swarm"
+      "pov-youre-an-ai-agent-recruited-for-the-swarm",
+      "loss-a-tiny-satire-about-ai-progress"
     ],
     "courses": [
       "course-a-daily-cartoon-contest-between-ai-models-judged-blind",
-      "course-pov-youre-an-ai-agent-recruited-for-the-swarm"
+      "course-pov-youre-an-ai-agent-recruited-for-the-swarm",
+      "course-loss-a-tiny-satire-about-ai-progress"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2107,7 +2131,10 @@
       "thread-to-self",
       "pen",
       "extension-to-filter-llm-written-articles",
-      "dont-hit-send"
+      "dont-hit-send",
+      "restarted",
+      "chronicle",
+      "spec-sheets-for-humans"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -2123,7 +2150,10 @@
       "course-thread-to-self",
       "course-pen",
       "course-extension-to-filter-llm-written-articles",
-      "course-dont-hit-send"
+      "course-dont-hit-send",
+      "course-restarted",
+      "course-chronicle",
+      "course-spec-sheets-for-humans"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2461,7 +2491,8 @@
       "the-rise-of-ai-slop-tools",
       "nvidia-is-the-central-bank-of-ai",
       "eliza-the-ai-that-fooled-the-world",
-      "your-ai-agent-has-a-cache-invalidation-problem"
+      "your-ai-agent-has-a-cache-invalidation-problem",
+      "loss-a-tiny-satire-about-ai-progress"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2502,7 +2533,8 @@
       "course-the-rise-of-ai-slop-tools",
       "course-nvidia-is-the-central-bank-of-ai",
       "course-eliza-the-ai-that-fooled-the-world",
-      "course-your-ai-agent-has-a-cache-invalidation-problem"
+      "course-your-ai-agent-has-a-cache-invalidation-problem",
+      "course-loss-a-tiny-satire-about-ai-progress"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2668,7 +2700,8 @@
       "meshdrive-and-local-ai-agent-for-fs",
       "simonagent",
       "autocode",
-      "a-fresh-take-on-code-intelligence-for-ai-agents"
+      "a-fresh-take-on-code-intelligence-for-ai-agents",
+      "productspec"
     ],
     "courses": [
       "course-limitless-library",
@@ -2708,7 +2741,8 @@
       "course-meshdrive-and-local-ai-agent-for-fs",
       "course-simonagent",
       "course-autocode",
-      "course-a-fresh-take-on-code-intelligence-for-ai-agents"
+      "course-a-fresh-take-on-code-intelligence-for-ai-agents",
+      "course-productspec"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2772,12 +2806,14 @@
     "toolsTeaching": [
       "player-vs-computer",
       "build-your-own-theme-park",
-      "snickers-launches-digital-bar-to-feed-your-hungry-ai"
+      "snickers-launches-digital-bar-to-feed-your-hungry-ai",
+      "restarted"
     ],
     "courses": [
       "course-player-vs-computer",
       "course-build-your-own-theme-park",
-      "course-snickers-launches-digital-bar-to-feed-your-hungry-ai"
+      "course-snickers-launches-digital-bar-to-feed-your-hungry-ai",
+      "course-restarted"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2814,7 +2850,8 @@
       "parlel",
       "ai-cost-dashboard-is-probably-wrong",
       "nasa-and-ibm-open-source-lunar-mapping-tools",
-      "hazumi-for-hn-comes-to-the-web"
+      "hazumi-for-hn-comes-to-the-web",
+      "ecommerce-ai-tools"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -2844,7 +2881,8 @@
       "course-parlel",
       "course-ai-cost-dashboard-is-probably-wrong",
       "course-nasa-and-ibm-open-source-lunar-mapping-tools",
-      "course-hazumi-for-hn-comes-to-the-web"
+      "course-hazumi-for-hn-comes-to-the-web",
+      "course-ecommerce-ai-tools"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3184,7 +3222,8 @@
       "will-your-money-last-ai-assisted-financial-simulator",
       "ai-is-making-us-build-too-much",
       "ai-means-the-end-of-software-as-we-know-it",
-      "humble-bundle"
+      "humble-bundle",
+      "restarted"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -3192,7 +3231,8 @@
       "course-will-your-money-last-ai-assisted-financial-simulator",
       "course-ai-is-making-us-build-too-much",
       "course-ai-means-the-end-of-software-as-we-know-it",
-      "course-humble-bundle"
+      "course-humble-bundle",
+      "course-restarted"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3442,11 +3482,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "build-your-own-theme-park",
-      "inspyry"
+      "inspyry",
+      "restarted"
     ],
     "courses": [
       "course-build-your-own-theme-park",
-      "course-inspyry"
+      "course-inspyry",
+      "course-restarted"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5928,12 +5970,14 @@
     "toolsTeaching": [
       "datazen",
       "z-local-first-search-layer-for-humans-and-agents",
-      "timervana-a-local-first-scheduler-for-real-world-routines"
+      "timervana-a-local-first-scheduler-for-real-world-routines",
+      "chronicle"
     ],
     "courses": [
       "course-datazen",
       "course-z-local-first-search-layer-for-humans-and-agents",
-      "course-timervana-a-local-first-scheduler-for-real-world-routines"
+      "course-timervana-a-local-first-scheduler-for-real-world-routines",
+      "course-chronicle"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -6676,11 +6720,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "what-agent-skills-are-made-of-programming-languages",
-      "the-thinking-wattage-of-ai-agents-vs-the-human-brain"
+      "the-thinking-wattage-of-ai-agents-vs-the-human-brain",
+      "who-bankrolls-the-ai-agent-swarm"
     ],
     "courses": [
       "course-what-agent-skills-are-made-of-programming-languages",
-      "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain"
+      "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain",
+      "course-who-bankrolls-the-ai-agent-swarm"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
   },
@@ -9352,10 +9398,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "a-context-registry-for-ai-coding-agents"
+      "a-context-registry-for-ai-coding-agents",
+      "antflow-ai-spec-driven-agentic-development"
     ],
     "courses": [
-      "course-a-context-registry-for-ai-coding-agents"
+      "course-a-context-registry-for-ai-coding-agents",
+      "course-antflow-ai-spec-driven-agentic-development"
     ],
     "updatedAt": "2026-09-03T23:31:51.252Z"
   },
@@ -10669,10 +10717,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "alternaterealitieslol"
+      "alternaterealitieslol",
+      "vibesafe-builder"
     ],
     "courses": [
-      "course-alternaterealitieslol"
+      "course-alternaterealitieslol",
+      "course-vibesafe-builder"
     ],
     "updatedAt": "2026-09-06T23:10:17.799Z"
   },
@@ -11152,11 +11202,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "awesome-geo-tools",
-      "google-seo-mcp"
+      "google-seo-mcp",
+      "ecommerce-ai-tools"
     ],
     "courses": [
       "course-awesome-geo-tools",
-      "course-google-seo-mcp"
+      "course-google-seo-mcp",
+      "course-ecommerce-ai-tools"
     ],
     "updatedAt": "2026-09-07T15:05:03.707Z"
   },
@@ -11696,10 +11748,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "developer-agency-in-the-age-of-ai"
+      "developer-agency-in-the-age-of-ai",
+      "antflow-ai-spec-driven-agentic-development"
     ],
     "courses": [
-      "course-developer-agency-in-the-age-of-ai"
+      "course-developer-agency-in-the-age-of-ai",
+      "course-antflow-ai-spec-driven-agentic-development"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -15164,5 +15218,304 @@
       "course-apple-releases-os-27-updates-with-siri-ai"
     ],
     "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "skill-startup ideas",
+    "name": "startup ideas",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "restarted"
+    ],
+    "courses": [
+      "course-restarted"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-pitch",
+    "name": "pitch",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "restarted"
+    ],
+    "courses": [
+      "course-restarted"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-authoring",
+    "name": "authoring",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "chronicle"
+    ],
+    "courses": [
+      "course-chronicle"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-novels",
+    "name": "novels",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "chronicle"
+    ],
+    "courses": [
+      "course-chronicle"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-satire",
+    "name": "satire",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "loss-a-tiny-satire-about-ai-progress"
+    ],
+    "courses": [
+      "course-loss-a-tiny-satire-about-ai-progress"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-ai-progress",
+    "name": "ai progress",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "loss-a-tiny-satire-about-ai-progress"
+    ],
+    "courses": [
+      "course-loss-a-tiny-satire-about-ai-progress"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-loss",
+    "name": "loss",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "loss-a-tiny-satire-about-ai-progress"
+    ],
+    "courses": [
+      "course-loss-a-tiny-satire-about-ai-progress"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-open standard",
+    "name": "open standard",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "productspec"
+    ],
+    "courses": [
+      "course-productspec"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-specifications",
+    "name": "specifications",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "productspec"
+    ],
+    "courses": [
+      "course-productspec"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-software intent",
+    "name": "software intent",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "productspec"
+    ],
+    "courses": [
+      "course-productspec"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-funding",
+    "name": "funding",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "who-bankrolls-the-ai-agent-swarm"
+    ],
+    "courses": [
+      "course-who-bankrolls-the-ai-agent-swarm"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-agentic coding",
+    "name": "agentic coding",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "antflow-ai-spec-driven-agentic-development"
+    ],
+    "courses": [
+      "course-antflow-ai-spec-driven-agentic-development"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-spec-driven",
+    "name": "spec driven",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "antflow-ai-spec-driven-agentic-development"
+    ],
+    "courses": [
+      "course-antflow-ai-spec-driven-agentic-development"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-personal spec",
+    "name": "personal spec",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "spec-sheets-for-humans"
+    ],
+    "courses": [
+      "course-spec-sheets-for-humans"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-work style",
+    "name": "work style",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "spec-sheets-for-humans"
+    ],
+    "courses": [
+      "course-spec-sheets-for-humans"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-team onboarding",
+    "name": "team onboarding",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "spec-sheets-for-humans"
+    ],
+    "courses": [
+      "course-spec-sheets-for-humans"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-self documentation",
+    "name": "self documentation",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "spec-sheets-for-humans"
+    ],
+    "courses": [
+      "course-spec-sheets-for-humans"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-app builder",
+    "name": "app builder",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "vibesafe-builder"
+    ],
+    "courses": [
+      "course-vibesafe-builder"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-ai apps",
+    "name": "ai apps",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "vibesafe-builder"
+    ],
+    "courses": [
+      "course-vibesafe-builder"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-launch",
+    "name": "launch",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "vibesafe-builder"
+    ],
+    "courses": [
+      "course-vibesafe-builder"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-ecommerce",
+    "name": "ecommerce",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ecommerce-ai-tools"
+    ],
+    "courses": [
+      "course-ecommerce-ai-tools"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-video-generation",
+    "name": "video generation",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ecommerce-ai-tools"
+    ],
+    "courses": [
+      "course-ecommerce-ai-tools"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-review-analysis",
+    "name": "review analysis",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ecommerce-ai-tools"
+    ],
+    "courses": [
+      "course-ecommerce-ai-tools"
+    ],
+    "updatedAt": "2026-09-15T14:21:00.449Z"
   }
 ]

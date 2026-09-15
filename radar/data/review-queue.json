@@ -1683,5 +1683,35 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "bulkgrid",
+    "name": "Bulkgrid",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Show HN: Bulkgrid – Search websites and GitHub repositories from your AI agent",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://bulkgrid.com",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "code",
+      "agent",
+      "search"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49712405",
+    "discoveredAt": "2026-09-15T14:21:00.449Z",
+    "updatedAt": "2026-09-15T14:21:00.449Z",
+    "contentHash": "6cedefb72ff0728a",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]
