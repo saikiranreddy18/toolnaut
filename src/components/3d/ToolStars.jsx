@@ -118,10 +118,13 @@ const vertexShader = /* glsl */ `
     vec3 from = vec3(aStart.x * cs - aStart.z * sn, aStart.y, aStart.x * sn + aStart.z * cs);
     vec3 p = mix(from, position, e);
     vec4 mv = modelViewMatrix * vec4(p, 1.0);
-    float breathe = 0.7 + 0.3 * sin(uTime * (0.6 + aPhase * 0.25) + aPhase * 6.2831);
+    float breathe = 0.88 + 0.12 * sin(uTime * (0.6 + aPhase * 0.25) + aPhase * 6.2831);
     float glint = max(0.0, sin(uTime * 0.31 + aPhase * 23.0) - 0.97) * 30.0;
     float hovered = abs(aIndex - uHover) < 0.5 ? 1.0 : 0.0;
-    float size = aSize * (1.0 + glint * 0.5 + hovered * 1.6);
+    // While flying in, each star is a touch larger and fully lit, so the
+    // formation reads as bright light gathering, not faint dust.
+    float flying = 1.0 - e;
+    float size = aSize * (1.0 + glint * 0.5 + hovered * 1.6 + flying * 0.35);
     // Size from the star's FINAL depth, not where it is mid-flight: a star far
     // out in the dust cloud would otherwise shrink to a speck and look dim
     // until it arrived. Every star is its settled size and brightness from the
@@ -132,7 +135,7 @@ const vertexShader = /* glsl */ `
     vColor = aColor;
     // Full brightness from the first frame: the stars are bright while they
     // fly in, not only once the spiral has settled.
-    vAlpha = min(1.0, breathe + glint + hovered);
+    vAlpha = min(1.0, breathe + glint + hovered + flying);
   }
 `
 
@@ -144,7 +147,7 @@ const fragmentShader = /* glsl */ `
     float d = length(c);
     if (d > 0.5) discard;
     float core = smoothstep(0.18, 0.0, d);
-    float halo = smoothstep(0.5, 0.0, d) * 0.7;
+    float halo = smoothstep(0.5, 0.0, d) * 0.85;
     vec3 col = mix(vColor, vec3(1.0), core);
     gl_FragColor = vec4(col, (core + halo) * vAlpha);
   }
