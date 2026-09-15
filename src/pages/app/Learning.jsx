@@ -213,7 +213,7 @@ export default function Learning() {
       // lines up with every other page instead of floating in the middle. The
       // pattern SAVED already uses for its empty state.
       <div className="relative z-10 mx-auto max-w-5xl px-5 xl:max-w-6xl py-6 lg:py-10">
-        <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">Learn</p>
+        <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">Learn</p>
         <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">Your 4-week<br/>Orbit</h1>
         <div className="mt-6">
           <p className="max-w-md text-sm leading-relaxed text-zinc-300">
@@ -272,7 +272,7 @@ export default function Learning() {
 
   return (
     <div className="relative z-10 mx-auto max-w-5xl px-5 xl:max-w-6xl py-6 lg:py-10">
-      <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">Learn</p>
+      <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">Learn</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">Your 4-week<br/>Orbit</h1>
 
         {/* Next move — the single answer to "what do I do now" */}

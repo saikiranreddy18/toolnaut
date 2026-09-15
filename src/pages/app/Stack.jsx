@@ -145,7 +145,7 @@ export default function Stack() {
 
     return (
       <div className="mx-auto max-w-4xl px-5 xl:max-w-6xl py-6 lg:py-10">
-        <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">Stack</p>
+        <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">Stack</p>
         <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">
           {started ? <>{addedSlugs.length} tool{addedSlugs.length === 1 ? '' : 's'},<br />no profile yet</> : <>Your stack<br />is empty</>}
         </h1>
@@ -248,7 +248,7 @@ export default function Stack() {
   return (
     <div className="relative mx-auto max-w-4xl px-5 py-6 lg:py-10 xl:max-w-6xl">
       <motion.div {...cardIn(0)} className="relative">
-        <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">
+        <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">
           {greeting}
         </p>
 

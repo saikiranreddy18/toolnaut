@@ -139,9 +139,9 @@ export default function AppShell() {
   }
 
   const navLinkClass = ({ isActive }) =>
-    `flex items-center gap-3 rounded-xl border-2 px-4 py-2.5 text-sm font-medium transition-all ${
+    `flex items-center gap-3 rounded-xl border px-4 py-2.5 text-sm font-medium transition-all ${
       isActive
-        ? 'border-white/10 bg-[var(--lime)] text-black shadow-[3px_3px_0_#000]'
+        ? 'border-violet-400/30 bg-gradient-to-r from-violet-500/20 via-fuchsia-500/10 to-sky-500/10 text-white shadow-[0_10px_30px_-18px_rgba(167,139,250,0.9)]'
         : 'border-transparent text-zinc-400 hover:bg-white/5 hover:text-white'
     }`
 

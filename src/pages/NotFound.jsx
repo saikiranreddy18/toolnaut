@@ -27,7 +27,7 @@ export default function NotFound() {
       <div className="starfield" aria-hidden="true" />
       <meta name="robots" content="noindex" />
       <div className="relative z-10">
-        <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">
+        <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">
           404 · Lost in space
         </p>
         <h1 className="arcade-heading mt-3 text-4xl sm:text-5xl">

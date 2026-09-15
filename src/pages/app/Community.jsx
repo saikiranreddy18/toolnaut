@@ -62,7 +62,7 @@ export default function Community() {
     <div className="mx-auto max-w-5xl px-5 xl:max-w-6xl py-6 lg:py-10">
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1">
-          <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">Squad</p>
+          <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">Squad</p>
           <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">The signal</h1>
           <p className="mt-2 text-sm font-medium text-zinc-300">
             Where explorers compare stacks and answer each other's tool questions.

@@ -143,7 +143,7 @@ export default function Settings() {
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-8 lg:py-10 xl:max-w-6xl">
-      <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">ME</p>
+      <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">ME</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">Your control center</h1>
       <p className="mt-3 max-w-lg text-sm leading-relaxed text-zinc-300">
         Everything Toolnaut knows about you, and every dial that changes what it

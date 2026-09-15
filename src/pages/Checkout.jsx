@@ -44,7 +44,7 @@ export default function Checkout() {
         </Link>
       </header>
 
-      <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">
+      <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">
         Checkout
       </p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">Pay for a plan</h1>

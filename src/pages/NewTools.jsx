@@ -56,7 +56,7 @@ export default function NewTools() {
         </Link>
       </header>
 
-      <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">
+      <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">
         Fresh from the radar
       </p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">

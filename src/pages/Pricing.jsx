@@ -77,7 +77,7 @@ export default function Pricing() {
   useEffect(() => { track(EVENTS.PRICING_VIEWED) }, [])
 
   return (
-    <div className="relative z-10 min-h-screen bg-[#0a0a0f]">
+    <div className="relative z-10 min-h-screen">
       <div className="starfield" aria-hidden="true" />
 
       <header className="relative mx-auto flex max-w-6xl items-center justify-between px-5 py-6">

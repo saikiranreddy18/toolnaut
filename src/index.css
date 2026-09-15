@@ -34,7 +34,7 @@ html {
   /* Kept for the no-Lenis case (touch, reduced motion), where it still gives
      anchor links a smooth ride. */
   scroll-behavior: smooth;
-  background: #0a0a0f;
+  background: #030305;
 }
 
 /* Lenis adds .lenis to <html> while it is driving the scroll, and it CANNOT
@@ -194,11 +194,10 @@ button, a, input, select, textarea {
 /* Full moon: a soft disc glow high on the right, a lifted sky, softer stars. */
 [data-moon='full'] .starfield {
   background:
-    radial-gradient(circle 220px at 84% 12%, rgba(226, 232, 240, 0.16), transparent 70%),
-    radial-gradient(ellipse 70% 55% at 84% 12%, rgba(148, 163, 184, 0.1), transparent),
-    radial-gradient(ellipse 55% 40% at 20% 10%, rgba(212, 212, 216, 0.14), transparent),
-    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(161, 161, 170, 0.1), transparent),
-    #0d0d15;
+    radial-gradient(ellipse 55% 45% at 12% 8%, rgba(124, 58, 237, 0.22), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 92% 28%, rgba(14, 165, 233, 0.14), transparent 70%),
+    radial-gradient(ellipse 60% 45% at 50% 100%, rgba(236, 72, 153, 0.12), transparent 70%),
+    #030305;
 }
 /* the moon itself — small, soft-edged, unmistakably a light source */
 [data-moon='full'] .starfield::before {
@@ -276,9 +275,10 @@ button, a, input, select, textarea {
 /* No moon: the sky drops away and the field comes forward. */
 [data-moon='none'] .starfield {
   background:
-    radial-gradient(ellipse 55% 40% at 20% 10%, rgba(212, 212, 216, 0.1), transparent),
-    radial-gradient(ellipse 45% 40% at 85% 85%, rgba(161, 161, 170, 0.07), transparent),
-    #050508;
+    radial-gradient(ellipse 55% 45% at 12% 8%, rgba(124, 58, 237, 0.22), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 92% 28%, rgba(14, 165, 233, 0.14), transparent 70%),
+    radial-gradient(ellipse 60% 45% at 50% 100%, rgba(236, 72, 153, 0.12), transparent 70%),
+    #030305;
 }
 [data-moon='none'] .starfield::before {
   opacity: 1;
@@ -381,12 +381,16 @@ button, a, input, select, textarea {
      --hot-pink  secondary  zinc-300
      --cyan      tertiary   zinc-400 */
 :root {
+  /* Cosmic palette, shared by every page: white stays the primary action,
+     and three nebula hues carry the accents (the landing galaxy's colours). */
   --lime: #ffffff;
-  --hot-pink: #d4d4d8;
-  --cyan: #a1a1aa;
+  --hot-pink: #f0abfc;
+  --cyan: #7dd3fc;
+  --violet: #a78bfa;
+  --cosmic-gradient: linear-gradient(90deg, #a5b4fc, #f0abfc 50%, #7dd3fc);
   --ink-hard: #000000;
-  --arcade-yellow: #e4e4e7;
-  --arcade-orange: #a1a1aa;
+  --arcade-yellow: #c4b5fd;
+  --arcade-orange: #fcd9a8;
 
   --space-bg: #000000;
   --space-panel: rgba(255, 255, 255, 0.025);
@@ -727,3 +731,50 @@ html[data-theme='synth'] {
   45%, 100% { transform: translateX(420%); }
 }
 @media (prefers-reduced-motion: reduce) { .founder-shine { animation: none; display: none; } }
+
+/* ===== COSMIC SKY — every page, not just the landing ===== */
+/* A fixed nebula wash and a quiet star layer behind all content. The landing
+   page paints its WebGL galaxy over it; every other page shows it directly. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 45% at 12% 8%, rgba(124, 58, 237, 0.22), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 92% 28%, rgba(14, 165, 233, 0.14), transparent 70%),
+    radial-gradient(ellipse 60% 45% at 50% 100%, rgba(236, 72, 153, 0.12), transparent 70%),
+    radial-gradient(1.2px 1.2px at 12% 22%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 28% 64%, rgba(199,210,254,0.7), transparent),
+    radial-gradient(1.4px 1.4px at 41% 12%, rgba(240,171,252,0.7), transparent),
+    radial-gradient(1px 1px at 55% 48%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1.3px 1.3px at 67% 81%, rgba(125,211,252,0.7), transparent),
+    radial-gradient(1px 1px at 76% 30%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 88% 58%, rgba(196,181,253,0.8), transparent),
+    radial-gradient(1px 1px at 6% 84%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1.2px 1.2px at 94% 8%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 34% 92%, rgba(125,211,252,0.6), transparent),
+    #030305;
+}
+body { background: transparent; }
+
+/* Gradient text for page eyebrows and highlighted words. */
+.cosmic-text {
+  background: var(--cosmic-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Cards pick up a soft nebula edge on hover. */
+.sticker { position: relative; }
+.sticker:hover {
+  border-color: rgba(167, 139, 250, 0.35);
+  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.08), 0 20px 60px -30px rgba(124, 58, 237, 0.45);
+}
+
+/* Selected chips and focus rings in the cosmic accent. */
+.arcade-chip.on { background: #ffffff; color: #000; border-color: transparent; box-shadow: 0 0 0 1px rgba(167,139,250,0.5), 0 8px 24px -12px rgba(167,139,250,0.6); }
+.nb-btn:focus-visible { outline-color: #a78bfa; }
+input:focus, textarea:focus, select:focus { border-color: rgba(167, 139, 250, 0.55) !important; box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.15); outline: none; }

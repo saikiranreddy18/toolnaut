@@ -178,7 +178,7 @@ export default function Discover() {
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-8 lg:py-10 xl:max-w-6xl">
-      <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">FIND</p>
+      <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">FIND</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">
         {TOOLS.length.toLocaleString()} tools,<br/>ranked for you
       </h1>

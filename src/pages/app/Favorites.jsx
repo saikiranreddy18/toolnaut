@@ -87,7 +87,7 @@ export default function Favorites() {
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-8 lg:py-10 xl:max-w-6xl">
-      <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">Saved</p>
+      <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">Saved</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">Your AI shortlist</h1>
 
       {total === 0 ? (

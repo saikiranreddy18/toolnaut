@@ -286,7 +286,7 @@ export default function GoalChat() {
                   entire pitch and it carries the weight of one. */}
               <h1 className="mt-4 max-w-3xl font-display font-semibold tracking-[-0.03em] text-white text-[clamp(1.8rem,4.6vw,2.7rem)] leading-[1.1]">
                 Tell Naut what you do.
-                <span className="block text-zinc-500">
+                <span className="block cosmic-text">
                   It builds it, plans it, grows it.
                 </span>
               </h1>

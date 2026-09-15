@@ -62,7 +62,7 @@ export default function About() {
     },
   })
   return (
-    <div className="relative z-10 min-h-screen bg-[#0a0a0f]">
+    <div className="relative z-10 min-h-screen">
       <div className="starfield" aria-hidden="true" />
 
       <header className="relative mx-auto flex max-w-3xl items-center justify-between px-5 py-6">
@@ -78,7 +78,7 @@ export default function About() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="font-display text-xs font-semibold uppercase tracking-[0.3em]"
+          className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text"
           style={{ color: 'var(--lime)' }}
         >
           Our story
