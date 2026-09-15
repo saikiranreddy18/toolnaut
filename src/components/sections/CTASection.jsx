@@ -27,11 +27,11 @@ export default function CTASection() {
         className="mx-auto flex max-w-6xl flex-col items-center px-5 py-24 text-center md:py-32"
       >
         <motion.div variants={fadeUp} className="mb-6 flex justify-center">
-          <span className="tape-label text-xs">✦ last call, explorer ✦</span>
+          <span className="tape-label text-xs">Get started</span>
         </motion.div>
 
         <motion.h2 variants={fadeUp} className="arcade-heading mx-auto max-w-3xl text-4xl md:text-6xl">
-          Ready to Find Your AI Stack?
+          Ready to find your AI stack?
         </motion.h2>
 
         <motion.p variants={fadeUp} className="mx-auto mt-5 max-w-xl text-slate-300">
@@ -45,7 +45,7 @@ export default function CTASection() {
             onClick={() => track(EVENTS.CTA_CLICK, { cta: 'open_app', location: 'final_cta' })}
             className="nb-btn inline-block px-8 py-4 text-base"
           >
-            🚀 Open the app
+            Open the app
           </Link>
         </motion.div>
 

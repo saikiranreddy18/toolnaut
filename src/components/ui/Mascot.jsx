@@ -135,12 +135,11 @@ export function BrandLogo({ size = 30, wordmark = true, beta = true, className =
     >
       <Mascot mood={hover ? 'curious' : 'happy'} size={size} />
       {wordmark && (
-        <Wordmark className={`tracking-[0.02em] text-white ${textClass}`} />
+        <Wordmark glow={false} className={`tracking-[-0.02em] text-white ${textClass}`} />
       )}
       {wordmark && beta && (
         <span
-          className="-ml-0.5 self-start rounded-full border border-white/10 px-1.5 py-px font-display text-[8px] font-black uppercase tracking-[0.14em]"
-          style={{ background: 'var(--lime)', color: '#000' }}
+          className="ml-0.5 rounded-full border border-white/15 px-1.5 py-px text-[10px] font-medium text-zinc-400"
         >
           beta
         </span>

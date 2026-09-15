@@ -90,17 +90,17 @@ export default function PricingPillar({ plan, currency = 'USD' }) {
         </p>
         <p className="mt-3 text-xs text-slate-400">{plan.audience}</p>
 
-        <ul className="mt-6 flex-1 space-y-2.5 text-sm text-slate-200">
-          {plan.plus && <li className="font-display font-black uppercase text-zinc-300">{plan.plus}</li>}
+        <ul className="mt-6 flex-1 space-y-3 text-[14px] leading-snug text-zinc-200">
+          {plan.plus && <li className="font-medium text-zinc-300">{plan.plus}</li>}
           {plan.features.map((f) => (
-            <li key={f.text} className="flex flex-wrap items-center gap-2">
-              <span aria-hidden="true" style={{ color: plan.accent }}>✦</span>
-              {f.text}
-              {f.status === 'planned' && (
-                <span className="whitespace-nowrap rounded-full border border-slate-600 px-1.5 py-0.5 font-display text-[9px] font-black uppercase text-slate-500">
-                  planned
-                </span>
-              )}
+            <li key={f.text} className={f.status === 'planned' ? 'flex items-start gap-2.5 text-zinc-500' : 'flex items-start gap-2.5'}>
+              <svg className="mt-[3px] h-3.5 w-3.5 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3.5 8.5l3 3 6-7" stroke={f.status === 'planned' ? '#52525b' : '#ffffff'} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span>
+                {f.text}
+                {f.status === 'planned' && <span className="ml-1.5 text-[11px] text-zinc-600">· Planned</span>}
+              </span>
             </li>
           ))}
         </ul>

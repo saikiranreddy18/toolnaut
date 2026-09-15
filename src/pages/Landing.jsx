@@ -175,13 +175,13 @@ export default function Landing() {
           travels with it instead of scrolling away — the countdown is only
           useful while it is visible. Hidden during galaxy exploration along
           with the rest of the chrome. */}
-      <header className={`fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-[#060609]/90 via-[#060609]/50 to-transparent pb-3 transition-opacity duration-500 ${explore ? 'pointer-events-none opacity-0' : ''}`}>
+      <header className={`fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-black/60 backdrop-blur-xl backdrop-saturate-150 transition-opacity duration-500 ${explore ? 'pointer-events-none opacity-0' : ''}`}>
         <FounderRibbon />
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
           <a href="#hero" aria-label={BRAND}>
-            <BrandLogo {...LOGO.page} />
+            <BrandLogo {...LOGO.chrome} size={34} textClass="text-xl" />
           </a>
-          <nav className="hidden items-center gap-6 text-sm text-slate-300 md:flex">
+          <nav className="hidden items-center gap-7 text-[13px] text-zinc-400 md:flex">
             <a href="#how-it-works" className="hover:text-white">How it works</a>
             <Link to="/pricing" className="hover:text-white">Pricing</Link>
             <Link to="/about" className="hover:text-white">About</Link>
@@ -190,18 +190,18 @@ export default function Landing() {
             <Link
               to="/app/stack"
               onClick={() => track(EVENTS.CTA_CLICK, { cta: 'open_app', location: 'nav' })}
-              className="nb-btn px-4 py-1.5 text-xs"
+              className="nb-btn ml-1 px-4 py-1.5 text-[13px]"
             >
-              🚀 Open app
+              Open app
             </Link>
           </nav>
           {/* mobile: the app entry must exist on small screens too */}
           <Link
             to="/app/stack"
             onClick={() => track(EVENTS.CTA_CLICK, { cta: 'open_app', location: 'nav_mobile' })}
-            className="nb-btn px-4 py-1.5 text-xs md:hidden"
+            className="nb-btn px-4 py-1.5 text-[13px] md:hidden"
           >
-            🚀 Open app
+            Open app
           </Link>
         </div>
       </header>
@@ -223,7 +223,7 @@ export default function Landing() {
       <div
         id="tool-tooltip"
         aria-hidden="true"
-        className="pointer-events-none fixed z-[85] -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-full border border-white/10 bg-[var(--lime)] px-4 py-1.5 font-display text-xs font-black uppercase tracking-wide text-black"
+        className="pointer-events-none fixed z-[85] -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-full border border-white/15 bg-black/80 px-3 py-1 text-xs font-medium text-white backdrop-blur-md"
         style={{ opacity: 0, transition: 'opacity 0.15s ease', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
       />
 
@@ -233,7 +233,7 @@ export default function Landing() {
           onClick={toggleSound}
           aria-pressed={audio.on}
           aria-label={audio.on ? 'Mute galaxy sound' : 'Play galaxy sound'}
-          className="nb-btn dark flex h-11 w-11 items-center justify-center !rounded-full !p-0"
+          className="nb-btn dark flex h-9 w-9 items-center justify-center !rounded-full !p-0"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor" stroke="none" />
@@ -249,7 +249,7 @@ export default function Landing() {
         </button>
         <button
           onClick={toggleExplore}
-          className="nb-btn dark inline-flex items-center gap-1.5 px-5 py-2.5 text-xs tracking-[0.2em]"
+          className="nb-btn dark inline-flex items-center gap-1.5 px-4 py-2 text-xs"
         >
           {!explore && <span>+</span>}
           {explore ? 'Exit exploration' : 'Explore the galaxy'}
