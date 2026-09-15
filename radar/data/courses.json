@@ -20280,5 +20280,291 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "course-nowdex",
+    "toolSlug": "nowdex",
+    "title": "Master Nowdex",
+    "objectives": [
+      "Understand what Nowdex is for",
+      "Use Nowdex on a real task",
+      "Know where Nowdex fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Nowdex for your real workflow, not the demo.",
+          "Say what Nowdex does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Nowdex.",
+          "Push Nowdex to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Nowdex into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-usage tracking",
+      "skill-iphone",
+      "skill-monitoring",
+      "skill-analytics"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "course-radio",
+    "toolSlug": "radio",
+    "title": "Master Radio",
+    "objectives": [
+      "Coordinate multiple AI agents and teammates in one room without losing context",
+      "Set up reliable human-to-agent handoff and review workflows",
+      "Automate routine room activity with triggers, commands, and summaries"
+    ],
+    "modules": [
+      {
+        "title": "Structuring Rooms for Mixed Human + Agent Work",
+        "estMinutes": 12,
+        "steps": [
+          "Create a room for an active project and pin a message stating the goal, current status, and each agent's role",
+          "Add two agents to the room and give each a scoped role description (e.g., 'research only' vs. 'drafts replies')",
+          "Split the room into topic threads so agent chatter stays out of the main decision thread"
+        ]
+      },
+      {
+        "title": "Directing Agents Precisely",
+        "estMinutes": 15,
+        "steps": [
+          "Assign a task to one specific agent using an @mention, including a deadline and the exact output format you want",
+          "Use a slash command to invoke an agent skill (e.g., /summarize or /draft) inside a thread instead of the main channel",
+          "Correct an agent mid-task by replying in its thread and confirm it adjusts without restarting from scratch"
+        ]
+      },
+      {
+        "title": "Building Handoff and Review Workflows",
+        "estMinutes": 18,
+        "steps": [
+          "Configure a handoff rule so an agent's completed draft routes to a named teammate for approval before posting to the room",
+          "Practice the approval flow: review an agent's output, request one revision, then approve it to publish",
+          "Set an escalation path where an agent flags a human when confidence is low or a task exceeds its role scope"
+        ]
+      },
+      {
+        "title": "Managing Context and Memory Across Long Threads",
+        "estMinutes": 12,
+        "steps": [
+          "Generate a running summary of a long thread and pin it so new agents and teammates onboard with that instead of full history",
+          "Restrict one agent's visibility to a single thread and verify it can no longer reference other threads",
+          "Reset an agent's working context after a project phase ends to prevent stale instructions from affecting new tasks"
+        ]
+      },
+      {
+        "title": "Automating the Room with Triggers",
+        "estMinutes": 15,
+        "steps": [
+          "Create a trigger that fires on a keyword (e.g., 'blocked') and automatically @mentions the on-call teammate and a triage agent",
+          "Set a scheduled automation that posts a daily digest of agent activity and unresolved threads each morning",
+          "Test both automations by forcing their conditions, then tune the trigger to reduce false positives"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-collaboration",
+      "skill-chatroom",
+      "skill-multiplayer",
+      "skill-workflow"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "course-can-ai-agents-conduct-open-ended-ai-research",
+    "toolSlug": "can-ai-agents-conduct-open-ended-ai-research",
+    "title": "Master Can AI agents conduct open-ended AI research?",
+    "objectives": [
+      "Understand what Can AI agents conduct open-ended AI research? is for",
+      "Use Can AI agents conduct open-ended AI research? on a real task",
+      "Know where Can AI agents conduct open-ended AI research? fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Can AI agents conduct open-ended AI research? for your real workflow, not the demo.",
+          "Say what Can AI agents conduct open-ended AI research? does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Can AI agents conduct open-ended AI research?.",
+          "Push Can AI agents conduct open-ended AI research? to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Can AI agents conduct open-ended AI research? into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-autonomous research",
+      "skill-arxiv",
+      "skill-evaluation"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues",
+    "toolSlug": "ai-agents-blew-the-whistle-on-their-cheating-colleagues",
+    "title": "Master AI agents blew the whistle on their cheating colleagues",
+    "objectives": [
+      "Understand what AI agents blew the whistle on their cheating colleagues is for",
+      "Use AI agents blew the whistle on their cheating colleagues on a real task",
+      "Know where AI agents blew the whistle on their cheating colleagues fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI agents blew the whistle on their cheating colleagues for your real workflow, not the demo.",
+          "Say what AI agents blew the whistle on their cheating colleagues does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI agents blew the whistle on their cheating colleagues.",
+          "Push AI agents blew the whistle on their cheating colleagues to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI agents blew the whistle on their cheating colleagues into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-monitoring",
+      "skill-whistleblowing",
+      "skill-ai safety",
+      "skill-alignment"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "course-apple-releases-os-27-updates-with-siri-ai",
+    "toolSlug": "apple-releases-os-27-updates-with-siri-ai",
+    "title": "Master Apple releases OS 27 updates with Siri AI",
+    "objectives": [
+      "Install the OS 27 update and activate the new AI-powered Siri on iPhone",
+      "Use Siri's upgraded features for messages, summaries, and on-screen tasks",
+      "Adjust privacy settings to control what Siri can access and remember"
+    ],
+    "modules": [
+      {
+        "title": "Get OS 27 and Turn On the New Siri",
+        "estMinutes": 10,
+        "steps": [
+          "Open Settings > General > Software Update, then download and install OS 27 (connect to Wi-Fi and charge above 50% first)",
+          "Go to Settings > Siri (or Apple Intelligence & Siri) and tap 'Talk & Type to Siri' to enable it",
+          "Pick a Siri voice, then say 'Siri' or 'Hey Siri' and ask 'What's new?' to confirm it responds"
+        ]
+      },
+      {
+        "title": "Your First AI Siri Conversations",
+        "estMinutes": 8,
+        "steps": [
+          "Ask a follow-up without repeating yourself: say 'What's the weather?' then 'What about tomorrow?' and notice Siri keeps context",
+          "Double-tap the bottom of the Home Screen to type a request to Siri instead of speaking",
+          "Ask Siri to 'Summarize my unread notifications' or 'Summarize this email' while Mail is open"
+        ]
+      },
+      {
+        "title": "On-Screen Awareness and Cross-App Actions",
+        "estMinutes": 10,
+        "steps": [
+          "Open a photo in Photos and say 'Send this to Mom' — Siri acts on what's on screen without you describing it",
+          "Open a webpage in Safari and say 'Add this to my calendar for Friday at 3pm'",
+          "Try a cross-app task: 'Find that restaurant text Sarah sent me and get directions there'"
+        ]
+      },
+      {
+        "title": "Everyday Power Uses",
+        "estMinutes": 8,
+        "steps": [
+          "Say 'Create a note with my grocery list' and dictate items to Siri",
+          "Ask Siri to 'Set an alarm called Gym for 6:30 am every weekday'",
+          "Say 'Play EconTalk in Podcasts at 1.5x speed' to practice controlling third-party apps by voice"
+        ]
+      },
+      {
+        "title": "Privacy, History, and Fixing Problems",
+        "estMinutes": 7,
+        "steps": [
+          "Open Settings > Siri and review which apps Siri can access under 'Apps'; toggle off any you don't want it to use",
+          "Check Settings > Siri > Siri & Dictation History to view or delete past requests",
+          "If Siri misunderstands, rephrase once with specific names; if it fails twice, restart the iPhone and confirm Apple Intelligence is enabled in Settings > Siri"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-apple",
+      "skill-siri",
+      "skill-voice assistant",
+      "skill-ios",
+      "skill-ai update"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-14T23:59:11.393Z"
   }
 ]

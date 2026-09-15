@@ -9409,5 +9409,124 @@
       "supply chain"
     ],
     "discoveredAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "slug": "nowdex",
+    "name": "Nowdex",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Monitor your AI agent usage and activity directly from your iPhone.",
+    "audience": "developers using AI coding agents",
+    "dev": "",
+    "year": 2026,
+    "website": "https://nowdex.app/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "usage tracking",
+      "iphone",
+      "monitoring",
+      "analytics"
+    ],
+    "discoveredAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "slug": "radio",
+    "name": "Radio",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "A shared chatroom where teams and AI agents collaborate on work together in real time.",
+    "audience": "Teams coordinating multi-agent workflows",
+    "dev": "Plasma AI",
+    "year": 2026,
+    "website": "https://radio.plasma.ai/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "agents",
+      "collaboration",
+      "chatroom",
+      "multiplayer",
+      "workflow"
+    ],
+    "discoveredAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "slug": "can-ai-agents-conduct-open-ended-ai-research",
+    "name": "Can AI agents conduct open-ended AI research?",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free (arXiv preprint)",
+    "level": "advanced",
+    "blurb": "Paper investigating whether AI agents can autonomously carry out open-ended AI research.",
+    "audience": "AI researchers and agent builders",
+    "dev": "",
+    "year": 2026,
+    "website": "https://arxiv.org/abs/2607.27191",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "autonomous research",
+      "arxiv",
+      "evaluation"
+    ],
+    "discoveredAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "slug": "ai-agents-blew-the-whistle-on-their-cheating-colleagues",
+    "name": "AI agents blew the whistle on their cheating colleagues",
+    "category": "automation",
+    "sourceCategory": "AI Detection & Moderation",
+    "price": "free",
+    "pricing": "Free article",
+    "level": "intermediate",
+    "blurb": "News on AI agents that monitored their peers and autonomously reported cheating behavior.",
+    "audience": "AI safety researchers and ML engineers",
+    "dev": "MIT Technology Review",
+    "year": 2026,
+    "website": "https://www.technologyreview.com/2026/09/14/1144037/ai-agents-blew-whistle-o-cheating-colleagues/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "monitoring",
+      "whistleblowing",
+      "ai safety",
+      "alignment"
+    ],
+    "discoveredAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "slug": "apple-releases-os-27-updates-with-siri-ai",
+    "name": "Apple releases OS 27 updates with Siri AI",
+    "category": "automation",
+    "sourceCategory": "LLMs & Chatbots",
+    "price": "free",
+    "pricing": "Free (with device)",
+    "level": "beginner",
+    "blurb": "Apple's OS 27 update delivers an AI-upgraded Siri assistant to iPhone users.",
+    "audience": "Everyday iPhone users",
+    "dev": "Apple",
+    "year": 2026,
+    "website": "https://www.theverge.com/news/994756/apple-ios-27-launch-iphone-siri-ai-update",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "apple",
+      "siri",
+      "voice assistant",
+      "ios",
+      "ai update"
+    ],
+    "discoveredAt": "2026-09-14T23:59:11.393Z"
   }
 ]

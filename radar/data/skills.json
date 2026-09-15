@@ -275,11 +275,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "ablo-make-your-ai-app-multiplayer",
-      "crew"
+      "crew",
+      "radio"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
-      "course-crew"
+      "course-crew",
+      "course-radio"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -315,7 +317,8 @@
       "openfork",
       "quire",
       "coletivo",
-      "provetogether-moltbook-but-for-math"
+      "provetogether-moltbook-but-for-math",
+      "radio"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -327,7 +330,8 @@
       "course-openfork",
       "course-quire",
       "course-coletivo",
-      "course-provetogether-moltbook-but-for-math"
+      "course-provetogether-moltbook-but-for-math",
+      "course-radio"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -749,7 +753,12 @@
       "ai-native-dependency-upgrades-through-codemods",
       "botbin",
       "andon-labs-puts-ai-agents-in-charge-of-real-businesses",
-      "prmptree"
+      "prmptree",
+      "nowdex",
+      "radio",
+      "can-ai-agents-conduct-open-ended-ai-research",
+      "ai-agents-blew-the-whistle-on-their-cheating-colleagues",
+      "apple-releases-os-27-updates-with-siri-ai"
     ],
     "courses": [
       "course-headless-tools",
@@ -916,7 +925,12 @@
       "course-ai-native-dependency-upgrades-through-codemods",
       "course-botbin",
       "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses",
-      "course-prmptree"
+      "course-prmptree",
+      "course-nowdex",
+      "course-radio",
+      "course-can-ai-agents-conduct-open-ended-ai-research",
+      "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues",
+      "course-apple-releases-os-27-updates-with-siri-ai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1059,7 +1073,10 @@
       "transitionsdev-ui-transitions-for-ai-agents",
       "your-ai-agent-has-a-cache-invalidation-problem",
       "a-fresh-take-on-code-intelligence-for-ai-agents",
-      "what-a-time-to-be-alive"
+      "what-a-time-to-be-alive",
+      "nowdex",
+      "can-ai-agents-conduct-open-ended-ai-research",
+      "ai-agents-blew-the-whistle-on-their-cheating-colleagues"
     ],
     "courses": [
       "course-headless-tools",
@@ -1182,7 +1199,10 @@
       "course-transitionsdev-ui-transitions-for-ai-agents",
       "course-your-ai-agent-has-a-cache-invalidation-problem",
       "course-a-fresh-take-on-code-intelligence-for-ai-agents",
-      "course-what-a-time-to-be-alive"
+      "course-what-a-time-to-be-alive",
+      "course-nowdex",
+      "course-can-ai-agents-conduct-open-ended-ai-research",
+      "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2517,7 +2537,8 @@
       "natively",
       "symphony",
       "bitroad",
-      "building-specialized-systems-we-can-trust-with-agents"
+      "building-specialized-systems-we-can-trust-with-agents",
+      "radio"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2545,7 +2566,8 @@
       "course-natively",
       "course-symphony",
       "course-bitroad",
-      "course-building-specialized-systems-we-can-trust-with-agents"
+      "course-building-specialized-systems-we-can-trust-with-agents",
+      "course-radio"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3282,14 +3304,18 @@
       "selfshipai",
       "dumbdetector",
       "starkomand",
-      "symphony"
+      "symphony",
+      "nowdex",
+      "ai-agents-blew-the-whistle-on-their-cheating-colleagues"
     ],
     "courses": [
       "course-agenttrail",
       "course-selfshipai",
       "course-dumbdetector",
       "course-starkomand",
-      "course-symphony"
+      "course-symphony",
+      "course-nowdex",
+      "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3502,7 +3528,8 @@
       "token-dashboard",
       "rejourney",
       "ai-agent-for-beautiful-data-visuals",
-      "google-seo-mcp"
+      "google-seo-mcp",
+      "nowdex"
     ],
     "courses": [
       "course-launch-hn-risklytics-yc-s26",
@@ -3510,7 +3537,8 @@
       "course-token-dashboard",
       "course-rejourney",
       "course-ai-agent-for-beautiful-data-visuals",
-      "course-google-seo-mcp"
+      "course-google-seo-mcp",
+      "course-nowdex"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3854,12 +3882,14 @@
     "toolsTeaching": [
       "a-benchmark-for-safely-measuring-container-breakout-capabili",
       "secret-collusion-among-ai-agents",
-      "how-we-built-safety-into-muse-by-meta"
+      "how-we-built-safety-into-muse-by-meta",
+      "ai-agents-blew-the-whistle-on-their-cheating-colleagues"
     ],
     "courses": [
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
       "course-secret-collusion-among-ai-agents",
-      "course-how-we-built-safety-into-muse-by-meta"
+      "course-how-we-built-safety-into-muse-by-meta",
+      "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4939,7 +4969,8 @@
       "autoresearchexam-measuring-agents-ability-to-improve-and-gen",
       "designing-tests-for-agentic-ai-tools",
       "benchmarking-coding-agents-perform-on-scraping",
-      "you-didnt-deploy-the-ai-agent-you-evaluated"
+      "you-didnt-deploy-the-ai-agent-you-evaluated",
+      "can-ai-agents-conduct-open-ended-ai-research"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -4951,7 +4982,8 @@
       "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen",
       "course-designing-tests-for-agentic-ai-tools",
       "course-benchmarking-coding-agents-perform-on-scraping",
-      "course-you-didnt-deploy-the-ai-agent-you-evaluated"
+      "course-you-didnt-deploy-the-ai-agent-you-evaluated",
+      "course-can-ai-agents-conduct-open-ended-ai-research"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5399,14 +5431,16 @@
       "darwin-vm",
       "piqt-ios",
       "vantage",
-      "nomacapp"
+      "nomacapp",
+      "apple-releases-os-27-updates-with-siri-ai"
     ],
     "courses": [
       "course-trana",
       "course-darwin-vm",
       "course-piqt-ios",
       "course-vantage",
-      "course-nomacapp"
+      "course-nomacapp",
+      "course-apple-releases-os-27-updates-with-siri-ai"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -11701,10 +11735,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "logitech-launches-mx-keypad-for-developers"
+      "logitech-launches-mx-keypad-for-developers",
+      "radio"
     ],
     "courses": [
-      "course-logitech-launches-mx-keypad-for-developers"
+      "course-logitech-launches-mx-keypad-for-developers",
+      "course-radio"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -14985,5 +15021,148 @@
       "course-what-a-time-to-be-alive"
     ],
     "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "skill-usage tracking",
+    "name": "usage tracking",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "nowdex"
+    ],
+    "courses": [
+      "course-nowdex"
+    ],
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "skill-iphone",
+    "name": "iphone",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "nowdex"
+    ],
+    "courses": [
+      "course-nowdex"
+    ],
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "skill-chatroom",
+    "name": "chatroom",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "radio"
+    ],
+    "courses": [
+      "course-radio"
+    ],
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "skill-autonomous research",
+    "name": "autonomous research",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "can-ai-agents-conduct-open-ended-ai-research"
+    ],
+    "courses": [
+      "course-can-ai-agents-conduct-open-ended-ai-research"
+    ],
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "skill-arxiv",
+    "name": "arxiv",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "can-ai-agents-conduct-open-ended-ai-research"
+    ],
+    "courses": [
+      "course-can-ai-agents-conduct-open-ended-ai-research"
+    ],
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "skill-whistleblowing",
+    "name": "whistleblowing",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agents-blew-the-whistle-on-their-cheating-colleagues"
+    ],
+    "courses": [
+      "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues"
+    ],
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "skill-alignment",
+    "name": "alignment",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agents-blew-the-whistle-on-their-cheating-colleagues"
+    ],
+    "courses": [
+      "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues"
+    ],
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "skill-apple",
+    "name": "apple",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "apple-releases-os-27-updates-with-siri-ai"
+    ],
+    "courses": [
+      "course-apple-releases-os-27-updates-with-siri-ai"
+    ],
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "skill-siri",
+    "name": "siri",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "apple-releases-os-27-updates-with-siri-ai"
+    ],
+    "courses": [
+      "course-apple-releases-os-27-updates-with-siri-ai"
+    ],
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "skill-voice assistant",
+    "name": "voice assistant",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "apple-releases-os-27-updates-with-siri-ai"
+    ],
+    "courses": [
+      "course-apple-releases-os-27-updates-with-siri-ai"
+    ],
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "skill-ai update",
+    "name": "ai update",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "apple-releases-os-27-updates-with-siri-ai"
+    ],
+    "courses": [
+      "course-apple-releases-os-27-updates-with-siri-ai"
+    ],
+    "updatedAt": "2026-09-14T23:59:11.393Z"
   }
 ]
