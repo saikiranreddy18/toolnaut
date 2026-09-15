@@ -10,10 +10,11 @@ import { scrollProgress } from '../../utils/scrollProgress'
 // Raw scrollY must never reach the camera directly.
 const START_RADIUS = 18
 const END_RADIUS = 11
-const START_ELEV = 0.5 // ~28.6°, comfortable overview at the hero
+// High enough that the spiral arms read as a spiral, not a line of dust.
+const START_ELEV = 0.95 // ~54°, looking down on the spiral at the hero
 // Floor, not zero — the particle disk reads as an almost-black void at true
 // edge-on (near-zero real thickness), verified empirically in explore mode.
-const END_ELEV = 0.09 // ~5.2°, near edge-on by the end of the scroll
+const END_ELEV = 0.42 // ~24°, lower by the end but the arms still show
 const TILT_EASE = 0.3 // <1 = front-loaded: opens toward edge-on quickly, not just at the very end
 // A full 2π brought the camera back to the azimuth it started from, so the
 // bottom of the page looked like the top — the journey visibly repeated. Just

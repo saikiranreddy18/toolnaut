@@ -5,29 +5,16 @@ import { TOOLS, CATEGORY_META } from '../../utils/toolsCatalog'
 import { isNewTool } from '../../utils/newTools'
 import { isCatalogNoise } from '../../utils/prominence'
 
-// The galaxy hosts ALL 704 catalog tools as star sprites. Each domain gets a
-// distinct color from CATEGORY_META, so the spiral arms literally colour by
-// tool category. The pointer-hover tooltip resolves any star's name.
-// In-scene name sprites are rendered only for a small flagship subset — 704
-// text canvases would eat hundreds of MB, so most tools rely on the tooltip.
+// Every star in the galaxy is a real tool. There is no decorative dust: one
+// point per catalog entry, laid out along a spiral, so the galaxy grows when the
+// catalog does. Hovering any star names it; flagships and the newest arrivals
+// also carry an in-scene nameplate that fades in as the camera gets close.
+//
+// All stars are ONE draw call (a Points object with a small shader) rather than
+// a sprite each. A sprite per tool was ~1,000 objects walked by the renderer
+// every frame; a single buffer is the same picture for a fraction of the work.
 
-function makeStarTexture(color) {
-  const s = 128
-  const canvas = document.createElement('canvas')
-  canvas.width = canvas.height = s
-  const ctx = canvas.getContext('2d')
-  const g = ctx.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2)
-  g.addColorStop(0, 'rgba(255,255,255,1)')
-  g.addColorStop(0.25, `${color}dd`)
-  g.addColorStop(1, 'rgba(0,0,0,0)')
-  ctx.fillStyle = g
-  ctx.fillRect(0, 0, s, s)
-  const tex = new THREE.CanvasTexture(canvas)
-  tex.colorSpace = THREE.SRGBColorSpace
-  return tex
-}
-
-function makeNameTexture(name, color) {
+function makeNameTexture(name, isNew) {
   const w = 1024
   const h = 256
   const canvas = document.createElement('canvas')
@@ -35,58 +22,26 @@ function makeNameTexture(name, color) {
   canvas.height = h
   const ctx = canvas.getContext('2d')
 
-  let size = 116
-  ctx.font = `700 ${size}px "Inter", system-ui, sans-serif`
-  while (ctx.measureText(name).width > w - 120 && size > 48) {
-    size -= 6
-    ctx.font = `700 ${size}px "Inter", system-ui, sans-serif`
-  }
-  ctx.textAlign = 'center'
-  ctx.textBaseline = 'middle'
-  ctx.shadowColor = color
-  ctx.shadowBlur = 42
-  ctx.fillStyle = '#ffffff'
-  ctx.fillText(name, w / 2, h / 2)
-  ctx.shadowBlur = 0
-  ctx.fillText(name, w / 2, h / 2)
-
-  const tex = new THREE.CanvasTexture(canvas)
-  tex.colorSpace = THREE.SRGBColorSpace
-  tex.anisotropy = 8
-  return tex
-}
-
-// Same canvas label with a lime NEW tag over the name — the daily arrivals.
-function makeNewNameTexture(name, color) {
-  const w = 1024
-  const h = 256
-  const canvas = document.createElement('canvas')
-  canvas.width = w
-  canvas.height = h
-  const ctx = canvas.getContext('2d')
-
-  let size = 104
-  ctx.font = `700 ${size}px "Inter", system-ui, sans-serif`
+  let size = isNew ? 104 : 116
+  ctx.font = `600 ${size}px "Inter", system-ui, sans-serif`
   while (ctx.measureText(name).width > w - 120 && size > 44) {
     size -= 6
-    ctx.font = `700 ${size}px "Inter", system-ui, sans-serif`
+    ctx.font = `600 ${size}px "Inter", system-ui, sans-serif`
   }
   ctx.textAlign = 'center'
   ctx.textBaseline = 'middle'
-  ctx.shadowColor = color
-  ctx.shadowBlur = 42
+  const y = isNew ? h / 2 + 26 : h / 2
+  ctx.shadowColor = 'rgba(255,255,255,0.8)'
+  ctx.shadowBlur = 36
   ctx.fillStyle = '#ffffff'
-  ctx.fillText(name, w / 2, h / 2 + 26)
+  ctx.fillText(name, w / 2, y)
   ctx.shadowBlur = 0
-  ctx.fillText(name, w / 2, h / 2 + 26)
+  ctx.fillText(name, w / 2, y)
 
-  ctx.font = '900 44px "Inter", system-ui, sans-serif'
-  ctx.shadowColor = '#ffffff'
-  ctx.shadowBlur = 24
-  ctx.fillStyle = '#ffffff'
-  ctx.fillText('★ NEW', w / 2, 44)
-  ctx.shadowBlur = 0
-  ctx.fillText('★ NEW', w / 2, 44)
+  if (isNew) {
+    ctx.font = '800 44px "Inter", system-ui, sans-serif'
+    ctx.fillText('★ NEW', w / 2, 44)
+  }
 
   const tex = new THREE.CanvasTexture(canvas)
   tex.colorSpace = THREE.SRGBColorSpace
@@ -94,7 +49,7 @@ function makeNewNameTexture(name, color) {
   return tex
 }
 
-// Flagships that get in-scene name sprites (memory-safe subset)
+// Flagships that get in-scene name sprites.
 const FLAGSHIP_NAMES = new Set([
   'ChatGPT', 'Claude', 'Claude Code', 'Cursor', 'Copilot', 'GitHub Copilot',
   'Gemini', 'Perplexity', 'Midjourney', 'Runway', 'ElevenLabs', 'Suno',
@@ -104,34 +59,69 @@ const FLAGSHIP_NAMES = new Set([
   'DeepL', 'Pika', 'Descript', 'Otter', 'Whisper', 'Llama', 'Mistral',
 ])
 
-const RADIUS = 12
-const BRANCHES = 5
-const SPIN = 1.15
+const RADIUS = 13
+const CORE = 0.9
+const ARMS = 4
+// Logarithmic-looking wind: how far an arm turns per unit of radius.
+const WIND = 0.42
 const REVEAL_FAR = 7
 const REVEAL_NEAR = 3.2
-const HOVER_PX = 24
+const HOVER_PX = 18
 
-// Cache one star texture per unique color (7 max) so all 704 sprites share
-// the same GPU textures — cheap in memory, no visual difference.
-const STAR_TEX_CACHE = new Map()
-function getStarTex(color) {
-  if (!STAR_TEX_CACHE.has(color)) STAR_TEX_CACHE.set(color, makeStarTexture(color))
-  return STAR_TEX_CACHE.get(color)
+// Deterministic 0..1 hash so a tool keeps its place between visits.
+function hash(n) {
+  const x = Math.sin(n * 12.9898 + 78.233) * 43758.5453
+  return x - Math.floor(x)
 }
 
+const vertexShader = /* glsl */ `
+  attribute float aSize;
+  attribute float aPhase;
+  attribute float aIndex;
+  attribute vec3 aColor;
+  uniform float uTime;
+  uniform float uHover;
+  uniform float uPixelRatio;
+  varying vec3 vColor;
+  varying float vAlpha;
+  void main() {
+    vec4 mv = modelViewMatrix * vec4(position, 1.0);
+    float breathe = 0.7 + 0.3 * sin(uTime * (0.6 + aPhase * 0.25) + aPhase * 6.2831);
+    float glint = max(0.0, sin(uTime * 0.31 + aPhase * 23.0) - 0.97) * 30.0;
+    float hovered = abs(aIndex - uHover) < 0.5 ? 1.0 : 0.0;
+    float size = aSize * (1.0 + glint * 0.5 + hovered * 1.6);
+    gl_PointSize = size * uPixelRatio * (75.0 / -mv.z);
+    gl_Position = projectionMatrix * mv;
+    vColor = aColor;
+    vAlpha = min(1.0, breathe + glint + hovered);
+  }
+`
+
+const fragmentShader = /* glsl */ `
+  varying vec3 vColor;
+  varying float vAlpha;
+  void main() {
+    vec2 c = gl_PointCoord - 0.5;
+    float d = length(c);
+    if (d > 0.5) discard;
+    float core = smoothstep(0.18, 0.0, d);
+    float halo = smoothstep(0.5, 0.0, d) * 0.7;
+    vec3 col = mix(vColor, vec3(1.0), core);
+    gl_FragColor = vec4(col, (core + halo) * vAlpha);
+  }
+`
+
 export default function ToolStars() {
-  const starRefs = useRef([])
+  const pointsRef = useRef()
   const nameRefs = useRef([])
   const worldPos = useRef(new THREE.Vector3())
   const ndc = useRef(new THREE.Vector3())
   const pointer = useRef({ x: -9999, y: -9999 })
-  const hovered = useRef(-1)
 
   useEffect(() => {
     function onMove(e) {
-      // Sections painted over the galaxy (e.g. the contact band) opt out of
-      // star hovering via [data-galaxy-block] — otherwise tool names and the
-      // tooltip fire "through" opaque content the user is actually pointing at.
+      // Sections painted over the galaxy opt out of star hovering via
+      // [data-galaxy-block], so names do not fire through opaque content.
       const over = document.elementFromPoint(e.clientX, e.clientY)
       if (over && over.closest('[data-galaxy-block]')) {
         pointer.current.x = -9999
@@ -146,22 +136,10 @@ export default function ToolStars() {
   }, [])
 
   const items = useMemo(() => {
-    // The stars that get a NEW nameplate: the freshest dozen REAL tools.
-    // Unfiltered, isNewTool matched 94 entries after a busy radar week —
-    // ninety-four floating labels is not a galaxy, it is a spreadsheet —
-    // and several were HN posts and repos, which isCatalogNoise already
-    // exists to keep out of everything the app recommends. Newest first,
-    // so "added today" genuinely reads as today.
-    // A nameplate needs a NAME. isCatalogNoise catches repo slugs and
-    // "Show HN:" prefixes, but the radar also ingests sentence-shaped HN
-    // titles ("I built an AI music generator with some harnesses") that
-    // pass it — a fine catalogue entry, a ridiculous star label. Products
-    // are called Edify, CaptureAgent, Headless Tools: short, few words,
-    // no clauses. Display gate only — recommendation filtering is
-    // prominence.js's job, and this does not touch it.
+    // Nameplates for the freshest dozen REAL tools: short, name-shaped titles
+    // only, so a radar-ingested sentence never floats in space as a label.
     const looksLikeAName = (t) =>
       t.name.length <= 24 && t.name.split(/\s+/).length <= 3 && !t.name.includes(',')
-
     const newSlugs = new Set(
       TOOLS.filter((t) => isNewTool(t) && !isCatalogNoise(t) && looksLikeAName(t))
         .sort((a, b) => (b.discoveredAt || 0) - (a.discoveredAt || 0))
@@ -169,78 +147,121 @@ export default function ToolStars() {
         .map((t) => t.slug),
     )
 
-    // Deterministic order — sort by name so branch assignment is stable.
-    const sorted = [...TOOLS].sort((a, b) => a.name.localeCompare(b.name))
+    // Flagships first so they sit in the bright inner arms; the rest by name,
+    // so placement is stable from one visit to the next.
+    const sorted = [...TOOLS].sort((a, b) => {
+      const fa = FLAGSHIP_NAMES.has(a.name) ? 0 : 1
+      const fb = FLAGSHIP_NAMES.has(b.name) ? 0 : 1
+      return fa - fb || a.name.localeCompare(b.name)
+    })
     const total = sorted.length
+
     return sorted.map((tool, i) => {
-      const color = CATEGORY_META[tool.category]?.color || 'var(--cyan)'
-      // Push most tools out into the arms; leave a sparse core.
-      const t = i / total
-      const r = 3.4 + Math.sqrt(t) * (RADIUS - 3.4)
-      const branchAngle = ((i % BRANCHES) / BRANCHES) * Math.PI * 2
-      const spinAngle = r * SPIN
-      // Deterministic per-tool jitter using a hash of the index
-      const h1 = ((i * 2654435761) >>> 0) / 4294967296 - 0.5
-      const h2 = ((i * 40503) >>> 0) / 4294967296 - 0.5
-      const h3 = ((i * 2246822519) >>> 0) / 4294967296 - 0.5
-      const spread = 0.4 + r * 0.09
+      const h1 = hash(i + 1)
+      const h2 = hash(i + 101)
+      const h3 = hash(i + 211)
+      const h4 = hash(i + 307)
+
+      // Radius grows with rank, with a little noise so rings do not show.
+      const t = (i + h1 * 0.9) / total
+      const r = CORE + Math.pow(t, 0.75) * (RADIUS - CORE)
+      const arm = i % ARMS
+      const theta = (arm / ARMS) * Math.PI * 2 + r * WIND * Math.PI * 0.5
+      // Stars hug the arm near the centre and fan out toward the rim.
+      const spread = 0.18 + r * 0.06
+      const offA = (h2 - 0.5) * spread * 2
+      const offR = (h3 - 0.5) * spread
+      const x = Math.cos(theta + offA / Math.max(r, 1)) * (r + offR)
+      const z = Math.sin(theta + offA / Math.max(r, 1)) * (r + offR)
+      const y = (h4 - 0.5) * (0.5 - (r / RADIUS) * 0.35)
+
+      const isFlagship = FLAGSHIP_NAMES.has(tool.name)
       return {
         tool,
-        color,
-        isFlagship: FLAGSHIP_NAMES.has(tool.name),
-        // The radar stamps discoveredAt on every nightly find. Nothing to
-        // configure — a tool added today rises here with its name on,
-        // automatically, and rotates out as newer arrivals displace it.
+        color: CATEGORY_META[tool.category]?.color || '#d4d4d8',
+        isFlagship,
         isNew: newSlugs.has(tool.slug),
-        position: [
-          Math.cos(branchAngle + spinAngle) * r + h1 * spread,
-          h2 * spread * 0.6,
-          Math.sin(branchAngle + spinAngle) * r + h3 * spread,
-        ],
-        phase: (i * 1.7) % (Math.PI * 2),
-        speed: 0.6 + ((i * 37) % 10) / 10,
+        position: [x, y, z],
+        size: isFlagship ? 3.4 : 1.6 + h1 * 1.2,
+        phase: h2,
       }
     })
   }, [])
 
-  const starTextures = useMemo(
-    () => items.map((it) => getStarTex(it.color)),
-    [items],
+  const geometry = useMemo(() => {
+    const n = items.length
+    const pos = new Float32Array(n * 3)
+    const col = new Float32Array(n * 3)
+    const size = new Float32Array(n)
+    const phase = new Float32Array(n)
+    const index = new Float32Array(n)
+    const c = new THREE.Color()
+    items.forEach((it, i) => {
+      pos.set(it.position, i * 3)
+      c.set(it.color)
+      col.set([c.r, c.g, c.b], i * 3)
+      size[i] = it.size
+      phase[i] = it.phase
+      index[i] = i
+    })
+    const g = new THREE.BufferGeometry()
+    g.setAttribute('position', new THREE.BufferAttribute(pos, 3))
+    g.setAttribute('aColor', new THREE.BufferAttribute(col, 3))
+    g.setAttribute('aSize', new THREE.BufferAttribute(size, 1))
+    g.setAttribute('aPhase', new THREE.BufferAttribute(phase, 1))
+    g.setAttribute('aIndex', new THREE.BufferAttribute(index, 1))
+    return g
+  }, [items])
+
+  const material = useMemo(
+    () =>
+      new THREE.ShaderMaterial({
+        vertexShader,
+        fragmentShader,
+        uniforms: {
+          uTime: { value: 0 },
+          uHover: { value: -1 },
+          uPixelRatio: { value: Math.min(window.devicePixelRatio || 1, 2) },
+        },
+        transparent: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+      }),
+    [],
   )
 
   const nameTextures = useMemo(
-    () => items.map((it) =>
-      it.isNew ? makeNewNameTexture(it.tool.name, it.color)
-      : it.isFlagship ? makeNameTexture(it.tool.name, it.color)
-      : null),
+    () => items.map((it) => (it.isNew || it.isFlagship ? makeNameTexture(it.tool.name, it.isNew) : null)),
     [items],
   )
 
-  // Material.dispose() leaves textures in `map` behind — drop the per-flagship
-  // name canvases explicitly. (Star textures are module-cached and shared.)
   useEffect(() => () => {
+    geometry.dispose()
+    material.dispose()
     nameTextures.forEach((tex) => tex && tex.dispose())
-  }, [nameTextures])
+  }, [geometry, material, nameTextures])
 
   useFrame(({ clock, camera }) => {
-    const t = clock.elapsedTime
+    material.uniforms.uTime.value = clock.elapsedTime
+    const pts = pointsRef.current
+    if (!pts) return
     const tooltip = document.getElementById('tool-tooltip')
+    const w = window.innerWidth
+    const h = window.innerHeight
+    const matrix = pts.matrixWorld
     let best = -1
     let bestDist = HOVER_PX
     let bestX = 0
     let bestY = 0
 
     for (let i = 0; i < items.length; i++) {
-      const star = starRefs.current[i]
-      if (!star) continue
+      const p = items[i].position
+      worldPos.current.set(p[0], p[1], p[2]).applyMatrix4(matrix)
 
-      star.getWorldPosition(worldPos.current)
-
-      // screen-space hit test against the pointer
       ndc.current.copy(worldPos.current).project(camera)
       if (ndc.current.z < 1) {
-        const sx = ((ndc.current.x + 1) / 2) * window.innerWidth
-        const sy = ((1 - ndc.current.y) / 2) * window.innerHeight
+        const sx = ((ndc.current.x + 1) / 2) * w
+        const sy = ((1 - ndc.current.y) / 2) * h
         const dPx = Math.hypot(sx - pointer.current.x, sy - pointer.current.y)
         if (dPx < bestDist) {
           best = i
@@ -250,29 +271,19 @@ export default function ToolStars() {
         }
       }
 
-      // twinkle: slow breathing plus an occasional sharp glint
-      const { phase, speed } = items[i]
-      const breathe = 0.55 + 0.35 * Math.sin(t * speed + phase)
-      const glint = Math.max(0, Math.sin(t * 0.31 + phase * 3.7) - 0.965) * 14
-      const isHover = i === hovered.current
-      star.material.opacity = isHover ? 1 : Math.min(1, breathe + glint)
-      const s = (isHover ? 0.45 : 0.22) + glint * 0.2
-      star.scale.set(s, s, 1)
-
-      // reveal the in-scene name only for flagships when the camera is close
       const nameSprite = nameRefs.current[i]
-      if (nameSprite && nameTextures[i]) {
+      if (nameSprite) {
         const d = camera.position.distanceTo(worldPos.current)
         const reveal = THREE.MathUtils.clamp((REVEAL_FAR - d) / (REVEAL_FAR - REVEAL_NEAR), 0, 1)
-        nameSprite.material.opacity = isHover ? Math.max(0.9, reveal) : reveal * reveal
+        nameSprite.material.opacity = i === best ? Math.max(0.9, reveal) : reveal * reveal
       }
     }
 
-    hovered.current = best
+    material.uniforms.uHover.value = best
     if (tooltip) {
       if (best >= 0) {
         tooltip.textContent = items[best].tool.name
-        tooltip.style.borderColor = `${items[best].color}88`
+        tooltip.style.borderColor = 'rgba(255,255,255,0.35)'
         tooltip.style.left = `${bestX}px`
         tooltip.style.top = `${bestY - 18}px`
         tooltip.style.opacity = '1'
@@ -284,35 +295,19 @@ export default function ToolStars() {
 
   return (
     <group>
-      {items.map((item, i) => (
-        <group key={item.tool.slug} position={item.position}>
+      <points ref={pointsRef} geometry={geometry} material={material} frustumCulled={false} />
+      {items.map((item, i) =>
+        nameTextures[i] ? (
           <sprite
-            ref={(el) => (starRefs.current[i] = el)}
-            scale={[0.22, 0.22, 1]}
+            key={item.tool.slug}
+            ref={(el) => (nameRefs.current[i] = el)}
+            position={[item.position[0], item.position[1] + 0.34, item.position[2]]}
+            scale={[2.3, 0.575, 1]}
           >
-            <spriteMaterial
-              map={starTextures[i]}
-              transparent
-              depthWrite={false}
-              blending={THREE.AdditiveBlending}
-            />
+            <spriteMaterial map={nameTextures[i]} transparent opacity={0} depthWrite={false} />
           </sprite>
-          {(item.isFlagship || item.isNew) && nameTextures[i] && (
-            <sprite
-              ref={(el) => (nameRefs.current[i] = el)}
-              position={[0, 0.34, 0]}
-              scale={[2.3, 0.575, 1]}
-            >
-              <spriteMaterial
-                map={nameTextures[i]}
-                transparent
-                opacity={0}
-                depthWrite={false}
-              />
-            </sprite>
-          )}
-        </group>
-      ))}
+        ) : null,
+      )}
     </group>
   )
 }

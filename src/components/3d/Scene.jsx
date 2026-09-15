@@ -1,7 +1,6 @@
 import { Suspense, useEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { PerformanceMonitor } from '@react-three/drei/core/PerformanceMonitor'
-import ParticleField from './ParticleField'
 import Galaxy from './Galaxy'
 import CameraController from './CameraController'
 import { startScrollTracking, scrollProgress } from '../../utils/scrollProgress'
@@ -58,7 +57,6 @@ export default function Scene({ mode = 'full' }) {
   const budget = BUDGET[mode] || BUDGET.full
   const factor = quality * (level === 'light' ? 0.4 : 1)
   const points = Math.round(budget.points * factor)
-  const stars = Math.round(budget.stars * factor)
 
   function degrade() {
     setQuality((q) => Math.max(QUALITY_FLOOR, +(q * 0.5).toFixed(3)))
@@ -134,7 +132,6 @@ export default function Scene({ mode = 'full' }) {
       >
         <color attach="background" args={['#060609']} />
         <Suspense fallback={null}>
-          <ParticleField reduced={calm} mobile={mobile} count={stars} />
           <Galaxy reduced={calm || mobile} spin={!calm && !lightened} count={points} />
         </Suspense>
         {!lightened && <CameraController reduced={calm} />}
