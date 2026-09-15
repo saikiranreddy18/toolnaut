@@ -133,7 +133,9 @@ export default function Landing() {
   }, [])
 
   useEffect(() => {
-    const t = setTimeout(() => setBooted(true), mode === 'calm' ? 200 : 900)
+    // Short: the galaxy intro is the entrance now, and a long black cover made
+    // the stars look dim for their first seconds.
+    const t = setTimeout(() => setBooted(true), 150)
     return () => clearTimeout(t)
   }, [mode])
 
@@ -175,7 +177,7 @@ export default function Landing() {
           <motion.div
             className="fixed inset-0 z-[90] bg-black"
             initial={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 1 } }}
+            exit={{ opacity: 0, transition: { duration: 0.25 } }}
           />
         )}
       </AnimatePresence>
@@ -185,7 +187,7 @@ export default function Landing() {
           useful while it is visible. Hidden during galaxy exploration along
           with the rest of the chrome. */}
       <header className={`fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-black/60 backdrop-blur-xl backdrop-saturate-150 transition-opacity duration-500 ${explore ? 'pointer-events-none opacity-0' : ''}`}>
-        <FounderRibbon compact={scrolled} />
+        <FounderRibbon />
         <div
           className="mx-auto flex h-16 items-center justify-between transition-[max-width,padding] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
           style={{ maxWidth: scrolled ? '100vw' : '72rem', paddingLeft: scrolled ? 24 : 20, paddingRight: scrolled ? 24 : 20 }}

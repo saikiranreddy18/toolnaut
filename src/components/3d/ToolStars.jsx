@@ -122,7 +122,12 @@ const vertexShader = /* glsl */ `
     float glint = max(0.0, sin(uTime * 0.31 + aPhase * 23.0) - 0.97) * 30.0;
     float hovered = abs(aIndex - uHover) < 0.5 ? 1.0 : 0.0;
     float size = aSize * (1.0 + glint * 0.5 + hovered * 1.6);
-    gl_PointSize = size * uPixelRatio * (75.0 / -mv.z);
+    // Size from the star's FINAL depth, not where it is mid-flight: a star far
+    // out in the dust cloud would otherwise shrink to a speck and look dim
+    // until it arrived. Every star is its settled size and brightness from the
+    // first frame.
+    float settledDepth = max(-(modelViewMatrix * vec4(position, 1.0)).z, 1.0);
+    gl_PointSize = size * uPixelRatio * (75.0 / settledDepth);
     gl_Position = projectionMatrix * mv;
     vColor = aColor;
     // Full brightness from the first frame: the stars are bright while they
@@ -254,9 +259,9 @@ export default function ToolStars() {
       index[i] = i
       // Scatter: a wide, flattened cloud well beyond the finished galaxy.
       const a = hash(i + 401) * Math.PI * 2
-      const d = 9 + hash(i + 503) * 20
+      const d = 7 + hash(i + 503) * 11
       start[i * 3] = Math.cos(a) * d
-      start[i * 3 + 1] = (hash(i + 601) - 0.5) * 14
+      start[i * 3 + 1] = (hash(i + 601) - 0.5) * 8
       start[i * 3 + 2] = Math.sin(a) * d
     })
     const g = new THREE.BufferGeometry()
