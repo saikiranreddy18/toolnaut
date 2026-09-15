@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { explorerCount } from '../../utils/explorerCount'
-import { PLANS, FOUNDER_DEADLINE } from '../../utils/planData'
+import { PLANS, FOUNDER_DEADLINE, formatPrice } from '../../utils/planData'
 import { useVisitorCountry } from '../../hooks/useVisitorCountry'
+import { useLocalPrice } from '../../hooks/useLocalPrice'
 
 // Founder discount — the golden ribbon on the landing page.
 //
@@ -34,6 +35,11 @@ const pad = (n) => String(n).padStart(2, '0')
 export default function FounderOffer() {
   const plan = PLANS.find((p) => p.id === 'founder')
   const country = useVisitorCountry()
+  // Rs 29,999 is what the card is charged, worldwide — same rule
+  // FounderRibbon.jsx documents: an unqualified "$360" is a price the
+  // checkout never honours, so INR is the real figure and a live local
+  // conversion is shown alongside it, never in its place.
+  const local = useLocalPrice(plan?.priceINR)
   const [left, setLeft] = useState(() => timeLeft(FOUNDER_DEADLINE, Date.now()))
   const [explorers, setExplorers] = useState(null)
 
@@ -100,8 +106,9 @@ export default function FounderOffer() {
             <p className="mt-2 text-sm leading-relaxed text-slate-200">
               Lifetime access — pay once, keep it.
             </p>
-            <p className="mt-3 flex items-baseline gap-2">
-              <span className="font-display text-4xl font-black text-white sm:text-5xl">${plan.price}</span>
+            <p className="mt-3 flex flex-wrap items-baseline gap-2">
+              <span className="font-display text-4xl font-black text-white sm:text-5xl">{formatPrice(plan)}</span>
+              {local && <span className="text-sm font-semibold text-slate-400">(~{local.text})</span>}
               <span className="font-display text-xs font-black uppercase tracking-widest text-slate-400">one time · lifetime</span>
             </p>
           </div>
