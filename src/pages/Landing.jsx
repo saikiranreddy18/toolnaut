@@ -47,6 +47,15 @@ export default function Landing() {
 
   const [booted, setBooted] = useState(false)
   const [explore, setExplore] = useState(false)
+  // Once the page scrolls, the nav opens out: the logo glides to the left edge
+  // of the frame and Open app to the right edge, on the same line.
+  const [scrolled, setScrolled] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
   const track = useAnalytics()
   const audio = useSpaceAudio()
   const navigate = useNavigate()
@@ -177,7 +186,10 @@ export default function Landing() {
           with the rest of the chrome. */}
       <header className={`fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-black/60 backdrop-blur-xl backdrop-saturate-150 transition-opacity duration-500 ${explore ? 'pointer-events-none opacity-0' : ''}`}>
         <FounderRibbon />
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+        <div
+          className="mx-auto flex h-16 items-center justify-between transition-[max-width,padding] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+          style={{ maxWidth: scrolled ? '100vw' : '72rem', paddingLeft: scrolled ? 24 : 20, paddingRight: scrolled ? 24 : 20 }}
+        >
           <a href="#hero" aria-label={BRAND}>
             <BrandLogo {...LOGO.chrome} size={34} textClass="text-xl" />
           </a>

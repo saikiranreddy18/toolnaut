@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { galaxyState } from '../../state/galaxyStore'
+import { webglAvailable } from '../../utils/webgl'
 import { useNavigate } from 'react-router-dom'
 import { useAnalytics, useSectionView } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
@@ -33,6 +36,20 @@ export default function HeroSection({ onEnter }) {
   const updated = lastUpdatedLabel()
   const paymentsOn = import.meta.env.VITE_PAYMENTS_ENABLED === 'true'
 
+  // The headline arrives after the galaxy has pulled itself together. It
+  // listens for the formed event, and never waits forever: without WebGL or
+  // with reduced motion it shows at once, and a slow device gets a hard cap.
+  const [ready, setReady] = useState(
+    () => galaxyState.formed || !webglAvailable() || window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  )
+  useEffect(() => {
+    if (ready) return
+    const go = () => setReady(true)
+    window.addEventListener('toolnaut:galaxy-formed', go)
+    const cap = setTimeout(go, 6000)
+    return () => { window.removeEventListener('toolnaut:galaxy-formed', go); clearTimeout(cap) }
+  }, [ready])
+
   return (
     <section
       id="hero"
@@ -54,8 +71,8 @@ export default function HeroSection({ onEnter }) {
           sooner, which is 1.8s less staring at an empty viewport. */}
       <motion.h1
         initial={{ opacity: 0, y: 26 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
+        animate={ready ? { opacity: 1, y: 0 } : undefined}
+        transition={{ delay: 0.05, duration: 0.8, ease: 'easeOut' }}
         className="arcade-heading max-w-5xl text-[8.6vw] sm:text-5xl md:text-7xl leading-[0.96]"
         style={{ letterSpacing: '-0.02em' }}
       >
@@ -66,8 +83,8 @@ export default function HeroSection({ onEnter }) {
           it gets its own line rather than being buried in the paragraph. */}
       <motion.p
         initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.65, duration: 0.7 }}
+        animate={ready ? { opacity: 1, y: 0 } : undefined}
+        transition={{ delay: 0.30, duration: 0.7 }}
         className="mt-5 font-display text-lg font-medium text-zinc-300 md:text-2xl"
         style={{ letterSpacing: '-0.01em', textShadow: '0 2px 12px rgba(0,0,0,0.95), 0 0 22px rgba(0,0,0,0.9)' }}
       >
@@ -76,8 +93,8 @@ export default function HeroSection({ onEnter }) {
 
       <motion.p
         initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.7 }}
+        animate={ready ? { opacity: 1, y: 0 } : undefined}
+        transition={{ delay: 0.45, duration: 0.7 }}
         className="mt-6 max-w-2xl px-2 text-base font-medium leading-relaxed text-white md:text-lg"
         style={{ textShadow: '0 2px 10px rgba(0,0,0,0.95), 0 0 26px rgba(0,0,0,0.85)' }}
       >
@@ -88,8 +105,8 @@ export default function HeroSection({ onEnter }) {
 
       <motion.div
         initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.1, duration: 0.7 }}
+        animate={ready ? { opacity: 1, y: 0 } : undefined}
+        transition={{ delay: 0.75, duration: 0.7 }}
         className="pointer-events-auto mt-9 flex flex-col items-center gap-4 sm:flex-row"
       >
         <button
@@ -125,8 +142,8 @@ export default function HeroSection({ onEnter }) {
           unreadable trust cue is no cue. */}
       <motion.ul
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 0.7 }}
+        animate={ready ? { opacity: 1 } : undefined}
+        transition={{ delay: 1.05, duration: 0.7 }}
         className="mt-7 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-full px-5 py-2.5 text-[12px] font-semibold text-slate-200"
         style={{ background: 'rgba(6,6,12,0.72)', border: '1px solid rgba(255,255,255,0.10)' }}
       >
@@ -141,7 +158,7 @@ export default function HeroSection({ onEnter }) {
 
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: [0, 1, 0] }}
+        animate={ready ? { opacity: [0, 1, 0] } : undefined}
         transition={{ delay: 2.2, duration: 2.6, repeat: Infinity }}
         className="absolute bottom-8 text-[12px] tracking-[0.2em] text-zinc-400"
       >

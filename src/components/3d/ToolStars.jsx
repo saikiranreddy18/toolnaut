@@ -4,6 +4,7 @@ import * as THREE from 'three'
 import { TOOLS } from '../../utils/toolsCatalog'
 import { isNewTool } from '../../utils/newTools'
 import { isCatalogNoise } from '../../utils/prominence'
+import { galaxyState } from '../../state/galaxyStore'
 
 // Every star in the galaxy is a real tool. There is no decorative dust: one
 // point per catalog entry, laid out along a spiral, so the galaxy grows when the
@@ -81,6 +82,13 @@ const REVEAL_FAR = 7
 const REVEAL_NEAR = 3.2
 const HOVER_PX = 18
 
+// The opening: every tool starts as loose dust scattered through space, then
+// all of them are pulled in along a swirl and settle into the spiral. The hero
+// copy waits for this to finish (the 'toolnaut:galaxy-formed' event).
+const INTRO_DELAY = 0.7
+const INTRO_SECONDS = 2.6
+export const GALAXY_FORMED_EVENT = 'toolnaut:galaxy-formed'
+
 // Deterministic 0..1 hash so a tool keeps its place between visits.
 function hash(n) {
   const x = Math.sin(n * 12.9898 + 78.233) * 43758.5453
@@ -92,13 +100,24 @@ const vertexShader = /* glsl */ `
   attribute float aPhase;
   attribute float aIndex;
   attribute vec3 aColor;
+  attribute vec3 aStart;
   uniform float uTime;
+  uniform float uIntro;
   uniform float uHover;
   uniform float uPixelRatio;
   varying vec3 vColor;
   varying float vAlpha;
   void main() {
-    vec4 mv = modelViewMatrix * vec4(position, 1.0);
+    // Stars leave in a staggered wave so the spiral assembles, not snaps.
+    float k = clamp(uIntro * 1.4 - aPhase * 0.4, 0.0, 1.0);
+    float e = 1.0 - pow(1.0 - k, 3.0);
+    // Swirl the dust around the core while it falls in.
+    float swirl = (1.0 - e) * 2.2;
+    float cs = cos(swirl);
+    float sn = sin(swirl);
+    vec3 from = vec3(aStart.x * cs - aStart.z * sn, aStart.y, aStart.x * sn + aStart.z * cs);
+    vec3 p = mix(from, position, e);
+    vec4 mv = modelViewMatrix * vec4(p, 1.0);
     float breathe = 0.7 + 0.3 * sin(uTime * (0.6 + aPhase * 0.25) + aPhase * 6.2831);
     float glint = max(0.0, sin(uTime * 0.31 + aPhase * 23.0) - 0.97) * 30.0;
     float hovered = abs(aIndex - uHover) < 0.5 ? 1.0 : 0.0;
@@ -106,7 +125,9 @@ const vertexShader = /* glsl */ `
     gl_PointSize = size * uPixelRatio * (75.0 / -mv.z);
     gl_Position = projectionMatrix * mv;
     vColor = aColor;
-    vAlpha = min(1.0, breathe + glint + hovered);
+    // Dust is dimmer and smaller than a settled star.
+    gl_PointSize *= mix(0.55, 1.0, e);
+    vAlpha = min(1.0, breathe + glint + hovered) * mix(0.45, 1.0, e);
   }
 `
 
@@ -130,6 +151,8 @@ export default function ToolStars() {
   const worldPos = useRef(new THREE.Vector3())
   const ndc = useRef(new THREE.Vector3())
   const pointer = useRef({ x: -9999, y: -9999 })
+  const introStart = useRef(null)
+  const formed = useRef(false)
 
   useEffect(() => {
     function onMove(e) {
@@ -220,6 +243,7 @@ export default function ToolStars() {
     const size = new Float32Array(n)
     const phase = new Float32Array(n)
     const index = new Float32Array(n)
+    const start = new Float32Array(n * 3)
     const c = new THREE.Color()
     items.forEach((it, i) => {
       pos.set(it.position, i * 3)
@@ -228,6 +252,12 @@ export default function ToolStars() {
       size[i] = it.size
       phase[i] = it.phase
       index[i] = i
+      // Scatter: a wide, flattened cloud well beyond the finished galaxy.
+      const a = hash(i + 401) * Math.PI * 2
+      const d = 9 + hash(i + 503) * 20
+      start[i * 3] = Math.cos(a) * d
+      start[i * 3 + 1] = (hash(i + 601) - 0.5) * 14
+      start[i * 3 + 2] = Math.sin(a) * d
     })
     const g = new THREE.BufferGeometry()
     g.setAttribute('position', new THREE.BufferAttribute(pos, 3))
@@ -235,6 +265,7 @@ export default function ToolStars() {
     g.setAttribute('aSize', new THREE.BufferAttribute(size, 1))
     g.setAttribute('aPhase', new THREE.BufferAttribute(phase, 1))
     g.setAttribute('aIndex', new THREE.BufferAttribute(index, 1))
+    g.setAttribute('aStart', new THREE.BufferAttribute(start, 3))
     return g
   }, [items])
 
@@ -246,6 +277,7 @@ export default function ToolStars() {
         uniforms: {
           uTime: { value: 0 },
           uHover: { value: -1 },
+          uIntro: { value: 0 },
           uPixelRatio: { value: Math.min(window.devicePixelRatio || 1, 2) },
         },
         transparent: true,
@@ -270,6 +302,18 @@ export default function ToolStars() {
     material.uniforms.uTime.value = clock.elapsedTime
     const pts = pointsRef.current
     if (!pts) return
+
+    if (!formed.current) {
+      // Reduced motion, or the galaxy was already formed this visit: no intro.
+      const skip = galaxyState.formed || window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      if (introStart.current === null) introStart.current = clock.elapsedTime
+      const p = skip ? 1 : (clock.elapsedTime - introStart.current - INTRO_DELAY) / INTRO_SECONDS
+      material.uniforms.uIntro.value = Math.min(1, Math.max(0, p))
+      if (p < 1) return
+      formed.current = true
+      galaxyState.formed = true
+      window.dispatchEvent(new Event(GALAXY_FORMED_EVENT))
+    }
     const tooltip = document.getElementById('tool-tooltip')
     const w = window.innerWidth
     const h = window.innerHeight

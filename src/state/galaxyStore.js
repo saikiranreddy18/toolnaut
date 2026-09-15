@@ -2,6 +2,8 @@
 // Read every frame by CameraController; written by GalaxyExplorer inputs.
 export const galaxyState = {
   explore: false,
+  // True once the opening dust-to-spiral animation has finished this visit.
+  formed: false,
   zoom: 11, // orbit distance in explore mode
   rotY: 0.6, // azimuth
   rotX: 0.45, // elevation, clamped in the controller

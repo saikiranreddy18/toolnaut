@@ -55,24 +55,87 @@ export default function FounderRibbon() {
   const inr = formatPrice(plan)
   const price = local ? `${inr} (~${local.text})` : inr
 
-  // A quiet bar, not a hazard strip. The deadline is real, so it only needs
-  // to be stated plainly: no marquee, no stripes, no ticking seconds.
-  const clock = left.days > 0 ? `${left.days}d ${pad(left.hours)}h` : `${pad(left.hours)}h ${pad(left.mins)}m`
+  // A premium announcement bar: big enough to be seen at a glance, detailed
+  // enough to explain the offer without a click, and calm enough to sit above
+  // a quiet page. Every figure is real — the price from planData, the clock
+  // counting to the one fixed deadline everyone shares.
+  const units = [
+    [left.days, 'Days'],
+    [left.hours, 'Hrs'],
+    [left.mins, 'Min'],
+    [left.secs, 'Sec'],
+  ]
 
   return (
     <Link
       to="/pay?plan=founder"
       onClick={() => track(EVENTS.UPGRADE_CLICKED, { plan: 'founder', surface: 'ribbon' })}
       aria-label={`Founder offer: lifetime access for ${inr}, one payment, never expires. Ends in ${left.days} days. Claim it.`}
-      className="group block border-b border-white/10 bg-black"
+      className="founder-bar group relative block overflow-hidden bg-black"
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-4 py-2 text-[12px] text-zinc-400 sm:gap-3 sm:text-[13px]">
-        <span className="rounded-full border border-white/15 px-2 py-0.5 text-[11px] font-medium text-white">Founder offer</span>
-        <span className="hidden sm:inline">Lifetime access for {price}</span>
-        <span className="sm:hidden">Lifetime · {inr}</span>
-        <span aria-hidden="true" className="text-zinc-600">·</span>
-        <span className="tabular-nums">Ends in {clock}</span>
-        <span className="font-medium text-white transition group-hover:translate-x-0.5">Claim →</span>
+      {/* soft cosmic glow + a slow light sweep */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(60% 140% at 12% 50%, rgba(124,58,237,0.22), transparent 70%),' +
+            'radial-gradient(50% 140% at 88% 50%, rgba(14,165,233,0.16), transparent 70%)',
+        }}
+      />
+      <div aria-hidden="true" className="founder-shine absolute inset-y-0 -left-1/3 w-1/3" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-px"
+        style={{ background: 'linear-gradient(90deg, transparent, #a78bfa 25%, #f0abfc 50%, #7dd3fc 75%, transparent)' }}
+      />
+
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2.5 sm:px-6 md:py-3">
+        {/* the offer */}
+        <div className="flex min-w-0 items-center gap-3">
+          <span
+            className="shrink-0 rounded-full p-px"
+            style={{ background: 'linear-gradient(90deg, #a78bfa, #f0abfc, #7dd3fc)' }}
+          >
+            <span className="flex items-center gap-1.5 rounded-full bg-black px-2.5 py-1 text-[11px] font-semibold text-white sm:text-xs">
+              <span aria-hidden="true" className="text-[#f0abfc]">✦</span>
+              <span className="hidden min-[400px]:inline">Founder edition</span><span className="min-[400px]:hidden">Founder</span>
+            </span>
+          </span>
+          <div className="min-w-0 leading-tight">
+            <p className="truncate text-[13px] font-semibold text-white sm:text-[15px]">
+              <span className="sm:hidden">{inr} lifetime</span>
+              <span className="hidden sm:inline">Lifetime access for {inr}</span>
+              <span className="hidden font-normal text-zinc-400 lg:inline">{local ? ` (~${local.text})` : ''}</span>
+            </p>
+            <p className="hidden truncate text-[12px] text-zinc-400 md:block">
+              Everything in Pro, forever · one payment · never renews
+            </p>
+          </div>
+        </div>
+
+        {/* the clock */}
+        <div className="hidden items-center gap-3 sm:flex">
+          <span className="hidden text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500 lg:inline">Offer ends in</span>
+          <div className="flex items-center gap-1.5">
+            {units.map(([v, k]) => (
+              <span
+                key={k}
+                className="flex min-w-[44px] flex-col items-center rounded-lg border border-white/10 bg-white/[0.04] px-2 py-1 backdrop-blur"
+              >
+                <span className="text-[15px] font-semibold leading-none tabular-nums text-white">{pad(v)}</span>
+                <span className="mt-0.5 text-[9px] uppercase tracking-wider text-zinc-500">{k}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* the action */}
+        <span className="shrink-0 rounded-full bg-white px-3.5 py-1.5 text-[12px] font-semibold text-black transition group-hover:bg-zinc-200 sm:px-4 sm:py-2 sm:text-[13px]">
+          <span className="hidden sm:inline">Claim founder access</span>
+          <span className="sm:hidden">{left.days}d left · Claim</span>
+          <span aria-hidden="true" className="ml-1 inline-block transition group-hover:translate-x-0.5">→</span>
+        </span>
       </div>
     </Link>
   )
