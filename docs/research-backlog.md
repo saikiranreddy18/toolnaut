@@ -5978,7 +5978,15 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### The galaxy promises to let you "meet the tools" — 704 of them render, zero are reachable
-- **Status:** OPEN
+- **Status:** SHIPPED 86c7066 — built exactly as scoped below: `galaxyState`
+  gained a `hoveredTool` field written by `ToolStars`' existing per-frame hit
+  test, `GalaxyExplorer` added a click-vs-drag distance check (6px) on
+  pointer up and navigates to `/search?q=<name>` on a clean tap, plus a
+  pointer cursor while a star is hovered. Scoped to explore mode only, as
+  planned — the ambient landing-page galaxy stays click-inert. Verified live
+  in a real browser (not just the route-render smoke test): hover shows the
+  pointer cursor, a tap on a star lands on `/search?q=...` with that tool's
+  name pre-filled, a drag still orbits the camera without navigating.
 - **Seen in:** not a competitor pattern — the promise is the feature's own UI
   copy, not marketing copy. `GalaxyExplorer.jsx:146-148`'s persistent
   on-screen label reads "Drag to orbit · Scroll to zoom · Zoom in to **meet
