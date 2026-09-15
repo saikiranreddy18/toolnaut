@@ -86,7 +86,7 @@ const HOVER_PX = 18
 // all of them are pulled in along a swirl and settle into the spiral. The hero
 // copy waits for this to finish (the 'toolnaut:galaxy-formed' event).
 const INTRO_DELAY = 0.7
-const INTRO_SECONDS = 2.6
+const INTRO_SECONDS = 4
 export const GALAXY_FORMED_EVENT = 'toolnaut:galaxy-formed'
 
 // Deterministic 0..1 hash so a tool keeps its place between visits.

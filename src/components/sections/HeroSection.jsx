@@ -46,7 +46,7 @@ export default function HeroSection({ onEnter }) {
     if (ready) return
     const go = () => setReady(true)
     window.addEventListener('toolnaut:galaxy-formed', go)
-    const cap = setTimeout(go, 6000)
+    const cap = setTimeout(go, 8000)
     return () => { window.removeEventListener('toolnaut:galaxy-formed', go); clearTimeout(cap) }
   }, [ready])
 
