@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { LEMNISCATE, LEM_W, LEM_H } from './lemniscate'
+import { LEM_W, LEM_H } from './lemniscate'
 
 // The name, drawn in dots, invisible until you go looking for it.
 //
@@ -189,11 +189,6 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut', bg =
       >
         {head}
       </text>
-      {layout && (
-        <g transform={`translate(${layout.lemX} ${layout.lemY}) scale(${layout.lemScale})`}>
-          <path d={LEMNISCATE} fill="none" stroke="var(--lime)" strokeWidth={13 / layout.lemScale} strokeLinecap="round" />
-        </g>
-      )}
       {tail && (
         <text
           ref={withRefs ? tailRef : undefined}
