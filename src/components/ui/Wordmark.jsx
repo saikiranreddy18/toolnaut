@@ -1,68 +1,19 @@
-import { useId } from 'react'
-import { LEMNISCATE } from './lemniscate'
-
-// The Toolnaut wordmark: T ∞ lnaut.
+// The Toolnaut wordmark: the name, in plain letters.
 //
-// The double "o" collapses into a single glowing infinity — two letters, one
-// glyph, which is the idea the name is carrying. The catalogue never stops
-// growing, so neither does the mark.
+// It used to draw the double "o" as an infinity. That was a nice idea, but at
+// small sizes it read as "T∞lnaut" or "Tlnaut", and a brand people search for by
+// name has to be readable at a glance. The spiral mark (SpiralMark) now carries
+// the symbol; the wordmark just says the name.
 //
-// Drawn rather than typed. The infinity is one continuous lemniscate with a
-// soft lime glow, not a ∞ character: a text glyph would inherit whatever the
-// font decided, vary between platforms, and could not carry the glow. As SVG it
-// is identical everywhere and scales with the surrounding type.
-//
-// Sized in `em` throughout, so a single font-size on the parent sets the whole
-// lockup — nav, hero and footer all use the same component at different sizes.
-
-
-export default function Wordmark({ className = '', glow = true, style }) {
-  // Filter ids must be unique — the wordmark renders more than once per page.
-  const glowId = `tn-glow-${useId().replace(/:/g, '')}`
-
+// `glow` is accepted and ignored so existing call sites keep working.
+// eslint-disable-next-line no-unused-vars
+export default function Wordmark({ className = '', glow, style }) {
   return (
     <span
-      role="img"
-      aria-label="Toolnaut"
-      className={`inline-flex items-center whitespace-nowrap font-display font-semibold ${className}`}
+      className={`inline-flex items-center whitespace-nowrap font-display font-semibold tracking-[-0.02em] ${className}`}
       style={style}
     >
-      {/* The glyph is decorative; the lockup carries the name once, above. */}
-      <span aria-hidden="true">T</span>
-      <svg
-        viewBox="0 0 200 120"
-        aria-hidden="true"
-        style={{
-          width: '1.72em',
-          height: '1.03em',
-          display: 'inline-block',
-          verticalAlign: '-0.14em',
-          margin: '0 0.02em',
-          overflow: 'visible',
-        }}
-      >
-        {glow && (
-          <defs>
-            <filter id={glowId} x="-60%" y="-60%" width="220%" height="220%">
-              <feGaussianBlur stdDeviation="9" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-        )}
-        <path
-          d={LEMNISCATE}
-          fill="none"
-          stroke="var(--lime)"
-          strokeWidth="15"
-          strokeLinecap="round"
-          filter={glow ? `url(#${glowId})` : undefined}
-        />
-      </svg>
-      <span aria-hidden="true">lnaut</span>
+      Toolnaut
     </span>
   )
 }

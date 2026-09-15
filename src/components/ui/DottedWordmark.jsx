@@ -56,8 +56,9 @@ export default function DottedWordmark({ className = '', text = 'Toolnaut', bg =
 
   // The brand splits at its first run of O's: everything before is the head,
   // everything after is the tail, and the lemniscate stands in for the run.
-  const upper = text.toUpperCase()
-  const m = upper.match(/O{2,}/)
+  // Plain name, same as the wordmark: the infinity no longer replaces the O's.
+  const upper = text
+  const m = null
   const head = m ? upper.slice(0, m.index) : upper
   const tail = m ? upper.slice(m.index + m[0].length) : ''
 

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import SpiralMark from './SpiralMark'
 import Wordmark from './Wordmark'
 
 // "Naut" — the Toolnaut mascot. One alien character with three moods:
@@ -120,20 +120,17 @@ export default function Mascot({ mood = 'happy', size = 32, className = '', titl
 //   chrome  persistent navigation that sits alongside content all session
 //   compact dense bars and back-links, where the mark is a wayfinder
 export const LOGO = {
-  page: { size: 60, textClass: 'text-2xl sm:text-3xl' },
-  chrome: { size: 46, textClass: 'text-xl' },
-  compact: { size: 30, textClass: 'text-base' },
+  page: { size: 36, textClass: 'text-2xl sm:text-3xl' },
+  chrome: { size: 30, textClass: 'text-xl' },
+  compact: { size: 22, textClass: 'text-base' },
 }
 
+// The brand lockup: the spiral galaxy mark and the plain Toolnaut wordmark.
+// The mascot stays as Naut, the quiz assistant; it is no longer the logo.
 export function BrandLogo({ size = 30, wordmark = true, beta = true, className = '', textClass = 'text-sm' }) {
-  const [hover, setHover] = useState(false)
   return (
-    <span
-      className={`inline-flex items-center gap-2.5 ${className}`}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-    >
-      <Mascot mood={hover ? 'curious' : 'happy'} size={size} />
+    <span className={`inline-flex items-center gap-2.5 ${className}`}>
+      <SpiralMark size={size} />
       {wordmark && (
         <Wordmark glow={false} className={`tracking-[-0.02em] text-white ${textClass}`} />
       )}
