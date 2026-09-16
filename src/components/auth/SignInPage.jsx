@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import SpiralMark from '../ui/SpiralMark'
+import { BrandLogo, LOGO } from '../ui/Mascot'
 import { signIn, signInWithEmail, isSupabaseConfigured } from '../../state/authStore'
 import { postAuthDestination } from '../../utils/postAuth'
 import { armLaunch, clearLaunch } from '../../utils/launchFlag'
@@ -137,9 +138,8 @@ export default function SignInPage({ next = '/app/stack' }) {
 
       {/* ---------------- brand ---------------- */}
       <header className="relative z-10 px-6 pt-7 sm:px-10">
-        <Link to="/" className="inline-flex items-center gap-2.5 text-lg font-semibold tracking-[-0.02em]">
-          <SpiralMark size={28} />
-          Toolnaut
+        <Link to="/" aria-label="Toolnaut home">
+          <BrandLogo {...LOGO.nav} beta={false} />
         </Link>
       </header>
 

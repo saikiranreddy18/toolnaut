@@ -116,21 +116,43 @@ export default function Mascot({ mood = 'happy', size = 32, className = '', titl
 // landed on. Sizes live here now, named by ROLE rather than by number, so a new
 // page picks a role instead of inventing a size.
 //
-//   page    a standalone page's own header — the brand moment
-//   chrome  persistent navigation that sits alongside content all session
+//   page    a public page's own header — the brand moment
+//   nav     the landing page's top bar
+//   chrome  persistent navigation INSIDE the app, alongside content all session
 //   compact dense bars and back-links, where the mark is a wayfinder
+//
+// PUBLIC PAGES SCALE, THE APP DOES NOT.
+// A fixed pixel size was chosen for a phone and then looked lost in the header
+// of a 1440px page with a whole empty band around it. The public roles now
+// grow with the viewport through markClass/textClass breakpoints — the size
+// prop is only the mobile baseline and the SVG's intrinsic size. Inside the app
+// the lockup stays one fixed size on every screen on purpose: it is a wayfinder
+// there, and a brand that changes size as you move between tabs reads as a
+// layout bug.
 export const LOGO = {
-  page: { size: 36, textClass: 'text-2xl sm:text-3xl' },
+  page: {
+    size: 36,
+    markClass: 'h-9 w-9 sm:h-11 sm:w-11 lg:h-14 lg:w-14',
+    textClass: 'text-2xl sm:text-3xl lg:text-4xl',
+    gapClass: 'gap-2.5 sm:gap-3 lg:gap-3.5',
+  },
+  nav: {
+    size: 32,
+    markClass: 'h-8 w-8 md:h-9 md:w-9 lg:h-11 lg:w-11',
+    textClass: 'text-xl md:text-[1.35rem] lg:text-[1.65rem]',
+    gapClass: 'gap-2.5 lg:gap-3',
+  },
   chrome: { size: 30, textClass: 'text-xl' },
   compact: { size: 22, textClass: 'text-base' },
 }
 
-// The brand lockup: the spiral galaxy mark and the plain Toolnaut wordmark.
-// The mascot stays as Naut, the quiz assistant; it is no longer the logo.
-export function BrandLogo({ size = 30, wordmark = true, beta = true, className = '', textClass = 'text-sm' }) {
+export function BrandLogo({
+  size = 30, wordmark = true, beta = true, className = '', textClass = 'text-sm',
+  markClass = '', gapClass = 'gap-2.5',
+}) {
   return (
-    <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <SpiralMark size={size} />
+    <span className={`inline-flex items-center ${gapClass} ${className}`}>
+      <SpiralMark size={size} className={markClass} />
       {wordmark && (
         <Wordmark glow={false} className={`tracking-[-0.02em] text-white ${textClass}`} />
       )}

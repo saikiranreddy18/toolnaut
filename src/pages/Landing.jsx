@@ -193,7 +193,7 @@ export default function Landing() {
           style={{ maxWidth: scrolled ? '100vw' : '72rem', paddingLeft: scrolled ? 24 : 20, paddingRight: scrolled ? 24 : 20 }}
         >
           <a href="#hero" aria-label={BRAND}>
-            <BrandLogo {...LOGO.chrome} size={34} textClass="text-xl" />
+            <BrandLogo {...LOGO.nav} />
           </a>
           <nav className="hidden items-center gap-7 text-[13px] text-zinc-400 md:flex">
             <a href="#how-it-works" className="hover:text-white">How it works</a>

@@ -93,7 +93,7 @@ export default function Support() {
       <div className="relative z-10 mx-auto max-w-2xl px-5 py-16 md:py-24">
         <Link to="/" className="inline-flex items-center gap-2.5 text-zinc-400 hover:text-white" aria-label="Back to Toolnaut">
           <span aria-hidden="true">←</span>
-          <BrandLogo {...LOGO.compact} />
+          <BrandLogo {...LOGO.page} />
         </Link>
 
         <h1 className="arcade-heading mt-6 text-3xl md:text-4xl">SUPPORT &amp; REFUNDS</h1>
