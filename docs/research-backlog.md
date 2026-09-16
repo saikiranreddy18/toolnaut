@@ -6465,3 +6465,87 @@ a client-side SPA with a static tool catalogue.
   `planData.js`, `FeaturesSection.jsx`), no new component, no new route, no
   dependency.
 - **Found:** 2026-09-16 06:07 UTC
+
+---
+
+### The public search page's own placeholder promises task search — the matcher still only knows literal word stems, not the tools that actually answer the task
+- **Status:** OPEN
+- **Seen in:** competitor research this run into There's An AI For That's
+  core differentiator (task-first discovery — a visitor describes what they
+  need in their own words, e.g. "I need an AI that transcribes meetings," and
+  the platform surfaces matches, rather than requiring a category pick first)
+  confirmed this is the thing directories are expected to get right, then
+  Toolnaut's own `/search` was checked against it directly, since the page's
+  intro copy already claims to do exactly this: `SearchTools.jsx:73` reads
+  "Search by name, category, or the problem you're trying to solve." That
+  copy is not new marketing — `src/utils/search.js:5-8`'s own comment says
+  the word-order-independent matching it ships today ("video editor" must
+  match "video" and "editor" in either order) was built specifically because
+  `SearchTools.jsx`'s copy invites problem-shaped queries and the earlier
+  single-phrase substring check silently failed on them. That fix solved
+  word *order*; it did not solve word *form*.
+- **Gap:** `matchesQuery()` (`src/utils/search.js:9-16`) still requires every
+  query word to appear as an exact literal substring somewhere in
+  `[name, blurb, sourceCategory, dev, tags].join(' ')`. Verified live against
+  the real catalog (`node` against `src/utils/toolsCatalog.js`, this run):
+  the query "transcribe meetings" — as plainly a "problem you're trying to
+  solve" as the page's own placeholder example — returns **zero** results on
+  `/search`, and a visitor lands on the "No tools match" empty state
+  (`SearchTools.jsx:84-98`). The catalog is not actually short on answers:
+  grepping tags/blurbs turns up at least 11 directly relevant tools —
+  `Otter.ai` (tags `automation,notes,meeting,transcription`, blurb "Live
+  meeting transcription and AI notes"), `Notta`, `Gladia`
+  ("Real-time transcription API for meetings/calls"), `Fireflies.ai`,
+  `Fathom`, `Circleback`, `Grain`, `Granola`, `Avoma`, `tl;dv`,
+  `Zoom AI Companion` — every one tagged `meeting`, several also tagged
+  `transcription`. Two independent mismatches both fire on this one query:
+  the plural "meetings" is never a literal substring of the singular tag
+  "meeting" it should match, and "transcribe" is never a literal substring
+  of "transcription" (different suffix, not a prefix/suffix relationship
+  `.includes()` can bridge). Neither is the multi-word-order bug the prior
+  fix already closed — both survive today's matcher untouched.
+- **Why it matters:** this isn't a hypothetical edge case, it's the exact
+  query shape the page's own placeholder text (`"Try \"video editor\",
+  \"Anthropic\" or \"healthcare\""`) and intro copy invite, and the query
+  shape that makes a directory's search meaningfully different from
+  Ctrl-F. A visitor who types the actual problem in plain English — the
+  behavior the copy explicitly promises works — gets told the catalog has
+  nothing, immediately, on a public, no-login, first-impression page, when
+  the opposite is true. Every other public-page gap already logged in this
+  file (`/tools/:domain`, `/new`, `/alternatives/:slug`) answers a
+  pre-shaped question; `/search` is the one page that specifically claims to
+  answer an open-ended one, so this is where that claim being false costs
+  the most trust.
+- **Smallest useful version (what to actually build):** extend
+  `matchesQuery()`/its haystack construction in `src/utils/search.js` with a
+  bounded stem/prefix match, not a full stemmer or an LLM call: tokenize the
+  haystack into individual words (it is already lowercased) and, for any
+  query word of length ≥ 5, treat it as matching a haystack token when they
+  share the same leading 5 characters (`"trans" ⊂ "transcribe"` and
+  `"trans" ⊂ "transcription"`; `"meeti"` for "meeting"/"meetings"), in
+  addition to (not replacing) the existing exact-substring check so short or
+  already-exact queries ("notion", "gpt") are completely unaffected. Ship it
+  behind the same single exported `matchesQuery(tool, q)` both `Discover.jsx`
+  and `SearchTools.jsx` already call, so the two stay identical the way the
+  prior fix already established. Add unit-style coverage in whatever the
+  radar/util test pattern nearest to string-matching code uses (or a small
+  new `test/search.test.mjs` if none exists) asserting at minimum: "video
+  editor" still matches in either order, "transcribe meetings" now matches
+  Otter.ai/Notta/etc., and a short unrelated word like "app" does not start
+  matching everything (length floor is what prevents that).
+- **What this would NOT include** (kept out to bound the diff): no real
+  stemming library (Porter/Snowball) or dependency addition — a fixed
+  leading-character-count heuristic is cheap, dependency-free, and closes
+  the two concrete failures found without new attack surface on a public,
+  unauthenticated endpoint; no LLM/semantic search (the `api/chat.js`
+  pattern this codebase already uses for the goal chat is grounded to
+  classify into ≤6 fixed keys per call and rate-limited accordingly — reusing
+  it to rank free text against 700+ catalog entries is a materially larger,
+  separately-shippable feature, not this fix); no change to `Discover.jsx`
+  or its filter UI beyond the shared `matchesQuery` it already imports; no
+  synonym dictionary (transcribe→transcription is caught by the shared-
+  prefix heuristic above, not by hand-maintained word pairs that would need
+  upkeep as the catalog grows).
+- **Build size:** S — one function in `src/utils/search.js`, no new route, no
+  new component, no dependency, one new or extended test file.
+- **Found:** 2026-09-16 09:10 UTC
