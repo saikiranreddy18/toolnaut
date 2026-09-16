@@ -5888,7 +5888,20 @@ a client-side SPA with a static tool catalogue.
 
 ### The Founder offer's "plan preselected" checkout link doesn't preselect anything — the exact bug that was already found and fixed once, in the one place nobody checked it survived
 
-- **Status:** OPEN
+- **Status:** SHIPPED 680b76062d0862214bd056c638555b630acf4e76 — verified
+  2026-09-16 12:07 UTC: this run re-read `src/pages/Pay.jsx` end to end
+  before doing anything else with this entry and found the fix already
+  live, committed the same day (2026-09-16 00:13:42 UTC) as
+  `fix(pay): make the founder-offer checkout link actually preselect
+  Founder`, one file, exactly as this entry scoped it — `requestedPlan`
+  read via `useLocation()` at `Pay.jsx:63`, `chosen` initialized from it
+  with the same fallback-to-`guru` logic at `Pay.jsx:64-65`, and a
+  `preselected` flag at `Pay.jsx:140` gating a "★ YOUR PICK" badge
+  (`Pay.jsx:161`) that only renders when `requestedPlan` was actually
+  present, matching the "no badge on a plain `/pay` visit" constraint this
+  entry called for. The backlog was never updated when that commit shipped,
+  so this entry sat OPEN describing an already-closed gap — corrected here
+  so a future feature run doesn't spend a day rebuilding it from scratch.
 - **Seen in:** not a competitor pattern — a self-audit that started from
   `planData.js:194-198`'s own comment ("when the ribbon expired,
   `/pay?plan=founder` simply kept selling") and `FounderOffer.jsx:120-122`'s
