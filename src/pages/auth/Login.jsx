@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import SignInModal from '../../components/auth/SignInModal'
+import SignInPage from '../../components/auth/SignInPage'
 import { loadSession, watchSession } from '../../state/authStore'
 import { postAuthDestination } from '../../utils/postAuth'
 
@@ -19,7 +19,6 @@ import { postAuthDestination } from '../../utils/postAuth'
 export default function Login() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
-  const [open, setOpen] = useState(true)
 
   const next = searchParams.get('next') || '/app/stack'
 
@@ -36,11 +35,5 @@ export default function Login() {
     })
   }, [navigate, next])
 
-  return (
-    <SignInModal
-      open={open}
-      next={next}
-      onClose={() => { setOpen(false); navigate('/', { replace: true }) }}
-    />
-  )
+  return <SignInPage next={next} />
 }

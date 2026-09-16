@@ -113,13 +113,16 @@ export default function App() {
             <Route path="/new" element={<NewTools />} />
             <Route path="/search" element={<SearchTools />} />
 
+            {/* Sign-in owns the whole viewport: its own sky, its own header, no
+                step bar above it. It is a destination, not a step in a form. */}
+            <Route path="/auth/login" element={<Login />} />
+
             <Route element={<OnboardingShell />}>
               <Route path="/goal" element={<GoalChat />} />
               {/* the form-based quiz was replaced by the conversation; links,
                   bookmarks and old analytics all still point at /quiz */}
               <Route path="/quiz" element={<Navigate to="/goal" replace />} />
               <Route path="/quiz/result" element={<QuizResult />} />
-              <Route path="/auth/login" element={<Login />} />
               {/* The paywall. AppShell routes a signed-in, un-entitled user
                   here whenever the server says payments are live. */}
               <Route path="/pay" element={<Pay />} />

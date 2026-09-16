@@ -778,3 +778,137 @@ body { background: transparent; }
 .arcade-chip.on { background: #ffffff; color: #000; border-color: transparent; box-shadow: 0 0 0 1px rgba(167,139,250,0.5), 0 8px 24px -12px rgba(167,139,250,0.6); }
 .nb-btn:focus-visible { outline-color: #a78bfa; }
 input:focus, textarea:focus, select:focus { border-color: rgba(167, 139, 250, 0.55) !important; box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.15); outline: none; }
+
+/* ---------------------------------------------------------------------------
+   The sign-in screen.
+
+   A full page, animated with transforms and gradients only. The landing page
+   already runs a WebGL galaxy; a second GL context on the screen everyone must
+   pass through is a compile, a driver risk and a black rectangle when it fails.
+   Every rule below degrades to a still composition under reduced motion.
+--------------------------------------------------------------------------- */
+.signin-page {
+  background:
+    radial-gradient(90% 60% at 12% 0%, rgba(124, 58, 237, 0.26), transparent 62%),
+    radial-gradient(70% 55% at 92% 12%, rgba(14, 165, 233, 0.16), transparent 64%),
+    radial-gradient(80% 60% at 50% 110%, rgba(236, 72, 153, 0.14), transparent 66%),
+    #050509;
+}
+
+.signin-sky { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+
+.signin-star {
+  position: absolute;
+  border-radius: 9999px;
+  background: #fff;
+  animation: signin-twinkle 5s ease-in-out infinite;
+}
+@keyframes signin-twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.85); }
+  50%      { opacity: 1;    transform: scale(1.15); }
+}
+
+/* One comet, every twelve seconds, crossing the upper sky. */
+.signin-comet {
+  position: absolute;
+  top: 14%;
+  left: -12%;
+  width: 190px;
+  height: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9));
+  filter: blur(0.4px);
+  opacity: 0;
+  animation: signin-comet 12s linear infinite;
+}
+@keyframes signin-comet {
+  0%   { transform: translate(0, 0) rotate(14deg); opacity: 0; }
+  4%   { opacity: 0.9; }
+  16%  { transform: translate(128vw, 34vh) rotate(14deg); opacity: 0; }
+  100% { transform: translate(128vw, 34vh) rotate(14deg); opacity: 0; }
+}
+
+/* The orbit: three rings, a turning core, tool names riding the outer ring. */
+.signin-orbit {
+  /* One radius drives the rings and the chips, so the names always sit ON the
+     outer ring instead of drifting off the side of a small screen. */
+  --orbit: min(74vh, 78vw, 560px);
+  --orbit-r: calc(var(--orbit) / 2 - 22px);
+  position: relative;
+  width: var(--orbit);
+  height: var(--orbit);
+  max-width: 100%;
+  display: grid;
+  place-items: center;
+}
+.signin-ring {
+  position: absolute;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  animation: signin-spin 46s linear infinite;
+}
+.signin-ring.slow    { animation-duration: 76s; border-color: rgba(240, 171, 252, 0.12); }
+.signin-ring.reverse { animation-duration: 58s; animation-direction: reverse; border-color: rgba(125, 211, 252, 0.12); }
+
+.signin-core {
+  position: relative;
+  display: grid;
+  place-items: center;
+  animation: signin-spin 90s linear infinite;
+  filter: drop-shadow(0 0 42px rgba(168, 85, 247, 0.45));
+}
+
+.signin-carousel {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  animation: signin-spin 120s linear infinite;
+}
+/* Each chip is PLACED by its own transform (rotate → translate → unrotate) and
+   the pill inside it counter-rotates against the carousel at the same speed —
+   otherwise the names tumble as the ring turns, and half of them are upside
+   down at any moment. */
+.signin-chip {
+  position: absolute;
+  display: block;
+}
+.signin-chip-in {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(8, 8, 14, 0.72);
+  padding: 5px 11px;
+  font-size: 11px;
+  color: #d4d4d8;
+  backdrop-filter: blur(6px);
+  /* Exactly the carousel's speed, reversed, with NO delay of its own: any
+     offset between the two puts the text permanently out of phase, which is
+     how the names ended up upside down. */
+  animation: signin-spin 120s linear infinite reverse;
+}
+.signin-dot { width: 6px; height: 6px; border-radius: 9999px; }
+
+@keyframes signin-spin { to { transform: rotate(360deg); } }
+
+.signin-card {
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(160deg, rgba(20, 18, 32, 0.92), rgba(6, 6, 12, 0.92));
+  box-shadow: 0 40px 90px -50px rgba(124, 58, 237, 0.9);
+  backdrop-filter: blur(14px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signin-star,
+  .signin-comet,
+  .signin-ring,
+  .signin-core,
+  .signin-carousel,
+  .signin-chip,
+  .signin-chip-in { animation: none !important; }
+  .signin-comet { opacity: 0; }
+}
