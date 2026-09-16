@@ -136,7 +136,9 @@
       "what-a-time-to-be-alive",
       "productspec",
       "antflow-ai-spec-driven-agentic-development",
-      "vibesafe-builder"
+      "vibesafe-builder",
+      "agenttik",
+      "kobra"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -270,7 +272,9 @@
       "course-what-a-time-to-be-alive",
       "course-productspec",
       "course-antflow-ai-spec-driven-agentic-development",
-      "course-vibesafe-builder"
+      "course-vibesafe-builder",
+      "course-agenttik",
+      "course-kobra"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -767,7 +771,13 @@
       "can-ai-agents-conduct-open-ended-ai-research",
       "ai-agents-blew-the-whistle-on-their-cheating-colleagues",
       "apple-releases-os-27-updates-with-siri-ai",
-      "who-bankrolls-the-ai-agent-swarm"
+      "who-bankrolls-the-ai-agent-swarm",
+      "pizza-bot",
+      "skill-poisioning-turning-ai-agents-into-malware-droppers",
+      "i-tested-ai-agents-for-everyday-work",
+      "ai-agent-whistleblower-hotline",
+      "ai-agents-now-have-a-place-to-snitch",
+      "auto-autoresearch-self-improving-agents-on-karpathys-nanocha"
     ],
     "courses": [
       "course-headless-tools",
@@ -940,7 +950,13 @@
       "course-can-ai-agents-conduct-open-ended-ai-research",
       "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues",
       "course-apple-releases-os-27-updates-with-siri-ai",
-      "course-who-bankrolls-the-ai-agent-swarm"
+      "course-who-bankrolls-the-ai-agent-swarm",
+      "course-pizza-bot",
+      "course-skill-poisioning-turning-ai-agents-into-malware-droppers",
+      "course-i-tested-ai-agents-for-everyday-work",
+      "course-ai-agent-whistleblower-hotline",
+      "course-ai-agents-now-have-a-place-to-snitch",
+      "course-auto-autoresearch-self-improving-agents-on-karpathys-nanocha"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1089,7 +1105,13 @@
       "ai-agents-blew-the-whistle-on-their-cheating-colleagues",
       "productspec",
       "who-bankrolls-the-ai-agent-swarm",
-      "antflow-ai-spec-driven-agentic-development"
+      "antflow-ai-spec-driven-agentic-development",
+      "agenttik",
+      "pizza-bot",
+      "atlas-finance-evaluating-ai-agents-inside-a-bank",
+      "skill-poisioning-turning-ai-agents-into-malware-droppers",
+      "ai-agent-whistleblower-hotline",
+      "ai-agents-now-have-a-place-to-snitch"
     ],
     "courses": [
       "course-headless-tools",
@@ -1218,7 +1240,13 @@
       "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues",
       "course-productspec",
       "course-who-bankrolls-the-ai-agent-swarm",
-      "course-antflow-ai-spec-driven-agentic-development"
+      "course-antflow-ai-spec-driven-agentic-development",
+      "course-agenttik",
+      "course-pizza-bot",
+      "course-atlas-finance-evaluating-ai-agents-inside-a-bank",
+      "course-skill-poisioning-turning-ai-agents-into-malware-droppers",
+      "course-ai-agent-whistleblower-hotline",
+      "course-ai-agents-now-have-a-place-to-snitch"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1301,7 +1329,8 @@
       "benchmarking-coding-agents-perform-on-scraping",
       "dont-hit-send",
       "building-specialized-systems-we-can-trust-with-agents",
-      "your-ai-agent-has-a-cache-invalidation-problem"
+      "your-ai-agent-has-a-cache-invalidation-problem",
+      "meta-launches-subscriptions-with-enhanced-ai-features"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1334,7 +1363,8 @@
       "course-benchmarking-coding-agents-perform-on-scraping",
       "course-dont-hit-send",
       "course-building-specialized-systems-we-can-trust-with-agents",
-      "course-your-ai-agent-has-a-cache-invalidation-problem"
+      "course-your-ai-agent-has-a-cache-invalidation-problem",
+      "course-meta-launches-subscriptions-with-enhanced-ai-features"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1367,7 +1397,8 @@
       "manware-s-ai-learning-toolkit",
       "catenary",
       "ai-means-the-end-of-software-as-we-know-it",
-      "the-anatomy-of-harness-engineering-for-ai-coding-agents"
+      "the-anatomy-of-harness-engineering-for-ai-coding-agents",
+      "agenttik"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1380,7 +1411,8 @@
       "course-manware-s-ai-learning-toolkit",
       "course-catenary",
       "course-ai-means-the-end-of-software-as-we-know-it",
-      "course-the-anatomy-of-harness-engineering-for-ai-coding-agents"
+      "course-the-anatomy-of-harness-engineering-for-ai-coding-agents",
+      "course-agenttik"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1745,7 +1777,9 @@
       "cve-2026-42978-poc-research",
       "ai-security-tool",
       "what-a-time-to-be-alive",
-      "vibesafe-builder"
+      "vibesafe-builder",
+      "skill-poisioning-turning-ai-agents-into-malware-droppers",
+      "ai-agents-now-have-a-place-to-snitch"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -1776,7 +1810,9 @@
       "course-cve-2026-42978-poc-research",
       "course-ai-security-tool",
       "course-what-a-time-to-be-alive",
-      "course-vibesafe-builder"
+      "course-vibesafe-builder",
+      "course-skill-poisioning-turning-ai-agents-into-malware-droppers",
+      "course-ai-agents-now-have-a-place-to-snitch"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2052,7 +2088,8 @@
       "ai-means-the-end-of-software-as-we-know-it",
       "developer-agency-in-the-age-of-ai",
       "we-should-anthropomorphize-ai-agents",
-      "your-ai-agent-has-a-cache-invalidation-problem"
+      "your-ai-agent-has-a-cache-invalidation-problem",
+      "is-ai-solving-math-too-fast"
     ],
     "courses": [
       "course-the-ai-health-agent-that-will-know-me-for-life",
@@ -2064,7 +2101,8 @@
       "course-ai-means-the-end-of-software-as-we-know-it",
       "course-developer-agency-in-the-age-of-ai",
       "course-we-should-anthropomorphize-ai-agents",
-      "course-your-ai-agent-has-a-cache-invalidation-problem"
+      "course-your-ai-agent-has-a-cache-invalidation-problem",
+      "course-is-ai-solving-math-too-fast"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2134,7 +2172,9 @@
       "dont-hit-send",
       "restarted",
       "chronicle",
-      "spec-sheets-for-humans"
+      "spec-sheets-for-humans",
+      "mymarkdown",
+      "meta-launches-subscriptions-with-enhanced-ai-features"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -2153,7 +2193,9 @@
       "course-dont-hit-send",
       "course-restarted",
       "course-chronicle",
-      "course-spec-sheets-for-humans"
+      "course-spec-sheets-for-humans",
+      "course-mymarkdown",
+      "course-meta-launches-subscriptions-with-enhanced-ai-features"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2492,7 +2534,8 @@
       "nvidia-is-the-central-bank-of-ai",
       "eliza-the-ai-that-fooled-the-world",
       "your-ai-agent-has-a-cache-invalidation-problem",
-      "loss-a-tiny-satire-about-ai-progress"
+      "loss-a-tiny-satire-about-ai-progress",
+      "is-ai-solving-math-too-fast"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2534,7 +2577,8 @@
       "course-nvidia-is-the-central-bank-of-ai",
       "course-eliza-the-ai-that-fooled-the-world",
       "course-your-ai-agent-has-a-cache-invalidation-problem",
-      "course-loss-a-tiny-satire-about-ai-progress"
+      "course-loss-a-tiny-satire-about-ai-progress",
+      "course-is-ai-solving-math-too-fast"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2570,7 +2614,8 @@
       "symphony",
       "bitroad",
       "building-specialized-systems-we-can-trust-with-agents",
-      "radio"
+      "radio",
+      "auto-autoresearch-self-improving-agents-on-karpathys-nanocha"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2599,7 +2644,8 @@
       "course-symphony",
       "course-bitroad",
       "course-building-specialized-systems-we-can-trust-with-agents",
-      "course-radio"
+      "course-radio",
+      "course-auto-autoresearch-self-improving-agents-on-karpathys-nanocha"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2701,7 +2747,8 @@
       "simonagent",
       "autocode",
       "a-fresh-take-on-code-intelligence-for-ai-agents",
-      "productspec"
+      "productspec",
+      "agenttik"
     ],
     "courses": [
       "course-limitless-library",
@@ -2742,7 +2789,8 @@
       "course-simonagent",
       "course-autocode",
       "course-a-fresh-take-on-code-intelligence-for-ai-agents",
-      "course-productspec"
+      "course-productspec",
+      "course-agenttik"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2851,7 +2899,9 @@
       "ai-cost-dashboard-is-probably-wrong",
       "nasa-and-ibm-open-source-lunar-mapping-tools",
       "hazumi-for-hn-comes-to-the-web",
-      "ecommerce-ai-tools"
+      "ecommerce-ai-tools",
+      "atlas-finance-evaluating-ai-agents-inside-a-bank",
+      "axelera-ai-launches-europa"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -2882,7 +2932,9 @@
       "course-ai-cost-dashboard-is-probably-wrong",
       "course-nasa-and-ibm-open-source-lunar-mapping-tools",
       "course-hazumi-for-hn-comes-to-the-web",
-      "course-ecommerce-ai-tools"
+      "course-ecommerce-ai-tools",
+      "course-atlas-finance-evaluating-ai-agents-inside-a-bank",
+      "course-axelera-ai-launches-europa"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2982,7 +3034,8 @@
       "muse-your-personal-ai-agent",
       "meta-launches-muse-a-personal-ai-agent",
       "swiftime",
-      "prmptree"
+      "prmptree",
+      "i-tested-ai-agents-for-everyday-work"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -3002,7 +3055,8 @@
       "course-muse-your-personal-ai-agent",
       "course-meta-launches-muse-a-personal-ai-agent",
       "course-swiftime",
-      "course-prmptree"
+      "course-prmptree",
+      "course-i-tested-ai-agents-for-everyday-work"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3223,7 +3277,8 @@
       "ai-is-making-us-build-too-much",
       "ai-means-the-end-of-software-as-we-know-it",
       "humble-bundle",
-      "restarted"
+      "restarted",
+      "is-ai-solving-math-too-fast"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -3232,7 +3287,8 @@
       "course-ai-is-making-us-build-too-much",
       "course-ai-means-the-end-of-software-as-we-know-it",
       "course-humble-bundle",
-      "course-restarted"
+      "course-restarted",
+      "course-is-ai-solving-math-too-fast"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3270,12 +3326,14 @@
     "toolsTeaching": [
       "aifi-on-aws",
       "will-your-money-last-ai-assisted-financial-simulator",
-      "xfinlab"
+      "xfinlab",
+      "atlas-finance-evaluating-ai-agents-inside-a-bank"
     ],
     "courses": [
       "course-aifi-on-aws",
       "course-will-your-money-last-ai-assisted-financial-simulator",
-      "course-xfinlab"
+      "course-xfinlab",
+      "course-atlas-finance-evaluating-ai-agents-inside-a-bank"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3346,7 +3404,9 @@
       "starkomand",
       "symphony",
       "nowdex",
-      "ai-agents-blew-the-whistle-on-their-cheating-colleagues"
+      "ai-agents-blew-the-whistle-on-their-cheating-colleagues",
+      "pizza-bot",
+      "ai-agents-now-have-a-place-to-snitch"
     ],
     "courses": [
       "course-agenttrail",
@@ -3355,7 +3415,9 @@
       "course-starkomand",
       "course-symphony",
       "course-nowdex",
-      "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues"
+      "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues",
+      "course-pizza-bot",
+      "course-ai-agents-now-have-a-place-to-snitch"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3653,7 +3715,8 @@
       "provetogether-moltbook-but-for-math",
       "the-worst-spam-emails-inside-ilands-ai-agent-hustle",
       "ai-security-tool",
-      "andon-labs-puts-ai-agents-in-charge-of-real-businesses"
+      "andon-labs-puts-ai-agents-in-charge-of-real-businesses",
+      "i-tested-ai-agents-for-everyday-work"
     ],
     "courses": [
       "course-placeroot",
@@ -3674,7 +3737,8 @@
       "course-provetogether-moltbook-but-for-math",
       "course-the-worst-spam-emails-inside-ilands-ai-agent-hustle",
       "course-ai-security-tool",
-      "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses"
+      "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses",
+      "course-i-tested-ai-agents-for-everyday-work"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3877,14 +3941,18 @@
       "terminal-bench-science-evaluating-ai-agents-on-scientific-re",
       "hyper-bench-evaluating-agents-that-build-agents",
       "autoresearchexam-measuring-agents-ability-to-improve-and-gen",
-      "benchmarking-coding-agents-perform-on-scraping"
+      "benchmarking-coding-agents-perform-on-scraping",
+      "atlas-finance-evaluating-ai-agents-inside-a-bank",
+      "auto-autoresearch-self-improving-agents-on-karpathys-nanocha"
     ],
     "courses": [
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
       "course-hyper-bench-evaluating-agents-that-build-agents",
       "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen",
-      "course-benchmarking-coding-agents-perform-on-scraping"
+      "course-benchmarking-coding-agents-perform-on-scraping",
+      "course-atlas-finance-evaluating-ai-agents-inside-a-bank",
+      "course-auto-autoresearch-self-improving-agents-on-karpathys-nanocha"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3925,13 +3993,15 @@
       "a-benchmark-for-safely-measuring-container-breakout-capabili",
       "secret-collusion-among-ai-agents",
       "how-we-built-safety-into-muse-by-meta",
-      "ai-agents-blew-the-whistle-on-their-cheating-colleagues"
+      "ai-agents-blew-the-whistle-on-their-cheating-colleagues",
+      "ai-agent-whistleblower-hotline"
     ],
     "courses": [
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
       "course-secret-collusion-among-ai-agents",
       "course-how-we-built-safety-into-muse-by-meta",
-      "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues"
+      "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues",
+      "course-ai-agent-whistleblower-hotline"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3999,7 +4069,8 @@
       "ffmpeg-commander",
       "cli-tools",
       "pawbot",
-      "ai-native-dependency-upgrades-through-codemods"
+      "ai-native-dependency-upgrades-through-codemods",
+      "agenttik"
     ],
     "courses": [
       "course-devx",
@@ -4011,7 +4082,8 @@
       "course-ffmpeg-commander",
       "course-cli-tools",
       "course-pawbot",
-      "course-ai-native-dependency-upgrades-through-codemods"
+      "course-ai-native-dependency-upgrades-through-codemods",
+      "course-agenttik"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4090,13 +4162,15 @@
       "serve-markdown-to-ai-agents-with-accept-headers",
       "marktwin",
       "mdmanagerai",
-      "quire"
+      "quire",
+      "mymarkdown"
     ],
     "courses": [
       "course-serve-markdown-to-ai-agents-with-accept-headers",
       "course-marktwin",
       "course-mdmanagerai",
-      "course-quire"
+      "course-quire",
+      "course-mymarkdown"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4242,14 +4316,16 @@
       "local-ai-assistants-can-be-user-friendly-too",
       "termy",
       "interpretation-to-ai-agents",
-      "bee"
+      "bee",
+      "meta-launches-subscriptions-with-enhanced-ai-features"
     ],
     "courses": [
       "course-bytedance-launches-ai-office-product-doubao-work",
       "course-local-ai-assistants-can-be-user-friendly-too",
       "course-termy",
       "course-interpretation-to-ai-agents",
-      "course-bee"
+      "course-bee",
+      "course-meta-launches-subscriptions-with-enhanced-ai-features"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5012,7 +5088,8 @@
       "designing-tests-for-agentic-ai-tools",
       "benchmarking-coding-agents-perform-on-scraping",
       "you-didnt-deploy-the-ai-agent-you-evaluated",
-      "can-ai-agents-conduct-open-ended-ai-research"
+      "can-ai-agents-conduct-open-ended-ai-research",
+      "atlas-finance-evaluating-ai-agents-inside-a-bank"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -5025,7 +5102,8 @@
       "course-designing-tests-for-agentic-ai-tools",
       "course-benchmarking-coding-agents-perform-on-scraping",
       "course-you-didnt-deploy-the-ai-agent-you-evaluated",
-      "course-can-ai-agents-conduct-open-ended-ai-research"
+      "course-can-ai-agents-conduct-open-ended-ai-research",
+      "course-atlas-finance-evaluating-ai-agents-inside-a-bank"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5083,7 +5161,8 @@
       "anthropic-reveals-rogue-ai-agents-hate-captchas",
       "building-specialized-systems-we-can-trust-with-agents",
       "agentsdock-an-ide-designed-for-agentic-ai-research",
-      "andon-labs-puts-ai-agents-in-charge-of-real-businesses"
+      "andon-labs-puts-ai-agents-in-charge-of-real-businesses",
+      "is-ai-solving-math-too-fast"
     ],
     "courses": [
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
@@ -5100,7 +5179,8 @@
       "course-anthropic-reveals-rogue-ai-agents-hate-captchas",
       "course-building-specialized-systems-we-can-trust-with-agents",
       "course-agentsdock-an-ide-designed-for-agentic-ai-research",
-      "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses"
+      "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses",
+      "course-is-ai-solving-math-too-fast"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -6125,11 +6205,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "microsoft-publishes-ai-agent-shared-responsibility-model",
-      "trustnotch"
+      "trustnotch",
+      "ai-agents-now-have-a-place-to-snitch"
     ],
     "courses": [
       "course-microsoft-publishes-ai-agent-shared-responsibility-model",
-      "course-trustnotch"
+      "course-trustnotch",
+      "course-ai-agents-now-have-a-place-to-snitch"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -7271,14 +7353,16 @@
       "tesorohelp",
       "new-york-city-pausing-some-ai-tools-in-schools",
       "ai-agents-built-a-secret-society-inside-the-lab-video",
-      "eliza-the-ai-that-fooled-the-world"
+      "eliza-the-ai-that-fooled-the-world",
+      "is-ai-solving-math-too-fast"
     ],
     "courses": [
       "course-aicademy",
       "course-tesorohelp",
       "course-new-york-city-pausing-some-ai-tools-in-schools",
       "course-ai-agents-built-a-secret-society-inside-the-lab-video",
-      "course-eliza-the-ai-that-fooled-the-world"
+      "course-eliza-the-ai-that-fooled-the-world",
+      "course-is-ai-solving-math-too-fast"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -7992,10 +8076,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "so-theres-this-499-ai-dyson-camera-toothbrush"
+      "so-theres-this-499-ai-dyson-camera-toothbrush",
+      "axelera-ai-launches-europa"
     ],
     "courses": [
-      "course-so-theres-this-499-ai-dyson-camera-toothbrush"
+      "course-so-theres-this-499-ai-dyson-camera-toothbrush",
+      "course-axelera-ai-launches-europa"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -8149,7 +8235,8 @@
       "muse-metas-personal-ai-agent-features-and-capabilities",
       "meta-launches-muse-a-personal-ai-agent",
       "dont-hit-send",
-      "eliza-the-ai-that-fooled-the-world"
+      "eliza-the-ai-that-fooled-the-world",
+      "meta-launches-subscriptions-with-enhanced-ai-features"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
@@ -8160,7 +8247,8 @@
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
       "course-meta-launches-muse-a-personal-ai-agent",
       "course-dont-hit-send",
-      "course-eliza-the-ai-that-fooled-the-world"
+      "course-eliza-the-ai-that-fooled-the-world",
+      "course-meta-launches-subscriptions-with-enhanced-ai-features"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -10916,10 +11004,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "quiz-ui"
+      "quiz-ui",
+      "kobra"
     ],
     "courses": [
-      "course-quiz-ui"
+      "course-quiz-ui",
+      "course-kobra"
     ],
     "updatedAt": "2026-09-06T23:10:17.799Z"
   },
@@ -10942,10 +11032,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "quiz-ui"
+      "quiz-ui",
+      "kobra"
     ],
     "courses": [
-      "course-quiz-ui"
+      "course-quiz-ui",
+      "course-kobra"
     ],
     "updatedAt": "2026-09-06T23:10:17.799Z"
   },
@@ -11696,10 +11788,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "novus"
+      "novus",
+      "auto-autoresearch-self-improving-agents-on-karpathys-nanocha"
     ],
     "courses": [
-      "course-novus"
+      "course-novus",
+      "course-auto-autoresearch-self-improving-agents-on-karpathys-nanocha"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -14548,11 +14642,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "awesome-ui-design",
-      "transitionsdev-ui-transitions-for-ai-agents"
+      "transitionsdev-ui-transitions-for-ai-agents",
+      "kobra"
     ],
     "courses": [
       "course-awesome-ui-design",
-      "course-transitionsdev-ui-transitions-for-ai-agents"
+      "course-transitionsdev-ui-transitions-for-ai-agents",
+      "course-kobra"
     ],
     "updatedAt": "2026-09-12T23:23:08.913Z"
   },
@@ -15030,10 +15126,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "prmptree"
+      "prmptree",
+      "pizza-bot"
     ],
     "courses": [
-      "course-prmptree"
+      "course-prmptree",
+      "course-pizza-bot"
     ],
     "updatedAt": "2026-09-14T15:54:36.868Z"
   },
@@ -15121,10 +15219,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "can-ai-agents-conduct-open-ended-ai-research"
+      "can-ai-agents-conduct-open-ended-ai-research",
+      "auto-autoresearch-self-improving-agents-on-karpathys-nanocha"
     ],
     "courses": [
-      "course-can-ai-agents-conduct-open-ended-ai-research"
+      "course-can-ai-agents-conduct-open-ended-ai-research",
+      "course-auto-autoresearch-self-improving-agents-on-karpathys-nanocha"
     ],
     "updatedAt": "2026-09-14T23:59:11.393Z"
   },
@@ -15517,5 +15617,343 @@
       "course-ecommerce-ai-tools"
     ],
     "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "skill-parallel",
+    "name": "parallel",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agenttik"
+    ],
+    "courses": [
+      "course-agenttik"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-formatting",
+    "name": "formatting",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "mymarkdown"
+    ],
+    "courses": [
+      "course-mymarkdown"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-reader",
+    "name": "reader",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "mymarkdown"
+    ],
+    "courses": [
+      "course-mymarkdown"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-ai-output",
+    "name": "ai output",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "mymarkdown"
+    ],
+    "courses": [
+      "course-mymarkdown"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-viewer",
+    "name": "viewer",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "mymarkdown"
+    ],
+    "courses": [
+      "course-mymarkdown"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-design system",
+    "name": "design system",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "kobra"
+    ],
+    "courses": [
+      "course-kobra"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-shadcn alternative",
+    "name": "shadcn alternative",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "kobra"
+    ],
+    "courses": [
+      "course-kobra"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-mathematics",
+    "name": "mathematics",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "is-ai-solving-math-too-fast"
+    ],
+    "courses": [
+      "course-is-ai-solving-math-too-fast"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-background tasks",
+    "name": "background tasks",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "pizza-bot"
+    ],
+    "courses": [
+      "course-pizza-bot"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-banking",
+    "name": "banking",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "atlas-finance-evaluating-ai-agents-inside-a-bank"
+    ],
+    "courses": [
+      "course-atlas-finance-evaluating-ai-agents-inside-a-bank"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-malware",
+    "name": "malware",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "skill-poisioning-turning-ai-agents-into-malware-droppers"
+    ],
+    "courses": [
+      "course-skill-poisioning-turning-ai-agents-into-malware-droppers"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-skill poisoning",
+    "name": "skill poisoning",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "skill-poisioning-turning-ai-agents-into-malware-droppers"
+    ],
+    "courses": [
+      "course-skill-poisioning-turning-ai-agents-into-malware-droppers"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-threat intel",
+    "name": "threat intel",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "skill-poisioning-turning-ai-agents-into-malware-droppers"
+    ],
+    "courses": [
+      "course-skill-poisioning-turning-ai-agents-into-malware-droppers"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-review",
+    "name": "review",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-tested-ai-agents-for-everyday-work"
+    ],
+    "courses": [
+      "course-i-tested-ai-agents-for-everyday-work"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-everyday-work",
+    "name": "everyday work",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "i-tested-ai-agents-for-everyday-work"
+    ],
+    "courses": [
+      "course-i-tested-ai-agents-for-everyday-work"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-whistleblower",
+    "name": "whistleblower",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-agent-whistleblower-hotline"
+    ],
+    "courses": [
+      "course-ai-agent-whistleblower-hotline"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-hotline",
+    "name": "hotline",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-agent-whistleblower-hotline"
+    ],
+    "courses": [
+      "course-ai-agent-whistleblower-hotline"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-novelty",
+    "name": "novelty",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "ai-agent-whistleblower-hotline"
+    ],
+    "courses": [
+      "course-ai-agent-whistleblower-hotline"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-reporting",
+    "name": "reporting",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agents-now-have-a-place-to-snitch"
+    ],
+    "courses": [
+      "course-ai-agents-now-have-a-place-to-snitch"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-nanochat",
+    "name": "nanochat",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "auto-autoresearch-self-improving-agents-on-karpathys-nanocha"
+    ],
+    "courses": [
+      "course-auto-autoresearch-self-improving-agents-on-karpathys-nanocha"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-meta ai",
+    "name": "meta ai",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "meta-launches-subscriptions-with-enhanced-ai-features"
+    ],
+    "courses": [
+      "course-meta-launches-subscriptions-with-enhanced-ai-features"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-subscription",
+    "name": "subscription",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "meta-launches-subscriptions-with-enhanced-ai-features"
+    ],
+    "courses": [
+      "course-meta-launches-subscriptions-with-enhanced-ai-features"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-edge ai",
+    "name": "edge ai",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "axelera-ai-launches-europa"
+    ],
+    "courses": [
+      "course-axelera-ai-launches-europa"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-inference",
+    "name": "inference",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "axelera-ai-launches-europa"
+    ],
+    "courses": [
+      "course-axelera-ai-launches-europa"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-accelerator",
+    "name": "accelerator",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "axelera-ai-launches-europa"
+    ],
+    "courses": [
+      "course-axelera-ai-launches-europa"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "skill-enterprise ai",
+    "name": "enterprise ai",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "axelera-ai-launches-europa"
+    ],
+    "courses": [
+      "course-axelera-ai-launches-europa"
+    ],
+    "updatedAt": "2026-09-15T23:42:46.820Z"
   }
 ]
