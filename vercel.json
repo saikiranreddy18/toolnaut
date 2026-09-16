@@ -16,6 +16,17 @@
       ],
       "destination": "https://toolnaut.xyz/:path",
       "permanent": true
+    },
+    {
+      "source": "/:path(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "nexus-nine-pearl.vercel.app"
+        }
+      ],
+      "destination": "https://toolnaut.xyz/:path",
+      "permanent": true
     }
   ],
   "rewrites": [
