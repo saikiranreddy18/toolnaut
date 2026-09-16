@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import SpiralMark from '../ui/SpiralMark'
@@ -8,31 +8,28 @@ import { armLaunch, clearLaunch } from '../../utils/launchFlag'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
-import { TOOLS, CATEGORY_META } from '../../utils/toolsCatalog'
-import { FLAGSHIP } from '../../utils/prominence'
+import { TOOLS } from '../../utils/toolsCatalog'
 
-// THE SIGN-IN SCREEN — a full page, not a dialog in front of one.
+// THE SIGN-IN SCREEN — one card, floating in deep space.
 //
-// It used to be an arcade cabinet in a modal: a second product's visual
-// language, floating over a dimmed page, on the one screen every single user
-// has to pass through. The replacement is a whole-viewport split — the galaxy
-// on the left, the controls on the right — so signing in feels like arriving
-// somewhere rather than being interrupted.
+// It owns the whole viewport. Not a dialog over a dimmed page, and not a step
+// inside the onboarding flow, so no progress bar sits above it.
 //
-// THE ANIMATION IS CSS AND SVG, DELIBERATELY NOT WEBGL.
-// The landing page already pays for a WebGL galaxy, and mounting a second one
-// here would mean a compile and a second GPU context on a screen people reach
-// in under a second — and on machines with flaky drivers, a black rectangle
-// where the brand should be. Everything here is transforms and gradients: a
-// drifting starfield, a slowly turning spiral, real tool names orbiting it, and
-// a comet that crosses every twelve seconds.
+// WHY LAYERS AND NOT A PICTURE
+// Depth is the whole effect: three star fields and three nebula clouds move at
+// different speeds and the entire stack shifts against the pointer. A single
+// background image cannot do that, and concentric rings with name pills — what
+// this screen had before — read as a diagram rather than as space.
 //
-// EVERY NAME IN THE ORBIT IS A REAL TOOL from the catalogue, picked from the
-// flagship lists. Inventing plausible-looking names on the sign-in screen would
-// be a lie told in the first ten seconds of the relationship.
+// CSS AND SVG, DELIBERATELY NOT WEBGL. The landing page already spends a GL
+// context on the real galaxy. A second one on the screen every user has to
+// pass through means another shader compile and, on machines with the driver
+// problems this project keeps hitting, a black rectangle where the brand should
+// be. Everything here is transforms, gradients and filters.
 //
-// prefers-reduced-motion turns all of it off and leaves the same composition
-// standing still — the page must never depend on movement to make sense.
+// The pointer parallax writes CSS custom properties directly rather than going
+// through React state: it fires on every pointermove, and re-rendering the tree
+// at pointer frequency costs far more than moving a layer does.
 
 const GOOGLE_ICON = (
   <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
@@ -43,29 +40,6 @@ const GOOGLE_ICON = (
   </svg>
 )
 
-// Deterministic per-render star field: positions are computed once so a
-// re-render (typing an email) never reshuffles the sky.
-function useStars(count) {
-  return useMemo(
-    () =>
-      Array.from({ length: count }, (_, i) => {
-        const r = (n) => {
-          const x = Math.sin((i + 1) * n) * 43758.5453
-          return x - Math.floor(x)
-        }
-        return {
-          left: `${r(12.9898) * 100}%`,
-          top: `${r(78.233) * 100}%`,
-          size: 1 + r(37.719) * 1.8,
-          delay: `${r(11.13) * 6}s`,
-          duration: `${4 + r(3.71) * 5}s`,
-          opacity: 0.35 + r(5.91) * 0.5,
-        }
-      }),
-    [count],
-  )
-}
-
 export default function SignInPage({ next = '/app/stack' }) {
   const track = useAnalytics()
   const reduced = useReducedMotion()
@@ -74,24 +48,17 @@ export default function SignInPage({ next = '/app/stack' }) {
   const [linkSent, setLinkSent] = useState(false)
   const [busy, setBusy] = useState(null)
   const emailRef = useRef(null)
-  const stars = useStars(90)
+  const rootRef = useRef(null)
 
-  // Real names, from the curated flagship lists, that exist in the catalogue.
-  const orbiting = useMemo(() => {
-    const names = new Set(Object.values(FLAGSHIP).flat())
-    const have = TOOLS.filter((t) => names.has(t.name))
-    const seen = new Set()
-    return have
-      .filter((t) => (seen.has(t.name) ? false : seen.add(t.name)))
-      .slice(0, 9)
-      .map((t, i) => ({
-        tool: t,
-        color: CATEGORY_META[t.category]?.color || '#a1a1aa',
-        angle: (i / 9) * 360,
-      }))
-  }, [])
-
-  const domainCount = useMemo(() => Object.keys(CATEGORY_META).length, [])
+  // Pointer parallax. Straight to custom properties, never to state.
+  const onMove = useCallback((e) => {
+    const el = rootRef.current
+    if (!el || reduced) return
+    const x = (e.clientX / window.innerWidth) * 2 - 1
+    const y = (e.clientY / window.innerHeight) * 2 - 1
+    el.style.setProperty('--px', x.toFixed(3))
+    el.style.setProperty('--py', y.toFixed(3))
+  }, [reduced])
 
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') window.history.back() }
@@ -148,102 +115,67 @@ export default function SignInPage({ next = '/app/stack' }) {
     }
   }
 
-  const rise = {
-    hidden: { opacity: 0, y: 14 },
-    show: (i = 0) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: reduced ? 0 : 0.08 * i, duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-    }),
-  }
-
   return (
-    <div className="signin-page relative min-h-screen w-full overflow-hidden bg-[#050509] text-white">
-      {/* --- the sky: drifting stars, nebula wash, a comet every 12s --- */}
-      <div className="signin-sky" aria-hidden="true">
-        {stars.map((s, i) => (
-          <span
-            key={i}
-            className="signin-star"
-            style={{
-              left: s.left,
-              top: s.top,
-              width: s.size,
-              height: s.size,
-              opacity: s.opacity,
-              animationDelay: s.delay,
-              animationDuration: s.duration,
-            }}
-          />
-        ))}
-        <span className="signin-comet" />
+    <div
+      ref={rootRef}
+      onPointerMove={onMove}
+      className="auth-deep relative flex min-h-screen w-full flex-col overflow-hidden text-white"
+    >
+      {/* ---------------- the sky, back to front ---------------- */}
+      <div className="auth-layer" aria-hidden="true">
+        <span className="auth-neb violet" />
+        <span className="auth-neb pink" />
+        <span className="auth-neb cyan" />
+        <span className="auth-vignette" />
+        <span className="auth-stars far" />
+        <span className="auth-stars mid" />
+        <span className="auth-stars near" />
+        <span className="auth-meteor" />
+        <span className="auth-meteor second" />
+        <span className="auth-horizon" />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col lg:flex-row">
-        {/* ---------- left: the galaxy and what it is ---------- */}
-        <section className="relative flex flex-1 flex-col justify-between px-6 pb-10 pt-8 sm:px-10 lg:pb-16 lg:pt-14">
-          <Link to="/" className="inline-flex w-fit items-center gap-2.5 text-lg font-semibold tracking-[-0.02em]">
-            <SpiralMark size={30} />
-            Toolnaut
-          </Link>
+      {/* ---------------- brand ---------------- */}
+      <header className="relative z-10 px-6 pt-7 sm:px-10">
+        <Link to="/" className="inline-flex items-center gap-2.5 text-lg font-semibold tracking-[-0.02em]">
+          <SpiralMark size={28} />
+          Toolnaut
+        </Link>
+      </header>
 
-          <div className="relative my-10 flex flex-1 items-center justify-center lg:my-0">
-            {/* the orbit: rings, a turning spiral, real tool names riding it */}
-            <div className="signin-orbit" aria-hidden="true">
-              <span className="signin-ring" style={{ inset: '4%' }} />
-              <span className="signin-ring slow" style={{ inset: '18%' }} />
-              <span className="signin-ring reverse" style={{ inset: '32%' }} />
-              <div className="signin-core">
-                <SpiralMark size={116} />
-              </div>
-              <div className="signin-carousel">
-                {orbiting.map((o) => (
-                  <span
-                    key={o.tool.slug}
-                    className="signin-chip"
-                    style={{
-                      transform: `rotate(${o.angle}deg) translate(var(--orbit-r)) rotate(${-o.angle}deg)`,
-                    }}
-                  >
-                    <span className="signin-chip-in">
-                      <span className="signin-dot" style={{ background: o.color }} />
-                      {o.tool.name}
-                    </span>
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+      {/* ---------------- the card ---------------- */}
+      <main className="relative z-10 flex flex-1 items-center justify-center px-5 py-10 sm:px-6">
+        <div className="relative w-full max-w-[420px]">
+          <span className="auth-halo" aria-hidden="true" />
 
-          <motion.div initial="hidden" animate="show" variants={rise} custom={0} className="max-w-md">
-            <h1 className="arcade-heading text-3xl sm:text-4xl">
-              Your corner of the galaxy
-            </h1>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-              {TOOLS.length.toLocaleString()} AI tools across {domainCount} domains, mapped to what you
-              actually do. Sign in to keep your stack, your saved tools and your roadmap on every device.
-            </p>
-          </motion.div>
-        </section>
-
-        {/* ---------- right: the controls ---------- */}
-        <section className="relative flex w-full items-center justify-center px-6 pb-14 sm:px-10 lg:w-[460px] lg:px-0 lg:pr-10">
           <motion.div
-            initial="hidden"
-            animate="show"
-            variants={rise}
-            custom={1}
-            className="signin-card w-full max-w-md p-7 sm:p-9"
+            initial={reduced ? false : { opacity: 0, y: 22, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="auth-card relative px-7 py-9 sm:px-9"
           >
-            <p className="text-[11px] uppercase tracking-[0.24em] cosmic-text">Welcome</p>
-            <h2 className="arcade-heading mt-3 text-2xl sm:text-3xl">Sign in to Toolnaut</h2>
-            <p className="mt-2 text-sm text-zinc-400">No password. One tap, or a link in your inbox.</p>
+            <motion.div
+              initial={reduced ? false : { opacity: 0, scale: 0.8, rotate: -25 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ delay: 0.12, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="flex justify-center"
+              style={{ filter: 'drop-shadow(0 0 26px rgba(168,85,247,0.55))' }}
+            >
+              <SpiralMark size={52} />
+            </motion.div>
+
+            <h1 className="arcade-heading mt-6 text-center text-[1.75rem] leading-tight sm:text-3xl">
+              Welcome back, explorer
+            </h1>
+            <p className="mt-2.5 text-center text-sm leading-relaxed text-zinc-400">
+              Your stack, your saved tools and your roadmap — waiting where you left them.
+            </p>
 
             <button
               type="button"
               onClick={() => useProvider('google')}
               disabled={Boolean(busy)}
-              className="nb-btn press mt-7 flex min-h-12 w-full items-center justify-center gap-3 px-5 text-sm disabled:opacity-60"
+              className="nb-btn press mt-8 flex min-h-12 w-full items-center justify-center gap-3 px-5 text-sm disabled:opacity-60"
             >
               {busy === 'google' ? 'Opening…' : (<>{GOOGLE_ICON}Continue with Google</>)}
             </button>
@@ -296,26 +228,33 @@ export default function SignInPage({ next = '/app/stack' }) {
               </form>
             )}
 
-            {error && <p role="alert" className="mt-3 text-xs font-medium text-rose-300">{error}</p>}
+            {error && <p role="alert" className="mt-3 text-center text-xs font-medium text-rose-300">{error}</p>}
 
-            <p className="mt-7 text-[11px] leading-relaxed text-zinc-500">
+            <p className="mt-7 text-center text-[11px] leading-relaxed text-zinc-500">
               By continuing you agree to our{' '}
               <Link to="/terms" className="text-zinc-300 underline underline-offset-2 hover:text-white">Terms</Link>{' '}
               and{' '}
               <Link to="/privacy" className="text-zinc-300 underline underline-offset-2 hover:text-white">Privacy Policy</Link>.
             </p>
-            <p className="mt-2 text-[11px] leading-relaxed text-zinc-500">
-              {isSupabaseConfigured
-                ? 'We only use your email to sign you in.'
-                : 'Dev preview — sign-in is simulated locally, no email is sent.'}
-            </p>
+          </motion.div>
 
-            <Link to="/" className="mt-6 inline-flex items-center gap-1.5 text-xs text-zinc-500 hover:text-zinc-300">
+          <motion.p
+            initial={reduced ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="mt-6 text-center text-xs text-zinc-500"
+          >
+            {TOOLS.length.toLocaleString()} AI tools mapped to real jobs ·{' '}
+            {isSupabaseConfigured ? 'no password, ever' : 'dev preview — sign-in is simulated'}
+          </motion.p>
+
+          <p className="mt-2 text-center text-xs">
+            <Link to="/" className="text-zinc-500 underline-offset-4 hover:text-zinc-300 hover:underline">
               ← Back to the galaxy
             </Link>
-          </motion.div>
-        </section>
-      </div>
+          </p>
+        </div>
+      </main>
     </div>
   )
 }

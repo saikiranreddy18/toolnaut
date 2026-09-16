@@ -79,7 +79,9 @@ export default function App() {
   return (
     <BrowserRouter>
       <RouteEffects />
-      <CursorStars />
+      {/* Not on sign-in: its own sky is the effect there, and the comet trail
+          drew bright streaks straight across the card. */}
+      <CursorStars except={['/auth']} />
       {/* On every route — the picker itself decides what it offers per
           surface: Moonlight on the intake pages and in-app, Galaxy detail
           only where the 3D galaxy actually renders (the landing side). */}

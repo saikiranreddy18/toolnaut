@@ -780,135 +780,186 @@ body { background: transparent; }
 input:focus, textarea:focus, select:focus { border-color: rgba(167, 139, 250, 0.55) !important; box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.15); outline: none; }
 
 /* ---------------------------------------------------------------------------
-   The sign-in screen.
+   The sign-in screen: one card, floating in deep space.
 
-   A full page, animated with transforms and gradients only. The landing page
-   already runs a WebGL galaxy; a second GL context on the screen everyone must
-   pass through is a compile, a driver risk and a black rectangle when it fails.
-   Every rule below degrades to a still composition under reduced motion.
+   Built from layers rather than from a picture. Three star fields drift at
+   different speeds, three nebula clouds breathe behind them, and the whole
+   stack shifts against the pointer — parallax is what makes a flat page read
+   as depth. An earlier version drew concentric rings with name pills on them;
+   it read as a diagram of a solar system, not as space.
+
+   Transforms, opacity and filters only. The landing page already spends a
+   WebGL context on the real galaxy, and a second one on the screen every user
+   must pass through is a compile, a driver risk, and a black rectangle when it
+   fails. Reduced motion keeps every layer and stops all movement.
 --------------------------------------------------------------------------- */
-.signin-page {
-  background:
-    radial-gradient(90% 60% at 12% 0%, rgba(124, 58, 237, 0.26), transparent 62%),
-    radial-gradient(70% 55% at 92% 12%, rgba(14, 165, 233, 0.16), transparent 64%),
-    radial-gradient(80% 60% at 50% 110%, rgba(236, 72, 153, 0.14), transparent 66%),
-    #050509;
+.auth-deep {
+  --px: 0;              /* pointer, -1..1, written from JS */
+  --py: 0;
+  background: #04040a;
+  isolation: isolate;
 }
 
-.signin-sky { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.auth-layer { position: absolute; inset: -8%; pointer-events: none; will-change: transform; }
 
-.signin-star {
+/* --- nebula clouds: big, soft, slowly breathing --- */
+.auth-neb {
   position: absolute;
-  border-radius: 9999px;
-  background: #fff;
-  animation: signin-twinkle 5s ease-in-out infinite;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.38;
+  animation: auth-breathe 26s ease-in-out infinite;
 }
-@keyframes signin-twinkle {
-  0%, 100% { opacity: 0.25; transform: scale(0.85); }
-  50%      { opacity: 1;    transform: scale(1.15); }
+.auth-neb.violet {
+  width: 62vw; height: 62vw; left: -12vw; top: -18vw;
+  background: radial-gradient(circle, rgba(139,92,246,0.85), rgba(139,92,246,0) 68%);
+  transform: translate3d(calc(var(--px) * 26px), calc(var(--py) * 20px), 0);
 }
-
-/* One comet, every twelve seconds, crossing the upper sky. */
-.signin-comet {
-  position: absolute;
-  top: 14%;
-  left: -12%;
-  width: 190px;
-  height: 2px;
-  border-radius: 9999px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9));
-  filter: blur(0.4px);
-  opacity: 0;
-  animation: signin-comet 12s linear infinite;
+.auth-neb.pink {
+  width: 46vw; height: 46vw; right: -10vw; top: 6vh;
+  background: radial-gradient(circle, rgba(236,72,153,0.6), rgba(236,72,153,0) 66%);
+  animation-delay: -9s;
+  transform: translate3d(calc(var(--px) * -20px), calc(var(--py) * 16px), 0);
 }
-@keyframes signin-comet {
-  0%   { transform: translate(0, 0) rotate(14deg); opacity: 0; }
-  4%   { opacity: 0.9; }
-  16%  { transform: translate(128vw, 34vh) rotate(14deg); opacity: 0; }
-  100% { transform: translate(128vw, 34vh) rotate(14deg); opacity: 0; }
+.auth-neb.cyan {
+  width: 58vw; height: 58vw; left: 22vw; bottom: -26vw;
+  background: radial-gradient(circle, rgba(34,211,238,0.5), rgba(34,211,238,0) 66%);
+  animation-delay: -17s;
+  transform: translate3d(calc(var(--px) * 14px), calc(var(--py) * -18px), 0);
+}
+@keyframes auth-breathe {
+  0%, 100% { transform: scale(1);    opacity: 0.30; }
+  50%      { transform: scale(1.12); opacity: 0.48; }
 }
 
-/* The orbit: three rings, a turning core, tool names riding the outer ring. */
-.signin-orbit {
-  /* One radius drives the rings and the chips, so the names always sit ON the
-     outer ring instead of drifting off the side of a small screen. */
-  --orbit: min(74vh, 78vw, 560px);
-  --orbit-r: calc(var(--orbit) / 2 - 22px);
-  position: relative;
-  width: var(--orbit);
-  height: var(--orbit);
-  max-width: 100%;
-  display: grid;
-  place-items: center;
-}
-.signin-ring {
-  position: absolute;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  animation: signin-spin 46s linear infinite;
-}
-.signin-ring.slow    { animation-duration: 76s; border-color: rgba(240, 171, 252, 0.12); }
-.signin-ring.reverse { animation-duration: 58s; animation-direction: reverse; border-color: rgba(125, 211, 252, 0.12); }
-
-.signin-core {
-  position: relative;
-  display: grid;
-  place-items: center;
-  animation: signin-spin 90s linear infinite;
-  filter: drop-shadow(0 0 42px rgba(168, 85, 247, 0.45));
-}
-
-.signin-carousel {
+/* The clouds are bright enough to wash the whole frame out on their own. This
+   vignette pushes the middle back to near-black so the stars have something to
+   be bright against and the card has an edge. */
+.auth-vignette {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
-  animation: signin-spin 120s linear infinite;
+  background:
+    radial-gradient(58% 48% at 50% 48%, rgba(3,3,8,0.92), rgba(3,3,8,0.45) 55%, rgba(3,3,8,0) 78%),
+    radial-gradient(120% 90% at 50% 120%, rgba(3,3,8,0.85), rgba(3,3,8,0) 60%);
 }
-/* Each chip is PLACED by its own transform (rotate → translate → unrotate) and
-   the pill inside it counter-rotates against the carousel at the same speed —
-   otherwise the names tumble as the ring turns, and half of them are upside
-   down at any moment. */
-.signin-chip {
+
+/* --- three star fields, each a repeating radial-gradient tile --- */
+.auth-stars { position: absolute; inset: -20%; background-repeat: repeat; }
+.auth-stars.far {
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.7) 50%, transparent 50%),
+    radial-gradient(1px 1px at 70% 60%, rgba(255,255,255,0.5) 50%, transparent 50%),
+    radial-gradient(1px 1px at 45% 85%, rgba(255,255,255,0.6) 50%, transparent 50%);
+  background-size: 110px 110px, 150px 150px, 190px 190px;
+  opacity: 0.75;
+  animation: auth-drift 240s linear infinite;
+  transform: translate3d(calc(var(--px) * 6px), calc(var(--py) * 6px), 0);
+}
+.auth-stars.mid {
+  background-image:
+    radial-gradient(1.6px 1.6px at 30% 20%, rgba(255,255,255,0.9) 50%, transparent 50%),
+    radial-gradient(1.4px 1.4px at 80% 70%, rgba(214,219,255,0.8) 50%, transparent 50%);
+  background-size: 200px 200px, 260px 260px;
+  opacity: 0.9;
+  animation: auth-drift 150s linear infinite reverse;
+  transform: translate3d(calc(var(--px) * 16px), calc(var(--py) * 14px), 0);
+}
+.auth-stars.near {
+  background-image:
+    radial-gradient(2.4px 2.4px at 60% 40%, rgba(255,255,255,1) 50%, transparent 50%),
+    radial-gradient(2px 2px at 15% 75%, rgba(255,226,255,0.9) 50%, transparent 50%);
+  background-size: 330px 330px, 420px 420px;
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.6));
+  animation: auth-drift 90s linear infinite;
+  transform: translate3d(calc(var(--px) * 34px), calc(var(--py) * 28px), 0);
+}
+@keyframes auth-drift { to { background-position: 1000px 600px, -800px 500px, 600px -400px; } }
+
+/* --- a meteor every 9s, and a slow horizon glow --- */
+.auth-meteor {
   position: absolute;
-  display: block;
-}
-.signin-chip-in {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
+  top: 8%; left: -15%;
+  width: 240px; height: 2px;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(8, 8, 14, 0.72);
-  padding: 5px 11px;
-  font-size: 11px;
-  color: #d4d4d8;
-  backdrop-filter: blur(6px);
-  /* Exactly the carousel's speed, reversed, with NO delay of its own: any
-     offset between the two puts the text permanently out of phase, which is
-     how the names ended up upside down. */
-  animation: signin-spin 120s linear infinite reverse;
+  background: linear-gradient(90deg, transparent, #fff);
+  filter: blur(0.5px) drop-shadow(0 0 8px rgba(255,255,255,0.8));
+  opacity: 0;
+  animation: auth-meteor 9s linear infinite;
 }
-.signin-dot { width: 6px; height: 6px; border-radius: 9999px; }
+.auth-meteor.second { top: 42%; animation-delay: 4.5s; animation-duration: 13s; }
+@keyframes auth-meteor {
+  0%  { transform: translate3d(0, 0, 0) rotate(18deg); opacity: 0; }
+  3%  { opacity: 1; }
+  18% { transform: translate3d(130vw, 44vh, 0) rotate(18deg); opacity: 0; }
+  100%{ transform: translate3d(130vw, 44vh, 0) rotate(18deg); opacity: 0; }
+}
 
-@keyframes signin-spin { to { transform: rotate(360deg); } }
+.auth-horizon {
+  position: absolute;
+  left: 50%; bottom: -34vh;
+  width: 130vw; height: 60vh;
+  transform: translateX(-50%);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(167,139,250,0.4), rgba(167,139,250,0) 70%);
+  filter: blur(40px);
+}
 
-.signin-card {
-  border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(160deg, rgba(20, 18, 32, 0.92), rgba(6, 6, 12, 0.92));
-  box-shadow: 0 40px 90px -50px rgba(124, 58, 237, 0.9);
-  backdrop-filter: blur(14px);
+/* --- the card: glass, with a light that travels around its edge --- */
+.auth-card {
+  position: relative;
+  border-radius: 30px;
+  background: linear-gradient(165deg, rgba(23,20,38,0.86), rgba(7,7,14,0.92));
+  box-shadow:
+    0 50px 120px -40px rgba(88, 28, 235, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.07) inset;
+  backdrop-filter: blur(18px) saturate(140%);
+}
+/* The border light: a conic gradient whose ANGLE animates, masked to a 1.5px
+   ring. Rotating the pseudo-element itself (the first attempt) rotates its
+   whole box, and the box corners swept across the page as two bright diagonal
+   streaks — animating the angle keeps the ring exactly on the card's edge.
+   Browsers without @property simply get the still gradient, which is fine. */
+@property --auth-edge {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+.auth-card::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 32px;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--auth-edge),
+    rgba(255,255,255,0.05) 0deg,
+    rgba(216,180,254,1) 40deg,
+    rgba(125,211,252,0.95) 80deg,
+    rgba(255,255,255,0.05) 140deg,
+    rgba(255,255,255,0.05) 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: auth-edge 6s linear infinite;
+  pointer-events: none;
+}
+@keyframes auth-edge { to { --auth-edge: 360deg; } }
+
+.auth-halo {
+  position: absolute;
+  inset: -40% -30%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(139,92,246,0.35), rgba(139,92,246,0) 70%);
+  filter: blur(30px);
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .signin-star,
-  .signin-comet,
-  .signin-ring,
-  .signin-core,
-  .signin-carousel,
-  .signin-chip,
-  .signin-chip-in { animation: none !important; }
-  .signin-comet { opacity: 0; }
+  .auth-neb,
+  .auth-stars,
+  .auth-meteor,
+  .auth-card::before { animation: none !important; }
+  .auth-vignette { opacity: 1; }
+  .auth-meteor { opacity: 0; }
 }

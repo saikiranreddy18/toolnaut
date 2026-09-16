@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import { loadCursor, CURSOR_EVENT } from '../../state/cursorStore'
 
 // Cursor-effect harness. The effect itself is one of ten pluggable modules
@@ -19,10 +20,14 @@ import { loadCursor, CURSOR_EVENT } from '../../state/cursorStore'
 // it in its own units, and the transform maps that back so everything lands
 // exactly under the real pointer, s times bigger. No effect module knows the
 // setting exists.
-export default function CursorStars() {
+export default function CursorStars({ except = [] } = {}) {
   const canvasRef = useRef(null)
+  const { pathname } = useLocation()
+  // Screens that bring their own motion opt out by prefix.
+  const off = except.some((p) => pathname.startsWith(p))
 
   useEffect(() => {
+    if (off) return
     const finePointer = window.matchMedia('(pointer: fine)').matches
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (!finePointer || reduce) return
@@ -153,7 +158,7 @@ export default function CursorStars() {
       window.removeEventListener('pointerdown', onDown)
       window.removeEventListener(CURSOR_EVENT, onChange)
     }
-  }, [])
+  }, [off])
 
   return (
     <canvas
