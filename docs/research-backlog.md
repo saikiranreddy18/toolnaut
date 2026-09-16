@@ -6382,3 +6382,86 @@ a client-side SPA with a static tool catalogue.
   needs a manual `curl -A "Slackbot"` check against a preview deploy before
   it can be marked SHIPPED.
 - **Found:** 2026-09-16 03:20 UTC
+
+### The Spend Audit shipped fully working this morning — every page that tells a visitor what Pro buys still says it doesn't exist
+- **Status:** OPEN
+- **Seen in:** not a missing competitor feature — the opposite shape. Rocket
+  Money (formerly Truebill) built its entire growth loop around this exact
+  pitch: find subscriptions that do the same job and show what to cancel,
+  quantified in the visitor's own currency before they ever sign up — and it
+  is the headline line on their homepage, App Store listing and pricing page,
+  never something a user has to already be inside the app to discover.
+  Enterprise SaaS-spend tools (Vendr, Zylo, Productiv) sell "duplicate
+  spend / shadow IT" the same way. The comparison matters here because
+  Toolnaut just built the Rocket-Money-shaped feature and then told nobody.
+- **Gap:** `src/pages/app/Audit.jsx` (308 lines), `src/utils/stackAudit.js`
+  (276 lines) and `src/state/auditStore.js` shipped today in commit
+  `e3b8a3b` ("spend audit: find the subscriptions that do the same job, and
+  what to cancel") — a real, wired-up feature: routed at `App.jsx:135`, in
+  the app nav as "Spend" (`AppShell.jsx:30`, `AuditIcon` in `icons.jsx:61`).
+  It works exactly as a directory competitor would want it to: a user types
+  in what they pay per tool, `stackAudit.js` finds overlapping tools by
+  category/capability, and `Audit.jsx:122` gates the actual cancel list
+  (`locked = paymentsOn && !ent.loading && !ent.unknown && ent.configured &&
+  !ent.active`) behind any active paid entitlement — the health score and
+  total monthly spend stay free (`Audit.jsx:213-232`), matching exactly the
+  "headline free, cancel-list paid" split this backlog's own honesty-fixed
+  `capabilityMatrix.js` (commit `c04149e`) is supposed to represent. Except
+  it doesn't: grepping `FeaturesSection.jsx`, `PricingSection.jsx`,
+  `capabilityMatrix.js`, `planData.js` and `Pricing.jsx` for
+  `audit|spend|cancel|duplicate|overlap` turns up nothing that describes this
+  feature. `capabilityMatrix.js`'s `CAPABILITIES` array (`:30-79`) lists 8
+  rows and every single `pro:` cell across all 8 is `status: 'planned'` — as
+  of this morning that stopped being true (the cancel list is real and live
+  for anyone with an active plan) and nothing was updated to say so.
+  `planData.js` makes it worse, not just silent: the Pro tier's `features`
+  list (`:108-118`) has zero mention of it, and the Team tier instead carries
+  `planned('Quarterly AI stack audit reports')` (`:152`) plus a matching
+  `['Quarterly stack audits', false, false, 'planned']` comparison row
+  (`:174`) — a *different*, genuinely-still-unbuilt concept (a scheduled
+  recurring report, Team-only) that reads close enough to the real feature's
+  name to make a future pass assume "stack audits: already tracked as
+  planned" and never look closer. The real audit isn't quarterly, isn't
+  scheduled, and isn't Team-gated — `ent.active` unlocks it for Student too,
+  since `useEntitlement.js` returns one plan-agnostic `active` boolean, not a
+  tier. `FeaturesSection.jsx`'s homepage "Capabilities" grid (`:5-12`, the
+  6 cards every visitor sees first) is silent on it too.
+- **Why it matters:** this is the inverse of every other gap in this file —
+  not a promise with nothing behind it, but a real, already-shipped thing
+  with no promise pointing at it. It also happens to be the single best
+  candidate this product has for making Pro feel worth ₹799: today a visitor
+  reading the Pro card sees three `planned()` (not-real) features and zero
+  live ones of its own beyond the saved-tools limit lift, while the one
+  capability that would quantify savings in their own currency before they
+  buy — exactly the Rocket Money pitch — sits one click away in the app,
+  unmentioned anywhere they'd see it before signing up. A visitor who never
+  opens the "Spend" nav item by accident will never learn this plan does
+  something a discovery directory's competitors don't.
+- **Smallest useful version (what to actually build):**
+  - `capabilityMatrix.js`: add one new capability row, e.g. `{ capability:
+    'Spend audit', free: { text: 'Health score and total monthly spend',
+    status: 'live' }, pro: { text: 'Full cancel list — what to drop, what to
+    keep', status: 'live' }, team: { text: 'Full cancel list — what to drop,
+    what to keep', status: 'live' } }` — the first genuinely `live` Pro/Team
+    row in the whole matrix, which is itself worth surfacing honestly.
+  - `planData.js`: add `live('Spend audit — find and cancel overlapping
+    subscriptions')` to Student's `features` (`:84-93`, cascades to Pro/Team
+    via their existing "Everything in X, plus:" copy) and add one
+    `COMPARISON` row, `['Spend audit', true, true, true]`, near the existing
+    (unrelated) `'Quarterly stack audits'` row at `:174` — leave that row
+    exactly as is, since the scheduled-report feature it names genuinely
+    isn't built yet.
+  - `FeaturesSection.jsx`: add a 7th card to `FEATURES` (`:5-12`) — e.g.
+    `{ name: 'Spend audit', text: "See which tools double up, what to cancel,
+    and what a free tool already covers.", icon: … }` — reusing the existing
+    `sticker`/`Tilt` card shape, no new component.
+- **What this would NOT include** (kept out to bound the diff): no changes to
+  `Audit.jsx`, `stackAudit.js` or the entitlement logic — the feature itself
+  already works and is out of scope; no touching the Team-tier "Quarterly AI
+  stack audit reports" lines, which name a real, still-unbuilt, different
+  feature; no new marketing section or hero copy — three data-array edits and
+  one card addition is the whole diff.
+- **Build size:** S — three data-only files (`capabilityMatrix.js`,
+  `planData.js`, `FeaturesSection.jsx`), no new component, no new route, no
+  dependency.
+- **Found:** 2026-09-16 06:07 UTC
