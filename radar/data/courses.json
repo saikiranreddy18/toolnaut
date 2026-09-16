@@ -21763,5 +21763,767 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "course-a-stateful-llm-api-that-works-across-providers",
+    "toolSlug": "a-stateful-llm-api-that-works-across-providers",
+    "title": "Master A Stateful LLM API that works across providers",
+    "objectives": [
+      "Understand what A Stateful LLM API that works across providers is for",
+      "Use A Stateful LLM API that works across providers on a real task",
+      "Know where A Stateful LLM API that works across providers fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure A Stateful LLM API that works across providers for your real workflow, not the demo.",
+          "Say what A Stateful LLM API that works across providers does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through A Stateful LLM API that works across providers.",
+          "Push A Stateful LLM API that works across providers to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold A Stateful LLM API that works across providers into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-llm",
+      "skill-api",
+      "skill-stateful",
+      "skill-memory",
+      "skill-multi-model"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "course-ai-subtools",
+    "toolSlug": "ai-subtools",
+    "title": "Master AI Subtools",
+    "objectives": [
+      "Understand what AI Subtools is for",
+      "Use AI Subtools on a real task",
+      "Know where AI Subtools fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for AI Subtools.",
+          "Say what AI Subtools does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Subtools.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Subtools into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-free",
+      "skill-client-side",
+      "skill-utilities",
+      "skill-no sign-up",
+      "skill-browser tools"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "course-kaflow-search",
+    "toolSlug": "kaflow-search",
+    "title": "Master Kaflow Search",
+    "objectives": [
+      "Understand what Kaflow Search is for",
+      "Use Kaflow Search on a real task",
+      "Know where Kaflow Search fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Kaflow Search for your real workflow, not the demo.",
+          "Say what Kaflow Search does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Kaflow Search.",
+          "Push Kaflow Search to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Kaflow Search into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-kafka",
+      "skill-search",
+      "skill-desktop",
+      "skill-local-indexing",
+      "skill-messaging"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "course-freeform",
+    "toolSlug": "freeform",
+    "title": "Master Freeform",
+    "objectives": [
+      "Generate a working app from a one-sentence prompt",
+      "Refine app features and design using follow-up instructions",
+      "Publish and share a live app link that others can open"
+    ],
+    "modules": [
+      {
+        "title": "Your First AI-Generated App",
+        "estMinutes": 10,
+        "steps": [
+          "Sign in to Freeform, click 'New App,' and type a specific one-sentence idea such as 'a weekly meal planner with a grocery list'",
+          "Click 'Generate' and wait for Freeform to build the app preview",
+          "Open each screen of the generated app to see what the AI created before changing anything"
+        ]
+      },
+      {
+        "title": "Refining Your App with Follow-Up Prompts",
+        "estMinutes": 10,
+        "steps": [
+          "In the chat panel, type one concrete change at a time, e.g., 'add a button to mark meals as cooked'",
+          "Ask for a visual tweak, such as 'make the header dark green and use rounded cards,' then regenerate",
+          "Compare the new version to the previous one and undo the change if it made things worse"
+        ]
+      },
+      {
+        "title": "Editing Details and Settings",
+        "estMinutes": 8,
+        "steps": [
+          "Rename the app to something short and clear, like 'MealPrep Planner'",
+          "Click directly on text in the preview to fix labels or placeholder copy the AI wrote",
+          "Open app settings and confirm the app name, icon, and description are ready for sharing"
+        ]
+      },
+      {
+        "title": "Sharing with a Single Click",
+        "estMinutes": 8,
+        "steps": [
+          "Click the 'Share' or 'Publish' button to generate your live app link",
+          "Open the link in a private/incognito browser window to verify it works for someone without an account",
+          "Copy the link and send it to one person, then test how to unpublish or update the app after making a new change"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-app generator",
+      "skill-no-code",
+      "skill-ai apps",
+      "skill-sharing",
+      "skill-web apps"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "course-i-built-a-digital-wrap-tool-for-tesla-owners",
+    "toolSlug": "i-built-a-digital-wrap-tool-for-tesla-owners",
+    "title": "Master I built a digital wrap tool for Tesla owners",
+    "objectives": [
+      "Understand what I built a digital wrap tool for Tesla owners is for",
+      "Use I built a digital wrap tool for Tesla owners on a real task",
+      "Know where I built a digital wrap tool for Tesla owners fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for I built a digital wrap tool for Tesla owners.",
+          "Say what I built a digital wrap tool for Tesla owners does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through I built a digital wrap tool for Tesla owners.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold I built a digital wrap tool for Tesla owners into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-tesla",
+      "skill-car wrap",
+      "skill-visualization",
+      "skill-customization",
+      "skill-preview"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "course-plurnk-yet-another-ai-harness",
+    "toolSlug": "plurnk-yet-another-ai-harness",
+    "title": "Master Plurnk (Yet *Another* AI Harness)",
+    "objectives": [
+      "Understand what Plurnk (Yet *Another* AI Harness) is for",
+      "Use Plurnk (Yet *Another* AI Harness) on a real task",
+      "Know where Plurnk (Yet *Another* AI Harness) fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Plurnk (Yet *Another* AI Harness) for your real workflow, not the demo.",
+          "Say what Plurnk (Yet *Another* AI Harness) does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Plurnk (Yet *Another* AI Harness).",
+          "Push Plurnk (Yet *Another* AI Harness) to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Plurnk (Yet *Another* AI Harness) into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai harness",
+      "skill-agents",
+      "skill-llm",
+      "skill-open source",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "course-ai-agent-vercel-eve-web-interface-amazing",
+    "toolSlug": "ai-agent-vercel-eve-web-interface-amazing",
+    "title": "Master AI Agent Vercel Eve Web Interface = Amazing",
+    "objectives": [
+      "Understand what AI Agent Vercel Eve Web Interface = Amazing is for",
+      "Use AI Agent Vercel Eve Web Interface = Amazing on a real task",
+      "Know where AI Agent Vercel Eve Web Interface = Amazing fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI Agent Vercel Eve Web Interface = Amazing for your real workflow, not the demo.",
+          "Say what AI Agent Vercel Eve Web Interface = Amazing does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Agent Vercel Eve Web Interface = Amazing.",
+          "Push AI Agent Vercel Eve Web Interface = Amazing to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Agent Vercel Eve Web Interface = Amazing into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-web interface",
+      "skill-llm development",
+      "skill-vercel",
+      "skill-debugging"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "course-openai-expands-chatgpt-ads-with-sponsored-agents",
+    "toolSlug": "openai-expands-chatgpt-ads-with-sponsored-agents",
+    "title": "Master OpenAI Expands ChatGPT Ads with Sponsored Agents",
+    "objectives": [
+      "Launch a sponsored agent inside ChatGPT conversations",
+      "Configure native ad placements with intent-based targeting",
+      "Measure and optimize sponsored agent performance"
+    ],
+    "modules": [
+      {
+        "title": "Set Up Advertiser Access & Account",
+        "estMinutes": 15,
+        "steps": [
+          "Apply for ChatGPT Ads access through OpenAI's advertising portal and complete business verification",
+          "Link a billing method and set campaign budget caps and daily spend limits",
+          "Configure brand safety settings, category exclusions, and competitor blocklists"
+        ]
+      },
+      {
+        "title": "Build Your Sponsored Agent",
+        "estMinutes": 30,
+        "steps": [
+          "Define the agent's persona, tone, and the product knowledge sources it may cite using the agent builder",
+          "Write a system prompt that answers user questions helpfully while following OpenAI's ad disclosure and claims policies",
+          "Test the agent in the sandbox against 10+ sample conversation intents, then submit it for OpenAI policy review"
+        ]
+      },
+      {
+        "title": "Configure Native Placements & Targeting",
+        "estMinutes": 20,
+        "steps": [
+          "Choose placement formats: sponsored agent suggestions, in-line product recommendations, or follow-up prompt promotions",
+          "Set targeting by conversation topic and intent signals rather than personal data, per platform rules",
+          "Set bid strategy, cost-per-engagement targets, and frequency caps per user"
+        ]
+      },
+      {
+        "title": "Launch, Measure & Optimize",
+        "estMinutes": 25,
+        "steps": [
+          "Launch the campaign with a defined flight window and monitor the approval status of all creative variants",
+          "Pull dashboard metrics: impressions, agent invocation rate, conversation depth, and downstream conversions",
+          "A/B test agent opening lines and CTAs, then reallocate budget toward the highest-converting conversation intents"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-advertising",
+      "skill-chatgpt",
+      "skill-sponsored agents",
+      "skill-marketing",
+      "skill-ai ads"
+    ],
+    "prerequisites": [
+      "Active OpenAI business account with billing enabled",
+      "Prior experience managing paid campaigns on at least one ad platform",
+      "Approved product landing page and verified brand assets"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "course-skill-to-generate-change-preview-pages",
+    "toolSlug": "skill-to-generate-change-preview-pages",
+    "title": "Master Skill to generate change preview pages",
+    "objectives": [
+      "Understand what Skill to generate change preview pages is for",
+      "Use Skill to generate change preview pages on a real task",
+      "Know where Skill to generate change preview pages fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Skill to generate change preview pages for your real workflow, not the demo.",
+          "Say what Skill to generate change preview pages does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Skill to generate change preview pages.",
+          "Push Skill to generate change preview pages to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Skill to generate change preview pages into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-change-preview",
+      "skill-skill",
+      "skill-code-review",
+      "skill-developer-tools",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "course-texposit",
+    "toolSlug": "texposit",
+    "title": "Master TeXposit",
+    "objectives": [
+      "Understand what TeXposit is for",
+      "Use TeXposit on a real task",
+      "Know where TeXposit fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure TeXposit for your real workflow, not the demo.",
+          "Say what TeXposit does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through TeXposit.",
+          "Push TeXposit to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold TeXposit into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-latex",
+      "skill-markdown",
+      "skill-editor",
+      "skill-typesetting"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "course-legion",
+    "toolSlug": "legion",
+    "title": "Master Legion",
+    "objectives": [
+      "Understand what Legion is for",
+      "Use Legion on a real task",
+      "Know where Legion fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Legion for your real workflow, not the demo.",
+          "Say what Legion does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Legion.",
+          "Push Legion to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Legion into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-elixir",
+      "skill-lua",
+      "skill-ai-agents",
+      "skill-sandbox",
+      "skill-llm"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "course-how-to-build-effective-evals-for-ai-agents",
+    "toolSlug": "how-to-build-effective-evals-for-ai-agents",
+    "title": "Master How to Build Effective Evals for AI Agents",
+    "objectives": [
+      "Understand what How to Build Effective Evals for AI Agents is for",
+      "Use How to Build Effective Evals for AI Agents on a real task",
+      "Know where How to Build Effective Evals for AI Agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure How to Build Effective Evals for AI Agents for your real workflow, not the demo.",
+          "Say what How to Build Effective Evals for AI Agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through How to Build Effective Evals for AI Agents.",
+          "Push How to Build Effective Evals for AI Agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold How to Build Effective Evals for AI Agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai agents",
+      "skill-evals",
+      "skill-evaluation",
+      "skill-llmops",
+      "skill-testing"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "course-wvm",
+    "toolSlug": "wvm",
+    "title": "Master WVM",
+    "objectives": [
+      "Understand what WVM is for",
+      "Use WVM on a real task",
+      "Know where WVM fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure WVM for your real workflow, not the demo.",
+          "Say what WVM does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through WVM.",
+          "Push WVM to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold WVM into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai-agents",
+      "skill-sandbox",
+      "skill-windows",
+      "skill-headless",
+      "skill-virtualization"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "course-never-again",
+    "toolSlug": "never-again",
+    "title": "Master Never-again",
+    "objectives": [
+      "Understand what Never-again is for",
+      "Use Never-again on a real task",
+      "Know where Never-again fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Never-again for your real workflow, not the demo.",
+          "Say what Never-again does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Never-again.",
+          "Push Never-again to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Never-again into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-memory",
+      "skill-claude",
+      "skill-open source",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "course-thurbox",
+    "toolSlug": "thurbox",
+    "title": "Master Thurbox",
+    "objectives": [
+      "Understand what Thurbox is for",
+      "Use Thurbox on a real task",
+      "Know where Thurbox fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Thurbox for your real workflow, not the demo.",
+          "Say what Thurbox does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Thurbox.",
+          "Push Thurbox to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Thurbox into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-tmux",
+      "skill-tui",
+      "skill-cli",
+      "skill-agent orchestration",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T14:13:20.724Z"
   }
 ]
