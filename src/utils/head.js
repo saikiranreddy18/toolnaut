@@ -17,9 +17,9 @@ import { useEffect } from 'react'
 
 const SITE = 'https://toolnaut.xyz'
 const DEFAULTS = {
-  title: 'Toolnaut — Your AI Stack, Personalized',
+  title: 'Toolnaut — Find the best AI tools for your job',
   description:
-    'Discover the perfect AI tools for your role. Learn them. Master them. Toolnaut is the role-aware command center for AI tool discovery and learning paths.',
+    'Toolnaut compares 1,100+ AI tools and builds the AI stack for your role, goal and budget — ranked picks with the reasoning shown, plus a 4-week plan. Free to start.',
 }
 
 function setMeta(selector, attr, key, value) {

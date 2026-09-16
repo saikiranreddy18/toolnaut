@@ -56,7 +56,7 @@ export default function CategoryLanding() {
                 position: i + 1,
                 name: t.name,
                 description: t.blurb,
-                url: `${SITE}/app/tools/${t.slug}`,
+                url: `${SITE}/ai-tools/${t.slug}`,
               })),
             },
           },
@@ -97,7 +97,9 @@ export default function CategoryLanding() {
                 <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
                 <span className="truncate">{tool.sourceCategory}</span>
               </span>
-              <p className="arcade-heading mt-2 text-base">{tool.name}</p>
+              <Link to={`/ai-tools/${tool.slug}`} className="arcade-heading mt-2 block text-base hover:underline underline-offset-4">
+                {tool.name}
+              </Link>
               <p className="mt-2 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>
               <div className="mt-3 flex items-center gap-2 text-[10px] font-bold text-zinc-500">
                 <span className="rounded-full border border-white/20 px-2 py-0.5">{PRICE_LABELS[tool.price]}</span>

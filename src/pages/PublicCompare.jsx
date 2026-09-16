@@ -41,7 +41,7 @@ export default function PublicCompare() {
               position: i + 1,
               name: t.name,
               description: t.blurb,
-              url: `${SITE}/app/tools/${t.slug}`,
+              url: `${SITE}/ai-tools/${t.slug}`,
             })),
           },
         }

@@ -77,8 +77,11 @@ export default function Landing() {
         '@context': 'https://schema.org',
         '@type': 'Organization',
         name: 'Toolnaut',
+        alternateName: ['Toolnaut.xyz', 'toolnaut'],
         url: 'https://toolnaut.xyz',
-        logo: 'https://toolnaut.xyz/og.png',
+        // Square mark, not the 1200x630 share card: Google shows the logo in a
+        // square slot and crops a wide image into something unrecognisable.
+        logo: 'https://toolnaut.xyz/checkout-logo.png',
         // Ties this site to the brand profiles so an answer engine treats them as
         // one entity. Built from SOCIALS, the list the footer renders, so the
         // schema can never name an account the page itself does not link.
@@ -96,8 +99,12 @@ export default function Landing() {
       {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
+        // name + alternateName is what Google uses for the site name shown above
+        // a result. Without it Google guesses, and it was guessing the GitHub
+        // repository was the canonical "Toolnaut".
         name: 'Toolnaut',
-        url: 'https://toolnaut.xyz',
+        alternateName: ['Toolnaut.xyz', 'Toolnaut AI tools'],
+        url: 'https://toolnaut.xyz/',
         potentialAction: {
           '@type': 'SearchAction',
           target: {

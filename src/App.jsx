@@ -33,6 +33,7 @@ const Legal = lazy(() => import('./pages/Legal'))
 const Support = lazy(() => import('./pages/Support'))
 const SharedStack = lazy(() => import('./pages/SharedStack'))
 const PublicCompare = lazy(() => import('./pages/PublicCompare'))
+const ToolPublic = lazy(() => import('./pages/ToolPublic'))
 const CategoryLanding = lazy(() => import('./pages/CategoryLanding'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 const NewTools = lazy(() => import('./pages/NewTools'))
@@ -112,6 +113,9 @@ export default function App() {
             <Route path="/s/:slugs" element={<SharedStack />} />
             <Route path="/compare/:slugs" element={<PublicCompare />} />
             <Route path="/tools/:domain" element={<CategoryLanding />} />
+            {/* One public, indexable page per tool. /app/tools/:slug stays the
+                personalised in-app view. */}
+            <Route path="/ai-tools/:slug" element={<ToolPublic />} />
             <Route path="/new" element={<NewTools />} />
             <Route path="/search" element={<SearchTools />} />
 
