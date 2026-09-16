@@ -6569,3 +6569,70 @@ a client-side SPA with a static tool catalogue.
 - **Build size:** S — one function in `src/utils/search.js`, no new route, no
   new component, no dependency, one new or extended test file.
 - **Found:** 2026-09-16 09:10 UTC
+
+### No way to flag a wrong listing — the catalog has a "suggest a new tool" gap already logged, but no "this one is wrong" path at all
+- **Status:** OPEN
+- **Seen in:** review/listing directories that let outsiders touch their data
+  all ship a correction path distinct from new-entry submission — G2 runs a
+  standing "How do I update the software I use?" flow plus live support chat
+  on every product page (help.g2.com) specifically for outdated vendor
+  info, separate from adding a new product. The gap is sharper for an
+  AI-tool directory than for G2: this run's competitor check on Futurepedia
+  and similar catalogs turned up an active 2026 criticism that AI-tool
+  directories specifically go stale fast because vendor pricing and
+  features change faster than any editor can track — exactly the failure
+  mode a public "report this" link exists to catch before a visitor is the
+  one who discovers it.
+- **Gap:** Toolnaut has exactly one catalog-correction signal today —
+  `radar`'s own automated status/note field, shown read-only via the pink
+  badge at `ToolDetail.jsx:123-130` (`tool.status !== 'Active'`) — and zero
+  user-facing way to say "this is wrong." Grepped `report|incorrect|flag`
+  (tool-related) across `src/pages/app/ToolDetail.jsx` and
+  `src/pages/ToolPublic.jsx`: zero hits in both. A visitor who notices a
+  dead pricing link, a tool that shut down before radar caught it, or a
+  wrong category has no lower-friction option than emailing
+  `CONTACT_EMAIL` cold with no context about which tool or field, if they
+  even find `/support`. This is the mirror image of the already-logged
+  "Suggest a tool" gap above (empty catalog → user has nothing to add) but
+  for the opposite direction (existing entry → user has already noticed it's
+  wrong) and neither today's code nor that gap's plan covers it — that
+  entry's `buildSuggestToolUrl()` util is scoped to catalog-empty submissions
+  only, no `slug`/existing-tool argument.
+- **Why it matters:** it's the same free, no-backend, top-of-funnel signal
+  capture the Suggest-a-tool gap already argues for, but pointed at data
+  quality instead of catalog breadth — and a stale/wrong listing is worse
+  for trust than a missing one, because the visitor acted on it (clicked
+  "Visit website," compared pricing) before finding out it was wrong. Every
+  tool detail page — the exact place a visitor is close enough to notice
+  something's off — currently offers no way to say so.
+- **Smallest useful version (what to actually build):** extend, not
+  duplicate, the Suggest-a-tool gap's planned util:
+  - Add a second export to the same planned `src/utils/suggestTool.js` —
+    `buildReportIssueUrl({ slug, name, note })` → a GitHub `issues/new` URL
+    built the same way (`URLSearchParams`, `title` pre-filled with the tool
+    name, structured `body` with slug + note field, `labels=tool-report`) so
+    both flows share one pure, testable module and one `GITHUB_REPO_URL`
+    constant instead of two competing ones.
+  - One small, low-emphasis link on `ToolDetail.jsx` (near the existing
+    "Visit website" button at `ToolDetail.jsx:151-163`, styled as plain text
+    not another `nb-btn`, so it doesn't compete with the primary CTAs) and
+    the equivalent spot on the public `ToolPublic.jsx` (`:74-88`, same
+    button row): "Something wrong here?" opening
+    `window.open(buildReportIssueUrl({ slug: tool.slug, name: tool.name }), '_blank', 'noopener')`.
+    No modal, no textarea in-app for v1 — the GitHub issue form is where the
+    actual note gets typed, same division of labor the Suggest-a-tool gap
+    already establishes.
+  - **What this would NOT include** (kept out to bound the diff): no
+    moderation queue or in-app report history (GitHub issues are the queue,
+    same as Suggest-a-tool); no automatic action on the catalog record from a
+    report (a human triages, same as radar's own status field is
+    human/LLM-set today, never user-set); no separate report reason
+    dropdown (name + optional note is enough for a GitHub issue a human
+    reads, and keeps this a v1-sized diff); no change to the existing
+    `tool.status` badge or its display logic.
+- **Build size:** S — two small link additions (`ToolDetail.jsx`,
+  `ToolPublic.jsx`), one added export in a util file the Suggest-a-tool gap
+  is already planning to create (build together if both land in the same
+  run — same `GITHUB_REPO_URL` constant, same file, near-zero marginal
+  diff). No backend, no new dependency, no new route.
+- **Found:** 2026-09-16 21:15 UTC
