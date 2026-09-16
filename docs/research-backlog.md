@@ -6229,3 +6229,80 @@ a client-side SPA with a static tool catalogue.
   from a pattern already in the same file twice. No new route, no new state,
   no backend.
 - **Found:** 2026-09-15 21:06 UTC
+
+---
+
+### The Uncertain-status badge reaches every tool card except the one on the page you actually use it from
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — a self-audit that started from
+  re-reading the already-SHIPPED "Tool status warning has no reason attached"
+  entry above (`ef59a93`, deepened 2026-09-01) to check whether its own
+  09-01 deepening note — "closes the gap on `Favorites.jsx` for free... which
+  the original plan never covered" — still accounts for every place a stack
+  tool actually renders today. It doesn't: that deepening reasoned from
+  "every page that uses `<ToolCard>`", which was the right question in
+  September but stopped being the complete list once `Stack.jsx`'s own kit
+  grid diverged from it.
+- **Gap:** Three places render `tool.status !== 'Active'` today —
+  `ToolCard.jsx:69-77` (a hot-pink `UNCERTAIN`-style pill, badge row shared by
+  `Discover.jsx` and `Favorites.jsx`), `ToolDetail.jsx:123-129` (the same pill
+  plus the note underneath), and `Compare.jsx`'s Status row (note appended in
+  parentheses). `Stack.jsx` imports `ToolCard` too (`Stack.jsx:19`) — but only
+  uses it once, at `Stack.jsx:208-217`, for the "start with a name you know"
+  suggestion rail of tools *not yet* in the stack. The actual "⚡ your kit"
+  grid — the tools the user already added, iterated at
+  `Stack.jsx:323` (`allStackTools.map`) and rendered as a hand-built
+  `<motion.article className="sticker ...">` card (`Stack.jsx:326-360`ish:
+  title, blurb, a `ProgressRing`, the status-cycle button, a remove button) —
+  has no inline JSX for `tool.status` or `tool.note` anywhere in that block.
+  Confirmed by grepping `Stack.jsx` for `status\b|\.note\b`: the only
+  `status` hits are the unrelated `STATUSES`/`statusIdx` progress-cycling
+  constants imported from `progressStore.js`, zero references to
+  `tool.status` or `tool.note`. A tool can carry `status: "Uncertain"` and a
+  `note` explaining why (52 of 704 catalog entries do, e.g. Pi: "Core team
+  moved to Microsoft (2024); app in maintenance") and a user who already
+  added it to their stack — the one page (`/app/stack`) they open to track
+  progress on tools they committed to — sees no signal at all, even though
+  the exact same tool shows a pill on `/app/discover`, `/app/favorites`,
+  `/app/tools/<slug>` and `/app/compare`.
+  `personaGenerator.js`'s starter picks can add non-Active tools to a fresh
+  persona's stack too (it deprioritizes but doesn't exclude them per the
+  original entry's own finding), so this isn't limited to tools a user
+  manually re-added after a status changed underneath them — a first-run
+  stack can already contain one, silently.
+- **Why it matters:** this is the one screen where the badge matters most
+  and the one screen it's missing from. Discover and Favorites are browsing
+  surfaces — a user deciding whether to add something benefits from the
+  warning, but can also just click through to the detail page first.
+  `/app/stack` is a commitment surface: someone already added the tool,
+  is actively cycling its progress status ("Started" → "Using" → …), and has
+  no reason to revisit `/app/tools/<slug>` for a tool they're not evaluating
+  anymore. If that tool's status degrades to Uncertain after it was added —
+  or was Uncertain from the start via a starter pick — the one place they'd
+  actually see it and reconsider never tells them.
+- **Smallest useful version (what to actually build):**
+  - `Stack.jsx`'s kit-grid card (inside the `allStackTools.map` block, next to
+    the existing title/`ProgressRing` row): reuse `ToolCard.jsx:69-77`'s exact
+    badge markup and style object (hot-pink pill, `border: 2px solid #000`,
+    `title={tool.note || tool.status}` for the hover reason) gated on
+    `tool.status && tool.status !== 'Active'` — same condition, same visual
+    language, no new style invented.
+  - Placement: small enough to sit beside the tool name in the card's header
+    row (`Stack.jsx`'s `<div className="flex items-start justify-between
+    gap-3">` wrapper that already holds the title and the `ProgressRing`) —
+    matches how `ToolCard.jsx` puts its badge row opposite the source-category
+    chip, so the pattern (badge lives in the top row, description below) stays
+    consistent across every card type in the app.
+  - **What this would NOT include** (kept out to bound the diff): no change
+    to `ToolCard.jsx`, `ToolDetail.jsx`, `Compare.jsx`, or `progressStore.js`
+    — all four already do the right thing; no backfilled notes for the 5
+    Uncertain tools missing one (same rule the original entry set: render
+    what exists, don't invent editorial content); no auto-removal or
+    re-ranking of Uncertain tools already in a stack — flagging, not judging,
+    is this gap's whole job, same restraint the original entry applied to
+    Discover/Compare.
+- **Build size:** S — one reused badge block added to one existing card in
+  `Stack.jsx`. No new store, no new util, no new route, no backend, no new
+  dependency. Verifiable with `npm run smoke` (renders `/app/stack` clean)
+  since this repo has no component-level test harness for page UI.
+- **Found:** 2026-09-16 00:20 UTC
