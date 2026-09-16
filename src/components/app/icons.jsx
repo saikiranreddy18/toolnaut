@@ -56,3 +56,13 @@ export const UpvoteIcon = () => (
 export const ReplyIcon = () => (
   <svg {...base} width="15" height="15"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
 )
+
+// Spend audit: a coin stack with a downward arrow — money coming back.
+export const AuditIcon = () => (
+  <svg {...base}>
+    <ellipse cx="9" cy="6" rx="6" ry="2.6" />
+    <path d="M3 6v5c0 1.4 2.7 2.6 6 2.6s6-1.2 6-2.6V6" />
+    <path d="M3 11v5c0 1.4 2.7 2.6 6 2.6 1 0 2-.1 2.8-.3" />
+    <path d="M18 14v7m0 0 2.5-2.5M18 21l-2.5-2.5" />
+  </svg>
+)

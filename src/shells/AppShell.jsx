@@ -21,12 +21,13 @@ import AppTour, { tourSeen, TOUR_REPLAY_EVENT } from '../components/app/AppTour'
 import SyncStatus from '../components/app/SyncStatus'
 import Avatar from '../components/app/Avatar'
 import { loadAvatar, AVATAR_EVENT } from '../state/avatarStore'
-import { StackIcon, DiscoverIcon, LearningIcon, CommunityIcon, SettingsIcon, ChatIcon, HeartIcon } from '../components/app/icons'
+import { StackIcon, DiscoverIcon, LearningIcon, CommunityIcon, SettingsIcon, ChatIcon, HeartIcon, AuditIcon } from '../components/app/icons'
 
 const NAV = [
   { to: '/app/stack', label: 'Stack', Icon: StackIcon },
   { to: '/app/discover', label: 'Find', Icon: DiscoverIcon },
   { to: '/app/favorites', label: 'Saved', Icon: HeartIcon },
+  { to: '/app/audit', label: 'Spend', Icon: AuditIcon },
   { to: '/app/learning', label: 'Learn', Icon: LearningIcon },
   { to: '/app/community', label: 'Squad', Icon: CommunityIcon },
   { to: '/app/settings', label: 'Me', Icon: SettingsIcon },

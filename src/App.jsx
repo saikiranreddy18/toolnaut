@@ -22,6 +22,7 @@ const Favorites = lazy(() => import('./pages/app/Favorites'))
 const Compare = lazy(() => import('./pages/app/Compare'))
 const ToolDetail = lazy(() => import('./pages/app/ToolDetail'))
 const Learning = lazy(() => import('./pages/app/Learning'))
+const Audit = lazy(() => import('./pages/app/Audit'))
 const Community = lazy(() => import('./pages/app/Community'))
 const Thread = lazy(() => import('./pages/app/Thread'))
 const Office = lazy(() => import('./pages/Office'))
@@ -131,6 +132,7 @@ export default function App() {
               <Route path="favorites" element={<Favorites />} />
               <Route path="compare" element={<Compare />} />
               <Route path="tools/:slug" element={<ToolDetail />} />
+              <Route path="audit" element={<Audit />} />
               <Route path="learning" element={<Learning />} />
               <Route path="community" element={<Community />} />
               <Route path="community/:id" element={<Thread />} />
