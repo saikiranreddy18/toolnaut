@@ -6382,3 +6382,170 @@ a client-side SPA with a static tool catalogue.
   needs a manual `curl -A "Slackbot"` check against a preview deploy before
   it can be marked SHIPPED.
 - **Found:** 2026-09-16 03:20 UTC
+
+### The Spend Audit shipped fully working this morning — every page that tells a visitor what Pro buys still says it doesn't exist
+- **Status:** OPEN
+- **Seen in:** not a missing competitor feature — the opposite shape. Rocket
+  Money (formerly Truebill) built its entire growth loop around this exact
+  pitch: find subscriptions that do the same job and show what to cancel,
+  quantified in the visitor's own currency before they ever sign up — and it
+  is the headline line on their homepage, App Store listing and pricing page,
+  never something a user has to already be inside the app to discover.
+  Enterprise SaaS-spend tools (Vendr, Zylo, Productiv) sell "duplicate
+  spend / shadow IT" the same way. The comparison matters here because
+  Toolnaut just built the Rocket-Money-shaped feature and then told nobody.
+- **Gap:** `src/pages/app/Audit.jsx` (308 lines), `src/utils/stackAudit.js`
+  (276 lines) and `src/state/auditStore.js` shipped today in commit
+  `e3b8a3b` ("spend audit: find the subscriptions that do the same job, and
+  what to cancel") — a real, wired-up feature: routed at `App.jsx:135`, in
+  the app nav as "Spend" (`AppShell.jsx:30`, `AuditIcon` in `icons.jsx:61`).
+  It works exactly as a directory competitor would want it to: a user types
+  in what they pay per tool, `stackAudit.js` finds overlapping tools by
+  category/capability, and `Audit.jsx:122` gates the actual cancel list
+  (`locked = paymentsOn && !ent.loading && !ent.unknown && ent.configured &&
+  !ent.active`) behind any active paid entitlement — the health score and
+  total monthly spend stay free (`Audit.jsx:213-232`), matching exactly the
+  "headline free, cancel-list paid" split this backlog's own honesty-fixed
+  `capabilityMatrix.js` (commit `c04149e`) is supposed to represent. Except
+  it doesn't: grepping `FeaturesSection.jsx`, `PricingSection.jsx`,
+  `capabilityMatrix.js`, `planData.js` and `Pricing.jsx` for
+  `audit|spend|cancel|duplicate|overlap` turns up nothing that describes this
+  feature. `capabilityMatrix.js`'s `CAPABILITIES` array (`:30-79`) lists 8
+  rows and every single `pro:` cell across all 8 is `status: 'planned'` — as
+  of this morning that stopped being true (the cancel list is real and live
+  for anyone with an active plan) and nothing was updated to say so.
+  `planData.js` makes it worse, not just silent: the Pro tier's `features`
+  list (`:108-118`) has zero mention of it, and the Team tier instead carries
+  `planned('Quarterly AI stack audit reports')` (`:152`) plus a matching
+  `['Quarterly stack audits', false, false, 'planned']` comparison row
+  (`:174`) — a *different*, genuinely-still-unbuilt concept (a scheduled
+  recurring report, Team-only) that reads close enough to the real feature's
+  name to make a future pass assume "stack audits: already tracked as
+  planned" and never look closer. The real audit isn't quarterly, isn't
+  scheduled, and isn't Team-gated — `ent.active` unlocks it for Student too,
+  since `useEntitlement.js` returns one plan-agnostic `active` boolean, not a
+  tier. `FeaturesSection.jsx`'s homepage "Capabilities" grid (`:5-12`, the
+  6 cards every visitor sees first) is silent on it too.
+- **Why it matters:** this is the inverse of every other gap in this file —
+  not a promise with nothing behind it, but a real, already-shipped thing
+  with no promise pointing at it. It also happens to be the single best
+  candidate this product has for making Pro feel worth ₹799: today a visitor
+  reading the Pro card sees three `planned()` (not-real) features and zero
+  live ones of its own beyond the saved-tools limit lift, while the one
+  capability that would quantify savings in their own currency before they
+  buy — exactly the Rocket Money pitch — sits one click away in the app,
+  unmentioned anywhere they'd see it before signing up. A visitor who never
+  opens the "Spend" nav item by accident will never learn this plan does
+  something a discovery directory's competitors don't.
+- **Smallest useful version (what to actually build):**
+  - `capabilityMatrix.js`: add one new capability row, e.g. `{ capability:
+    'Spend audit', free: { text: 'Health score and total monthly spend',
+    status: 'live' }, pro: { text: 'Full cancel list — what to drop, what to
+    keep', status: 'live' }, team: { text: 'Full cancel list — what to drop,
+    what to keep', status: 'live' } }` — the first genuinely `live` Pro/Team
+    row in the whole matrix, which is itself worth surfacing honestly.
+  - `planData.js`: add `live('Spend audit — find and cancel overlapping
+    subscriptions')` to Student's `features` (`:84-93`, cascades to Pro/Team
+    via their existing "Everything in X, plus:" copy) and add one
+    `COMPARISON` row, `['Spend audit', true, true, true]`, near the existing
+    (unrelated) `'Quarterly stack audits'` row at `:174` — leave that row
+    exactly as is, since the scheduled-report feature it names genuinely
+    isn't built yet.
+  - `FeaturesSection.jsx`: add a 7th card to `FEATURES` (`:5-12`) — e.g.
+    `{ name: 'Spend audit', text: "See which tools double up, what to cancel,
+    and what a free tool already covers.", icon: … }` — reusing the existing
+    `sticker`/`Tilt` card shape, no new component.
+- **What this would NOT include** (kept out to bound the diff): no changes to
+  `Audit.jsx`, `stackAudit.js` or the entitlement logic — the feature itself
+  already works and is out of scope; no touching the Team-tier "Quarterly AI
+  stack audit reports" lines, which name a real, still-unbuilt, different
+  feature; no new marketing section or hero copy — three data-array edits and
+  one card addition is the whole diff.
+- **Build size:** S — three data-only files (`capabilityMatrix.js`,
+  `planData.js`, `FeaturesSection.jsx`), no new component, no new route, no
+  dependency.
+- **Found:** 2026-09-16 06:07 UTC
+
+---
+
+### The public search page's own placeholder promises task search — the matcher still only knows literal word stems, not the tools that actually answer the task
+- **Status:** OPEN
+- **Seen in:** competitor research this run into There's An AI For That's
+  core differentiator (task-first discovery — a visitor describes what they
+  need in their own words, e.g. "I need an AI that transcribes meetings," and
+  the platform surfaces matches, rather than requiring a category pick first)
+  confirmed this is the thing directories are expected to get right, then
+  Toolnaut's own `/search` was checked against it directly, since the page's
+  intro copy already claims to do exactly this: `SearchTools.jsx:73` reads
+  "Search by name, category, or the problem you're trying to solve." That
+  copy is not new marketing — `src/utils/search.js:5-8`'s own comment says
+  the word-order-independent matching it ships today ("video editor" must
+  match "video" and "editor" in either order) was built specifically because
+  `SearchTools.jsx`'s copy invites problem-shaped queries and the earlier
+  single-phrase substring check silently failed on them. That fix solved
+  word *order*; it did not solve word *form*.
+- **Gap:** `matchesQuery()` (`src/utils/search.js:9-16`) still requires every
+  query word to appear as an exact literal substring somewhere in
+  `[name, blurb, sourceCategory, dev, tags].join(' ')`. Verified live against
+  the real catalog (`node` against `src/utils/toolsCatalog.js`, this run):
+  the query "transcribe meetings" — as plainly a "problem you're trying to
+  solve" as the page's own placeholder example — returns **zero** results on
+  `/search`, and a visitor lands on the "No tools match" empty state
+  (`SearchTools.jsx:84-98`). The catalog is not actually short on answers:
+  grepping tags/blurbs turns up at least 11 directly relevant tools —
+  `Otter.ai` (tags `automation,notes,meeting,transcription`, blurb "Live
+  meeting transcription and AI notes"), `Notta`, `Gladia`
+  ("Real-time transcription API for meetings/calls"), `Fireflies.ai`,
+  `Fathom`, `Circleback`, `Grain`, `Granola`, `Avoma`, `tl;dv`,
+  `Zoom AI Companion` — every one tagged `meeting`, several also tagged
+  `transcription`. Two independent mismatches both fire on this one query:
+  the plural "meetings" is never a literal substring of the singular tag
+  "meeting" it should match, and "transcribe" is never a literal substring
+  of "transcription" (different suffix, not a prefix/suffix relationship
+  `.includes()` can bridge). Neither is the multi-word-order bug the prior
+  fix already closed — both survive today's matcher untouched.
+- **Why it matters:** this isn't a hypothetical edge case, it's the exact
+  query shape the page's own placeholder text (`"Try \"video editor\",
+  \"Anthropic\" or \"healthcare\""`) and intro copy invite, and the query
+  shape that makes a directory's search meaningfully different from
+  Ctrl-F. A visitor who types the actual problem in plain English — the
+  behavior the copy explicitly promises works — gets told the catalog has
+  nothing, immediately, on a public, no-login, first-impression page, when
+  the opposite is true. Every other public-page gap already logged in this
+  file (`/tools/:domain`, `/new`, `/alternatives/:slug`) answers a
+  pre-shaped question; `/search` is the one page that specifically claims to
+  answer an open-ended one, so this is where that claim being false costs
+  the most trust.
+- **Smallest useful version (what to actually build):** extend
+  `matchesQuery()`/its haystack construction in `src/utils/search.js` with a
+  bounded stem/prefix match, not a full stemmer or an LLM call: tokenize the
+  haystack into individual words (it is already lowercased) and, for any
+  query word of length ≥ 5, treat it as matching a haystack token when they
+  share the same leading 5 characters (`"trans" ⊂ "transcribe"` and
+  `"trans" ⊂ "transcription"`; `"meeti"` for "meeting"/"meetings"), in
+  addition to (not replacing) the existing exact-substring check so short or
+  already-exact queries ("notion", "gpt") are completely unaffected. Ship it
+  behind the same single exported `matchesQuery(tool, q)` both `Discover.jsx`
+  and `SearchTools.jsx` already call, so the two stay identical the way the
+  prior fix already established. Add unit-style coverage in whatever the
+  radar/util test pattern nearest to string-matching code uses (or a small
+  new `test/search.test.mjs` if none exists) asserting at minimum: "video
+  editor" still matches in either order, "transcribe meetings" now matches
+  Otter.ai/Notta/etc., and a short unrelated word like "app" does not start
+  matching everything (length floor is what prevents that).
+- **What this would NOT include** (kept out to bound the diff): no real
+  stemming library (Porter/Snowball) or dependency addition — a fixed
+  leading-character-count heuristic is cheap, dependency-free, and closes
+  the two concrete failures found without new attack surface on a public,
+  unauthenticated endpoint; no LLM/semantic search (the `api/chat.js`
+  pattern this codebase already uses for the goal chat is grounded to
+  classify into ≤6 fixed keys per call and rate-limited accordingly — reusing
+  it to rank free text against 700+ catalog entries is a materially larger,
+  separately-shippable feature, not this fix); no change to `Discover.jsx`
+  or its filter UI beyond the shared `matchesQuery` it already imports; no
+  synonym dictionary (transcribe→transcription is caught by the shared-
+  prefix heuristic above, not by hand-maintained word pairs that would need
+  upkeep as the catalog grows).
+- **Build size:** S — one function in `src/utils/search.js`, no new route, no
+  new component, no dependency, one new or extended test file.
+- **Found:** 2026-09-16 09:10 UTC
