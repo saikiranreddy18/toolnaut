@@ -6306,3 +6306,79 @@ a client-side SPA with a static tool catalogue.
   dependency. Verifiable with `npm run smoke` (renders `/app/stack` clean)
   since this repo has no component-level test harness for page UI.
 - **Found:** 2026-09-16 00:20 UTC
+
+---
+
+### Sharing a stack link produces zero personalized preview — the growth loop is silently dead on every platform it's pasted into
+- **Status:** OPEN
+- **Seen in:** not a competitor feature so much as standard practice for any
+  product whose growth depends on shared links looking good unopened: Wordle's
+  per-day result grid, Spotify Wrapped's per-user cards, GitHub's per-repo
+  social preview, and Notion's public pages all bake a correct, content-
+  specific `og:title`/`og:image` into the actual HTTP response a crawler
+  receives — because none of the real preview scrapers (Twitterbot, Slackbot,
+  Discordbot, facebookexternalhit, WhatsApp, iMessage's LinkPresentation,
+  LinkedInBot, TelegramBot) execute JavaScript. They fetch the raw HTML once
+  and read whatever `<meta>` tags are already in it.
+- **Gap:** Toolnaut already ships "Share / export your stack"
+  (`src/utils/shareStack.js`, `src/pages/SharedStack.jsx` — this backlog's own
+  first-ever entry, SHIPPED `42bdc994`) and its landing page,
+  `SharedStack.jsx:21-41`, does call `useHead()` with a real per-stack title
+  and description built from the decoded tool names. But `useHead`
+  (`src/utils/head.js:52-90`) sets those tags with a `useEffect`, which only
+  runs after React mounts and hydrates in a browser — it never touches
+  `og:image`/`twitter:image` at all (grepped `head.js` for both: zero hits;
+  every route, prerendered or not, keeps the one static pair set in
+  `index.html:21,29`), and more fundamentally it never reaches a non-JS
+  crawler in the first place. `scripts/prerender.mjs`'s `ROUTES` array
+  (`prerender.mjs:43-60`) is the only mechanism in this codebase that bakes
+  `useHead()` output into a static file a crawler actually receives, and
+  `SharedStack.jsx`'s own top comment (`:20-24`) already says why `/s/:slug`
+  isn't on it: the content is keyed off an unbounded `:slugs` param, not one
+  of a fixed dozen paths a build script can enumerate. `vercel.json`'s
+  catch-all rewrite (`"/((?!api/).*)": "/_shell.html"`) sends every non-`/api`
+  request, crawler or human, to the same unrendered SPA shell — so a bot
+  hitting `/s/<slug>` gets `index.html`'s title ("Toolnaut — Your AI Stack,
+  Personalized") and the generic `/og.png`, never the tools the link is
+  actually about. The comment at `SharedStack.jsx:22-24` calling this "the
+  pasted-link preview" fix is the one premise in that file that doesn't hold —
+  `useHead` fixes the tab title for a human who already clicked, not the
+  preview card generated before anyone clicks.
+- **Why it matters:** the entire point of a share feature is the moment
+  before the click — a friend or teammate deciding whether a pasted link is
+  worth opening. Today every one of those moments shows the same generic
+  homepage card regardless of which 3 or 8 tools are actually in the stack,
+  which is the one thing that would make a recipient curious. For a
+  personalization-first product, a share link that looks identical for every
+  user is a missed loop, not a working one — and unlike most gaps in this
+  file, it isn't a missing feature so much as an already-shipped one quietly
+  not doing its job for the audience (crawlers) it was aimed at.
+- **Smallest useful version (what to actually build):** a Vercel Edge
+  Middleware (`middleware.js` at repo root, `export const config = { matcher:
+  '/s/:slug*' }`) that inspects the request's `User-Agent` against a short
+  known-bot regex (`bot|facebookexternalhit|Twitterbot|Slackbot|Discordbot|
+  WhatsApp|TelegramBot|LinkedInBot`) and, only for a match, returns a small
+  static HTML response built from `decodeStackSlugs()` and `getTool()`
+  (`src/utils/shareStack.js`, `src/utils/toolsCatalog.js:763` — both pure,
+  no DOM/localStorage access, already edge-runtime-safe) instead of letting
+  the request fall through to `_shell.html`: real `<title>`, `og:title`,
+  `og:description` built the same way `SharedStack.jsx:28-30` already
+  composes them, and `og:image` left pointing at the existing static
+  `/og.png` for v1 — every non-bot request (i.e. every human) is unaffected
+  and still gets the real SPA. This needs no new route, no change to
+  `vercel.json`'s rewrite (Edge Middleware runs before it), no new dependency.
+- **What this would NOT include** (kept out to bound the diff): no per-stack
+  *generated* image (`@vercel/og` compositing tool names/icons onto a canvas)
+  — real title + description text is what every listed reference product
+  actually leans on for the preview card body, a custom image is a
+  separately-shippable v2, not a blocker for v1; no middleware coverage for
+  any other route — `/`, `/tools/*`, `/pricing` etc. are already correctly
+  prerendered per `scripts/prerender.mjs`'s `ROUTES`, this gap is specific to
+  the one route family that can't be (unbounded, per-link content).
+- **Build size:** M — one new `middleware.js`, reusing two already-pure
+  utils. No backend, no database, no new dependency; the main cost is care
+  around Edge Runtime constraints (no Node built-ins) and manual verification
+  since headless Chromium in `npm run smoke` doesn't send a bot UA, so this
+  needs a manual `curl -A "Slackbot"` check against a preview deploy before
+  it can be marked SHIPPED.
+- **Found:** 2026-09-16 03:20 UTC
