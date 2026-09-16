@@ -6397,7 +6397,14 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-09-16 03:20 UTC
 
 ### The Spend Audit shipped fully working this morning — every page that tells a visitor what Pro buys still says it doesn't exist
-- **Status:** OPEN
+- **Status:** SHIPPED b7f87af — built exactly as scoped below: `capabilityMatrix.js`
+  gained the one new `Spend audit` row (free = health score + total spend,
+  pro/team = full cancel list, all three marked `live`), `planData.js` added
+  `live('Spend audit — find and cancel overlapping subscriptions')` to
+  Student's features and a `['Spend audit', true, true, true]` COMPARISON
+  row, and `FeaturesSection.jsx` got a 7th homepage card. No changes to
+  `Audit.jsx`, `stackAudit.js`, entitlement logic, or the unrelated
+  Team-only "Quarterly stack audits" row, all as planned. 3 files, 12 lines.
 - **Seen in:** not a missing competitor feature — the opposite shape. Rocket
   Money (formerly Truebill) built its entire growth loop around this exact
   pitch: find subscriptions that do the same job and show what to cancel,

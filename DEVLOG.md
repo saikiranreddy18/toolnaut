@@ -9,6 +9,70 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-16
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h
+window, most recent 2026-09-16 14:13 UTC publishing 15 tools, previous run
+2026-09-15 23:42 UTC publishing 13. 28 tools published in the last 24h, feed
+holds 436 tools. Healthy and growing.
+
+**Researched today:** five research-hour runs before this one. 00:13 UTC
+found that the already-SHIPPED Uncertain-status badge (`ef59a93`) never made
+it onto `Stack.jsx`'s own kit-grid cards — the one commitment surface where
+it matters most, since a stack tool's status can degrade to Uncertain after
+it's already been added. 03:10 UTC logged that the shared-stack feature's
+own `SharedStack.jsx` comment claiming to fix "the pasted-link preview" is
+wrong — `useHead()` only sets tags after React hydrates, so every real
+preview scraper (Slackbot, Twitterbot, WhatsApp, iMessage) still sees the
+generic homepage card; needs Edge Middleware, scoped M, queued below.
+06:10 UTC logged the gap chosen below — the Spend Audit shipped this
+morning (`e3b8a3b`) with nothing on any marketing page pointing at it.
+09:13 UTC confirmed a second live-catalog check: `/search`'s own placeholder
+copy invites "the problem you're trying to solve," but `matchesQuery()`
+still requires exact literal substrings, so "transcribe meetings" returns
+zero results against 11+ tagged meeting-transcription tools. 12:08 UTC
+corrected a stale backlog entry — the Founder-offer preselect bug had
+already been fixed same-day by `680b760` but was still marked OPEN.
+
+**Shipped (this run):** Spend Audit surfaced on every page that sells
+Pro — [`b7f87af`](https://github.com/saikiranreddy18/toolnaut/commit/b7f87af).
+Picked over the search-matcher fix, the Uncertain-badge gap on `Stack.jsx`,
+and the shared-stack OG-preview middleware (all also build-ready) because
+this is the inverse of every other backlog entry: not a promise with
+nothing behind it, but a real, already-working feature (`Audit.jsx` /
+`stackAudit.js`, live since this morning) that no visitor deciding whether
+Pro is worth ₹799 would ever see mentioned. `capabilityMatrix.js` gained
+one new `Spend audit` row (free = health score + total spend, pro/team =
+full cancel list, all marked `live` — the first genuinely-live Pro/Team row
+in the whole matrix), `planData.js` added it to Student's feature list
+(cascading to Pro/Team via their existing "Everything in X, plus" copy)
+plus a COMPARISON row, and `FeaturesSection.jsx`'s homepage grid got a 7th
+card. Left `Audit.jsx`, `stackAudit.js`, entitlement logic, and the
+unrelated Team-only "Quarterly stack audits" row untouched, as scoped.
+3 files, 12 lines.
+
+**Live on toolnaut.xyz** now that it's on master — pure data/copy changes
+across three already-existing files, no new component, route, or
+dependency. `npm test` (297/297), `npm run build` (17/17 routes
+prerendered, three.js stays in its own chunk), and `npm run smoke` (23/23
+routes, 0 console errors) all green before push.
+
+**Queued next:** the `/search` literal-substring matcher fix (one function
+in `src/utils/search.js`, fully specced, build size S) is the next-best
+small win — it's the public, no-login page whose own copy makes the exact
+promise the current matcher breaks. The Uncertain-status badge missing from
+`Stack.jsx`'s kit grid is equally build-ready and just as small. The
+shared-stack OG-preview Edge Middleware is scoped but graded M and needs a
+manual bot-UA `curl` check against a preview deploy to verify, since
+headless Chromium smoke doesn't send one. Still OPEN from prior days: GA4
+consent gate, "download my data" export, public-page skip-to-content link,
+command palette, tool graveyard page, "Featured on Toolnaut" badge, RSS
+feed of new tools, Discover facet counts, Collections, stack-overlap
+warning, weekly trending tools, role-benchmark display on `Stack.jsx`,
+Discover "hidden gems" rail, and the dollar-amount half of stack cost.
+
+---
+
 ## 2026-09-15
 
 **Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h
