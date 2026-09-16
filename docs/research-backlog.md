@@ -5811,7 +5811,7 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### "Weekly Fresh Finds" promises role-matching — Discover's new-tools rail is domain-blind
-- **Status:** OPEN
+- **Status:** SHIPPED 6552af5
 - **Seen in:** another marketing-copy-vs-reality audit of
   `src/components/sections/FeaturesSection.jsx` (same method that produced the
   Live Tool Comparison entry directly above — every tile's copy checked
@@ -5883,3 +5883,502 @@ a client-side SPA with a static tool catalogue.
   `answers.domain`) and a comparator idiom already live in the same file. No
   backend, no new dependency, no new route, no schema change.
 - **Found:** 2026-09-14 06:10 UTC
+
+---
+
+### The Founder offer's "plan preselected" checkout link doesn't preselect anything — the exact bug that was already found and fixed once, in the one place nobody checked it survived
+
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — a self-audit that started from
+  `planData.js:194-198`'s own comment ("when the ribbon expired,
+  `/pay?plan=founder` simply kept selling") and `FounderOffer.jsx:120-122`'s
+  ("This used to point at `/goal`, so the founder price could not actually
+  be paid — the offer was a poster. It now goes to the paywall with the plan
+  preselected."). That second comment is itself the record of a real,
+  already-fixed bug — the exact same shape as this file's "no credit card"
+  and "free public beta" audits, just inside the checkout flow instead of
+  marketing copy. Read the destination the fix promises against what it
+  actually does.
+- **Gap:** `FounderOffer.jsx:141` and `FounderRibbon.jsx:87` (the sitewide
+  countdown strip for the ₹29,999 lifetime offer — the single highest-value,
+  most time-pressured CTA on the site, "Ends in `Clock`" ticking down to
+  `FOUNDER_DEADLINE`) both link to `/pay?plan=founder`. Read `src/pages/
+  Pay.jsx` in full: it never reads the URL at all. Grepped the file for
+  `useLocation`, `window.location`, `URLSearchParams`, `useSearchParams`,
+  and `get('plan')` — zero hits on every one. The `chosen` state that
+  actually drives selection is hardcoded `useState('guru')` (`Pay.jsx:53`) —
+  it always starts on Pro, never Founder — and the only thing that sets it
+  afterward is `pay(planId)` (`Pay.jsx:73`), called exclusively from
+  clicking one of the four plan buttons rendered on the page
+  (`Pay.jsx:126-155`). Nothing in the render reads `chosen` for a visual
+  highlight either — it only distinguishes cards via `p.featured` (always
+  Pro, `planData.js:105`) and, mid-checkout, `busy && chosen === p.id ?
+  'Opening…' : ...` (`Pay.jsx:150`). A visitor who clicks "CLAIM FOUNDER
+  PRICE →" from a countdown ribbon lands on a page with four unlabelled,
+  unhighlighted plan cards (`PLANS.filter(isPlanOpen...)` includes Founder
+  since `Pay.jsx`'s filter checks `isPlanOpen`, not `hiddenFromPricing` —
+  confirmed by reading `Pay.jsx:52-56` against `planData.js:205-212`) and
+  has to find and click Founder themselves, same as if they had arrived from
+  any other link on the site. The one concession is ordering: `PLANS` is
+  declared founder-first (`planData.js:19`), so Founder happens to render as
+  the first card in the grid — but that is true regardless of which link
+  brought the visitor here, so it is not what "preselected" describes, and
+  gives no visual signal that arriving via the ribbon did anything at all.
+- **Why it matters:** this is the offer the product cares most about
+  converting — one payment, ₹29,999, framed everywhere else with real
+  urgency (a live countdown clock, a sitewide ribbon, its own landing
+  section) — and the one link built specifically to carry that urgency
+  through to checkout silently drops it. Someone who clicks a ticking clock
+  expecting the next screen to already know what they want, and instead
+  lands on an unranked four-card picker identical to the generic `/pricing →
+  /goal` path, has to re-decide under the same time pressure the ribbon just
+  created — exactly the kind of friction a time-limited offer's own checkout
+  link exists to remove. It is also a second instance of the precise defect
+  this codebase already paid down once (`FounderOffer.jsx`'s own comment
+  names the earlier bug — a link that looked wired but did not preselect
+  anything, because it pointed at `/goal`); the fix moved the destination to
+  `/pay?plan=founder` but never verified the query string itself does
+  anything there, so the same failure mode reopened one file over.
+- **Smallest useful version (what to actually build):**
+  - `Pay.jsx`: add `useLocation` (already the pattern `useNavigate` on the
+    next line uses from `react-router-dom`) and read the `plan` param:
+    `const requestedPlan = new URLSearchParams(useLocation().search).get('plan')`.
+  - Initialize `chosen` from it instead of the hardcoded literal:
+    `useState(() => plans.some((p) => p.id === requestedPlan) ? requestedPlan
+    : 'guru')` — falls back to today's exact default when the param is
+    absent, unknown, or names a plan that's closed/excluded for this visitor
+    (`plans` already carries that filtering, so this reuses it rather than
+    re-checking `isPlanOpen` a second time).
+  - Give the preselected card an actual visual signal, since `chosen`
+    currently only surfaces during the `busy` "Opening…" state: add a ring/
+    border treatment (e.g. an extra `ring-2` class keyed to `p.accent`, or a
+    small "YOUR PICK" tape-label reusing the same `tape-label`/badge pattern
+    `p.badge` already renders two lines above it) when `chosen === p.id` and
+    `requestedPlan` was actually present — so a plain `/pay` visit (no
+    param) never grows a badge nothing asked for.
+  - **What this would NOT include** (kept out to bound the diff): no change
+    to `startCheckout`, `pay()`, or anything past the click — this is
+    read-only URL parsing plus a class name, nothing touches a charge; no
+    scroll-into-view or auto-opening Razorpay's modal on load (a payment
+    sheet appearing before someone has looked at the page is the "before
+    first result" bad-upgrade-moment this codebase's own
+    `capabilityMatrix.js:BAD_UPGRADE_MOMENTS` already warns against, just
+    applied at the wrong end — auto-charging on arrival is worse, not
+    better); no touching `FounderRibbon.jsx`/`FounderOffer.jsx`'s existing
+    links, which are already correct — the bug is entirely on the receiving
+    end.
+- **Build size:** S — one URL read, one `useState` initializer change, one
+  conditional class/badge in `Pay.jsx`. No backend, no new dependency, no
+  new route, no schema change, no touch to any payment-verification code
+  path. Verifiable with `npm run smoke` (renders `/pay?plan=founder` and
+  `/pay` with no console error) since this repo has no component-level test
+  harness for page UI.
+- **Found:** 2026-09-15 03:20 UTC
+
+---
+
+### The galaxy promises to let you "meet the tools" — 704 of them render, zero are reachable
+- **Status:** SHIPPED 86c7066 — built exactly as scoped below: `galaxyState`
+  gained a `hoveredTool` field written by `ToolStars`' existing per-frame hit
+  test, `GalaxyExplorer` added a click-vs-drag distance check (6px) on
+  pointer up and navigates to `/search?q=<name>` on a clean tap, plus a
+  pointer cursor while a star is hovered. Scoped to explore mode only, as
+  planned — the ambient landing-page galaxy stays click-inert. Verified live
+  in a real browser (not just the route-render smoke test): hover shows the
+  pointer cursor, a tap on a star lands on `/search?q=...` with that tool's
+  name pre-filled, a drag still orbits the camera without navigating.
+- **Seen in:** not a competitor pattern — the promise is the feature's own UI
+  copy, not marketing copy. `GalaxyExplorer.jsx:146-148`'s persistent
+  on-screen label reads "Drag to orbit · Scroll to zoom · Zoom in to **meet
+  the tools**," and `ToolStars.jsx:8` (the component's own top-of-file
+  comment) states "The galaxy hosts ALL 704 catalog tools as star sprites."
+  Contrast with the directories this file studies elsewhere: Futurepedia's
+  and There's An AI For That's homepage tool grids are the click target
+  itself — every visible tile is a link to more information, zero extra taps
+  beyond the one that already shows you the tool.
+- **Gap:** Read `ToolStars.jsx` in full. Every one of the 704 `TOOLS` becomes
+  a sprite (`ToolStars.jsx:148-204`), and a per-frame screen-space hit test
+  (`ToolStars.jsx:225-269`) finds whichever star sits nearest the pointer and
+  writes its name into `#tool-tooltip` (`ToolStars.jsx:272-278`, the
+  `pointer-events-none` div `Landing.jsx:223-228` mounts). That is the entire
+  payoff: a floating text label with the tool's bare name, nothing else —
+  no category, no price, no blurb, no link. Grepped `ToolStars.jsx` for
+  `onClick|navigate|Link|href` — zero hits; the file has no click handling
+  of any kind, only the hover-distance test. `GalaxyExplorer.jsx` (the
+  full-screen "Explore the galaxy" mode, `Landing.jsx:250-256`) is worse: its
+  `surface` div (`GalaxyExplorer.jsx:124`) captures every `pointerdown`/
+  `pointermove`/`pointerup` for camera-orbit dragging (`GalaxyExplorer.jsx:59-
+  90`) and has no click branch either — so the one mode whose own on-screen
+  copy explicitly promises "meet the tools" is the mode where a would-be
+  click is consumed entirely by the orbit-drag layer. A visitor can zoom in
+  as close as the copy invites, read a name floating in space, and has no
+  next action — not even the un-gated `/search?q=` page one file away
+  (`SearchTools.jsx`, explicitly public and crawlable per its own top
+  comment: "no session required... answers the single most obvious thing a
+  first-time visitor expects") is reachable from here. The feature that puts
+  the entire catalog on screen at once is the one place in the app that
+  cannot answer "what is this."
+- **Why it matters:** this is the highest-visibility real estate on the
+  site — the literal first thing rendered behind the hero, and the thing
+  the "Explore the galaxy" button and its on-screen copy spend a dedicated
+  full-screen mode selling — and it dead-ends on a name. A visitor curious
+  enough to zoom toward a specific star has already shown more intent than
+  one idly scrolling past `FeaturesSection`, and gets nothing back for it:
+  no path to `/search?q=<name>` (already public, already built,
+  `SearchTools.jsx`), no path into the quiz, nothing. Every other
+  "see the value before you commit" gap this file has found and fixed —
+  public compare, public search, share links — was about giving a
+  signed-out visitor a next step; this is the one surface that visually
+  promises exactly that step and doesn't wire it up.
+- **Smallest useful version (what to actually build):**
+  - Scope this to `GalaxyExplorer`'s explore mode only, not the ambient
+    landing-page galaxy — explore mode is the one with the "meet the tools"
+    copy and the one where a visitor has deliberately opted in to
+    inspecting stars up close; the ambient background behind the hero is
+    decorative chrome sitting under scrollable page content and should stay
+    click-inert, the same way it is today.
+  - `ToolStars.jsx` already computes `hovered.current` (the index of the
+    nearest star within `HOVER_PX`) every frame — nothing new to calculate,
+    just something to act on. Lift it from a private ref to a tiny exported
+    accessor (e.g. a module-level `let hoveredToolIndex = -1` the frame loop
+    already writes, mirroring the plain-object pattern `galaxyStore.js`
+    already uses for `explore`/`zoom`/`rotX`/`rotY`) so `GalaxyExplorer.jsx`
+    can read it without prop-drilling through the R3F tree.
+  - `GalaxyExplorer.jsx`'s existing `onDown`/`onMove`/`onUp` handlers
+    already track pointer position for orbit-dragging — add a moved-distance
+    accumulator (reset on `onDown`, summed in `onMove`) and in `onUp`, only
+    when `galaxyState.explore` and total movement stays under a small
+    threshold (e.g. 6px, the standard "was this a click or a drag" cutoff)
+    and `hoveredToolIndex >= 0`, call `navigate` to
+    `/search?q=${encodeURIComponent(items[hoveredToolIndex].tool.name)}` —
+    reusing `SearchTools.jsx`'s existing public, unauthenticated `?q=` match
+    rather than building any new lookup or destination page.
+  - Swap `surface`'s cursor from the current constant `cursor-grab` to a
+    conditional `cursor-pointer` while `hoveredToolIndex >= 0`, so there is
+    a visible affordance that a star is now a target before the click lands.
+  - **What this would NOT include** (kept out to bound the diff): no
+    click-through on the ambient (non-explore) landing galaxy — that surface
+    stays exactly as inert as it is today; no new destination page or
+    "quick peek" card — routing to the existing public `/search?q=` results
+    page is the entire scope, it already renders category/price/blurb for
+    the matched tool; no touch/tap handling beyond what `GalaxyExplorer`'s
+    existing pointer-event handlers already receive (they are pointer
+    events, not mouse-only, so this should carry over to touch for free, but
+    verifying that is part of the build, not assumed here); no change to
+    `ToolStars.jsx`'s hover-tooltip behavior itself, only exposing the index
+    it already tracks.
+- **Build size:** S/M — one exported accessor in `ToolStars.jsx` (or a new
+  tiny shared module next to `galaxyStore.js`), a click-vs-drag distinction
+  plus one `navigate()` call and one cursor class added to
+  `GalaxyExplorer.jsx`. No backend, no new dependency, no new route (reuses
+  `/search`), no schema change.
+- **Found:** 2026-09-15 09:09 UTC
+
+---
+
+### "Track progress against your role, not generic benchmarks" — no benchmark of either kind exists
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — the promise is the marketing copy's
+  own claim, checked against the app. `HowItWorksSection.jsx:9`'s "Master"
+  step (the fourth of the four steps every visitor sees on the landing page
+  before ever taking the quiz) reads: "Track progress against your role, not
+  generic benchmarks. Stay ahead as the field moves." `AudienceSection.jsx`
+  was read alongside it (same unaudited-sections note this backlog left at
+  line ~1942) but its two cards are aspirational scene-setting ("walk into
+  interviews with a working stack") with no discrete feature claim to check —
+  this entry only covers the checkable one.
+- **Gap:** Grepped the whole of `src/` for `against your role|generic
+  benchmark|peer|percentile|role-based|expected mastery` — the phrase exists
+  in exactly one place, `HowItWorksSection.jsx:9` itself. There is no
+  generic benchmark to contrast against, and no role-specific one either.
+  `progressStore.js` (`STATUSES = ['Not started', 'Exploring', 'Using
+  weekly', 'Mastered']`) stores one flat 4-state index per tool name,
+  identical in shape for every user regardless of role, and is read by
+  exactly two consumers: `Stack.jsx`'s per-card status pill
+  (`Stack.jsx:324`) and `SkillGraph.jsx`, which averages that index into a
+  bar per **domain** (`code`/`design`/`writing`/`data`/`automation`/
+  `learning` — `skillCoverage.js`'s six fixed categories), not per role.
+  Domain and role are different axes: `personaGenerator.js` already computes
+  a role-specific 3-tool starter stack (`persona.stack`, filtered and sorted
+  by `prominence.js`'s `starterScore` — `personaGenerator.js:100-102`) and a
+  readable role label (`career`, e.g. "Mid-level Developer",
+  `personaGenerator.js:117`), but nothing on `Stack.jsx` ever measures the
+  user's `progress` against `persona.stack` specifically — the page renders
+  `persona.stack` tools inside the same undifferentiated `allStackTools`
+  grid as everything added from Discover (`Stack.jsx:232-236`). A user has
+  no way to see "how am I doing against what a [role] is expected to have,"
+  which is exactly what the copy promises and what the "not generic
+  benchmarks" phrasing implies exists somewhere as a contrast.
+- **Why it matters:** This is the fourth of four steps sold on the landing
+  page as the payoff for finishing the other three — the moment a returning
+  user is told progress means something tied to their identity, not a
+  one-size bar. Right now `SkillGraph`'s bars are the same six domain labels
+  for a student and a founder alike; nothing on `/app/stack` ever surfaces
+  the word "role" next to the word "progress." A prospective user who reads
+  the landing page and later opens their dashboard finds a page that never
+  makes the comparison it was promised would happen.
+- **Smallest useful version (what to actually build):** the role-specific
+  benchmark already exists as data (`persona.stack`) — this is a display
+  gap, not a data-modeling one.
+  - Add one derived stat to `Stack.jsx`: of `persona.stack` (the 3 tools
+    chosen specifically for this user's role/experience/goal combo), how
+    many are at `STATUSES[3]` ("Mastered") in `progress`. Render as "2 of 3
+    core [career] tools mastered" near the existing streak/progress-ring
+    header (`Stack.jsx` top section, next to the `ProgressRing` component
+    already defined at the top of the file) — reuse `persona.career` for the
+    label, falling back to `persona.category.name` when `career` is null
+    (quiz answers that skipped role/stage).
+  - Visually distinguish the 3 `persona.stack` cards from added-from-Discover
+    cards in `allStackTools` with a small "core" tag — the `starter: true`
+    flag `Stack.jsx:233` already attaches to them exists for exactly this
+    but is currently unused for anything but internal filtering (checked:
+    grepped `.starter` in `Stack.jsx`, only read at line 233's own map, never
+    rendered).
+  - No new state, no new localStorage key — `persona.stack` and `progress`
+    are both already loaded on this page every render.
+  - **What this would NOT include** (deliberately out of scope for a first
+    cut): no cross-user peer comparison or percentile (would need a backend
+    this static SPA doesn't have — the same reason the leaderboard gap
+    elsewhere in this file stayed "precondition not flipped"), no per-role
+    "expected mastery timeline," no change to `SkillGraph`'s existing
+    domain view (it stays as a separate, complementary breakdown), no
+    rewording of the marketing copy as an alternative fix — the copy is a
+    reasonable promise, it just has nothing behind it yet.
+- **Build size:** S — one derived value and one small stat line in
+  `Stack.jsx`, one conditional "core" tag on cards already carrying the
+  `starter` flag. No new route, no new file, no schema change, no backend.
+- **Found:** 2026-09-15 12:05 UTC
+
+---
+
+### Discover only ever ranks toward the mainstream — no "hidden gem" / serendipity path exists
+- **Status:** OPEN
+- **Seen in:** ToolFinder (toolfinder.com/tools — 1,452-tool directory) is the
+  one competitor from this file's own suggested-study list
+  (There's An AI For That, Futurepedia, ToolFinder, Product Hunt AI, G2/
+  Capterra) never actually checked here before now (grepped this file for
+  "ToolFinder": zero hits pre-this-entry). Fetched it directly: filters,
+  sort, an "Alternatives" page pattern and a "Deals" section all already
+  match gaps already OPEN or REJECTED in this backlog, but a separate open-
+  source clone under the same name (github.com/ayeshh899-creator/Toolfinder,
+  a personalised-recommendation/roadmap/comparison app with the same shape as
+  Toolnaut itself) documents a "Hidden Gems" discovery mode with a "Surprise
+  Me" action — explicitly framed as surfacing "high-leverage tools built by
+  focused indie developers," i.e. the opposite bias from a normal ranked
+  list.
+- **Gap:** Every ranking path in `src/pages/app/Discover.jsx` pulls toward
+  recognisability, never away from it. `byProminence()` and `starterScore()`
+  (`src/utils/prominence.js:37-48,88-96`) score a `FLAGSHIP` name (Claude
+  Code, Figma, ChatGPT, Zapier, etc. — `prominence.js:24-31`) up to +20 and
+  use it as the primary sort key once match score ties; `Discover.jsx:130-137`
+  sorts by match score then that same tieBreak for every `sort=` value
+  except `newest`/`name`. The two existing discovery rails reinforce the same
+  bias from different angles: `freshTools` (`Discover.jsx:159-165`) is
+  recency-scoped to 7 days, `recentlyViewed` (`Discover.jsx:172-175`) replays
+  the user's own click history — neither one is capable of surfacing an
+  active, real, unglamorous tool that's simply never been near the top of a
+  ranked list. `Stack.jsx`'s `toolOfTheDay()` (`Stack.jsx:25-34`) comes
+  closest to a daily-rotation mechanic but explicitly restricts its
+  candidate pool to `.slice(0, 12)` of the user's own top match-score
+  results — it rotates among the mainstream picks, it doesn't escape them.
+  Grepped `src/` for `random|surprise|shuffle|serendip|hidden gem` — the only
+  hits are animation jitter (`ParticleField.jsx`, `cursorEffects.js`,
+  `Galaxy.jsx`) and one `Math.random()` in `AppErrorBoundary.jsx`, nothing
+  discovery-facing.
+- **Why it matters:** with 700+ tools and a ranking system that always
+  surfaces the same handful of flagships first (by design — `starterScore`'s
+  own comment says a first-time user "reads five names they've never heard
+  of and concludes the recommendations are noise," which is the right call
+  for the *default* view), there is no second path for the opposite kind of
+  user: someone who already knows Figma and Cursor and wants the catalog's
+  actual long tail. Right now that requires manually clicking through every
+  filter combination — the 700-tool catalog's breadth is Toolnaut's real
+  differentiator over a 50-tool curated list, and nothing in the product
+  currently sells it.
+- **Smallest useful version (what to actually build):**
+  - `prominence.js`: export one new pure function, `isFlagship(t)` — `t.name`
+    tested against the union of all `FLAGSHIP` domain arrays (a `Set` built
+    once at module scope, same pattern the file already uses for `REPO_SLUG`/
+    `FORUM_POST`/`LINK_LIST` regexes). No change to `starterScore` or
+    `byProminence` — both stay exactly as they are for the ranked views.
+  - `Discover.jsx`: one new `useMemo`, `hiddenGems`, filtering
+    `TOOLS.filter(t => !isCatalogNoise(t) && t.status === 'Active' &&
+    !isFlagship(t))`, then a deterministic daily rotation through that pool
+    using the exact `Math.floor(Date.now() / 86400000)` pattern
+    `toolOfTheDay()` already establishes — same tool for every visitor all
+    day, a new slice tomorrow, no per-user state and nothing to persist.
+    Slice to 6, matching `recentlyViewed`'s rail size.
+  - One new rail section, placed after `recentlyViewed`
+    (`Discover.jsx:247-260`ish), reusing the identical sticker-card markup
+    those two rails already share (`Discover.jsx:233-245`) — same
+    `w-40 shrink-0` card, same `arcade-heading lime compact` name, same
+    blurb line-clamp — headed `💎 Hidden gems` with one line of subcopy
+    ("real tools, way off the beaten path"). No new visual language to
+    design.
+  - **What this would NOT include** (kept out to bound the diff): no
+    "Surprise Me" button that jumps elsewhere (ToolFinder's version
+    navigates to a single random tool page — a rail the user can ignore or
+    scroll is lower-risk for a first cut and reuses this page's existing
+    rail pattern instead of adding a new interaction); no popularity-based
+    weighting (that's the separate, still-OPEN GitHub-stars/HN-points gap);
+    no dedicated `/hidden-gems` route; no exclusion of tools already in the
+    user's stack (unlike `toolOfTheDay`, browsing your own catalog is the
+    point here, not converting a specific pick).
+- **Build size:** S — one small pure function reusing exports already in
+  `prominence.js`, one `useMemo` and one rail block in `Discover.jsx` copied
+  from a pattern already in the same file twice. No new route, no new state,
+  no backend.
+- **Found:** 2026-09-15 21:06 UTC
+
+---
+
+### The Uncertain-status badge reaches every tool card except the one on the page you actually use it from
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — a self-audit that started from
+  re-reading the already-SHIPPED "Tool status warning has no reason attached"
+  entry above (`ef59a93`, deepened 2026-09-01) to check whether its own
+  09-01 deepening note — "closes the gap on `Favorites.jsx` for free... which
+  the original plan never covered" — still accounts for every place a stack
+  tool actually renders today. It doesn't: that deepening reasoned from
+  "every page that uses `<ToolCard>`", which was the right question in
+  September but stopped being the complete list once `Stack.jsx`'s own kit
+  grid diverged from it.
+- **Gap:** Three places render `tool.status !== 'Active'` today —
+  `ToolCard.jsx:69-77` (a hot-pink `UNCERTAIN`-style pill, badge row shared by
+  `Discover.jsx` and `Favorites.jsx`), `ToolDetail.jsx:123-129` (the same pill
+  plus the note underneath), and `Compare.jsx`'s Status row (note appended in
+  parentheses). `Stack.jsx` imports `ToolCard` too (`Stack.jsx:19`) — but only
+  uses it once, at `Stack.jsx:208-217`, for the "start with a name you know"
+  suggestion rail of tools *not yet* in the stack. The actual "⚡ your kit"
+  grid — the tools the user already added, iterated at
+  `Stack.jsx:323` (`allStackTools.map`) and rendered as a hand-built
+  `<motion.article className="sticker ...">` card (`Stack.jsx:326-360`ish:
+  title, blurb, a `ProgressRing`, the status-cycle button, a remove button) —
+  has no inline JSX for `tool.status` or `tool.note` anywhere in that block.
+  Confirmed by grepping `Stack.jsx` for `status\b|\.note\b`: the only
+  `status` hits are the unrelated `STATUSES`/`statusIdx` progress-cycling
+  constants imported from `progressStore.js`, zero references to
+  `tool.status` or `tool.note`. A tool can carry `status: "Uncertain"` and a
+  `note` explaining why (52 of 704 catalog entries do, e.g. Pi: "Core team
+  moved to Microsoft (2024); app in maintenance") and a user who already
+  added it to their stack — the one page (`/app/stack`) they open to track
+  progress on tools they committed to — sees no signal at all, even though
+  the exact same tool shows a pill on `/app/discover`, `/app/favorites`,
+  `/app/tools/<slug>` and `/app/compare`.
+  `personaGenerator.js`'s starter picks can add non-Active tools to a fresh
+  persona's stack too (it deprioritizes but doesn't exclude them per the
+  original entry's own finding), so this isn't limited to tools a user
+  manually re-added after a status changed underneath them — a first-run
+  stack can already contain one, silently.
+- **Why it matters:** this is the one screen where the badge matters most
+  and the one screen it's missing from. Discover and Favorites are browsing
+  surfaces — a user deciding whether to add something benefits from the
+  warning, but can also just click through to the detail page first.
+  `/app/stack` is a commitment surface: someone already added the tool,
+  is actively cycling its progress status ("Started" → "Using" → …), and has
+  no reason to revisit `/app/tools/<slug>` for a tool they're not evaluating
+  anymore. If that tool's status degrades to Uncertain after it was added —
+  or was Uncertain from the start via a starter pick — the one place they'd
+  actually see it and reconsider never tells them.
+- **Smallest useful version (what to actually build):**
+  - `Stack.jsx`'s kit-grid card (inside the `allStackTools.map` block, next to
+    the existing title/`ProgressRing` row): reuse `ToolCard.jsx:69-77`'s exact
+    badge markup and style object (hot-pink pill, `border: 2px solid #000`,
+    `title={tool.note || tool.status}` for the hover reason) gated on
+    `tool.status && tool.status !== 'Active'` — same condition, same visual
+    language, no new style invented.
+  - Placement: small enough to sit beside the tool name in the card's header
+    row (`Stack.jsx`'s `<div className="flex items-start justify-between
+    gap-3">` wrapper that already holds the title and the `ProgressRing`) —
+    matches how `ToolCard.jsx` puts its badge row opposite the source-category
+    chip, so the pattern (badge lives in the top row, description below) stays
+    consistent across every card type in the app.
+  - **What this would NOT include** (kept out to bound the diff): no change
+    to `ToolCard.jsx`, `ToolDetail.jsx`, `Compare.jsx`, or `progressStore.js`
+    — all four already do the right thing; no backfilled notes for the 5
+    Uncertain tools missing one (same rule the original entry set: render
+    what exists, don't invent editorial content); no auto-removal or
+    re-ranking of Uncertain tools already in a stack — flagging, not judging,
+    is this gap's whole job, same restraint the original entry applied to
+    Discover/Compare.
+- **Build size:** S — one reused badge block added to one existing card in
+  `Stack.jsx`. No new store, no new util, no new route, no backend, no new
+  dependency. Verifiable with `npm run smoke` (renders `/app/stack` clean)
+  since this repo has no component-level test harness for page UI.
+- **Found:** 2026-09-16 00:20 UTC
+
+---
+
+### Sharing a stack link produces zero personalized preview — the growth loop is silently dead on every platform it's pasted into
+- **Status:** OPEN
+- **Seen in:** not a competitor feature so much as standard practice for any
+  product whose growth depends on shared links looking good unopened: Wordle's
+  per-day result grid, Spotify Wrapped's per-user cards, GitHub's per-repo
+  social preview, and Notion's public pages all bake a correct, content-
+  specific `og:title`/`og:image` into the actual HTTP response a crawler
+  receives — because none of the real preview scrapers (Twitterbot, Slackbot,
+  Discordbot, facebookexternalhit, WhatsApp, iMessage's LinkPresentation,
+  LinkedInBot, TelegramBot) execute JavaScript. They fetch the raw HTML once
+  and read whatever `<meta>` tags are already in it.
+- **Gap:** Toolnaut already ships "Share / export your stack"
+  (`src/utils/shareStack.js`, `src/pages/SharedStack.jsx` — this backlog's own
+  first-ever entry, SHIPPED `42bdc994`) and its landing page,
+  `SharedStack.jsx:21-41`, does call `useHead()` with a real per-stack title
+  and description built from the decoded tool names. But `useHead`
+  (`src/utils/head.js:52-90`) sets those tags with a `useEffect`, which only
+  runs after React mounts and hydrates in a browser — it never touches
+  `og:image`/`twitter:image` at all (grepped `head.js` for both: zero hits;
+  every route, prerendered or not, keeps the one static pair set in
+  `index.html:21,29`), and more fundamentally it never reaches a non-JS
+  crawler in the first place. `scripts/prerender.mjs`'s `ROUTES` array
+  (`prerender.mjs:43-60`) is the only mechanism in this codebase that bakes
+  `useHead()` output into a static file a crawler actually receives, and
+  `SharedStack.jsx`'s own top comment (`:20-24`) already says why `/s/:slug`
+  isn't on it: the content is keyed off an unbounded `:slugs` param, not one
+  of a fixed dozen paths a build script can enumerate. `vercel.json`'s
+  catch-all rewrite (`"/((?!api/).*)": "/_shell.html"`) sends every non-`/api`
+  request, crawler or human, to the same unrendered SPA shell — so a bot
+  hitting `/s/<slug>` gets `index.html`'s title ("Toolnaut — Your AI Stack,
+  Personalized") and the generic `/og.png`, never the tools the link is
+  actually about. The comment at `SharedStack.jsx:22-24` calling this "the
+  pasted-link preview" fix is the one premise in that file that doesn't hold —
+  `useHead` fixes the tab title for a human who already clicked, not the
+  preview card generated before anyone clicks.
+- **Why it matters:** the entire point of a share feature is the moment
+  before the click — a friend or teammate deciding whether a pasted link is
+  worth opening. Today every one of those moments shows the same generic
+  homepage card regardless of which 3 or 8 tools are actually in the stack,
+  which is the one thing that would make a recipient curious. For a
+  personalization-first product, a share link that looks identical for every
+  user is a missed loop, not a working one — and unlike most gaps in this
+  file, it isn't a missing feature so much as an already-shipped one quietly
+  not doing its job for the audience (crawlers) it was aimed at.
+- **Smallest useful version (what to actually build):** a Vercel Edge
+  Middleware (`middleware.js` at repo root, `export const config = { matcher:
+  '/s/:slug*' }`) that inspects the request's `User-Agent` against a short
+  known-bot regex (`bot|facebookexternalhit|Twitterbot|Slackbot|Discordbot|
+  WhatsApp|TelegramBot|LinkedInBot`) and, only for a match, returns a small
+  static HTML response built from `decodeStackSlugs()` and `getTool()`
+  (`src/utils/shareStack.js`, `src/utils/toolsCatalog.js:763` — both pure,
+  no DOM/localStorage access, already edge-runtime-safe) instead of letting
+  the request fall through to `_shell.html`: real `<title>`, `og:title`,
+  `og:description` built the same way `SharedStack.jsx:28-30` already
+  composes them, and `og:image` left pointing at the existing static
+  `/og.png` for v1 — every non-bot request (i.e. every human) is unaffected
+  and still gets the real SPA. This needs no new route, no change to
+  `vercel.json`'s rewrite (Edge Middleware runs before it), no new dependency.
+- **What this would NOT include** (kept out to bound the diff): no per-stack
+  *generated* image (`@vercel/og` compositing tool names/icons onto a canvas)
+  — real title + description text is what every listed reference product
+  actually leans on for the preview card body, a custom image is a
+  separately-shippable v2, not a blocker for v1; no middleware coverage for
+  any other route — `/`, `/tools/*`, `/pricing` etc. are already correctly
+  prerendered per `scripts/prerender.mjs`'s `ROUTES`, this gap is specific to
+  the one route family that can't be (unbounded, per-link content).
+- **Build size:** M — one new `middleware.js`, reusing two already-pure
+  utils. No backend, no database, no new dependency; the main cost is care
+  around Edge Runtime constraints (no Node built-ins) and manual verification
+  since headless Chromium in `npm run smoke` doesn't send a bot UA, so this
+  needs a manual `curl -A "Slackbot"` check against a preview deploy before
+  it can be marked SHIPPED.
+- **Found:** 2026-09-16 03:20 UTC

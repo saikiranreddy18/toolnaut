@@ -1,9 +1,11 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { galaxyState } from '../../state/galaxyStore'
 
 const ZOOM_MIN = 2.4
 const ZOOM_MAX = 16
+const CLICK_PX = 6 // total pointer travel under this reads as a tap, not a drag
 
 // Elevation auto-tilts as you zoom: far out reads as an overhead survey,
 // close in opens toward an edge-on, grazing view along the spiral arms —
@@ -29,11 +31,13 @@ function tiltForZoom(zoom) {
 export default function GalaxyExplorer({ onClose }) {
   const surface = useRef(null)
   const badge = useRef(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const el = surface.current
     const pointers = new Map()
     let lastPinch = 0
+    let dragDistance = 0
     let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
 
     function paintBadge() {
@@ -59,10 +63,16 @@ export default function GalaxyExplorer({ onClose }) {
     function onDown(e) {
       el.setPointerCapture(e.pointerId)
       pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+      if (pointers.size === 1) dragDistance = 0
     }
     function onMove(e) {
       mouse = { x: e.clientX, y: e.clientY }
       paintBadge()
+      // Only steer the cursor while nothing is captured — mid-drag, the
+      // grab/grabbing classes below already own the affordance.
+      if (pointers.size === 0) {
+        el.style.cursor = galaxyState.hoveredTool ? 'pointer' : ''
+      }
       const prev = pointers.get(e.pointerId)
       if (!prev) return
       const curr = { x: e.clientX, y: e.clientY }
@@ -77,6 +87,7 @@ export default function GalaxyExplorer({ onClose }) {
         }
         lastPinch = dist
       } else {
+        dragDistance += Math.hypot(curr.x - prev.x, curr.y - prev.y)
         galaxyState.rotY -= (curr.x - prev.x) * 0.005
         // vertical drag nudges elevation directly off the zoom-driven baseline,
         // so a look-around still feels responsive without fighting the auto-tilt
@@ -85,8 +96,14 @@ export default function GalaxyExplorer({ onClose }) {
       }
     }
     function onUp(e) {
+      const wasSolo = pointers.size === 1
       pointers.delete(e.pointerId)
       if (pointers.size < 2) lastPinch = 0
+      // A tap, not a drag: send the star the pointer was resting on to the
+      // one page that can actually answer "what is this" — public search.
+      if (wasSolo && dragDistance < CLICK_PX && galaxyState.hoveredTool) {
+        navigate(`/search?q=${encodeURIComponent(galaxyState.hoveredTool.name)}`)
+      }
     }
     function onKey(e) {
       if (e.key === 'Escape') onClose()
@@ -106,7 +123,7 @@ export default function GalaxyExplorer({ onClose }) {
       el.removeEventListener('pointercancel', onUp)
       window.removeEventListener('keydown', onKey)
     }
-  }, [onClose])
+  }, [onClose, navigate])
 
   function zoomBy(f) {
     galaxyState.zoom = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, galaxyState.zoom * f))

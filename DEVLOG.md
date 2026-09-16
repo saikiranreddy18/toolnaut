@@ -9,6 +9,130 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-15
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h
+window, most recent 2026-09-15 14:21 UTC publishing 9 tools, previous run
+2026-09-14 23:59 UTC publishing 5. 14 tools published in the last 24h, feed
+holds 408 tools. Healthy and growing.
+
+**Researched today:** three research-hour runs before this one. 00:03 UTC
+logged a second instance of a bug this codebase already paid down once:
+`FounderOffer.jsx`/`FounderRibbon.jsx`'s countdown CTAs link to
+`/pay?plan=founder`, but `Pay.jsx` never reads the query string at all —
+`chosen` is hardcoded to `'guru'`, so the offer's own time-pressured checkout
+link silently drops the plan it promised to preselect. 06:03 UTC found and
+fixed a real, small bug outside the backlog process (per the research run's
+"one small improvement" allowance) —
+[`f7250f1`](https://github.com/saikiranreddy18/toolnaut/commit/f7250f1):
+`FounderOffer.jsx` rendered a flat `$360` to every visitor, including Indian
+visitors actually charged ₹29,999. 09:03 UTC logged the gap chosen below.
+12:03 UTC logged that `HowItWorksSection.jsx`'s fourth step promises
+"track progress against your role, not generic benchmarks," but
+`progressStore` is one flat per-tool status and nothing on `Stack.jsx` ever
+measures it against `persona.stack` specifically — a real display gap, small
+build, queued below.
+
+**Shipped (this run):** clickable galaxy stars —
+[`86c7066`](https://github.com/saikiranreddy18/toolnaut/commit/86c7066).
+Picked over the Founder-checkout-preselect bug and the role-benchmark gap
+(both also build-ready and small) because this is the single
+highest-visibility surface on the site — the full-screen "Explore the
+galaxy" mode's own on-screen copy promises "Zoom in to **meet the tools**,"
+and `ToolStars.jsx` already ran a per-frame hover hit test with zero click
+handling anywhere, so a curious visitor zooming in got a floating name and
+no next action. `ToolStars` now writes the hovered tool onto `galaxyState`
+(the same shared mutable-state pattern already used for `explore`/`zoom`/
+`rotX`), and `GalaxyExplorer` distinguishes a tap from a drag (6px travel
+threshold) on pointer-up, navigating to `/search?q=<name>` — reusing the
+already-public, already-built search page rather than a new destination —
+plus a pointer cursor as the pre-click affordance. Scoped to explore mode
+only; the ambient landing-page galaxy stays click-inert as before.
+
+**Live on toolnaut.xyz** now that it's on master. `npm test` (282/282),
+`npm run build` (17/17 routes prerendered, three.js stays in its own chunk),
+and `npm run smoke` (23/23 routes, 0 console errors) all green before push.
+Also verified by hand in a real browser beyond the route-render smoke test:
+hovering a star shows a pointer cursor, a clean tap lands on
+`/search?q=...` pre-filled with that tool's name, and a drag still orbits
+the camera without navigating.
+
+**Queued next:** the Founder-checkout plan-preselect bug (`Pay.jsx` needs a
+`useLocation`-read `plan` param and a visual "your pick" signal — fully
+specced, build size S) is the next-best small win, since it sits on the
+product's highest-intent CTA. The role-benchmark display gap on `Stack.jsx`
+is also build-ready. Still OPEN from prior days: GA4 consent gate, "download
+my data" export, public-page skip-to-content link, command palette, tool
+graveyard page, "Featured on Toolnaut" badge, RSS feed of new tools,
+Discover facet counts, Collections, stack-overlap warning, weekly trending
+tools, and the dollar-amount half of stack cost.
+
+---
+
+## 2026-09-14
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h
+window, most recent 2026-09-14 15:54 UTC publishing 12 tools, previous run
+2026-09-13 23:31 UTC publishing 5. 17 tools published in the last 24h, feed
+holds 394 tools. Healthy and growing.
+
+**Researched today:** four research-hour runs before this one, all
+`FeaturesSection.jsx` promise-vs-reality audits (the same method that has
+been finding this file's best gaps all week). 03:17 UTC logged that "Live
+Tool Comparison" sells integration comparisons that `Compare.jsx` and
+`PublicCompare.jsx` never render, even though `toolResources.js`'s verified
+integration data already ships and is already used elsewhere
+(`ToolDetail.jsx`). 06:19 UTC logged the twin gap chosen below. 09:06 UTC
+re-ran the exact throwaway Chromium-egress check from 2026-09-13's reverted
+favicon attempt — same result, external requests still time out in this
+sandbox while shell `curl` succeeds instantly, so that gap stays blocked on
+a sandbox fix or a CI-based retry, not a code problem. 12:20 UTC verified
+two claims a prior deepening pass had waved through without individually
+checking; both hold up for real reasons.
+
+**Separately, outside this backlog process:** the human owner shipped two
+fixes today — honest pricing-table/plan-card claims (Student actually has
+the stack builder, sharing, all categories and the 4-week roadmap; only
+saved-tool count differs from Pro) and a security hardening pass (shared
+rate limiting, security logging, safer admin guards, response headers,
+written up in the new `docs/security.md`). Neither touched
+`docs/research-backlog.md`; cross-checked both against the open backlog and
+found no overlap with any OPEN entry.
+
+**Shipped (this run):** Fresh Finds domain matching —
+[`6552af5`](https://github.com/saikiranreddy18/toolnaut/commit/6552af5).
+Picked over the same-audit "Live Tool Comparison" gap (also build-ready and
+also small) because Discover is the page every signed-in visitor actually
+lands on, making this the more visible fix of the two. `FeaturesSection.jsx`
+sells "Weekly Fresh Finds" as tools "matched to your evolving role," but
+`Discover.jsx`'s "New this week" strip was pure recency — every visitor saw
+the identical eight tools, while `answers.domain` was already loaded four
+lines away to rank the main grid. Reordered the same recency-sorted
+candidate list so same-domain tools sort first (a stable sort, so the
+within-group order never changes), kept `.slice(0, 8)`, and only swapped the
+heading to name the domain (`🆕 New in Design`, etc.) when a same-domain
+tool actually landed in the result — a domain with nothing new this week
+keeps the honest generic heading rather than a false personalized one.
+
+**Live on toolnaut.xyz** now that it's on master — pure client-side reorder
+in an existing component, no new dependency, no new route, no schema
+change. `npm test` (282/282), `npm run build` (17/17 routes prerendered,
+three.js stays in its own chunk), and `npm run smoke` (23/23 routes, 0
+console errors) all green before push.
+
+**Queued next:** "Live Tool Comparison" integration row (Compare.jsx /
+PublicCompare.jsx, build-ready, needs only `resourcesFor` wired into one new
+table row) is the next-best small win from today's audit. The favicon/
+visual-identity gap is still blocked on the sandbox's Chromium egress
+restriction — try it via CI instead of a local smoke run next time. Still
+OPEN from prior days: GA4 consent gate, "download my data" export,
+public-page skip-to-content link, command palette, tool graveyard page,
+"Featured on Toolnaut" badge, RSS feed of new tools, Discover facet counts,
+Collections, stack-overlap warning, weekly trending tools, and the
+dollar-amount half of stack cost.
+
+---
+
 ## 2026-09-13
 
 **Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h

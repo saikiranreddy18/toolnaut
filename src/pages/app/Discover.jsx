@@ -153,7 +153,18 @@ export default function Discover() {
   // Same filter as the ranking: "New this week" reads as an editorial pick, so
   // a scraped repo wearing a NEW badge there is the most prominent place the
   // catalog's few non-products could possibly land.
-  const freshTools = useMemo(() => getNewTools(7).filter((t) => !isCatalogNoise(t)).slice(0, 8), [])
+  // Recency order comes first from getNewTools(); when a domain is on file,
+  // Array.prototype.sort's stability keeps that order within each group and
+  // only moves same-domain tools ahead of the rest (a reorder, not a rescore).
+  const freshTools = useMemo(() => {
+    const candidates = getNewTools(7).filter((t) => !isCatalogNoise(t))
+    const sorted = answers?.domain
+      ? [...candidates].sort((a, b) => (a.category === answers.domain ? 0 : 1) - (b.category === answers.domain ? 0 : 1))
+      : candidates
+    return sorted.slice(0, 8)
+  }, [answers?.domain])
+
+  const hasFreshDomainMatch = !!(answers?.domain && freshTools.some((t) => t.category === answers.domain))
 
   // A personalised rail, not a catalog-wide one: computed once from whatever
   // was already recorded, no live subscription needed since nothing on this
@@ -211,8 +222,10 @@ export default function Discover() {
       {freshTools.length > 0 && (
         <div className="mt-6">
           <div className="flex items-center justify-between gap-2">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-500">New this week</h2>
-            <Link to="/new" className="flex min-h-11 items-center text-[10px] font-bold text-exus-lime hover:opacity-80">
+            <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500">
+              {hasFreshDomainMatch ? `🆕 New in ${CATEGORY_META[answers.domain].name}` : '🆕 New this week'}
+            </h2>
+            <Link to="/new" className="flex min-h-11 items-center text-[10px] font-bold uppercase tracking-widest text-exus-lime hover:opacity-80">
               See the full feed →
             </Link>
           </div>

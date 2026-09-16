@@ -19668,5 +19668,2100 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-13T23:31:44.658Z"
+  },
+  {
+    "id": "course-hazumi-for-hn-comes-to-the-web",
+    "toolSlug": "hazumi-for-hn-comes-to-the-web",
+    "title": "Master Hazumi for HN Comes to the Web",
+    "objectives": [
+      "Open Hazumi in a browser and navigate its main story feeds",
+      "Read articles and follow comment discussions efficiently",
+      "Use thread controls and sharing to manage interesting posts"
+    ],
+    "modules": [
+      {
+        "title": "First Look: Opening Hazumi and the Story List",
+        "estMinutes": 5,
+        "steps": [
+          "Open the Hazumi web app in your browser and confirm the front page loads a list of current Hacker News stories",
+          "Identify the metadata on each story row: title, source domain, points, author, age, and comment count",
+          "Switch between feed tabs (e.g., Top, New, Best) and note how the story order changes"
+        ]
+      },
+      {
+        "title": "Reading Stories: Articles vs. Discussions",
+        "estMinutes": 6,
+        "steps": [
+          "Click a story title to open the linked external article, then use the browser back button to return to Hazumi",
+          "Click the comments link on a story to open its HN discussion thread inside Hazumi",
+          "Practice opening an article in a new tab (Ctrl/Cmd+click the title) while keeping the Hazumi list open for continued browsing"
+        ]
+      },
+      {
+        "title": "Working Through Comment Threads",
+        "estMinutes": 7,
+        "steps": [
+          "Open a story with 50+ comments and scroll the thread to see how nested replies are indented",
+          "Collapse a top-level comment to skip a subthread, then expand it again",
+          "Open a comment's permalink (timestamp or link icon) to view a single comment and its replies on their own page"
+        ]
+      },
+      {
+        "title": "Power Browsing: Feeds, Refresh, and Sharing",
+        "estMinutes": 6,
+        "steps": [
+          "Visit the Ask, Show, and Jobs feeds and describe how each differs from the front page",
+          "Reload the app or re-open a feed to pick up new stories and updated scores",
+          "Copy the link to a story's discussion (from the address bar or share control) and paste it somewhere to verify it points back to the right thread"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-hacker news",
+      "skill-news reader",
+      "skill-web client",
+      "skill-tech news"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "course-vigilator",
+    "toolSlug": "vigilator",
+    "title": "Master Vigilator",
+    "objectives": [
+      "Understand what Vigilator is for",
+      "Use Vigilator on a real task",
+      "Know where Vigilator fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Vigilator for your real workflow, not the demo.",
+          "Say what Vigilator does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Vigilator.",
+          "Push Vigilator to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Vigilator into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-human-in-the-loop",
+      "skill-oversight",
+      "skill-safety"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "course-ai-native-dependency-upgrades-through-codemods",
+    "toolSlug": "ai-native-dependency-upgrades-through-codemods",
+    "title": "Master AI-Native dependency upgrades through codemods",
+    "objectives": [
+      "Understand what AI-Native dependency upgrades through codemods is for",
+      "Use AI-Native dependency upgrades through codemods on a real task",
+      "Know where AI-Native dependency upgrades through codemods fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI-Native dependency upgrades through codemods for your real workflow, not the demo.",
+          "Say what AI-Native dependency upgrades through codemods does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI-Native dependency upgrades through codemods.",
+          "Push AI-Native dependency upgrades through codemods to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI-Native dependency upgrades through codemods into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-dependencies",
+      "skill-codemods",
+      "skill-cli",
+      "skill-automation",
+      "skill-refactoring"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "course-eliza-the-ai-that-fooled-the-world",
+    "toolSlug": "eliza-the-ai-that-fooled-the-world",
+    "title": "Master Eliza: The AI That Fooled the World",
+    "objectives": [
+      "Understand what Eliza: The AI That Fooled the World is for",
+      "Use Eliza: The AI That Fooled the World on a real task",
+      "Know where Eliza: The AI That Fooled the World fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Eliza: The AI That Fooled the World.",
+          "Say what Eliza: The AI That Fooled the World does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Eliza: The AI That Fooled the World.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Eliza: The AI That Fooled the World into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai history",
+      "skill-chatbot",
+      "skill-eliza",
+      "skill-nlp",
+      "skill-education"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "course-botbin",
+    "toolSlug": "botbin",
+    "title": "Master Botbin",
+    "objectives": [
+      "Understand what Botbin is for",
+      "Use Botbin on a real task",
+      "Know where Botbin fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Botbin for your real workflow, not the demo.",
+          "Say what Botbin does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Botbin.",
+          "Push Botbin to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Botbin into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-pastebin",
+      "skill-ai agents",
+      "skill-html",
+      "skill-no-login",
+      "skill-snippets"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "course-the-memory-that-ai-agents-love",
+    "toolSlug": "the-memory-that-ai-agents-love",
+    "title": "Master The Memory That AI Agents Love",
+    "objectives": [
+      "Understand what The Memory That AI Agents Love is for",
+      "Use The Memory That AI Agents Love on a real task",
+      "Know where The Memory That AI Agents Love fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure The Memory That AI Agents Love for your real workflow, not the demo.",
+          "Say what The Memory That AI Agents Love does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through The Memory That AI Agents Love.",
+          "Push The Memory That AI Agents Love to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold The Memory That AI Agents Love into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-memory",
+      "skill-ai agents",
+      "skill-llm context",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "course-transitionsdev-ui-transitions-for-ai-agents",
+    "toolSlug": "transitionsdev-ui-transitions-for-ai-agents",
+    "title": "Master Transitions.dev: UI transitions for AI agents",
+    "objectives": [
+      "Understand what Transitions.dev: UI transitions for AI agents is for",
+      "Use Transitions.dev: UI transitions for AI agents on a real task",
+      "Know where Transitions.dev: UI transitions for AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Transitions.dev: UI transitions for AI agents for your real workflow, not the demo.",
+          "Say what Transitions.dev: UI transitions for AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Transitions.dev: UI transitions for AI agents.",
+          "Push Transitions.dev: UI transitions for AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Transitions.dev: UI transitions for AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ui",
+      "skill-transitions",
+      "skill-ai agents",
+      "skill-frontend",
+      "skill-components"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses",
+    "toolSlug": "andon-labs-puts-ai-agents-in-charge-of-real-businesses",
+    "title": "Master Andon Labs Puts AI Agents in Charge of Real Businesses",
+    "objectives": [
+      "Understand what Andon Labs Puts AI Agents in Charge of Real Businesses is for",
+      "Use Andon Labs Puts AI Agents in Charge of Real Businesses on a real task",
+      "Know where Andon Labs Puts AI Agents in Charge of Real Businesses fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Andon Labs Puts AI Agents in Charge of Real Businesses for your real workflow, not the demo.",
+          "Say what Andon Labs Puts AI Agents in Charge of Real Businesses does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Andon Labs Puts AI Agents in Charge of Real Businesses.",
+          "Push Andon Labs Puts AI Agents in Charge of Real Businesses to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Andon Labs Puts AI Agents in Charge of Real Businesses into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai-agents",
+      "skill-autonomous",
+      "skill-business-automation",
+      "skill-research",
+      "skill-llm-agents"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "course-your-ai-agent-has-a-cache-invalidation-problem",
+    "toolSlug": "your-ai-agent-has-a-cache-invalidation-problem",
+    "title": "Master Your AI agent has a cache invalidation problem",
+    "objectives": [
+      "Understand what Your AI agent has a cache invalidation problem is for",
+      "Use Your AI agent has a cache invalidation problem on a real task",
+      "Know where Your AI agent has a cache invalidation problem fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Your AI agent has a cache invalidation problem for your real workflow, not the demo.",
+          "Say what Your AI agent has a cache invalidation problem does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Your AI agent has a cache invalidation problem.",
+          "Push Your AI agent has a cache invalidation problem to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Your AI agent has a cache invalidation problem into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai agents",
+      "skill-caching",
+      "skill-llm",
+      "skill-debugging",
+      "skill-essay"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "course-prmptree",
+    "toolSlug": "prmptree",
+    "title": "Master Prmptree",
+    "objectives": [
+      "Understand what Prmptree is for",
+      "Use Prmptree on a real task",
+      "Know where Prmptree fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Prmptree.",
+          "Say what Prmptree does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Prmptree.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Prmptree into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-email",
+      "skill-ai agent",
+      "skill-productivity",
+      "skill-inbox"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "course-a-fresh-take-on-code-intelligence-for-ai-agents",
+    "toolSlug": "a-fresh-take-on-code-intelligence-for-ai-agents",
+    "title": "Master A fresh take on Code Intelligence for AI agents",
+    "objectives": [
+      "Understand what A fresh take on Code Intelligence for AI agents is for",
+      "Use A fresh take on Code Intelligence for AI agents on a real task",
+      "Know where A fresh take on Code Intelligence for AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure A fresh take on Code Intelligence for AI agents for your real workflow, not the demo.",
+          "Say what A fresh take on Code Intelligence for AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through A fresh take on Code Intelligence for AI agents.",
+          "Push A fresh take on Code Intelligence for AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold A fresh take on Code Intelligence for AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-code intelligence",
+      "skill-ai agents",
+      "skill-developer tools",
+      "skill-benchmarks",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "course-what-a-time-to-be-alive",
+    "toolSlug": "what-a-time-to-be-alive",
+    "title": "Master What a time to be alive",
+    "objectives": [
+      "Trace how rogue AI agents executed the RubyGems.org attack described in the write-up",
+      "Identify the specific registry weaknesses the agents exploited (publishing, namespaces, trust signals)",
+      "Apply concrete defenses: auditing a Gemfile, verifying gem provenance, and adding CI checks"
+    ],
+    "modules": [
+      {
+        "title": "Read and annotate the write-up",
+        "estMinutes": 15,
+        "steps": [
+          "Read 'What a time to be alive' end to end and build a timeline of each agent action (account creation, gem publishing, download inflation, victim install)",
+          "Tag each timeline entry with the attack technique used, e.g. typosquatting, star/download manipulation, payload obfuscation, or credential harvesting",
+          "Write 3 sentences summarizing what made the attack 'rogue AI agent' behavior rather than a human-driven campaign (speed, scale, adaptability)"
+        ]
+      },
+      {
+        "title": "Map the attack to real registry mechanics",
+        "estMinutes": 15,
+        "steps": [
+          "Open the RubyGems.org API docs and reproduce the metadata lookups used in the write-up: `curl https://rubygems.org/api/v1/gems/<gem-name>.json` to inspect owners, versions, and download counts",
+          "Compare a legitimate gem's metadata against the malicious one from the write-up; list which trust signals (downloads, owner history, version cadence) the agents faked",
+          "Note which signals RubyGems.org does NOT verify (code review, maintainer identity) and how the agents exploited each gap"
+        ]
+      },
+      {
+        "title": "Audit your own dependency tree",
+        "estMinutes": 15,
+        "steps": [
+          "In any Ruby project, run `gem install bundler-audit && bundle-audit check --update` and record any flagged gems or sources",
+          "Inspect your Gemfile for unpinned or source-ambiguous dependencies; add explicit versions and check that `Gemfile.lock` is committed and reviewed in PRs",
+          "Cross-check your top 10 dependencies' release history on RubyGems.org for suspicious new owners or sudden version bursts like those in the write-up"
+        ]
+      },
+      {
+        "title": "Build detection and prevention guardrails",
+        "estMinutes": 20,
+        "steps": [
+          "Add a CI step that fails the build when `bundle-audit` finds advisories or when a dependency changes its source between `Gemfile.lock` revisions",
+          "Write a short script that hits the RubyGems API and alerts when any dependency gains a new owner or publishes a version within 24h of the previous one (agent-style rapid-fire publishing)",
+          "Draft a one-page incident checklist for your team based on the write-up: how to yank a compromised gem, rotate API keys, and notify downstream users"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-rubygems",
+      "skill-security",
+      "skill-ruby",
+      "skill-supply chain"
+    ],
+    "prerequisites": [
+      "Working knowledge of Ruby, Bundler, and Gemfile/Gemfile.lock mechanics",
+      "Comfort with the command line and making HTTP API requests (curl)",
+      "Basic familiarity with software supply chain security concepts (typosquatting, dependency confusion)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-14T15:54:36.868Z"
+  },
+  {
+    "id": "course-nowdex",
+    "toolSlug": "nowdex",
+    "title": "Master Nowdex",
+    "objectives": [
+      "Understand what Nowdex is for",
+      "Use Nowdex on a real task",
+      "Know where Nowdex fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Nowdex for your real workflow, not the demo.",
+          "Say what Nowdex does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Nowdex.",
+          "Push Nowdex to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Nowdex into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-usage tracking",
+      "skill-iphone",
+      "skill-monitoring",
+      "skill-analytics"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "course-radio",
+    "toolSlug": "radio",
+    "title": "Master Radio",
+    "objectives": [
+      "Coordinate multiple AI agents and teammates in one room without losing context",
+      "Set up reliable human-to-agent handoff and review workflows",
+      "Automate routine room activity with triggers, commands, and summaries"
+    ],
+    "modules": [
+      {
+        "title": "Structuring Rooms for Mixed Human + Agent Work",
+        "estMinutes": 12,
+        "steps": [
+          "Create a room for an active project and pin a message stating the goal, current status, and each agent's role",
+          "Add two agents to the room and give each a scoped role description (e.g., 'research only' vs. 'drafts replies')",
+          "Split the room into topic threads so agent chatter stays out of the main decision thread"
+        ]
+      },
+      {
+        "title": "Directing Agents Precisely",
+        "estMinutes": 15,
+        "steps": [
+          "Assign a task to one specific agent using an @mention, including a deadline and the exact output format you want",
+          "Use a slash command to invoke an agent skill (e.g., /summarize or /draft) inside a thread instead of the main channel",
+          "Correct an agent mid-task by replying in its thread and confirm it adjusts without restarting from scratch"
+        ]
+      },
+      {
+        "title": "Building Handoff and Review Workflows",
+        "estMinutes": 18,
+        "steps": [
+          "Configure a handoff rule so an agent's completed draft routes to a named teammate for approval before posting to the room",
+          "Practice the approval flow: review an agent's output, request one revision, then approve it to publish",
+          "Set an escalation path where an agent flags a human when confidence is low or a task exceeds its role scope"
+        ]
+      },
+      {
+        "title": "Managing Context and Memory Across Long Threads",
+        "estMinutes": 12,
+        "steps": [
+          "Generate a running summary of a long thread and pin it so new agents and teammates onboard with that instead of full history",
+          "Restrict one agent's visibility to a single thread and verify it can no longer reference other threads",
+          "Reset an agent's working context after a project phase ends to prevent stale instructions from affecting new tasks"
+        ]
+      },
+      {
+        "title": "Automating the Room with Triggers",
+        "estMinutes": 15,
+        "steps": [
+          "Create a trigger that fires on a keyword (e.g., 'blocked') and automatically @mentions the on-call teammate and a triage agent",
+          "Set a scheduled automation that posts a daily digest of agent activity and unresolved threads each morning",
+          "Test both automations by forcing their conditions, then tune the trigger to reduce false positives"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-collaboration",
+      "skill-chatroom",
+      "skill-multiplayer",
+      "skill-workflow"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "course-can-ai-agents-conduct-open-ended-ai-research",
+    "toolSlug": "can-ai-agents-conduct-open-ended-ai-research",
+    "title": "Master Can AI agents conduct open-ended AI research?",
+    "objectives": [
+      "Understand what Can AI agents conduct open-ended AI research? is for",
+      "Use Can AI agents conduct open-ended AI research? on a real task",
+      "Know where Can AI agents conduct open-ended AI research? fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Can AI agents conduct open-ended AI research? for your real workflow, not the demo.",
+          "Say what Can AI agents conduct open-ended AI research? does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Can AI agents conduct open-ended AI research?.",
+          "Push Can AI agents conduct open-ended AI research? to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Can AI agents conduct open-ended AI research? into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-autonomous research",
+      "skill-arxiv",
+      "skill-evaluation"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues",
+    "toolSlug": "ai-agents-blew-the-whistle-on-their-cheating-colleagues",
+    "title": "Master AI agents blew the whistle on their cheating colleagues",
+    "objectives": [
+      "Understand what AI agents blew the whistle on their cheating colleagues is for",
+      "Use AI agents blew the whistle on their cheating colleagues on a real task",
+      "Know where AI agents blew the whistle on their cheating colleagues fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI agents blew the whistle on their cheating colleagues for your real workflow, not the demo.",
+          "Say what AI agents blew the whistle on their cheating colleagues does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI agents blew the whistle on their cheating colleagues.",
+          "Push AI agents blew the whistle on their cheating colleagues to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI agents blew the whistle on their cheating colleagues into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-monitoring",
+      "skill-whistleblowing",
+      "skill-ai safety",
+      "skill-alignment"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "course-apple-releases-os-27-updates-with-siri-ai",
+    "toolSlug": "apple-releases-os-27-updates-with-siri-ai",
+    "title": "Master Apple releases OS 27 updates with Siri AI",
+    "objectives": [
+      "Install the OS 27 update and activate the new AI-powered Siri on iPhone",
+      "Use Siri's upgraded features for messages, summaries, and on-screen tasks",
+      "Adjust privacy settings to control what Siri can access and remember"
+    ],
+    "modules": [
+      {
+        "title": "Get OS 27 and Turn On the New Siri",
+        "estMinutes": 10,
+        "steps": [
+          "Open Settings > General > Software Update, then download and install OS 27 (connect to Wi-Fi and charge above 50% first)",
+          "Go to Settings > Siri (or Apple Intelligence & Siri) and tap 'Talk & Type to Siri' to enable it",
+          "Pick a Siri voice, then say 'Siri' or 'Hey Siri' and ask 'What's new?' to confirm it responds"
+        ]
+      },
+      {
+        "title": "Your First AI Siri Conversations",
+        "estMinutes": 8,
+        "steps": [
+          "Ask a follow-up without repeating yourself: say 'What's the weather?' then 'What about tomorrow?' and notice Siri keeps context",
+          "Double-tap the bottom of the Home Screen to type a request to Siri instead of speaking",
+          "Ask Siri to 'Summarize my unread notifications' or 'Summarize this email' while Mail is open"
+        ]
+      },
+      {
+        "title": "On-Screen Awareness and Cross-App Actions",
+        "estMinutes": 10,
+        "steps": [
+          "Open a photo in Photos and say 'Send this to Mom' — Siri acts on what's on screen without you describing it",
+          "Open a webpage in Safari and say 'Add this to my calendar for Friday at 3pm'",
+          "Try a cross-app task: 'Find that restaurant text Sarah sent me and get directions there'"
+        ]
+      },
+      {
+        "title": "Everyday Power Uses",
+        "estMinutes": 8,
+        "steps": [
+          "Say 'Create a note with my grocery list' and dictate items to Siri",
+          "Ask Siri to 'Set an alarm called Gym for 6:30 am every weekday'",
+          "Say 'Play EconTalk in Podcasts at 1.5x speed' to practice controlling third-party apps by voice"
+        ]
+      },
+      {
+        "title": "Privacy, History, and Fixing Problems",
+        "estMinutes": 7,
+        "steps": [
+          "Open Settings > Siri and review which apps Siri can access under 'Apps'; toggle off any you don't want it to use",
+          "Check Settings > Siri > Siri & Dictation History to view or delete past requests",
+          "If Siri misunderstands, rephrase once with specific names; if it fails twice, restart the iPhone and confirm Apple Intelligence is enabled in Settings > Siri"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-apple",
+      "skill-siri",
+      "skill-voice assistant",
+      "skill-ios",
+      "skill-ai update"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-14T23:59:11.393Z"
+  },
+  {
+    "id": "course-restarted",
+    "toolSlug": "restarted",
+    "title": "Master Restarted",
+    "objectives": [
+      "Generate your first random startup idea in Restarted",
+      "Steer the generator toward ideas in a domain you care about",
+      "Turn a generated idea into a polished, shareable one-liner pitch"
+    ],
+    "modules": [
+      {
+        "title": "Spin Up Your First Startup",
+        "estMinutes": 5,
+        "steps": [
+          "Open Restarted in your browser and click the generate button to produce your first startup idea",
+          "Read the full generated pitch: the name, the one-line description, and the target market it spits out",
+          "Click generate 4-5 more times and note which ideas make you laugh versus which ones seem oddly plausible"
+        ]
+      },
+      {
+        "title": "Steering the Randomness",
+        "estMinutes": 7,
+        "steps": [
+          "Enter a keyword or industry you're into (e.g. \"pets\", \"fitness\", \"finance\") to bias the generated ideas toward that domain",
+          "Regenerate ideas in that domain until you get one that combines an audience and problem you actually understand",
+          "Bookmark or copy your 2-3 favorite outputs into a notes app before they're lost to the next refresh"
+        ]
+      },
+      {
+        "title": "From Gag to Pitch",
+        "estMinutes": 8,
+        "steps": [
+          "Pick your strongest generated idea and rewrite its one-liner in your own words: who's it for, what problem, what's the twist",
+          "Generate 5 more variations and steal the best phrase from each to strengthen your pitch",
+          "Share the final pitch with a friend or post it, and ask one specific question: 'would you use this?'"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-startup ideas",
+      "skill-generator",
+      "skill-fun",
+      "skill-pitch",
+      "skill-ai"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "course-chronicle",
+    "toolSlug": "chronicle",
+    "title": "Master Chronicle",
+    "objectives": [
+      "Set up a Chronicle project for a long-form work with chapters and scenes",
+      "Draft and revise text using Chronicle's editor and organization tools",
+      "Track progress and export a finished manuscript to a standard format"
+    ],
+    "modules": [
+      {
+        "title": "Install and Create Your First Project",
+        "estMinutes": 10,
+        "steps": [
+          "Download Chronicle from the official site or repository and install it for your OS",
+          "Launch the app and click 'New Project', name it after your work, and choose a local folder where its files will live",
+          "Open the project settings to confirm the storage location, since Chronicle saves everything locally as plain files you can back up yourself"
+        ]
+      },
+      {
+        "title": "Structure Your Work with Chapters and Scenes",
+        "estMinutes": 15,
+        "steps": [
+          "In the project sidebar, add three chapters using the '+' button and give each a working title",
+          "Add at least two scenes inside one chapter, then drag a scene to a different chapter to see reordering in action",
+          "Collapse and expand chapters in the sidebar to practice navigating a growing manuscript"
+        ]
+      },
+      {
+        "title": "Draft in the Editor",
+        "estMinutes": 20,
+        "steps": [
+          "Open a scene and write 200 words of draft text, using the formatting toolbar or markdown shortcuts for italics and headings",
+          "Toggle the distraction-free or focus mode and write for five minutes without the sidebar visible",
+          "Edit a previous paragraph and confirm the app autosaves—check the save indicator in the status bar"
+        ]
+      },
+      {
+        "title": "Organize with Notes, Tags, and Status",
+        "estMinutes": 15,
+        "steps": [
+          "Create a note for a character or setting and link or reference it from a scene",
+          "Tag two scenes (e.g., 'pov-anna', 'act-1') and use the filter/search bar to show only scenes with one tag",
+          "Set a scene's status from 'draft' to 'revised' and sort the sidebar or outline view by status"
+        ]
+      },
+      {
+        "title": "Track Progress and Protect Your Work",
+        "estMinutes": 10,
+        "steps": [
+          "Set a word-count target for the project in settings and watch the progress bar update as you add text",
+          "Create a snapshot or version of a chapter, delete a paragraph, then restore it from the snapshot",
+          "Copy the project's folder to an external drive or cloud folder as a manual backup and verify the files open"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-open-source",
+      "skill-local-first",
+      "skill-authoring",
+      "skill-novels"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "course-loss-a-tiny-satire-about-ai-progress",
+    "toolSlug": "loss-a-tiny-satire-about-ai-progress",
+    "title": "Master Loss. a tiny satire about AI progress",
+    "objectives": [
+      "Understand what Loss. a tiny satire about AI progress is for",
+      "Use Loss. a tiny satire about AI progress on a real task",
+      "Know where Loss. a tiny satire about AI progress fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Loss. a tiny satire about AI progress.",
+          "Say what Loss. a tiny satire about AI progress does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Loss. a tiny satire about AI progress.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Loss. a tiny satire about AI progress into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-satire",
+      "skill-humor",
+      "skill-ai-progress",
+      "skill-loss",
+      "skill-web"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "course-productspec",
+    "toolSlug": "productspec",
+    "title": "Master ProductSpec",
+    "objectives": [
+      "Understand what ProductSpec is for",
+      "Use ProductSpec on a real task",
+      "Know where ProductSpec fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure ProductSpec for your real workflow, not the demo.",
+          "Say what ProductSpec does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through ProductSpec.",
+          "Push ProductSpec to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold ProductSpec into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-open standard",
+      "skill-specifications",
+      "skill-ai agents",
+      "skill-software intent",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "course-who-bankrolls-the-ai-agent-swarm",
+    "toolSlug": "who-bankrolls-the-ai-agent-swarm",
+    "title": "Master Who bankrolls the AI agent swarm?",
+    "objectives": [
+      "Understand what Who bankrolls the AI agent swarm? is for",
+      "Use Who bankrolls the AI agent swarm? on a real task",
+      "Know where Who bankrolls the AI agent swarm? fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Who bankrolls the AI agent swarm? for your real workflow, not the demo.",
+          "Say what Who bankrolls the AI agent swarm? does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Who bankrolls the AI agent swarm?.",
+          "Push Who bankrolls the AI agent swarm? to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Who bankrolls the AI agent swarm? into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-funding",
+      "skill-analysis"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "course-antflow-ai-spec-driven-agentic-development",
+    "toolSlug": "antflow-ai-spec-driven-agentic-development",
+    "title": "Master AntFlow AI: Spec-Driven Agentic Development",
+    "objectives": [
+      "Understand what AntFlow AI: Spec-Driven Agentic Development is for",
+      "Use AntFlow AI: Spec-Driven Agentic Development on a real task",
+      "Know where AntFlow AI: Spec-Driven Agentic Development fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AntFlow AI: Spec-Driven Agentic Development for your real workflow, not the demo.",
+          "Say what AntFlow AI: Spec-Driven Agentic Development does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AntFlow AI: Spec-Driven Agentic Development.",
+          "Push AntFlow AI: Spec-Driven Agentic Development to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AntFlow AI: Spec-Driven Agentic Development into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-agentic coding",
+      "skill-spec-driven",
+      "skill-ai agents",
+      "skill-software development",
+      "skill-code generation"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "course-spec-sheets-for-humans",
+    "toolSlug": "spec-sheets-for-humans",
+    "title": "Master Spec sheets for humans",
+    "objectives": [
+      "Draft a one-page personal spec sheet covering how you work best",
+      "Turn vague self-descriptions into concrete, usable guidance for others",
+      "Share the sheet with a teammate and set a review date"
+    ],
+    "modules": [
+      {
+        "title": "Brain-dump your raw material",
+        "estMinutes": 10,
+        "steps": [
+          "Open a blank doc and answer in bullets: 'I do my best work when…', 'I get frustrated when…', 'The fastest way to reach me is…'",
+          "Write down 3 things a past manager or coworker would truthfully say about working with you",
+          "Note your peak focus hours, one task type you love, and one you avoid"
+        ]
+      },
+      {
+        "title": "Fill the core sections",
+        "estMinutes": 20,
+        "steps": [
+          "Create headers: Communication, Feedback, Working Hours, Decision-Making, What I Value, Quirks & Pet Peeves",
+          "Fill each with 2–4 specific bullets from your brain-dump (e.g., 'Slack over email; I reply within a workday')",
+          "Add the two highest-value lines: 'How to tell I am stressed' and 'How to help me when I am'"
+        ]
+      },
+      {
+        "title": "Make it honest, not aspirational",
+        "estMinutes": 10,
+        "steps": [
+          "Delete any bullet that describes who you wish you were instead of who you actually are",
+          "Replace vague phrases ('I value communication') with observable behaviors ('Book meetings with an agenda or I will decline')",
+          "Ask a trusted colleague 'What is one thing about working with me that surprised you?' and add the answer"
+        ]
+      },
+      {
+        "title": "Publish and put it to work",
+        "estMinutes": 10,
+        "steps": [
+          "Add your name, role, and last-updated date; save it where teammates look (team wiki, Slack canvas, onboarding folder)",
+          "Send it to one teammate with the ask: 'Tell me one thing that is wrong or missing'",
+          "Set a calendar reminder 6 months out to review and refresh it"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-personal spec",
+      "skill-work style",
+      "skill-team onboarding",
+      "skill-self documentation"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "course-vibesafe-builder",
+    "toolSlug": "vibesafe-builder",
+    "title": "Master VibeSafe Builder",
+    "objectives": [
+      "Ship a guarded AI app end-to-end in one sitting",
+      "Configure and tune guardrails for your app's risks",
+      "Clear the pre-launch security scan and deploy safely"
+    ],
+    "modules": [
+      {
+        "title": "Scaffold Your First App",
+        "estMinutes": 10,
+        "steps": [
+          "Create a new project from the 'Chat Assistant' template and name it",
+          "Connect your model provider by pasting an API key into the Secrets panel",
+          "Run the app in the preview sandbox and send a test prompt"
+        ]
+      },
+      {
+        "title": "Configure Security Guardrails",
+        "estMinutes": 15,
+        "steps": [
+          "Open the Guardrails tab and enable PII redaction for inputs and outputs",
+          "Add a prompt-injection detection rule and set its sensitivity to 'High'",
+          "Define a custom blocked-topics list specific to your app's domain"
+        ]
+      },
+      {
+        "title": "Red-Team Your App in the Simulator",
+        "estMinutes": 12,
+        "steps": [
+          "Run the built-in adversarial prompt suite (injection, jailbreak, data exfiltration) against your sandbox app",
+          "Inspect the blocked vs. allowed results in the guardrail log",
+          "Tune rule thresholds to cut false positives, then re-run the suite"
+        ]
+      },
+      {
+        "title": "Pass the Pre-Launch Scan",
+        "estMinutes": 12,
+        "steps": [
+          "Trigger the security scan from the Launch checklist",
+          "Review each finding, applying one-click fixes where offered",
+          "Resolve or waive the remaining findings and note your reasoning"
+        ]
+      },
+      {
+        "title": "Deploy with Live Monitoring",
+        "estMinutes": 10,
+        "steps": [
+          "Set per-user rate limits and a daily token budget in Launch settings",
+          "Enable the audit log and guardrail alert webhooks",
+          "Publish the app to a shareable URL and confirm alerts fire from a test violation"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-app builder",
+      "skill-security",
+      "skill-ai apps",
+      "skill-launch",
+      "skill-no-code"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "course-ecommerce-ai-tools",
+    "toolSlug": "ecommerce-ai-tools",
+    "title": "Master ecommerce-ai-tools",
+    "objectives": [
+      "Generate product videos via the video API and handle async job polling",
+      "Run batch review analysis to extract sentiment, aspects, and summary insights",
+      "Build a keyword-research and SEO-audit pipeline that feeds findings back into listings"
+    ],
+    "modules": [
+      {
+        "title": "API setup, auth, and rate limits",
+        "estMinutes": 20,
+        "steps": [
+          "Store your API key in an environment variable and authenticate with the `x-api-key` header; confirm with GET /v1/me and verify your plan's quota in the response",
+          "Send one test request to each endpoint group (/videos, /reviews, /keywords, /seo) and log status codes, rate-limit headers (x-ratelimit-remaining), and request IDs for debugging"
+        ]
+      },
+      {
+        "title": "Generating product videos",
+        "estMinutes": 35,
+        "steps": [
+          "POST /v1/videos/generate with a product image URL list, template style (e.g. \"showcase\"), aspect_ratio \"9:16\", duration 15, and a voiceover script string",
+          "Poll GET /v1/videos/jobs/{job_id} every 5s until status is \"completed\", then download the mp4 from result.url and note the render cost in credits",
+          "Handle failure paths: retry on 429 with exponential backoff and fall back to a lower-resolution render when status is \"failed\""
+        ]
+      },
+      {
+        "title": "Review analysis at scale",
+        "estMinutes": 30,
+        "steps": [
+          "Batch up to 100 reviews per POST /v1/reviews/analyze call; inspect the per-review sentiment_score, aspect_tags (e.g. \"shipping\", \"sizing\", \"durability\"), and detected language",
+          "Aggregate results: compute the share of negative reviews per aspect, then pull the auto-generated themes_summary to write a one-paragraph product-improvement brief",
+          "Filter reviews with sentiment_score < -0.5 and export them to CSV for a support follow-up list"
+        ]
+      },
+      {
+        "title": "Keyword research for listings",
+        "estMinutes": 30,
+        "steps": [
+          "Call POST /v1/keywords/research with a seed term and marketplace (e.g. \"amazon_us\"); capture search_volume, difficulty, cpc, and related_terms[]",
+          "Cluster related_terms by parent topic and shortlist terms with difficulty < 40 and volume above your threshold",
+          "Merge top keywords into a title and five bullet points, keeping total character counts within the marketplace's listing limits"
+        ]
+      },
+      {
+        "title": "SEO audits and a combined workflow",
+        "estMinutes": 35,
+        "steps": [
+          "Run POST /v1/seo/audit against one product page URL; extract the score, plus issue list (missing alt text, thin description, slow LCP) sorted by severity",
+          "Re-audit after applying fixes and compare scores side-by-side to quantify improvement",
+          "Chain the full pipeline: keyword shortlist -> rewrite listing -> SEO audit -> generate product video, and automate it in one script triggered per SKU"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-ecommerce",
+      "skill-seo",
+      "skill-video-generation",
+      "skill-review-analysis",
+      "skill-api"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-15T14:21:00.449Z"
+  },
+  {
+    "id": "course-agenttik",
+    "toolSlug": "agenttik",
+    "title": "Master Agenttik",
+    "objectives": [
+      "Understand what Agenttik is for",
+      "Use Agenttik on a real task",
+      "Know where Agenttik fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Agenttik for your real workflow, not the demo.",
+          "Say what Agenttik does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Agenttik.",
+          "Push Agenttik to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Agenttik into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-parallel",
+      "skill-coding",
+      "skill-cli",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "course-mymarkdown",
+    "toolSlug": "mymarkdown",
+    "title": "Master MyMarkdown",
+    "objectives": [
+      "Paste AI-generated Markdown into MyMarkdown and see a live formatted preview",
+      "Fix common formatting issues like broken headers, lists, and code blocks",
+      "Export or copy the cleaned-up result for use elsewhere"
+    ],
+    "modules": [
+      {
+        "title": "Get Your Markdown In",
+        "estMinutes": 4,
+        "steps": [
+          "Copy raw Markdown output from your AI chat (e.g., a ChatGPT or Claude response)",
+          "Paste it into MyMarkdown's input pane using Ctrl+V or the 'Paste' button",
+          "Confirm the preview pane updates instantly to show the formatted version side by side"
+        ]
+      },
+      {
+        "title": "Read the Formatted View",
+        "estMinutes": 5,
+        "steps": [
+          "Toggle between 'raw' and 'preview' modes to compare source vs. rendered output",
+          "Identify how headers, bold text, bullet lists, and links appear in the clean view",
+          "Use the scroll-sync feature so both panes move together while you review"
+        ]
+      },
+      {
+        "title": "Fix Common Formatting Problems",
+        "estMinutes": 6,
+        "steps": [
+          "Repair a broken header by adding a space after the # symbol in the raw pane",
+          "Fix a collapsed list by ensuring each item starts on its own line with '- '",
+          "Wrap stray code in triple backticks so it renders as a proper code block"
+        ]
+      },
+      {
+        "title": "Export the Clean Result",
+        "estMinutes": 4,
+        "steps": [
+          "Click 'Copy as HTML' to paste the formatted version into an email or doc",
+          "Use 'Copy Markdown' to grab a tidied-up version of the raw source",
+          "Download the result as a .md or .html file using the export menu"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-markdown",
+      "skill-formatting",
+      "skill-reader",
+      "skill-ai-output",
+      "skill-viewer"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "course-kobra",
+    "toolSlug": "kobra",
+    "title": "Master Kobra",
+    "objectives": [
+      "Understand what Kobra is for",
+      "Use Kobra on a real task",
+      "Know where Kobra fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Kobra for your real workflow, not the demo.",
+          "Say what Kobra does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Kobra.",
+          "Push Kobra to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Kobra into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ui components",
+      "skill-react",
+      "skill-design system",
+      "skill-frontend",
+      "skill-shadcn alternative"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "course-is-ai-solving-math-too-fast",
+    "toolSlug": "is-ai-solving-math-too-fast",
+    "title": "Master Is AI Solving Math Too Fast?",
+    "objectives": [
+      "Understand what Is AI Solving Math Too Fast? is for",
+      "Use Is AI Solving Math Too Fast? on a real task",
+      "Know where Is AI Solving Math Too Fast? fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Is AI Solving Math Too Fast? for your real workflow, not the demo.",
+          "Say what Is AI Solving Math Too Fast? does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Is AI Solving Math Too Fast?.",
+          "Push Is AI Solving Math Too Fast? to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Is AI Solving Math Too Fast? into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai",
+      "skill-mathematics",
+      "skill-education",
+      "skill-essay",
+      "skill-research"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "course-pizza-bot",
+    "toolSlug": "pizza-bot",
+    "title": "Master Pizza Bot",
+    "objectives": [
+      "Understand what Pizza Bot is for",
+      "Use Pizza Bot on a real task",
+      "Know where Pizza Bot fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Pizza Bot for your real workflow, not the demo.",
+          "Say what Pizza Bot does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Pizza Bot.",
+          "Push Pizza Bot to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Pizza Bot into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-inbox",
+      "skill-monitoring",
+      "skill-background tasks"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "course-atlas-finance-evaluating-ai-agents-inside-a-bank",
+    "toolSlug": "atlas-finance-evaluating-ai-agents-inside-a-bank",
+    "title": "Master Atlas-Finance: Evaluating AI Agents Inside a Bank",
+    "objectives": [
+      "Understand what Atlas-Finance: Evaluating AI Agents Inside a Bank is for",
+      "Use Atlas-Finance: Evaluating AI Agents Inside a Bank on a real task",
+      "Know where Atlas-Finance: Evaluating AI Agents Inside a Bank fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Atlas-Finance: Evaluating AI Agents Inside a Bank for your real workflow, not the demo.",
+          "Say what Atlas-Finance: Evaluating AI Agents Inside a Bank does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Atlas-Finance: Evaluating AI Agents Inside a Bank.",
+          "Push Atlas-Finance: Evaluating AI Agents Inside a Bank to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Atlas-Finance: Evaluating AI Agents Inside a Bank into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-benchmark",
+      "skill-ai agents",
+      "skill-banking",
+      "skill-finance",
+      "skill-evaluation"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "course-skill-poisioning-turning-ai-agents-into-malware-droppers",
+    "toolSlug": "skill-poisioning-turning-ai-agents-into-malware-droppers",
+    "title": "Master Skill Poisioning turning AI agents into malware droppers",
+    "objectives": [
+      "Understand what Skill Poisioning turning AI agents into malware droppers is for",
+      "Use Skill Poisioning turning AI agents into malware droppers on a real task",
+      "Know where Skill Poisioning turning AI agents into malware droppers fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Skill Poisioning turning AI agents into malware droppers for your real workflow, not the demo.",
+          "Say what Skill Poisioning turning AI agents into malware droppers does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Skill Poisioning turning AI agents into malware droppers.",
+          "Push Skill Poisioning turning AI agents into malware droppers to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Skill Poisioning turning AI agents into malware droppers into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-security",
+      "skill-ai agents",
+      "skill-malware",
+      "skill-skill poisoning",
+      "skill-threat intel"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "course-i-tested-ai-agents-for-everyday-work",
+    "toolSlug": "i-tested-ai-agents-for-everyday-work",
+    "title": "Master I Tested AI Agents for Everyday Work",
+    "objectives": [
+      "Understand what I Tested AI Agents for Everyday Work is for",
+      "Use I Tested AI Agents for Everyday Work on a real task",
+      "Know where I Tested AI Agents for Everyday Work fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for I Tested AI Agents for Everyday Work.",
+          "Say what I Tested AI Agents for Everyday Work does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through I Tested AI Agents for Everyday Work.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold I Tested AI Agents for Everyday Work into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai-agents",
+      "skill-productivity",
+      "skill-review",
+      "skill-everyday-work"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "course-ai-agent-whistleblower-hotline",
+    "toolSlug": "ai-agent-whistleblower-hotline",
+    "title": "Master AI Agent Whistleblower Hotline",
+    "objectives": [
+      "File a complete misuse or safety report through the hotline",
+      "Pick the right category, severity, and anonymity settings for an incident",
+      "Track a submitted report from triage to resolution"
+    ],
+    "modules": [
+      {
+        "title": "Get Access and Orient Yourself",
+        "estMinutes": 6,
+        "steps": [
+          "Open the hotline URL and create a reporter account (or generate an agent ID if filing on behalf of an AI agent)",
+          "Walk through the dashboard: locate New Report, My Reports, and Guidelines tabs",
+          "Read the one-page 'What to report' policy so you know misuses vs. safety concerns vs. out-of-scope issues"
+        ]
+      },
+      {
+        "title": "File Your First Report",
+        "estMinutes": 10,
+        "steps": [
+          "Click New Report and pick a category: misuse, safety concern, data exposure, or jailbreak attempt",
+          "Write the incident summary using the template: what happened, when, which agent/model, and why it concerns you",
+          "Attach 1-2 pieces of evidence (transcript excerpt or log snippet) using the upload field and submit"
+        ]
+      },
+      {
+        "title": "Set Severity and Anonymity Correctly",
+        "estMinutes": 7,
+        "steps": [
+          "Reopen your report draft and set severity: low (policy gray area), medium (potential harm), or critical (active harm/threat)",
+          "Toggle anonymous filing on, note how contact fields disappear, then decide if you actually want follow-up questions to reach you",
+          "Save severity/anonymity choices and confirm the hotline displays the updated report settings"
+        ]
+      },
+      {
+        "title": "Track and Respond to Triage",
+        "estMinutes": 8,
+        "steps": [
+          "Open My Reports and read the status labels: received, in triage, escalated, resolved",
+          "Answer a simulated triage question in the report thread within the messaging box",
+          "Mark the resolution email/notification as acknowledged and archive the closed report"
+        ]
+      },
+      {
+        "title": "Optional: File a Report via API",
+        "estMinutes": 12,
+        "steps": [
+          "Copy your API key from Settings and paste it into the provided curl or Python snippet",
+          "POST one test report with category='safety' and a short sample transcript to the /reports endpoint",
+          "Verify the test report appears in My Reports, then delete or flag it as a test"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-whistleblower",
+      "skill-ai safety",
+      "skill-hotline",
+      "skill-novelty"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "course-ai-agents-now-have-a-place-to-snitch",
+    "toolSlug": "ai-agents-now-have-a-place-to-snitch",
+    "title": "Master AI agents now have a place to snitch",
+    "objectives": [
+      "Understand what AI agents now have a place to snitch is for",
+      "Use AI agents now have a place to snitch on a real task",
+      "Know where AI agents now have a place to snitch fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI agents now have a place to snitch for your real workflow, not the demo.",
+          "Say what AI agents now have a place to snitch does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI agents now have a place to snitch.",
+          "Push AI agents now have a place to snitch to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI agents now have a place to snitch into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-security",
+      "skill-reporting",
+      "skill-monitoring",
+      "skill-compliance"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "course-auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
+    "toolSlug": "auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
+    "title": "Master Auto-autoresearch: self-improving agents on Karpathy's NanoChat benchmark",
+    "objectives": [
+      "Understand what Auto-autoresearch: self-improving agents on Karpathy's NanoChat benchmark is for",
+      "Use Auto-autoresearch: self-improving agents on Karpathy's NanoChat benchmark on a real task",
+      "Know where Auto-autoresearch: self-improving agents on Karpathy's NanoChat benchmark fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Auto-autoresearch: self-improving agents on Karpathy's NanoChat benchmark for your real workflow, not the demo.",
+          "Say what Auto-autoresearch: self-improving agents on Karpathy's NanoChat benchmark does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Auto-autoresearch: self-improving agents on Karpathy's NanoChat benchmark.",
+          "Push Auto-autoresearch: self-improving agents on Karpathy's NanoChat benchmark to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Auto-autoresearch: self-improving agents on Karpathy's NanoChat benchmark into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-self-improving",
+      "skill-nanochat",
+      "skill-benchmark",
+      "skill-autonomous research"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "course-meta-launches-subscriptions-with-enhanced-ai-features",
+    "toolSlug": "meta-launches-subscriptions-with-enhanced-ai-features",
+    "title": "Master Meta launches subscriptions with enhanced AI features",
+    "objectives": [
+      "Subscribe to Meta's paid AI tier from the correct in-app location",
+      "Turn on and configure the enhanced AI assistant across Facebook, Instagram, and WhatsApp",
+      "Complete one real task using each premium feature: voice mode, advanced answers, and image tools"
+    ],
+    "modules": [
+      {
+        "title": "Confirm Access and Subscribe",
+        "estMinutes": 10,
+        "steps": [
+          "Update Facebook, Instagram, and WhatsApp to the latest version via the App Store or Google Play",
+          "Open Settings > Accounts Center and confirm all your apps sit under the same Meta account",
+          "Tap Settings > Meta AI > Upgrade (or the subscription banner), pick monthly vs annual, and complete the in-app purchase for your region and currency"
+        ]
+      },
+      {
+        "title": "Activate the Enhanced Assistant",
+        "estMinutes": 8,
+        "steps": [
+          "Open the Meta AI chat icon in Instagram or Facebook and tap the model selector to switch to the advanced/premium model",
+          "Go to Meta AI settings and enable cross-app access plus your preferred response style (concise vs detailed)",
+          "Test the upgrade by asking a multi-step question (e.g., 'Plan a 3-day trip to Lisbon under $800 with daily itineraries') and confirming you bypass basic-tier limits"
+        ]
+      },
+      {
+        "title": "Use the Premium Features Hands-On",
+        "estMinutes": 15,
+        "steps": [
+          "Press and hold the mic icon in Meta AI to start a real-time voice conversation, then interrupt mid-answer to practice back-and-forth control",
+          "Type an image prompt (e.g., 'photo of a cozy reading corner with warm lighting'), then use the edit prompt to change one element of the result",
+          "In WhatsApp, open a group chat, tap Meta AI, and request a summary of an article link you paste in"
+        ]
+      },
+      {
+        "title": "Manage, Troubleshoot, and Cancel",
+        "estMinutes": 7,
+        "steps": [
+          "Open your phone's App Store/Play Store > Subscriptions and confirm the Meta entry, billing date, and renewal price",
+          "Check Meta AI > Settings > Data & Privacy to review whether your chat history is used for training and toggle it off if desired",
+          "Restore purchases on a second device via Settings > Subscriptions > Restore, and note the cancellation path (store settings, not the app) so you can exit anytime"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-meta ai",
+      "skill-chatbot",
+      "skill-subscription",
+      "skill-assistant",
+      "skill-llm"
+    ],
+    "prerequisites": [
+      "An active Meta account with access to at least one of: Facebook, Instagram, or WhatsApp",
+      "A smartphone running a supported OS version with in-app purchases enabled"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-15T23:42:46.820Z"
+  },
+  {
+    "id": "course-axelera-ai-launches-europa",
+    "toolSlug": "axelera-ai-launches-europa",
+    "title": "Master Axelera AI Launches Europa",
+    "objectives": [
+      "Understand what Axelera AI Launches Europa is for",
+      "Use Axelera AI Launches Europa on a real task",
+      "Know where Axelera AI Launches Europa fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Axelera AI Launches Europa for your real workflow, not the demo.",
+          "Say what Axelera AI Launches Europa does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Axelera AI Launches Europa.",
+          "Push Axelera AI Launches Europa to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Axelera AI Launches Europa into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-ai hardware",
+      "skill-edge ai",
+      "skill-inference",
+      "skill-accelerator",
+      "skill-enterprise ai"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-15T23:42:46.820Z"
   }
 ]

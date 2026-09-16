@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef} from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { PLANS, formatPrice, isPlanOpen } from '../utils/planData'
 import { CONTACT_EMAIL as SUPPORT_EMAIL } from '../config'
@@ -43,6 +43,7 @@ function CheckoutFailure({ error, chosen, track, seen }) {
 
 export default function Pay() {
   const navigate = useNavigate()
+  const location = useLocation()
   const session = loadSession()
   const { startCheckout, status, error, busy } = useRazorpay()
   const reportedError = useRef(null)
@@ -55,7 +56,14 @@ export default function Pay() {
   const plans = PLANS.filter(
     (p) => isPlanOpen(p) && !(country && p.excludeCountries?.includes(country)),
   )
-  const [chosen, setChosen] = useState('guru')
+  // FounderRibbon/FounderOffer link here with ?plan=founder so the countdown's
+  // urgency survives the click instead of dropping the visitor on an unranked
+  // picker they have to re-decide from scratch. Falls back to today's default
+  // when the param is absent, unknown, or names a plan closed for this visitor.
+  const requestedPlan = new URLSearchParams(location.search).get('plan')
+  const [chosen, setChosen] = useState(() =>
+    plans.some((p) => p.id === requestedPlan) ? requestedPlan : 'guru',
+  )
   const [ent, setEnt] = useState(null)
 
   useEffect(() => {
@@ -126,7 +134,11 @@ export default function Pay() {
       )}
 
       <div className="mt-8 grid w-full gap-4 sm:grid-cols-3">
-        {plans.map((p) => (
+        {plans.map((p) => {
+          // Only a visitor who actually arrived with ?plan=... sees this — a
+          // plain /pay visit must not grow a "YOUR PICK" badge nothing asked for.
+          const preselected = Boolean(requestedPlan) && chosen === p.id
+          return (
           <motion.button
             key={p.id}
             initial={{ opacity: 0, y: 16 }}
@@ -134,8 +146,21 @@ export default function Pay() {
             onClick={() => pay(p.id)}
             disabled={busy || paymentsOff}
             className={`cursor-pointer rounded-2xl border-2 p-5 text-left transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 ${p.featured ? 'bg-white/[0.06]' : 'bg-white/[0.03]'}`}
-            style={{ borderColor: p.accent, boxShadow: `0 10px 30px -12px ${p.glow}` }}
+            style={{
+              borderColor: p.accent,
+              boxShadow: preselected
+                ? `0 0 0 3px ${p.accent}, 0 10px 30px -12px ${p.glow}`
+                : `0 10px 30px -12px ${p.glow}`,
+            }}
           >
+            {preselected && (
+              <span
+                className="mb-1 block font-display text-[9px] font-black uppercase tracking-[0.14em]"
+                style={{ color: p.accent }}
+              >
+                ★ YOUR PICK
+              </span>
+            )}
             {p.badge && (
               <span className="font-display text-[9px] font-semibold" style={{ color: p.accent }}>
                 {p.badge}
@@ -160,7 +185,8 @@ export default function Pay() {
               {busy && chosen === p.id ? 'Opening…' : `Get ${p.name}`}
             </span>
           </motion.button>
-        ))}
+          )
+        })}
       </div>
 
       {/* Stated at the point of payment, not buried in the terms. Someone who

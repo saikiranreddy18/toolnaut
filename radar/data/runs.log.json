@@ -492,5 +492,57 @@
       "rejected": 0,
       "courses": 5
     }
+  },
+  {
+    "at": "2026-09-14T15:54:36.868Z",
+    "counts": {
+      "candidates": 74,
+      "filtered": 10,
+      "new": 15,
+      "skipped": 10,
+      "published": 12,
+      "review": 3,
+      "rejected": 0,
+      "courses": 12
+    }
+  },
+  {
+    "at": "2026-09-14T23:59:11.393Z",
+    "counts": {
+      "candidates": 76,
+      "filtered": 9,
+      "new": 16,
+      "skipped": 9,
+      "published": 5,
+      "review": 11,
+      "rejected": 0,
+      "courses": 5
+    }
+  },
+  {
+    "at": "2026-09-15T14:21:00.449Z",
+    "counts": {
+      "candidates": 75,
+      "filtered": 13,
+      "new": 10,
+      "skipped": 15,
+      "published": 9,
+      "review": 1,
+      "rejected": 0,
+      "courses": 9
+    }
+  },
+  {
+    "at": "2026-09-15T23:42:46.820Z",
+    "counts": {
+      "candidates": 75,
+      "filtered": 15,
+      "new": 13,
+      "skipped": 12,
+      "published": 13,
+      "review": 0,
+      "rejected": 0,
+      "courses": 13
+    }
   }
 ]

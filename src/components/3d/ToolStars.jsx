@@ -362,6 +362,9 @@ export default function ToolStars() {
     }
 
     material.uniforms.uHover.value = best
+    // GalaxyExplorer's click-vs-drag handler reads this to resolve a tap —
+    // same hit test the tooltip already runs, just also exposed off-frame.
+    galaxyState.hoveredTool = best >= 0 ? items[best].tool : null
     if (tooltip) {
       if (best >= 0) {
         tooltip.textContent = items[best].tool.name
