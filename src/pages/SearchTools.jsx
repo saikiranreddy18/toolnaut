@@ -43,7 +43,7 @@ export default function SearchTools() {
   )
 
   return (
-    <div className="mx-auto max-w-5xl px-5 py-10 lg:py-16">
+    <div id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-5 py-10 lg:py-16">
       <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">Search</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">Find an AI tool</h1>
 

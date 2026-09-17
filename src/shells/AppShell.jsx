@@ -148,15 +148,8 @@ export default function AppShell() {
 
   return (
     <div className="app-calm relative flex min-h-dvh">
-      {/* keyboard/screen-reader users otherwise have to tab through the
-          sidebar persona card and 6 nav links (or the mobile top bar) on
-          every single page before reaching content — WCAG 2.4.1 */}
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-[var(--lime)] focus:px-4 focus:py-2 focus:font-display focus:text-sm focus:font-semibold focus: focus:text-black"
-      >
-        Skip to content
-      </a>
+      {/* Skip link is mounted once, globally, in App.jsx — it targets the
+          #main-content landmark below on every route, this one included. */}
       <div className="starfield" aria-hidden="true" />
 
       {/* left sidebar — desktop */}

@@ -16,7 +16,7 @@ export default function Changelog() {
   })
 
   return (
-    <div className="relative z-10 min-h-screen">
+    <div id="main-content" tabIndex={-1} className="relative z-10 min-h-screen">
       <div className="starfield" aria-hidden="true" />
 
       <header className="relative mx-auto flex max-w-3xl items-center justify-between px-5 py-6">

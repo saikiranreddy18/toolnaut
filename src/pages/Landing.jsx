@@ -169,7 +169,7 @@ export default function Landing() {
   }
 
   return (
-    <div className="relative min-h-screen">
+    <div id="main-content" tabIndex={-1} className="relative min-h-screen">
       {hasWebGL ? (
         <Suspense fallback={<StaticSky />}>
           <Scene mode={mode} />

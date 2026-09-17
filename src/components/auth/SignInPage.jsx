@@ -119,6 +119,8 @@ export default function SignInPage({ next = '/app/stack' }) {
   return (
     <div
       ref={rootRef}
+      id="main-content"
+      tabIndex={-1}
       onPointerMove={onMove}
       className="auth-deep relative flex min-h-screen w-full flex-col overflow-hidden text-white"
     >

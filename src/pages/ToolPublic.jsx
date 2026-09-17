@@ -44,7 +44,7 @@ export default function ToolPublic() {
   ].filter(([, v]) => v)
 
   return (
-    <div className="mx-auto max-w-4xl px-5 py-10 lg:py-16">
+    <div id="main-content" tabIndex={-1} className="mx-auto max-w-4xl px-5 py-10 lg:py-16">
       <header className="mb-10 flex items-center justify-between gap-4">
         <Link to="/" aria-label="Toolnaut home">
           <BrandLogo {...LOGO.page} />

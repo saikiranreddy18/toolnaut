@@ -5650,7 +5650,21 @@ a client-side SPA with a static tool catalogue.
 
 ### "Skip to content" exists for signed-in users only — every public page a visitor sees first has none
 
-- **Status:** OPEN
+- **Status:** SHIPPED (this run, sha in DEVLOG) — built close to scope, with
+  two corrections found while implementing: (1) rather than mounting a
+  second `<SkipLink />` inside `AppShell.jsx` in addition to the global one
+  in `App.jsx`, `AppShell.jsx` now only keeps its `<main id="main-content">`
+  landmark and relies on the single global skip link — two stacked "Skip to
+  content" links landing on the same anchor at the top of every `/app/*`
+  page would have been a duplicate tab stop, not a fix. (2) The route list
+  had drifted since this entry was written 2026-09-13: `/checkout`,
+  `/methodology`, `/ai-tools/:slug` (`ToolPublic`), and `/auth/login`
+  existed but weren't in the original 13-page list, so they got the same
+  `id="main-content" tabIndex={-1}` treatment too — 17 page roots in total,
+  not 13. `/office` (a bare WebGL canvas, no header/nav to bypass) and the
+  `*` `NotFound` page (no persistent chrome either) were deliberately left
+  out — WCAG 2.4.1 exists to skip *repeated* navigation blocks, and neither
+  page has one.
 - **Seen in:** not a competitor pattern this time — it's a standard the app
   already half-implements and documents the reasoning for. WCAG 2.4.1 ("Bypass
   Blocks") requires a mechanism to skip repeated navigation blocks; it's a

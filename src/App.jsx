@@ -6,6 +6,7 @@ import OnboardingShell from './shells/OnboardingShell'
 import ThemePicker from './components/ui/ThemePicker'
 import ArrivalLaunch from './components/auth/ArrivalLaunch'
 import CursorStars from './components/ui/CursorStars'
+import SkipLink from './components/ui/SkipLink'
 import { track, EVENTS } from './utils/analyticsEvents'
 
 const GoalChat = lazy(() => import('./pages/GoalChat'))
@@ -88,6 +89,11 @@ export default function App() {
           only where the 3D galaxy actually renders (the landing side). */}
       <ThemePicker />
       <ArrivalLaunch />
+      {/* Mounted once for every route so keyboard/screen-reader users can
+          bypass each page's own header/nav chrome — WCAG 2.4.1. Targets the
+          #main-content landmark every page below (and AppShell, and
+          OnboardingShell) renders on its own root element. */}
+      <SkipLink />
       <Suspense fallback={<PageFallback />}>
         <MotionConfig reducedMotion="user">
           <Routes>
