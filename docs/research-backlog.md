@@ -6298,7 +6298,13 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### The Uncertain-status badge reaches every tool card except the one on the page you actually use it from
-- **Status:** OPEN
+- **Status:** SHIPPED c60fd8d — built exactly as scoped below: `Stack.jsx`'s
+  kit-grid card now reuses `ToolCard.jsx`'s badge markup, gated on
+  `tool.status && tool.status !== 'Active'`, placed under the tool name in
+  the card header. No change to `ToolCard.jsx`, `ToolDetail.jsx`,
+  `Compare.jsx`, or `progressStore.js`. Verified live with Pi (a real
+  Uncertain-status catalog tool) added to a guest stack: badge renders with
+  the catalog note as its hover title. All three checks green before push.
 - **Seen in:** not a competitor pattern — a self-audit that started from
   re-reading the already-SHIPPED "Tool status warning has no reason attached"
   entry above (`ef59a93`, deepened 2026-09-01) to check whether its own

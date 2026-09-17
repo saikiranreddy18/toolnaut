@@ -9,6 +9,75 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-17
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 24h,
+2026-09-16 23:51 UTC publishing 12 tools, 2026-09-17 14:19 UTC publishing 13.
+25 tools published in the last 24h, feed holds 461 tools. Healthy and
+growing.
+
+**Researched today:** four research-hour runs before this one. 21:08 UTC
+(09-16) logged the missing "report a wrong listing" path — Suggest-a-tool
+already covers an empty catalog result, nothing covers a visitor who spots a
+stale or wrong entry on a tool they already found; scoped to share the same
+planned GitHub-issue util so the two ship together as near-zero marginal
+diff. 03:09 UTC logged that Share/Export stops at a stateless `/s/:slugs`
+link — no gallery exists for browsing what other users actually built
+(confirmed zero `shared_stacks`/`public_stacks` table or route), the
+Notion-template-gallery-shaped social-proof loop competitors rely on.
+06:12 UTC used the run's one allowed real-improvement slot on a genuine a11y
+bug, not backlog research: the skip-to-content link only worked inside the
+signed-in app shell — every public route a visitor actually lands on first
+(landing, pricing, search, tool pages, the quiz, 20+ routes) had none,
+shipped same run. 09:11 UTC logged the missing "Toolnaut vs [competitor]"
+comparison pages — There's An AI For That and Futurepedia both outrank
+Toolnaut on raw catalog size, making a page arguing personalization over
+list-size the highest-intent unbuilt SEO page type in this category.
+15:10 UTC re-checked the oldest OPEN entry (first-session onboarding
+checklist) against current `src/` and corrected its own stale claim: a
+first-run spotlight tour (`AppTour.jsx`) shipped since it was last written,
+so "nothing exists at all" was no longer true — the checklist gap itself
+(cross-session tracking of what a user actually did) is still real and
+still unbuilt.
+
+**Shipped (this run):** the Uncertain-status badge now reaches `Stack.jsx`'s
+kit-grid cards —
+[`c60fd8d`](https://github.com/saikiranreddy18/toolnaut/commit/c60fd8d).
+`ToolCard.jsx`, `ToolDetail.jsx` and `Compare.jsx` already rendered the
+pink `Uncertain`-status pill; `/app/stack` — the one screen where someone
+already committed to a tool and is actively cycling its progress — silently
+showed nothing, even for a first-run persona stack that can start with an
+Uncertain pick. Picked over the "report a wrong listing" link and the
+"vs [competitor]" pages (both also build-ready, S-sized) because it was the
+smallest, most surgical fix of the three: one reused badge block, no new
+util, no new route, no backend, and it closes a real trust gap on the app's
+home screen rather than adding new surface area. 1 file, 11 lines. Verified
+live by adding Pi (a real Uncertain-status catalog tool) to a guest stack in
+a running preview and confirming the badge renders with its catalog note as
+the hover title.
+
+**Live on toolnaut.xyz** now that it's on master — a pure JSX addition to an
+existing card, no new component, route, or dependency. `npm test`
+(297/297), `npm run build` (17/17 routes prerendered, three.js stays in its
+own chunk, service-worker cache stamped), and `npm run smoke` (23/23
+routes, 0 console errors) all green before push.
+
+**Queued next:** "report a wrong listing" and "vs [competitor] comparison
+pages" are both S-sized and fully scoped — either is a strong pick for the
+next feature run, and the wrong-listing link should build alongside the
+still-OPEN "Suggest a tool" gap since they share one planned util. The
+public stack gallery is scoped but graded M (needs a new `shared_stacks`
+Supabase table + RLS policy, not just local state) — a reasonable next
+feature-run candidate once a smaller S gap is drained first. Still OPEN
+from prior days: GA4 consent gate, "download my data" export, command
+palette, tool graveyard page, "Featured on Toolnaut" badge, RSS feed of new
+tools, Discover facet counts, Collections, stack-overlap warning, weekly
+trending tools, role-benchmark display on `Stack.jsx`, Discover "hidden
+gems" rail, the dollar-amount half of stack cost, the shared-stack
+OG-preview Edge Middleware, and the first-session onboarding checklist.
+
+---
+
 ## 2026-09-16
 
 **Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h
