@@ -6636,3 +6636,66 @@ a client-side SPA with a static tool catalogue.
   run — same `GITHUB_REPO_URL` constant, same file, near-zero marginal
   diff). No backend, no new dependency, no new route.
 - **Found:** 2026-09-16 21:15 UTC
+
+---
+
+### No browsable gallery of shared stacks — sharing is a stateless one-off URL, nobody can see what other users built
+- **Status:** OPEN
+- **Seen in:** template/showcase galleries for share-a-config products —
+  Notion's public template gallery, Framer's site gallery, "awesome-list"
+  style curated collections — the standard next step once a product has a
+  single-item share link: let visitors browse what other real users made,
+  not just receive a link one person handed them directly.
+- **Gap:** Toolnaut already built the share primitive (the "Share / export
+  your stack" gap above, SHIPPED 42bdc99) but it stops at a stateless URL.
+  `src/utils/shareStack.js` is purely `encodeStackSlugs`/`decodeStackSlugs` —
+  a comma-joined list of tool slugs baked into the URL itself; nothing is
+  ever written to storage when a stack is shared. `src/pages/SharedStack.jsx`
+  reads the stack straight back out of the URL param — there is no lookup
+  against any stored or published record. `grep -rn "shared_stacks\|public_stacks\|from('stack" src`
+  returns zero hits — no Supabase table for a published stack exists, even
+  though a live Supabase backend already backs signed-in sync (per
+  `src/pages/Legal.jsx:78-82`, "we also store on our servers: ... the tools
+  in your stack" — this is not the backend-free case the ranking note below
+  usually rejects). `src/App.jsx` only routes the single `/s/:slugs` pattern,
+  keyed by whatever slugs are in that one URL — there is no `/gallery` route
+  and no index of past shares anywhere. The only public/social surface today
+  is `src/state/communityStore.js` (forum threads with upvotes), which stores
+  free-text posts, not a structured tool-stack object, so Community can't
+  stand in for this.
+- **Why it matters:** every stack a visitor can currently see is either their
+  own or one link someone handed them directly — there is no way to browse
+  what real users with a given role actually assembled ("a designer's
+  stack," "a founder's stack"), which is exactly the social-proof/inspiration
+  loop that turns a one-time quiz-taker into a repeat visitor, and it is free
+  top-of-funnel content a `/gallery/:role` page could rank for, reusing
+  `CategoryLanding.jsx`'s SEO/JSON-LD pattern.
+- **Smallest useful version (what to actually build):**
+  - One new Supabase table (`shared_stacks`: owner id or null for a guest
+    share, tool slugs, an optional role/persona tag inferred from
+    `quiz.answers.domain`, `created_at`, an opt-in `visible` flag) — the
+    smallest schema addition, since the sync backend and its client already
+    exist (`src/state/sync.js`, `entitlement.js`) and this follows the same
+    shape.
+  - A `publishStack()`/`listPublishedStacks(role)` pair, colocated with the
+    existing share util rather than a new store module.
+  - `src/pages/app/Stack.jsx`: one opt-in "Publish to gallery" toggle next
+    to the existing share action — off by default, so nothing already-shared
+    silently becomes public.
+  - New public route `/gallery` (optionally `/gallery/:role`) rendering a
+    card grid in `CategoryLanding.jsx`'s style, each card linking through to
+    the existing `SharedStack.jsx` adopt-this-stack view — no new adopt flow
+    needed, the receiving half already ships.
+  - **What this would NOT include** (kept out to bound the diff): no
+    likes/comments on a published stack (Community already owns discussion);
+    no editing a published stack after the fact (unpublish and republish is
+    enough for v1); no sitemap entries for individual published stacks
+    (user-generated and mutable, same reasoning `SharedStack.jsx` already
+    uses to stay out of `scripts/prerender.mjs`'s `ROUTES`) — only the
+    role-level `/gallery` index pages, if any, would be sitemapped.
+- **Build size:** M — one new Supabase table plus RLS policy, one store
+  module, one new public page/route, one opt-in toggle in `Stack.jsx`. Larger
+  than this file's usual S gaps because it is the first entry here that
+  needs a schema change rather than reusing existing local state, so it is a
+  reasonable feature-run candidate but not a trivial one.
+- **Found:** 2026-09-17 03:20 UTC
