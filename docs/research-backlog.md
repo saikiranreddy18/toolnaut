@@ -473,6 +473,44 @@ a client-side SPA with a static tool catalogue.
   `communityStore.js` export) — this deepening only fixes the one paragraph
   that had gone stale, and flags the NEXT UP overlap as something to be aware
   of, not something to build a dedup for in this pass.
+- **Deepened 2026-09-17 15:20 UTC — this entry's own core claim has gone
+  partly stale and needed re-checking against current `src/`, not just its
+  placement plan:** `ae1c530` ("feat: product tour, real subscriber stats,
+  truthful legal pages", shipped 2026-09-13, after both this entry's original
+  write-up and its first deepening) added `src/components/app/AppTour.jsx` —
+  a real, already-wired first-run spotlight tour of `/app`, mounted in
+  `AppShell.jsx:275` and gated on a per-account `tourSeen()` flag
+  (`exus_tour_v1`), with a "replay tour" control in `Settings.jsx:119`. It was
+  invisible to this entry's original grep (`checklist|getting.started|onboard`
+  matches neither "tour" nor its event names), which is why it went unnoticed
+  for four days. This means the original framing — "no checklist/onboarding-
+  progress component exists... nothing tells them the roadmap, the community,
+  or adding a second tool from Discover are things worth doing today" — is no
+  longer fully accurate: a new user today gets a 7-step guided walkthrough
+  naming Stack, Discover, Favorites, Learning, the chat assistant and Settings
+  before they are left alone on `Stack.jsx`.
+  **What is still missing, i.e. why this stays OPEN rather than SHIPPED or
+  REJECTED:** `AppTour` is a one-time, skippable *explainer* — it fires once,
+  has no memory of which of its 7 steps a user actually acted on afterward,
+  and cannot answer "am I activated yet" on a return visit. It is the "here
+  is where things are" job; this gap's checklist was always the "have you
+  actually done them" job — a persistent, self-hiding, checkmark-based nudge
+  that updates across sessions from real stack/quiz/roadmap/community state,
+  which `AppTour` structurally cannot do (it has no per-step "done" concept,
+  only "seen the whole tour or not"). The two are complementary, not
+  duplicates, the same way this entry's 2026-08-28 deepening already found
+  `Stack.jsx`'s "NEXT UP" section to be complementary rather than redundant.
+  **Re-verified placement is still current:** `Stack.jsx:262` is still the end
+  of the persona tagline `<p>`, and the streak sticker still opens right after
+  at `Stack.jsx:272` — the 2026-08-28 "mount between persona header and streak
+  sticker" placement call is unchanged. **One addition to the spec:** since
+  `AppTour` now exists and already introduces Discover/Favorites/Learning/
+  Community by name in its own copy, the checklist's row labels should reuse
+  matching language rather than independently invented copy, so a new user
+  doesn't read two different names for the same destination four screens
+  apart (e.g. `AppTour`'s "Find more" vs. a checklist row that might otherwise
+  say "Try Discover"). No other part of the spec (steps, dismiss-flag key,
+  `communityStore.js` export) changes.
 
 ### Favorites / bookmarks (sold on the pricing page, absent from the app)
 - **Status:** SHIPPED 4fe402f
