@@ -23123,5 +23123,719 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "course-share-your-ai-setup-learn-from-others",
+    "toolSlug": "share-your-ai-setup-learn-from-others",
+    "title": "Master Share your AI Setup, Learn from others",
+    "objectives": [
+      "Understand what Share your AI Setup, Learn from others is for",
+      "Use Share your AI Setup, Learn from others on a real task",
+      "Know where Share your AI Setup, Learn from others fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Share your AI Setup, Learn from others for your real workflow, not the demo.",
+          "Say what Share your AI Setup, Learn from others does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Share your AI Setup, Learn from others.",
+          "Push Share your AI Setup, Learn from others to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Share your AI Setup, Learn from others into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai setup",
+      "skill-community",
+      "skill-knowledge sharing",
+      "skill-workflows"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T14:18:56.690Z"
+  },
+  {
+    "id": "course-compute-arena",
+    "toolSlug": "compute-arena",
+    "title": "Master Compute:Arena",
+    "objectives": [
+      "Understand what Compute:Arena is for",
+      "Use Compute:Arena on a real task",
+      "Know where Compute:Arena fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Compute:Arena for your real workflow, not the demo.",
+          "Say what Compute:Arena does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Compute:Arena.",
+          "Push Compute:Arena to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Compute:Arena into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-benchmarks",
+      "skill-local ai",
+      "skill-llm",
+      "skill-hardware",
+      "skill-community"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T14:18:56.690Z"
+  },
+  {
+    "id": "course-nexus-arc",
+    "toolSlug": "nexus-arc",
+    "title": "Master Nexus-Arc",
+    "objectives": [
+      "Understand what Nexus-Arc is for",
+      "Use Nexus-Arc on a real task",
+      "Know where Nexus-Arc fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Nexus-Arc for your real workflow, not the demo.",
+          "Say what Nexus-Arc does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Nexus-Arc.",
+          "Push Nexus-Arc to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Nexus-Arc into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-payments",
+      "skill-escrow",
+      "skill-blockchain",
+      "skill-pay-per-call"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T14:18:56.690Z"
+  },
+  {
+    "id": "course-echodot",
+    "toolSlug": "echodot",
+    "title": "Master Echodot",
+    "objectives": [
+      "Calibrate a tone profile from your own message history",
+      "Generate and refine reply drafts inside your daily workflow",
+      "Use feedback and style rules to improve draft accuracy over time"
+    ],
+    "modules": [
+      {
+        "title": "Build and Tune Your Tone Profile",
+        "estMinutes": 12,
+        "steps": [
+          "Open Settings > Tone Profile and import 30+ of your own sent messages (or paste them into the training vault) so the local model has real samples to learn from",
+          "Review the auto-detected style summary (e.g. formality, emoji use, sentence length) and edit any trait that misrepresents you",
+          "Adjust the Formality and Warmth sliders, then run the built-in 'Test My Voice' preview against a sample prompt to confirm the output sounds like you"
+        ]
+      },
+      {
+        "title": "Draft Replies in Your Real Workflow",
+        "estMinutes": 10,
+        "steps": [
+          "Highlight an incoming message in your email or chat client and trigger Echodot with its global hotkey (default Ctrl/Cmd+Shift+E) to generate a draft without leaving your app",
+          "Compare the three candidate drafts in the tray window and use the context chips (e.g. 'shorter', 'more formal', 'acknowledge delay') to regenerate instead of rewriting from scratch",
+          "Insert the winning draft, then make any manual edits — Echodot logs the diff between its draft and your final send locally as training signal"
+        ]
+      },
+      {
+        "title": "Refine Accuracy with Contexts and Correction Loops",
+        "estMinutes": 10,
+        "steps": [
+          "Create at least two context presets (e.g. 'Work Slack' vs. 'Personal Texts') under Settings > Contexts and assign each its own tone profile and example snippets",
+          "Flag three recent drafts with thumbs-down and write a one-line correction note (e.g. 'never start with Hey, use Hi + name') so the style rules list captures recurring fixes",
+          "After a week of use, open Insights > Drift Report to see where your edits diverge most from drafts and add one new style rule or example message to close the biggest gap"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-local-first",
+      "skill-tone matching",
+      "skill-reply drafting",
+      "skill-open source",
+      "skill-privacy"
+    ],
+    "prerequisites": [
+      "Echodot installed and the local model downloaded",
+      "Basic familiarity with generating a draft reply",
+      "Access to a corpus of your own sent messages (export or clipboard)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-17T14:18:56.690Z"
+  },
+  {
+    "id": "course-openai-discloses-six-new-ai-safety-incidents",
+    "toolSlug": "openai-discloses-six-new-ai-safety-incidents",
+    "title": "Master OpenAI discloses six new AI safety incidents",
+    "objectives": [
+      "Summarize the six disclosed AI safety incidents accurately",
+      "Classify each incident by risk category and severity",
+      "Evaluate what the disclosure changes about safe AI usage"
+    ],
+    "modules": [
+      {
+        "title": "Read the Disclosure",
+        "estMinutes": 15,
+        "steps": [
+          "Open both the news report and OpenAI's original safety disclosure/system card side by side and note publish dates",
+          "Create a table listing all six incidents with columns: incident name, model/system affected, discovery method, and source quote"
+        ]
+      },
+      {
+        "title": "Classify the Incidents",
+        "estMinutes": 20,
+        "steps": [
+          "Tag each incident with a risk category (e.g., jailbreak resistance, model deception, data leakage, capability overreach) and rate severity low/medium/high with a one-line justification",
+          "Map each incident to the corresponding category in OpenAI's Preparedness Framework and flag any that fall outside it"
+        ]
+      },
+      {
+        "title": "Analyze the Response",
+        "estMinutes": 20,
+        "steps": [
+          "For each incident, extract OpenAI's stated mitigation and record whether it is deployed, in progress, or only planned",
+          "Compare one target mitigations against a peer lab's practice (e.g., Anthropic's Responsible Scaling Policy) and note one gap and one strength"
+        ]
+      },
+      {
+        "title": "Produce a Briefing",
+        "estMinutes": 10,
+        "steps": [
+          "Write a 5-bullet summary memo: what happened, what's new vs. prior disclosures, and two concrete implications for your own AI usage policies",
+          "Share the memo or post a short summary to a team channel and log one follow-up question to track as the story develops"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai safety",
+      "skill-openai",
+      "skill-incident disclosure",
+      "skill-transparency",
+      "skill-ai governance"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-17T14:18:56.690Z"
+  },
+  {
+    "id": "course-my-ai-agent-gets-his-own-calendar",
+    "toolSlug": "my-ai-agent-gets-his-own-calendar",
+    "title": "Master My AI agent gets his own calendar",
+    "objectives": [
+      "Provision a dedicated calendar account and API credentials for an AI agent",
+      "Implement availability checking and event creation scoped to the agent's calendar",
+      "Add guardrails: conflict detection, confirmation loops, and safe write permissions"
+    ],
+    "modules": [
+      {
+        "title": "Provision the Agent's Own Calendar",
+        "estMinutes": 20,
+        "steps": [
+          "Create a separate Google account (or dedicated calendar on a service account) so agent events never mix with your personal calendar",
+          "Enable the Google Calendar API in Google Cloud Console and configure the OAuth consent screen",
+          "Generate credentials limited to the calendar.events scope and store them in a .env file excluded from git"
+        ]
+      },
+      {
+        "title": "Wire Up Authenticated Access",
+        "estMinutes": 25,
+        "steps": [
+          "Run the OAuth flow once locally to produce a refresh token for the agent's account, saving it to token.json",
+          "Write a small client module that refreshes the access token automatically and exposes list/insert/delete methods",
+          "Verify access by creating and deleting a test event on the agent's calendar via a curl or script call"
+        ]
+      },
+      {
+        "title": "Implement Availability and Conflict Logic",
+        "estMinutes": 30,
+        "steps": [
+          "Use the freebusy/query endpoint to check proposed time slots before booking anything",
+          "Write a find_available_slot(duration, window) function that returns the first conflict-free slot in the requested window",
+          "Add timezone handling with a fixed IANA timezone (e.g., America/Chicago) so recurring requests don't drift across DST"
+        ]
+      },
+      {
+        "title": "Add Guardrails Before The Agent Books Anything",
+        "estMinutes": 20,
+        "steps": [
+          "Require a human-confirmation step in the agent loop: the agent must present event details and wait for approval before calling events.insert",
+          "Restrict the agent's credentials to only its own calendar ID and revoke delete permissions on events it did not create",
+          "Log every calendar write (summary, attendees, timestamp) to a file you can audit"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai-agent",
+      "skill-calendar",
+      "skill-scheduling",
+      "skill-tutorial"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-17T14:18:56.690Z"
+  },
+  {
+    "id": "course-apowerb",
+    "toolSlug": "apowerb",
+    "title": "Master ApowerB",
+    "objectives": [
+      "Understand what ApowerB is for",
+      "Use ApowerB on a real task",
+      "Know where ApowerB fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure ApowerB for your real workflow, not the demo.",
+          "Say what ApowerB does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through ApowerB.",
+          "Push ApowerB to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold ApowerB into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-runtime",
+      "skill-open source",
+      "skill-apache 2.0",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T14:18:56.690Z"
+  },
+  {
+    "id": "course-bottle",
+    "toolSlug": "bottle",
+    "title": "Master Bottle",
+    "objectives": [
+      "Initialize a Bottle ledger and configure storage for a bot",
+      "Write, tag, and query memory entries from bot code",
+      "Verify ledger integrity and audit a bot's history for compliance"
+    ],
+    "modules": [
+      {
+        "title": "Install and Initialize Your First Ledger",
+        "estMinutes": 20,
+        "steps": [
+          "Install Bottle with pip (`pip install bottle-ledger`) and confirm the CLI works via `bottle --version`",
+          "Run `bottle init ./support-bot.ledger` to create a new ledger file, then inspect the generated config for hash algorithm and storage backend settings",
+          "Write your first entry from the CLI (`bottle append --agent support-bot --content 'session started'`) and read it back with `bottle log --limit 1`"
+        ]
+      },
+      {
+        "title": "Writing Structured Memory from Bot Code",
+        "estMinutes": 35,
+        "steps": [
+          "In your bot's Python code, open the ledger with `bottle.open('./support-bot.ledger')` and append entries at key decision points (user intent classified, tool call made, response sent)",
+          "Add structured metadata to each entry using `tags=['tool_call']` and a JSON `payload` field with inputs, outputs, and timestamps",
+          "Batch related entries under a shared `session_id` so one conversation can be reconstructed as a unit"
+        ]
+      },
+      {
+        "title": "Querying and Replaying Bot Memory",
+        "estMinutes": 30,
+        "steps": [
+          "Query entries by filter, e.g. `ledger.query(tags=['tool_call'], since='2024-01-01')`, to answer 'what did the bot do yesterday?'",
+          "Use `ledger.replay(session_id=...)` to reconstruct a full conversation in order and feed it back as context for the bot's next turn",
+          "Write a small function that summarizes a session's entries into a prompt-ready string, capping output at N entries to control token cost"
+        ]
+      },
+      {
+        "title": "Integrity Verification and Auditing",
+        "estMinutes": 30,
+        "steps": [
+          "Run `bottle verify ./support-bot.ledger` to check the hash chain and confirm no entries were tampered with",
+          "Export an audit report with `bottle export --format csv --agent support-bot` and review it for unexpected writes or gaps in sequence numbers",
+          "Simulate tampering by editing one entry by hand, re-run verify, and observe the failure so you know what a breach looks like"
+        ]
+      },
+      {
+        "title": "Production Patterns: Rotation, Retention, Multi-Agent",
+        "estMinutes": 25,
+        "steps": [
+          "Configure retention rules in the ledger config to prune entries older than 90 days, then confirm pruning works with `bottle stats`",
+          "Give each bot in a multi-agent setup its own `agent_id` and write a cross-agent query to trace a task that was handed off between bots",
+          "Set up a nightly cron job that runs `bottle verify` and exports a digest so auditors get a standing integrity report"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-bot memory",
+      "skill-llm agents",
+      "skill-ledger",
+      "skill-open source",
+      "skill-state tracking"
+    ],
+    "prerequisites": [
+      "Comfortable writing Python and installing packages with pip",
+      "Familiarity with CLI tools and JSON",
+      "Basic understanding of append-only logs or event sourcing concepts"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-17T14:18:56.690Z"
+  },
+  {
+    "id": "course-antflow-ai-agentic-ai-framework-for-spec-driven-development",
+    "toolSlug": "antflow-ai-agentic-ai-framework-for-spec-driven-development",
+    "title": "Master AntFlow AI: Agentic AI Framework for Spec-Driven Development",
+    "objectives": [
+      "Write machine-readable specs that AntFlow agents can execute against",
+      "Run an agent workflow to generate and modify code from a spec",
+      "Iterate on specs using test output until acceptance criteria pass"
+    ],
+    "modules": [
+      {
+        "title": "Install & Initialize a Spec-Driven Project",
+        "estMinutes": 15,
+        "steps": [
+          "Install the AntFlow CLI and run `antflow init` inside an empty Git repo to scaffold the `.antflow/` config and specs directory",
+          "Configure your model provider key in `antflow.config.yaml` and set the default agent roles (planner, coder, reviewer)",
+          "Run `antflow doctor` to verify the environment, repo access, and sandbox permissions before any agent runs"
+        ]
+      },
+      {
+        "title": "Author Your First Spec",
+        "estMinutes": 20,
+        "steps": [
+          "Create `specs/001-todo-api.spec.md` describing a small REST endpoint with explicit inputs, outputs, and error cases",
+          "Add acceptance criteria as runnable statements (e.g., 'POST /todos returns 201 with the created id') so agents can validate against them",
+          "Run `antflow spec lint` to catch ambiguous requirements and tighten any vague language the linter flags"
+        ]
+      },
+      {
+        "title": "Run the Agent Workflow",
+        "estMinutes": 25,
+        "steps": [
+          "Execute `antflow run specs/001-todo-api.spec.md` and watch the planner agent decompose the spec into an ordered task plan",
+          "Approve or edit the plan at the checkpoint prompt, then let the coder agent implement each task in isolated branches",
+          "Inspect the reviewer agent's diff summary and accept, reject, or comment on individual changes before merge"
+        ]
+      },
+      {
+        "title": "Iterate with Feedback Loops",
+        "estMinutes": 20,
+        "steps": [
+          "Run `antflow verify` to execute the generated test suite against the acceptance criteria from your spec",
+          "When a check fails, update the spec—not the code—then re-run the workflow with `antflow run --resume` to regenerate only affected tasks",
+          "Use `antflow log --session last` to trace which spec line drove which code change, and note one pattern to reuse in future specs"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-agentic-ai",
+      "skill-spec-driven-development",
+      "skill-coding-framework",
+      "skill-automation",
+      "skill-developer-tools"
+    ],
+    "prerequisites": [
+      "Comfortable with Git and the command line",
+      "Basic experience writing requirements or user stories",
+      "An API key for an LLM provider (OpenAI, Anthropic, etc.)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-17T14:18:56.690Z"
+  },
+  {
+    "id": "course-startups-next-teammate-might-be-an-ai-agent",
+    "toolSlug": "startups-next-teammate-might-be-an-ai-agent",
+    "title": "Master Startup's next teammate might be an AI agent",
+    "objectives": [
+      "Scope a concrete 'role' an AI agent can own on your team",
+      "Build a supervised agent workflow with tools, guardrails, and handoffs",
+      "Measure agent performance and decide whether to expand, narrow, or kill it"
+    ],
+    "modules": [
+      {
+        "title": "Extract actionable signals from the Disrupt panel",
+        "estMinutes": 25,
+        "steps": [
+          "Watch the panel and note each concrete claim about where agents already work (support triage, code review, outbound sales, ops) versus hype",
+          "List 5 recurring tasks in your startup and score each 1-5 on repetitiveness, structure (clear inputs/outputs), and blast radius if done wrong",
+          "Pick the one task with high repetitiveness and low blast radius as your first agent 'hire' — e.g., inbound ticket drafting, not customer refunds"
+        ]
+      },
+      {
+        "title": "Write the agent's job spec before touching any tools",
+        "estMinutes": 30,
+        "steps": [
+          "Draft a one-page role card: inputs it ingests, outputs it must produce, systems it may touch, and explicit 'never do' list (e.g., never send external email without approval)",
+          "Define escalation triggers in measurable terms — e.g., 'hand off to a human if confidence < 0.8, customer mentions churn, or task repeats > 3 times'",
+          "Decide the human-in-the-loop pattern up front: draft-then-approve for external actions, full autonomy with weekly audit for internal ones"
+        ]
+      },
+      {
+        "title": "Build a working pilot agent",
+        "estMinutes": 90,
+        "steps": [
+          "Choose a stack matched to your risk: no-code (Lindy, Zapier Agents) for ops tasks, or a framework (CrewAI, LangGraph) for engineering-adjacent work",
+          "Connect only read-only or sandboxed credentials first — give the agent a test Slack channel or staging CRM, not production data",
+          "Run 20 historical real-world examples through the agent and log pass/fail per run; don't ship until it clears your agreed threshold (e.g., 90% usable drafts)"
+        ]
+      },
+      {
+        "title": "Operate it like a teammate, review like a manager",
+        "estMinutes": 40,
+        "steps": [
+          "Stand up an approval queue (Slack channel or Linear label) where the agent posts work products and a named human owns sign-off",
+          "Track three weekly metrics: tasks completed without rework, human minutes saved, and escaped errors — put them in the same dashboard as human team metrics",
+          "Hold a 15-minute weekly retro on the agent: expand its permissions if error rate stays below 5%, or cut scope back to the last reliable boundary"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-startups",
+      "skill-workforce",
+      "skill-techcrunch"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-17T14:18:56.690Z"
+  },
+  {
+    "id": "course-anti-ai-slop",
+    "toolSlug": "anti-ai-slop",
+    "title": "Master anti-ai-slop",
+    "objectives": [
+      "Understand what anti-ai-slop is for",
+      "Use anti-ai-slop on a real task",
+      "Know where anti-ai-slop fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure anti-ai-slop for your real workflow, not the demo.",
+          "Say what anti-ai-slop does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through anti-ai-slop.",
+          "Push anti-ai-slop to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold anti-ai-slop into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai-slop",
+      "skill-code-quality",
+      "skill-agent-skill",
+      "skill-claude-code",
+      "skill-quality-gates"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T14:18:56.690Z"
+  },
+  {
+    "id": "course-cve-2026-21858-n8n-fullchain",
+    "toolSlug": "cve-2026-21858-n8n-fullchain",
+    "title": "Master CVE-2026-21858-n8n-FullChain",
+    "objectives": [
+      "Understand what CVE-2026-21858-n8n-FullChain is for",
+      "Use CVE-2026-21858-n8n-FullChain on a real task",
+      "Know where CVE-2026-21858-n8n-FullChain fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure CVE-2026-21858-n8n-FullChain for your real workflow, not the demo.",
+          "Say what CVE-2026-21858-n8n-FullChain does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through CVE-2026-21858-n8n-FullChain.",
+          "Push CVE-2026-21858-n8n-FullChain to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold CVE-2026-21858-n8n-FullChain into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-security",
+      "skill-exploit",
+      "skill-n8n",
+      "skill-cve",
+      "skill-pentesting"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T14:18:56.690Z"
+  },
+  {
+    "id": "course-cve-2026-54121-certighost",
+    "toolSlug": "cve-2026-54121-certighost",
+    "title": "Master CVE-2026-54121-Certighost",
+    "objectives": [
+      "Understand what CVE-2026-54121-Certighost is for",
+      "Use CVE-2026-54121-Certighost on a real task",
+      "Know where CVE-2026-54121-Certighost fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure CVE-2026-54121-Certighost for your real workflow, not the demo.",
+          "Say what CVE-2026-54121-Certighost does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through CVE-2026-54121-Certighost.",
+          "Push CVE-2026-54121-Certighost to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold CVE-2026-54121-Certighost into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-security",
+      "skill-exploit",
+      "skill-active-directory",
+      "skill-ad-cs",
+      "skill-pkinit"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T14:18:56.690Z"
   }
 ]
