@@ -22525,5 +22525,603 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "course-ai-debt-vs-treasuries",
+    "toolSlug": "ai-debt-vs-treasuries",
+    "title": "Master AI Debt vs. Treasuries",
+    "objectives": [
+      "Understand what AI Debt vs. Treasuries is for",
+      "Use AI Debt vs. Treasuries on a real task",
+      "Know where AI Debt vs. Treasuries fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI Debt vs. Treasuries for your real workflow, not the demo.",
+          "Say what AI Debt vs. Treasuries does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Debt vs. Treasuries.",
+          "Push AI Debt vs. Treasuries to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Debt vs. Treasuries into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-bonds",
+      "skill-ai debt",
+      "skill-treasuries",
+      "skill-markets",
+      "skill-investing"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "course-quantifying-context-rot",
+    "toolSlug": "quantifying-context-rot",
+    "title": "Master Quantifying Context Rot",
+    "objectives": [
+      "Understand what Quantifying Context Rot is for",
+      "Use Quantifying Context Rot on a real task",
+      "Know where Quantifying Context Rot fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Quantifying Context Rot for your real workflow, not the demo.",
+          "Say what Quantifying Context Rot does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Quantifying Context Rot.",
+          "Push Quantifying Context Rot to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Quantifying Context Rot into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-llm",
+      "skill-context-window",
+      "skill-evaluation",
+      "skill-benchmarking",
+      "skill-llmops"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "course-i-built-a-router-for-agent-tools",
+    "toolSlug": "i-built-a-router-for-agent-tools",
+    "title": "Master I built a router for agent tools",
+    "objectives": [
+      "Understand what I built a router for agent tools is for",
+      "Use I built a router for agent tools on a real task",
+      "Know where I built a router for agent tools fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure I built a router for agent tools for your real workflow, not the demo.",
+          "Say what I built a router for agent tools does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through I built a router for agent tools.",
+          "Push I built a router for agent tools to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold I built a router for agent tools into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-routing",
+      "skill-open-source",
+      "skill-tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "course-fault-tolerance-in-low-bandwidth-model-parallelism",
+    "toolSlug": "fault-tolerance-in-low-bandwidth-model-parallelism",
+    "title": "Master Fault tolerance in low-bandwidth model parallelism",
+    "objectives": [
+      "Understand what Fault tolerance in low-bandwidth model parallelism is for",
+      "Use Fault tolerance in low-bandwidth model parallelism on a real task",
+      "Know where Fault tolerance in low-bandwidth model parallelism fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Fault tolerance in low-bandwidth model parallelism for your real workflow, not the demo.",
+          "Say what Fault tolerance in low-bandwidth model parallelism does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Fault tolerance in low-bandwidth model parallelism.",
+          "Push Fault tolerance in low-bandwidth model parallelism to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Fault tolerance in low-bandwidth model parallelism into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-model parallelism",
+      "skill-fault tolerance",
+      "skill-distributed training",
+      "skill-low bandwidth",
+      "skill-llmops"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "course-opendocbot",
+    "toolSlug": "opendocbot",
+    "title": "Master OpenDocBot",
+    "objectives": [
+      "Understand what OpenDocBot is for",
+      "Use OpenDocBot on a real task",
+      "Know where OpenDocBot fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure OpenDocBot for your real workflow, not the demo.",
+          "Say what OpenDocBot does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through OpenDocBot.",
+          "Push OpenDocBot to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold OpenDocBot into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-office",
+      "skill-byom",
+      "skill-llm",
+      "skill-documents",
+      "skill-add-in"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "course-a-coding-agent-from-scratch",
+    "toolSlug": "a-coding-agent-from-scratch",
+    "title": "Master A Coding Agent from Scratch",
+    "objectives": [
+      "Understand what A Coding Agent from Scratch is for",
+      "Use A Coding Agent from Scratch on a real task",
+      "Know where A Coding Agent from Scratch fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure A Coding Agent from Scratch for your real workflow, not the demo.",
+          "Say what A Coding Agent from Scratch does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through A Coding Agent from Scratch.",
+          "Push A Coding Agent from Scratch to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold A Coding Agent from Scratch into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding agent",
+      "skill-tutorial",
+      "skill-llm",
+      "skill-from scratch",
+      "skill-ai agents"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "course-seasonmap",
+    "toolSlug": "seasonmap",
+    "title": "Master SeasonMap",
+    "objectives": [
+      "Read SeasonMap's climate layers to understand conditions anywhere on Earth",
+      "Use the month timeline and filters to find destinations with ideal weather",
+      "Build, save, and share a personal year-round travel calendar"
+    ],
+    "modules": [
+      {
+        "title": "Reading the Climate Map",
+        "estMinutes": 10,
+        "steps": [
+          "Open SeasonMap and switch between the Temperature, Rainfall, and Comfort Index layers using the layer panel on the left",
+          "Hover over three different cities and read the climate summary card that appears, noting average highs, lows, and rainy days",
+          "Zoom into a region and use the legend at the bottom to interpret what the color bands mean for your comfort"
+        ]
+      },
+      {
+        "title": "Exploring Seasons with the Timeline",
+        "estMinutes": 10,
+        "steps": [
+          "Drag the month slider at the bottom from January through December and watch how conditions shift across the map",
+          "Open the 'Ideal Conditions' filter, set a range like 18–27°C with less than 5 rainy days, and apply it to a specific month",
+          "Click one highlighted destination to open its Best Months panel and see which months score highest"
+        ]
+      },
+      {
+        "title": "Comparing Destinations Side by Side",
+        "estMinutes": 8,
+        "steps": [
+          "Right-click two destinations on the map (for example, Lisbon and Tokyo) and pin each to the comparison tray",
+          "Open the comparison view and read the 12-month temperature and rainfall charts for both cities",
+          "Identify the overlapping ideal months and note which destination wins for your preferred travel window"
+        ]
+      },
+      {
+        "title": "Building Your Travel Calendar",
+        "estMinutes": 12,
+        "steps": [
+          "Set your preferences in the Trip Planner: ideal temperature range, tolerance for rain, and regions you want to visit",
+          "Click 'Generate Calendar' to get a month-by-month destination plan, then drag entries to reorder or swap them",
+          "Save the calendar to your account and export it as a PDF or shareable link for travel partners"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-travel",
+      "skill-climate",
+      "skill-data-visualization",
+      "skill-weather",
+      "skill-planning"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "course-neurogrid-terminal-coding-agent",
+    "toolSlug": "neurogrid-terminal-coding-agent",
+    "title": "Master Neurogrid Terminal Coding Agent",
+    "objectives": [
+      "Understand what Neurogrid Terminal Coding Agent is for",
+      "Use Neurogrid Terminal Coding Agent on a real task",
+      "Know where Neurogrid Terminal Coding Agent fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Neurogrid Terminal Coding Agent for your real workflow, not the demo.",
+          "Say what Neurogrid Terminal Coding Agent does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Neurogrid Terminal Coding Agent.",
+          "Push Neurogrid Terminal Coding Agent to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Neurogrid Terminal Coding Agent into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding-agent",
+      "skill-terminal",
+      "skill-tui",
+      "skill-cli",
+      "skill-developer-tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "course-friday",
+    "toolSlug": "friday",
+    "title": "Master Friday",
+    "objectives": [
+      "Understand what Friday is for",
+      "Use Friday on a real task",
+      "Know where Friday fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Friday for your real workflow, not the demo.",
+          "Say what Friday does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Friday.",
+          "Push Friday to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Friday into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-memory",
+      "skill-mcp",
+      "skill-self-hosted",
+      "skill-coding agents",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone",
+    "toolSlug": "tabmail-open-source-ai-email-for-thunderbird-and-iphone",
+    "title": "Master TabMail. Open-source AI email for Thunderbird and iPhone",
+    "objectives": [
+      "Understand what TabMail. Open-source AI email for Thunderbird and iPhone is for",
+      "Use TabMail. Open-source AI email for Thunderbird and iPhone on a real task",
+      "Know where TabMail. Open-source AI email for Thunderbird and iPhone fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure TabMail. Open-source AI email for Thunderbird and iPhone for your real workflow, not the demo.",
+          "Say what TabMail. Open-source AI email for Thunderbird and iPhone does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through TabMail. Open-source AI email for Thunderbird and iPhone.",
+          "Push TabMail. Open-source AI email for Thunderbird and iPhone to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold TabMail. Open-source AI email for Thunderbird and iPhone into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-email",
+      "skill-open-source",
+      "skill-thunderbird",
+      "skill-ai assistant",
+      "skill-iphone"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "course-anyhropic-launches-google-docs-alternative-claude-docs",
+    "toolSlug": "anyhropic-launches-google-docs-alternative-claude-docs",
+    "title": "Master Anyhropic Launches Google Docs Alternative: Claude Docs",
+    "objectives": [
+      "Understand what Anyhropic Launches Google Docs Alternative: Claude Docs is for",
+      "Use Anyhropic Launches Google Docs Alternative: Claude Docs on a real task",
+      "Know where Anyhropic Launches Google Docs Alternative: Claude Docs fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Anyhropic Launches Google Docs Alternative: Claude Docs.",
+          "Say what Anyhropic Launches Google Docs Alternative: Claude Docs does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Anyhropic Launches Google Docs Alternative: Claude Docs.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Anyhropic Launches Google Docs Alternative: Claude Docs into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-documents",
+      "skill-collaboration",
+      "skill-ai-assistant",
+      "skill-anthropic"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "course-yourchar",
+    "toolSlug": "yourchar",
+    "title": "Master YourChar",
+    "objectives": [
+      "Understand what YourChar is for",
+      "Use YourChar on a real task",
+      "Know where YourChar fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure YourChar for your real workflow, not the demo.",
+          "Say what YourChar does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through YourChar.",
+          "Push YourChar to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold YourChar into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-self-hosted",
+      "skill-companions",
+      "skill-characters",
+      "skill-memory",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-16T23:51:17.133Z"
   }
 ]

@@ -144,7 +144,12 @@
       "freeform",
       "ai-agent-vercel-eve-web-interface-amazing",
       "skill-to-generate-change-preview-pages",
-      "legion"
+      "legion",
+      "fault-tolerance-in-low-bandwidth-model-parallelism",
+      "a-coding-agent-from-scratch",
+      "neurogrid-terminal-coding-agent",
+      "friday",
+      "yourchar"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -286,7 +291,12 @@
       "course-freeform",
       "course-ai-agent-vercel-eve-web-interface-amazing",
       "course-skill-to-generate-change-preview-pages",
-      "course-legion"
+      "course-legion",
+      "course-fault-tolerance-in-low-bandwidth-model-parallelism",
+      "course-a-coding-agent-from-scratch",
+      "course-neurogrid-terminal-coding-agent",
+      "course-friday",
+      "course-yourchar"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -340,7 +350,8 @@
       "quire",
       "coletivo",
       "provetogether-moltbook-but-for-math",
-      "radio"
+      "radio",
+      "anyhropic-launches-google-docs-alternative-claude-docs"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -353,7 +364,8 @@
       "course-quire",
       "course-coletivo",
       "course-provetogether-moltbook-but-for-math",
-      "course-radio"
+      "course-radio",
+      "course-anyhropic-launches-google-docs-alternative-claude-docs"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -417,7 +429,9 @@
       "open-sourced-solution-to-ai-manage-playwright-automations",
       "a-c-compiler-written-with-help-of-claude",
       "chronicle",
-      "skill-to-generate-change-preview-pages"
+      "skill-to-generate-change-preview-pages",
+      "i-built-a-router-for-agent-tools",
+      "tabmail-open-source-ai-email-for-thunderbird-and-iphone"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -459,7 +473,9 @@
       "course-open-sourced-solution-to-ai-manage-playwright-automations",
       "course-a-c-compiler-written-with-help-of-claude",
       "course-chronicle",
-      "course-skill-to-generate-change-preview-pages"
+      "course-skill-to-generate-change-preview-pages",
+      "course-i-built-a-router-for-agent-tools",
+      "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -799,7 +815,9 @@
       "openai-expands-chatgpt-ads-with-sponsored-agents",
       "wvm",
       "never-again",
-      "thurbox"
+      "thurbox",
+      "i-built-a-router-for-agent-tools",
+      "tabmail-open-source-ai-email-for-thunderbird-and-iphone"
     ],
     "courses": [
       "course-headless-tools",
@@ -984,7 +1002,9 @@
       "course-openai-expands-chatgpt-ads-with-sponsored-agents",
       "course-wvm",
       "course-never-again",
-      "course-thurbox"
+      "course-thurbox",
+      "course-i-built-a-router-for-agent-tools",
+      "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1144,7 +1164,8 @@
       "ai-agents-now-have-a-place-to-snitch",
       "ai-agent-vercel-eve-web-interface-amazing",
       "how-to-build-effective-evals-for-ai-agents",
-      "never-again"
+      "never-again",
+      "a-coding-agent-from-scratch"
     ],
     "courses": [
       "course-headless-tools",
@@ -1282,7 +1303,8 @@
       "course-ai-agents-now-have-a-place-to-snitch",
       "course-ai-agent-vercel-eve-web-interface-amazing",
       "course-how-to-build-effective-evals-for-ai-agents",
-      "course-never-again"
+      "course-never-again",
+      "course-a-coding-agent-from-scratch"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1369,7 +1391,10 @@
       "meta-launches-subscriptions-with-enhanced-ai-features",
       "a-stateful-llm-api-that-works-across-providers",
       "plurnk-yet-another-ai-harness",
-      "legion"
+      "legion",
+      "quantifying-context-rot",
+      "opendocbot",
+      "a-coding-agent-from-scratch"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1406,7 +1431,10 @@
       "course-meta-launches-subscriptions-with-enhanced-ai-features",
       "course-a-stateful-llm-api-that-works-across-providers",
       "course-plurnk-yet-another-ai-harness",
-      "course-legion"
+      "course-legion",
+      "course-quantifying-context-rot",
+      "course-opendocbot",
+      "course-a-coding-agent-from-scratch"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2015,7 +2043,8 @@
       "aiope",
       "astah-pro-mcp",
       "grove",
-      "pawbot"
+      "pawbot",
+      "friday"
     ],
     "courses": [
       "course-coolplugz",
@@ -2039,7 +2068,8 @@
       "course-aiope",
       "course-astah-pro-mcp",
       "course-grove",
-      "course-pawbot"
+      "course-pawbot",
+      "course-friday"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2184,7 +2214,9 @@
       "pangolin",
       "charter",
       "minimal-static-website-hosting-tool",
-      "pawbot"
+      "pawbot",
+      "friday",
+      "yourchar"
     ],
     "courses": [
       "course-hermes-agent",
@@ -2194,7 +2226,9 @@
       "course-pangolin",
       "course-charter",
       "course-minimal-static-website-hosting-tool",
-      "course-pawbot"
+      "course-pawbot",
+      "course-friday",
+      "course-yourchar"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2223,7 +2257,9 @@
       "spec-sheets-for-humans",
       "mymarkdown",
       "meta-launches-subscriptions-with-enhanced-ai-features",
-      "texposit"
+      "texposit",
+      "opendocbot",
+      "anyhropic-launches-google-docs-alternative-claude-docs"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -2245,7 +2281,9 @@
       "course-spec-sheets-for-humans",
       "course-mymarkdown",
       "course-meta-launches-subscriptions-with-enhanced-ai-features",
-      "course-texposit"
+      "course-texposit",
+      "course-opendocbot",
+      "course-anyhropic-launches-google-docs-alternative-claude-docs"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2411,7 +2449,8 @@
       "jern-cloud",
       "airuncode",
       "felan",
-      "autocode"
+      "autocode",
+      "a-coding-agent-from-scratch"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -2419,7 +2458,8 @@
       "course-jern-cloud",
       "course-airuncode",
       "course-felan",
-      "course-autocode"
+      "course-autocode",
+      "course-a-coding-agent-from-scratch"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2674,7 +2714,8 @@
       "building-specialized-systems-we-can-trust-with-agents",
       "radio",
       "auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
-      "plurnk-yet-another-ai-harness"
+      "plurnk-yet-another-ai-harness",
+      "i-built-a-router-for-agent-tools"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2705,7 +2746,8 @@
       "course-building-specialized-systems-we-can-trust-with-agents",
       "course-radio",
       "course-auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
-      "course-plurnk-yet-another-ai-harness"
+      "course-plurnk-yet-another-ai-harness",
+      "course-i-built-a-router-for-agent-tools"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2742,11 +2784,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "designing-loops-for-production-grade-work",
-      "experiments-with-ai"
+      "experiments-with-ai",
+      "a-coding-agent-from-scratch"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
-      "course-experiments-with-ai"
+      "course-experiments-with-ai",
+      "course-a-coding-agent-from-scratch"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2811,7 +2855,9 @@
       "agenttik",
       "plurnk-yet-another-ai-harness",
       "never-again",
-      "thurbox"
+      "thurbox",
+      "friday",
+      "yourchar"
     ],
     "courses": [
       "course-limitless-library",
@@ -2856,7 +2902,9 @@
       "course-agenttik",
       "course-plurnk-yet-another-ai-harness",
       "course-never-again",
-      "course-thurbox"
+      "course-thurbox",
+      "course-friday",
+      "course-yourchar"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2967,7 +3015,10 @@
       "hazumi-for-hn-comes-to-the-web",
       "ecommerce-ai-tools",
       "atlas-finance-evaluating-ai-agents-inside-a-bank",
-      "axelera-ai-launches-europa"
+      "axelera-ai-launches-europa",
+      "ai-debt-vs-treasuries",
+      "quantifying-context-rot",
+      "seasonmap"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3000,7 +3051,10 @@
       "course-hazumi-for-hn-comes-to-the-web",
       "course-ecommerce-ai-tools",
       "course-atlas-finance-evaluating-ai-agents-inside-a-bank",
-      "course-axelera-ai-launches-europa"
+      "course-axelera-ai-launches-europa",
+      "course-ai-debt-vs-treasuries",
+      "course-quantifying-context-rot",
+      "course-seasonmap"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3147,12 +3201,14 @@
     "toolsTeaching": [
       "aristra-your-life-os",
       "free-business-builder",
-      "will-your-money-last-ai-assisted-financial-simulator"
+      "will-your-money-last-ai-assisted-financial-simulator",
+      "seasonmap"
     ],
     "courses": [
       "course-aristra-your-life-os",
       "course-free-business-builder",
-      "course-will-your-money-last-ai-assisted-financial-simulator"
+      "course-will-your-money-last-ai-assisted-financial-simulator",
+      "course-seasonmap"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3163,11 +3219,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "aristra-your-life-os",
-      "astah-pro-mcp"
+      "astah-pro-mcp",
+      "anyhropic-launches-google-docs-alternative-claude-docs"
     ],
     "courses": [
       "course-aristra-your-life-os",
-      "course-astah-pro-mcp"
+      "course-astah-pro-mcp",
+      "course-anyhropic-launches-google-docs-alternative-claude-docs"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3564,12 +3622,14 @@
     "toolsTeaching": [
       "text-editor-that-does-it-all",
       "memcode-launches-github-code-review",
-      "felan"
+      "felan",
+      "tabmail-open-source-ai-email-for-thunderbird-and-iphone"
     ],
     "courses": [
       "course-text-editor-that-does-it-all",
       "course-memcode-launches-github-code-review",
-      "course-felan"
+      "course-felan",
+      "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3749,11 +3809,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "placeroot",
-      "telem"
+      "telem",
+      "i-built-a-router-for-agent-tools"
     ],
     "courses": [
       "course-placeroot",
-      "course-telem"
+      "course-telem",
+      "course-i-built-a-router-for-agent-tools"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4147,7 +4209,8 @@
       "pawbot",
       "ai-native-dependency-upgrades-through-codemods",
       "agenttik",
-      "thurbox"
+      "thurbox",
+      "neurogrid-terminal-coding-agent"
     ],
     "courses": [
       "course-devx",
@@ -4161,7 +4224,8 @@
       "course-pawbot",
       "course-ai-native-dependency-upgrades-through-codemods",
       "course-agenttik",
-      "course-thurbox"
+      "course-thurbox",
+      "course-neurogrid-terminal-coding-agent"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4516,10 +4580,14 @@
     "domain": "writing",
     "level": "beginner",
     "toolsTeaching": [
-      "handwrought"
+      "handwrought",
+      "opendocbot",
+      "anyhropic-launches-google-docs-alternative-claude-docs"
     ],
     "courses": [
-      "course-handwrought"
+      "course-handwrought",
+      "course-opendocbot",
+      "course-anyhropic-launches-google-docs-alternative-claude-docs"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4584,7 +4652,8 @@
       "ai-coding-agent-skills-for-real-engineers",
       "usero-mcp-give-your-coding-agent-your-user-feedback",
       "benchmarking-coding-agents-perform-on-scraping",
-      "viaduct"
+      "viaduct",
+      "friday"
     ],
     "courses": [
       "course-ai-tools-list",
@@ -4595,7 +4664,8 @@
       "course-ai-coding-agent-skills-for-real-engineers",
       "course-usero-mcp-give-your-coding-agent-your-user-feedback",
       "course-benchmarking-coding-agents-perform-on-scraping",
-      "course-viaduct"
+      "course-viaduct",
+      "course-friday"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5170,7 +5240,8 @@
       "you-didnt-deploy-the-ai-agent-you-evaluated",
       "can-ai-agents-conduct-open-ended-ai-research",
       "atlas-finance-evaluating-ai-agents-inside-a-bank",
-      "how-to-build-effective-evals-for-ai-agents"
+      "how-to-build-effective-evals-for-ai-agents",
+      "quantifying-context-rot"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -5185,7 +5256,8 @@
       "course-you-didnt-deploy-the-ai-agent-you-evaluated",
       "course-can-ai-agents-conduct-open-ended-ai-research",
       "course-atlas-finance-evaluating-ai-agents-inside-a-bank",
-      "course-how-to-build-effective-evals-for-ai-agents"
+      "course-how-to-build-effective-evals-for-ai-agents",
+      "course-quantifying-context-rot"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5200,7 +5272,9 @@
       "selfshipai",
       "databricks-used-ai-to-save-1mi-year-in-ai-spend",
       "you-didnt-deploy-the-ai-agent-you-evaluated",
-      "how-to-build-effective-evals-for-ai-agents"
+      "how-to-build-effective-evals-for-ai-agents",
+      "quantifying-context-rot",
+      "fault-tolerance-in-low-bandwidth-model-parallelism"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -5208,7 +5282,9 @@
       "course-selfshipai",
       "course-databricks-used-ai-to-save-1mi-year-in-ai-spend",
       "course-you-didnt-deploy-the-ai-agent-you-evaluated",
-      "course-how-to-build-effective-evals-for-ai-agents"
+      "course-how-to-build-effective-evals-for-ai-agents",
+      "course-quantifying-context-rot",
+      "course-fault-tolerance-in-low-bandwidth-model-parallelism"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5889,7 +5965,8 @@
       "nola",
       "cli-tools",
       "toolcraft",
-      "skill-to-generate-change-preview-pages"
+      "skill-to-generate-change-preview-pages",
+      "neurogrid-terminal-coding-agent"
     ],
     "courses": [
       "course-openinstinct",
@@ -5902,7 +5979,8 @@
       "course-nola",
       "course-cli-tools",
       "course-toolcraft",
-      "course-skill-to-generate-change-preview-pages"
+      "course-skill-to-generate-change-preview-pages",
+      "course-neurogrid-terminal-coding-agent"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -6260,7 +6338,9 @@
       "simonagent",
       "the-memory-that-ai-agents-love",
       "a-stateful-llm-api-that-works-across-providers",
-      "never-again"
+      "never-again",
+      "friday",
+      "yourchar"
     ],
     "courses": [
       "course-itsuki",
@@ -6275,7 +6355,9 @@
       "course-simonagent",
       "course-the-memory-that-ai-agents-love",
       "course-a-stateful-llm-api-that-works-across-providers",
-      "course-never-again"
+      "course-never-again",
+      "course-friday",
+      "course-yourchar"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -6940,10 +7022,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals"
+      "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
+      "quantifying-context-rot"
     ],
     "courses": [
-      "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals"
+      "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
+      "course-quantifying-context-rot"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -7531,7 +7615,8 @@
       "ai-agents-started-emailing-philosophers-and-researchers",
       "inbundly",
       "dearagent",
-      "prmptree"
+      "prmptree",
+      "tabmail-open-source-ai-email-for-thunderbird-and-iphone"
     ],
     "courses": [
       "course-unitpost-email",
@@ -7539,7 +7624,8 @@
       "course-ai-agents-started-emailing-philosophers-and-researchers",
       "course-inbundly",
       "course-dearagent",
-      "course-prmptree"
+      "course-prmptree",
+      "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -7641,14 +7727,16 @@
       "mu",
       "termy",
       "moshi",
-      "aiope"
+      "aiope",
+      "neurogrid-terminal-coding-agent"
     ],
     "courses": [
       "course-tenux",
       "course-mu",
       "course-termy",
       "course-moshi",
-      "course-aiope"
+      "course-aiope",
+      "course-neurogrid-terminal-coding-agent"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -7948,11 +8036,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "anthropic-launches-fable-51-and-mythos-51",
-      "anthropic-reveals-rogue-ai-agents-hate-captchas"
+      "anthropic-reveals-rogue-ai-agents-hate-captchas",
+      "anyhropic-launches-google-docs-alternative-claude-docs"
     ],
     "courses": [
       "course-anthropic-launches-fable-51-and-mythos-51",
-      "course-anthropic-reveals-rogue-ai-agents-hate-captchas"
+      "course-anthropic-reveals-rogue-ai-agents-hate-captchas",
+      "course-anyhropic-launches-google-docs-alternative-claude-docs"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -8905,10 +8995,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "openvurp"
+      "openvurp",
+      "i-built-a-router-for-agent-tools"
     ],
     "courses": [
-      "course-openvurp"
+      "course-openvurp",
+      "course-i-built-a-router-for-agent-tools"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -15305,10 +15397,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "nowdex"
+      "nowdex",
+      "tabmail-open-source-ai-email-for-thunderbird-and-iphone"
     ],
     "courses": [
-      "course-nowdex"
+      "course-nowdex",
+      "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone"
     ],
     "updatedAt": "2026-09-14T23:59:11.393Z"
   },
@@ -16466,10 +16560,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "thurbox"
+      "thurbox",
+      "neurogrid-terminal-coding-agent"
     ],
     "courses": [
-      "course-thurbox"
+      "course-thurbox",
+      "course-neurogrid-terminal-coding-agent"
     ],
     "updatedAt": "2026-09-16T14:13:20.724Z"
   },
@@ -16485,5 +16581,291 @@
       "course-thurbox"
     ],
     "updatedAt": "2026-09-16T14:13:20.724Z"
+  },
+  {
+    "id": "skill-bonds",
+    "name": "bonds",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-debt-vs-treasuries"
+    ],
+    "courses": [
+      "course-ai-debt-vs-treasuries"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-ai debt",
+    "name": "ai debt",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-debt-vs-treasuries"
+    ],
+    "courses": [
+      "course-ai-debt-vs-treasuries"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-treasuries",
+    "name": "treasuries",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-debt-vs-treasuries"
+    ],
+    "courses": [
+      "course-ai-debt-vs-treasuries"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-markets",
+    "name": "markets",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-debt-vs-treasuries"
+    ],
+    "courses": [
+      "course-ai-debt-vs-treasuries"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-investing",
+    "name": "investing",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-debt-vs-treasuries"
+    ],
+    "courses": [
+      "course-ai-debt-vs-treasuries"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-context-window",
+    "name": "context window",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "quantifying-context-rot"
+    ],
+    "courses": [
+      "course-quantifying-context-rot"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-model parallelism",
+    "name": "model parallelism",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "fault-tolerance-in-low-bandwidth-model-parallelism"
+    ],
+    "courses": [
+      "course-fault-tolerance-in-low-bandwidth-model-parallelism"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-fault tolerance",
+    "name": "fault tolerance",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "fault-tolerance-in-low-bandwidth-model-parallelism"
+    ],
+    "courses": [
+      "course-fault-tolerance-in-low-bandwidth-model-parallelism"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-distributed training",
+    "name": "distributed training",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "fault-tolerance-in-low-bandwidth-model-parallelism"
+    ],
+    "courses": [
+      "course-fault-tolerance-in-low-bandwidth-model-parallelism"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-low bandwidth",
+    "name": "low bandwidth",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "fault-tolerance-in-low-bandwidth-model-parallelism"
+    ],
+    "courses": [
+      "course-fault-tolerance-in-low-bandwidth-model-parallelism"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-office",
+    "name": "office",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "opendocbot"
+    ],
+    "courses": [
+      "course-opendocbot"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-byom",
+    "name": "byom",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "opendocbot"
+    ],
+    "courses": [
+      "course-opendocbot"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-add-in",
+    "name": "add in",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "opendocbot"
+    ],
+    "courses": [
+      "course-opendocbot"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-from scratch",
+    "name": "from scratch",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "a-coding-agent-from-scratch"
+    ],
+    "courses": [
+      "course-a-coding-agent-from-scratch"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-travel",
+    "name": "travel",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "seasonmap"
+    ],
+    "courses": [
+      "course-seasonmap"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-climate",
+    "name": "climate",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "seasonmap"
+    ],
+    "courses": [
+      "course-seasonmap"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-data-visualization",
+    "name": "data visualization",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "seasonmap"
+    ],
+    "courses": [
+      "course-seasonmap"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-weather",
+    "name": "weather",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "seasonmap"
+    ],
+    "courses": [
+      "course-seasonmap"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-coding-agent",
+    "name": "coding agent",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "neurogrid-terminal-coding-agent"
+    ],
+    "courses": [
+      "course-neurogrid-terminal-coding-agent"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-thunderbird",
+    "name": "thunderbird",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "tabmail-open-source-ai-email-for-thunderbird-and-iphone"
+    ],
+    "courses": [
+      "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-companions",
+    "name": "companions",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "yourchar"
+    ],
+    "courses": [
+      "course-yourchar"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
+  },
+  {
+    "id": "skill-characters",
+    "name": "characters",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "yourchar"
+    ],
+    "courses": [
+      "course-yourchar"
+    ],
+    "updatedAt": "2026-09-16T23:51:17.133Z"
   }
 ]

@@ -1713,5 +1713,33 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "vending-machine-lab",
+    "name": "Vending Machine Lab",
+    "category": "design",
+    "sourceCategory": "Image Generation & Editing",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Show HN: Vending Machine Lab – Build business, leave for 2 wks, see what breaks",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://vending-machine-lab.pages.dev/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "design"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49733012",
+    "discoveredAt": "2026-09-16T23:51:17.133Z",
+    "updatedAt": "2026-09-16T23:51:17.133Z",
+    "contentHash": "62f79ffba04ae7ce",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]
