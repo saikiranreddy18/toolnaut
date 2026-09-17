@@ -6835,3 +6835,75 @@ a client-side SPA with a static tool catalogue.
   small additions to existing build scripts (`prerender.mjs` ROUTES,
   `stamp-sitemap.mjs`). No schema, no backend, no new dependency.
 - **Found:** 2026-09-17 09:xx UTC
+
+### A single-letter typo on the most famous tool names in the catalog returns zero results
+- **Status:** OPEN
+- **Seen in:** every mainstream directory/marketplace search box is typo-
+  tolerant by default now — G2 and Capterra both run on Algolia-class search
+  infra with built-in fuzzy matching, and Product Hunt's search silently
+  corrects one-character misspellings. It's table stakes for a "search for a
+  tool by name" box in 2026, not a differentiating feature to build toward.
+- **Gap:** two entries already in this file flagged typo-tolerance as "a
+  separate, harder gap" and explicitly excluded it from their own scope
+  ("Search treats a whole multi-word query as one literal phrase", `Found:
+  2026-09-11 00:20 UTC`, and "The public search page's own placeholder
+  promises task search", `Found: 2026-09-16 09:10 UTC`) — both fixed word
+  *order* or word
+  *form* (plural/suffix) but neither touches actual misspellings, and neither
+  ever became its own entry. Verified live against the real catalog this run
+  (`matchesQuery` from `src/utils/search.js`, the exact function both
+  `Discover.jsx` and `SearchTools.jsx` import): a one-character typo on four
+  of the most recognizable tool names in the entire catalog returns **zero**
+  results — `midjorney` (Midjourney), `noiton` (Notion), `perplexty`
+  (Perplexity), `chatgtp` (ChatGPT) all land on the "No tools match" empty
+  state on both `/app/discover` and the public, no-login `/search` page.
+  `src/utils/search.js:9-16`'s `matchesQuery()` is a pure `.includes()` check
+  per word — there is no distance metric, no dependency like Fuse.js or a
+  Levenshtein implementation anywhere in `src/` (grepped `fuse|levenshtein|
+  fuzzy` across `src/`, zero hits).
+- **Why it matters:** this is the single most damaging shape of search
+  failure a directory can have — not an obscure or long-tail query missing a
+  result, but the *flagship* products a visitor is most likely to type from
+  memory, on mobile, with a thumb-slip, failing outright. `/search` is public
+  and unauthenticated, so this is a first-impression page for a visitor who
+  hasn't even taken the quiz yet; landing on "No tools match" for a
+  one-character slip on "ChatGPT" reads as "this directory doesn't even have
+  ChatGPT," which is false and corrosive to trust in the other 700+ results
+  the visitor hasn't checked yet.
+- **Smallest useful version (what to actually build):** add a bounded,
+  dependency-free edit-distance fallback to `matchesQuery()`, layered after
+  the existing exact-substring check so short/common/already-correct queries
+  are entirely unaffected:
+  - A small local `levenshtein(a, b)` (iterative DP, two-row rolling array —
+    no recursion, no library) in `src/utils/search.js`, capped by an early
+    exit once the running distance exceeds the allowed threshold so a 700-
+    tool catalog stays cheap to scan per keystroke.
+  - Threshold scales with word length, not a flat constant: distance ≤ 1 for
+    query words of length 4-7, ≤ 2 for length 8+, and no fuzzy check at all
+    below length 4 (short words like "app" or "gpt" would otherwise fuzzy-
+    match almost anything, the same false-positive risk the prefix-match
+    entry above already guards against with its own length floor).
+  - For each query word that fails the existing exact-substring check,
+    tokenize the haystack (already lowercased) and accept the word as
+    matched if any single haystack token is within threshold — same
+    per-word-AND structure `matchesQuery` already has, this only widens what
+    counts as one word matching.
+  - Extend `test/search.test.mjs` with cases mirroring the four found here
+    (`midjorney`→Midjourney, `noiton`→Notion, `perplexty`→Perplexity,
+    `chatgtp`→ChatGPT) plus a negative case proving short words don't go
+    fuzzy (`"app"` must not start matching unrelated tools) and that an
+    already-exact query is untouched by the new path.
+  - **What this would NOT include** (kept out to bound the diff): no
+    dependency addition (Fuse.js, fuzzysort, etc.) — the catalog is small
+    enough and the threshold narrow enough that a ~15-line local function
+    covers it; no ranking/scoring by distance — a fuzzy hit is included in
+    the result set exactly like an exact hit, same "no relevance ranking"
+    stance the prefix-match entry above already takes; no autocomplete or
+    "did you mean" suggestion UI — this only widens which results a query
+    returns, it doesn't add a new interaction; no change to the plural/suffix
+    prefix-matching entry above — the two are independent and can ship in
+    either order or the same commit.
+- **Build size:** S — one function plus one extended predicate in
+  `src/utils/search.js`, no new route, no new component, no dependency, one
+  extended test file.
+- **Found:** 2026-09-17 21:10 UTC
