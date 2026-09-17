@@ -6713,3 +6713,81 @@ a client-side SPA with a static tool catalogue.
   needs a schema change rather than reusing existing local state, so it is a
   reasonable feature-run candidate but not a trivial one.
 - **Found:** 2026-09-17 03:20 UTC
+
+### No "Toolnaut vs [competitor]" comparison pages — the single highest-intent SEO page type in this category, entirely missing
+- **Status:** OPEN
+- **Seen in:** this is the standard SaaS/directory SEO pattern, distinct from
+  a per-tool alternatives page (already logged below as its own gap) — it
+  compares the *directory itself* against its direct competitors, not one
+  catalog tool against another. There's An AI For That (~47,000 tools
+  indexed, task-first browsing, ~4M monthly visits, a 2.5M-subscriber
+  newsletter) and Futurepedia (~5,000 tools, category-first browsing, free to
+  browse) are Toolnaut's two closest direct competitors by category and are
+  both far bigger by raw catalog size — which is exactly why a page arguing
+  Toolnaut's *different* value (quiz-personalized stack + 4-week roadmap vs.
+  a plain browsable list) is worth writing rather than trying to out-list
+  them. Zoho and Ahrefs both run a full set of individually-targeted
+  competitor pages collected on one hub; Webflow's vs-Squarespace page is the
+  well-known example of doing it with an honest side-by-side rather than
+  marketing spin.
+- **Gap:** confirmed by reading every route in `src/App.jsx:100-165` and
+  grepping `futurepedia|there's an ai for that|toolfinder|product hunt|vs-`
+  across `src/` — the only competitor mentions anywhere are Product Hunt and
+  GitHub cited as radar *data sources* (`NewTools.jsx:73`, `Methodology.jsx:80`),
+  never as directories being compared against. There is no `/vs/:slug` route,
+  no comparison content file, and nothing in `scripts/prerender.mjs`'s route
+  list targets this. Someone searching "Toolnaut vs Futurepedia" or "AI tool
+  directory alternative to There's An AI For That" — exactly the
+  high-purchase-intent query this category's own competitors are ranking
+  for — has literally nothing on toolnaut.xyz to land on.
+- **Why it matters:** these are bottom-of-funnel searches from people already
+  comparing directories, not top-of-funnel "what is an AI tool" traffic — the
+  single highest-converting SEO page type available to a discovery product,
+  and Toolnaut currently concedes all of it. It is also the one place
+  Toolnaut can make its actual differentiation (personalized stack + guided
+  roadmap, not just a bigger list) legible in a search result, which no
+  existing page does — `About.jsx` and `Methodology.jsx` explain what
+  Toolnaut *is* but never contrast it against what a visitor is coming from.
+  Zero backend need: this is static, hand-authored comparison copy, same
+  shape as the marketing routes already prerendered.
+- **Smallest useful version (what to actually build):**
+  - New `src/content/comparisons.js`: a small array of plain objects, one per
+    competitor — `{ slug, name, blurb, catalogSize, browseModel, pricing,
+    strengths, toolnautDifference }` — hand-filled with real, checkable facts
+    about each competitor (catalog size, whether it's task- or
+    category-first, whether personalization exists), not superlatives. This
+    codebase already refuses to show an invented number anywhere
+    (`StatsSection.jsx`'s "a number on a landing page is a claim" comment) —
+    the same discipline applies here: no "#1", no fabricated user counts for
+    either side, just a factual side-by-side a visitor can verify.
+  - New `src/pages/CompareCompetitor.jsx` + route `/vs/:slug` in
+    `src/App.jsx` (public, next to `/compare/:slugs` at `App.jsx:120`):
+    renders the two-column comparison table plus one short paragraph on what
+    Toolnaut does differently (quiz → persona → stack → roadmap), ending
+    with the same quiz CTA every other marketing page uses. Reuses
+    `SectionShell`/card styling from `src/components/sections/` rather than
+    inventing new layout.
+  - Add `/vs/:slug` for each entry in `comparisons.js` to
+    `scripts/prerender.mjs`'s `ROUTES` list — this is a handful of pages
+    (start with 2-3 real, named direct competitors), the exact case that
+    file's own comment says the real-browser prerenderer is for, not the
+    1,100-page `gen-tool-pages.mjs` string-render path. Also add each path to
+    `scripts/stamp-sitemap.mjs`'s lastmod list alongside the existing
+    `/tools/*` marketing routes.
+  - Give each page its own `useHead()` call (`src/utils/head.js`, already
+    used by 14 pages) with a title matching the exact search pattern —
+    `"Toolnaut vs Futurepedia — Which AI tool directory fits you?"` — since
+    that literal phrase in the `<title>` is most of the SEO value here.
+  - **What this would NOT include** (kept out to bound the diff): no
+    auto-generated or scraped competitor data (facts go stale silently and
+    this repo's own ranking rule prefers hand-verified content); no more than
+    2-3 competitor pages in the first cut — There's An AI For That and
+    Futurepedia are the two closest by category, a third can follow once
+    these prove out; no disparaging or unverifiable claims about the
+    competitor (matches the existing "a claim that isn't checkable doesn't
+    ship" pattern); no dynamic/live-updated comparison data — these are
+    static marketing pages, refreshed by hand same as `About.jsx`.
+- **Build size:** S — one content file, one page component, one route, two
+  small additions to existing build scripts (`prerender.mjs` ROUTES,
+  `stamp-sitemap.mjs`). No schema, no backend, no new dependency.
+- **Found:** 2026-09-17 09:xx UTC
