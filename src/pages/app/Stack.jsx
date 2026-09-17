@@ -334,6 +334,17 @@ export default function Stack() {
                         </Link>
                       ) : tool.name}
                     </h3>
+                    {/* Same signal ToolCard/ToolDetail/Compare already give — this is the
+                        one surface where a committed tool's status silently went unshown. */}
+                    {tool.status && tool.status !== 'Active' && (
+                      <span
+                        className="mt-1.5 inline-block rounded-full px-2 py-0.5 font-display text-[10px] font-semibold"
+                        style={{ background: 'var(--hot-pink)', color: '#fff', border: '2px solid #000', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
+                        title={tool.note || tool.status}
+                      >
+                        {tool.status}
+                      </span>
+                    )}
                     <p className="mt-2 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>
                   </div>
                   <div className="shrink-0 text-center">
