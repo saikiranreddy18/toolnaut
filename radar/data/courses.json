@@ -24500,5 +24500,392 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "course-scry-programmable-internet-search-w-congestion-pricing",
+    "toolSlug": "scry-programmable-internet-search-w-congestion-pricing",
+    "title": "Master Scry, programmable internet search w/ congestion pricing",
+    "objectives": [
+      "Understand what Scry, programmable internet search w/ congestion pricing is for",
+      "Use Scry, programmable internet search w/ congestion pricing on a real task",
+      "Know where Scry, programmable internet search w/ congestion pricing fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Scry, programmable internet search w/ congestion pricing for your real workflow, not the demo.",
+          "Say what Scry, programmable internet search w/ congestion pricing does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Scry, programmable internet search w/ congestion pricing.",
+          "Push Scry, programmable internet search w/ congestion pricing to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Scry, programmable internet search w/ congestion pricing into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-search api",
+      "skill-web search",
+      "skill-congestion pricing",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "course-jawz",
+    "toolSlug": "jawz",
+    "title": "Master Jawz",
+    "objectives": [
+      "Understand what Jawz is for",
+      "Use Jawz on a real task",
+      "Know where Jawz fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Jawz for your real workflow, not the demo.",
+          "Say what Jawz does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Jawz.",
+          "Push Jawz to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Jawz into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-macro data",
+      "skill-markets",
+      "skill-ai agents",
+      "skill-chatgpt app",
+      "skill-finance"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "course-an-open-add-search-evaluation-framework-for-agent-memory",
+    "toolSlug": "an-open-add-search-evaluation-framework-for-agent-memory",
+    "title": "Master An open Add/Search evaluation framework for agent memory",
+    "objectives": [
+      "Understand what An open Add/Search evaluation framework for agent memory is for",
+      "Use An open Add/Search evaluation framework for agent memory on a real task",
+      "Know where An open Add/Search evaluation framework for agent memory fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure An open Add/Search evaluation framework for agent memory for your real workflow, not the demo.",
+          "Say what An open Add/Search evaluation framework for agent memory does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through An open Add/Search evaluation framework for agent memory.",
+          "Push An open Add/Search evaluation framework for agent memory to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold An open Add/Search evaluation framework for agent memory into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-agent memory",
+      "skill-evaluation",
+      "skill-benchmark",
+      "skill-agents",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "course-lakera",
+    "toolSlug": "lakera",
+    "title": "Master Lakera",
+    "objectives": [
+      "Understand what Lakera is for",
+      "Use Lakera on a real task",
+      "Know where Lakera fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Lakera for your real workflow, not the demo.",
+          "Say what Lakera does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Lakera.",
+          "Push Lakera to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Lakera into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai security",
+      "skill-prompt injection",
+      "skill-hacking",
+      "skill-llm",
+      "skill-game"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "course-robodiag-harness",
+    "toolSlug": "robodiag-harness",
+    "title": "Master robodiag-harness",
+    "objectives": [
+      "Understand what robodiag-harness is for",
+      "Use robodiag-harness on a real task",
+      "Know where robodiag-harness fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure robodiag-harness for your real workflow, not the demo.",
+          "Say what robodiag-harness does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through robodiag-harness.",
+          "Push robodiag-harness to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold robodiag-harness into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-robotics",
+      "skill-ros 2",
+      "skill-diagnostics",
+      "skill-ai agent",
+      "skill-debugging"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "course-vscode-mcp-api",
+    "toolSlug": "vscode-mcp-api",
+    "title": "Master vscode-mcp-api",
+    "objectives": [
+      "Understand what vscode-mcp-api is for",
+      "Use vscode-mcp-api on a real task",
+      "Know where vscode-mcp-api fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure vscode-mcp-api for your real workflow, not the demo.",
+          "Say what vscode-mcp-api does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through vscode-mcp-api.",
+          "Push vscode-mcp-api to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold vscode-mcp-api into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-vscode",
+      "skill-mcp",
+      "skill-file-management",
+      "skill-ai-integration",
+      "skill-extension"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "course-aclif",
+    "toolSlug": "aclif",
+    "title": "Master aclif",
+    "objectives": [
+      "Understand what aclif is for",
+      "Use aclif on a real task",
+      "Know where aclif fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure aclif for your real workflow, not the demo.",
+          "Say what aclif does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through aclif.",
+          "Push aclif to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold aclif into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-cli",
+      "skill-ai agents",
+      "skill-framework",
+      "skill-oclif",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "course-capcut-pro-cracked",
+    "toolSlug": "capcut-pro-cracked",
+    "title": "Master CapCut-Pro-Cracked",
+    "objectives": [
+      "Understand what CapCut-Pro-Cracked is for",
+      "Use CapCut-Pro-Cracked on a real task",
+      "Know where CapCut-Pro-Cracked fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure CapCut-Pro-Cracked for your real workflow, not the demo.",
+          "Say what CapCut-Pro-Cracked does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through CapCut-Pro-Cracked.",
+          "Push CapCut-Pro-Cracked to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold CapCut-Pro-Cracked into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-video"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T13:38:05.296Z"
   }
 ]

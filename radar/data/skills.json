@@ -162,7 +162,12 @@
       "can-ai-build-a-toilet-yet",
       "i-forked-jetbrains-new-agent-ide-to-host-claude-code",
       "respawn",
-      "unmute"
+      "unmute",
+      "an-open-add-search-evaluation-framework-for-agent-memory",
+      "robodiag-harness",
+      "vscode-mcp-api",
+      "aclif",
+      "capcut-pro-cracked"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -322,7 +327,12 @@
       "course-can-ai-build-a-toilet-yet",
       "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code",
       "course-respawn",
-      "course-unmute"
+      "course-unmute",
+      "course-an-open-add-search-evaluation-framework-for-agent-memory",
+      "course-robodiag-harness",
+      "course-vscode-mcp-api",
+      "course-aclif",
+      "course-capcut-pro-cracked"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1216,7 +1226,9 @@
       "apowerb",
       "startups-next-teammate-might-be-an-ai-agent",
       "respawn",
-      "salt"
+      "salt",
+      "jawz",
+      "aclif"
     ],
     "courses": [
       "course-headless-tools",
@@ -1360,7 +1372,9 @@
       "course-apowerb",
       "course-startups-next-teammate-might-be-an-ai-agent",
       "course-respawn",
-      "course-salt"
+      "course-salt",
+      "course-jawz",
+      "course-aclif"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1454,7 +1468,8 @@
       "compute-arena",
       "vim-like-hyper-efficient-llm-power-tool",
       "mcpjam",
-      "sokit"
+      "sokit",
+      "lakera"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1498,7 +1513,8 @@
       "course-compute-arena",
       "course-vim-like-hyper-efficient-llm-power-tool",
       "course-mcpjam",
-      "course-sokit"
+      "course-sokit",
+      "course-lakera"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1827,7 +1843,8 @@
       "top-ai-agent-skills-for-building-live-streaming-apps",
       "ffmpeg-commander",
       "ai-agents-built-a-secret-society-inside-the-lab-video",
-      "ai-agent-for-animation"
+      "ai-agent-for-animation",
+      "capcut-pro-cracked"
     ],
     "courses": [
       "course-canvasformusic",
@@ -1836,7 +1853,8 @@
       "course-top-ai-agent-skills-for-building-live-streaming-apps",
       "course-ffmpeg-commander",
       "course-ai-agents-built-a-secret-society-inside-the-lab-video",
-      "course-ai-agent-for-animation"
+      "course-ai-agent-for-animation",
+      "course-capcut-pro-cracked"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2119,7 +2137,8 @@
       "grove",
       "pawbot",
       "friday",
-      "mcpjam"
+      "mcpjam",
+      "vscode-mcp-api"
     ],
     "courses": [
       "course-coolplugz",
@@ -2145,7 +2164,8 @@
       "course-grove",
       "course-pawbot",
       "course-friday",
-      "course-mcpjam"
+      "course-mcpjam",
+      "course-vscode-mcp-api"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2514,13 +2534,15 @@
       "mrea",
       "covenant",
       "mastra-agent-factory",
-      "sokit"
+      "sokit",
+      "aclif"
     ],
     "courses": [
       "course-mrea",
       "course-covenant",
       "course-mastra-agent-factory",
-      "course-sokit"
+      "course-sokit",
+      "course-aclif"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2620,7 +2642,9 @@
       "plurnk-yet-another-ai-harness",
       "never-again",
       "apowerb",
-      "productivity-effects-across-generations-of-ai-coding-tools"
+      "productivity-effects-across-generations-of-ai-coding-tools",
+      "scry-programmable-internet-search-w-congestion-pricing",
+      "aclif"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -2660,7 +2684,9 @@
       "course-plurnk-yet-another-ai-harness",
       "course-never-again",
       "course-apowerb",
-      "course-productivity-effects-across-generations-of-ai-coding-tools"
+      "course-productivity-effects-across-generations-of-ai-coding-tools",
+      "course-scry-programmable-internet-search-w-congestion-pricing",
+      "course-aclif"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2728,7 +2754,8 @@
       "is-ai-solving-math-too-fast",
       "how-to-build-effective-evals-for-ai-agents",
       "share-your-ai-setup-learn-from-others",
-      "openai-discloses-six-new-ai-safety-incidents"
+      "openai-discloses-six-new-ai-safety-incidents",
+      "lakera"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2774,7 +2801,8 @@
       "course-is-ai-solving-math-too-fast",
       "course-how-to-build-effective-evals-for-ai-agents",
       "course-share-your-ai-setup-learn-from-others",
-      "course-openai-discloses-six-new-ai-safety-incidents"
+      "course-openai-discloses-six-new-ai-safety-incidents",
+      "course-lakera"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2813,7 +2841,8 @@
       "radio",
       "auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
       "plurnk-yet-another-ai-harness",
-      "i-built-a-router-for-agent-tools"
+      "i-built-a-router-for-agent-tools",
+      "an-open-add-search-evaluation-framework-for-agent-memory"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2845,7 +2874,8 @@
       "course-radio",
       "course-auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
       "course-plurnk-yet-another-ai-harness",
-      "course-i-built-a-router-for-agent-tools"
+      "course-i-built-a-router-for-agent-tools",
+      "course-an-open-add-search-evaluation-framework-for-agent-memory"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2962,7 +2992,8 @@
       "apowerb",
       "bottle",
       "i-forked-jetbrains-new-agent-ide-to-host-claude-code",
-      "unmute"
+      "unmute",
+      "an-open-add-search-evaluation-framework-for-agent-memory"
     ],
     "courses": [
       "course-limitless-library",
@@ -3014,7 +3045,8 @@
       "course-apowerb",
       "course-bottle",
       "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code",
-      "course-unmute"
+      "course-unmute",
+      "course-an-open-add-search-evaluation-framework-for-agent-memory"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3132,7 +3164,9 @@
       "quantifying-context-rot",
       "seasonmap",
       "compute-arena",
-      "ai-crawler-honeypot"
+      "ai-crawler-honeypot",
+      "scry-programmable-internet-search-w-congestion-pricing",
+      "jawz"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3170,7 +3204,9 @@
       "course-quantifying-context-rot",
       "course-seasonmap",
       "course-compute-arena",
-      "course-ai-crawler-honeypot"
+      "course-ai-crawler-honeypot",
+      "course-scry-programmable-internet-search-w-congestion-pricing",
+      "course-jawz"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3395,7 +3431,8 @@
       "aiope",
       "pawbot",
       "prmptree",
-      "cc-is-an-ai-agent-for-families-and-groups"
+      "cc-is-an-ai-agent-for-families-and-groups",
+      "robodiag-harness"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -3423,7 +3460,8 @@
       "course-aiope",
       "course-pawbot",
       "course-prmptree",
-      "course-cc-is-an-ai-agent-for-families-and-groups"
+      "course-cc-is-an-ai-agent-for-families-and-groups",
+      "course-robodiag-harness"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3575,13 +3613,15 @@
       "aifi-on-aws",
       "will-your-money-last-ai-assisted-financial-simulator",
       "xfinlab",
-      "atlas-finance-evaluating-ai-agents-inside-a-bank"
+      "atlas-finance-evaluating-ai-agents-inside-a-bank",
+      "jawz"
     ],
     "courses": [
       "course-aifi-on-aws",
       "course-will-your-money-last-ai-assisted-financial-simulator",
       "course-xfinlab",
-      "course-atlas-finance-evaluating-ai-agents-inside-a-bank"
+      "course-atlas-finance-evaluating-ai-agents-inside-a-bank",
+      "course-jawz"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3678,11 +3718,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "ai-agent-hacking-writeups",
-      "senator-hawley-opens-investigation-into-openai-huggingface-h"
+      "senator-hawley-opens-investigation-into-openai-huggingface-h",
+      "lakera"
     ],
     "courses": [
       "course-ai-agent-hacking-writeups",
-      "course-senator-hawley-opens-investigation-into-openai-huggingface-h"
+      "course-senator-hawley-opens-investigation-into-openai-huggingface-h",
+      "course-lakera"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3693,11 +3735,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "ai-agent-hacking-writeups",
-      "never-let-your-agent-choose-its-own-tool"
+      "never-let-your-agent-choose-its-own-tool",
+      "lakera"
     ],
     "courses": [
       "course-ai-agent-hacking-writeups",
-      "course-never-let-your-agent-choose-its-own-tool"
+      "course-never-let-your-agent-choose-its-own-tool",
+      "course-lakera"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4214,7 +4258,8 @@
       "benchmarking-coding-agents-perform-on-scraping",
       "atlas-finance-evaluating-ai-agents-inside-a-bank",
       "auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
-      "can-ai-build-a-toilet-yet"
+      "can-ai-build-a-toilet-yet",
+      "an-open-add-search-evaluation-framework-for-agent-memory"
     ],
     "courses": [
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
@@ -4224,7 +4269,8 @@
       "course-benchmarking-coding-agents-perform-on-scraping",
       "course-atlas-finance-evaluating-ai-agents-inside-a-bank",
       "course-auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
-      "course-can-ai-build-a-toilet-yet"
+      "course-can-ai-build-a-toilet-yet",
+      "course-an-open-add-search-evaluation-framework-for-agent-memory"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4353,7 +4399,8 @@
       "agenttik",
       "thurbox",
       "neurogrid-terminal-coding-agent",
-      "vim-like-hyper-efficient-llm-power-tool"
+      "vim-like-hyper-efficient-llm-power-tool",
+      "aclif"
     ],
     "courses": [
       "course-devx",
@@ -4369,7 +4416,8 @@
       "course-agenttik",
       "course-thurbox",
       "course-neurogrid-terminal-coding-agent",
-      "course-vim-like-hyper-efficient-llm-power-tool"
+      "course-vim-like-hyper-efficient-llm-power-tool",
+      "course-aclif"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5213,12 +5261,14 @@
     "toolsTeaching": [
       "telem",
       "simurg",
-      "agentic-search"
+      "agentic-search",
+      "scry-programmable-internet-search-w-congestion-pricing"
     ],
     "courses": [
       "course-telem",
       "course-simurg",
-      "course-agentic-search"
+      "course-agentic-search",
+      "course-scry-programmable-internet-search-w-congestion-pricing"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5391,7 +5441,8 @@
       "can-ai-agents-conduct-open-ended-ai-research",
       "atlas-finance-evaluating-ai-agents-inside-a-bank",
       "how-to-build-effective-evals-for-ai-agents",
-      "quantifying-context-rot"
+      "quantifying-context-rot",
+      "an-open-add-search-evaluation-framework-for-agent-memory"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -5407,7 +5458,8 @@
       "course-can-ai-agents-conduct-open-ended-ai-research",
       "course-atlas-finance-evaluating-ai-agents-inside-a-bank",
       "course-how-to-build-effective-evals-for-ai-agents",
-      "course-quantifying-context-rot"
+      "course-quantifying-context-rot",
+      "course-an-open-add-search-evaluation-framework-for-agent-memory"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5990,10 +6042,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "urml"
+      "urml",
+      "robodiag-harness"
     ],
     "courses": [
-      "course-urml"
+      "course-urml",
+      "course-robodiag-harness"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -6720,10 +6774,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "simurg"
+      "simurg",
+      "scry-programmable-internet-search-w-congestion-pricing"
     ],
     "courses": [
-      "course-simurg"
+      "course-simurg",
+      "course-scry-programmable-internet-search-w-congestion-pricing"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -7944,13 +8000,15 @@
       "selfshipai",
       "pawbot",
       "your-ai-agent-has-a-cache-invalidation-problem",
-      "ai-agent-vercel-eve-web-interface-amazing"
+      "ai-agent-vercel-eve-web-interface-amazing",
+      "robodiag-harness"
     ],
     "courses": [
       "course-selfshipai",
       "course-pawbot",
       "course-your-ai-agent-has-a-cache-invalidation-problem",
-      "course-ai-agent-vercel-eve-web-interface-amazing"
+      "course-ai-agent-vercel-eve-web-interface-amazing",
+      "course-robodiag-harness"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -9025,10 +9083,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "i-built-stardew-valley-but-you-pay-for-everything"
+      "i-built-stardew-valley-but-you-pay-for-everything",
+      "lakera"
     ],
     "courses": [
-      "course-i-built-stardew-valley-but-you-pay-for-everything"
+      "course-i-built-stardew-valley-but-you-pay-for-everything",
+      "course-lakera"
     ],
     "updatedAt": "2026-09-02T23:33:29.474Z"
   },
@@ -13246,10 +13306,12 @@
     "domain": "learning",
     "level": "intermediate",
     "toolsTeaching": [
-      "four-kinds-of-agent-memory"
+      "four-kinds-of-agent-memory",
+      "an-open-add-search-evaluation-framework-for-agent-memory"
     ],
     "courses": [
-      "course-four-kinds-of-agent-memory"
+      "course-four-kinds-of-agent-memory",
+      "course-an-open-add-search-evaluation-framework-for-agent-memory"
     ],
     "updatedAt": "2026-09-09T23:30:23.231Z"
   },
@@ -16829,10 +16891,12 @@
     "domain": "data",
     "level": "intermediate",
     "toolsTeaching": [
-      "ai-debt-vs-treasuries"
+      "ai-debt-vs-treasuries",
+      "jawz"
     ],
     "courses": [
-      "course-ai-debt-vs-treasuries"
+      "course-ai-debt-vs-treasuries",
+      "course-jawz"
     ],
     "updatedAt": "2026-09-16T23:51:17.133Z"
   },
@@ -17721,5 +17785,148 @@
       "course-pixelboard"
     ],
     "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-congestion pricing",
+    "name": "congestion pricing",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "scry-programmable-internet-search-w-congestion-pricing"
+    ],
+    "courses": [
+      "course-scry-programmable-internet-search-w-congestion-pricing"
+    ],
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "skill-macro data",
+    "name": "macro data",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "jawz"
+    ],
+    "courses": [
+      "course-jawz"
+    ],
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "skill-chatgpt app",
+    "name": "chatgpt app",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "jawz"
+    ],
+    "courses": [
+      "course-jawz"
+    ],
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "skill-hacking",
+    "name": "hacking",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "lakera"
+    ],
+    "courses": [
+      "course-lakera"
+    ],
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "skill-ros 2",
+    "name": "ros 2",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "robodiag-harness"
+    ],
+    "courses": [
+      "course-robodiag-harness"
+    ],
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "skill-diagnostics",
+    "name": "diagnostics",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "robodiag-harness"
+    ],
+    "courses": [
+      "course-robodiag-harness"
+    ],
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "skill-vscode",
+    "name": "vscode",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "vscode-mcp-api"
+    ],
+    "courses": [
+      "course-vscode-mcp-api"
+    ],
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "skill-file-management",
+    "name": "file management",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "vscode-mcp-api"
+    ],
+    "courses": [
+      "course-vscode-mcp-api"
+    ],
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "skill-ai-integration",
+    "name": "ai integration",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "vscode-mcp-api"
+    ],
+    "courses": [
+      "course-vscode-mcp-api"
+    ],
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "skill-extension",
+    "name": "extension",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "vscode-mcp-api"
+    ],
+    "courses": [
+      "course-vscode-mcp-api"
+    ],
+    "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "skill-oclif",
+    "name": "oclif",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "aclif"
+    ],
+    "courses": [
+      "course-aclif"
+    ],
+    "updatedAt": "2026-09-18T13:38:05.296Z"
   }
 ]
