@@ -154,7 +154,15 @@
       "antflow-ai-agentic-ai-framework-for-spec-driven-development",
       "anti-ai-slop",
       "cve-2026-21858-n8n-fullchain",
-      "cve-2026-54121-certighost"
+      "cve-2026-54121-certighost",
+      "productivity-effects-across-generations-of-ai-coding-tools",
+      "vim-like-hyper-efficient-llm-power-tool",
+      "mcpjam",
+      "sokit",
+      "can-ai-build-a-toilet-yet",
+      "i-forked-jetbrains-new-agent-ide-to-host-claude-code",
+      "respawn",
+      "unmute"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -306,7 +314,15 @@
       "course-antflow-ai-agentic-ai-framework-for-spec-driven-development",
       "course-anti-ai-slop",
       "course-cve-2026-21858-n8n-fullchain",
-      "course-cve-2026-54121-certighost"
+      "course-cve-2026-54121-certighost",
+      "course-productivity-effects-across-generations-of-ai-coding-tools",
+      "course-vim-like-hyper-efficient-llm-power-tool",
+      "course-mcpjam",
+      "course-sokit",
+      "course-can-ai-build-a-toilet-yet",
+      "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code",
+      "course-respawn",
+      "course-unmute"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -441,7 +457,9 @@
       "chronicle",
       "skill-to-generate-change-preview-pages",
       "i-built-a-router-for-agent-tools",
-      "tabmail-open-source-ai-email-for-thunderbird-and-iphone"
+      "tabmail-open-source-ai-email-for-thunderbird-and-iphone",
+      "sokit",
+      "pixelboard"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -485,7 +503,9 @@
       "course-chronicle",
       "course-skill-to-generate-change-preview-pages",
       "course-i-built-a-router-for-agent-tools",
-      "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone"
+      "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone",
+      "course-sokit",
+      "course-pixelboard"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -832,7 +852,10 @@
       "my-ai-agent-gets-his-own-calendar",
       "apowerb",
       "antflow-ai-agentic-ai-framework-for-spec-driven-development",
-      "startups-next-teammate-might-be-an-ai-agent"
+      "startups-next-teammate-might-be-an-ai-agent",
+      "salt",
+      "cc-is-an-ai-agent-for-families-and-groups",
+      "meta-launches-subscription-bundles"
     ],
     "courses": [
       "course-headless-tools",
@@ -1024,7 +1047,10 @@
       "course-my-ai-agent-gets-his-own-calendar",
       "course-apowerb",
       "course-antflow-ai-agentic-ai-framework-for-spec-driven-development",
-      "course-startups-next-teammate-might-be-an-ai-agent"
+      "course-startups-next-teammate-might-be-an-ai-agent",
+      "course-salt",
+      "course-cc-is-an-ai-agent-for-families-and-groups",
+      "course-meta-launches-subscription-bundles"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1188,7 +1214,9 @@
       "a-coding-agent-from-scratch",
       "nexus-arc",
       "apowerb",
-      "startups-next-teammate-might-be-an-ai-agent"
+      "startups-next-teammate-might-be-an-ai-agent",
+      "respawn",
+      "salt"
     ],
     "courses": [
       "course-headless-tools",
@@ -1330,7 +1358,9 @@
       "course-a-coding-agent-from-scratch",
       "course-nexus-arc",
       "course-apowerb",
-      "course-startups-next-teammate-might-be-an-ai-agent"
+      "course-startups-next-teammate-might-be-an-ai-agent",
+      "course-respawn",
+      "course-salt"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1421,7 +1451,10 @@
       "quantifying-context-rot",
       "opendocbot",
       "a-coding-agent-from-scratch",
-      "compute-arena"
+      "compute-arena",
+      "vim-like-hyper-efficient-llm-power-tool",
+      "mcpjam",
+      "sokit"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1462,7 +1495,10 @@
       "course-quantifying-context-rot",
       "course-opendocbot",
       "course-a-coding-agent-from-scratch",
-      "course-compute-arena"
+      "course-compute-arena",
+      "course-vim-like-hyper-efficient-llm-power-tool",
+      "course-mcpjam",
+      "course-sokit"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1883,7 +1919,8 @@
       "skill-poisioning-turning-ai-agents-into-malware-droppers",
       "ai-agents-now-have-a-place-to-snitch",
       "cve-2026-21858-n8n-fullchain",
-      "cve-2026-54121-certighost"
+      "cve-2026-54121-certighost",
+      "ai-crawler-honeypot"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -1918,7 +1955,8 @@
       "course-skill-poisioning-turning-ai-agents-into-malware-droppers",
       "course-ai-agents-now-have-a-place-to-snitch",
       "course-cve-2026-21858-n8n-fullchain",
-      "course-cve-2026-54121-certighost"
+      "course-cve-2026-54121-certighost",
+      "course-ai-crawler-honeypot"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2018,12 +2056,14 @@
     "toolsTeaching": [
       "a-daily-cartoon-contest-between-ai-models-judged-blind",
       "pov-youre-an-ai-agent-recruited-for-the-swarm",
-      "loss-a-tiny-satire-about-ai-progress"
+      "loss-a-tiny-satire-about-ai-progress",
+      "can-ai-build-a-toilet-yet"
     ],
     "courses": [
       "course-a-daily-cartoon-contest-between-ai-models-judged-blind",
       "course-pov-youre-an-ai-agent-recruited-for-the-swarm",
-      "course-loss-a-tiny-satire-about-ai-progress"
+      "course-loss-a-tiny-satire-about-ai-progress",
+      "course-can-ai-build-a-toilet-yet"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2078,7 +2118,8 @@
       "astah-pro-mcp",
       "grove",
       "pawbot",
-      "friday"
+      "friday",
+      "mcpjam"
     ],
     "courses": [
       "course-coolplugz",
@@ -2103,7 +2144,8 @@
       "course-astah-pro-mcp",
       "course-grove",
       "course-pawbot",
-      "course-friday"
+      "course-friday",
+      "course-mcpjam"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2296,7 +2338,8 @@
       "texposit",
       "opendocbot",
       "anyhropic-launches-google-docs-alternative-claude-docs",
-      "echodot"
+      "echodot",
+      "pixelboard"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -2321,7 +2364,8 @@
       "course-texposit",
       "course-opendocbot",
       "course-anyhropic-launches-google-docs-alternative-claude-docs",
-      "course-echodot"
+      "course-echodot",
+      "course-pixelboard"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2384,7 +2428,8 @@
       "open-source-simulation-testing-infra-for-voice-agents",
       "open-sourced-solution-to-ai-manage-playwright-automations",
       "clientcoded",
-      "how-to-build-effective-evals-for-ai-agents"
+      "how-to-build-effective-evals-for-ai-agents",
+      "mcpjam"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -2399,7 +2444,8 @@
       "course-open-source-simulation-testing-infra-for-voice-agents",
       "course-open-sourced-solution-to-ai-manage-playwright-automations",
       "course-clientcoded",
-      "course-how-to-build-effective-evals-for-ai-agents"
+      "course-how-to-build-effective-evals-for-ai-agents",
+      "course-mcpjam"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2467,12 +2513,14 @@
     "toolsTeaching": [
       "mrea",
       "covenant",
-      "mastra-agent-factory"
+      "mastra-agent-factory",
+      "sokit"
     ],
     "courses": [
       "course-mrea",
       "course-covenant",
-      "course-mastra-agent-factory"
+      "course-mastra-agent-factory",
+      "course-sokit"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2488,7 +2536,8 @@
       "airuncode",
       "felan",
       "autocode",
-      "a-coding-agent-from-scratch"
+      "a-coding-agent-from-scratch",
+      "i-forked-jetbrains-new-agent-ide-to-host-claude-code"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -2497,7 +2546,8 @@
       "course-airuncode",
       "course-felan",
       "course-autocode",
-      "course-a-coding-agent-from-scratch"
+      "course-a-coding-agent-from-scratch",
+      "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2569,7 +2619,8 @@
       "a-fresh-take-on-code-intelligence-for-ai-agents",
       "plurnk-yet-another-ai-harness",
       "never-again",
-      "apowerb"
+      "apowerb",
+      "productivity-effects-across-generations-of-ai-coding-tools"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -2608,7 +2659,8 @@
       "course-a-fresh-take-on-code-intelligence-for-ai-agents",
       "course-plurnk-yet-another-ai-harness",
       "course-never-again",
-      "course-apowerb"
+      "course-apowerb",
+      "course-productivity-effects-across-generations-of-ai-coding-tools"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2618,10 +2670,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "thinkrail-jetbrains-incubator"
+      "thinkrail-jetbrains-incubator",
+      "i-forked-jetbrains-new-agent-ide-to-host-claude-code"
     ],
     "courses": [
-      "course-thinkrail-jetbrains-incubator"
+      "course-thinkrail-jetbrains-incubator",
+      "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2906,7 +2960,9 @@
       "yourchar",
       "echodot",
       "apowerb",
-      "bottle"
+      "bottle",
+      "i-forked-jetbrains-new-agent-ide-to-host-claude-code",
+      "unmute"
     ],
     "courses": [
       "course-limitless-library",
@@ -2956,7 +3012,9 @@
       "course-yourchar",
       "course-echodot",
       "course-apowerb",
-      "course-bottle"
+      "course-bottle",
+      "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code",
+      "course-unmute"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3021,13 +3079,15 @@
       "player-vs-computer",
       "build-your-own-theme-park",
       "snickers-launches-digital-bar-to-feed-your-hungry-ai",
-      "restarted"
+      "restarted",
+      "can-ai-build-a-toilet-yet"
     ],
     "courses": [
       "course-player-vs-computer",
       "course-build-your-own-theme-park",
       "course-snickers-launches-digital-bar-to-feed-your-hungry-ai",
-      "course-restarted"
+      "course-restarted",
+      "course-can-ai-build-a-toilet-yet"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3071,7 +3131,8 @@
       "ai-debt-vs-treasuries",
       "quantifying-context-rot",
       "seasonmap",
-      "compute-arena"
+      "compute-arena",
+      "ai-crawler-honeypot"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3108,7 +3169,8 @@
       "course-ai-debt-vs-treasuries",
       "course-quantifying-context-rot",
       "course-seasonmap",
-      "course-compute-arena"
+      "course-compute-arena",
+      "course-ai-crawler-honeypot"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3209,7 +3271,8 @@
       "meta-launches-muse-a-personal-ai-agent",
       "swiftime",
       "prmptree",
-      "i-tested-ai-agents-for-everyday-work"
+      "i-tested-ai-agents-for-everyday-work",
+      "productivity-effects-across-generations-of-ai-coding-tools"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -3230,7 +3293,8 @@
       "course-meta-launches-muse-a-personal-ai-agent",
       "course-swiftime",
       "course-prmptree",
-      "course-i-tested-ai-agents-for-everyday-work"
+      "course-i-tested-ai-agents-for-everyday-work",
+      "course-productivity-effects-across-generations-of-ai-coding-tools"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3256,13 +3320,15 @@
       "aristra-your-life-os",
       "free-business-builder",
       "will-your-money-last-ai-assisted-financial-simulator",
-      "seasonmap"
+      "seasonmap",
+      "cc-is-an-ai-agent-for-families-and-groups"
     ],
     "courses": [
       "course-aristra-your-life-os",
       "course-free-business-builder",
       "course-will-your-money-last-ai-assisted-financial-simulator",
-      "course-seasonmap"
+      "course-seasonmap",
+      "course-cc-is-an-ai-agent-for-families-and-groups"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3328,7 +3394,8 @@
       "liniora",
       "aiope",
       "pawbot",
-      "prmptree"
+      "prmptree",
+      "cc-is-an-ai-agent-for-families-and-groups"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -3355,7 +3422,8 @@
       "course-liniora",
       "course-aiope",
       "course-pawbot",
-      "course-prmptree"
+      "course-prmptree",
+      "course-cc-is-an-ai-agent-for-families-and-groups"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3456,7 +3524,8 @@
       "ai-means-the-end-of-software-as-we-know-it",
       "humble-bundle",
       "restarted",
-      "is-ai-solving-math-too-fast"
+      "is-ai-solving-math-too-fast",
+      "can-ai-build-a-toilet-yet"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -3466,7 +3535,8 @@
       "course-ai-means-the-end-of-software-as-we-know-it",
       "course-humble-bundle",
       "course-restarted",
-      "course-is-ai-solving-math-too-fast"
+      "course-is-ai-solving-math-too-fast",
+      "course-can-ai-build-a-toilet-yet"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3584,7 +3654,8 @@
       "nowdex",
       "ai-agents-blew-the-whistle-on-their-cheating-colleagues",
       "pizza-bot",
-      "ai-agents-now-have-a-place-to-snitch"
+      "ai-agents-now-have-a-place-to-snitch",
+      "ai-crawler-honeypot"
     ],
     "courses": [
       "course-agenttrail",
@@ -3595,7 +3666,8 @@
       "course-nowdex",
       "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues",
       "course-pizza-bot",
-      "course-ai-agents-now-have-a-place-to-snitch"
+      "course-ai-agents-now-have-a-place-to-snitch",
+      "course-ai-crawler-honeypot"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3677,13 +3749,15 @@
       "text-editor-that-does-it-all",
       "memcode-launches-github-code-review",
       "felan",
-      "tabmail-open-source-ai-email-for-thunderbird-and-iphone"
+      "tabmail-open-source-ai-email-for-thunderbird-and-iphone",
+      "meta-launches-subscription-bundles"
     ],
     "courses": [
       "course-text-editor-that-does-it-all",
       "course-memcode-launches-github-code-review",
       "course-felan",
-      "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone"
+      "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone",
+      "course-meta-launches-subscription-bundles"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -3983,14 +4057,16 @@
       "a-public-noticeboard-for-ai-agents",
       "raven",
       "natively",
-      "kaflow-search"
+      "kaflow-search",
+      "salt"
     ],
     "courses": [
       "course-abbs",
       "course-a-public-noticeboard-for-ai-agents",
       "course-raven",
       "course-natively",
-      "course-kaflow-search"
+      "course-kaflow-search",
+      "course-salt"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4046,14 +4122,16 @@
       "backprompter",
       "static-hosting-a-coding-agent-can-drive-end-to-end",
       "agentica",
-      "you-didnt-deploy-the-ai-agent-you-evaluated"
+      "you-didnt-deploy-the-ai-agent-you-evaluated",
+      "unmute"
     ],
     "courses": [
       "course-we-run-stateful-ai-agents-on-a-serverless-infra",
       "course-backprompter",
       "course-static-hosting-a-coding-agent-can-drive-end-to-end",
       "course-agentica",
-      "course-you-didnt-deploy-the-ai-agent-you-evaluated"
+      "course-you-didnt-deploy-the-ai-agent-you-evaluated",
+      "course-unmute"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4135,7 +4213,8 @@
       "autoresearchexam-measuring-agents-ability-to-improve-and-gen",
       "benchmarking-coding-agents-perform-on-scraping",
       "atlas-finance-evaluating-ai-agents-inside-a-bank",
-      "auto-autoresearch-self-improving-agents-on-karpathys-nanocha"
+      "auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
+      "can-ai-build-a-toilet-yet"
     ],
     "courses": [
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
@@ -4144,7 +4223,8 @@
       "course-autoresearchexam-measuring-agents-ability-to-improve-and-gen",
       "course-benchmarking-coding-agents-perform-on-scraping",
       "course-atlas-finance-evaluating-ai-agents-inside-a-bank",
-      "course-auto-autoresearch-self-improving-agents-on-karpathys-nanocha"
+      "course-auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
+      "course-can-ai-build-a-toilet-yet"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4242,13 +4322,15 @@
       "devx",
       "novus",
       "ai-agent-for-google-play-submissions-video",
-      "aiope"
+      "aiope",
+      "pixelboard"
     ],
     "courses": [
       "course-devx",
       "course-novus",
       "course-ai-agent-for-google-play-submissions-video",
-      "course-aiope"
+      "course-aiope",
+      "course-pixelboard"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4270,7 +4352,8 @@
       "ai-native-dependency-upgrades-through-codemods",
       "agenttik",
       "thurbox",
-      "neurogrid-terminal-coding-agent"
+      "neurogrid-terminal-coding-agent",
+      "vim-like-hyper-efficient-llm-power-tool"
     ],
     "courses": [
       "course-devx",
@@ -4285,7 +4368,8 @@
       "course-ai-native-dependency-upgrades-through-codemods",
       "course-agenttik",
       "course-thurbox",
-      "course-neurogrid-terminal-coding-agent"
+      "course-neurogrid-terminal-coding-agent",
+      "course-vim-like-hyper-efficient-llm-power-tool"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4754,14 +4838,16 @@
       "token-dashboard",
       "where-every-ai-coding-tool-keeps-its-config",
       "developer-agency-in-the-age-of-ai",
-      "security-cards"
+      "security-cards",
+      "productivity-effects-across-generations-of-ai-coding-tools"
     ],
     "courses": [
       "course-agentseed",
       "course-token-dashboard",
       "course-where-every-ai-coding-tool-keeps-its-config",
       "course-developer-agency-in-the-age-of-ai",
-      "course-security-cards"
+      "course-security-cards",
+      "course-productivity-effects-across-generations-of-ai-coding-tools"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5158,11 +5244,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "gemini-omni-11-flash",
-      "gemini-agentic-video-understanding"
+      "gemini-agentic-video-understanding",
+      "pixelboard"
     ],
     "courses": [
       "course-gemini-omni-11-flash",
-      "course-gemini-agentic-video-understanding"
+      "course-gemini-agentic-video-understanding",
+      "course-pixelboard"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5188,11 +5276,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "gemini-omni-11-flash",
-      "google-seo-mcp"
+      "google-seo-mcp",
+      "cc-is-an-ai-agent-for-families-and-groups"
     ],
     "courses": [
       "course-gemini-omni-11-flash",
-      "course-google-seo-mcp"
+      "course-google-seo-mcp",
+      "course-cc-is-an-ai-agent-for-families-and-groups"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5382,7 +5472,8 @@
       "building-specialized-systems-we-can-trust-with-agents",
       "agentsdock-an-ide-designed-for-agentic-ai-research",
       "andon-labs-puts-ai-agents-in-charge-of-real-businesses",
-      "is-ai-solving-math-too-fast"
+      "is-ai-solving-math-too-fast",
+      "productivity-effects-across-generations-of-ai-coding-tools"
     ],
     "courses": [
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
@@ -5400,7 +5491,8 @@
       "course-building-specialized-systems-we-can-trust-with-agents",
       "course-agentsdock-an-ide-designed-for-agentic-ai-research",
       "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses",
-      "course-is-ai-solving-math-too-fast"
+      "course-is-ai-solving-math-too-fast",
+      "course-productivity-effects-across-generations-of-ai-coding-tools"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5733,13 +5825,15 @@
       "open-tool-for-testing-your-ai-agents-no-llm",
       "coordination-layer-for-coding-agents",
       "pod",
-      "clientcoded"
+      "clientcoded",
+      "unmute"
     ],
     "courses": [
       "course-open-tool-for-testing-your-ai-agents-no-llm",
       "course-coordination-layer-for-coding-agents",
       "course-pod",
-      "course-clientcoded"
+      "course-clientcoded",
+      "course-unmute"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -6129,10 +6223,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "coordination-layer-for-coding-agents"
+      "coordination-layer-for-coding-agents",
+      "cc-is-an-ai-agent-for-families-and-groups"
     ],
     "courses": [
-      "course-coordination-layer-for-coding-agents"
+      "course-coordination-layer-for-coding-agents",
+      "course-cc-is-an-ai-agent-for-families-and-groups"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -6284,14 +6380,16 @@
       "z-local-first-search-layer-for-humans-and-agents",
       "timervana-a-local-first-scheduler-for-real-world-routines",
       "chronicle",
-      "echodot"
+      "echodot",
+      "respawn"
     ],
     "courses": [
       "course-datazen",
       "course-z-local-first-search-layer-for-humans-and-agents",
       "course-timervana-a-local-first-scheduler-for-real-world-routines",
       "course-chronicle",
-      "course-echodot"
+      "course-echodot",
+      "course-respawn"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -6463,10 +6561,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "obsessing-over-ai-agent-harnesses"
+      "obsessing-over-ai-agent-harnesses",
+      "sokit"
     ],
     "courses": [
-      "course-obsessing-over-ai-agent-harnesses"
+      "course-obsessing-over-ai-agent-harnesses",
+      "course-sokit"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -6503,11 +6603,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "my-free-code",
-      "moshi"
+      "moshi",
+      "i-forked-jetbrains-new-agent-ide-to-host-claude-code"
     ],
     "courses": [
       "course-my-free-code",
-      "course-moshi"
+      "course-moshi",
+      "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -7802,7 +7904,8 @@
       "termy",
       "moshi",
       "aiope",
-      "neurogrid-terminal-coding-agent"
+      "neurogrid-terminal-coding-agent",
+      "vim-like-hyper-efficient-llm-power-tool"
     ],
     "courses": [
       "course-tenux",
@@ -7810,7 +7913,8 @@
       "course-termy",
       "course-moshi",
       "course-aiope",
-      "course-neurogrid-terminal-coding-agent"
+      "course-neurogrid-terminal-coding-agent",
+      "course-vim-like-hyper-efficient-llm-power-tool"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -8163,7 +8267,8 @@
       "phntm-one-i-built-a-local-ai-desk-assistant",
       "raven",
       "free-online-bates-numbering-tool-for-pdfs",
-      "echodot"
+      "echodot",
+      "salt"
     ],
     "courses": [
       "course-pearpie",
@@ -8173,7 +8278,8 @@
       "course-phntm-one-i-built-a-local-ai-desk-assistant",
       "course-raven",
       "course-free-online-bates-numbering-tool-for-pdfs",
-      "course-echodot"
+      "course-echodot",
+      "course-salt"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -8650,11 +8756,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "soulauth",
-      "awesome-rust-migrations"
+      "awesome-rust-migrations",
+      "respawn"
     ],
     "courses": [
       "course-soulauth",
-      "course-awesome-rust-migrations"
+      "course-awesome-rust-migrations",
+      "course-respawn"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -11707,10 +11815,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "inbundly"
+      "inbundly",
+      "meta-launches-subscription-bundles"
     ],
     "courses": [
-      "course-inbundly"
+      "course-inbundly",
+      "course-meta-launches-subscription-bundles"
     ],
     "updatedAt": "2026-09-07T23:46:33.880Z"
   },
@@ -11963,11 +12073,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "catenary",
-      "agentsdock-an-ide-designed-for-agentic-ai-research"
+      "agentsdock-an-ide-designed-for-agentic-ai-research",
+      "i-forked-jetbrains-new-agent-ide-to-host-claude-code"
     ],
     "courses": [
       "course-catenary",
-      "course-agentsdock-an-ide-designed-for-agentic-ai-research"
+      "course-agentsdock-an-ide-designed-for-agentic-ai-research",
+      "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -12464,13 +12576,15 @@
       "muse-metas-personal-ai-agent-features-and-capabilities",
       "muse-your-personal-ai-agent-from-meta",
       "meta-launches-muse-a-personal-ai-agent",
-      "meta-deployed-agents-and-fired-8000-employees"
+      "meta-deployed-agents-and-fired-8000-employees",
+      "meta-launches-subscription-bundles"
     ],
     "courses": [
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
       "course-muse-your-personal-ai-agent-from-meta",
       "course-meta-launches-muse-a-personal-ai-agent",
-      "course-meta-deployed-agents-and-fired-8000-employees"
+      "course-meta-deployed-agents-and-fired-8000-employees",
+      "course-meta-launches-subscription-bundles"
     ],
     "updatedAt": "2026-09-08T23:40:07.345Z"
   },
@@ -16191,10 +16305,12 @@
     "domain": "writing",
     "level": "beginner",
     "toolsTeaching": [
-      "meta-launches-subscriptions-with-enhanced-ai-features"
+      "meta-launches-subscriptions-with-enhanced-ai-features",
+      "meta-launches-subscription-bundles"
     ],
     "courses": [
-      "course-meta-launches-subscriptions-with-enhanced-ai-features"
+      "course-meta-launches-subscriptions-with-enhanced-ai-features",
+      "course-meta-launches-subscription-bundles"
     ],
     "updatedAt": "2026-09-15T23:42:46.820Z"
   },
@@ -17358,5 +17474,252 @@
       "course-cve-2026-54121-certighost"
     ],
     "updatedAt": "2026-09-17T14:18:56.690Z"
+  },
+  {
+    "id": "skill-study",
+    "name": "study",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "productivity-effects-across-generations-of-ai-coding-tools"
+    ],
+    "courses": [
+      "course-productivity-effects-across-generations-of-ai-coding-tools"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-vim",
+    "name": "vim",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "vim-like-hyper-efficient-llm-power-tool"
+    ],
+    "courses": [
+      "course-vim-like-hyper-efficient-llm-power-tool"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-token-efficiency",
+    "name": "token efficiency",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "vim-like-hyper-efficient-llm-power-tool"
+    ],
+    "courses": [
+      "course-vim-like-hyper-efficient-llm-power-tool"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-evaluations",
+    "name": "evaluations",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "mcpjam"
+    ],
+    "courses": [
+      "course-mcpjam"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-dev-tools",
+    "name": "dev tools",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "mcpjam"
+    ],
+    "courses": [
+      "course-mcpjam"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-langchain",
+    "name": "langchain",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "sokit"
+    ],
+    "courses": [
+      "course-sokit"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-tracker",
+    "name": "tracker",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "can-ai-build-a-toilet-yet"
+    ],
+    "courses": [
+      "course-can-ai-build-a-toilet-yet"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-undo",
+    "name": "undo",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "respawn"
+    ],
+    "courses": [
+      "course-respawn"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-rollback",
+    "name": "rollback",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "respawn"
+    ],
+    "courses": [
+      "course-respawn"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-voice agents",
+    "name": "voice agents",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "unmute"
+    ],
+    "courses": [
+      "course-unmute"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-encrypted chat",
+    "name": "encrypted chat",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "salt"
+    ],
+    "courses": [
+      "course-salt"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-digital economy",
+    "name": "digital economy",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "salt"
+    ],
+    "courses": [
+      "course-salt"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-honeypot",
+    "name": "honeypot",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-crawler-honeypot"
+    ],
+    "courses": [
+      "course-ai-crawler-honeypot"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-ai crawlers",
+    "name": "ai crawlers",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-crawler-honeypot"
+    ],
+    "courses": [
+      "course-ai-crawler-honeypot"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-logging",
+    "name": "logging",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-crawler-honeypot"
+    ],
+    "courses": [
+      "course-ai-crawler-honeypot"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-family",
+    "name": "family",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "cc-is-an-ai-agent-for-families-and-groups"
+    ],
+    "courses": [
+      "course-cc-is-an-ai-agent-for-families-and-groups"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-social apps",
+    "name": "social apps",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "meta-launches-subscription-bundles"
+    ],
+    "courses": [
+      "course-meta-launches-subscription-bundles"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-voice-dictation",
+    "name": "voice dictation",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "pixelboard"
+    ],
+    "courses": [
+      "course-pixelboard"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "skill-ai-writing",
+    "name": "ai writing",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "pixelboard"
+    ],
+    "courses": [
+      "course-pixelboard"
+    ],
+    "updatedAt": "2026-09-17T23:41:16.935Z"
   }
 ]

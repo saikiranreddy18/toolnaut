@@ -23837,5 +23837,668 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-17T14:18:56.690Z"
+  },
+  {
+    "id": "course-productivity-effects-across-generations-of-ai-coding-tools",
+    "toolSlug": "productivity-effects-across-generations-of-ai-coding-tools",
+    "title": "Master Productivity Effects Across Generations of AI Coding Tools",
+    "objectives": [
+      "Understand what Productivity Effects Across Generations of AI Coding Tools is for",
+      "Use Productivity Effects Across Generations of AI Coding Tools on a real task",
+      "Know where Productivity Effects Across Generations of AI Coding Tools fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Productivity Effects Across Generations of AI Coding Tools for your real workflow, not the demo.",
+          "Say what Productivity Effects Across Generations of AI Coding Tools does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Productivity Effects Across Generations of AI Coding Tools.",
+          "Push Productivity Effects Across Generations of AI Coding Tools to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Productivity Effects Across Generations of AI Coding Tools into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-research",
+      "skill-productivity",
+      "skill-ai coding",
+      "skill-developer tools",
+      "skill-study"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "course-vim-like-hyper-efficient-llm-power-tool",
+    "toolSlug": "vim-like-hyper-efficient-llm-power-tool",
+    "title": "Master Vim-like, hyper-efficient, LLM power tool",
+    "objectives": [
+      "Understand what Vim-like, hyper-efficient, LLM power tool is for",
+      "Use Vim-like, hyper-efficient, LLM power tool on a real task",
+      "Know where Vim-like, hyper-efficient, LLM power tool fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Vim-like, hyper-efficient, LLM power tool for your real workflow, not the demo.",
+          "Say what Vim-like, hyper-efficient, LLM power tool does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Vim-like, hyper-efficient, LLM power tool.",
+          "Push Vim-like, hyper-efficient, LLM power tool to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Vim-like, hyper-efficient, LLM power tool into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-vim",
+      "skill-llm",
+      "skill-cli",
+      "skill-token-efficiency",
+      "skill-terminal"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "course-mcpjam",
+    "toolSlug": "mcpjam",
+    "title": "Master MCPJam",
+    "objectives": [
+      "Connect MCPJam Inspector to local (stdio) and remote (HTTP) MCP servers",
+      "Exercise tools, resources, and prompts to verify server behavior and errors",
+      "Build LLM-based evals, run them against your server, and read the results"
+    ],
+    "modules": [
+      {
+        "title": "Connect a server and inspect the handshake",
+        "estMinutes": 10,
+        "steps": [
+          "Launch MCPJam with `npx @mcpjam/inspector` and open the UI in your browser",
+          "Add a stdio server (e.g., `node ./dist/server.js`) and confirm the capabilities/initialize exchange succeeds",
+          "Add a remote server via its Streamable HTTP URL with an Authorization header, and verify the tool list populates"
+        ]
+      },
+      {
+        "title": "Drive tools, resources, and prompts manually",
+        "estMinutes": 15,
+        "steps": [
+          "Invoke one tool with valid arguments and inspect the raw JSON-RPC request/response in the log panel",
+          "List resources, read one, and render a prompt with template arguments to check its generated messages",
+          "Send deliberately bad input (missing required arg, wrong type) and confirm the server returns a proper JSON-RPC error, not a crash"
+        ]
+      },
+      {
+        "title": "Author and run an LLM eval",
+        "estMinutes": 15,
+        "steps": [
+          "Create an eval test case: a natural-language user query plus the expected tool calls and expected output criteria",
+          "Select a provider/model (e.g., Anthropic via API key), attach your connected server, and run the eval suite",
+          "Review pass/fail per case, drill into the tool-call trace for failures, then export the results JSON to share or commit"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-mcp",
+      "skill-testing",
+      "skill-evaluations",
+      "skill-llm",
+      "skill-dev-tools"
+    ],
+    "prerequisites": [
+      "Node.js 18+ installed",
+      "An MCP server to test (your own or a sample server)",
+      "An LLM provider API key (e.g., Anthropic or OpenAI) for the evals feature"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "course-sokit",
+    "toolSlug": "sokit",
+    "title": "Master Sokit",
+    "objectives": [
+      "Understand what Sokit is for",
+      "Use Sokit on a real task",
+      "Know where Sokit fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Sokit for your real workflow, not the demo.",
+          "Say what Sokit does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Sokit.",
+          "Push Sokit to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Sokit into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-llm",
+      "skill-framework",
+      "skill-harness",
+      "skill-langchain",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "course-can-ai-build-a-toilet-yet",
+    "toolSlug": "can-ai-build-a-toilet-yet",
+    "title": "Master Can AI Build a Toilet Yet?",
+    "objectives": [
+      "Read the site's current verdict on AI toilet-building",
+      "Interpret the criteria checklist and logged attempts",
+      "Run your own quick test and track changes over time"
+    ],
+    "modules": [
+      {
+        "title": "Get the Verdict",
+        "estMinutes": 4,
+        "steps": [
+          "Open the tracker and note the headline answer (Yes / Not Yet) and the 'last tested' date",
+          "Scroll to the criteria checklist and read what counts as 'building a toilet' (e.g., sourcing parts, sealing joints, passing a leak test)",
+          "Identify which checklist items are marked passed, failed, or untested"
+        ]
+      },
+      {
+        "title": "Read the Attempt Log",
+        "estMinutes": 6,
+        "steps": [
+          "Open the attempts/timeline section and read the 2-3 most recent logged AI attempts",
+          "For each attempt, note exactly where it failed: planning, physical manipulation, sealing, or the flush test",
+          "Compare the oldest and newest entries to see whether the failure point is moving later in the process"
+        ]
+      },
+      {
+        "title": "Run Your Own Benchmark and Follow Up",
+        "estMinutes": 5,
+        "steps": [
+          "Ask a chatbot for a step-by-step toilet installation plan, then check its steps against the site's criteria to spot what an AI still can't do physically",
+          "Bookmark the site or subscribe to its update feed so you're notified when the verdict flips",
+          "Share the current verdict with one friend using the site's share option and predict a date it will turn 'Yes'"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai",
+      "skill-humor",
+      "skill-benchmark",
+      "skill-fun",
+      "skill-tracker"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code",
+    "toolSlug": "i-forked-jetbrains-new-agent-ide-to-host-claude-code",
+    "title": "Master I forked JetBrains' new agent IDE to host Claude Code",
+    "objectives": [
+      "Understand what I forked JetBrains' new agent IDE to host Claude Code is for",
+      "Use I forked JetBrains' new agent IDE to host Claude Code on a real task",
+      "Know where I forked JetBrains' new agent IDE to host Claude Code fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure I forked JetBrains' new agent IDE to host Claude Code for your real workflow, not the demo.",
+          "Say what I forked JetBrains' new agent IDE to host Claude Code does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through I forked JetBrains' new agent IDE to host Claude Code.",
+          "Push I forked JetBrains' new agent IDE to host Claude Code to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold I forked JetBrains' new agent IDE to host Claude Code into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ide",
+      "skill-claude code",
+      "skill-jetbrains",
+      "skill-coding agent",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "course-respawn",
+    "toolSlug": "respawn",
+    "title": "Master Respawn",
+    "objectives": [
+      "Understand what Respawn is for",
+      "Use Respawn on a real task",
+      "Know where Respawn fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Respawn for your real workflow, not the demo.",
+          "Say what Respawn does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Respawn.",
+          "Push Respawn to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Respawn into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-undo",
+      "skill-rust",
+      "skill-local-first",
+      "skill-rollback"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "course-unmute",
+    "toolSlug": "unmute",
+    "title": "Master Unmute",
+    "objectives": [
+      "Understand what Unmute is for",
+      "Use Unmute on a real task",
+      "Know where Unmute fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Unmute for your real workflow, not the demo.",
+          "Say what Unmute does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Unmute.",
+          "Push Unmute to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Unmute into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-voice agents",
+      "skill-open source",
+      "skill-deployment",
+      "skill-dev tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "course-salt",
+    "toolSlug": "salt",
+    "title": "Master Salt",
+    "objectives": [
+      "Understand what Salt is for",
+      "Use Salt on a real task",
+      "Know where Salt fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Salt for your real workflow, not the demo.",
+          "Say what Salt does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Salt.",
+          "Push Salt to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Salt into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-encrypted chat",
+      "skill-ai agents",
+      "skill-messaging",
+      "skill-digital economy",
+      "skill-privacy"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "course-ai-crawler-honeypot",
+    "toolSlug": "ai-crawler-honeypot",
+    "title": "Master AI crawler honeypot",
+    "objectives": [
+      "Understand what AI crawler honeypot is for",
+      "Use AI crawler honeypot on a real task",
+      "Know where AI crawler honeypot fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI crawler honeypot for your real workflow, not the demo.",
+          "Say what AI crawler honeypot does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI crawler honeypot.",
+          "Push AI crawler honeypot to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI crawler honeypot into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-honeypot",
+      "skill-ai crawlers",
+      "skill-security",
+      "skill-logging",
+      "skill-monitoring"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "course-cc-is-an-ai-agent-for-families-and-groups",
+    "toolSlug": "cc-is-an-ai-agent-for-families-and-groups",
+    "title": "Master CC is an AI agent for families and groups",
+    "objectives": [
+      "Understand what CC is an AI agent for families and groups is for",
+      "Use CC is an AI agent for families and groups on a real task",
+      "Know where CC is an AI agent for families and groups fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for CC is an AI agent for families and groups.",
+          "Say what CC is an AI agent for families and groups does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through CC is an AI agent for families and groups.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold CC is an AI agent for families and groups into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-family",
+      "skill-planning",
+      "skill-coordination",
+      "skill-google"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "course-meta-launches-subscription-bundles",
+    "toolSlug": "meta-launches-subscription-bundles",
+    "title": "Master Meta Launches Subscription Bundles",
+    "objectives": [
+      "Understand what Meta Launches Subscription Bundles is for",
+      "Use Meta Launches Subscription Bundles on a real task",
+      "Know where Meta Launches Subscription Bundles fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Meta Launches Subscription Bundles.",
+          "Say what Meta Launches Subscription Bundles does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Meta Launches Subscription Bundles.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Meta Launches Subscription Bundles into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-meta",
+      "skill-subscription",
+      "skill-ai assistant",
+      "skill-social apps",
+      "skill-bundles"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-17T23:41:16.935Z"
+  },
+  {
+    "id": "course-pixelboard",
+    "toolSlug": "pixelboard",
+    "title": "Master PixelBoard",
+    "objectives": [
+      "Install and configure PixelBoard on a non-Pixel Android device",
+      "Enable Gemini voice dictation in any text field system-wide",
+      "Apply AI rewriting and proofreading tools to text in any app"
+    ],
+    "modules": [
+      {
+        "title": "Install PixelBoard and Grant Core Permissions",
+        "estMinutes": 10,
+        "steps": [
+          "Download the latest PixelBoard APK from the project's GitHub Releases page and install it after enabling 'Install unknown apps' for your browser",
+          "Open PixelBoard and grant Accessibility, Microphone, and Notification permissions using the in-app setup checklist",
+          "Exclude PixelBoard from battery optimization (Settings > Apps > PixelBoard > Battery > Unrestricted) so the keyboard service isn't killed in the background"
+        ]
+      },
+      {
+        "title": "Activate Gemini Voice Dictation",
+        "estMinutes": 8,
+        "steps": [
+          "Set PixelBoard as the default keyboard via Settings > System > Languages & input > On-screen keyboard > Manage keyboards",
+          "In PixelBoard settings, sign in with your Google account and toggle on 'Gemini Smart Dictation' to enable punctuation, filler-word removal, and formatting commands",
+          "Test dictation in your notes app: tap the mic key and say 'new line' or 'insert bullet' to confirm voice formatting commands respond"
+        ]
+      },
+      {
+        "title": "Use AI Writing Tools in Any App",
+        "estMinutes": 7,
+        "steps": [
+          "Highlight text in any app, tap the PixelBoard AI button on the keyboard toolbar, and choose a rewrite option (Fix grammar, Shorten, Make formal, Make casual)",
+          "Pin the 'Proofread' action to the keyboard's quick-access row in PixelBoard > AI Tools > Toolbar shortcuts for one-tap cleanup",
+          "In PixelBoard > Privacy, switch sensitive apps (like banking or password managers) to on-device-only processing or exclude them from AI features entirely"
+        ]
+      },
+      {
+        "title": "Troubleshoot and Keep It Running",
+        "estMinutes": 5,
+        "steps": [
+          "If dictation stops responding, clear the PixelBoard cache, re-authenticate your Google account, and verify Accessibility access hasn't been revoked",
+          "Create a fallback: keep Gboard installed and assign a keyboard-switch gesture so you can toggle if PixelBoard conflicts with an app",
+          "Bookmark the project's Telegram/Discord or GitHub Issues page and check for APK updates monthly, since Android security patches can break the unlock"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-gemini",
+      "skill-voice-dictation",
+      "skill-android",
+      "skill-ai-writing",
+      "skill-open-source"
+    ],
+    "prerequisites": [
+      "Android phone running Android 11 or newer",
+      "A Google account signed in on the device",
+      "Comfort sideloading APKs and modifying system permissions",
+      "Wi-Fi or stable data connection for Gemini API calls"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-17T23:41:16.935Z"
   }
 ]

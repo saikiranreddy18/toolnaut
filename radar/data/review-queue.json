@@ -1741,5 +1741,34 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "agent-session-introspection",
+    "name": "Agent Session Introspection",
+    "category": "automation",
+    "sourceCategory": "Productivity & Meetings",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Agent Session Introspection",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://lmstudio.ai/blog/introducing-introspection",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "automation",
+      "agent"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49747494",
+    "discoveredAt": "2026-09-17T23:41:16.935Z",
+    "updatedAt": "2026-09-17T23:41:16.935Z",
+    "contentHash": "e665ba2af62cd2a3",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]
