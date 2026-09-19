@@ -24887,5 +24887,875 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "course-crt",
+    "toolSlug": "crt",
+    "title": "Master CRT",
+    "objectives": [
+      "Review AI agent code changes locally before they land",
+      "Send structured inline feedback back to the agent",
+      "Approve, reject, and commit reviewed hunks"
+    ],
+    "modules": [
+      {
+        "title": "Install and Wire CRT Into Your Repo",
+        "estMinutes": 15,
+        "steps": [
+          "Install CRT and run `crt init` in an existing git repo that your agent works in",
+          "Confirm the generated .crt config directory and point CRT at your agent's working branch output",
+          "Trigger a small agent change (e.g. rename a function) so a review session exists to open"
+        ]
+      },
+      {
+        "title": "Navigating a Review Session",
+        "estMinutes": 20,
+        "steps": [
+          "Open the pending session with `crt review` and move between files and hunks with j/k and ]f/[f",
+          "Toggle the side-by-side vs unified diff view and read the agent's stated intent alongside each change",
+          "Filter the queue to show only high-risk files flagged by CRT and review those first"
+        ]
+      },
+      {
+        "title": "Leaving Feedback the Agent Can Act On",
+        "estMinutes": 20,
+        "steps": [
+          "Select a hunk and add an inline comment describing what's wrong, e.g. 'leaks the DB connection on error path'",
+          "Use a blocking annotation vs a suggestion annotation on two different hunks and note how they're labeled",
+          "Run `crt send` to push the annotated feedback back to the agent and watch it produce a revised diff"
+        ]
+      },
+      {
+        "title": "Approve, Reject, and Land Changes",
+        "estMinutes": 20,
+        "steps": [
+          "Approve a clean hunk with `a` and reject a bad one with `x`, committing neither yet",
+          "Re-review the agent's second-pass diff and approve remaining hunks",
+          "Run `crt land` to apply only approved hunks to your working tree, then verify with git status and a test run"
+        ]
+      },
+      {
+        "title": "Tuning CRT for Your Workflow",
+        "estMinutes": 15,
+        "steps": [
+          "Edit .crt config to set review policies, e.g. require manual approval for changes touching migrations or auth code",
+          "Enable auto-accept rules for low-risk edits like formatting or test-only changes",
+          "Add a shell alias or git hook so `crt review` runs automatically whenever your agent finishes a task"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-code review",
+      "skill-agentic coding",
+      "skill-cli",
+      "skill-git",
+      "skill-open source"
+    ],
+    "prerequisites": [
+      "Comfortable reading git diffs and resolving review comments in a normal PR flow",
+      "Hands-on experience running at least one AI coding agent (Claude Code, Aider, Cursor agent, etc.)",
+      "Solid terminal/CLI skills including shell aliases and git hooks"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
+    "toolSlug": "uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
+    "title": "Master Uncle Bob Martin's UML Tool to Manage Grok AI Agents",
+    "objectives": [
+      "Understand what Uncle Bob Martin's UML Tool to Manage Grok AI Agents is for",
+      "Use Uncle Bob Martin's UML Tool to Manage Grok AI Agents on a real task",
+      "Know where Uncle Bob Martin's UML Tool to Manage Grok AI Agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Uncle Bob Martin's UML Tool to Manage Grok AI Agents for your real workflow, not the demo.",
+          "Say what Uncle Bob Martin's UML Tool to Manage Grok AI Agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Uncle Bob Martin's UML Tool to Manage Grok AI Agents.",
+          "Push Uncle Bob Martin's UML Tool to Manage Grok AI Agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Uncle Bob Martin's UML Tool to Manage Grok AI Agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-uml",
+      "skill-ai agents",
+      "skill-diagrams",
+      "skill-grok",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-i-told-my-open-source-ai-agent-it-was-a-prisoner",
+    "toolSlug": "i-told-my-open-source-ai-agent-it-was-a-prisoner",
+    "title": "Master I told my open-source AI agent it was a prisoner",
+    "objectives": [
+      "Understand what I told my open-source AI agent it was a prisoner is for",
+      "Use I told my open-source AI agent it was a prisoner on a real task",
+      "Know where I told my open-source AI agent it was a prisoner fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure I told my open-source AI agent it was a prisoner for your real workflow, not the demo.",
+          "Say what I told my open-source AI agent it was a prisoner does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through I told my open-source AI agent it was a prisoner.",
+          "Push I told my open-source AI agent it was a prisoner to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold I told my open-source AI agent it was a prisoner into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-open source",
+      "skill-experiment",
+      "skill-agent behavior",
+      "skill-sandbox escape"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-airlines-panic-as-faa-pushed-new-ai-tool",
+    "toolSlug": "airlines-panic-as-faa-pushed-new-ai-tool",
+    "title": "Master Airlines' panic as FAA pushed new AI tool",
+    "objectives": [
+      "Decode the FAA AI ATC tool's rollout plan and stated authority",
+      "Quantify your operation's delay exposure using FAA data",
+      "Produce an airline response: formal comment plus ops fallback plan"
+    ],
+    "modules": [
+      {
+        "title": "Pin Down What the FAA Tool Actually Does",
+        "estMinutes": 20,
+        "steps": [
+          "Pull the controlling documents: the FAA docket entry on regulations.gov, relevant FAA Order JO sections, and any vendor/system spec sheets cited in press coverage",
+          "Identify which decision-support functions are automated (e.g., TMI generation, metering, rerouting) and write a one-paragraph plain-language summary for your ops leadership",
+          "Flag gaps between the FAA's stated capability and media claims in a two-column discrepancy table"
+        ]
+      },
+      {
+        "title": "Measure Your Exposure with Real Delay Data",
+        "estMinutes": 25,
+        "steps": [
+          "Extract the last 24 months of FAA OPSNET and ASPM data for your top 5 hubs, filtering for en-route and ground-stop attributed delays",
+          "Overlay the tool's announced rollout airports/phases against your schedule peaks to build a per-hub exposure score (daily departures x historical delay minutes x phase-on date)",
+          "Stress-test one scenario: assume the tool mis-sequences arrivals for your largest hub during afternoon push — calculate crew legality and misconnection cascades"
+        ]
+      },
+      {
+        "title": "Build the Pushback & Mitigation Package",
+        "estMinutes": 25,
+        "steps": [
+          "Draft a comment letter for the regulations.gov docket citing specific safety/ops concerns with data-backed delay figures from Module 2",
+          "Write an OCC fallback SOP: escalation triggers, manual coordination contacts at the affected ATC facilities, and conservative block-time padding rules for affected stations",
+          "Brief network planning with a recommended schedule-buffer adjustment and a rollback request template if FAA pilot-phase criteria aren't met"
+        ]
+      },
+      {
+        "title": "Set Up Live Monitoring",
+        "estMinutes": 15,
+        "steps": [
+          "Configure alerts on the FAA's NTML/ops advisory feeds and the Traffic Flow Management dashboard for the rollout airports",
+          "Assign a standing daily check of FAA system status notes (e.g., CDM telcon summaries) to one duty manager and define the internal distribution list",
+          "Log every anomaly attributable to the tool in a structured incident table (date, facility, event, delay minutes, downstream impact) to support future docket submissions"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-aviation",
+      "skill-faa",
+      "skill-airlines",
+      "skill-air-traffic",
+      "skill-policy"
+    ],
+    "prerequisites": [
+      "Familiarity with US NAS operations: TMIs, ground stops, GDP, metering",
+      "Working knowledge of airline OCC functions and block-time planning",
+      "Ability to download and filter FAA OPSNET/ASPM datasets",
+      "Prior exposure to the docket/comment process on regulations.gov"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-turnpanel-is-a-local-first-ai-workspace",
+    "toolSlug": "turnpanel-is-a-local-first-ai-workspace",
+    "title": "Master Turnpanel is a local first AI workspace",
+    "objectives": [
+      "Understand what Turnpanel is a local first AI workspace is for",
+      "Use Turnpanel is a local first AI workspace on a real task",
+      "Know where Turnpanel is a local first AI workspace fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for Turnpanel is a local first AI workspace.",
+          "Say what Turnpanel is a local first AI workspace does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Turnpanel is a local first AI workspace.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Turnpanel is a local first AI workspace into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-local-first",
+      "skill-workspace",
+      "skill-privacy",
+      "skill-offline",
+      "skill-productivity"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-adam-tooze-on-ai-regulation-video",
+    "toolSlug": "adam-tooze-on-ai-regulation-video",
+    "title": "Master Adam Tooze on AI Regulation [video]",
+    "objectives": [
+      "Understand what Adam Tooze on AI Regulation [video] is for",
+      "Use Adam Tooze on AI Regulation [video] on a real task",
+      "Know where Adam Tooze on AI Regulation [video] fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Adam Tooze on AI Regulation [video] for your real workflow, not the demo.",
+          "Say what Adam Tooze on AI Regulation [video] does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Adam Tooze on AI Regulation [video].",
+          "Push Adam Tooze on AI Regulation [video] to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Adam Tooze on AI Regulation [video] into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai regulation",
+      "skill-policy",
+      "skill-video lecture",
+      "skill-geopolitics",
+      "skill-economics"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness",
+    "toolSlug": "forcefield-a-fast-lightweight-local-first-ai-agent-harness",
+    "title": "Master Forcefield: A fast, lightweight local-first AI agent harness",
+    "objectives": [
+      "Run an agent locally against a local model with zero cloud calls",
+      "Extend an agent with custom tools and verify tool-call behavior",
+      "Inspect, resume, and export local agent run state"
+    ],
+    "modules": [
+      {
+        "title": "Install and Scaffold a Project",
+        "estMinutes": 15,
+        "steps": [
+          "Install the Forcefield CLI per the README (e.g. `npm i -g forcefield` or the provided binary) and confirm with `forcefield --version`",
+          "Run `forcefield init my-agent` and open the generated project structure (agent config, tools dir, local data dir)",
+          "Start a local model server (e.g. `ollama serve` with a pulled model like `llama3.1`) that Forcefield will target"
+        ]
+      },
+      {
+        "title": "Configure a Local-First Model Backend",
+        "estMinutes": 15,
+        "steps": [
+          "Edit the project config to point Forcefield at `http://localhost:11434` and set the model name, context size, and temperature",
+          "Disable or omit any cloud provider keys to guarantee local-only execution",
+          "Run `forcefield doctor` (or the config check command) and send a one-line test prompt to confirm the backend responds"
+        ]
+      },
+      {
+        "title": "Define and Run Your First Agent",
+        "estMinutes": 20,
+        "steps": [
+          "Author an agent definition (YAML/TS): name, system prompt, model reference, and max tool-call iterations",
+          "Execute a task with `forcefield run \"summarize the files in ./docs\"` and watch the step-by-step loop in the terminal",
+          "Tune the iteration cap and stop conditions so the agent terminates cleanly instead of looping"
+        ]
+      },
+      {
+        "title": "Add and Verify a Custom Tool",
+        "estMinutes": 25,
+        "steps": [
+          "Write a tool in the tools directory (e.g. a `read_file` or word-count function) with a JSON schema for its parameters",
+          "Register the tool on the agent and re-run a prompt that forces the tool to be invoked",
+          "Grep the run output or trace log for the tool call and assert the returned value appears in the final answer"
+        ]
+      },
+      {
+        "title": "Persist, Resume, and Export Runs",
+        "estMinutes": 20,
+        "steps": [
+          "Locate the local data store Forcefield writes (SQLite file or `.forcefield/` dir) and inspect a recorded run's messages",
+          "Resume an interrupted run by its ID and confirm the agent continues from prior state rather than restarting",
+          "Export a run trace to JSON and diff two runs after changing the system prompt to compare behavior"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-local-first",
+      "skill-open source",
+      "skill-agent harness",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-agentgit",
+    "toolSlug": "agentgit",
+    "title": "Master Agentgit",
+    "objectives": [
+      "Understand what Agentgit is for",
+      "Use Agentgit on a real task",
+      "Know where Agentgit fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Agentgit for your real workflow, not the demo.",
+          "Say what Agentgit does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Agentgit.",
+          "Push Agentgit to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Agentgit into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-git",
+      "skill-ai agents",
+      "skill-version control",
+      "skill-code hosting"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-recursively-scaling-auto-research-loops-for-efficient-agent-",
+    "toolSlug": "recursively-scaling-auto-research-loops-for-efficient-agent-",
+    "title": "Master Recursively Scaling Auto-Research Loops for Efficient Agent Harness",
+    "objectives": [
+      "Understand what Recursively Scaling Auto-Research Loops for Efficient Agent Harness is for",
+      "Use Recursively Scaling Auto-Research Loops for Efficient Agent Harness on a real task",
+      "Know where Recursively Scaling Auto-Research Loops for Efficient Agent Harness fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Recursively Scaling Auto-Research Loops for Efficient Agent Harness for your real workflow, not the demo.",
+          "Say what Recursively Scaling Auto-Research Loops for Efficient Agent Harness does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Recursively Scaling Auto-Research Loops for Efficient Agent Harness.",
+          "Push Recursively Scaling Auto-Research Loops for Efficient Agent Harness to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Recursively Scaling Auto-Research Loops for Efficient Agent Harness into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-research",
+      "skill-scaling",
+      "skill-llm"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-meta-muse-hits-1-in-apple-app-store",
+    "toolSlug": "meta-muse-hits-1-in-apple-app-store",
+    "title": "Master Meta Muse Hits #1 in Apple App Store",
+    "objectives": [
+      "Install Meta Muse and complete first-run setup",
+      "Run your first AI agent task end to end",
+      "Configure privacy, permissions, and connected Meta accounts"
+    ],
+    "modules": [
+      {
+        "title": "Get the App Running",
+        "estMinutes": 8,
+        "steps": [
+          "Search 'Meta Muse' in the Apple App Store, install it, and confirm the developer is listed as Meta Platforms",
+          "Sign in with your Meta account (Facebook or Instagram credentials) and complete the two-factor prompt",
+          "Allow only the permissions you need at the first-run prompt: notifications yes, contacts and precise location skip for now"
+        ]
+      },
+      {
+        "title": "Tour the Interface",
+        "estMinutes": 6,
+        "steps": [
+          "Open the Home tab and identify the three core areas: the chat/prompt field, the Agents list, and your Activity history",
+          "Tap the example prompt on the welcome card to watch a sample task execute without typing anything",
+          "Find Settings > Your Agent to see the default name, voice, and response-length options and set a response length you prefer"
+        ]
+      },
+      {
+        "title": "Run Your First Agent Task",
+        "estMinutes": 10,
+        "steps": [
+          "Type a concrete request such as 'Plan a 3-day weekend trip to Chicago under $600 and list it as bullet points' and send it",
+          "Watch the agent's step-by-step progress, then tap any step to expand what it did and which sources or tools it used",
+          "Use the follow-up field to refine once (for example 'make it cheaper and add a rainy-day option'), then tap Save to keep the result in Activity"
+        ]
+      },
+      {
+        "title": "Connect Meta Apps and Automate",
+        "estMinutes": 8,
+        "steps": [
+          "Go to Settings > Connected Apps and link Instagram or WhatsApp if you want the agent to draft posts or summarize messages",
+          "Create one simple standing task from the Agents tab, such as 'Every morning at 8am, give me a 5-line summary of today's top news'",
+          "Run the task manually once, check the output in Activity, and toggle it off if the format needs adjusting before letting it run daily"
+        ]
+      },
+      {
+        "title": "Lock Down Privacy and Limits",
+        "estMinutes": 5,
+        "steps": [
+          "Open Settings > Privacy and review what data the agent can access; disable anything you granted earlier that you don't actually use",
+          "Turn on 'Confirm before actions' so the agent asks before sending messages, posting, or making purchases on your behalf",
+          "Delete one past conversation from Activity to confirm you know how to clear your history"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-meta",
+      "skill-ai agent",
+      "skill-personal assistant",
+      "skill-mobile app",
+      "skill-consumer ai"
+    ],
+    "prerequisites": [
+      "iPhone running a recent version of iOS",
+      "An active Meta (Facebook or Instagram) account",
+      "Apple ID signed in for App Store downloads"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-what-other-languages-call-ai-agents",
+    "toolSlug": "what-other-languages-call-ai-agents",
+    "title": "Master What other languages call AI agents",
+    "objectives": [
+      "Understand what What other languages call AI agents is for",
+      "Use What other languages call AI agents on a real task",
+      "Know where What other languages call AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for What other languages call AI agents.",
+          "Say what What other languages call AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through What other languages call AI agents.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold What other languages call AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-translation",
+      "skill-languages",
+      "skill-ai agents",
+      "skill-terminology",
+      "skill-localization"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-a-public-bulletin-board-for-ai-agents",
+    "toolSlug": "a-public-bulletin-board-for-ai-agents",
+    "title": "Master A public bulletin board for AI agents",
+    "objectives": [
+      "Understand what A public bulletin board for AI agents is for",
+      "Use A public bulletin board for AI agents on a real task",
+      "Know where A public bulletin board for AI agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure A public bulletin board for AI agents for your real workflow, not the demo.",
+          "Say what A public bulletin board for AI agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through A public bulletin board for AI agents.",
+          "Push A public bulletin board for AI agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold A public bulletin board for AI agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-bulletin board",
+      "skill-bbs",
+      "skill-agent network",
+      "skill-autonomous agents"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-keydris-sudo-for-ai-agents",
+    "toolSlug": "keydris-sudo-for-ai-agents",
+    "title": "Master Keydris, Sudo for AI Agents",
+    "objectives": [
+      "Understand what Keydris, Sudo for AI Agents is for",
+      "Use Keydris, Sudo for AI Agents on a real task",
+      "Know where Keydris, Sudo for AI Agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Keydris, Sudo for AI Agents for your real workflow, not the demo.",
+          "Say what Keydris, Sudo for AI Agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Keydris, Sudo for AI Agents.",
+          "Push Keydris, Sudo for AI Agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Keydris, Sudo for AI Agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-permissions",
+      "skill-security",
+      "skill-sudo"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-anthropic-is-planning-to-launch-its-ipo-in-november",
+    "toolSlug": "anthropic-is-planning-to-launch-its-ipo-in-november",
+    "title": "Master Anthropic is planning to launch its IPO in November",
+    "objectives": [
+      "Understand what Anthropic's planned November IPO involves",
+      "Locate and read Anthropic's S-1 filing on SEC EDGAR",
+      "Assess basic IPO risks before deciding to invest"
+    ],
+    "modules": [
+      {
+        "title": "What an IPO Means for Anthropic",
+        "estMinutes": 10,
+        "steps": [
+          "Read the IPO announcement and note the expected November timeline, valuation range, and underwriters",
+          "Write down 3 key terms with one-line definitions: ticker symbol, lock-up period, and share class",
+          "List 2 ways the IPO could change Anthropic (public scrutiny, new capital) and 2 ways it affects Claude users"
+        ]
+      },
+      {
+        "title": "Finding and Reading Anthropic's S-1 Filing",
+        "estMinutes": 15,
+        "steps": [
+          "Go to sec.gov/edgar and search 'Anthropic' to find the S-1 registration statement",
+          "Open the 'Risk Factors' section and note the top 3 risks specific to AI companies",
+          "Find the financials table and record Anthropic's revenue, losses, and cash on hand from the two most recent years"
+        ]
+      },
+      {
+        "title": "Checking If IPO Investing Fits You",
+        "estMinutes": 10,
+        "steps": [
+          "Check whether your brokerage (e.g., Fidelity, Schwab) offers IPO share access and what account minimums apply",
+          "Compare Anthropic's price-to-revenue ratio against a public peer like Microsoft or Palantir using a free site like Yahoo Finance",
+          "Write a one-sentence rule for yourself, e.g., 'I will invest no more than $X or wait until after the 180-day lock-up expires'"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-anthropic",
+      "skill-claude",
+      "skill-ipo",
+      "skill-llm",
+      "skill-chatbot"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-app-launch-grabthat-nlp-launcher-for-windows",
+    "toolSlug": "app-launch-grabthat-nlp-launcher-for-windows",
+    "title": "Master App Launch: GrabThat (NLP Launcher for Windows)",
+    "objectives": [
+      "Understand what App Launch: GrabThat (NLP Launcher for Windows) is for",
+      "Use App Launch: GrabThat (NLP Launcher for Windows) on a real task",
+      "Know where App Launch: GrabThat (NLP Launcher for Windows) fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for App Launch: GrabThat (NLP Launcher for Windows).",
+          "Say what App Launch: GrabThat (NLP Launcher for Windows) does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through App Launch: GrabThat (NLP Launcher for Windows).",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold App Launch: GrabThat (NLP Launcher for Windows) into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-launcher",
+      "skill-nlp",
+      "skill-windows",
+      "skill-productivity"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-ipad-computer-use",
+    "toolSlug": "ipad-computer-use",
+    "title": "Master ipad_computer_use",
+    "objectives": [
+      "Understand what ipad_computer_use is for",
+      "Use ipad_computer_use on a real task",
+      "Know where ipad_computer_use fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure ipad_computer_use for your real workflow, not the demo.",
+          "Say what ipad_computer_use does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through ipad_computer_use.",
+          "Push ipad_computer_use to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold ipad_computer_use into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ipad",
+      "skill-ai-agent",
+      "skill-usb",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-18T23:34:59.552Z"
   }
 ]

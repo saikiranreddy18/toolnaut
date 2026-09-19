@@ -167,7 +167,11 @@
       "robodiag-harness",
       "vscode-mcp-api",
       "aclif",
-      "capcut-pro-cracked"
+      "capcut-pro-cracked",
+      "crt",
+      "uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
+      "forcefield-a-fast-lightweight-local-first-ai-agent-harness",
+      "agentgit"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -332,7 +336,11 @@
       "course-robodiag-harness",
       "course-vscode-mcp-api",
       "course-aclif",
-      "course-capcut-pro-cracked"
+      "course-capcut-pro-cracked",
+      "course-crt",
+      "course-uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
+      "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness",
+      "course-agentgit"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -469,7 +477,8 @@
       "i-built-a-router-for-agent-tools",
       "tabmail-open-source-ai-email-for-thunderbird-and-iphone",
       "sokit",
-      "pixelboard"
+      "pixelboard",
+      "ipad-computer-use"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -515,7 +524,8 @@
       "course-i-built-a-router-for-agent-tools",
       "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone",
       "course-sokit",
-      "course-pixelboard"
+      "course-pixelboard",
+      "course-ipad-computer-use"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -865,7 +875,16 @@
       "startups-next-teammate-might-be-an-ai-agent",
       "salt",
       "cc-is-an-ai-agent-for-families-and-groups",
-      "meta-launches-subscription-bundles"
+      "meta-launches-subscription-bundles",
+      "i-told-my-open-source-ai-agent-it-was-a-prisoner",
+      "airlines-panic-as-faa-pushed-new-ai-tool",
+      "turnpanel-is-a-local-first-ai-workspace",
+      "recursively-scaling-auto-research-loops-for-efficient-agent-",
+      "meta-muse-hits-1-in-apple-app-store",
+      "a-public-bulletin-board-for-ai-agents",
+      "keydris-sudo-for-ai-agents",
+      "app-launch-grabthat-nlp-launcher-for-windows",
+      "ipad-computer-use"
     ],
     "courses": [
       "course-headless-tools",
@@ -1060,7 +1079,16 @@
       "course-startups-next-teammate-might-be-an-ai-agent",
       "course-salt",
       "course-cc-is-an-ai-agent-for-families-and-groups",
-      "course-meta-launches-subscription-bundles"
+      "course-meta-launches-subscription-bundles",
+      "course-i-told-my-open-source-ai-agent-it-was-a-prisoner",
+      "course-airlines-panic-as-faa-pushed-new-ai-tool",
+      "course-turnpanel-is-a-local-first-ai-workspace",
+      "course-recursively-scaling-auto-research-loops-for-efficient-agent-",
+      "course-meta-muse-hits-1-in-apple-app-store",
+      "course-a-public-bulletin-board-for-ai-agents",
+      "course-keydris-sudo-for-ai-agents",
+      "course-app-launch-grabthat-nlp-launcher-for-windows",
+      "course-ipad-computer-use"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1228,7 +1256,13 @@
       "respawn",
       "salt",
       "jawz",
-      "aclif"
+      "aclif",
+      "uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
+      "forcefield-a-fast-lightweight-local-first-ai-agent-harness",
+      "agentgit",
+      "what-other-languages-call-ai-agents",
+      "a-public-bulletin-board-for-ai-agents",
+      "keydris-sudo-for-ai-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -1374,7 +1408,13 @@
       "course-respawn",
       "course-salt",
       "course-jawz",
-      "course-aclif"
+      "course-aclif",
+      "course-uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
+      "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness",
+      "course-agentgit",
+      "course-what-other-languages-call-ai-agents",
+      "course-a-public-bulletin-board-for-ai-agents",
+      "course-keydris-sudo-for-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1469,7 +1509,9 @@
       "vim-like-hyper-efficient-llm-power-tool",
       "mcpjam",
       "sokit",
-      "lakera"
+      "lakera",
+      "recursively-scaling-auto-research-loops-for-efficient-agent-",
+      "anthropic-is-planning-to-launch-its-ipo-in-november"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1514,7 +1556,9 @@
       "course-vim-like-hyper-efficient-llm-power-tool",
       "course-mcpjam",
       "course-sokit",
-      "course-lakera"
+      "course-lakera",
+      "course-recursively-scaling-auto-research-loops-for-efficient-agent-",
+      "course-anthropic-is-planning-to-launch-its-ipo-in-november"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1668,13 +1712,15 @@
       "edify",
       "claude-codex-cursor-token-saver",
       "cve-2026-42978-poc-research",
-      "wvm"
+      "wvm",
+      "app-launch-grabthat-nlp-launcher-for-windows"
     ],
     "courses": [
       "course-edify",
       "course-claude-codex-cursor-token-saver",
       "course-cve-2026-42978-poc-research",
-      "course-wvm"
+      "course-wvm",
+      "course-app-launch-grabthat-nlp-launcher-for-windows"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1938,7 +1984,8 @@
       "ai-agents-now-have-a-place-to-snitch",
       "cve-2026-21858-n8n-fullchain",
       "cve-2026-54121-certighost",
-      "ai-crawler-honeypot"
+      "ai-crawler-honeypot",
+      "keydris-sudo-for-ai-agents"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -1974,7 +2021,8 @@
       "course-ai-agents-now-have-a-place-to-snitch",
       "course-cve-2026-21858-n8n-fullchain",
       "course-cve-2026-54121-certighost",
-      "course-ai-crawler-honeypot"
+      "course-ai-crawler-honeypot",
+      "course-keydris-sudo-for-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2096,7 +2144,8 @@
       "claude2api",
       "mdmanagerai",
       "a-c-compiler-written-with-help-of-claude",
-      "never-again"
+      "never-again",
+      "anthropic-is-planning-to-launch-its-ipo-in-november"
     ],
     "courses": [
       "course-coolplugz",
@@ -2104,7 +2153,8 @@
       "course-claude2api",
       "course-mdmanagerai",
       "course-a-c-compiler-written-with-help-of-claude",
-      "course-never-again"
+      "course-never-again",
+      "course-anthropic-is-planning-to-launch-its-ipo-in-november"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2289,13 +2339,15 @@
       "hermes-agent",
       "t3rnel-browser",
       "open-sourced-solution-to-ai-manage-playwright-automations",
-      "my-ai-agent-gets-his-own-calendar"
+      "my-ai-agent-gets-his-own-calendar",
+      "ipad-computer-use"
     ],
     "courses": [
       "course-hermes-agent",
       "course-t3rnel-browser",
       "course-open-sourced-solution-to-ai-manage-playwright-automations",
-      "course-my-ai-agent-gets-his-own-calendar"
+      "course-my-ai-agent-gets-his-own-calendar",
+      "course-ipad-computer-use"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2359,7 +2411,8 @@
       "opendocbot",
       "anyhropic-launches-google-docs-alternative-claude-docs",
       "echodot",
-      "pixelboard"
+      "pixelboard",
+      "anthropic-is-planning-to-launch-its-ipo-in-november"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -2385,7 +2438,8 @@
       "course-opendocbot",
       "course-anyhropic-launches-google-docs-alternative-claude-docs",
       "course-echodot",
-      "course-pixelboard"
+      "course-pixelboard",
+      "course-anthropic-is-planning-to-launch-its-ipo-in-november"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2644,7 +2698,8 @@
       "apowerb",
       "productivity-effects-across-generations-of-ai-coding-tools",
       "scry-programmable-internet-search-w-congestion-pricing",
-      "aclif"
+      "aclif",
+      "forcefield-a-fast-lightweight-local-first-ai-agent-harness"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -2686,7 +2741,8 @@
       "course-apowerb",
       "course-productivity-effects-across-generations-of-ai-coding-tools",
       "course-scry-programmable-internet-search-w-congestion-pricing",
-      "course-aclif"
+      "course-aclif",
+      "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2755,7 +2811,9 @@
       "how-to-build-effective-evals-for-ai-agents",
       "share-your-ai-setup-learn-from-others",
       "openai-discloses-six-new-ai-safety-incidents",
-      "lakera"
+      "lakera",
+      "adam-tooze-on-ai-regulation-video",
+      "what-other-languages-call-ai-agents"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2802,7 +2860,9 @@
       "course-how-to-build-effective-evals-for-ai-agents",
       "course-share-your-ai-setup-learn-from-others",
       "course-openai-discloses-six-new-ai-safety-incidents",
-      "course-lakera"
+      "course-lakera",
+      "course-adam-tooze-on-ai-regulation-video",
+      "course-what-other-languages-call-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2842,7 +2902,8 @@
       "auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
       "plurnk-yet-another-ai-harness",
       "i-built-a-router-for-agent-tools",
-      "an-open-add-search-evaluation-framework-for-agent-memory"
+      "an-open-add-search-evaluation-framework-for-agent-memory",
+      "recursively-scaling-auto-research-loops-for-efficient-agent-"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2875,7 +2936,8 @@
       "course-auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
       "course-plurnk-yet-another-ai-harness",
       "course-i-built-a-router-for-agent-tools",
-      "course-an-open-add-search-evaluation-framework-for-agent-memory"
+      "course-an-open-add-search-evaluation-framework-for-agent-memory",
+      "course-recursively-scaling-auto-research-loops-for-efficient-agent-"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2993,7 +3055,11 @@
       "bottle",
       "i-forked-jetbrains-new-agent-ide-to-host-claude-code",
       "unmute",
-      "an-open-add-search-evaluation-framework-for-agent-memory"
+      "an-open-add-search-evaluation-framework-for-agent-memory",
+      "crt",
+      "uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
+      "i-told-my-open-source-ai-agent-it-was-a-prisoner",
+      "forcefield-a-fast-lightweight-local-first-ai-agent-harness"
     ],
     "courses": [
       "course-limitless-library",
@@ -3046,7 +3112,11 @@
       "course-bottle",
       "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code",
       "course-unmute",
-      "course-an-open-add-search-evaluation-framework-for-agent-memory"
+      "course-an-open-add-search-evaluation-framework-for-agent-memory",
+      "course-crt",
+      "course-uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
+      "course-i-told-my-open-source-ai-agent-it-was-a-prisoner",
+      "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3308,7 +3378,9 @@
       "swiftime",
       "prmptree",
       "i-tested-ai-agents-for-everyday-work",
-      "productivity-effects-across-generations-of-ai-coding-tools"
+      "productivity-effects-across-generations-of-ai-coding-tools",
+      "turnpanel-is-a-local-first-ai-workspace",
+      "app-launch-grabthat-nlp-launcher-for-windows"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -3330,7 +3402,9 @@
       "course-swiftime",
       "course-prmptree",
       "course-i-tested-ai-agents-for-everyday-work",
-      "course-productivity-effects-across-generations-of-ai-coding-tools"
+      "course-productivity-effects-across-generations-of-ai-coding-tools",
+      "course-turnpanel-is-a-local-first-ai-workspace",
+      "course-app-launch-grabthat-nlp-launcher-for-windows"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3432,7 +3506,9 @@
       "pawbot",
       "prmptree",
       "cc-is-an-ai-agent-for-families-and-groups",
-      "robodiag-harness"
+      "robodiag-harness",
+      "i-told-my-open-source-ai-agent-it-was-a-prisoner",
+      "meta-muse-hits-1-in-apple-app-store"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -3461,7 +3537,9 @@
       "course-pawbot",
       "course-prmptree",
       "course-cc-is-an-ai-agent-for-families-and-groups",
-      "course-robodiag-harness"
+      "course-robodiag-harness",
+      "course-i-told-my-open-source-ai-agent-it-was-a-prisoner",
+      "course-meta-muse-hits-1-in-apple-app-store"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4067,10 +4145,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "abbs"
+      "abbs",
+      "a-public-bulletin-board-for-ai-agents"
     ],
     "courses": [
-      "course-abbs"
+      "course-abbs",
+      "course-a-public-bulletin-board-for-ai-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4400,7 +4480,8 @@
       "thurbox",
       "neurogrid-terminal-coding-agent",
       "vim-like-hyper-efficient-llm-power-tool",
-      "aclif"
+      "aclif",
+      "crt"
     ],
     "courses": [
       "course-devx",
@@ -4417,7 +4498,8 @@
       "course-thurbox",
       "course-neurogrid-terminal-coding-agent",
       "course-vim-like-hyper-efficient-llm-power-tool",
-      "course-aclif"
+      "course-aclif",
+      "course-crt"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4672,11 +4754,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "bytedance-launches-ai-office-product-doubao-work",
-      "crew"
+      "crew",
+      "turnpanel-is-a-local-first-ai-workspace"
     ],
     "courses": [
       "course-bytedance-launches-ai-office-product-doubao-work",
-      "course-crew"
+      "course-crew",
+      "course-turnpanel-is-a-local-first-ai-workspace"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5002,11 +5086,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "ta",
-      "i-built-a-real-time-translator-for-google-meet"
+      "i-built-a-real-time-translator-for-google-meet",
+      "what-other-languages-call-ai-agents"
     ],
     "courses": [
       "course-ta",
-      "course-i-built-a-real-time-translator-for-google-meet"
+      "course-i-built-a-real-time-translator-for-google-meet",
+      "course-what-other-languages-call-ai-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5525,7 +5611,8 @@
       "agentsdock-an-ide-designed-for-agentic-ai-research",
       "andon-labs-puts-ai-agents-in-charge-of-real-businesses",
       "is-ai-solving-math-too-fast",
-      "productivity-effects-across-generations-of-ai-coding-tools"
+      "productivity-effects-across-generations-of-ai-coding-tools",
+      "recursively-scaling-auto-research-loops-for-efficient-agent-"
     ],
     "courses": [
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
@@ -5544,7 +5631,8 @@
       "course-agentsdock-an-ide-designed-for-agentic-ai-research",
       "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses",
       "course-is-ai-solving-math-too-fast",
-      "course-productivity-effects-across-generations-of-ai-coding-tools"
+      "course-productivity-effects-across-generations-of-ai-coding-tools",
+      "course-recursively-scaling-auto-research-loops-for-efficient-agent-"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -6435,7 +6523,9 @@
       "timervana-a-local-first-scheduler-for-real-world-routines",
       "chronicle",
       "echodot",
-      "respawn"
+      "respawn",
+      "turnpanel-is-a-local-first-ai-workspace",
+      "forcefield-a-fast-lightweight-local-first-ai-agent-harness"
     ],
     "courses": [
       "course-datazen",
@@ -6443,7 +6533,9 @@
       "course-timervana-a-local-first-scheduler-for-real-world-routines",
       "course-chronicle",
       "course-echodot",
-      "course-respawn"
+      "course-respawn",
+      "course-turnpanel-is-a-local-first-ai-workspace",
+      "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -6889,11 +6981,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "subs-the-cloud-native-agent-harness",
-      "live-graph-interface-harness"
+      "live-graph-interface-harness",
+      "forcefield-a-fast-lightweight-local-first-ai-agent-harness"
     ],
     "courses": [
       "course-subs-the-cloud-native-agent-harness",
-      "course-live-graph-interface-harness"
+      "course-live-graph-interface-harness",
+      "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -7035,10 +7129,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "civitas"
+      "civitas",
+      "a-public-bulletin-board-for-ai-agents"
     ],
     "courses": [
-      "course-civitas"
+      "course-civitas",
+      "course-a-public-bulletin-board-for-ai-agents"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
   },
@@ -7537,12 +7633,14 @@
     "toolsTeaching": [
       "ai-old-video-restoration-tool",
       "local-ai-assistants-can-be-user-friendly-too",
-      "phntm-one-i-built-a-local-ai-desk-assistant"
+      "phntm-one-i-built-a-local-ai-desk-assistant",
+      "turnpanel-is-a-local-first-ai-workspace"
     ],
     "courses": [
       "course-ai-old-video-restoration-tool",
       "course-local-ai-assistants-can-be-user-friendly-too",
-      "course-phntm-one-i-built-a-local-ai-desk-assistant"
+      "course-phntm-one-i-built-a-local-ai-desk-assistant",
+      "course-turnpanel-is-a-local-first-ai-workspace"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -8275,12 +8373,14 @@
     "toolsTeaching": [
       "anthropic-launches-fable-51-and-mythos-51",
       "anthropic-reveals-rogue-ai-agents-hate-captchas",
-      "anyhropic-launches-google-docs-alternative-claude-docs"
+      "anyhropic-launches-google-docs-alternative-claude-docs",
+      "anthropic-is-planning-to-launch-its-ipo-in-november"
     ],
     "courses": [
       "course-anthropic-launches-fable-51-and-mythos-51",
       "course-anthropic-reveals-rogue-ai-agents-hate-captchas",
-      "course-anyhropic-launches-google-docs-alternative-claude-docs"
+      "course-anyhropic-launches-google-docs-alternative-claude-docs",
+      "course-anthropic-is-planning-to-launch-its-ipo-in-november"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -8326,7 +8426,8 @@
       "raven",
       "free-online-bates-numbering-tool-for-pdfs",
       "echodot",
-      "salt"
+      "salt",
+      "turnpanel-is-a-local-first-ai-workspace"
     ],
     "courses": [
       "course-pearpie",
@@ -8337,7 +8438,8 @@
       "course-raven",
       "course-free-online-bates-numbering-tool-for-pdfs",
       "course-echodot",
-      "course-salt"
+      "course-salt",
+      "course-turnpanel-is-a-local-first-ai-workspace"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -8670,7 +8772,8 @@
       "meta-launches-muse-a-personal-ai-agent",
       "dont-hit-send",
       "eliza-the-ai-that-fooled-the-world",
-      "meta-launches-subscriptions-with-enhanced-ai-features"
+      "meta-launches-subscriptions-with-enhanced-ai-features",
+      "anthropic-is-planning-to-launch-its-ipo-in-november"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
@@ -8682,7 +8785,8 @@
       "course-meta-launches-muse-a-personal-ai-agent",
       "course-dont-hit-send",
       "course-eliza-the-ai-that-fooled-the-world",
-      "course-meta-launches-subscriptions-with-enhanced-ai-features"
+      "course-meta-launches-subscriptions-with-enhanced-ai-features",
+      "course-anthropic-is-planning-to-launch-its-ipo-in-november"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -8882,10 +8986,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "memcode-launches-github-code-review"
+      "memcode-launches-github-code-review",
+      "crt"
     ],
     "courses": [
-      "course-memcode-launches-github-code-review"
+      "course-memcode-launches-github-code-review",
+      "course-crt"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -9325,12 +9431,16 @@
     "toolsTeaching": [
       "jern-cloud",
       "public-beta-a-decision-governance-runtime-for-ai-agents",
-      "senator-hawley-opens-investigation-into-openai-huggingface-h"
+      "senator-hawley-opens-investigation-into-openai-huggingface-h",
+      "airlines-panic-as-faa-pushed-new-ai-tool",
+      "adam-tooze-on-ai-regulation-video"
     ],
     "courses": [
       "course-jern-cloud",
       "course-public-beta-a-decision-governance-runtime-for-ai-agents",
-      "course-senator-hawley-opens-investigation-into-openai-huggingface-h"
+      "course-senator-hawley-opens-investigation-into-openai-huggingface-h",
+      "course-airlines-panic-as-faa-pushed-new-ai-tool",
+      "course-adam-tooze-on-ai-regulation-video"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -9420,10 +9530,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "scaling-agentic-ai-pilots-across-the-enterprise"
+      "scaling-agentic-ai-pilots-across-the-enterprise",
+      "recursively-scaling-auto-research-loops-for-efficient-agent-"
     ],
     "courses": [
-      "course-scaling-agentic-ai-pilots-across-the-enterprise"
+      "course-scaling-agentic-ai-pilots-across-the-enterprise",
+      "course-recursively-scaling-auto-research-loops-for-efficient-agent-"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -10088,10 +10200,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "designing-grok-bot-for-a-world-of-persistent-agents"
+      "designing-grok-bot-for-a-world-of-persistent-agents",
+      "uncle-bob-martins-uml-tool-to-manage-grok-ai-agents"
     ],
     "courses": [
-      "course-designing-grok-bot-for-a-world-of-persistent-agents"
+      "course-designing-grok-bot-for-a-world-of-persistent-agents",
+      "course-uncle-bob-martins-uml-tool-to-manage-grok-ai-agents"
     ],
     "updatedAt": "2026-09-04T13:33:57.801Z"
   },
@@ -10966,10 +11080,14 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "okf-agent-memory"
+      "okf-agent-memory",
+      "crt",
+      "agentgit"
     ],
     "courses": [
-      "course-okf-agent-memory"
+      "course-okf-agent-memory",
+      "course-crt",
+      "course-agentgit"
     ],
     "updatedAt": "2026-09-05T23:19:13.483Z"
   },
@@ -12617,13 +12735,15 @@
       "muse-metas-personal-ai-agent-features-and-capabilities",
       "muse-your-personal-ai-agent-from-meta",
       "muse-your-personal-ai-agent",
-      "meta-launches-muse-a-personal-ai-agent"
+      "meta-launches-muse-a-personal-ai-agent",
+      "meta-muse-hits-1-in-apple-app-store"
     ],
     "courses": [
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
       "course-muse-your-personal-ai-agent-from-meta",
       "course-muse-your-personal-ai-agent",
-      "course-meta-launches-muse-a-personal-ai-agent"
+      "course-meta-launches-muse-a-personal-ai-agent",
+      "course-meta-muse-hits-1-in-apple-app-store"
     ],
     "updatedAt": "2026-09-08T23:40:07.345Z"
   },
@@ -12637,14 +12757,16 @@
       "muse-your-personal-ai-agent-from-meta",
       "meta-launches-muse-a-personal-ai-agent",
       "meta-deployed-agents-and-fired-8000-employees",
-      "meta-launches-subscription-bundles"
+      "meta-launches-subscription-bundles",
+      "meta-muse-hits-1-in-apple-app-store"
     ],
     "courses": [
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
       "course-muse-your-personal-ai-agent-from-meta",
       "course-meta-launches-muse-a-personal-ai-agent",
       "course-meta-deployed-agents-and-fired-8000-employees",
-      "course-meta-launches-subscription-bundles"
+      "course-meta-launches-subscription-bundles",
+      "course-meta-muse-hits-1-in-apple-app-store"
     ],
     "updatedAt": "2026-09-08T23:40:07.345Z"
   },
@@ -13293,10 +13415,12 @@
     "domain": "learning",
     "level": "beginner",
     "toolsTeaching": [
-      "ai-agents-built-a-secret-society-inside-the-lab-video"
+      "ai-agents-built-a-secret-society-inside-the-lab-video",
+      "i-told-my-open-source-ai-agent-it-was-a-prisoner"
     ],
     "courses": [
-      "course-ai-agents-built-a-secret-society-inside-the-lab-video"
+      "course-ai-agents-built-a-secret-society-inside-the-lab-video",
+      "course-i-told-my-open-source-ai-agent-it-was-a-prisoner"
     ],
     "updatedAt": "2026-09-09T23:30:23.231Z"
   },
@@ -15135,10 +15259,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "astah-pro-mcp"
+      "astah-pro-mcp",
+      "uncle-bob-martins-uml-tool-to-manage-grok-ai-agents"
     ],
     "courses": [
-      "course-astah-pro-mcp"
+      "course-astah-pro-mcp",
+      "course-uncle-bob-martins-uml-tool-to-manage-grok-ai-agents"
     ],
     "updatedAt": "2026-09-13T13:49:13.602Z"
   },
@@ -15161,10 +15287,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "astah-pro-mcp"
+      "astah-pro-mcp",
+      "uncle-bob-martins-uml-tool-to-manage-grok-ai-agents"
     ],
     "courses": [
-      "course-astah-pro-mcp"
+      "course-astah-pro-mcp",
+      "course-uncle-bob-martins-uml-tool-to-manage-grok-ai-agents"
     ],
     "updatedAt": "2026-09-13T13:49:13.602Z"
   },
@@ -15473,10 +15601,12 @@
     "domain": "learning",
     "level": "beginner",
     "toolsTeaching": [
-      "eliza-the-ai-that-fooled-the-world"
+      "eliza-the-ai-that-fooled-the-world",
+      "app-launch-grabthat-nlp-launcher-for-windows"
     ],
     "courses": [
-      "course-eliza-the-ai-that-fooled-the-world"
+      "course-eliza-the-ai-that-fooled-the-world",
+      "course-app-launch-grabthat-nlp-launcher-for-windows"
     ],
     "updatedAt": "2026-09-14T15:54:36.868Z"
   },
@@ -15936,10 +16066,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "antflow-ai-spec-driven-agentic-development"
+      "antflow-ai-spec-driven-agentic-development",
+      "crt"
     ],
     "courses": [
-      "course-antflow-ai-spec-driven-agentic-development"
+      "course-antflow-ai-spec-driven-agentic-development",
+      "course-crt"
     ],
     "updatedAt": "2026-09-15T14:21:00.449Z"
   },
@@ -17928,5 +18060,330 @@
       "course-aclif"
     ],
     "updatedAt": "2026-09-18T13:38:05.296Z"
+  },
+  {
+    "id": "skill-agent behavior",
+    "name": "agent behavior",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "i-told-my-open-source-ai-agent-it-was-a-prisoner"
+    ],
+    "courses": [
+      "course-i-told-my-open-source-ai-agent-it-was-a-prisoner"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-sandbox escape",
+    "name": "sandbox escape",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "i-told-my-open-source-ai-agent-it-was-a-prisoner"
+    ],
+    "courses": [
+      "course-i-told-my-open-source-ai-agent-it-was-a-prisoner"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-aviation",
+    "name": "aviation",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "airlines-panic-as-faa-pushed-new-ai-tool"
+    ],
+    "courses": [
+      "course-airlines-panic-as-faa-pushed-new-ai-tool"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-faa",
+    "name": "faa",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "airlines-panic-as-faa-pushed-new-ai-tool"
+    ],
+    "courses": [
+      "course-airlines-panic-as-faa-pushed-new-ai-tool"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-airlines",
+    "name": "airlines",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "airlines-panic-as-faa-pushed-new-ai-tool"
+    ],
+    "courses": [
+      "course-airlines-panic-as-faa-pushed-new-ai-tool"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-air-traffic",
+    "name": "air traffic",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "airlines-panic-as-faa-pushed-new-ai-tool"
+    ],
+    "courses": [
+      "course-airlines-panic-as-faa-pushed-new-ai-tool"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-ai regulation",
+    "name": "ai regulation",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "adam-tooze-on-ai-regulation-video"
+    ],
+    "courses": [
+      "course-adam-tooze-on-ai-regulation-video"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-video lecture",
+    "name": "video lecture",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "adam-tooze-on-ai-regulation-video"
+    ],
+    "courses": [
+      "course-adam-tooze-on-ai-regulation-video"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-geopolitics",
+    "name": "geopolitics",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "adam-tooze-on-ai-regulation-video"
+    ],
+    "courses": [
+      "course-adam-tooze-on-ai-regulation-video"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-economics",
+    "name": "economics",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "adam-tooze-on-ai-regulation-video"
+    ],
+    "courses": [
+      "course-adam-tooze-on-ai-regulation-video"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-version control",
+    "name": "version control",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentgit"
+    ],
+    "courses": [
+      "course-agentgit"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-code hosting",
+    "name": "code hosting",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentgit"
+    ],
+    "courses": [
+      "course-agentgit"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-mobile app",
+    "name": "mobile app",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "meta-muse-hits-1-in-apple-app-store"
+    ],
+    "courses": [
+      "course-meta-muse-hits-1-in-apple-app-store"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-consumer ai",
+    "name": "consumer ai",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "meta-muse-hits-1-in-apple-app-store"
+    ],
+    "courses": [
+      "course-meta-muse-hits-1-in-apple-app-store"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-languages",
+    "name": "languages",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "what-other-languages-call-ai-agents"
+    ],
+    "courses": [
+      "course-what-other-languages-call-ai-agents"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-terminology",
+    "name": "terminology",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "what-other-languages-call-ai-agents"
+    ],
+    "courses": [
+      "course-what-other-languages-call-ai-agents"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-localization",
+    "name": "localization",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "what-other-languages-call-ai-agents"
+    ],
+    "courses": [
+      "course-what-other-languages-call-ai-agents"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-bbs",
+    "name": "bbs",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "a-public-bulletin-board-for-ai-agents"
+    ],
+    "courses": [
+      "course-a-public-bulletin-board-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-agent network",
+    "name": "agent network",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "a-public-bulletin-board-for-ai-agents"
+    ],
+    "courses": [
+      "course-a-public-bulletin-board-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-permissions",
+    "name": "permissions",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "keydris-sudo-for-ai-agents"
+    ],
+    "courses": [
+      "course-keydris-sudo-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-sudo",
+    "name": "sudo",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "keydris-sudo-for-ai-agents"
+    ],
+    "courses": [
+      "course-keydris-sudo-for-ai-agents"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-ipo",
+    "name": "ipo",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "anthropic-is-planning-to-launch-its-ipo-in-november"
+    ],
+    "courses": [
+      "course-anthropic-is-planning-to-launch-its-ipo-in-november"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-launcher",
+    "name": "launcher",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "app-launch-grabthat-nlp-launcher-for-windows"
+    ],
+    "courses": [
+      "course-app-launch-grabthat-nlp-launcher-for-windows"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-ipad",
+    "name": "ipad",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ipad-computer-use"
+    ],
+    "courses": [
+      "course-ipad-computer-use"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-usb",
+    "name": "usb",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ipad-computer-use"
+    ],
+    "courses": [
+      "course-ipad-computer-use"
+    ],
+    "updatedAt": "2026-09-18T23:34:59.552Z"
   }
 ]
