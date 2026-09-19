@@ -171,7 +171,10 @@
       "crt",
       "uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
       "forcefield-a-fast-lightweight-local-first-ai-agent-harness",
-      "agentgit"
+      "agentgit",
+      "ggg",
+      "swarmauth",
+      "inventor-of-chatgpt-and-rlhf-launches-typesafeai"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -340,7 +343,10 @@
       "course-crt",
       "course-uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
       "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness",
-      "course-agentgit"
+      "course-agentgit",
+      "course-ggg",
+      "course-swarmauth",
+      "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -478,7 +484,9 @@
       "tabmail-open-source-ai-email-for-thunderbird-and-iphone",
       "sokit",
       "pixelboard",
-      "ipad-computer-use"
+      "ipad-computer-use",
+      "ggg",
+      "crypllm-ai-chat-agent-for-cryptool-2"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -525,7 +533,9 @@
       "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone",
       "course-sokit",
       "course-pixelboard",
-      "course-ipad-computer-use"
+      "course-ipad-computer-use",
+      "course-ggg",
+      "course-crypllm-ai-chat-agent-for-cryptool-2"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -884,7 +894,8 @@
       "a-public-bulletin-board-for-ai-agents",
       "keydris-sudo-for-ai-agents",
       "app-launch-grabthat-nlp-launcher-for-windows",
-      "ipad-computer-use"
+      "ipad-computer-use",
+      "agentmeasure"
     ],
     "courses": [
       "course-headless-tools",
@@ -1088,7 +1099,8 @@
       "course-a-public-bulletin-board-for-ai-agents",
       "course-keydris-sudo-for-ai-agents",
       "course-app-launch-grabthat-nlp-launcher-for-windows",
-      "course-ipad-computer-use"
+      "course-ipad-computer-use",
+      "course-agentmeasure"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1262,7 +1274,9 @@
       "agentgit",
       "what-other-languages-call-ai-agents",
       "a-public-bulletin-board-for-ai-agents",
-      "keydris-sudo-for-ai-agents"
+      "keydris-sudo-for-ai-agents",
+      "swarmauth",
+      "agentmeasure"
     ],
     "courses": [
       "course-headless-tools",
@@ -1414,7 +1428,9 @@
       "course-agentgit",
       "course-what-other-languages-call-ai-agents",
       "course-a-public-bulletin-board-for-ai-agents",
-      "course-keydris-sudo-for-ai-agents"
+      "course-keydris-sudo-for-ai-agents",
+      "course-swarmauth",
+      "course-agentmeasure"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1511,7 +1527,8 @@
       "sokit",
       "lakera",
       "recursively-scaling-auto-research-loops-for-efficient-agent-",
-      "anthropic-is-planning-to-launch-its-ipo-in-november"
+      "anthropic-is-planning-to-launch-its-ipo-in-november",
+      "inventor-of-chatgpt-and-rlhf-launches-typesafeai"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1558,7 +1575,8 @@
       "course-sokit",
       "course-lakera",
       "course-recursively-scaling-auto-research-loops-for-efficient-agent-",
-      "course-anthropic-is-planning-to-launch-its-ipo-in-november"
+      "course-anthropic-is-planning-to-launch-its-ipo-in-november",
+      "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1985,7 +2003,8 @@
       "cve-2026-21858-n8n-fullchain",
       "cve-2026-54121-certighost",
       "ai-crawler-honeypot",
-      "keydris-sudo-for-ai-agents"
+      "keydris-sudo-for-ai-agents",
+      "swarmauth"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -2022,7 +2041,8 @@
       "course-cve-2026-21858-n8n-fullchain",
       "course-cve-2026-54121-certighost",
       "course-ai-crawler-honeypot",
-      "course-keydris-sudo-for-ai-agents"
+      "course-keydris-sudo-for-ai-agents",
+      "course-swarmauth"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2188,7 +2208,8 @@
       "pawbot",
       "friday",
       "mcpjam",
-      "vscode-mcp-api"
+      "vscode-mcp-api",
+      "open-health-atlas"
     ],
     "courses": [
       "course-coolplugz",
@@ -2215,7 +2236,8 @@
       "course-pawbot",
       "course-friday",
       "course-mcpjam",
-      "course-vscode-mcp-api"
+      "course-vscode-mcp-api",
+      "course-open-health-atlas"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2366,7 +2388,8 @@
       "minimal-static-website-hosting-tool",
       "pawbot",
       "friday",
-      "yourchar"
+      "yourchar",
+      "ggg"
     ],
     "courses": [
       "course-hermes-agent",
@@ -2378,7 +2401,8 @@
       "course-minimal-static-website-hosting-tool",
       "course-pawbot",
       "course-friday",
-      "course-yourchar"
+      "course-yourchar",
+      "course-ggg"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2699,7 +2723,8 @@
       "productivity-effects-across-generations-of-ai-coding-tools",
       "scry-programmable-internet-search-w-congestion-pricing",
       "aclif",
-      "forcefield-a-fast-lightweight-local-first-ai-agent-harness"
+      "forcefield-a-fast-lightweight-local-first-ai-agent-harness",
+      "inventor-of-chatgpt-and-rlhf-launches-typesafeai"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -2742,7 +2767,8 @@
       "course-productivity-effects-across-generations-of-ai-coding-tools",
       "course-scry-programmable-internet-search-w-congestion-pricing",
       "course-aclif",
-      "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness"
+      "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness",
+      "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2813,7 +2839,8 @@
       "openai-discloses-six-new-ai-safety-incidents",
       "lakera",
       "adam-tooze-on-ai-regulation-video",
-      "what-other-languages-call-ai-agents"
+      "what-other-languages-call-ai-agents",
+      "crypllm-ai-chat-agent-for-cryptool-2"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2862,7 +2889,8 @@
       "course-openai-discloses-six-new-ai-safety-incidents",
       "course-lakera",
       "course-adam-tooze-on-ai-regulation-video",
-      "course-what-other-languages-call-ai-agents"
+      "course-what-other-languages-call-ai-agents",
+      "course-crypllm-ai-chat-agent-for-cryptool-2"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3236,7 +3264,9 @@
       "compute-arena",
       "ai-crawler-honeypot",
       "scry-programmable-internet-search-w-congestion-pricing",
-      "jawz"
+      "jawz",
+      "do-your-vitamins-work",
+      "open-health-atlas"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3276,7 +3306,9 @@
       "course-compute-arena",
       "course-ai-crawler-honeypot",
       "course-scry-programmable-internet-search-w-congestion-pricing",
-      "course-jawz"
+      "course-jawz",
+      "course-do-your-vitamins-work",
+      "course-open-health-atlas"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3346,10 +3378,12 @@
     "domain": "data",
     "level": "advanced",
     "toolsTeaching": [
-      "genbio-launches-a-virtual-biological-cell"
+      "genbio-launches-a-virtual-biological-cell",
+      "inventor-of-chatgpt-and-rlhf-launches-typesafeai"
     ],
     "courses": [
-      "course-genbio-launches-a-virtual-biological-cell"
+      "course-genbio-launches-a-virtual-biological-cell",
+      "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3773,7 +3807,8 @@
       "ai-agents-blew-the-whistle-on-their-cheating-colleagues",
       "pizza-bot",
       "ai-agents-now-have-a-place-to-snitch",
-      "ai-crawler-honeypot"
+      "ai-crawler-honeypot",
+      "agentmeasure"
     ],
     "courses": [
       "course-agenttrail",
@@ -3785,7 +3820,8 @@
       "course-ai-agents-blew-the-whistle-on-their-cheating-colleagues",
       "course-pizza-bot",
       "course-ai-agents-now-have-a-place-to-snitch",
-      "course-ai-crawler-honeypot"
+      "course-ai-crawler-honeypot",
+      "course-agentmeasure"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4011,7 +4047,8 @@
       "rejourney",
       "ai-agent-for-beautiful-data-visuals",
       "google-seo-mcp",
-      "nowdex"
+      "nowdex",
+      "open-health-atlas"
     ],
     "courses": [
       "course-launch-hn-risklytics-yc-s26",
@@ -4020,7 +4057,8 @@
       "course-rejourney",
       "course-ai-agent-for-beautiful-data-visuals",
       "course-google-seo-mcp",
-      "course-nowdex"
+      "course-nowdex",
+      "course-open-health-atlas"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4560,12 +4598,14 @@
     "toolsTeaching": [
       "why-ai-agents-need-persistent-browser-identities",
       "soulauth",
-      "lightpanda-session-bridge"
+      "lightpanda-session-bridge",
+      "swarmauth"
     ],
     "courses": [
       "course-why-ai-agents-need-persistent-browser-identities",
       "course-soulauth",
-      "course-lightpanda-session-bridge"
+      "course-lightpanda-session-bridge",
+      "course-swarmauth"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5562,7 +5602,8 @@
       "you-didnt-deploy-the-ai-agent-you-evaluated",
       "how-to-build-effective-evals-for-ai-agents",
       "quantifying-context-rot",
-      "fault-tolerance-in-low-bandwidth-model-parallelism"
+      "fault-tolerance-in-low-bandwidth-model-parallelism",
+      "agentmeasure"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -5572,7 +5613,8 @@
       "course-you-didnt-deploy-the-ai-agent-you-evaluated",
       "course-how-to-build-effective-evals-for-ai-agents",
       "course-quantifying-context-rot",
-      "course-fault-tolerance-in-low-bandwidth-model-parallelism"
+      "course-fault-tolerance-in-low-bandwidth-model-parallelism",
+      "course-agentmeasure"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -6185,11 +6227,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "grith-is-live",
-      "claude2api"
+      "claude2api",
+      "ggg"
     ],
     "courses": [
       "course-grith-is-live",
-      "course-claude2api"
+      "course-claude2api",
+      "course-ggg"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -6525,7 +6569,8 @@
       "echodot",
       "respawn",
       "turnpanel-is-a-local-first-ai-workspace",
-      "forcefield-a-fast-lightweight-local-first-ai-agent-harness"
+      "forcefield-a-fast-lightweight-local-first-ai-agent-harness",
+      "ggg"
     ],
     "courses": [
       "course-datazen",
@@ -6535,7 +6580,8 @@
       "course-echodot",
       "course-respawn",
       "course-turnpanel-is-a-local-first-ai-workspace",
-      "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness"
+      "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness",
+      "course-ggg"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -6882,11 +6928,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "simurg",
-      "simonagent"
+      "simonagent",
+      "swarmauth"
     ],
     "courses": [
       "course-simurg",
-      "course-simonagent"
+      "course-simonagent",
+      "course-swarmauth"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -8427,7 +8475,8 @@
       "free-online-bates-numbering-tool-for-pdfs",
       "echodot",
       "salt",
-      "turnpanel-is-a-local-first-ai-workspace"
+      "turnpanel-is-a-local-first-ai-workspace",
+      "ggg"
     ],
     "courses": [
       "course-pearpie",
@@ -8439,7 +8488,8 @@
       "course-free-online-bates-numbering-tool-for-pdfs",
       "course-echodot",
       "course-salt",
-      "course-turnpanel-is-a-local-first-ai-workspace"
+      "course-turnpanel-is-a-local-first-ai-workspace",
+      "course-ggg"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -8773,7 +8823,8 @@
       "dont-hit-send",
       "eliza-the-ai-that-fooled-the-world",
       "meta-launches-subscriptions-with-enhanced-ai-features",
-      "anthropic-is-planning-to-launch-its-ipo-in-november"
+      "anthropic-is-planning-to-launch-its-ipo-in-november",
+      "crypllm-ai-chat-agent-for-cryptool-2"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
@@ -8786,7 +8837,8 @@
       "course-dont-hit-send",
       "course-eliza-the-ai-that-fooled-the-world",
       "course-meta-launches-subscriptions-with-enhanced-ai-features",
-      "course-anthropic-is-planning-to-launch-its-ipo-in-november"
+      "course-anthropic-is-planning-to-launch-its-ipo-in-november",
+      "course-crypllm-ai-chat-agent-for-cryptool-2"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -9463,10 +9515,14 @@
     "domain": "data",
     "level": "beginner",
     "toolsTeaching": [
-      "vantage"
+      "vantage",
+      "do-your-vitamins-work",
+      "open-health-atlas"
     ],
     "courses": [
-      "course-vantage"
+      "course-vantage",
+      "course-do-your-vitamins-work",
+      "course-open-health-atlas"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -9489,10 +9545,14 @@
     "domain": "data",
     "level": "beginner",
     "toolsTeaching": [
-      "vantage"
+      "vantage",
+      "do-your-vitamins-work",
+      "open-health-atlas"
     ],
     "courses": [
-      "course-vantage"
+      "course-vantage",
+      "course-do-your-vitamins-work",
+      "course-open-health-atlas"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -18385,5 +18445,148 @@
       "course-ipad-computer-use"
     ],
     "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "skill-supplements",
+    "name": "supplements",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "do-your-vitamins-work"
+    ],
+    "courses": [
+      "course-do-your-vitamins-work"
+    ],
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "skill-vitamins",
+    "name": "vitamins",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "do-your-vitamins-work"
+    ],
+    "courses": [
+      "course-do-your-vitamins-work"
+    ],
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "skill-oauth",
+    "name": "oauth",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "swarmauth"
+    ],
+    "courses": [
+      "course-swarmauth"
+    ],
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "skill-billing",
+    "name": "billing",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "agentmeasure"
+    ],
+    "courses": [
+      "course-agentmeasure"
+    ],
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "skill-healthchecks",
+    "name": "healthchecks",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "agentmeasure"
+    ],
+    "courses": [
+      "course-agentmeasure"
+    ],
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "skill-cryptography",
+    "name": "cryptography",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "crypllm-ai-chat-agent-for-cryptool-2"
+    ],
+    "courses": [
+      "course-crypllm-ai-chat-agent-for-cryptool-2"
+    ],
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "skill-cryptanalysis",
+    "name": "cryptanalysis",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "crypllm-ai-chat-agent-for-cryptool-2"
+    ],
+    "courses": [
+      "course-crypllm-ai-chat-agent-for-cryptool-2"
+    ],
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "skill-e-learning",
+    "name": "e learning",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "crypllm-ai-chat-agent-for-cryptool-2"
+    ],
+    "courses": [
+      "course-crypllm-ai-chat-agent-for-cryptool-2"
+    ],
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "skill-type-safe",
+    "name": "type safe",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "inventor-of-chatgpt-and-rlhf-launches-typesafeai"
+    ],
+    "courses": [
+      "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai"
+    ],
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "skill-rlhf",
+    "name": "rlhf",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "inventor-of-chatgpt-and-rlhf-launches-typesafeai"
+    ],
+    "courses": [
+      "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai"
+    ],
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "skill-self-tracking",
+    "name": "self tracking",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "open-health-atlas"
+    ],
+    "courses": [
+      "course-open-health-atlas"
+    ],
+    "updatedAt": "2026-09-19T13:12:02.389Z"
   }
 ]

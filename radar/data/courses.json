@@ -25757,5 +25757,350 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-18T23:34:59.552Z"
+  },
+  {
+    "id": "course-ggg",
+    "toolSlug": "ggg",
+    "title": "Master GGG",
+    "objectives": [
+      "Understand what GGG is for",
+      "Use GGG on a real task",
+      "Know where GGG fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure GGG for your real workflow, not the demo.",
+          "Say what GGG does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through GGG.",
+          "Push GGG to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold GGG into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-proxy",
+      "skill-local-first",
+      "skill-privacy",
+      "skill-self-hosted",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "course-do-your-vitamins-work",
+    "toolSlug": "do-your-vitamins-work",
+    "title": "Master Do your vitamins work?",
+    "objectives": [
+      "Look up any supplement and find its evidence rating",
+      "Interpret evidence grades to decide if a supplement is worth taking",
+      "Check your current supplement stack for interactions and redundancies"
+    ],
+    "modules": [
+      {
+        "title": "Look Up Your First Supplement",
+        "estMinutes": 10,
+        "steps": [
+          "Open the tool and type a supplement you currently take (e.g., 'vitamin D' or 'fish oil') into the search bar",
+          "Select the correct entry from the results, matching the form and dosage on your bottle label",
+          "Bookmark the supplement's detail page so you can return to it later"
+        ]
+      },
+      {
+        "title": "Read the Evidence Grade",
+        "estMinutes": 15,
+        "steps": [
+          "Find the evidence grade or score on the supplement's page and note which health claims are rated (e.g., 'immune support: D', 'bone health: A')",
+          "Click into one claim to view the underlying studies, checking the study count, quality, and effect size summary",
+          "Compare the dosage used in positive studies against the dosage listed on your own bottle"
+        ]
+      },
+      {
+        "title": "Audit Your Whole Stack",
+        "estMinutes": 15,
+        "steps": [
+          "Add every supplement you take to your personal stack list, including dose and time of day",
+          "Run the interaction/overlap check to flag nutrient duplications (like zinc in both a multivitamin and a cold formula) and known interactions",
+          "Mark each item as 'keep', 'reconsider', or 'drop' based on its evidence grade, and save or export your audit notes"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-supplements",
+      "skill-vitamins",
+      "skill-health",
+      "skill-wellness"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "course-swarmauth",
+    "toolSlug": "swarmauth",
+    "title": "Master SwarmAuth",
+    "objectives": [
+      "Understand what SwarmAuth is for",
+      "Use SwarmAuth on a real task",
+      "Know where SwarmAuth fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure SwarmAuth for your real workflow, not the demo.",
+          "Say what SwarmAuth does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through SwarmAuth.",
+          "Push SwarmAuth to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold SwarmAuth into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-oauth",
+      "skill-authentication",
+      "skill-ai agents",
+      "skill-security",
+      "skill-python"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "course-agentmeasure",
+    "toolSlug": "agentmeasure",
+    "title": "Master AgentMeasure",
+    "objectives": [
+      "Understand what AgentMeasure is for",
+      "Use AgentMeasure on a real task",
+      "Know where AgentMeasure fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AgentMeasure for your real workflow, not the demo.",
+          "Say what AgentMeasure does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AgentMeasure.",
+          "Push AgentMeasure to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AgentMeasure into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-billing",
+      "skill-monitoring",
+      "skill-healthchecks",
+      "skill-llmops"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "course-crypllm-ai-chat-agent-for-cryptool-2",
+    "toolSlug": "crypllm-ai-chat-agent-for-cryptool-2",
+    "title": "Master CrypLLM: AI chat agent for CrypTool 2",
+    "objectives": [
+      "Understand what CrypLLM: AI chat agent for CrypTool 2 is for",
+      "Use CrypLLM: AI chat agent for CrypTool 2 on a real task",
+      "Know where CrypLLM: AI chat agent for CrypTool 2 fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure CrypLLM: AI chat agent for CrypTool 2 for your real workflow, not the demo.",
+          "Say what CrypLLM: AI chat agent for CrypTool 2 does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through CrypLLM: AI chat agent for CrypTool 2.",
+          "Push CrypLLM: AI chat agent for CrypTool 2 to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold CrypLLM: AI chat agent for CrypTool 2 into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-cryptography",
+      "skill-cryptanalysis",
+      "skill-chatbot",
+      "skill-e-learning",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai",
+    "toolSlug": "inventor-of-chatgpt-and-rlhf-launches-typesafeai",
+    "title": "Master Inventor of ChatGPT and RLHF Launches Typesafe.ai",
+    "objectives": [
+      "Understand what Inventor of ChatGPT and RLHF Launches Typesafe.ai is for",
+      "Use Inventor of ChatGPT and RLHF Launches Typesafe.ai on a real task",
+      "Know where Inventor of ChatGPT and RLHF Launches Typesafe.ai fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Inventor of ChatGPT and RLHF Launches Typesafe.ai for your real workflow, not the demo.",
+          "Say what Inventor of ChatGPT and RLHF Launches Typesafe.ai does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Inventor of ChatGPT and RLHF Launches Typesafe.ai.",
+          "Push Inventor of ChatGPT and RLHF Launches Typesafe.ai to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Inventor of ChatGPT and RLHF Launches Typesafe.ai into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-type-safe",
+      "skill-llm",
+      "skill-ai model",
+      "skill-developer tools",
+      "skill-rlhf"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "course-open-health-atlas",
+    "toolSlug": "open-health-atlas",
+    "title": "Master Open-Health-Atlas",
+    "objectives": [
+      "Understand what Open-Health-Atlas is for",
+      "Use Open-Health-Atlas on a real task",
+      "Know where Open-Health-Atlas fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Open-Health-Atlas for your real workflow, not the demo.",
+          "Say what Open-Health-Atlas does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Open-Health-Atlas.",
+          "Push Open-Health-Atlas to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Open-Health-Atlas into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-health",
+      "skill-wellness",
+      "skill-self-tracking",
+      "skill-mcp",
+      "skill-analytics"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-19T13:12:02.389Z"
   }
 ]
