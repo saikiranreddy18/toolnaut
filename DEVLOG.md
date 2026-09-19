@@ -9,6 +9,49 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-19
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h
+window, most recently 2026-09-19 13:12 UTC publishing 7 tools. Feed holds
+505 tools. Healthy and growing. (No devlog entry landed for 2026-09-18 —
+the research backlog also shows no new finding logged that day — so this
+run's own scheduled slots may have been skipped; nothing in today's history
+points to a broken pipeline, radar and CI are both green.)
+
+**Researched today:** no new research-hour entries were available to review
+before this run — the backlog's newest open finding was already
+2026-09-17 09:xx UTC's "Toolnaut vs [competitor]" comparison-pages gap, left
+undeepened since. Per the cumulative-research rule, this run built that gap
+rather than skip to a shallow new one.
+
+**Shipped (this run):** "Toolnaut vs [competitor]" comparison pages —
+[`83805fc`](https://github.com/saikiranreddy18/toolnaut/commit/83805fc).
+There's An AI For That (~47,000 tools, task-first) and Futurepedia (~5,000
+tools, category-first) both outrank Toolnaut on raw catalog size, and
+neither directory-vs-directory comparison existed anywhere on the site —
+the closest prior page, `/compare/:slugs`, only compares catalog tools
+against each other. Built exactly as scoped: `src/content/comparisons.js`
+holds two hand-verified competitor entries (no invented numbers, same
+discipline `StatsSection.jsx` already enforces), `src/pages/CompareCompetitor.jsx`
+renders a Toolnaut-vs-them table at the new `/vs/:slug` route, and both
+paths were added to `scripts/prerender.mjs`'s `ROUTES` and
+`public/sitemap.xml`. **Visible on the live site today** — verified in the
+actual `npm run build` prerender output that both `/vs/theres-an-ai-for-that`
+(924 chars of text) and `/vs/futurepedia` (763 chars) render real content,
+not an empty shell, and `/vs/futurepedia` was added to `scripts/smoke.mjs`'s
+route list so a future regression fails CI rather than going unnoticed.
+6 files changed, 139 insertions. All three checks green (297 tests,
+build, smoke) before push.
+
+**Queued next:** the backlog's other well-developed OPEN gaps — "No way to
+flag a wrong listing" (S, shares a util with the already-shipped
+Suggest-a-tool flow) and "No browsable gallery of shared stacks" (M, needs
+a new Supabase table) — are both build-ready for a future run. The oldest
+untouched OPEN gap (first-session onboarding checklist, cross-session
+tracking) is still real per the 2026-09-17 15:10 UTC re-check.
+
+---
+
 ## 2026-09-17
 
 **Radar health:** OK per `npm run radar:health` — 2 runs in the last 24h,

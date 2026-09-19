@@ -6759,7 +6759,14 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-09-17 03:20 UTC
 
 ### No "Toolnaut vs [competitor]" comparison pages — the single highest-intent SEO page type in this category, entirely missing
-- **Status:** OPEN
+- **Status:** SHIPPED 83805fc — built exactly as scoped below:
+  `src/content/comparisons.js` (2 hand-verified competitor entries — There's An
+  AI For That, Futurepedia), `src/pages/CompareCompetitor.jsx` + `/vs/:slug`
+  route in `src/App.jsx`, both paths added to `scripts/prerender.mjs`'s
+  `ROUTES` and `public/sitemap.xml`. Verified in the actual `npm run build`
+  output: both `/vs/theres-an-ai-for-that` and `/vs/futurepedia` prerendered
+  with real text content (924 and 763 chars), and `/vs/futurepedia` added to
+  `scripts/smoke.mjs`'s route list so a future regression fails CI.
 - **Seen in:** this is the standard SaaS/directory SEO pattern, distinct from
   a per-tool alternatives page (already logged below as its own gap) — it
   compares the *directory itself* against its direct competitors, not one
