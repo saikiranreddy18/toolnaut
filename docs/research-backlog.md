@@ -2113,6 +2113,34 @@ a client-side SPA with a static tool catalogue.
   builds this gap and the status-warning gap in the same run should write
   both badges into that one wrapper together rather than two separate patches
   landing on the same six lines back-to-back.
+- **Verification 2026-09-19 21:20 UTC:** re-checked the whole plan against
+  current code, since three weeks and several ships (including the
+  status-warning gap this entry's badge wrapper is shared with, SHIPPED
+  `c60fd8d` on 2026-09-17) had passed since the last check. Every part of the
+  plan still holds, only the exact line numbers moved:
+  - `radar/sources/github.js:25` and `radar/sources/hackernews.js:27` still
+    fetch `stars`/`points` into `candidate.raw` untouched.
+  - `radar/enrich.js` and `radar/schema.js` still have no `popularity` field
+    anywhere — grepped both files fresh, zero hits.
+  - Both `FIELDS` plumbing arrays (`radar/scripts/sync-to-app.js:12-16`,
+    `src/utils/liveCatalog.js:7-10`) are unchanged in shape and still lack
+    `popularity`/`popularityLabel` — though `liveCatalog.js`'s array has since
+    grown three new radar-evaluation fields (`scorecard`, `integration`,
+    `verdict`) not present when this gap was written, confirming the "append
+    a field name to two arrays" plumbing pattern is still exactly how new
+    radar fields reach the app today.
+  - `ToolCard.jsx`'s badge wrapper (the corrected 2026-09-01 target) is at
+    `ToolCard.jsx:45-78` now, not 44-73: the NEW pill at 46-53, the fit-band
+    pill at 58-65, and the status pill — the one the SHIPPED status-warning
+    gap actually landed — at 69-76, all three still siblings inside the same
+    `<span className="flex shrink-0 items-center gap-1.5">` at line 45. A
+    fourth `tool.popularityLabel` pill still drops into that exact wrapper
+    with no structural changes needed.
+  No corrections beyond line numbers — this remains a fully accurate, S-sized,
+  ready-to-build gap: the data is already paid for and sitting in memory
+  during `enrich()`, nothing has shipped that changes the plan, and the
+  feature run can build straight from the spec above without re-reading the
+  radar pipeline first.
 
 ### "Community access (Discord & forum)" — half the claim doesn't exist
 - **Status:** REJECTED — the real half (forum) already ships; the missing half
