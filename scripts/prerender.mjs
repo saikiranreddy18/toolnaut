@@ -57,6 +57,8 @@ const ROUTES = [
   '/tools/data',
   '/tools/automation',
   '/tools/learning',
+  '/vs/theres-an-ai-for-that',
+  '/vs/futurepedia',
 ]
 
 // The build image has no browser binaries. Install before importing anything

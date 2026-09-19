@@ -24,4 +24,6 @@
   <url><loc>https://toolnaut.xyz/compare/notion-ai,jasper</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://toolnaut.xyz/compare/cursor,github-copilot</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://toolnaut.xyz/compare/perplexity,chatgpt</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://toolnaut.xyz/vs/theres-an-ai-for-that</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://toolnaut.xyz/vs/futurepedia</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
