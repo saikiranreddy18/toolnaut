@@ -2749,6 +2749,55 @@ a client-side SPA with a static tool catalogue.
   reusing an existing copy-to-clipboard pattern. No backend, no new
   dependency, no new route (reuses the already-public `/s/:slug`).
 - **Found:** 2026-08-28 03:15 UTC
+- **Deepened 2026-09-20 21:20 UTC — oldest untouched OPEN entry (23 days,
+  never previously deepened). Core gap re-confirmed
+  (`grep -rniE "badge|embed" src/pages src/components` still turns up nothing
+  but unrelated UI — level-up badges, the pricing ribbon, `GalaxyExplorer`'s
+  canvas zoom readout), but the link-target recommendation had gone stale and
+  the insertion point needed correcting for real:**
+  - **Better link target now exists — use it instead of `/s/:slug`.** This
+    entry's original plan (`/s/${encodeStackSlugs([slug])}` via
+    `SharedStack.jsx`) was the best available option in August, but
+    `ToolPublic.jsx` at `/ai-tools/:slug` (`App.jsx:128`) shipped since then —
+    a purpose-built, crawlable, per-tool public page with real JSON-LD
+    (`toolJsonLd()` in `toolSeo.js`) and static HTML pre-rendered at build
+    time (`scripts/gen-tool-pages.mjs`), literally built for "the same facts
+    for everyone, so it can be crawled, shared and ranked" (its own file
+    comment, `ToolPublic.jsx:8-9`). `SharedStack.jsx` is the multi-tool
+    stack-share mechanism; pointing a vendor's outbound badge at it means
+    "degrading" that feature to a single slug instead of using the page
+    actually designed for this exact job, and it carries none of
+    `ToolPublic`'s structured data — worse for the vendor's own SEO
+    justification for embedding the badge in the first place. Corrected spec:
+    `buildEmbedSnippet(tool)` should link to `` `${SITE}${toolPath(tool.slug)}` ``,
+    importing `toolPath` and `SITE` from `../utils/toolSeo` (already exported,
+    `toolSeo.js:24,29-31`) — no need to touch `shareStack.js`/
+    `encodeStackSlugs` at all, which actually shrinks this util's dependency
+    surface versus the original plan.
+  - **Placement has drifted and needs a real correction, not just new line
+    numbers.** `ToolDetail.jsx` moved to `src/pages/app/` and grew from the
+    ~130-line file this entry was written against to 232 lines today. "Visit
+    website" is now at `ToolDetail.jsx:151-163` (not 120-132), immediately
+    followed by the add-to-stack/favorite button row (165-183) — two new
+    primary CTAs that didn't exist in this shape when the entry was written.
+    The original "directly below Visit website" placement would now wedge the
+    badge disclosure between the outbound link and those two primary actions,
+    crowding the one part of the page most users actually act on. Corrected
+    placement: after the add-to-stack/favorite button row closes
+    (`ToolDetail.jsx:183`), before the "Why it fits" sticker (`:185`) — keeps
+    the two primary CTAs uncluttered while still sitting above the fold-ish
+    reasoning/trust content, consistent with this being a real but secondary
+    (vendor-facing, not visitor-facing) affordance.
+  - **Checked and correctly ruled out:** `ToolResources.jsx`, a new component
+    since this entry was written (mounted at `ToolDetail.jsx:211`), looked
+    like a plausible home given it already holds two disclosure-style
+    sections ("Works with" / "Learn it") but is scoped specifically to
+    verified integrations and official training data from `data/
+    toolResources.js` — an outbound vendor-facing embed snippet doesn't belong
+    there and would be the only unrelated-purpose section in that component.
+  - No other part of the spec (the util's HTML-string shape, the "no image/
+    SVG variant" scoping, the no-claiming/no-gating exclusions) needed
+    correcting — those still hold exactly as written.
 
 ### Per-tool "Alternatives" SEO pages — the single highest-intent directory query has zero pages targeting it
 - **Status:** OPEN
