@@ -655,6 +655,71 @@ a client-side SPA with a static tool catalogue.
   rating badge + reviews section + small star-picker form added to
   `ToolDetail.jsx`. No backend, no new dependency, no new route.
 - **Found:** 2026-08-24 06:06 UTC
+- **Deepened 2026-09-20 09:20 UTC — re-verified against current `src/`, four
+  weeks untouched while the rest of the backlog moved on; core claim holds,
+  but the placement plan and the store's persistence pattern have both gone
+  stale:**
+  **Core claim still true.** `ade1c530`-era and later work added
+  `TrustPanel.jsx`, now rendered on `ToolDetail.jsx` right after "Why it
+  fits" (`ToolDetail.jsx:208`). It could look like a duplicate of this gap at
+  a glance, so it's worth naming explicitly why it isn't: `TrustPanel` is
+  100% algorithmic/editorial (best-for, why-it-matched-you, a catalogue-
+  derived limitation, pricing, alternatives scored the same way Discover
+  scores them, "last checked", and an explicit "no commercial ties"
+  disclosure) — Toolnaut's own honest case for the tool, not another human's.
+  Its own file comment even frames this as the point: "a tool page that only
+  lists upside is indistinguishable from an ad." None of its seven rows are,
+  or could become, a real person's star rating or written opinion. The gap
+  this entry describes — zero peer social proof anywhere in the app — is
+  unchanged.
+  **Placement plan is stale and needs correcting before build.** `ToolDetail.jsx`
+  has been restructured since 2026-08-24: the MATCH/status badge row this
+  entry said to extend is now at `ToolDetail.jsx:110-131` (was `:81-102`),
+  and "Why it fits" is now a `sticker` block at `ToolDetail.jsx:185-204`
+  (was `:141-160`) — followed immediately by two components that didn't
+  exist when this entry was written, `<TrustPanel>` (`:208`) and
+  `<ToolResources>` (`:211`), with "Related tools" starting at `:213`. The
+  original "REVIEWS section after WHY IT FITS" instruction would now land
+  *between* `TrustPanel` and `ToolResources` — both of which the file's own
+  comments frame as a deliberate, adjacent pair ("Reasoning sits with the
+  decision, before the page moves on to other products" / "Verified
+  integrations and official training, each linked to its source"). Splitting
+  that pair to insert Reviews in the middle would read as an afterthought
+  wedged into a sequence that was written to flow. **Corrected placement:**
+  mount the new REVIEWS section after `<ToolResources>` (`:211`), immediately
+  before "Related tools" (`:213`) — Toolnaut's own case (why it fits, the
+  honest trust panel, verified resources) runs first, then real users' case,
+  then where to look next. The rating badge next to MATCH/status
+  (`ToolDetail.jsx:110-131`) is unaffected by this correction.
+  **Persistence pattern has changed underneath this entry — this is the
+  important part.** `scopedStorage.js` did not exist (or wasn't on this
+  entry's radar) on 2026-08-24. It now backs every store, including
+  `communityStore.js`, which this entry explicitly said to mirror:
+  `communityStore.js` no longer calls `localStorage` directly — its
+  `read`/`write` helpers (`communityStore.js:10-20`) wrap `scopedRead`/
+  `scopedWrite` from `scopedStorage.js`, which namespaces every key by
+  signed-in account (`key::<uid>`, guest keys unscoped). `scopedStorage.js`'s
+  own header comment explains why this exists: without it, "sign out, sign
+  in with a different Google account, and that person inherits the previous
+  one's stack" on a shared browser — the exact class of bug this entry's
+  planned store would reintroduce if built exactly as originally scoped.
+  The plan must change in two places: (1) `toolReviewsStore.js`'s `read`/
+  `write` must wrap `scopedRead`/`scopedWrite` from `scopedStorage.js`, not
+  call `localStorage` directly — copy `communityStore.js`'s current
+  `read`/`write` (lines 10-20), not the 2026-08-24 version this entry
+  originally read; (2) `exus_tool_reviews_v1` must be added to both
+  `PORTABLE_KEYS` (`scopedStorage.js:79-93`) and `AUTHORED_KEYS`
+  (`scopedStorage.js:101-112`), the same two arrays `exus_threads_v1` /
+  `exus_replies_v1` / `exus_upvotes_v1` already appear in — otherwise a
+  signed-in user's reviews neither migrate on guest→account import nor stay
+  correctly scoped to their account, silently leaking across accounts on a
+  shared browser exactly as `scopedStorage.js` was built to prevent.
+  **Confirmed still current:** all five example seed slugs (`chatgpt`,
+  `claude`, `notion-ai`, `perplexity`, `cursor`) still resolve in
+  `toolsCatalog.js`. No change to the rest of the spec (seed data shape,
+  `getReviews`/`getAverageRating`/`addReview` API, one-review-per-slug-per-
+  browser cap, star-picker form reusing `Composer`'s visual language, or the
+  "what this would NOT include" scope cuts).
 
 ### Community-submitted tools ("Suggest a tool")
 - **Status:** OPEN
