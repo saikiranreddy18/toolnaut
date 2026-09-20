@@ -24,30 +24,6 @@
     "discoveredAt": "2026-08-25T09:25:10.610Z"
   },
   {
-    "slug": "i-built-an-ai-music-generator-with-some-harnesses",
-    "name": "I built an AI music generator with some harnesses",
-    "category": "design",
-    "sourceCategory": "Audio, Music & Voice",
-    "price": "freemium",
-    "pricing": "Freemium",
-    "level": "beginner",
-    "blurb": "AI music generator that creates original songs from simple prompts.",
-    "audience": "Musicians and content creators",
-    "dev": "",
-    "year": 2026,
-    "website": "https://onlymusic.ai",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "ai music",
-      "music generation",
-      "text to music",
-      "song generator",
-      "audio"
-    ],
-    "discoveredAt": "2026-08-25T09:25:10.610Z"
-  },
-  {
     "slug": "headless-tools",
     "name": "Headless Tools",
     "category": "automation",
@@ -839,30 +815,6 @@
     "discoveredAt": "2026-08-27T06:10:30.704Z"
   },
   {
-    "slug": "why-ai-agents-need-persistent-browser-identities",
-    "name": "Why AI Agents Need Persistent Browser Identities",
-    "category": "automation",
-    "sourceCategory": "AI Agents & Automation",
-    "price": "free",
-    "pricing": "Free",
-    "level": "intermediate",
-    "blurb": "Explains why AI agents need persistent browser identities for reliable, session-aware web automation.",
-    "audience": "AI agent developers",
-    "dev": "Browser3",
-    "year": 2026,
-    "website": "https://github.com/Radek-B3/browser3/blob/main/WHY_AI_AGENTS_NEED_PERSISTENT_BROWSER_IDENTITIES.md",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "ai agents",
-      "browser automation",
-      "persistent identity",
-      "sessions",
-      "authentication"
-    ],
-    "discoveredAt": "2026-08-27T06:10:30.704Z"
-  },
-  {
     "slug": "serve-markdown-to-ai-agents-with-accept-headers",
     "name": "Serve Markdown to AI Agents with Accept Headers",
     "category": "code",
@@ -1461,30 +1413,6 @@
     "discoveredAt": "2026-08-28T20:56:00.761Z"
   },
   {
-    "slug": "how-i-design-with-ai",
-    "name": "How I Design with AI",
-    "category": "design",
-    "sourceCategory": "Presentations, Design & Websites",
-    "price": "free",
-    "pricing": "Free",
-    "level": "intermediate",
-    "blurb": "A designer's firsthand guide to integrating AI tools into a practical design workflow.",
-    "audience": "designers exploring AI workflows",
-    "dev": "Ref.tools",
-    "year": 2026,
-    "website": "https://ref.tools/blog/how-i-design-with-ai",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "design",
-      "ai workflow",
-      "blog",
-      "guide",
-      "creativity"
-    ],
-    "discoveredAt": "2026-08-28T20:56:00.761Z"
-  },
-  {
     "slug": "open-tool-for-testing-your-ai-agents-no-llm",
     "name": "Open tool for testing your AI Agents (No LLM)",
     "category": "automation",
@@ -1552,30 +1480,6 @@
       "testing",
       "workflows",
       "open source"
-    ],
-    "discoveredAt": "2026-08-28T20:56:00.761Z"
-  },
-  {
-    "slug": "why-agentic-ai-needs-a-strong-identity-foundation",
-    "name": "Why Agentic AI Needs a Strong Identity Foundation",
-    "category": "learning",
-    "sourceCategory": "Security",
-    "price": "free",
-    "pricing": "Free",
-    "level": "intermediate",
-    "blurb": "NIST blog on why agentic AI systems need strong identity and access foundations.",
-    "audience": "security teams & AI builders",
-    "dev": "NIST",
-    "year": 2026,
-    "website": "https://www.nist.gov/blogs/cybersecurity-insights/back-future-why-agentic-ai-needs-strong-identity-foundation",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "agentic ai",
-      "identity",
-      "cybersecurity",
-      "nist",
-      "zero trust"
     ],
     "discoveredAt": "2026-08-28T20:56:00.761Z"
   },
@@ -2418,30 +2322,6 @@
     "discoveredAt": "2026-08-30T23:53:08.057Z"
   },
   {
-    "slug": "what-agent-skills-are-made-of-programming-languages",
-    "name": "What agent skills are made of: programming languages",
-    "category": "code",
-    "sourceCategory": "AI Agents & Automation",
-    "price": "free",
-    "pricing": "Free",
-    "level": "intermediate",
-    "blurb": "Research analyzing which programming languages power AI agent skills.",
-    "audience": "AI agent developers and technical researchers",
-    "dev": "Plicara",
-    "year": 2026,
-    "website": "https://plicara.ai/research/agent-skill-programming-languages/",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "agent skills",
-      "programming languages",
-      "ai agents",
-      "research",
-      "analysis"
-    ],
-    "discoveredAt": "2026-08-30T23:53:08.057Z"
-  },
-  {
     "slug": "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
     "name": "Inworld TTS Open Evaluation Toolkit: Reproducible TTS Evals",
     "category": "code",
@@ -2655,30 +2535,6 @@
       "offline"
     ],
     "discoveredAt": "2026-09-01T00:47:42.422Z"
-  },
-  {
-    "slug": "i-built-a-real-time-translator-for-google-meet",
-    "name": "I built a real-time translator for Google Meet",
-    "category": "automation",
-    "sourceCategory": "Translation & Dubbing",
-    "price": "freemium",
-    "pricing": "Freemium",
-    "level": "beginner",
-    "blurb": "Real-time translation overlay for Google Meet calls across languages.",
-    "audience": "remote teams and international professionals",
-    "dev": "",
-    "year": 2026,
-    "website": "https://meelang.com/",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "translation",
-      "google-meet",
-      "real-time",
-      "meetings",
-      "language"
-    ],
-    "discoveredAt": "2026-09-01T14:10:39.887Z"
   },
   {
     "slug": "verb-authority",
@@ -3664,30 +3520,6 @@
     "discoveredAt": "2026-09-02T23:33:29.474Z"
   },
   {
-    "slug": "i-built-stardew-valley-but-you-pay-for-everything",
-    "name": "I built Stardew Valley but you pay for everything",
-    "category": "design",
-    "sourceCategory": "3D, Gaming & Simulation",
-    "price": "freemium",
-    "pricing": "Free with in-game purchases",
-    "level": "beginner",
-    "blurb": "Stardew Valley parody where every in-game action costs real money, satirizing microtransactions.",
-    "audience": "Casual gamers and Stardew Valley fans",
-    "dev": "",
-    "year": 2026,
-    "website": "https://pixelhof.com",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "game",
-      "parody",
-      "farming",
-      "microtransactions",
-      "stardew-valley"
-    ],
-    "discoveredAt": "2026-09-02T23:33:29.474Z"
-  },
-  {
     "slug": "databricks-used-ai-to-save-1mi-year-in-ai-spend",
     "name": "Databricks used AI to save $1mi/year in AI spend",
     "category": "automation",
@@ -3900,30 +3732,6 @@
       "security",
       "devtools",
       "ai agent"
-    ],
-    "discoveredAt": "2026-09-03T13:37:04.770Z"
-  },
-  {
-    "slug": "i-built-my-first-mcp-to-manage-google-ads",
-    "name": "I built my first MCP to manage Google Ads",
-    "category": "automation",
-    "sourceCategory": "AI Agents & Automation",
-    "price": "freemium",
-    "pricing": "Freemium",
-    "level": "intermediate",
-    "blurb": "MCP server that lets AI assistants manage and optimize Google Ads campaigns.",
-    "audience": "marketers and advertisers using AI assistants",
-    "dev": "",
-    "year": 2026,
-    "website": "https://adchestra.com/",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "mcp",
-      "google ads",
-      "marketing",
-      "automation",
-      "ai agents"
     ],
     "discoveredAt": "2026-09-03T13:37:04.770Z"
   },
@@ -4523,30 +4331,6 @@
       "agents",
       "persistent agents",
       "llm"
-    ],
-    "discoveredAt": "2026-09-04T13:33:57.801Z"
-  },
-  {
-    "slug": "what-if-ai-did-the-prompting",
-    "name": "What if AI did the prompting",
-    "category": "learning",
-    "sourceCategory": "LLMs & Chatbots",
-    "price": "free",
-    "pricing": "Free",
-    "level": "beginner",
-    "blurb": "Flips the chatbot script: AI asks the questions while humans do the thinking.",
-    "audience": "Curious thinkers, students, and reflective learners",
-    "dev": "",
-    "year": 2026,
-    "website": "https://www.antiagent.site",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "socratic",
-      "critical-thinking",
-      "chatbot",
-      "reflection",
-      "prompting"
     ],
     "discoveredAt": "2026-09-04T13:33:57.801Z"
   },
@@ -5425,30 +5209,6 @@
       "storytelling",
       "no-code",
       "point and click"
-    ],
-    "discoveredAt": "2026-09-06T23:10:17.799Z"
-  },
-  {
-    "slug": "whatthemoviecom-a-movie-still-guessing-game",
-    "name": "Whatthemovie.com, a movie-still guessing game",
-    "category": "learning",
-    "sourceCategory": "3D, Gaming & Simulation",
-    "price": "free",
-    "pricing": "Free",
-    "level": "beginner",
-    "blurb": "A fun trivia game where you guess movies from still frames.",
-    "audience": "movie fans and trivia lovers",
-    "dev": "",
-    "year": 2026,
-    "website": "https://whatthemovie.com/",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "movie trivia",
-      "guessing game",
-      "film",
-      "quiz",
-      "entertainment"
     ],
     "discoveredAt": "2026-09-06T23:10:17.799Z"
   },
@@ -6552,29 +6312,6 @@
     "discoveredAt": "2026-09-08T23:40:07.345Z"
   },
   {
-    "slug": "how-we-built-safety-into-muse-by-meta",
-    "name": "How We Built Safety into Muse by Meta",
-    "category": "automation",
-    "sourceCategory": "Security",
-    "price": "free",
-    "pricing": "Free",
-    "level": "advanced",
-    "blurb": "Meta research blog detailing its security and safety approach for the Muse AI agent.",
-    "audience": "AI security researchers and ML engineers",
-    "dev": "Meta",
-    "year": 2026,
-    "website": "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "ai safety",
-      "security",
-      "ai agents",
-      "research"
-    ],
-    "discoveredAt": "2026-09-08T23:40:07.345Z"
-  },
-  {
     "slug": "muse-metas-personal-ai-agent-features-and-capabilities",
     "name": "Muse: Meta's personal AI agent, features and capabilities",
     "category": "automation",
@@ -6618,29 +6355,6 @@
       "personal assistant",
       "meta",
       "automation"
-    ],
-    "discoveredAt": "2026-09-08T23:40:07.345Z"
-  },
-  {
-    "slug": "muse-your-personal-ai-agent",
-    "name": "Muse, your personal AI agent.",
-    "category": "automation",
-    "sourceCategory": "AI Agents & Automation",
-    "price": "freemium",
-    "pricing": "Freemium",
-    "level": "beginner",
-    "blurb": "Personal AI agent that assists with everyday tasks, answers, and productivity.",
-    "audience": "general users wanting a personal AI assistant",
-    "dev": "Muse",
-    "year": 2026,
-    "website": "https://auth.muse.ai/aymh/?origin=https%3A%2F%2Fmuse.ai",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "ai agent",
-      "personal assistant",
-      "automation",
-      "productivity"
     ],
     "discoveredAt": "2026-09-08T23:40:07.345Z"
   },
@@ -6904,29 +6618,6 @@
       "personal computer",
       "automation",
       "self-hosting"
-    ],
-    "discoveredAt": "2026-09-09T13:45:32.864Z"
-  },
-  {
-    "slug": "making-your-data-ready-for-agentic-ai",
-    "name": "Making your data ready for agentic AI",
-    "category": "data",
-    "sourceCategory": "Data & Analytics",
-    "price": "free",
-    "pricing": "Free",
-    "level": "intermediate",
-    "blurb": "Guide to preparing data architecture and pipelines for agentic AI systems.",
-    "audience": "data engineers and architects",
-    "dev": "Martin Fowler",
-    "year": 2026,
-    "website": "https://martinfowler.com/articles/making-data-ready-for-agentic-ai.html",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "agentic ai",
-      "data engineering",
-      "data architecture",
-      "data readiness"
     ],
     "discoveredAt": "2026-09-09T13:45:32.864Z"
   },
@@ -7697,30 +7388,6 @@
     "discoveredAt": "2026-09-10T23:24:02.732Z"
   },
   {
-    "slug": "i-built-an-ai-agent-that-sell-itself",
-    "name": "I built an AI Agent that sell itself",
-    "category": "automation",
-    "sourceCategory": "AI Agents & Automation",
-    "price": "freemium",
-    "pricing": "Freemium",
-    "level": "intermediate",
-    "blurb": "Autonomous AI sales agent that pitches and sells itself to prospects.",
-    "audience": "founders and sales teams",
-    "dev": "",
-    "year": 2026,
-    "website": "https://www.sendroq.com/",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "ai agent",
-      "sales",
-      "outreach",
-      "cold email",
-      "lead generation"
-    ],
-    "discoveredAt": "2026-09-10T23:24:02.732Z"
-  },
-  {
     "slug": "nola",
     "name": "Nola",
     "category": "code",
@@ -8128,30 +7795,6 @@
     "discoveredAt": "2026-09-11T23:32:03.204Z"
   },
   {
-    "slug": "the-rise-of-ai-slop-tools",
-    "name": "The Rise of AI Slop Tools",
-    "category": "learning",
-    "sourceCategory": "LLMs & Chatbots",
-    "price": "free",
-    "pricing": "Free",
-    "level": "beginner",
-    "blurb": "Tweet thread examining the surge of low-quality 'AI slop' tools flooding the market.",
-    "audience": "AI observers and social media users",
-    "dev": "julihespenheide",
-    "year": 2026,
-    "website": "https://twitter.com/julihespenheide/status/2098070502157791452",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "ai slop",
-      "commentary",
-      "twitter",
-      "ai tools",
-      "opinion"
-    ],
-    "discoveredAt": "2026-09-11T23:32:03.204Z"
-  },
-  {
     "slug": "extension-to-filter-llm-written-articles",
     "name": "Extension to filter LLM written articles",
     "category": "writing",
@@ -8527,30 +8170,6 @@
       "captchas",
       "bot detection",
       "research"
-    ],
-    "discoveredAt": "2026-09-12T12:53:23.830Z"
-  },
-  {
-    "slug": "building-specialized-systems-we-can-trust-with-agents",
-    "name": "Building Specialized Systems We Can Trust with Agents",
-    "category": "code",
-    "sourceCategory": "AI Agents & Automation",
-    "price": "free",
-    "pricing": "Free",
-    "level": "advanced",
-    "blurb": "Research blog on SkySynth, an agent-based approach to building trustworthy specialized AI systems.",
-    "audience": "AI researchers and engineers",
-    "dev": "SkyDiscover AI",
-    "year": 2026,
-    "website": "https://skydiscover-ai.github.io/blog-skysynth.html",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "agents",
-      "llm",
-      "synthesis",
-      "research",
-      "reliability"
     ],
     "discoveredAt": "2026-09-12T12:53:23.830Z"
   },
@@ -9387,30 +9006,6 @@
     "discoveredAt": "2026-09-14T15:54:36.868Z"
   },
   {
-    "slug": "what-a-time-to-be-alive",
-    "name": "What a time to be alive",
-    "category": "code",
-    "sourceCategory": "Security",
-    "price": "free",
-    "pricing": "Free blog article",
-    "level": "intermediate",
-    "blurb": "Write-up on rogue AI agents attacking the RubyGems.org package registry.",
-    "audience": "Ruby developers and security engineers",
-    "dev": "Aaron Patterson",
-    "year": 2026,
-    "website": "https://tenderlovemaking.com/2026/09/11/what-a-time-to-be-alive/",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "ai agents",
-      "rubygems",
-      "security",
-      "ruby",
-      "supply chain"
-    ],
-    "discoveredAt": "2026-09-14T15:54:36.868Z"
-  },
-  {
     "slug": "nowdex",
     "name": "Nowdex",
     "category": "automation",
@@ -9455,29 +9050,6 @@
       "chatroom",
       "multiplayer",
       "workflow"
-    ],
-    "discoveredAt": "2026-09-14T23:59:11.393Z"
-  },
-  {
-    "slug": "can-ai-agents-conduct-open-ended-ai-research",
-    "name": "Can AI agents conduct open-ended AI research?",
-    "category": "automation",
-    "sourceCategory": "AI Agents & Automation",
-    "price": "free",
-    "pricing": "Free (arXiv preprint)",
-    "level": "advanced",
-    "blurb": "Paper investigating whether AI agents can autonomously carry out open-ended AI research.",
-    "audience": "AI researchers and agent builders",
-    "dev": "",
-    "year": 2026,
-    "website": "https://arxiv.org/abs/2607.27191",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "ai agents",
-      "autonomous research",
-      "arxiv",
-      "evaluation"
     ],
     "discoveredAt": "2026-09-14T23:59:11.393Z"
   },
@@ -9622,29 +9194,6 @@
       "ai agents",
       "software intent",
       "open source"
-    ],
-    "discoveredAt": "2026-09-15T14:21:00.449Z"
-  },
-  {
-    "slug": "who-bankrolls-the-ai-agent-swarm",
-    "name": "Who bankrolls the AI agent swarm?",
-    "category": "automation",
-    "sourceCategory": "AI Agents & Automation",
-    "price": "free",
-    "pricing": "Free to read",
-    "level": "intermediate",
-    "blurb": "Investigative article exploring who funds the rise of autonomous AI agent swarms.",
-    "audience": "developers and AI-curious readers",
-    "dev": "noperator",
-    "year": 2026,
-    "website": "https://noperator.dev/posts/who-bankrolls-the-ai-agent-swarm/",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "ai agents",
-      "funding",
-      "analysis",
-      "automation"
     ],
     "discoveredAt": "2026-09-15T14:21:00.449Z"
   },
@@ -9812,30 +9361,6 @@
       "design system",
       "frontend",
       "shadcn alternative"
-    ],
-    "discoveredAt": "2026-09-15T23:42:46.820Z"
-  },
-  {
-    "slug": "is-ai-solving-math-too-fast",
-    "name": "Is AI Solving Math Too Fast?",
-    "category": "learning",
-    "sourceCategory": "Education & Learning",
-    "price": "free",
-    "pricing": "Free",
-    "level": "intermediate",
-    "blurb": "An essay exploring whether AI's rapid progress in mathematics is outpacing human understanding.",
-    "audience": "Math educators, students, and AI-curious readers",
-    "dev": "Quanta Books",
-    "year": 2026,
-    "website": "https://www.quantabooks.org/is-ai-solving-math-too-fast/",
-    "status": "Active",
-    "note": "",
-    "tags": [
-      "ai",
-      "mathematics",
-      "education",
-      "essay",
-      "research"
     ],
     "discoveredAt": "2026-09-15T23:42:46.820Z"
   },
