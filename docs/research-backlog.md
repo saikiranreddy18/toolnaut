@@ -6870,3 +6870,87 @@ a client-side SPA with a static tool catalogue.
   small additions to existing build scripts (`prerender.mjs` ROUTES,
   `stamp-sitemap.mjs`). No schema, no backend, no new dependency.
 - **Found:** 2026-09-17 09:xx UTC
+
+### No educational/how-to content — the footer's own "Resources" column links only to existing product pages, none of the guide content competitors publish to rank for non-branded queries
+- **Status:** OPEN
+- **Seen in:** studied fresh this run. Futurepedia pairs its tools directory
+  with a dedicated guides/education layer distinct from the listings
+  themselves — practical how-to guides, a newsletter, and (per its own
+  positioning) a fast-growing course platform aimed at real-world AI skills,
+  not just tool discovery. Its own content strategy treats each tool page and
+  each of its 50+ category pages as the landing page for one specific,
+  branded-or-near-branded search, then layers genuine guide content on top
+  to reach the broader informational queries a plain listing can't rank for.
+  That's the same split this file's own (shipped) "Alternatives" and
+  "vs-competitor" gaps already exploit for bottom-of-funnel intent — guides
+  are the unclaimed top-of-funnel counterpart, for someone who hasn't picked
+  a product yet, or doesn't know one exists, and is searching the task
+  itself ("how do I automate video editing with AI") rather than a tool
+  name.
+- **Gap:** confirmed by reading `scripts/prerender.mjs`'s full `ROUTES` list
+  (`:42-62`, 19 entries) — every prerendered static route is a product
+  surface: `/`, `/about`, `/changelog`, `/pricing`, `/methodology`,
+  `/example`, `/new`, `/search`, `/support`, `/privacy`, `/terms`, the 6
+  `/tools/:domain` category grids (already logged above as thin and
+  underpaginated), and the 2 shipped `/vs/:slug` pages. `grep -in "guide" docs/research-backlog.md`
+  and `grep -in "blog" docs/research-backlog.md` turn up only this file's own
+  past comparisons to blog-shaped products (a changelog entry, an "awesome
+  list" reference) — never an actual Toolnaut page. `grep -n "Learning" src/App.jsx`
+  shows the only "Learning" surface is `lazy(() => import('./pages/app/Learning'))`
+  mounted at `app/learning` (`App.jsx:155`) — behind `AppShell`'s sign-in
+  gate, tied to a signed-in user's own roadmap progress, not public content a
+  search engine can index. Most tellingly, `src/components/sections/ContactSection.jsx`
+  — the site's footer — already has a column titled **"Resources"** (`:44`),
+  but its four links (`:46-49`) are "How it works," "How we choose"
+  (Methodology), "What's new" (Changelog), and "Open the app": existing
+  product pages relabeled as resources, not content written to answer a
+  search query none of those pages already answer.
+- **Why it matters:** every other SEO gap already logged in this file
+  (Alternatives pages, vs-competitor pages, category landing pages,
+  structured data, the developer API) targets a visitor who already knows
+  they want an AI tool and is comparing named options — bottom-of-funnel.
+  Nothing on toolnaut.xyz targets the visitor one step earlier, who hasn't
+  framed their problem as "which tool" yet. It is also compounding content
+  in a way the fixed-cost vs-competitor pages aren't: a small guide library
+  can cross-link into the `/tools/:domain` pages and specific tool pages
+  that already exist, sending internal link equity to surfaces that
+  currently have no inbound content pointing at them, and it grows
+  independently of adding new competitor comparisons.
+- **Smallest useful version (what to actually build):** follow the exact
+  shape the (shipped) vs-competitor gap established rather than inventing a
+  CMS:
+  - New `src/content/guides.js`: a small array of plain objects, one per
+    guide — `{ slug, title, dek, sections: [{ heading, paragraphs }],
+    relatedCategory, relatedTools }` (`relatedTools` referencing real
+    catalog slugs) — hand-written, matching this file's own no-invented-
+    facts discipline (`StatsSection.jsx`'s rule already cited above). Start
+    with 2-3 guides tied to tasks the catalog already serves well, one per
+    existing `/tools/:domain` category so each guide has somewhere real to
+    link.
+  - New `src/pages/Guide.jsx` + route `/guides/:slug` in `src/App.jsx`
+    (public, next to `/vs/:slug`), reusing `SectionShell`/card styling from
+    `src/components/sections/`. Each guide ends by linking into its
+    `relatedCategory`'s `/tools/:domain` page and 2-3 specific tool pages by
+    slug.
+  - New `src/pages/Guides.jsx` index at `/guides` listing all entries,
+    linked from `ContactSection.jsx`'s existing "Resources" column so the
+    footer's own label finally matches what it points to.
+  - Add `/guides` and each `/guides/:slug` to `scripts/prerender.mjs`'s
+    `ROUTES` and to `stamp-sitemap.mjs`'s lastmod list, exactly as the
+    vs-competitor gap did.
+  - Give each guide its own `useHead()` call targeting the actual long-tail
+    query phrase, the same mechanism 14 other pages already use.
+  - **What this would NOT include** (kept out to bound the diff): no CMS,
+    no markdown loader, no admin UI — content lives in one hand-edited JS
+    array like `comparisons.js`; no LLM-generated guide prose (radar's own
+    enrichment is for catalog metadata, not for public-facing claims this
+    file's discipline requires to be checkable by a human); no more than 2-3
+    guides in the first cut, same ramp the vs-competitor gap used; no
+    comments/ratings on guides (Community already owns discussion); no new
+    analytics beyond the existing `useAnalytics()` page-view tracking every
+    route already gets.
+- **Build size:** S — one content file, two page components (index +
+  detail), one route pattern, two small additions to existing build
+  scripts, one footer link-column edit. Same size class as the already-
+  shipped vs-competitor gap. No schema, no backend, no new dependency.
+- **Found:** 2026-09-20 03:08 UTC
