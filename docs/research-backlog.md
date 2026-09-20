@@ -6954,3 +6954,83 @@ a client-side SPA with a static tool catalogue.
   scripts, one footer link-column edit. Same size class as the already-
   shipped vs-competitor gap. No schema, no backend, no new dependency.
 - **Found:** 2026-09-20 03:08 UTC
+
+---
+
+### The 4-week roadmap has no calendar reminders — it survives only in the tab you left it in
+- **Status:** OPEN
+- **Seen in:** Udemy's "Schedule Learning Reminders" adds a course's study
+  time to Google/Apple/Outlook calendars, and separately lets a learner
+  download the reminder as a file for any calendar app
+  (support.udemy.com/hc/en-us/articles/4501093209367); Coursera's Settings
+  page has a "Calendar Sync" control that pushes assignment/module deadlines
+  to Google Calendar so a learner doesn't have to remember to come back
+  (coursera.support/s/question/0D51U00003BlYz7SAF). Both are treating "will
+  the learner actually return next week" as a solved problem worth a
+  dedicated control, not something the product leaves to chance.
+- **Gap:** Toolnaut's own roadmap is structurally the same shape as a
+  Udemy/Coursera course — `generateRoadmap()` (`src/utils/roadmapGenerator.js:158-223`)
+  returns four `milestones`, each with a `week` number, a `title` ("Master
+  {tool}" / "Put it together"), a `focus` line, and a `steps` array, rendered
+  week-by-week on `/app/learning` (`src/pages/app/Learning.jsx:276-292` for
+  the "your next move" card, `:335+` for the full list) — but nothing about
+  it is calendar-aware. Grepped the whole `src/` tree for `ics|calendar|vcalendar`
+  (case-insensitive): zero hits outside this file's own past entries (the
+  cost-estimate and streak gaps use "calendar day" only to mean
+  `Date.toISOString().slice(0,10)` bookkeeping, not an actual calendar
+  integration). `Learning.jsx`'s only export-adjacent action is `share()`
+  (`:264-271`), which copies a one-line brag string once a user has already
+  *finished* all four weeks — nothing helps a user who just started remember
+  to come back next Tuesday. `roadmapStore.js` confirms there's no stored
+  start date either (`loadRoadmapProgress()` only ever persists
+  `{ "<milestoneId>:<stepIndex>": true }` pairs, `roadmapStore.js:8-23`) — a
+  roadmap has no notion of "when," only "which steps are checked," so a
+  learner who closes the tab has no external nudge to open it again.
+- **Why it matters:** the roadmap is the product's core retention loop — it's
+  the thing a user is supposed to come back to for four straight weeks after
+  the one high-effort quiz session — and right now the only thing bringing
+  them back is memory. `Learning.jsx`'s own "your pace: N/week" label
+  (`:285-289`) shows the app already knows how much time a user committed per
+  week; it just never turns that into an actual reminder. This is distinct
+  from the PDF-roadmap-export gap logged above (`planData.js:49`): that gap
+  is about a broken pricing promise for *printing* the roadmap's content,
+  this one is about a retention mechanism the marketing copy never promised
+  but every comparable learning product ships anyway — the two would ship as
+  separate, non-overlapping features even though both touch `Learning.jsx`.
+- **Smallest useful version (what to actually build):**
+  - New pure util `src/utils/roadmapCalendar.js`: `buildRoadmapIcs(milestones)`
+    takes the same `milestones` array `Learning.jsx` already has in scope and
+    returns a plain `.ics` string (`BEGIN:VCALENDAR` / one `VEVENT` per
+    milestone) — no dependency needed, an `.ics` file is plain text with a
+    fixed grammar. Each event: `SUMMARY` = `Week {week} · {title}`,
+    `DESCRIPTION` = the milestone's `steps` joined with `\n`, `DTSTART` =
+    today's date + `(week - 1) * 7` days (all-day event, `VALUE=DATE`), one
+    calendar-day `DURATION`. No timezone handling needed for an all-day
+    event.
+  - One button next to the existing `share()` control in `Learning.jsx`
+    (`:264-271` sits inside the header area rendered at `:273+`): "Add to
+    calendar" builds the string, wraps it in
+    `new Blob([ics], { type: 'text/calendar' })`, and triggers a download via
+    a temporary `<a download="my-orbit.ics">` — the same
+    click-a-hidden-anchor pattern any client-only file download uses, no
+    library, no `window.print()` reuse from the PDF gap (a `.ics` file isn't
+    printable content).
+  - Track it with the existing `useAnalytics()` pattern:
+    `track(EVENTS.CTA_CLICK, { cta: 'add_to_calendar' })`, matching how
+    `toggleStack`/`toggleFavorite` already report their own CTA clicks
+    elsewhere in the app.
+  - **What this would NOT include** (kept out to bound the diff): no
+    Google/Outlook "one-click add" OAuth integration (Udemy/Coursera's
+    calendar-sync buttons need a backend token exchange this SPA has
+    nowhere to run) — a downloadable `.ics` file is the client-only
+    equivalent and every mainstream calendar app already imports one; no
+    recurring/repeating VEVENT rules, just four fixed dates computed at
+    click time; no push notifications or email reminders (that's the
+    separate, already-logged digest-email gap's territory); no editable
+    "pick your own start date" UI in v1 — "starts today" is the honest
+    default for a self-paced plan with no stored start date to read back.
+- **Build size:** S — one new pure util (~30 lines, no dependency), one
+  button plus a small handler in `Learning.jsx`, one new analytics call
+  reusing the existing event taxonomy. No backend, no new route, no new
+  persisted state.
+- **Found:** 2026-09-20 06:07 UTC
