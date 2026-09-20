@@ -255,7 +255,7 @@ export default function Legal() {
   const isPrivacy = pathname.startsWith('/privacy')
 
   return (
-    <div className="relative min-h-screen">
+    <div id="main-content" tabIndex={-1} className="relative min-h-screen">
       <div className="starfield" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto max-w-2xl px-5 py-16 md:py-24">

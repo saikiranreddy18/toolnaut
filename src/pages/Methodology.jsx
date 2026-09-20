@@ -38,7 +38,7 @@ export default function Methodology() {
   const updated = lastUpdatedLabel()
 
   return (
-    <div className="relative z-10 mx-auto max-w-3xl px-5 py-10 lg:py-14">
+    <div id="main-content" tabIndex={-1} className="relative z-10 mx-auto max-w-3xl px-5 py-10 lg:py-14">
       {/* These pages are linked to directly and shared, so they can be
           someone's first screen — a bare "← Back" told them nothing about
           whose product they had landed on. Same header the other standalone

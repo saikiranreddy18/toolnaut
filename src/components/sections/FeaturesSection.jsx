@@ -9,6 +9,7 @@ const FEATURES = [
   { name: 'Progress tracking', text: 'A skills graph that grows with you and shows exactly where the gaps are.', icon: 'M3 17l6-6 4 4 8-8M15 7h6v6' },
   { name: 'Signal over noise', text: 'We watch the release firehose so you only hear about tools that matter to you.', icon: 'M3 5h18l-7 8v6l-4 2v-8z' },
   { name: 'Weekly fresh finds', text: 'New tools matched to your evolving role, delivered in one scannable digest.', icon: 'M4 6h16v12H4zM4 7l8 6 8-6' },
+  { name: 'Spend audit', text: 'See which tools double up, what to cancel, and what a free tool already covers.', icon: 'M6 3h12v18l-3-2-3 2-3-2-3 2V3Zm3 6h6M9 13h6M9 17h3' },
 ]
 
 function Icon({ d }) {

@@ -76,6 +76,15 @@ export const CAPABILITIES = [
     pro: { text: 'Limited sharing', status: 'planned' },
     team: { text: 'Shared stacks, comments, approvals, roles', status: 'planned' },
   },
+  {
+    // Shipped in e3b8a3b (Audit.jsx/stackAudit.js) and, unlike every other
+    // row here, already live on every paid tier — the health score and total
+    // spend are free, the cancel list unlocks with any active entitlement.
+    capability: 'Spend audit',
+    free: { text: 'Health score and total monthly spend', status: 'live' },
+    pro: { text: 'Full cancel list — what to drop, what to keep', status: 'live' },
+    team: { text: 'Full cancel list — what to drop, what to keep', status: 'live' },
+  },
 ]
 
 // When to ASK. The review is specific that the ask has to land after value is

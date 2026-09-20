@@ -34,7 +34,7 @@ export default function Checkout() {
   })
 
   return (
-    <div className="relative z-10 mx-auto max-w-3xl px-5 py-10 lg:py-14">
+    <div id="main-content" tabIndex={-1} className="relative z-10 mx-auto max-w-3xl px-5 py-10 lg:py-14">
       <header className="mb-8 flex items-center justify-between gap-4">
         <Link to="/" aria-label="Toolnaut home">
           <BrandLogo {...LOGO.page} />

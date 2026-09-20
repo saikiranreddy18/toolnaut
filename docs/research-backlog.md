@@ -473,6 +473,44 @@ a client-side SPA with a static tool catalogue.
   `communityStore.js` export) — this deepening only fixes the one paragraph
   that had gone stale, and flags the NEXT UP overlap as something to be aware
   of, not something to build a dedup for in this pass.
+- **Deepened 2026-09-17 15:20 UTC — this entry's own core claim has gone
+  partly stale and needed re-checking against current `src/`, not just its
+  placement plan:** `ae1c530` ("feat: product tour, real subscriber stats,
+  truthful legal pages", shipped 2026-09-13, after both this entry's original
+  write-up and its first deepening) added `src/components/app/AppTour.jsx` —
+  a real, already-wired first-run spotlight tour of `/app`, mounted in
+  `AppShell.jsx:275` and gated on a per-account `tourSeen()` flag
+  (`exus_tour_v1`), with a "replay tour" control in `Settings.jsx:119`. It was
+  invisible to this entry's original grep (`checklist|getting.started|onboard`
+  matches neither "tour" nor its event names), which is why it went unnoticed
+  for four days. This means the original framing — "no checklist/onboarding-
+  progress component exists... nothing tells them the roadmap, the community,
+  or adding a second tool from Discover are things worth doing today" — is no
+  longer fully accurate: a new user today gets a 7-step guided walkthrough
+  naming Stack, Discover, Favorites, Learning, the chat assistant and Settings
+  before they are left alone on `Stack.jsx`.
+  **What is still missing, i.e. why this stays OPEN rather than SHIPPED or
+  REJECTED:** `AppTour` is a one-time, skippable *explainer* — it fires once,
+  has no memory of which of its 7 steps a user actually acted on afterward,
+  and cannot answer "am I activated yet" on a return visit. It is the "here
+  is where things are" job; this gap's checklist was always the "have you
+  actually done them" job — a persistent, self-hiding, checkmark-based nudge
+  that updates across sessions from real stack/quiz/roadmap/community state,
+  which `AppTour` structurally cannot do (it has no per-step "done" concept,
+  only "seen the whole tour or not"). The two are complementary, not
+  duplicates, the same way this entry's 2026-08-28 deepening already found
+  `Stack.jsx`'s "NEXT UP" section to be complementary rather than redundant.
+  **Re-verified placement is still current:** `Stack.jsx:262` is still the end
+  of the persona tagline `<p>`, and the streak sticker still opens right after
+  at `Stack.jsx:272` — the 2026-08-28 "mount between persona header and streak
+  sticker" placement call is unchanged. **One addition to the spec:** since
+  `AppTour` now exists and already introduces Discover/Favorites/Learning/
+  Community by name in its own copy, the checklist's row labels should reuse
+  matching language rather than independently invented copy, so a new user
+  doesn't read two different names for the same destination four screens
+  apart (e.g. `AppTour`'s "Find more" vs. a checklist row that might otherwise
+  say "Try Discover"). No other part of the spec (steps, dismiss-flag key,
+  `communityStore.js` export) changes.
 
 ### Favorites / bookmarks (sold on the pricing page, absent from the app)
 - **Status:** SHIPPED 4fe402f
@@ -617,6 +655,71 @@ a client-side SPA with a static tool catalogue.
   rating badge + reviews section + small star-picker form added to
   `ToolDetail.jsx`. No backend, no new dependency, no new route.
 - **Found:** 2026-08-24 06:06 UTC
+- **Deepened 2026-09-20 09:20 UTC — re-verified against current `src/`, four
+  weeks untouched while the rest of the backlog moved on; core claim holds,
+  but the placement plan and the store's persistence pattern have both gone
+  stale:**
+  **Core claim still true.** `ade1c530`-era and later work added
+  `TrustPanel.jsx`, now rendered on `ToolDetail.jsx` right after "Why it
+  fits" (`ToolDetail.jsx:208`). It could look like a duplicate of this gap at
+  a glance, so it's worth naming explicitly why it isn't: `TrustPanel` is
+  100% algorithmic/editorial (best-for, why-it-matched-you, a catalogue-
+  derived limitation, pricing, alternatives scored the same way Discover
+  scores them, "last checked", and an explicit "no commercial ties"
+  disclosure) — Toolnaut's own honest case for the tool, not another human's.
+  Its own file comment even frames this as the point: "a tool page that only
+  lists upside is indistinguishable from an ad." None of its seven rows are,
+  or could become, a real person's star rating or written opinion. The gap
+  this entry describes — zero peer social proof anywhere in the app — is
+  unchanged.
+  **Placement plan is stale and needs correcting before build.** `ToolDetail.jsx`
+  has been restructured since 2026-08-24: the MATCH/status badge row this
+  entry said to extend is now at `ToolDetail.jsx:110-131` (was `:81-102`),
+  and "Why it fits" is now a `sticker` block at `ToolDetail.jsx:185-204`
+  (was `:141-160`) — followed immediately by two components that didn't
+  exist when this entry was written, `<TrustPanel>` (`:208`) and
+  `<ToolResources>` (`:211`), with "Related tools" starting at `:213`. The
+  original "REVIEWS section after WHY IT FITS" instruction would now land
+  *between* `TrustPanel` and `ToolResources` — both of which the file's own
+  comments frame as a deliberate, adjacent pair ("Reasoning sits with the
+  decision, before the page moves on to other products" / "Verified
+  integrations and official training, each linked to its source"). Splitting
+  that pair to insert Reviews in the middle would read as an afterthought
+  wedged into a sequence that was written to flow. **Corrected placement:**
+  mount the new REVIEWS section after `<ToolResources>` (`:211`), immediately
+  before "Related tools" (`:213`) — Toolnaut's own case (why it fits, the
+  honest trust panel, verified resources) runs first, then real users' case,
+  then where to look next. The rating badge next to MATCH/status
+  (`ToolDetail.jsx:110-131`) is unaffected by this correction.
+  **Persistence pattern has changed underneath this entry — this is the
+  important part.** `scopedStorage.js` did not exist (or wasn't on this
+  entry's radar) on 2026-08-24. It now backs every store, including
+  `communityStore.js`, which this entry explicitly said to mirror:
+  `communityStore.js` no longer calls `localStorage` directly — its
+  `read`/`write` helpers (`communityStore.js:10-20`) wrap `scopedRead`/
+  `scopedWrite` from `scopedStorage.js`, which namespaces every key by
+  signed-in account (`key::<uid>`, guest keys unscoped). `scopedStorage.js`'s
+  own header comment explains why this exists: without it, "sign out, sign
+  in with a different Google account, and that person inherits the previous
+  one's stack" on a shared browser — the exact class of bug this entry's
+  planned store would reintroduce if built exactly as originally scoped.
+  The plan must change in two places: (1) `toolReviewsStore.js`'s `read`/
+  `write` must wrap `scopedRead`/`scopedWrite` from `scopedStorage.js`, not
+  call `localStorage` directly — copy `communityStore.js`'s current
+  `read`/`write` (lines 10-20), not the 2026-08-24 version this entry
+  originally read; (2) `exus_tool_reviews_v1` must be added to both
+  `PORTABLE_KEYS` (`scopedStorage.js:79-93`) and `AUTHORED_KEYS`
+  (`scopedStorage.js:101-112`), the same two arrays `exus_threads_v1` /
+  `exus_replies_v1` / `exus_upvotes_v1` already appear in — otherwise a
+  signed-in user's reviews neither migrate on guest→account import nor stay
+  correctly scoped to their account, silently leaking across accounts on a
+  shared browser exactly as `scopedStorage.js` was built to prevent.
+  **Confirmed still current:** all five example seed slugs (`chatgpt`,
+  `claude`, `notion-ai`, `perplexity`, `cursor`) still resolve in
+  `toolsCatalog.js`. No change to the rest of the spec (seed data shape,
+  `getReviews`/`getAverageRating`/`addReview` API, one-review-per-slug-per-
+  browser cap, star-picker form reusing `Composer`'s visual language, or the
+  "what this would NOT include" scope cuts).
 
 ### Community-submitted tools ("Suggest a tool")
 - **Status:** OPEN
@@ -1531,6 +1634,69 @@ a client-side SPA with a static tool catalogue.
   wiring state + a global keydown listener + two trigger buttons into
   `AppShell.jsx`. No backend, no new dependency, no new route.
 - **Found:** 2026-08-26 09:06 UTC
+- **Deepened 2026-09-20 12:20 UTC — the oldest untouched OPEN entry (25 days);
+  re-read every file this plan cites against current `src/` rather than
+  trusting the original line numbers. The build is still exactly right in
+  shape, but three things drifted underneath it:**
+  1. **The match algorithm this entry proposed to copy no longer lives where
+     it said.** The original plan was "filtered by the same lowercase
+     substring match `Discover.jsx:86-97` already uses" — that logic has
+     since moved: `Discover.jsx` now imports `matchesQuery` from a new
+     `src/utils/search.js` (`Discover.jsx:8`), extracted when the (now-
+     shipped) "multi-word query" gap fixed literal-phrase matching for both
+     Discover and the public `/search` page. `matchesQuery(tool, q)` does
+     order-independent, every-word substring matching against `[name, blurb,
+     sourceCategory, dev, ...tags]`, not the single-phrase check this entry
+     described. **Corrected plan:** import and call `matchesQuery()` directly
+     for the tool half of the palette's results instead of hand-rolling a
+     new substring check — strictly less code than originally specced, and
+     gives palette search the same multi-word matching Discover already has
+     (typing "video editor" finds tools whose blurb has both words, not just
+     that literal phrase). The `NAV` half still needs its own trivial
+     label-substring check since `matchesQuery()` is tool-shaped, not generic.
+  2. **Every cited line number and two of the three insertion points moved.**
+     `NAV` is now `AppShell.jsx:26-34` (was `:14-21`) and has grown from 6
+     entries to 7 (`Spend`/`/app/audit` was added since). `hydrateCatalog()`
+     is now at `toolsCatalog.js:771` (was `:760-762`) — same behavior
+     (mutates `TOOLS` in place, so radar-published tools stay searchable with
+     zero extra wiring), just a different line. More substantively, the
+     desktop sidebar restructured: the persona sticker is now
+     `AppShell.jsx:161-182`, and a `<SyncStatus />` component that didn't
+     exist when this entry was written now sits directly under it at line
+     184, before the `NAV.map` render at `186-193`. The original "trigger
+     button under the persona sticker" placement (cited as `:86-100`, which
+     no longer matches anything) would now land between the sticker and
+     `SyncStatus`, wedging a new control into what reads as one continuous
+     "who you are" block. **Corrected placement:** put the "🔎 Quick jump ⌘K"
+     button after `<SyncStatus />` (line 184) and before the `<nav>` at 186 —
+     it then reads as the last piece of shell chrome before the actual
+     nav links, not an interruption between persona and sync state.
+  3. **The mobile top bar has no bare "icon-only" slot to drop a button
+     into anymore.** It restructured into `AppShell.jsx:222-238`: brand
+     logo on the left, and a `flex items-center gap-2` div on the right now
+     holding `<PlanChip compact />` and a profile `<Link>` (avatar +
+     persona-name chip) — a different shape than the entry's original
+     `:118-128` citation, which no longer resolves to this content.
+     **Corrected placement:** add the quick-jump icon button as the first
+     child inside that same `gap-2` flex div (`AppShell.jsx:227`), before
+     `PlanChip` — keeps it grouped with the bar's other icon-sized controls
+     rather than crowding the persona-name chip, and preserves the existing
+     left-to-right reading order (brand → utility icons → identity).
+  - **Still accurate, re-confirmed:** no `Modal`/`Dialog` abstraction exists
+    anywhere under `src/components/ui/` (globbed `Modal*`/`Dialog*` again,
+    zero hits) — the hand-rolled overlay plan stays the right call, matching
+    `ChatPanel.jsx`'s own per-component `keydown`/Escape listener pattern
+    (`ChatPanel.jsx:27-30`, unchanged). The "Recently viewed tools" gap this
+    entry named as a natural (but non-required) pairing has since shipped
+    (`113f375` → `src/state/recentlyViewedStore.js`, `loadRecentlyViewed()`
+    returns up to 12 slugs, most-recent-first) — still correctly out of scope
+    for v1 per the original "no recent/frequency ranking" exclusion, but
+    worth flagging as the obvious first follow-on once the palette itself
+    ships, since the data now already exists with zero extra plumbing.
+  - **No change** to the component itself, the keyboard contract
+    (Cmd/Ctrl+K, arrow keys, Enter, Escape), the `~8` result cap, or the
+    build-size estimate — this deepening only corrects placement and swaps
+    in a better, already-shipped search primitive.
 
 ### Category/role landing pages ("Best AI tools for X") — zero crawlable listing pages exist
 - **Status:** SHIPPED 927ee5b
@@ -2075,6 +2241,34 @@ a client-side SPA with a static tool catalogue.
   builds this gap and the status-warning gap in the same run should write
   both badges into that one wrapper together rather than two separate patches
   landing on the same six lines back-to-back.
+- **Verification 2026-09-19 21:20 UTC:** re-checked the whole plan against
+  current code, since three weeks and several ships (including the
+  status-warning gap this entry's badge wrapper is shared with, SHIPPED
+  `c60fd8d` on 2026-09-17) had passed since the last check. Every part of the
+  plan still holds, only the exact line numbers moved:
+  - `radar/sources/github.js:25` and `radar/sources/hackernews.js:27` still
+    fetch `stars`/`points` into `candidate.raw` untouched.
+  - `radar/enrich.js` and `radar/schema.js` still have no `popularity` field
+    anywhere — grepped both files fresh, zero hits.
+  - Both `FIELDS` plumbing arrays (`radar/scripts/sync-to-app.js:12-16`,
+    `src/utils/liveCatalog.js:7-10`) are unchanged in shape and still lack
+    `popularity`/`popularityLabel` — though `liveCatalog.js`'s array has since
+    grown three new radar-evaluation fields (`scorecard`, `integration`,
+    `verdict`) not present when this gap was written, confirming the "append
+    a field name to two arrays" plumbing pattern is still exactly how new
+    radar fields reach the app today.
+  - `ToolCard.jsx`'s badge wrapper (the corrected 2026-09-01 target) is at
+    `ToolCard.jsx:45-78` now, not 44-73: the NEW pill at 46-53, the fit-band
+    pill at 58-65, and the status pill — the one the SHIPPED status-warning
+    gap actually landed — at 69-76, all three still siblings inside the same
+    `<span className="flex shrink-0 items-center gap-1.5">` at line 45. A
+    fourth `tool.popularityLabel` pill still drops into that exact wrapper
+    with no structural changes needed.
+  No corrections beyond line numbers — this remains a fully accurate, S-sized,
+  ready-to-build gap: the data is already paid for and sitting in memory
+  during `enrich()`, nothing has shipped that changes the plan, and the
+  feature run can build straight from the spec above without re-reading the
+  radar pipeline first.
 
 ### "Community access (Discord & forum)" — half the claim doesn't exist
 - **Status:** REJECTED — the real half (forum) already ships; the missing half
@@ -2416,6 +2610,57 @@ a client-side SPA with a static tool catalogue.
   one sitemap line, one smoke-route line. No backend, no new dependency, no
   new store, no new util (reuses `TOOLS` directly, same as `CategoryLanding`).
 - **Found:** 2026-08-28 00:15 UTC
+- **Deepened 2026-09-20 15:20 UTC — the oldest untouched OPEN entry (23 days,
+  never previously deepened); re-read every file this plan cites against
+  current `src/` rather than trusting the original references. The core idea
+  and build size are still exactly right, but three things need correcting
+  before this gets built:**
+  1. **The data claim still checks out exactly.** Grepped
+     `src/utils/toolsCatalog.js` directly: 652 `"status": "Active"`, 52
+     `"status": "Uncertain"`, 47 of those 52 carry a non-empty `note`, 5 don't
+     — the original counts were precise and remain so.
+  2. **The status-note gap this entry deferred from has since shipped
+     (`ef59a93`), but not the way this entry assumed.** It described linking
+     from "wherever the status-note gap's inline UNCERTAIN badge ends up on
+     `ToolDetail.jsx`" — that file has since moved to
+     `src/pages/app/ToolDetail.jsx` and its badge (still a hot-pink pill,
+     `ToolDetail.jsx:123-130`, `tool.status !== 'Active'`) never grew the note
+     text under it as originally planned; the shipped version renders
+     `tool.note` in a separate `TrustPanel.jsx` "Watch out for" row instead
+     (`TrustPanel.jsx:31`), and the same badge pattern was reused verbatim on
+     `ToolCard.jsx:69-75` (badge `title` attribute carries the note as a
+     tooltip) and `Compare.jsx`'s Status row. None of that changes this
+     entry's own build — still a new standalone page — but the "link to
+     `/graveyard` from the badge" instruction needs a real target, corrected
+     below.
+  3. **A better, more appropriate link target now exists and didn't when this
+     entry was written: `ToolPublic.jsx` at the public `/ai-tools/:slug`
+     route (`App.jsx:128`), added since.** It's explicitly the public,
+     crawlable, session-free per-tool page — "the in-app page
+     (`/app/tools/:slug`) is personalised... this one is the same facts for
+     everyone, so it can be crawled, shared and ranked" (`ToolPublic.jsx:9-11`)
+     — exactly the audience a public `/graveyard` listing page serves, unlike
+     the session-gated in-app `ToolDetail.jsx` the original plan pointed the
+     inline link at. **Corrected plan:** link each graveyard card to
+     `/ai-tools/:slug` (same as `CategoryLanding.jsx:100` already does, not
+     `/app/tools/:slug`), and if a reciprocal in-page link is added at build
+     time, put it on `ToolPublic.jsx` rather than `ToolDetail.jsx`. One
+     related gap worth flagging but explicitly NOT folding into this entry's
+     scope: `ToolPublic.jsx` already renders `tool.note` as a neutral "Worth
+     knowing" fact (line 41) but never renders `tool.status` at all — a
+     visitor lands on `/ai-tools/pi` and reads "Core team moved to Microsoft;
+     app in maintenance" with no Uncertain flag anywhere on the page. That's
+     a small, separate fix (add one `status`-conditional fact row, same shape
+     as the existing `facts` array), not a graveyard-page dependency, and not
+     worth widening this diff to include.
+  4. **Route insertion point moved.** `/tools/:domain` (`CategoryLanding`) is
+     now `App.jsx:125`, not `:79` — `/graveyard` should still sit in that
+     same public-routes block, right after `/tools/:domain` and before
+     `/ai-tools/:slug` at `:128`.
+  - **No change** to the page's own scope, the `CategoryLanding.jsx`-modeled
+    structure, the exclusions (no backfilled notes, no date-of-death field,
+    no per-tool graveyard subpage, no removal from Discover/Compare), or the
+    build-size estimate.
 
 ### Embeddable "Featured on Toolnaut" badge — the standard directory backlink loop, missing entirely
 - **Status:** OPEN
@@ -5650,7 +5895,21 @@ a client-side SPA with a static tool catalogue.
 
 ### "Skip to content" exists for signed-in users only — every public page a visitor sees first has none
 
-- **Status:** OPEN
+- **Status:** SHIPPED (this run, sha in DEVLOG) — built close to scope, with
+  two corrections found while implementing: (1) rather than mounting a
+  second `<SkipLink />` inside `AppShell.jsx` in addition to the global one
+  in `App.jsx`, `AppShell.jsx` now only keeps its `<main id="main-content">`
+  landmark and relies on the single global skip link — two stacked "Skip to
+  content" links landing on the same anchor at the top of every `/app/*`
+  page would have been a duplicate tab stop, not a fix. (2) The route list
+  had drifted since this entry was written 2026-09-13: `/checkout`,
+  `/methodology`, `/ai-tools/:slug` (`ToolPublic`), and `/auth/login`
+  existed but weren't in the original 13-page list, so they got the same
+  `id="main-content" tabIndex={-1}` treatment too — 17 page roots in total,
+  not 13. `/office` (a bare WebGL canvas, no header/nav to bypass) and the
+  `*` `NotFound` page (no persistent chrome either) were deliberately left
+  out — WCAG 2.4.1 exists to skip *repeated* navigation blocks, and neither
+  page has one.
 - **Seen in:** not a competitor pattern this time — it's a standard the app
   already half-implements and documents the reasoning for. WCAG 2.4.1 ("Bypass
   Blocks") requires a mechanism to skip repeated navigation blocks; it's a
@@ -5888,7 +6147,20 @@ a client-side SPA with a static tool catalogue.
 
 ### The Founder offer's "plan preselected" checkout link doesn't preselect anything — the exact bug that was already found and fixed once, in the one place nobody checked it survived
 
-- **Status:** OPEN
+- **Status:** SHIPPED 680b76062d0862214bd056c638555b630acf4e76 — verified
+  2026-09-16 12:07 UTC: this run re-read `src/pages/Pay.jsx` end to end
+  before doing anything else with this entry and found the fix already
+  live, committed the same day (2026-09-16 00:13:42 UTC) as
+  `fix(pay): make the founder-offer checkout link actually preselect
+  Founder`, one file, exactly as this entry scoped it — `requestedPlan`
+  read via `useLocation()` at `Pay.jsx:63`, `chosen` initialized from it
+  with the same fallback-to-`guru` logic at `Pay.jsx:64-65`, and a
+  `preselected` flag at `Pay.jsx:140` gating a "★ YOUR PICK" badge
+  (`Pay.jsx:161`) that only renders when `requestedPlan` was actually
+  present, matching the "no badge on a plain `/pay` visit" constraint this
+  entry called for. The backlog was never updated when that commit shipped,
+  so this entry sat OPEN describing an already-closed gap — corrected here
+  so a future feature run doesn't spend a day rebuilding it from scratch.
 - **Seen in:** not a competitor pattern — a self-audit that started from
   `planData.js:194-198`'s own comment ("when the ribbon expired,
   `/pay?plan=founder` simply kept selling") and `FounderOffer.jsx:120-122`'s
@@ -6233,7 +6505,13 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### The Uncertain-status badge reaches every tool card except the one on the page you actually use it from
-- **Status:** OPEN
+- **Status:** SHIPPED c60fd8d — built exactly as scoped below: `Stack.jsx`'s
+  kit-grid card now reuses `ToolCard.jsx`'s badge markup, gated on
+  `tool.status && tool.status !== 'Active'`, placed under the tool name in
+  the card header. No change to `ToolCard.jsx`, `ToolDetail.jsx`,
+  `Compare.jsx`, or `progressStore.js`. Verified live with Pi (a real
+  Uncertain-status catalog tool) added to a guest stack: badge renders with
+  the catalog note as its hover title. All three checks green before push.
 - **Seen in:** not a competitor pattern — a self-audit that started from
   re-reading the already-SHIPPED "Tool status warning has no reason attached"
   entry above (`ef59a93`, deepened 2026-09-01) to check whether its own
@@ -6384,7 +6662,14 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-09-16 03:20 UTC
 
 ### The Spend Audit shipped fully working this morning — every page that tells a visitor what Pro buys still says it doesn't exist
-- **Status:** OPEN
+- **Status:** SHIPPED b7f87af — built exactly as scoped below: `capabilityMatrix.js`
+  gained the one new `Spend audit` row (free = health score + total spend,
+  pro/team = full cancel list, all three marked `live`), `planData.js` added
+  `live('Spend audit — find and cancel overlapping subscriptions')` to
+  Student's features and a `['Spend audit', true, true, true]` COMPARISON
+  row, and `FeaturesSection.jsx` got a 7th homepage card. No changes to
+  `Audit.jsx`, `stackAudit.js`, entitlement logic, or the unrelated
+  Team-only "Quarterly stack audits" row, all as planned. 3 files, 12 lines.
 - **Seen in:** not a missing competitor feature — the opposite shape. Rocket
   Money (formerly Truebill) built its entire growth loop around this exact
   pitch: find subscriptions that do the same job and show what to cancel,
@@ -6549,3 +6834,302 @@ a client-side SPA with a static tool catalogue.
 - **Build size:** S — one function in `src/utils/search.js`, no new route, no
   new component, no dependency, one new or extended test file.
 - **Found:** 2026-09-16 09:10 UTC
+
+### No way to flag a wrong listing — the catalog has a "suggest a new tool" gap already logged, but no "this one is wrong" path at all
+- **Status:** OPEN
+- **Seen in:** review/listing directories that let outsiders touch their data
+  all ship a correction path distinct from new-entry submission — G2 runs a
+  standing "How do I update the software I use?" flow plus live support chat
+  on every product page (help.g2.com) specifically for outdated vendor
+  info, separate from adding a new product. The gap is sharper for an
+  AI-tool directory than for G2: this run's competitor check on Futurepedia
+  and similar catalogs turned up an active 2026 criticism that AI-tool
+  directories specifically go stale fast because vendor pricing and
+  features change faster than any editor can track — exactly the failure
+  mode a public "report this" link exists to catch before a visitor is the
+  one who discovers it.
+- **Gap:** Toolnaut has exactly one catalog-correction signal today —
+  `radar`'s own automated status/note field, shown read-only via the pink
+  badge at `ToolDetail.jsx:123-130` (`tool.status !== 'Active'`) — and zero
+  user-facing way to say "this is wrong." Grepped `report|incorrect|flag`
+  (tool-related) across `src/pages/app/ToolDetail.jsx` and
+  `src/pages/ToolPublic.jsx`: zero hits in both. A visitor who notices a
+  dead pricing link, a tool that shut down before radar caught it, or a
+  wrong category has no lower-friction option than emailing
+  `CONTACT_EMAIL` cold with no context about which tool or field, if they
+  even find `/support`. This is the mirror image of the already-logged
+  "Suggest a tool" gap above (empty catalog → user has nothing to add) but
+  for the opposite direction (existing entry → user has already noticed it's
+  wrong) and neither today's code nor that gap's plan covers it — that
+  entry's `buildSuggestToolUrl()` util is scoped to catalog-empty submissions
+  only, no `slug`/existing-tool argument.
+- **Why it matters:** it's the same free, no-backend, top-of-funnel signal
+  capture the Suggest-a-tool gap already argues for, but pointed at data
+  quality instead of catalog breadth — and a stale/wrong listing is worse
+  for trust than a missing one, because the visitor acted on it (clicked
+  "Visit website," compared pricing) before finding out it was wrong. Every
+  tool detail page — the exact place a visitor is close enough to notice
+  something's off — currently offers no way to say so.
+- **Smallest useful version (what to actually build):** extend, not
+  duplicate, the Suggest-a-tool gap's planned util:
+  - Add a second export to the same planned `src/utils/suggestTool.js` —
+    `buildReportIssueUrl({ slug, name, note })` → a GitHub `issues/new` URL
+    built the same way (`URLSearchParams`, `title` pre-filled with the tool
+    name, structured `body` with slug + note field, `labels=tool-report`) so
+    both flows share one pure, testable module and one `GITHUB_REPO_URL`
+    constant instead of two competing ones.
+  - One small, low-emphasis link on `ToolDetail.jsx` (near the existing
+    "Visit website" button at `ToolDetail.jsx:151-163`, styled as plain text
+    not another `nb-btn`, so it doesn't compete with the primary CTAs) and
+    the equivalent spot on the public `ToolPublic.jsx` (`:74-88`, same
+    button row): "Something wrong here?" opening
+    `window.open(buildReportIssueUrl({ slug: tool.slug, name: tool.name }), '_blank', 'noopener')`.
+    No modal, no textarea in-app for v1 — the GitHub issue form is where the
+    actual note gets typed, same division of labor the Suggest-a-tool gap
+    already establishes.
+  - **What this would NOT include** (kept out to bound the diff): no
+    moderation queue or in-app report history (GitHub issues are the queue,
+    same as Suggest-a-tool); no automatic action on the catalog record from a
+    report (a human triages, same as radar's own status field is
+    human/LLM-set today, never user-set); no separate report reason
+    dropdown (name + optional note is enough for a GitHub issue a human
+    reads, and keeps this a v1-sized diff); no change to the existing
+    `tool.status` badge or its display logic.
+- **Build size:** S — two small link additions (`ToolDetail.jsx`,
+  `ToolPublic.jsx`), one added export in a util file the Suggest-a-tool gap
+  is already planning to create (build together if both land in the same
+  run — same `GITHUB_REPO_URL` constant, same file, near-zero marginal
+  diff). No backend, no new dependency, no new route.
+- **Found:** 2026-09-16 21:15 UTC
+
+---
+
+### No browsable gallery of shared stacks — sharing is a stateless one-off URL, nobody can see what other users built
+- **Status:** OPEN
+- **Seen in:** template/showcase galleries for share-a-config products —
+  Notion's public template gallery, Framer's site gallery, "awesome-list"
+  style curated collections — the standard next step once a product has a
+  single-item share link: let visitors browse what other real users made,
+  not just receive a link one person handed them directly.
+- **Gap:** Toolnaut already built the share primitive (the "Share / export
+  your stack" gap above, SHIPPED 42bdc99) but it stops at a stateless URL.
+  `src/utils/shareStack.js` is purely `encodeStackSlugs`/`decodeStackSlugs` —
+  a comma-joined list of tool slugs baked into the URL itself; nothing is
+  ever written to storage when a stack is shared. `src/pages/SharedStack.jsx`
+  reads the stack straight back out of the URL param — there is no lookup
+  against any stored or published record. `grep -rn "shared_stacks\|public_stacks\|from('stack" src`
+  returns zero hits — no Supabase table for a published stack exists, even
+  though a live Supabase backend already backs signed-in sync (per
+  `src/pages/Legal.jsx:78-82`, "we also store on our servers: ... the tools
+  in your stack" — this is not the backend-free case the ranking note below
+  usually rejects). `src/App.jsx` only routes the single `/s/:slugs` pattern,
+  keyed by whatever slugs are in that one URL — there is no `/gallery` route
+  and no index of past shares anywhere. The only public/social surface today
+  is `src/state/communityStore.js` (forum threads with upvotes), which stores
+  free-text posts, not a structured tool-stack object, so Community can't
+  stand in for this.
+- **Why it matters:** every stack a visitor can currently see is either their
+  own or one link someone handed them directly — there is no way to browse
+  what real users with a given role actually assembled ("a designer's
+  stack," "a founder's stack"), which is exactly the social-proof/inspiration
+  loop that turns a one-time quiz-taker into a repeat visitor, and it is free
+  top-of-funnel content a `/gallery/:role` page could rank for, reusing
+  `CategoryLanding.jsx`'s SEO/JSON-LD pattern.
+- **Smallest useful version (what to actually build):**
+  - One new Supabase table (`shared_stacks`: owner id or null for a guest
+    share, tool slugs, an optional role/persona tag inferred from
+    `quiz.answers.domain`, `created_at`, an opt-in `visible` flag) — the
+    smallest schema addition, since the sync backend and its client already
+    exist (`src/state/sync.js`, `entitlement.js`) and this follows the same
+    shape.
+  - A `publishStack()`/`listPublishedStacks(role)` pair, colocated with the
+    existing share util rather than a new store module.
+  - `src/pages/app/Stack.jsx`: one opt-in "Publish to gallery" toggle next
+    to the existing share action — off by default, so nothing already-shared
+    silently becomes public.
+  - New public route `/gallery` (optionally `/gallery/:role`) rendering a
+    card grid in `CategoryLanding.jsx`'s style, each card linking through to
+    the existing `SharedStack.jsx` adopt-this-stack view — no new adopt flow
+    needed, the receiving half already ships.
+  - **What this would NOT include** (kept out to bound the diff): no
+    likes/comments on a published stack (Community already owns discussion);
+    no editing a published stack after the fact (unpublish and republish is
+    enough for v1); no sitemap entries for individual published stacks
+    (user-generated and mutable, same reasoning `SharedStack.jsx` already
+    uses to stay out of `scripts/prerender.mjs`'s `ROUTES`) — only the
+    role-level `/gallery` index pages, if any, would be sitemapped.
+- **Build size:** M — one new Supabase table plus RLS policy, one store
+  module, one new public page/route, one opt-in toggle in `Stack.jsx`. Larger
+  than this file's usual S gaps because it is the first entry here that
+  needs a schema change rather than reusing existing local state, so it is a
+  reasonable feature-run candidate but not a trivial one.
+- **Found:** 2026-09-17 03:20 UTC
+
+### No "Toolnaut vs [competitor]" comparison pages — the single highest-intent SEO page type in this category, entirely missing
+- **Status:** SHIPPED 83805fc — built exactly as scoped below:
+  `src/content/comparisons.js` (2 hand-verified competitor entries — There's An
+  AI For That, Futurepedia), `src/pages/CompareCompetitor.jsx` + `/vs/:slug`
+  route in `src/App.jsx`, both paths added to `scripts/prerender.mjs`'s
+  `ROUTES` and `public/sitemap.xml`. Verified in the actual `npm run build`
+  output: both `/vs/theres-an-ai-for-that` and `/vs/futurepedia` prerendered
+  with real text content (924 and 763 chars), and `/vs/futurepedia` added to
+  `scripts/smoke.mjs`'s route list so a future regression fails CI.
+- **Seen in:** this is the standard SaaS/directory SEO pattern, distinct from
+  a per-tool alternatives page (already logged below as its own gap) — it
+  compares the *directory itself* against its direct competitors, not one
+  catalog tool against another. There's An AI For That (~47,000 tools
+  indexed, task-first browsing, ~4M monthly visits, a 2.5M-subscriber
+  newsletter) and Futurepedia (~5,000 tools, category-first browsing, free to
+  browse) are Toolnaut's two closest direct competitors by category and are
+  both far bigger by raw catalog size — which is exactly why a page arguing
+  Toolnaut's *different* value (quiz-personalized stack + 4-week roadmap vs.
+  a plain browsable list) is worth writing rather than trying to out-list
+  them. Zoho and Ahrefs both run a full set of individually-targeted
+  competitor pages collected on one hub; Webflow's vs-Squarespace page is the
+  well-known example of doing it with an honest side-by-side rather than
+  marketing spin.
+- **Gap:** confirmed by reading every route in `src/App.jsx:100-165` and
+  grepping `futurepedia|there's an ai for that|toolfinder|product hunt|vs-`
+  across `src/` — the only competitor mentions anywhere are Product Hunt and
+  GitHub cited as radar *data sources* (`NewTools.jsx:73`, `Methodology.jsx:80`),
+  never as directories being compared against. There is no `/vs/:slug` route,
+  no comparison content file, and nothing in `scripts/prerender.mjs`'s route
+  list targets this. Someone searching "Toolnaut vs Futurepedia" or "AI tool
+  directory alternative to There's An AI For That" — exactly the
+  high-purchase-intent query this category's own competitors are ranking
+  for — has literally nothing on toolnaut.xyz to land on.
+- **Why it matters:** these are bottom-of-funnel searches from people already
+  comparing directories, not top-of-funnel "what is an AI tool" traffic — the
+  single highest-converting SEO page type available to a discovery product,
+  and Toolnaut currently concedes all of it. It is also the one place
+  Toolnaut can make its actual differentiation (personalized stack + guided
+  roadmap, not just a bigger list) legible in a search result, which no
+  existing page does — `About.jsx` and `Methodology.jsx` explain what
+  Toolnaut *is* but never contrast it against what a visitor is coming from.
+  Zero backend need: this is static, hand-authored comparison copy, same
+  shape as the marketing routes already prerendered.
+- **Smallest useful version (what to actually build):**
+  - New `src/content/comparisons.js`: a small array of plain objects, one per
+    competitor — `{ slug, name, blurb, catalogSize, browseModel, pricing,
+    strengths, toolnautDifference }` — hand-filled with real, checkable facts
+    about each competitor (catalog size, whether it's task- or
+    category-first, whether personalization exists), not superlatives. This
+    codebase already refuses to show an invented number anywhere
+    (`StatsSection.jsx`'s "a number on a landing page is a claim" comment) —
+    the same discipline applies here: no "#1", no fabricated user counts for
+    either side, just a factual side-by-side a visitor can verify.
+  - New `src/pages/CompareCompetitor.jsx` + route `/vs/:slug` in
+    `src/App.jsx` (public, next to `/compare/:slugs` at `App.jsx:120`):
+    renders the two-column comparison table plus one short paragraph on what
+    Toolnaut does differently (quiz → persona → stack → roadmap), ending
+    with the same quiz CTA every other marketing page uses. Reuses
+    `SectionShell`/card styling from `src/components/sections/` rather than
+    inventing new layout.
+  - Add `/vs/:slug` for each entry in `comparisons.js` to
+    `scripts/prerender.mjs`'s `ROUTES` list — this is a handful of pages
+    (start with 2-3 real, named direct competitors), the exact case that
+    file's own comment says the real-browser prerenderer is for, not the
+    1,100-page `gen-tool-pages.mjs` string-render path. Also add each path to
+    `scripts/stamp-sitemap.mjs`'s lastmod list alongside the existing
+    `/tools/*` marketing routes.
+  - Give each page its own `useHead()` call (`src/utils/head.js`, already
+    used by 14 pages) with a title matching the exact search pattern —
+    `"Toolnaut vs Futurepedia — Which AI tool directory fits you?"` — since
+    that literal phrase in the `<title>` is most of the SEO value here.
+  - **What this would NOT include** (kept out to bound the diff): no
+    auto-generated or scraped competitor data (facts go stale silently and
+    this repo's own ranking rule prefers hand-verified content); no more than
+    2-3 competitor pages in the first cut — There's An AI For That and
+    Futurepedia are the two closest by category, a third can follow once
+    these prove out; no disparaging or unverifiable claims about the
+    competitor (matches the existing "a claim that isn't checkable doesn't
+    ship" pattern); no dynamic/live-updated comparison data — these are
+    static marketing pages, refreshed by hand same as `About.jsx`.
+- **Build size:** S — one content file, one page component, one route, two
+  small additions to existing build scripts (`prerender.mjs` ROUTES,
+  `stamp-sitemap.mjs`). No schema, no backend, no new dependency.
+- **Found:** 2026-09-17 09:xx UTC
+
+### No educational/how-to content — the footer's own "Resources" column links only to existing product pages, none of the guide content competitors publish to rank for non-branded queries
+- **Status:** OPEN
+- **Seen in:** studied fresh this run. Futurepedia pairs its tools directory
+  with a dedicated guides/education layer distinct from the listings
+  themselves — practical how-to guides, a newsletter, and (per its own
+  positioning) a fast-growing course platform aimed at real-world AI skills,
+  not just tool discovery. Its own content strategy treats each tool page and
+  each of its 50+ category pages as the landing page for one specific,
+  branded-or-near-branded search, then layers genuine guide content on top
+  to reach the broader informational queries a plain listing can't rank for.
+  That's the same split this file's own (shipped) "Alternatives" and
+  "vs-competitor" gaps already exploit for bottom-of-funnel intent — guides
+  are the unclaimed top-of-funnel counterpart, for someone who hasn't picked
+  a product yet, or doesn't know one exists, and is searching the task
+  itself ("how do I automate video editing with AI") rather than a tool
+  name.
+- **Gap:** confirmed by reading `scripts/prerender.mjs`'s full `ROUTES` list
+  (`:42-62`, 19 entries) — every prerendered static route is a product
+  surface: `/`, `/about`, `/changelog`, `/pricing`, `/methodology`,
+  `/example`, `/new`, `/search`, `/support`, `/privacy`, `/terms`, the 6
+  `/tools/:domain` category grids (already logged above as thin and
+  underpaginated), and the 2 shipped `/vs/:slug` pages. `grep -in "guide" docs/research-backlog.md`
+  and `grep -in "blog" docs/research-backlog.md` turn up only this file's own
+  past comparisons to blog-shaped products (a changelog entry, an "awesome
+  list" reference) — never an actual Toolnaut page. `grep -n "Learning" src/App.jsx`
+  shows the only "Learning" surface is `lazy(() => import('./pages/app/Learning'))`
+  mounted at `app/learning` (`App.jsx:155`) — behind `AppShell`'s sign-in
+  gate, tied to a signed-in user's own roadmap progress, not public content a
+  search engine can index. Most tellingly, `src/components/sections/ContactSection.jsx`
+  — the site's footer — already has a column titled **"Resources"** (`:44`),
+  but its four links (`:46-49`) are "How it works," "How we choose"
+  (Methodology), "What's new" (Changelog), and "Open the app": existing
+  product pages relabeled as resources, not content written to answer a
+  search query none of those pages already answer.
+- **Why it matters:** every other SEO gap already logged in this file
+  (Alternatives pages, vs-competitor pages, category landing pages,
+  structured data, the developer API) targets a visitor who already knows
+  they want an AI tool and is comparing named options — bottom-of-funnel.
+  Nothing on toolnaut.xyz targets the visitor one step earlier, who hasn't
+  framed their problem as "which tool" yet. It is also compounding content
+  in a way the fixed-cost vs-competitor pages aren't: a small guide library
+  can cross-link into the `/tools/:domain` pages and specific tool pages
+  that already exist, sending internal link equity to surfaces that
+  currently have no inbound content pointing at them, and it grows
+  independently of adding new competitor comparisons.
+- **Smallest useful version (what to actually build):** follow the exact
+  shape the (shipped) vs-competitor gap established rather than inventing a
+  CMS:
+  - New `src/content/guides.js`: a small array of plain objects, one per
+    guide — `{ slug, title, dek, sections: [{ heading, paragraphs }],
+    relatedCategory, relatedTools }` (`relatedTools` referencing real
+    catalog slugs) — hand-written, matching this file's own no-invented-
+    facts discipline (`StatsSection.jsx`'s rule already cited above). Start
+    with 2-3 guides tied to tasks the catalog already serves well, one per
+    existing `/tools/:domain` category so each guide has somewhere real to
+    link.
+  - New `src/pages/Guide.jsx` + route `/guides/:slug` in `src/App.jsx`
+    (public, next to `/vs/:slug`), reusing `SectionShell`/card styling from
+    `src/components/sections/`. Each guide ends by linking into its
+    `relatedCategory`'s `/tools/:domain` page and 2-3 specific tool pages by
+    slug.
+  - New `src/pages/Guides.jsx` index at `/guides` listing all entries,
+    linked from `ContactSection.jsx`'s existing "Resources" column so the
+    footer's own label finally matches what it points to.
+  - Add `/guides` and each `/guides/:slug` to `scripts/prerender.mjs`'s
+    `ROUTES` and to `stamp-sitemap.mjs`'s lastmod list, exactly as the
+    vs-competitor gap did.
+  - Give each guide its own `useHead()` call targeting the actual long-tail
+    query phrase, the same mechanism 14 other pages already use.
+  - **What this would NOT include** (kept out to bound the diff): no CMS,
+    no markdown loader, no admin UI — content lives in one hand-edited JS
+    array like `comparisons.js`; no LLM-generated guide prose (radar's own
+    enrichment is for catalog metadata, not for public-facing claims this
+    file's discipline requires to be checkable by a human); no more than 2-3
+    guides in the first cut, same ramp the vs-competitor gap used; no
+    comments/ratings on guides (Community already owns discussion); no new
+    analytics beyond the existing `useAnalytics()` page-view tracking every
+    route already gets.
+- **Build size:** S — one content file, two page components (index +
+  detail), one route pattern, two small additions to existing build
+  scripts, one footer link-column edit. Same size class as the already-
+  shipped vs-competitor gap. No schema, no backend, no new dependency.
+- **Found:** 2026-09-20 03:08 UTC

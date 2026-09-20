@@ -9,6 +9,182 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-19
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h
+window, most recently 2026-09-19 13:12 UTC publishing 7 tools. Feed holds
+505 tools. Healthy and growing. (No devlog entry landed for 2026-09-18 —
+the research backlog also shows no new finding logged that day — so this
+run's own scheduled slots may have been skipped; nothing in today's history
+points to a broken pipeline, radar and CI are both green.)
+
+**Researched today:** no new research-hour entries were available to review
+before this run — the backlog's newest open finding was already
+2026-09-17 09:xx UTC's "Toolnaut vs [competitor]" comparison-pages gap, left
+undeepened since. Per the cumulative-research rule, this run built that gap
+rather than skip to a shallow new one.
+
+**Shipped (this run):** "Toolnaut vs [competitor]" comparison pages —
+[`83805fc`](https://github.com/saikiranreddy18/toolnaut/commit/83805fc).
+There's An AI For That (~47,000 tools, task-first) and Futurepedia (~5,000
+tools, category-first) both outrank Toolnaut on raw catalog size, and
+neither directory-vs-directory comparison existed anywhere on the site —
+the closest prior page, `/compare/:slugs`, only compares catalog tools
+against each other. Built exactly as scoped: `src/content/comparisons.js`
+holds two hand-verified competitor entries (no invented numbers, same
+discipline `StatsSection.jsx` already enforces), `src/pages/CompareCompetitor.jsx`
+renders a Toolnaut-vs-them table at the new `/vs/:slug` route, and both
+paths were added to `scripts/prerender.mjs`'s `ROUTES` and
+`public/sitemap.xml`. **Visible on the live site today** — verified in the
+actual `npm run build` prerender output that both `/vs/theres-an-ai-for-that`
+(924 chars of text) and `/vs/futurepedia` (763 chars) render real content,
+not an empty shell, and `/vs/futurepedia` was added to `scripts/smoke.mjs`'s
+route list so a future regression fails CI rather than going unnoticed.
+6 files changed, 139 insertions. All three checks green (297 tests,
+build, smoke) before push.
+
+**Queued next:** the backlog's other well-developed OPEN gaps — "No way to
+flag a wrong listing" (S, shares a util with the already-shipped
+Suggest-a-tool flow) and "No browsable gallery of shared stacks" (M, needs
+a new Supabase table) — are both build-ready for a future run. The oldest
+untouched OPEN gap (first-session onboarding checklist, cross-session
+tracking) is still real per the 2026-09-17 15:10 UTC re-check.
+
+---
+
+## 2026-09-17
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 24h,
+2026-09-16 23:51 UTC publishing 12 tools, 2026-09-17 14:19 UTC publishing 13.
+25 tools published in the last 24h, feed holds 461 tools. Healthy and
+growing.
+
+**Researched today:** four research-hour runs before this one. 21:08 UTC
+(09-16) logged the missing "report a wrong listing" path — Suggest-a-tool
+already covers an empty catalog result, nothing covers a visitor who spots a
+stale or wrong entry on a tool they already found; scoped to share the same
+planned GitHub-issue util so the two ship together as near-zero marginal
+diff. 03:09 UTC logged that Share/Export stops at a stateless `/s/:slugs`
+link — no gallery exists for browsing what other users actually built
+(confirmed zero `shared_stacks`/`public_stacks` table or route), the
+Notion-template-gallery-shaped social-proof loop competitors rely on.
+06:12 UTC used the run's one allowed real-improvement slot on a genuine a11y
+bug, not backlog research: the skip-to-content link only worked inside the
+signed-in app shell — every public route a visitor actually lands on first
+(landing, pricing, search, tool pages, the quiz, 20+ routes) had none,
+shipped same run. 09:11 UTC logged the missing "Toolnaut vs [competitor]"
+comparison pages — There's An AI For That and Futurepedia both outrank
+Toolnaut on raw catalog size, making a page arguing personalization over
+list-size the highest-intent unbuilt SEO page type in this category.
+15:10 UTC re-checked the oldest OPEN entry (first-session onboarding
+checklist) against current `src/` and corrected its own stale claim: a
+first-run spotlight tour (`AppTour.jsx`) shipped since it was last written,
+so "nothing exists at all" was no longer true — the checklist gap itself
+(cross-session tracking of what a user actually did) is still real and
+still unbuilt.
+
+**Shipped (this run):** the Uncertain-status badge now reaches `Stack.jsx`'s
+kit-grid cards —
+[`c60fd8d`](https://github.com/saikiranreddy18/toolnaut/commit/c60fd8d).
+`ToolCard.jsx`, `ToolDetail.jsx` and `Compare.jsx` already rendered the
+pink `Uncertain`-status pill; `/app/stack` — the one screen where someone
+already committed to a tool and is actively cycling its progress — silently
+showed nothing, even for a first-run persona stack that can start with an
+Uncertain pick. Picked over the "report a wrong listing" link and the
+"vs [competitor]" pages (both also build-ready, S-sized) because it was the
+smallest, most surgical fix of the three: one reused badge block, no new
+util, no new route, no backend, and it closes a real trust gap on the app's
+home screen rather than adding new surface area. 1 file, 11 lines. Verified
+live by adding Pi (a real Uncertain-status catalog tool) to a guest stack in
+a running preview and confirming the badge renders with its catalog note as
+the hover title.
+
+**Live on toolnaut.xyz** now that it's on master — a pure JSX addition to an
+existing card, no new component, route, or dependency. `npm test`
+(297/297), `npm run build` (17/17 routes prerendered, three.js stays in its
+own chunk, service-worker cache stamped), and `npm run smoke` (23/23
+routes, 0 console errors) all green before push.
+
+**Queued next:** "report a wrong listing" and "vs [competitor] comparison
+pages" are both S-sized and fully scoped — either is a strong pick for the
+next feature run, and the wrong-listing link should build alongside the
+still-OPEN "Suggest a tool" gap since they share one planned util. The
+public stack gallery is scoped but graded M (needs a new `shared_stacks`
+Supabase table + RLS policy, not just local state) — a reasonable next
+feature-run candidate once a smaller S gap is drained first. Still OPEN
+from prior days: GA4 consent gate, "download my data" export, command
+palette, tool graveyard page, "Featured on Toolnaut" badge, RSS feed of new
+tools, Discover facet counts, Collections, stack-overlap warning, weekly
+trending tools, role-benchmark display on `Stack.jsx`, Discover "hidden
+gems" rail, the dollar-amount half of stack cost, the shared-stack
+OG-preview Edge Middleware, and the first-session onboarding checklist.
+
+---
+
+## 2026-09-16
+
+**Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h
+window, most recent 2026-09-16 14:13 UTC publishing 15 tools, previous run
+2026-09-15 23:42 UTC publishing 13. 28 tools published in the last 24h, feed
+holds 436 tools. Healthy and growing.
+
+**Researched today:** five research-hour runs before this one. 00:13 UTC
+found that the already-SHIPPED Uncertain-status badge (`ef59a93`) never made
+it onto `Stack.jsx`'s own kit-grid cards — the one commitment surface where
+it matters most, since a stack tool's status can degrade to Uncertain after
+it's already been added. 03:10 UTC logged that the shared-stack feature's
+own `SharedStack.jsx` comment claiming to fix "the pasted-link preview" is
+wrong — `useHead()` only sets tags after React hydrates, so every real
+preview scraper (Slackbot, Twitterbot, WhatsApp, iMessage) still sees the
+generic homepage card; needs Edge Middleware, scoped M, queued below.
+06:10 UTC logged the gap chosen below — the Spend Audit shipped this
+morning (`e3b8a3b`) with nothing on any marketing page pointing at it.
+09:13 UTC confirmed a second live-catalog check: `/search`'s own placeholder
+copy invites "the problem you're trying to solve," but `matchesQuery()`
+still requires exact literal substrings, so "transcribe meetings" returns
+zero results against 11+ tagged meeting-transcription tools. 12:08 UTC
+corrected a stale backlog entry — the Founder-offer preselect bug had
+already been fixed same-day by `680b760` but was still marked OPEN.
+
+**Shipped (this run):** Spend Audit surfaced on every page that sells
+Pro — [`b7f87af`](https://github.com/saikiranreddy18/toolnaut/commit/b7f87af).
+Picked over the search-matcher fix, the Uncertain-badge gap on `Stack.jsx`,
+and the shared-stack OG-preview middleware (all also build-ready) because
+this is the inverse of every other backlog entry: not a promise with
+nothing behind it, but a real, already-working feature (`Audit.jsx` /
+`stackAudit.js`, live since this morning) that no visitor deciding whether
+Pro is worth ₹799 would ever see mentioned. `capabilityMatrix.js` gained
+one new `Spend audit` row (free = health score + total spend, pro/team =
+full cancel list, all marked `live` — the first genuinely-live Pro/Team row
+in the whole matrix), `planData.js` added it to Student's feature list
+(cascading to Pro/Team via their existing "Everything in X, plus" copy)
+plus a COMPARISON row, and `FeaturesSection.jsx`'s homepage grid got a 7th
+card. Left `Audit.jsx`, `stackAudit.js`, entitlement logic, and the
+unrelated Team-only "Quarterly stack audits" row untouched, as scoped.
+3 files, 12 lines.
+
+**Live on toolnaut.xyz** now that it's on master — pure data/copy changes
+across three already-existing files, no new component, route, or
+dependency. `npm test` (297/297), `npm run build` (17/17 routes
+prerendered, three.js stays in its own chunk), and `npm run smoke` (23/23
+routes, 0 console errors) all green before push.
+
+**Queued next:** the `/search` literal-substring matcher fix (one function
+in `src/utils/search.js`, fully specced, build size S) is the next-best
+small win — it's the public, no-login page whose own copy makes the exact
+promise the current matcher breaks. The Uncertain-status badge missing from
+`Stack.jsx`'s kit grid is equally build-ready and just as small. The
+shared-stack OG-preview Edge Middleware is scoped but graded M and needs a
+manual bot-UA `curl` check against a preview deploy to verify, since
+headless Chromium smoke doesn't send one. Still OPEN from prior days: GA4
+consent gate, "download my data" export, public-page skip-to-content link,
+command palette, tool graveyard page, "Featured on Toolnaut" badge, RSS
+feed of new tools, Discover facet counts, Collections, stack-overlap
+warning, weekly trending tools, role-benchmark display on `Stack.jsx`,
+Discover "hidden gems" rail, and the dollar-amount half of stack cost.
+
+---
+
 ## 2026-09-15
 
 **Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h

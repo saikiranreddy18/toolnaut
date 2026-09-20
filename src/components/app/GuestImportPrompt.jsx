@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { pendingImport, adoptGuestData, discardGuestData } from '../../state/scopedStorage'
 import { pushAll } from '../../state/sync'
@@ -17,10 +17,20 @@ import { haptic } from '../../utils/haptics'
 export default function GuestImportPrompt() {
   const [found, setFound] = useState(null)
   const [busy, setBusy] = useState(false)
+  const firstRef = useRef(null)
 
   useEffect(() => {
     setFound(pendingImport())
   }, [])
+
+  // No Escape/backdrop dismiss by design (see comment above — the choice must
+  // be explicit either way), but a full-screen dialog still has to receive
+  // focus on open, same as this app's other role="dialog" components
+  // (DeleteAccount.jsx, AppTour.jsx), or a keyboard/screen-reader user is left
+  // behind it with no indication anything opened.
+  useEffect(() => {
+    if (found) firstRef.current?.focus()
+  }, [found])
 
   if (!found) return null
 
@@ -78,7 +88,7 @@ export default function GuestImportPrompt() {
           </p>
 
           <div className="mt-5 flex flex-col gap-2 sm:flex-row">
-            <button onClick={keep} disabled={busy} className="nb-btn min-h-11 flex-1 px-5 py-3 text-sm disabled:opacity-50">
+            <button ref={firstRef} onClick={keep} disabled={busy} className="nb-btn min-h-11 flex-1 px-5 py-3 text-sm disabled:opacity-50">
               Add it to my account
             </button>
             <button onClick={fresh} disabled={busy} className="nb-btn dark min-h-11 px-5 py-3 text-sm disabled:opacity-50">

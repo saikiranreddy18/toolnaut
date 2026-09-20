@@ -544,5 +544,122 @@
       "rejected": 0,
       "courses": 13
     }
+  },
+  {
+    "at": "2026-09-16T14:13:20.724Z",
+    "counts": {
+      "candidates": 76,
+      "filtered": 10,
+      "new": 15,
+      "skipped": 10,
+      "published": 15,
+      "review": 0,
+      "rejected": 0,
+      "courses": 15
+    }
+  },
+  {
+    "at": "2026-09-16T23:51:17.133Z",
+    "counts": {
+      "candidates": 80,
+      "filtered": 15,
+      "new": 13,
+      "skipped": 12,
+      "published": 12,
+      "review": 1,
+      "rejected": 0,
+      "courses": 12
+    }
+  },
+  {
+    "at": "2026-09-17T14:18:56.690Z",
+    "counts": {
+      "candidates": 78,
+      "filtered": 16,
+      "new": 13,
+      "skipped": 12,
+      "published": 13,
+      "review": 0,
+      "rejected": 0,
+      "courses": 13
+    }
+  },
+  {
+    "at": "2026-09-17T23:41:16.935Z",
+    "counts": {
+      "candidates": 75,
+      "filtered": 10,
+      "new": 14,
+      "skipped": 11,
+      "published": 13,
+      "review": 1,
+      "rejected": 0,
+      "courses": 13
+    }
+  },
+  {
+    "at": "2026-09-18T13:38:05.296Z",
+    "counts": {
+      "candidates": 75,
+      "filtered": 16,
+      "new": 8,
+      "skipped": 17,
+      "published": 8,
+      "review": 0,
+      "rejected": 0,
+      "courses": 8
+    }
+  },
+  {
+    "at": "2026-09-18T23:34:59.552Z",
+    "counts": {
+      "candidates": 76,
+      "filtered": 12,
+      "new": 16,
+      "skipped": 9,
+      "published": 16,
+      "review": 0,
+      "rejected": 0,
+      "courses": 16
+    }
+  },
+  {
+    "at": "2026-09-19T13:12:02.389Z",
+    "counts": {
+      "candidates": 74,
+      "filtered": 11,
+      "new": 7,
+      "skipped": 18,
+      "published": 7,
+      "review": 0,
+      "rejected": 0,
+      "courses": 7
+    }
+  },
+  {
+    "at": "2026-09-19T23:33:45.347Z",
+    "counts": {
+      "candidates": 74,
+      "filtered": 16,
+      "new": 4,
+      "skipped": 21,
+      "published": 0,
+      "review": 4,
+      "rejected": 0,
+      "courses": 0
+    }
+  },
+  {
+    "at": "2026-09-20T13:35:51.763Z",
+    "counts": {
+      "candidates": 74,
+      "filtered": 17,
+      "new": 7,
+      "skipped": 18,
+      "published": 0,
+      "review": 7,
+      "rejected": 0,
+      "courses": 0
+    }
   }
 ]

@@ -31,7 +31,7 @@ export default function OnboardingShell() {
         <FlowSteps />
       </div>
 
-      <main className="relative z-10">
+      <main id="main-content" tabIndex={-1} className="relative z-10">
         <Outlet />
       </main>
     </div>

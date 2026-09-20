@@ -6,6 +6,7 @@ import OnboardingShell from './shells/OnboardingShell'
 import ThemePicker from './components/ui/ThemePicker'
 import ArrivalLaunch from './components/auth/ArrivalLaunch'
 import CursorStars from './components/ui/CursorStars'
+import SkipLink from './components/ui/SkipLink'
 import { track, EVENTS } from './utils/analyticsEvents'
 
 const GoalChat = lazy(() => import('./pages/GoalChat'))
@@ -33,6 +34,7 @@ const Legal = lazy(() => import('./pages/Legal'))
 const Support = lazy(() => import('./pages/Support'))
 const SharedStack = lazy(() => import('./pages/SharedStack'))
 const PublicCompare = lazy(() => import('./pages/PublicCompare'))
+const CompareCompetitor = lazy(() => import('./pages/CompareCompetitor'))
 const ToolPublic = lazy(() => import('./pages/ToolPublic'))
 const CategoryLanding = lazy(() => import('./pages/CategoryLanding'))
 const NotFound = lazy(() => import('./pages/NotFound'))
@@ -88,6 +90,11 @@ export default function App() {
           only where the 3D galaxy actually renders (the landing side). */}
       <ThemePicker />
       <ArrivalLaunch />
+      {/* Mounted once for every route so keyboard/screen-reader users can
+          bypass each page's own header/nav chrome — WCAG 2.4.1. Targets the
+          #main-content landmark every page below (and AppShell, and
+          OnboardingShell) renders on its own root element. */}
+      <SkipLink />
       <Suspense fallback={<PageFallback />}>
         <MotionConfig reducedMotion="user">
           <Routes>
@@ -112,6 +119,9 @@ export default function App() {
             <Route path="/methodology" element={<Methodology />} />
             <Route path="/s/:slugs" element={<SharedStack />} />
             <Route path="/compare/:slugs" element={<PublicCompare />} />
+            {/* Directory-vs-directory comparison, not tool-vs-tool — distinct
+                from /compare above. Slugs come from src/content/comparisons.js. */}
+            <Route path="/vs/:slug" element={<CompareCompetitor />} />
             <Route path="/tools/:domain" element={<CategoryLanding />} />
             {/* One public, indexable page per tool. /app/tools/:slug stays the
                 personalised in-app view. */}

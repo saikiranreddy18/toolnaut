@@ -42,7 +42,7 @@ export default function NewTools() {
   })
 
   return (
-    <div className="mx-auto max-w-5xl px-5 py-10 lg:py-16">
+    <div id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-5 py-10 lg:py-16">
       {/* /new is a radar landing page — people arrive here from search and
           shared links, so it can be someone's first screen. It had no mark at
           all. Same header and same LOGO.page scale as the other standalone
