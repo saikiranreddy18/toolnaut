@@ -1634,6 +1634,69 @@ a client-side SPA with a static tool catalogue.
   wiring state + a global keydown listener + two trigger buttons into
   `AppShell.jsx`. No backend, no new dependency, no new route.
 - **Found:** 2026-08-26 09:06 UTC
+- **Deepened 2026-09-20 12:20 UTC — the oldest untouched OPEN entry (25 days);
+  re-read every file this plan cites against current `src/` rather than
+  trusting the original line numbers. The build is still exactly right in
+  shape, but three things drifted underneath it:**
+  1. **The match algorithm this entry proposed to copy no longer lives where
+     it said.** The original plan was "filtered by the same lowercase
+     substring match `Discover.jsx:86-97` already uses" — that logic has
+     since moved: `Discover.jsx` now imports `matchesQuery` from a new
+     `src/utils/search.js` (`Discover.jsx:8`), extracted when the (now-
+     shipped) "multi-word query" gap fixed literal-phrase matching for both
+     Discover and the public `/search` page. `matchesQuery(tool, q)` does
+     order-independent, every-word substring matching against `[name, blurb,
+     sourceCategory, dev, ...tags]`, not the single-phrase check this entry
+     described. **Corrected plan:** import and call `matchesQuery()` directly
+     for the tool half of the palette's results instead of hand-rolling a
+     new substring check — strictly less code than originally specced, and
+     gives palette search the same multi-word matching Discover already has
+     (typing "video editor" finds tools whose blurb has both words, not just
+     that literal phrase). The `NAV` half still needs its own trivial
+     label-substring check since `matchesQuery()` is tool-shaped, not generic.
+  2. **Every cited line number and two of the three insertion points moved.**
+     `NAV` is now `AppShell.jsx:26-34` (was `:14-21`) and has grown from 6
+     entries to 7 (`Spend`/`/app/audit` was added since). `hydrateCatalog()`
+     is now at `toolsCatalog.js:771` (was `:760-762`) — same behavior
+     (mutates `TOOLS` in place, so radar-published tools stay searchable with
+     zero extra wiring), just a different line. More substantively, the
+     desktop sidebar restructured: the persona sticker is now
+     `AppShell.jsx:161-182`, and a `<SyncStatus />` component that didn't
+     exist when this entry was written now sits directly under it at line
+     184, before the `NAV.map` render at `186-193`. The original "trigger
+     button under the persona sticker" placement (cited as `:86-100`, which
+     no longer matches anything) would now land between the sticker and
+     `SyncStatus`, wedging a new control into what reads as one continuous
+     "who you are" block. **Corrected placement:** put the "🔎 Quick jump ⌘K"
+     button after `<SyncStatus />` (line 184) and before the `<nav>` at 186 —
+     it then reads as the last piece of shell chrome before the actual
+     nav links, not an interruption between persona and sync state.
+  3. **The mobile top bar has no bare "icon-only" slot to drop a button
+     into anymore.** It restructured into `AppShell.jsx:222-238`: brand
+     logo on the left, and a `flex items-center gap-2` div on the right now
+     holding `<PlanChip compact />` and a profile `<Link>` (avatar +
+     persona-name chip) — a different shape than the entry's original
+     `:118-128` citation, which no longer resolves to this content.
+     **Corrected placement:** add the quick-jump icon button as the first
+     child inside that same `gap-2` flex div (`AppShell.jsx:227`), before
+     `PlanChip` — keeps it grouped with the bar's other icon-sized controls
+     rather than crowding the persona-name chip, and preserves the existing
+     left-to-right reading order (brand → utility icons → identity).
+  - **Still accurate, re-confirmed:** no `Modal`/`Dialog` abstraction exists
+    anywhere under `src/components/ui/` (globbed `Modal*`/`Dialog*` again,
+    zero hits) — the hand-rolled overlay plan stays the right call, matching
+    `ChatPanel.jsx`'s own per-component `keydown`/Escape listener pattern
+    (`ChatPanel.jsx:27-30`, unchanged). The "Recently viewed tools" gap this
+    entry named as a natural (but non-required) pairing has since shipped
+    (`113f375` → `src/state/recentlyViewedStore.js`, `loadRecentlyViewed()`
+    returns up to 12 slugs, most-recent-first) — still correctly out of scope
+    for v1 per the original "no recent/frequency ranking" exclusion, but
+    worth flagging as the obvious first follow-on once the palette itself
+    ships, since the data now already exists with zero extra plumbing.
+  - **No change** to the component itself, the keyboard contract
+    (Cmd/Ctrl+K, arrow keys, Enter, Escape), the `~8` result cap, or the
+    build-size estimate — this deepening only corrects placement and swaps
+    in a better, already-shipped search primitive.
 
 ### Category/role landing pages ("Best AI tools for X") — zero crawlable listing pages exist
 - **Status:** SHIPPED 927ee5b
