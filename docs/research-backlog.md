@@ -2610,6 +2610,57 @@ a client-side SPA with a static tool catalogue.
   one sitemap line, one smoke-route line. No backend, no new dependency, no
   new store, no new util (reuses `TOOLS` directly, same as `CategoryLanding`).
 - **Found:** 2026-08-28 00:15 UTC
+- **Deepened 2026-09-20 15:20 UTC — the oldest untouched OPEN entry (23 days,
+  never previously deepened); re-read every file this plan cites against
+  current `src/` rather than trusting the original references. The core idea
+  and build size are still exactly right, but three things need correcting
+  before this gets built:**
+  1. **The data claim still checks out exactly.** Grepped
+     `src/utils/toolsCatalog.js` directly: 652 `"status": "Active"`, 52
+     `"status": "Uncertain"`, 47 of those 52 carry a non-empty `note`, 5 don't
+     — the original counts were precise and remain so.
+  2. **The status-note gap this entry deferred from has since shipped
+     (`ef59a93`), but not the way this entry assumed.** It described linking
+     from "wherever the status-note gap's inline UNCERTAIN badge ends up on
+     `ToolDetail.jsx`" — that file has since moved to
+     `src/pages/app/ToolDetail.jsx` and its badge (still a hot-pink pill,
+     `ToolDetail.jsx:123-130`, `tool.status !== 'Active'`) never grew the note
+     text under it as originally planned; the shipped version renders
+     `tool.note` in a separate `TrustPanel.jsx` "Watch out for" row instead
+     (`TrustPanel.jsx:31`), and the same badge pattern was reused verbatim on
+     `ToolCard.jsx:69-75` (badge `title` attribute carries the note as a
+     tooltip) and `Compare.jsx`'s Status row. None of that changes this
+     entry's own build — still a new standalone page — but the "link to
+     `/graveyard` from the badge" instruction needs a real target, corrected
+     below.
+  3. **A better, more appropriate link target now exists and didn't when this
+     entry was written: `ToolPublic.jsx` at the public `/ai-tools/:slug`
+     route (`App.jsx:128`), added since.** It's explicitly the public,
+     crawlable, session-free per-tool page — "the in-app page
+     (`/app/tools/:slug`) is personalised... this one is the same facts for
+     everyone, so it can be crawled, shared and ranked" (`ToolPublic.jsx:9-11`)
+     — exactly the audience a public `/graveyard` listing page serves, unlike
+     the session-gated in-app `ToolDetail.jsx` the original plan pointed the
+     inline link at. **Corrected plan:** link each graveyard card to
+     `/ai-tools/:slug` (same as `CategoryLanding.jsx:100` already does, not
+     `/app/tools/:slug`), and if a reciprocal in-page link is added at build
+     time, put it on `ToolPublic.jsx` rather than `ToolDetail.jsx`. One
+     related gap worth flagging but explicitly NOT folding into this entry's
+     scope: `ToolPublic.jsx` already renders `tool.note` as a neutral "Worth
+     knowing" fact (line 41) but never renders `tool.status` at all — a
+     visitor lands on `/ai-tools/pi` and reads "Core team moved to Microsoft;
+     app in maintenance" with no Uncertain flag anywhere on the page. That's
+     a small, separate fix (add one `status`-conditional fact row, same shape
+     as the existing `facts` array), not a graveyard-page dependency, and not
+     worth widening this diff to include.
+  4. **Route insertion point moved.** `/tools/:domain` (`CategoryLanding`) is
+     now `App.jsx:125`, not `:79` — `/graveyard` should still sit in that
+     same public-routes block, right after `/tools/:domain` and before
+     `/ai-tools/:slug` at `:128`.
+  - **No change** to the page's own scope, the `CategoryLanding.jsx`-modeled
+    structure, the exclusions (no backfilled notes, no date-of-death field,
+    no per-tool graveyard subpage, no removal from Discover/Compare), or the
+    build-size estimate.
 
 ### Embeddable "Featured on Toolnaut" badge — the standard directory backlink loop, missing entirely
 - **Status:** OPEN
