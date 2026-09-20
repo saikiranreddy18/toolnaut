@@ -4,7 +4,7 @@
 // drops article-shaped candidates before they reach enrichment, so the review
 // queue isn't flooded with non-tools.
 const ARTICLE_PHRASES =
-  /\b(tells you|how to|why |what |the rise of|is now|has been|announc|launches its|according to|report|study finds|the best|top \d|explained|guide to|tutorial|opinion|op-ed)\b/i
+  /\b(tells you|how to|why |what |the rise of|is now|has been|announc|launches its|according to|report|study finds|the best|top \d|explained|guide to|tutorial|opinion|op-ed|the future of|ai is|ai that|interview|news|story|reveal|discover|secret|behind the|inside|exclusive|investigate|qa:|q&a|watch|video|podcast|debate|discuss|analysis|deep dive|deep-dive)\b/i
 
 const MAX_TOOL_WORDS = 8
 const MAX_TOOL_NAME_LEN = 55
