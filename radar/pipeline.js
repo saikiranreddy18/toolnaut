@@ -3,6 +3,7 @@ import { looksLikeTool } from './filter.js'
 import { classify } from './dedup.js'
 import { enrich } from './enrich.js'
 import { validate } from './validate.js'
+import { reviewTool } from './review-bot.js'
 import { generateCourse } from './courseGen.js'
 import { skillsFor } from './skills.js'
 import { config } from './config.js'
@@ -80,9 +81,26 @@ export async function runPipeline({ store, candidates, now = new Date().toISOStr
     })
     record.confidence = v.confidence
 
-    if (v.decision === 'publish') {
+    // Run daily review bot on high-confidence candidates
+    let botReview = { decision: 'approve', issues: [], warnings: [] }
+    if (v.decision === 'publish' || v.decision === 'review') {
+      botReview = await reviewTool(record, { store })
+    }
+
+    // Check: validation passed AND review bot approved
+    const isApproved = v.decision === 'publish' && botReview.decision === 'approve'
+    const isReviewNeeded = (v.decision === 'review' && botReview.decision === 'approve') || botReview.decision === 'review'
+    const isRejected = v.decision === 'reject' || botReview.decision === 'reject'
+
+    if (isApproved) {
       report.counts.published++
-      report.published.push({ slug, name: record.name, confidence: v.confidence, by: record.enrichedBy })
+      report.published.push({
+        slug,
+        name: record.name,
+        confidence: v.confidence,
+        by: record.enrichedBy,
+        botScore: botReview.score,
+      })
       if (!dryRun) {
         store.markKnown(slug)
         store.upsertTool(record)
@@ -94,18 +112,26 @@ export async function runPipeline({ store, candidates, now = new Date().toISOStr
           log.warn(`knowledge-build failed for ${slug}`, e.message)
         }
       }
-    } else if (v.decision === 'review') {
+    } else if (isReviewNeeded) {
       report.counts.review++
-      report.review.push({ slug, name: record.name, confidence: v.confidence, warnings: v.warnings })
+      report.review.push({
+        slug,
+        name: record.name,
+        confidence: v.confidence,
+        warnings: [...(v.warnings || []), ...(botReview.warnings || [])],
+        botIssues: botReview.issues,
+      })
       if (!dryRun) {
         store.markKnown(slug)
         store.enqueueReview(record)
       }
-    } else {
-      // Rejects are NOT marked known — a bad threshold/config shouldn't
-      // blacklist a tool forever; the next run gets to reconsider it.
+    } else if (isRejected) {
       report.counts.rejected++
-      report.rejected.push({ slug, name: record.name, errors: v.errors })
+      report.rejected.push({
+        slug,
+        name: record.name,
+        errors: [...(v.errors || []), ...(botReview.issues || [])],
+      })
     }
   }
 
