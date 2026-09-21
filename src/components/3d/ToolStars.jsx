@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+import { TOOLS } from '../../utils/toolsCatalog'
 import { isNewTool } from '../../utils/newTools'
 import { isCatalogNoise } from '../../utils/prominence'
 import { galaxyState } from '../../state/galaxyStore'
@@ -160,22 +161,6 @@ export default function ToolStars() {
   const pointer = useRef({ x: -9999, y: -9999 })
   const introStart = useRef(null)
   const formed = useRef(false)
-  const [tools, setTools] = useState([])
-
-  useEffect(() => {
-    // Load the live cleaned catalog from public/tools.json instead of the bundled catalog
-    // Use setTimeout to defer fetch to client-side only (avoid SSR fetch issues)
-    const timer = setTimeout(() => {
-      fetch('/tools.json')
-        .then((r) => r.json())
-        .then(setTools)
-        .catch((e) => {
-          console.error('Failed to load tools.json:', e)
-          setTools([])
-        })
-    }, 0)
-    return () => clearTimeout(timer)
-  }, [])
 
   useEffect(() => {
     function onMove(e) {
@@ -195,14 +180,12 @@ export default function ToolStars() {
   }, [])
 
   const items = useMemo(() => {
-    if (!tools.length) return []
-
     // Nameplates for the freshest dozen REAL tools: short, name-shaped titles
     // only, so a radar-ingested sentence never floats in space as a label.
     const looksLikeAName = (t) =>
       t.name.length <= 24 && t.name.split(/\s+/).length <= 3 && !t.name.includes(',')
     const newSlugs = new Set(
-      tools.filter((t) => isNewTool(t) && !isCatalogNoise(t) && looksLikeAName(t))
+      TOOLS.filter((t) => isNewTool(t) && !isCatalogNoise(t) && looksLikeAName(t))
         .sort((a, b) => (b.discoveredAt || 0) - (a.discoveredAt || 0))
         .slice(0, 12)
         .map((t) => t.slug),
@@ -210,7 +193,7 @@ export default function ToolStars() {
 
     // Flagships first so they sit in the bright inner arms; the rest by name,
     // so placement is stable from one visit to the next.
-    const sorted = [...tools].sort((a, b) => {
+    const sorted = [...TOOLS].sort((a, b) => {
       const fa = FLAGSHIP_NAMES.has(a.name) ? 0 : 1
       const fb = FLAGSHIP_NAMES.has(b.name) ? 0 : 1
       return fa - fb || a.name.localeCompare(b.name)
@@ -259,7 +242,7 @@ export default function ToolStars() {
         phase: h2,
       }
     })
-  }, [tools])
+  }, [])
 
   const geometry = useMemo(() => {
     const n = items.length
