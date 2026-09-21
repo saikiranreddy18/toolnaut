@@ -8,6 +8,7 @@ import ArrivalLaunch from './components/auth/ArrivalLaunch'
 import CursorStars from './components/ui/CursorStars'
 import SkipLink from './components/ui/SkipLink'
 import { track, EVENTS } from './utils/analyticsEvents'
+import { initializeTracking } from './utils/cookies'
 
 const GoalChat = lazy(() => import('./pages/GoalChat'))
 const ExampleStack = lazy(() => import('./pages/ExampleStack'))
@@ -79,6 +80,11 @@ function PageFallback() {
 }
 
 export default function App() {
+  useEffect(() => {
+    // Initialize cookie-based tracking and preferences
+    initializeTracking()
+  }, [])
+
   return (
     <BrowserRouter>
       <RouteEffects />
