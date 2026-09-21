@@ -191,7 +191,7 @@ export default function ToolStars() {
   }, [])
 
   const items = useMemo(() => {
-    if (!tools.length) return { points: [], names: [], count: 0 }
+    if (!tools.length) return []
 
     // Nameplates for the freshest dozen REAL tools: short, name-shaped titles
     // only, so a radar-ingested sentence never floats in space as a label.
