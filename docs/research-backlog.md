@@ -2542,6 +2542,37 @@ a client-side SPA with a static tool catalogue.
   reusing an existing copy-to-clipboard pattern. No backend, no new
   dependency, no new route (reuses the already-public `/s/:slug`).
 - **Found:** 2026-08-28 03:15 UTC
+- **Deepened 2026-09-21 03:13 UTC — the link target this entry proposed is now
+  the second-best option, not the correct one:** re-read every file this
+  entry cites against current `src/`, 24 days on. Three line-number drifts
+  (harmless, just stale pointers): the "VISIT WEBSITE" anchor is now
+  `ToolDetail.jsx:151-163` (copy is lowercase "Visit website" today, not
+  all-caps) rather than `:120-132` — a `tool.status` badge (from the
+  since-shipped status-note gap) now renders just above it, `:123-130`; the
+  Stack.jsx copy-to-clipboard pattern this entry says to reuse is now at
+  `Stack.jsx:81` (state) / `:125-127` (write+reset) / `:268` (button label,
+  "🔗 Share" / "✓ Copied"), not `:132-136`; Learning.jsx's version is now
+  `:21-27` / `:37`, not `:243-250`.
+  The real correction is the routing choice. This entry's whole reasoning
+  for picking `/s/:slug` over the gated `/app/tools/:slug` was "the badge
+  should link to the already-public, already-shipped route... no new public
+  route needed" — sound logic at the time, but `src/pages/ToolPublic.jsx`
+  at `/ai-tools/:slug` (`App.jsx:124`) has since shipped specifically to be
+  the crawlable, indexable, per-tool public page (confirmed reading the
+  file: it sets a real per-tool `<title>`/description/JSON-LD via
+  `toolSeo.js`, and its own header comment says exactly this — "so it can
+  be crawled, shared and ranked"). `/s/:slug` is a stack-sharing route
+  degraded to one tool: it renders a generic read-only card with no
+  tool-specific meta tags, no JSON-LD, nothing for a search engine to index
+  under that tool's name. For a gap whose entire stated value is "real
+  backlinks... compound organic search authority," linking the badge to a
+  page that was actually built to rank beats linking to one that wasn't,
+  and it's the same "no new route" cost either way — this is a one-line
+  change to `buildEmbedSnippet()`'s href (`/ai-tools/${tool.slug}` instead
+  of `/s/${tool.slug}`), not a bigger build. No other part of the spec
+  changes: `embedBadge.js` stays a pure util, the disclosure still lives on
+  `ToolDetail.jsx`, still no image/SVG badge variant, still no claiming
+  flow.
 
 ### Per-tool "Alternatives" SEO pages — the single highest-intent directory query has zero pages targeting it
 - **Status:** OPEN
