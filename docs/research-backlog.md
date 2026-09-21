@@ -7133,3 +7133,68 @@ a client-side SPA with a static tool catalogue.
   scripts, one footer link-column edit. Same size class as the already-
   shipped vs-competitor gap. No schema, no backend, no new dependency.
 - **Found:** 2026-09-20 03:08 UTC
+
+---
+
+### A same-day commit shipped an undisclosed, non-consented tracking cookie that did nothing — removed; it also widens the still-OPEN GA4 consent-gate gap above
+- **Status:** FIXED (this commit) — the dead code is gone; the underlying
+  "GA4 fires with no consent gate" gap two entries above (Found: 2026-09-13)
+  is still OPEN and now needs to cover this surface too, noted below.
+- **Seen in:** not a competitor check — this run's marketing-vs-reality sweep
+  (per this file's own instruction to check `src/components/sections/` and
+  related code against what ships) landed on the most recent commit on
+  `master`, `eb823cf` ("add comprehensive cookie system for preferences,
+  analytics, and sessions"), from earlier today.
+- **Gap:** that commit added `src/utils/cookies.js` and called its
+  `initializeTracking()` unconditionally from `App.jsx`'s top-level
+  `useEffect` — on every route, every visitor, before any consent choice,
+  exactly the pattern the still-OPEN "Cookie-consent gate for GA4" entry
+  (found 2026-09-13) already flags for `initAnalytics()`. `initializeTracking()`
+  generated a random id and wrote it to a first-party cookie
+  (`tn_session_id`, 90-day expiry via `COOKIE_EXPIRY.analytics`) on first
+  visit, then called `trackPageView()`, whose entire body was
+  `console.log(...)` — no request left the browser, no analytics service was
+  wired to it. The `beforeunload` listener it also registered logged a
+  session duration the same way. Grepped `src/` for `from '.*utils/cookies'`
+  and `from '.*cookies.js'`: `App.jsx` was the only importer, and it used
+  only `initializeTracking` — none of the module's other exports
+  (`preferences.*`, `analytics.setUserId/setTrackingId`, `session.*` auth-
+  token helpers) were referenced anywhere else in `src/`, so the rest of the
+  200-line module was unreachable dead code shipped alongside the one call
+  site that did fire. `Legal.jsx`'s Cookies section — the section the
+  2026-09-13 entry and the "Privacy policy claimed analytics was off" entry
+  both already had to correct once — says "No advertising cookies. Google
+  Analytics sets its own first-party cookies... Neither is used to advertise
+  to you," with no mention of a Toolnaut-set first-party session cookie at
+  all, because until this commit there wasn't one.
+- **Why it matters:** this is strictly worse than the gap it landed next to.
+  The existing GA4 entry at least fires a script with real analytics value in
+  exchange for the compliance exposure; this one added an undisclosed,
+  non-consented, persistent tracking cookie to every page load for zero
+  product benefit — nothing downstream ever read `tn_session_id`, and the
+  page-view/duration "tracking" it powered went straight to a browser
+  console no one but a visitor with devtools open would ever see. Shipping
+  it live would have meant more undisclosed cookies than the privacy policy
+  already had to be corrected for once this month, with no offsetting
+  feature to show for it.
+- **What was fixed now:** removed the `initializeTracking()` call and its
+  import from `App.jsx`, and deleted `src/utils/cookies.js` — the file's sole
+  live call site is gone and nothing else in `src/` referenced any of its
+  other exports, so nothing else changes. `theme`/`language` preferences and
+  auth continue exactly as before (through `themeStore.js`/`authStore.js`,
+  which this module never touched). No behavior a visitor could notice is
+  lost: the removed code never rendered anything and never sent data
+  anywhere real.
+- **What's still OPEN and belongs to the 2026-09-13 entry, not this one:**
+  the actual fix — a consent gate before any non-essential tracking fires —
+  is unchanged in scope by this cleanup: it still needs to gate
+  `initAnalytics()`/GA4 exactly as already scoped there (`consentStore.js`,
+  `ConsentBanner.jsx`, the `App.jsx`/`main.jsx` wiring). The one addition
+  this entry makes to that plan: if first-party tracking cookies are added
+  again later, they belong behind the same `loadConsent() === 'granted'`
+  gate the GA4 entry already designs, not a separate unconditional call —
+  worth a one-line note on that entry's banner-gating step when it's built,
+  so the next tracking addition doesn't repeat this one.
+- **Build size:** N/A (fix already applied — a straight deletion, no new
+  code).
+- **Found:** 2026-09-21 15:09 UTC
