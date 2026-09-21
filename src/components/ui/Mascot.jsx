@@ -81,19 +81,14 @@ function Face({ mood }) {
 
 export default function Mascot({ mood = 'happy', size = 32, className = '', title }) {
   return (
-    <svg
+    <img
+      src="/logo.webp"
       width={size}
       height={size}
-      viewBox="0 0 96 96"
-      className={className}
-      role={title ? 'img' : undefined}
-      aria-label={title}
+      className={`shrink-0 rounded-lg ${className}`}
+      alt={title || 'AI agent'}
       aria-hidden={title ? undefined : 'true'}
-    >
-      <Antennae mood={mood} />
-      <path d="M48 26 c20 0 30 15 30 33 c0 16 -60 16 -60 0 c0 -18 10 -33 30 -33z" fill={LIME} />
-      <Face mood={mood} />
-    </svg>
+    />
   )
 }
 
