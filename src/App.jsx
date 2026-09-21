@@ -7,6 +7,7 @@ import ThemePicker from './components/ui/ThemePicker'
 import ArrivalLaunch from './components/auth/ArrivalLaunch'
 import CursorStars from './components/ui/CursorStars'
 import SkipLink from './components/ui/SkipLink'
+import { AIRobotWidget } from './components/ai/AIRobot'
 import { track, EVENTS } from './utils/analyticsEvents'
 import { initializeTracking } from './utils/cookies'
 
@@ -96,6 +97,8 @@ export default function App() {
           only where the 3D galaxy actually renders (the landing side). */}
       <ThemePicker />
       <ArrivalLaunch />
+      {/* AI Robot floating widget — available on all routes for chat */}
+      <AIRobotWidget />
       {/* Mounted once for every route so keyboard/screen-reader users can
           bypass each page's own header/nav chrome — WCAG 2.4.1. Targets the
           #main-content landmark every page below (and AppShell, and
