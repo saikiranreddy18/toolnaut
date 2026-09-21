@@ -3,14 +3,22 @@ import { useHead } from '../utils/head'
 import { motion } from 'framer-motion'
 import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { BRAND } from '../config'
-import { BUNDLED_COUNT } from '../utils/toolsCatalog'
+import { useState, useEffect } from 'react'
 
-// Counts derive from the catalogue itself. The radar publishes new tools
-// daily, so every hardcoded figure here rots — this page carried three that
-// disagreed with each other (700+, 704, 780+) and none matched the catalogue.
-// TOOL_FLOOR rounds down to the nearest hundred so the claim stays true
-// between radar syncs rather than being exact for a day and wrong after.
-const TOOL_FLOOR = Math.floor(BUNDLED_COUNT / 100) * 100
+function useToolCount() {
+  const [count, setCount] = useState(377)
+
+  useEffect(() => {
+    fetch('/tools.json')
+      .then((r) => r.json())
+      .then((tools) => setCount(tools.length))
+      .catch(() => {})
+  }, [])
+
+  return count
+}
+
+const TOOL_FLOOR_DEFAULT = 300
 
 // Same flag ContactSection.jsx/CapabilityMatrix.jsx/Methodology.jsx/Pricing.jsx
 // already read for this — the footer tagline below was missed when payments
@@ -19,27 +27,30 @@ const TOOL_FLOOR = Math.floor(BUNDLED_COUNT / 100) * 100
 // then-one-time-pass terms.
 const paymentsOn = import.meta.env.VITE_PAYMENTS_ENABLED === 'true'
 
-// The story/pitch page — the accelerator-application answers, public.
-const SECTIONS = [
-  {
-    q: 'What is Toolnaut?',
-    a: `${BRAND} is a role-aware AI-tool discovery platform: a 60-second quiz maps your role, experience and goals to a personalized stack from ${TOOL_FLOOR}+ AI tools, plus a 4-week guided roadmap to master it — with a self-updating catalog that discovers new tools automatically every day.`,
-  },
-  {
-    q: 'Why are we building this?',
-    a: `The AI tool landscape is exploding faster than anyone can track — hundreds of new tools ship every month, yet most people default to one chatbot for everything because discovering what fits their work takes hours nobody has. Existing directories just list everything; nobody personalizes to your role, level, and available time, and nobody closes the loop from discovery to actually learning the tool. Toolnaut does both — and its automated radar keeps the catalog fresh instead of letting it rot like every other directory.`,
-  },
-  {
-    q: 'How far along are we?',
-    a: `Live in public beta. A working product — 9-question quiz → career-aware persona → personalized starter stack from a ${BUNDLED_COUNT}-tool curated catalog → 4-week learning roadmap with lessons and gated checkpoints. Behind it, an autonomous discovery pipeline monitors GitHub, Product Hunt, Hacker News and tech feeds daily, filters the noise, AI-enriches genuine new tools, and publishes them straight into the live catalog. Free for 7 days, then a one-time 30-day pass — nothing recurs.`,
-  },
-  {
-    q: 'Who is behind it?',
-    a: `Built solo by an indie builder in India, shipping fast on a near-zero budget — free-tier infrastructure, open APIs, and a lot of iteration. The product you see funds itself on curiosity.`,
-  },
-]
-
 export default function About() {
+  const toolCount = useToolCount()
+  const TOOL_FLOOR = Math.floor(toolCount / 100) * 100
+
+  // The story/pitch page — the accelerator-application answers, public.
+  const SECTIONS = [
+    {
+      q: 'What is Toolnaut?',
+      a: `${BRAND} is a role-aware AI-tool discovery platform: a 60-second quiz maps your role, experience and goals to a personalized stack from ${TOOL_FLOOR}+ AI tools, plus a 4-week guided roadmap to master it — with a self-updating catalog that discovers new tools automatically every day.`,
+    },
+    {
+      q: 'Why are we building this?',
+      a: `The AI tool landscape is exploding faster than anyone can track — hundreds of new tools ship every month, yet most people default to one chatbot for everything because discovering what fits their work takes hours nobody has. Existing directories just list everything; nobody personalizes to your role, level, and available time, and nobody closes the loop from discovery to actually learning the tool. Toolnaut does both — and its automated radar keeps the catalog fresh instead of letting it rot like every other directory.`,
+    },
+    {
+      q: 'How far along are we?',
+      a: `Live in public beta. A working product — 9-question quiz → career-aware persona → personalized starter stack from a ${toolCount}-tool curated catalog → 4-week learning roadmap with lessons and gated checkpoints. Behind it, an autonomous discovery pipeline monitors GitHub, Product Hunt, Hacker News and tech feeds daily, filters the noise, AI-enriches genuine new tools, and publishes them straight into the live catalog. Free for 7 days, then a one-time 30-day pass — nothing recurs.`,
+    },
+    {
+      q: 'Who is behind it?',
+      a: `Built solo by an indie builder in India, shipping fast on a near-zero budget — free-tier infrastructure, open APIs, and a lot of iteration. The product you see funds itself on curiosity.`,
+    },
+  ]
+
   useHead({
     title: 'About Toolnaut — the role-aware AI tool map',
     description: `Why Toolnaut exists: ${TOOL_FLOOR}+ AI tools is not a shortlist. Nine questions turn the catalogue into the handful that fit how you actually work.`,
