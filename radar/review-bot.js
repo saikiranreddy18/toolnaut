@@ -5,16 +5,23 @@ import { log } from './util/logger.js'
 // Checks: website availability, metadata quality, duplicates, spam patterns.
 // Returns detailed issues that block publication.
 
-export async function reviewTool(record, { store } = {}) {
+// checkLiveWebsite is opt-in because reachability is the one check that needs
+// the network. The ingest pipeline promises candidates can be injected instead
+// of hitting the network, and a HEAD per candidate would also make a run's
+// outcome depend on whoever's server happened to answer. The daily audit turns
+// it on; the pipeline leaves it off and relies on the offline checks below.
+export async function reviewTool(record, { store, checkLiveWebsite = false } = {}) {
   const issues = []
   const warnings = []
 
   // 1. Check website is accessible
-  const webCheck = await checkWebsite(record.website)
-  if (!webCheck.ok) {
-    issues.push(`website-unreachable: ${webCheck.reason}`)
-  } else if (webCheck.redirects > 3) {
-    warnings.push(`too-many-redirects: ${webCheck.redirects}`)
+  if (checkLiveWebsite) {
+    const webCheck = await checkWebsite(record.website)
+    if (!webCheck.ok) {
+      issues.push(`website-unreachable: ${webCheck.reason}`)
+    } else if (webCheck.redirects > 3) {
+      warnings.push(`too-many-redirects: ${webCheck.redirects}`)
+    }
   }
 
   // 2. Check metadata quality
@@ -189,7 +196,7 @@ export async function runDailyReview(store) {
   }
 
   for (const tool of staged) {
-    const review = await reviewTool(tool, { store })
+    const review = await reviewTool(tool, { store, checkLiveWebsite: true })
 
     if (review.decision === 'approve') {
       results.approved++
