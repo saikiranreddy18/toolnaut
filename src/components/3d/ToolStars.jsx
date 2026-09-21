@@ -164,13 +164,17 @@ export default function ToolStars() {
 
   useEffect(() => {
     // Load the live cleaned catalog from public/tools.json instead of the bundled catalog
-    fetch('/tools.json')
-      .then((r) => r.json())
-      .then(setTools)
-      .catch((e) => {
-        console.error('Failed to load tools.json:', e)
-        setTools([])
-      })
+    // Use setTimeout to defer fetch to client-side only (avoid SSR fetch issues)
+    const timer = setTimeout(() => {
+      fetch('/tools.json')
+        .then((r) => r.json())
+        .then(setTools)
+        .catch((e) => {
+          console.error('Failed to load tools.json:', e)
+          setTools([])
+        })
+    }, 0)
+    return () => clearTimeout(timer)
   }, [])
 
   useEffect(() => {

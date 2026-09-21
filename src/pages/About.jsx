@@ -5,14 +5,19 @@ import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { BRAND } from '../config'
 import { useState, useEffect } from 'react'
 
+// During SSR, use 377 as fallback. Client hydration fetches the actual count.
 function useToolCount() {
   const [count, setCount] = useState(377)
 
   useEffect(() => {
-    fetch('/tools.json')
-      .then((r) => r.json())
-      .then((tools) => setCount(tools.length))
-      .catch(() => {})
+    // Only fetch on client side, after hydration
+    const timer = setTimeout(() => {
+      fetch('/tools.json')
+        .then((r) => r.json())
+        .then((tools) => setCount(tools.length))
+        .catch(() => setCount(377))
+    }, 0)
+    return () => clearTimeout(timer)
   }, [])
 
   return count
