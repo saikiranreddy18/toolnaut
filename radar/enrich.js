@@ -37,18 +37,22 @@ export async function enrich(candidate, slug, { now }) {
 
 async function enrichWithLLM(candidate) {
   const system =
-    `You classify AI tools into a fixed catalog schema.\n` +
+    `You classify AI tools into a fixed catalog schema. REJECT articles, blog posts, news, or non-tools.\n` +
     `Domains: ${DOMAINS.join(', ')}.\n` +
     `Prices: ${PRICES.join(', ')}.\n` +
     `Levels: ${LEVELS.join(', ')}.\n` +
     `Source categories: ${SOURCE_CATEGORIES.map((c) => c.id).join('; ')}.`
   const user =
-    `Tool: ${candidate.name}\nURL: ${candidate.url}\nDescription: ${candidate.description}\n\n` +
-    `Return JSON with keys: category (a domain), sourceCategory (a source category), ` +
+    `Item: ${candidate.name}\nURL: ${candidate.url}\nDescription: ${candidate.description}\n\n` +
+    `First, decide: is this an actual AI tool/service/product? (not an article, blog post, news story, or announcement about tools)\n` +
+    `If YES, return JSON with keys: is_tool (true), category (a domain), sourceCategory (a source category), ` +
     `price (a price), pricing (short label), level (a level), blurb (one sentence under 100 chars), ` +
-    `audience (short phrase), dev (maker name or ""), tags (array of 2-5 lowercase keywords).`
+    `audience (short phrase), dev (maker name or ""), tags (array of 2-5 lowercase keywords).\n` +
+    `If NO, return JSON: {"is_tool": false}`
   const text = await callLLM(system, user, { json: true, maxTokens: 400 })
-  return JSON.parse(extractJSON(text))
+  const parsed = JSON.parse(extractJSON(text))
+  if (parsed.is_tool === false) throw new Error('LLM rejected: not a tool')
+  return parsed
 }
 
 // --- deterministic fallback classifier ---------------------------------------
@@ -103,6 +107,13 @@ function extractTags(text, domain) {
 
 function enrichFallback(candidate) {
   const text = `${candidate.name} ${candidate.description}`
+
+  // Reject obvious articles in fallback too
+  const articlePatterns = /\b(article|blog post|news|story|explainer|guide|tutorial|how-to|interview|analysis|opinion|qa|q&a|deep dive|deep-dive|insider|exclusive)\b/i
+  if (articlePatterns.test(text)) {
+    throw new Error('Fallback rejected: looks like an article')
+  }
+
   const category = classifyDomain(text)
   const price = guessPrice(text)
   return {
@@ -123,6 +134,10 @@ function enrichFallback(candidate) {
 // a partly-wrong LLM answer still yields a valid record (or fails the gate cleanly).
 function normalizeEnriched(p, candidate) {
   const text = `${candidate.name} ${candidate.description}`
+
+  // If LLM explicitly said "not a tool", reject it
+  if (p.is_tool === false) throw new Error('LLM rejected: not a tool')
+
   const category = DOMAINS.includes(p.category) ? p.category : classifyDomain(text)
   const sourceCategory = SOURCE_CATEGORY_IDS.has(p.sourceCategory) ? p.sourceCategory : defaultSourceCategory(category)
   const price = PRICES.includes(p.price) ? p.price : guessPrice(text)
