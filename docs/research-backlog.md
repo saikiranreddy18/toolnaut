@@ -4177,6 +4177,56 @@ a client-side SPA with a static tool catalogue.
   `index.html`. No backend, no new dependency, no change to the app's `src/`
   half at all (this is purely a `radar/` + static-file addition).
 - **Found:** 2026-09-02 06:20 UTC
+- **Deepened 2026-09-21 06:12 UTC:** re-verified every concrete claim against
+  today's `src`/`radar`/build scripts — the core plan still holds, but three
+  weeks and several SEO-feature commits corrected two of its supporting
+  facts and closed one open question:
+  - **The "session-gated route" wrinkle this plan wanted `gen-feed.js` to
+    inherit no longer exists.** `NewTools.jsx` linked tools via
+    `${SITE}/app/tools/${slug}` (session-gated) when this was written; commit
+    `6216b21` (2026-09-16, "a public, crawlable page for every tool") shipped
+    `ToolPublic.jsx` at the public `/ai-tools/:slug` route (`src/App.jsx:128`)
+    and switched `NewTools.jsx`'s own JSON-LD and on-page links to
+    `${SITE}/ai-tools/${slug}` (`NewTools.jsx:38,90`). `gen-feed.js` should
+    link items the same way — `${SITE}/ai-tools/${slug}` — with no caveat
+    needed; the linked page is already public.
+  - **The "zero RSS/sitemap-generation infrastructure" grep claim is now
+    stale, not because the gap closed, but because two unrelated features
+    landed since and would show up as false positives on a naive re-grep.**
+    `radar/sources/rss.js` (added 2026-09-14) is radar *consuming* other
+    sites' RSS as a discovery input — the opposite direction from this
+    plan's proposed *output* feed, so the underlying gap (Toolnaut publishes
+    no feed of its own) is still real, but re-running the exact grep this
+    entry cites now also matches that file and its test, not just the word
+    "feedback." Likewise, `scripts/gen-tool-pages.mjs` and
+    `scripts/stamp-sitemap.mjs` (both added 2026-09-18) now generate/append
+    to `dist/sitemap.xml` from the tool catalog at build time — a closer,
+    newer analog for `gen-feed.js` to model than `sync-to-app.js` alone, and
+    proof the codebase is already comfortable deriving XML from the catalog
+    at publish time. Neither changes the plan; both should be cited instead
+    of the original "no precedent exists" framing.
+  - **Two implementation details the original plan under-counted**: the
+    "Export published tools into the app" step in `radar.yml` (lines 87-89)
+    is a single-line `run:`, so adding `gen-feed.js` there means turning it
+    into a `run: |` block (or a new adjacent step), not literally "one new
+    line" as written; and the later "Commit the store and the app feed" step
+    (`radar.yml:108`) does `git add radar/data public/tools.json` — it would
+    need `public/feed.xml` added to that list too, or the generated feed
+    would exist on disk but never get committed by a scheduled run.
+  - Minor citation fix: the three noise-filter regexes are at
+    `prominence.js:66-68`, not `:70-73` (`:70-73` is the `isCatalogNoise()`
+    function body that uses them). `gen-tool-pages.mjs` already imports
+    `isCatalogNoise` directly from `src/utils/prominence.js` rather than
+    duplicating it — a live counterexample to weigh, though the plan's
+    reasoning for `radar/gen-feed.js` specifically duplicating the regexes
+    still holds (`radar/` is CLAUDE.md's other independent half with its own
+    CI job; `scripts/` is not part of that split, which is why
+    `gen-tool-pages.mjs` can import across it and `radar/` scripts should not).
+  - Everything else (the `sync-to-app.js` read/filter shape, the published
+    record's field names including `discoveredAt`, the `index.html` icon/
+    manifest lines, and that no branch or commit anywhere has ever touched
+    `gen-feed.js`/`feed.xml`) still holds exactly as written. Still open,
+    still un-duplicated, still build-ready.
 
 ### Settings page hardcodes "no server copy" — the sync backend it's describing already exists elsewhere in the app
 - **Status:** FIXED (this commit) — small, well-scoped defect in already-shipped
