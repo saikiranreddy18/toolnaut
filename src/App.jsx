@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { MotionConfig } from 'framer-motion'
 import Landing from './pages/Landing'
@@ -7,7 +7,9 @@ import ThemePicker from './components/ui/ThemePicker'
 import ArrivalLaunch from './components/auth/ArrivalLaunch'
 import CursorStars from './components/ui/CursorStars'
 import SkipLink from './components/ui/SkipLink'
-import { track, EVENTS } from './utils/analyticsEvents'
+import ConsentBanner from './components/ConsentBanner'
+import { track, EVENTS, canInitAnalytics, loadAnalytics } from './utils/analyticsEvents'
+import { loadConsent, setConsent } from './state/consentStore'
 
 const GoalChat = lazy(() => import('./pages/GoalChat'))
 const ExampleStack = lazy(() => import('./pages/ExampleStack'))
@@ -78,6 +80,32 @@ function PageFallback() {
   return <div className="fixed inset-0 bg-[#060609]" aria-hidden="true" />
 }
 
+// Mounted only when there's a real choice to make: a GA4 property is
+// configured and this visitor hasn't accepted or declined it yet. Accepting
+// loads the GA4 script same-session, no reload; declining just remembers the
+// choice so the banner never asks again.
+function ConsentGate() {
+  const [needsChoice, setNeedsChoice] = useState(
+    () => canInitAnalytics() && loadConsent() === null,
+  )
+
+  if (!needsChoice) return null
+
+  return (
+    <ConsentBanner
+      onAccept={() => {
+        setConsent('granted')
+        loadAnalytics()
+        setNeedsChoice(false)
+      }}
+      onDecline={() => {
+        setConsent('denied')
+        setNeedsChoice(false)
+      }}
+    />
+  )
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -89,6 +117,7 @@ export default function App() {
           surface: Moonlight on the intake pages and in-app, Galaxy detail
           only where the 3D galaxy actually renders (the landing side). */}
       <ThemePicker />
+      <ConsentGate />
       <ArrivalLaunch />
       {/* Mounted once for every route so keyboard/screen-reader users can
           bypass each page's own header/nav chrome — WCAG 2.4.1. Targets the
