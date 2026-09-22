@@ -726,5 +726,18 @@
       "rejected": 2,
       "courses": 0
     }
+  },
+  {
+    "at": "2026-09-22T23:49:33.756Z",
+    "counts": {
+      "candidates": 82,
+      "filtered": 13,
+      "new": 19,
+      "skipped": 6,
+      "published": 0,
+      "review": 16,
+      "rejected": 3,
+      "courses": 0
+    }
   }
 ]
