@@ -3893,6 +3893,71 @@ a client-side SPA with a static tool catalogue.
   an error-hiding handler in each. No backend, no new dependency, no new
   route, no new store, no radar change.
 - **Found:** 2026-08-31 21:15 UTC
+- **Deepened 2026-09-22 12:20 UTC — the oldest untouched OPEN entry (22 days
+  since its last note); re-ran this entry's own throwaway sandbox-network
+  check rather than trusting the two prior "don't attempt local verify"
+  conclusions, and today's result changes the risk call:** both 2026-09-13
+  and 2026-09-14 reported the identical symptom — `page.goto` to the Google
+  favicon URL hanging to an 8s `networkidle` timeout while `curl` to the same
+  URL succeeded in under 400ms — and concluded headless Chromium in this
+  sandbox cannot complete external requests at all. Re-running that exact
+  check today gets a *different* failure shape: `page.goto(...,
+  { waitUntil: 'networkidle', timeout: 8000 })` on the same URL rejects in
+  257ms with `net::ERR_CERT_AUTHORITY_INVALID`, not a hang. The cause is
+  visible in this environment's own `/root/.ccr/README.md`: outbound HTTPS
+  here is routed through a local policy proxy that re-terminates TLS, and
+  while the README says the browser NSS store is pre-configured to trust its
+  CA, a bare `chromium.launch()` (no profile, no CA flag — exactly what
+  `getFaviconUrl`'s consumers and `scripts/smoke.mjs` both do) never reads
+  that store, so every external request this sandbox's Chromium makes now
+  fails cert verification fast instead of hanging. Confirmed this is fast,
+  not a hang, with a second, closer-to-real check: embedding the same URL as
+  an `<img>` in a real page (rather than navigating to it directly) reaches
+  `networkidle` in 854ms and logs exactly one console error — `Failed to
+  load resource: net::ERR_CERT_AUTHORITY_INVALID`. That string already
+  matches `scripts/smoke.mjs`'s existing `real` error filter (`/favicon|
+  fonts.googleapis|fonts.gstatic|ERR_INTERNET|net::ERR|WebGL|Failed to load
+  resource.*tools\.json/i` — `net::ERR` matches), so today's local `npm run
+  smoke` would very likely pass this gap outright instead of needing a
+  CI-only leap of faith. **This does not overturn the prior two runs' data**
+  — they saw a real 8s hang on their days, this run sees a fast reject on
+  this one, and nothing here explains why the same proxy produces both
+  shapes on different days (worth someone eventually asking whether the
+  agent-proxy's own state is what varies) — but it does mean the "never
+  attempt a local build-and-verify again, trust CI blindly" instruction from
+  2026-09-14 was too strong: re-run this exact throwaway check (`page.goto`
+  the Google favicon URL with an 8s `networkidle` timeout) at the start of
+  whichever run attempts this build, and if it resolves in well under 8s
+  (hang or fast-reject both count as "resolves"; only a genuine hang to the
+  full timeout means skip local verify), `npm run smoke` is trustworthy
+  evidence again that day, not just `npm test`/`npm run build`. If it hangs,
+  fall back to the 2026-09-14 guidance unchanged: build it, skip local
+  smoke, trust `ci.yml`'s `ubuntu-latest` runner, and say so explicitly in
+  the PR/digest.
+  **Line references re-verified against current `src/` (both had drifted):**
+  `ToolCard.jsx`'s category-color dot is still at line 42 as cited, but the
+  tool-name `<h3>` this gap targets moved from `ToolCard.jsx:70-77` to
+  `ToolCard.jsx:81-89` (an `isNewTool`/status-pill block was added above it
+  since this entry was written). `ToolDetail.jsx`'s `<h1>` moved from line
+  122 to line 133, and the "Visit website" link this gap's `website`-field
+  claim leans on moved from `ToolDetail.jsx:138-149` to `ToolDetail.jsx:
+  151-158` — same field, same behavior, new line numbers only.
+  **Scope check on the "would not include" rollout list:** re-grepped `<img`
+  across every card-shaped surface — `ToolCard.jsx`, `ToolDetail.jsx`,
+  `CategoryLanding.jsx`, `NewTools.jsx`, `SharedStack.jsx`, `Compare.jsx` —
+  still zero hits on all of them, so the core claim ("no tool has a visual
+  identity anywhere in the app") is unchanged and, if anything, slightly
+  wider than when this was written: two more comparison-shaped pages
+  (`CompareCompetitor.jsx`, `PublicCompare.jsx`) shipped since 2026-08-31 and
+  also render tool names with no logo, joining the explicitly-deferred v2
+  rollout list rather than the v1 scope (`ToolCard.jsx`/`ToolDetail.jsx`
+  only, unchanged). `Graveyard.jsx`/`Alternatives.jsx` still do not exist,
+  so that conditional clause is still accurate as written.
+  No change to the core spec (`faviconUrl.js`, the two `<img>` additions, the
+  third-party-data-flow disclosure, the v1/v2 scope split) — this deepening
+  only corrects line numbers, widens the confirmed-affected-surface count by
+  two, and — the one substantive change — downgrades "never verify locally
+  again" to "re-check the sandbox each time, it isn't consistently one way."
 
 ### Discover has filters but no sort control — the 700+ result grid has exactly one fixed order
 
