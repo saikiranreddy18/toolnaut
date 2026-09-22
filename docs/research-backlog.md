@@ -5887,8 +5887,8 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### Cookie-consent gate for GA4 — flagged as a follow-up in the entry above, never promoted to its own gap
-- **Status:** SHIPPED (this run) — built close to scope below, with one
-  deliberate deviation: the spec said to gate the whole `initAnalytics()`
+- **Status:** BUILT (this run), PR #70 not yet merged — built close to scope
+  below, with one deliberate deviation: the spec said to gate the whole `initAnalytics()`
   call on consent, but `initAnalytics()` is also where `window.dataLayer`
   gets initialized, and every `track()` call site in the app assumes that
   array already exists — gating the whole function would throw on every one

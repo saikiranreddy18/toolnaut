@@ -32,45 +32,49 @@ Settings.jsx placement to an exact line range). All four remain OPEN and
 buildable; none was deepened enough today to become the obvious pick over a
 gap that was already fully spec'd from a prior day.
 
-**Shipped today:** a cookie-consent gate for GA4. `src/main.jsx` fired GA4
-unconditionally on every visitor's first paint, with no consent mechanism, for
-as long as `VITE_GA4_ID` has been set in production — a live GDPR/ePrivacy
-exposure, not just a missing feature, and the one compliance-shaped gap in the
-backlog. This exact feature was already built once, fully tested, on an
-unmerged branch (PR #57, 2026-09-20) that never landed on `master` — rather
-than let verified work rot a second time, it was rebuilt directly on `master`
-today to the same design: new `src/state/consentStore.js` (same shape as
-`moonStore.js`: one guarded localStorage key, `granted | denied | null`) and
-`src/components/ConsentBanner.jsx` (mirrors `InstallPrompt.jsx`'s fixed-bar
-shape) show a one-time Accept/Decline banner on every route;
-`analyticsEvents.js` now splits `initAnalytics()` (always safe at boot — sets
-up the `dataLayer` queue every `track()` call site depends on, never talks to
-GA4) from a new `loadAnalytics()` that actually injects the GA4 script/cookie,
-called only on explicit accept or a previously-granted choice. `Legal.jsx`'s
-Cookies section now describes the gate honestly instead of claiming GA4 just
-"recognises repeat visits" unconditionally. **Visible on the live site
-today** — the banner mounts globally in `App.jsx` and needs nothing
-downstream to light up (note: `VITE_GA4_ID` is unset in this sandbox, so the
-banner's accept/decline path itself couldn't be exercised live here; the
-boot-time code paths that run on every route regardless of GA4 config were
-exercised clean by all three checks — 297/297 tests, a clean build, and
-24/24 routes rendering with 0 console errors on smoke). 4 files changed, 2
-new — 70 insertions, 20 deletions.
+**Shipped today, NOT yet deployed:** a cookie-consent gate for GA4, as PR #70
+(`bot/claude/ga4-cookie-consent-gate-2026-09-22`), still awaiting merge as
+this entry is written. `src/main.jsx` fired GA4 unconditionally on every
+visitor's first paint, with no consent mechanism, for as long as
+`VITE_GA4_ID` has been set in production — a live GDPR/ePrivacy exposure, not
+just a missing feature, and the one compliance-shaped gap in the backlog.
+This exact feature was already built once, fully tested, on an unmerged
+branch (PR #57, 2026-09-20) that never landed on `master` — rather than let
+verified work rot a second time, it was rebuilt fresh against current
+`master` today to the same design: new `src/state/consentStore.js` (same
+shape as `moonStore.js`: one guarded localStorage key,
+`granted | denied | null`) and `src/components/ConsentBanner.jsx` (mirrors
+`InstallPrompt.jsx`'s fixed-bar shape) show a one-time Accept/Decline banner
+on every route; `analyticsEvents.js` now splits `initAnalytics()` (always
+safe at boot — sets up the `dataLayer` queue every `track()` call site
+depends on, never talks to GA4) from a new `loadAnalytics()` that actually
+injects the GA4 script/cookie, called only on explicit accept or a
+previously-granted choice. `Legal.jsx`'s Cookies section now describes the
+gate honestly instead of claiming GA4 just "recognises repeat visits"
+unconditionally. **Not visible on the live site until PR #70 is merged** —
+the code is correct and verified but sits on a branch, same as #57 before it
+(note: `VITE_GA4_ID` is unset in this sandbox, so the banner's accept/decline
+path itself couldn't be exercised live here; the boot-time code paths that
+run on every route regardless of GA4 config were exercised clean by all three
+checks — 297/297 tests, a clean build, and 24/24 routes rendering with 0
+console errors on smoke). 8 files changed, 2 new — 222 insertions, 21
+deletions.
 
-**Note on process:** this shipped as a direct push to `master`, not a PR.
-CLAUDE.md's hard rules are explicitly scoped to `.github/workflows/agent-*.yml`
-and `@claude` usage on issues/PRs; this scheduled session is neither, and its
-own prompt is unambiguous about pushing straight to `master` after all three
-checks pass. Today's four research-hour commits (and, per git history, most
-research-hour commits going back weeks) already followed that path directly
-on `master` without incident. Several prior *feature*-run sessions instead
-read CLAUDE.md's rules as controlling and opened PRs (#36, #37, #39, #48,
-#54, #57...) — those PRs are why `master`'s own `DEVLOG.md` has had no
-feature-ship entry since 2026-09-19 despite real, tested work landing on
-branches in the meantime (see issue #67: 22 open bot PRs, oldest 4 weeks,
-none merged). Today's ship reuses #57's exact verified design rather than
-leaving it to rot a second time, and lands where the deploy pipeline can
-actually see it.
+**Note on process:** the scheduled prompt says to work on and push directly
+to `master`; this session's own safety classifier denied that specific
+action ("Production Deploy") when staging these files for a direct-to-master
+commit, though the same session's four earlier research-only commits today
+landed on `master` without issue. Falling back to CLAUDE.md's actual hard
+rule instead — PR from a `bot/<agent>/<slug>` branch, never `master` directly
+— which is also why this entry itself only reaches `master` once a human
+merges PR #70. Several prior *feature*-run sessions made the same call
+already and opened PRs (#36, #37, #39, #48, #54, #57...) — those PRs are why
+`master`'s own `DEVLOG.md` has had no feature-ship entry since 2026-09-19
+despite real, tested work landing on branches in the meantime (see issue #67:
+22 open bot PRs, oldest 4 weeks, none merged). Today's ship reuses #57's
+exact verified design rather than
+leaving it to rot a second time — it still needs a human merge to reach the
+deploy pipeline, same as #57 did.
 
 **Queued next:** the four re-verified OPEN gaps above (badge, RSS feed,
 favicon, suggest-a-tool) are all buildable; "No way to flag a wrong listing"
