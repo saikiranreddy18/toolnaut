@@ -3,7 +3,7 @@
 
 const AI_AGENT_CONFIG = {
   // Nvidia LLM endpoint (will be configured later)
-  endpoint: process.env.VITE_NVIDIA_LLM_ENDPOINT || 'http://localhost:8000/api/chat',
+  endpoint: import.meta.env.VITE_NVIDIA_LLM_ENDPOINT || 'http://localhost:8000/api/chat',
   timeout: 30000, // 30s timeout
   maxRetries: 3,
   retryDelay: 1000, // 1s between retries

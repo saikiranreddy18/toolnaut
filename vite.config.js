@@ -30,6 +30,10 @@ export default defineConfig({
     __APP_RELEASE__: JSON.stringify(
       (process.env.VERCEL_GIT_COMMIT_SHA || '').slice(0, 12) || 'dev',
     ),
+    // Free for the first 90 days of launch: every paid surface stays off even
+    // if VITE_PAYMENTS_ENABLED is still 'true' in the Vercel env. Delete this
+    // line to turn the paid UI back on.
+    'import.meta.env.VITE_PAYMENTS_ENABLED': JSON.stringify('false'),
   },
   server: {
     // Honour the harness-assigned port (autoPort sets PORT) so the preview

@@ -5,7 +5,6 @@ import HeroSection from '../components/sections/HeroSection'
 import HowItWorksSection from '../components/sections/HowItWorksSection'
 import RolesSection from '../components/sections/RolesSection'
 import AudienceSection from '../components/sections/AudienceSection'
-import PricingSection from '../components/sections/PricingSection'
 import FeaturesSection from '../components/sections/FeaturesSection'
 import StatsSection from '../components/sections/StatsSection'
 import FounderRibbon from '../components/ui/FounderRibbon'
@@ -204,7 +203,6 @@ export default function Landing() {
           </a>
           <nav className="hidden items-center gap-7 text-[13px] text-zinc-400 md:flex">
             <a href="#how-it-works" className="hover:text-white">How it works</a>
-            <Link to="/pricing" className="hover:text-white">Pricing</Link>
             <Link to="/about" className="hover:text-white">About</Link>
             <Link to="/search" className="hover:text-white">Search</Link>
             <a href="#contact" className="hover:text-white">Contact</a>
@@ -234,7 +232,6 @@ export default function Landing() {
         <RolesSection />
         <AudienceSection />
         <FeaturesSection />
-        <PricingSection />
         <CTASection />
       </main>
 
