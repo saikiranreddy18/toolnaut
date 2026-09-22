@@ -2543,6 +2543,33 @@ a client-side SPA with a static tool catalogue.
   [q, cat, price, level])` this gap's original plan calls for should
   deliberately *not* add `sort` to its own dependency array, or it would
   recompute three count objects on every sort-order change for no reason.
+- **Deepened 2026-09-22 21:05 UTC:** research run (UTC hour 21). CI green on
+  master, no agent-fixable issues, radar health NO-PUBLISH (issue #63,
+  Featherless still 403ing on an overdue invoice — already fully diagnosed,
+  not re-reported here). This was the oldest untouched OPEN entry (20 days
+  since the last deepening) so re-verified it rather than starting a new
+  gap. Read the current 401-line `Discover.jsx` in full — it grew again
+  (recently viewed rail, favorites, compare-select wiring all landed since
+  the last check) and every line reference above is stale a fourth time,
+  substance unaffected. Corrected locations: `Pill` is now
+  `Discover.jsx:37-47` (was `:35-45`), still exactly `{ active, onClick,
+  children }` — no `count` slot. The filter predicate is inline in the
+  `results` `useMemo` at `:122-127` (`matchesQuery(tool, q)` plus the three
+  `cat`/`price`/`level` equality checks) — confirms the 2026-09-01 finding
+  still holds: `matchesQuery()` covers only the text half, the three
+  equality checks are still un-extracted one-liners simple enough not to
+  need extraction. The category pill row is `:267-272`; price, level and
+  Sort still share one wrapper div at `:275-294` (price `:277-281`, level
+  `:283-287`, Sort `:289-293`) — the 2026-09-02 finding about gating `count`
+  on `count != null` inside `Pill` itself (never passed at Sort's call site)
+  is still the right guard and still necessary, nothing has split that div
+  since. Zero-results block is `:296-323`. Confirmed no `src/utils/
+  facetCounts.js` exists (`find src -iname '*facet*'` — zero hits) and grepped
+  `Discover.jsx` for `count` — the only hits are `PAGE_SIZE`/`visibleCount`/
+  `remaining` (pagination) and `answers.domain` unrelated matches, nothing
+  facet-shaped. Still fully unbuilt, still Build size S, still the right
+  next pick whenever the feature run wants a small, well-scoped, three-times-
+  verified slice.
 
 ### Tool "graveyard" page — deferred by the status-note gap, worth its own build
 - **Status:** OPEN
