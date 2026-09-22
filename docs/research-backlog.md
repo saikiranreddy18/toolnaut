@@ -807,6 +807,28 @@ a client-side SPA with a static tool catalogue.
   filling in. `ToolDetail.jsx:143-145`'s "VISIT WEBSITE" `nb-btn dark` link,
   cited above as the style to reuse for the `Settings.jsx` link, is also
   still at that exact location, unchanged.
+- **Deepened 2026-09-22 15:20 UTC — the oldest untouched OPEN entry (22 days);
+  re-verified against current `src/`, still fully unbuilt and still fully
+  buildable, only line numbers drifted:**
+  - Confirmed `src/config.js` still has no `GITHUB_REPO_URL` constant and
+    `src/utils/suggestTool.js` still does not exist — nothing about this gap
+    has shipped by another name since the last check.
+  - `Discover.jsx`'s empty state moved again: it's now `Discover.jsx:296-323`
+    (was `227-254`). Shape is unchanged — `suggestedCats` buttons
+    (`Discover.jsx:307-315`) then a "Clear all filters" button
+    (`Discover.jsx:317-322`) — so the plan's insertion point ("after both, as
+    the last-resort block for someone who tried both and still found
+    nothing") still applies exactly, only the line numbers needed updating.
+  - `ToolDetail.jsx`'s "Visit website" `nb-btn dark` link also drifted, to
+    `ToolDetail.jsx:151-158` (was `143-145`).
+  - **The `Settings.jsx` placement was previously left vague ("the natural
+    home") — pinned it to an exact slot this run:** `Settings.jsx:506-511` is
+    a `border-t` row holding a "Replay the tour" `nb-btn dark` button,
+    explicitly placed outside the signed-in check with the comment "guests
+    use /app too" — the same audience (any visitor, session or not) this
+    gap's suggestion link needs, and the same `nb-btn dark` style already
+    planned for reuse. A "Suggest a tool" link belongs in that same row, next
+    to "Replay the tour", not as a new standalone section.
 
 ### PDF roadmap export (sold on Pro, does not exist)
 - **Status:** OPEN
