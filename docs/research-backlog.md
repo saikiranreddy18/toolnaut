@@ -2749,6 +2749,33 @@ a client-side SPA with a static tool catalogue.
   reusing an existing copy-to-clipboard pattern. No backend, no new
   dependency, no new route (reuses the already-public `/s/:slug`).
 - **Found:** 2026-08-28 03:15 UTC
+- **Deepened 2026-09-22 03:20 UTC — re-verified against current `src/`; the
+  plan is unchanged and still buildable exactly as scoped, three cited line
+  references had drifted and one new supporting data point turned up:**
+  - The "VISIT WEBSITE" anchor moved and its copy changed case: it now renders
+    "Visit website" at `ToolDetail.jsx:151-163`, immediately followed by the
+    "Add to my stack" / favorite button row at `ToolDetail.jsx:165-183`. The
+    embed disclosure should still mount directly after the Visit website link
+    and before that action row — same placement call as originally written,
+    just at the corrected line numbers.
+  - The `/s/:slug` route this gap depends on is unchanged (`App.jsx:120`,
+    `<Route path="/s/:slugs" element={<SharedStack />} />`) and has since
+    gained a second independent caller: `SearchTools.jsx:108` (the public
+    search page, shipped after this entry was written) already links every
+    result card to `/s/${encodeStackSlugs([tool.slug])}` — the identical
+    single-slug degrade this plan relies on. A second production call site
+    landing cleanly is a stronger signal the reuse is safe than the original
+    single-caller (Stack.jsx) citation alone.
+  - Both cited copy-to-clipboard precedents still exist, at different lines:
+    `Stack.jsx`'s share-link copy is now at `Stack.jsx:117-128` (state/handler)
+    and `:268` (button label), not `132-136`; `Learning.jsx`'s share-badge
+    string is now at `Learning.jsx:264-271`, not `243-250`.
+  - `embedBadge.js` still does not exist, and `grep -rniE
+    "embed|badge|featured on toolnaut" src/` still returns nothing relevant
+    beyond the unrelated UI already noted (level-up badges, pricing ribbon
+    copy, the galaxy zoom readout) — the gap itself is untouched, only its
+    citations needed correcting. No change to build size, steps, or the
+    explicitly-excluded scope.
 
 ### Per-tool "Alternatives" SEO pages — the single highest-intent directory query has zero pages targeting it
 - **Status:** OPEN
@@ -4177,6 +4204,40 @@ a client-side SPA with a static tool catalogue.
   `index.html`. No backend, no new dependency, no change to the app's `src/`
   half at all (this is purely a `radar/` + static-file addition).
 - **Found:** 2026-09-02 06:20 UTC
+- **Deepened:** 2026-09-22 06:20 UTC — re-read every cited file against
+  current `src/`/`radar/`/`.github/workflows/`; the gap itself is unchanged
+  and still fully unbuilt (confirmed again: no `feed.xml`, no `gen-feed.js`,
+  no `rss|atom|feed\.xml` hit anywhere outside `radar/sources/rss.js`, which
+  is radar's unrelated *inbound* discovery source, not an outbound feed).
+  Three things had drifted or needed correcting:
+  - **The plan's own named wrinkle is already fixed, which simplifies the
+    build.** This entry flagged that `NewTools.jsx`'s JSON-LD pointed
+    `<link>`s at the session-gated `/app/tools/:slug` route and said fixing
+    that "in the same pass" would be nice but not a blocker. That's now moot
+    — `NewTools.jsx:38` links to `${SITE}/ai-tools/${t.slug}`, the public,
+    crawlable `ToolPublic.jsx` route (`App.jsx:128`) that shipped since this
+    entry was written. `gen-feed.js`'s `<link>`/`<guid>` should use
+    `${SITE}/ai-tools/${slug}` from the start — no follow-up fix needed, and
+    one fewer judgment call for whoever builds this.
+  - **A real gap in the original plan, not just drift:** `radar.yml`'s
+    "Commit the store and the app feed" step runs `git add radar/data
+    public/tools.json` explicitly (`radar.yml`, ~line 118) — it does not
+    glob `public/*`. A `public/feed.xml` written by `gen-feed.js` would
+    generate correctly every run and then never be staged or committed,
+    silently vanishing on the next checkout. This entry's original build
+    notes named the workflow step to add the *script call* to but never
+    named this second edit; add `public/feed.xml` to that `git add` line in
+    the same commit that adds the export step, or the feature ships and does
+    nothing.
+  - `index.html`'s icon/manifest `<link>` cluster is now lines 31-34 (a
+    `manifest.webmanifest` link was added after this entry was written),
+    not 31-33 — one line lower than cited, cosmetic only.
+  - Confirmed unchanged and exact: `prominence.js:70-73` still is
+    `isCatalogNoise()` verbatim; `sync-to-app.js`'s `FIELDS` array still
+    carries `slug`/`name`/`blurb`/`website`/`discoveredAt` and its
+    `published` filter is still `lifecycle === 'published'`, both load-
+    bearing assumptions this plan depends on and both still hold exactly as
+    described.
 
 ### Settings page hardcodes "no server copy" — the sync backend it's describing already exists elsewhere in the app
 - **Status:** FIXED (this commit) — small, well-scoped defect in already-shipped
@@ -7133,3 +7194,68 @@ a client-side SPA with a static tool catalogue.
   scripts, one footer link-column edit. Same size class as the already-
   shipped vs-competitor gap. No schema, no backend, no new dependency.
 - **Found:** 2026-09-20 03:08 UTC
+
+---
+
+### A same-day commit shipped an undisclosed, non-consented tracking cookie that did nothing — removed; it also widens the still-OPEN GA4 consent-gate gap above
+- **Status:** FIXED (this commit) — the dead code is gone; the underlying
+  "GA4 fires with no consent gate" gap two entries above (Found: 2026-09-13)
+  is still OPEN and now needs to cover this surface too, noted below.
+- **Seen in:** not a competitor check — this run's marketing-vs-reality sweep
+  (per this file's own instruction to check `src/components/sections/` and
+  related code against what ships) landed on the most recent commit on
+  `master`, `eb823cf` ("add comprehensive cookie system for preferences,
+  analytics, and sessions"), from earlier today.
+- **Gap:** that commit added `src/utils/cookies.js` and called its
+  `initializeTracking()` unconditionally from `App.jsx`'s top-level
+  `useEffect` — on every route, every visitor, before any consent choice,
+  exactly the pattern the still-OPEN "Cookie-consent gate for GA4" entry
+  (found 2026-09-13) already flags for `initAnalytics()`. `initializeTracking()`
+  generated a random id and wrote it to a first-party cookie
+  (`tn_session_id`, 90-day expiry via `COOKIE_EXPIRY.analytics`) on first
+  visit, then called `trackPageView()`, whose entire body was
+  `console.log(...)` — no request left the browser, no analytics service was
+  wired to it. The `beforeunload` listener it also registered logged a
+  session duration the same way. Grepped `src/` for `from '.*utils/cookies'`
+  and `from '.*cookies.js'`: `App.jsx` was the only importer, and it used
+  only `initializeTracking` — none of the module's other exports
+  (`preferences.*`, `analytics.setUserId/setTrackingId`, `session.*` auth-
+  token helpers) were referenced anywhere else in `src/`, so the rest of the
+  200-line module was unreachable dead code shipped alongside the one call
+  site that did fire. `Legal.jsx`'s Cookies section — the section the
+  2026-09-13 entry and the "Privacy policy claimed analytics was off" entry
+  both already had to correct once — says "No advertising cookies. Google
+  Analytics sets its own first-party cookies... Neither is used to advertise
+  to you," with no mention of a Toolnaut-set first-party session cookie at
+  all, because until this commit there wasn't one.
+- **Why it matters:** this is strictly worse than the gap it landed next to.
+  The existing GA4 entry at least fires a script with real analytics value in
+  exchange for the compliance exposure; this one added an undisclosed,
+  non-consented, persistent tracking cookie to every page load for zero
+  product benefit — nothing downstream ever read `tn_session_id`, and the
+  page-view/duration "tracking" it powered went straight to a browser
+  console no one but a visitor with devtools open would ever see. Shipping
+  it live would have meant more undisclosed cookies than the privacy policy
+  already had to be corrected for once this month, with no offsetting
+  feature to show for it.
+- **What was fixed now:** removed the `initializeTracking()` call and its
+  import from `App.jsx`, and deleted `src/utils/cookies.js` — the file's sole
+  live call site is gone and nothing else in `src/` referenced any of its
+  other exports, so nothing else changes. `theme`/`language` preferences and
+  auth continue exactly as before (through `themeStore.js`/`authStore.js`,
+  which this module never touched). No behavior a visitor could notice is
+  lost: the removed code never rendered anything and never sent data
+  anywhere real.
+- **What's still OPEN and belongs to the 2026-09-13 entry, not this one:**
+  the actual fix — a consent gate before any non-essential tracking fires —
+  is unchanged in scope by this cleanup: it still needs to gate
+  `initAnalytics()`/GA4 exactly as already scoped there (`consentStore.js`,
+  `ConsentBanner.jsx`, the `App.jsx`/`main.jsx` wiring). The one addition
+  this entry makes to that plan: if first-party tracking cookies are added
+  again later, they belong behind the same `loadConsent() === 'granted'`
+  gate the GA4 entry already designs, not a separate unconditional call —
+  worth a one-line note on that entry's banner-gating step when it's built,
+  so the next tracking addition doesn't repeat this one.
+- **Build size:** N/A (fix already applied — a straight deletion, no new
+  code).
+- **Found:** 2026-09-21 15:09 UTC

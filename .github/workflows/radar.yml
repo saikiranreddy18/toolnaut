@@ -73,6 +73,20 @@ jobs:
           # 49s. Anything near the old 30s default aborts every call and the
           # pipeline silently falls back to the rules classifier.
           FEATHERLESS_TIMEOUT_MS: "180000"
+          # llm.js already picks the first configured provider in priority order
+          # (Featherless -> Anthropic -> NVIDIA -> OpenAI -> OpenRouter) and
+          # falls back to the rules classifier only if none is set. Wiring all
+          # five through here means adding a fallback provider's secret alone
+          # is enough to survive a single provider going down (2026-09-20/21:
+          # Featherless returned 403 "subscription has overdue payments" for
+          # four runs straight, and every candidate landed in the review
+          # queue instead of publishing) — no second workflow edit required.
+          # Any secret left unset resolves to an empty string, which config.js
+          # already treats as "not configured".
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RADAR_MAX_CANDIDATES: ${{ github.event.inputs.max_candidates || '25' }}
           RADAR_LOG: info

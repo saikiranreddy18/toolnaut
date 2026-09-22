@@ -674,5 +674,44 @@
       "rejected": 0,
       "courses": 0
     }
+  },
+  {
+    "at": "2026-09-21T15:54:55.157Z",
+    "counts": {
+      "candidates": 79,
+      "filtered": 9,
+      "new": 17,
+      "skipped": 8,
+      "published": 0,
+      "review": 16,
+      "rejected": 1,
+      "courses": 0
+    }
+  },
+  {
+    "at": "2026-09-22T00:06:06.535Z",
+    "counts": {
+      "candidates": 79,
+      "filtered": 9,
+      "new": 10,
+      "skipped": 15,
+      "published": 0,
+      "review": 9,
+      "rejected": 1,
+      "courses": 0
+    }
+  },
+  {
+    "at": "2026-09-22T00:17:10.719Z",
+    "counts": {
+      "candidates": 79,
+      "filtered": 9,
+      "new": 2,
+      "skipped": 23,
+      "published": 0,
+      "review": 1,
+      "rejected": 1,
+      "courses": 0
+    }
   }
 ]
