@@ -126,19 +126,19 @@ export default function Mascot({ mood = 'happy', size = 32, className = '', titl
 // layout bug.
 export const LOGO = {
   page: {
-    size: 36,
-    markClass: 'h-9 w-9 sm:h-11 sm:w-11 lg:h-14 lg:w-14',
+    size: 44,
+    markClass: 'h-11 w-11 sm:h-14 sm:w-14 lg:h-[4.5rem] lg:w-[4.5rem]',
     textClass: 'text-2xl sm:text-3xl lg:text-4xl',
     gapClass: 'gap-2.5 sm:gap-3 lg:gap-3.5',
   },
   nav: {
-    size: 32,
-    markClass: 'h-8 w-8 md:h-9 md:w-9 lg:h-11 lg:w-11',
+    size: 42,
+    markClass: 'h-[42px] w-[42px] md:h-12 md:w-12 lg:h-14 lg:w-14',
     textClass: 'text-xl md:text-[1.35rem] lg:text-[1.65rem]',
     gapClass: 'gap-2.5 lg:gap-3',
   },
-  chrome: { size: 30, textClass: 'text-xl' },
-  compact: { size: 22, textClass: 'text-base' },
+  chrome: { size: 38, textClass: 'text-xl' },
+  compact: { size: 28, textClass: 'text-base' },
 }
 
 export function BrandLogo({
