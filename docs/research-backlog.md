@@ -2749,6 +2749,33 @@ a client-side SPA with a static tool catalogue.
   reusing an existing copy-to-clipboard pattern. No backend, no new
   dependency, no new route (reuses the already-public `/s/:slug`).
 - **Found:** 2026-08-28 03:15 UTC
+- **Deepened 2026-09-22 03:20 UTC — re-verified against current `src/`; the
+  plan is unchanged and still buildable exactly as scoped, three cited line
+  references had drifted and one new supporting data point turned up:**
+  - The "VISIT WEBSITE" anchor moved and its copy changed case: it now renders
+    "Visit website" at `ToolDetail.jsx:151-163`, immediately followed by the
+    "Add to my stack" / favorite button row at `ToolDetail.jsx:165-183`. The
+    embed disclosure should still mount directly after the Visit website link
+    and before that action row — same placement call as originally written,
+    just at the corrected line numbers.
+  - The `/s/:slug` route this gap depends on is unchanged (`App.jsx:120`,
+    `<Route path="/s/:slugs" element={<SharedStack />} />`) and has since
+    gained a second independent caller: `SearchTools.jsx:108` (the public
+    search page, shipped after this entry was written) already links every
+    result card to `/s/${encodeStackSlugs([tool.slug])}` — the identical
+    single-slug degrade this plan relies on. A second production call site
+    landing cleanly is a stronger signal the reuse is safe than the original
+    single-caller (Stack.jsx) citation alone.
+  - Both cited copy-to-clipboard precedents still exist, at different lines:
+    `Stack.jsx`'s share-link copy is now at `Stack.jsx:117-128` (state/handler)
+    and `:268` (button label), not `132-136`; `Learning.jsx`'s share-badge
+    string is now at `Learning.jsx:264-271`, not `243-250`.
+  - `embedBadge.js` still does not exist, and `grep -rniE
+    "embed|badge|featured on toolnaut" src/` still returns nothing relevant
+    beyond the unrelated UI already noted (level-up badges, pricing ribbon
+    copy, the galaxy zoom readout) — the gap itself is untouched, only its
+    citations needed correcting. No change to build size, steps, or the
+    explicitly-excluded scope.
 
 ### Per-tool "Alternatives" SEO pages — the single highest-intent directory query has zero pages targeting it
 - **Status:** OPEN
