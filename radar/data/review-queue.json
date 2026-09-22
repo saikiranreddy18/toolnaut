@@ -2883,5 +2883,33 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "jevopt-making-intelligent-compiler-optimisation-decisions-wi",
+    "name": "Jevopt: Making intelligent compiler optimisation decisions with Jev",
+    "category": "automation",
+    "sourceCategory": "Productivity & Meetings",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Show HN: Jevopt: Making intelligent compiler optimisation decisions with Jev",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://github.com/Ramneet-Singh/jevopt",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "automation"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49795171",
+    "discoveredAt": "2026-09-22T00:17:10.719Z",
+    "updatedAt": "2026-09-22T00:17:10.719Z",
+    "contentHash": "2923a25630676f87",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]
