@@ -4204,6 +4204,40 @@ a client-side SPA with a static tool catalogue.
   `index.html`. No backend, no new dependency, no change to the app's `src/`
   half at all (this is purely a `radar/` + static-file addition).
 - **Found:** 2026-09-02 06:20 UTC
+- **Deepened:** 2026-09-22 06:20 UTC — re-read every cited file against
+  current `src/`/`radar/`/`.github/workflows/`; the gap itself is unchanged
+  and still fully unbuilt (confirmed again: no `feed.xml`, no `gen-feed.js`,
+  no `rss|atom|feed\.xml` hit anywhere outside `radar/sources/rss.js`, which
+  is radar's unrelated *inbound* discovery source, not an outbound feed).
+  Three things had drifted or needed correcting:
+  - **The plan's own named wrinkle is already fixed, which simplifies the
+    build.** This entry flagged that `NewTools.jsx`'s JSON-LD pointed
+    `<link>`s at the session-gated `/app/tools/:slug` route and said fixing
+    that "in the same pass" would be nice but not a blocker. That's now moot
+    — `NewTools.jsx:38` links to `${SITE}/ai-tools/${t.slug}`, the public,
+    crawlable `ToolPublic.jsx` route (`App.jsx:128`) that shipped since this
+    entry was written. `gen-feed.js`'s `<link>`/`<guid>` should use
+    `${SITE}/ai-tools/${slug}` from the start — no follow-up fix needed, and
+    one fewer judgment call for whoever builds this.
+  - **A real gap in the original plan, not just drift:** `radar.yml`'s
+    "Commit the store and the app feed" step runs `git add radar/data
+    public/tools.json` explicitly (`radar.yml`, ~line 118) — it does not
+    glob `public/*`. A `public/feed.xml` written by `gen-feed.js` would
+    generate correctly every run and then never be staged or committed,
+    silently vanishing on the next checkout. This entry's original build
+    notes named the workflow step to add the *script call* to but never
+    named this second edit; add `public/feed.xml` to that `git add` line in
+    the same commit that adds the export step, or the feature ships and does
+    nothing.
+  - `index.html`'s icon/manifest `<link>` cluster is now lines 31-34 (a
+    `manifest.webmanifest` link was added after this entry was written),
+    not 31-33 — one line lower than cited, cosmetic only.
+  - Confirmed unchanged and exact: `prominence.js:70-73` still is
+    `isCatalogNoise()` verbatim; `sync-to-app.js`'s `FIELDS` array still
+    carries `slug`/`name`/`blurb`/`website`/`discoveredAt` and its
+    `published` filter is still `lifecycle === 'published'`, both load-
+    bearing assumptions this plan depends on and both still hold exactly as
+    described.
 
 ### Settings page hardcodes "no server copy" — the sync backend it's describing already exists elsewhere in the app
 - **Status:** FIXED (this commit) — small, well-scoped defect in already-shipped
