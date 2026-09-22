@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
 import { getAIAgent } from '../../utils/aiAgent'
-import { analytics } from '../../utils/cookies'
 
 export default function AIRobot({ onClose, compact = false }) {
   const [messages, setMessages] = useState([])
@@ -47,9 +46,6 @@ export default function AIRobot({ onClose, compact = false }) {
     setIsLoading(true)
 
     try {
-      // Track interaction
-      analytics.trackPageView('/ai-robot/chat')
-
       const response = await agent.chat(input)
 
       const assistantMessage = {
