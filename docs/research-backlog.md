@@ -955,8 +955,42 @@ a client-side SPA with a static tool catalogue.
   - **Build size, corrected:** still S — same stylesheet + button, plus one
     `useEntitlement()` call and a two-branch conditional already proven at
     `TrialBanner.jsx:39`. No new dependency, no new route.
-
-### Per-route page title & meta description (SEO/social, every page shares one)
+  - **Re-verified 2026-09-23 00:20 UTC — build still fully correct and still
+    unbuilt, but the button's anchor point moved and needs re-pinning.**
+    Oldest untouched OPEN entry (20 days) — deepened per the cumulative-
+    research rule rather than adding a new one.
+    - Core claim unchanged: `planData.js:118` still reads
+      `planned('Export learning roadmaps as PDF')` and `planData.js:172` is
+      still `['PDF roadmap export', false, 'planned', 'planned']` (both lines
+      drifted again since the last check, substance identical). Grepped `src/`
+      for `print|PDF|jspdf|html2canvas` again — same two `planData.js` copy
+      hits plus the same `toolsCatalog.js:469` "Blueprint AI" false positive,
+      nothing new. `src/index.css` grew 509 → 965 lines since 2026-09-03 and
+      still has zero `@media print` rule. Zero PDF dependency in
+      `package.json`. `useEntitlement.js` and `TrialBanner.jsx:39`'s
+      `if (!ent.paymentsEnabled || !ent.configured) return null` gate are both
+      unchanged — the corrected gating plan above is still exactly right.
+    - **What changed and matters for the build:** `Learning.jsx` grew 385 →
+      464 lines, and the "near the SHARE MY BADGE button's visual slot"
+      anchor this entry previously gave is now actively misleading. That
+      button (still `🎓 SHARE MY BADGE`, now `Learning.jsx:451`) is nested
+      inside `{allCleared && (...)}` (opens `Learning.jsx:439`) — it only
+      renders once every milestone is cleared. The PDF export button must
+      stay **always visible** per this entry's own spec ("exporting an
+      in-progress roadmap is at least as useful as a completed one"), so it
+      cannot actually sit in that slot without either escaping the
+      conditional (churn this entry doesn't call for) or rendering only for
+      users who already finished the roadmap (contradicts the spec). The
+      always-rendered header block — `<h1>Your 4-week<br/>Orbit</h1>` at
+      `Learning.jsx:273`, immediately followed by the `{current && (...)}`
+      "your next move" sticker at `Learning.jsx:275` — is the right anchor
+      instead: it renders on every visit regardless of progress, right below
+      the page title, and is the first always-visible content on the page.
+      Corrected placement: the export button goes directly under the `<h1>`
+      at `Learning.jsx:273`, before the "next move" sticker, not reused from
+      the share button's slot.
+    - Nothing else in the build (the `@media print` scope, `window.print()`
+      approach, entitlement gating) needed correction this pass.
 - **Status:** SHIPPED, but PARTIALLY REOPENED 2026-09-13 21:20 UTC — the
   `ToolDetail`/`Compare` follow-up this entry closed itself against on
   2026-08-31 ("still gated behind AppShell") is now stale: the gate is gone.
