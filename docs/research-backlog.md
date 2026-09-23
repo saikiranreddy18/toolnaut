@@ -1430,6 +1430,86 @@ a client-side SPA with a static tool catalogue.
   new `orgs`/`memberships` schema and permissions model. Individual
   Supabase accounts (real, already shipped) are a precondition this gap can
   now build on, not a substitute for it.
+- **Deepened 2026-09-23 12:20 UTC — re-verified Gap 1 against current src;
+  its own headline premise is now stale, and a live cross-cutting risk
+  surfaced.** This is the oldest untouched OPEN entry (last touched
+  2026-09-03), so re-checked every cited fact rather than adding a new gap.
+  **Everything substantive still holds:** `ChatPanel.jsx` is still the same
+  honest stub — header still reads "Preview — replies are canned"
+  (now line 53, unchanged position), `send()` still appends the identical
+  hardcoded string (lines 41-45) with zero `fetch` calls. `api/chat.js`
+  (248 lines, unchanged in substance) still has the full security
+  scaffolding this entry's build plan reuses: `originAllowed()` (line 54),
+  `rateLimit()` from `_security.js` (line 22/184), the `LIMITS` payload
+  caps, and the graceful `source: 'unconfigured' | 'upstream_error' |
+  'timeout'` fallback contract. `api/copilot.js` still does not exist
+  (checked `ls api/` — 17 files, no copilot). `Stack.jsx`'s
+  `getTool`/`slugs` pattern this entry's plan cites is still exactly
+  shaped as described (now `Stack.jsx:101-123`, shifted from 116-119).
+  **One citation drifted and one was missing:** `planData.js:44` is now
+  `planData.js:116` (file grew); the entry never mentioned that the same
+  string is *also* a `COMPARISON` row — `['AI chat assistant', false,
+  'planned', 'planned']` at `planData.js:168` — which matters for the next
+  finding.
+  **The entry's own headline premise no longer holds.** Gap 1 was logged
+  because "the pricing page sells it as a live Claude-powered feature with
+  no such caveat" (original 2026-08-25 finding). Traced every render path
+  for that copy today and none of them do that anymore:
+  `PricingPillar.jsx:96` (`plan.features.filter((f) => f.status !==
+  'planned')`) filters every planned feature — including this one — out of
+  the visible per-plan checklist entirely; it never renders the string "AI
+  chat assistant" by name at all, folding it into an unlabelled "N more
+  features on the roadmap" line (`PricingPillar.jsx:110-118`). The
+  toggleable full comparison table on the same page (`PricingSection.jsx`,
+  reading the `COMPARISON` row found above) renders it through `Cell()`
+  (`PricingSection.jsx:10-24`), whose `'planned'` branch outputs an
+  explicit gray pill reading "planned" with `aria-label="planned, not yet
+  built"` — the opposite of an unqualified live claim.
+  `CapabilityMatrix.jsx`/`capabilityMatrix.js` (the other honesty
+  breakdown also mounted on `/pricing`) doesn't mention chat at all. So as
+  of today, nowhere on the site claims this feature is live — the
+  marketing-honesty violation this entry was originally opened to fix has
+  already been closed by the unrelated planned-badge work that shipped
+  around the same 2026-08-31/09-01 payments push this entry's own Gap 1
+  deepening already cites. What's left to build is a genuinely useful,
+  already-honestly-labelled feature, not a lie to correct — reframes this
+  from "compliance fix" to "ship a nice-to-have," which changes how urgent
+  it is relative to gaps that are still active false claims.
+  **Minor code-quality note, not fixed here (no visible defect, would be a
+  drive-by change):** `PricingPillar.jsx:97,99` still check
+  `f.status === 'planned'` inside the `.map()` that line 96 already
+  filtered to exclude that exact status — dead branches that can never
+  execute. Flagged for whoever next touches that file; not this run's job
+  per this backlog's own no-drive-by-cleanup rule.
+  **New cross-cutting risk, worth knowing before anyone builds this:**
+  `api/chat.js` reads `process.env.FEATHERLESS_API_KEY` (line 186) with no
+  fallback provider — confirmed by grepping the file for
+  `ANTHROPIC_API_KEY|NVIDIA_API_KEY|OPENAI_API_KEY|OPENROUTER_API_KEY`,
+  zero hits. That is the *same* Featherless account issue #63 has open
+  right now for the radar pipeline (overdue invoice, every call 403s).
+  `e72ad27`, the fix issue #63 references, only wired the fallback
+  secrets into `radar.yml` (a GitHub Actions job) — it never touched
+  `api/` (Vercel functions), so `api/chat.js` has no failover today. Two
+  consequences: (1) the live `/goal` quiz's server-side classification
+  (`goalChat.js`'s `askServer`) is *also* silently degraded in production
+  right now, not just the radar catalog — it fails closed to the offline
+  `matchFreeText` matcher by design (`goalChat.js:285-289`), so nothing is
+  visibly broken, but the "smart" free-text path has been unavailable for
+  as long as issue #63 has been open; (2) if `api/copilot.js` were built
+  exactly as this entry's own plan specs (copying `api/chat.js`'s
+  scaffolding verbatim), it would ship into the same outage and return
+  `source: 'upstream_error'` on every real message, surfacing the
+  hardcoded "I'm not able to answer that right now" fallback to every
+  first-time Pro user until issue #63 clears. Not a reason to hold the
+  build — the code would be correct — but worth demoing/verifying against
+  a live Featherless call (or waiting for issue #63 to clear) before
+  calling it done, since a correct implementation would still look broken
+  today.
+  **Build size, Gap 1: unchanged at M.** Status stays OPEN — still the
+  right size for a feature run, just reframed from "closes a false claim"
+  to "ships a specced, already-honest feature," with the Featherless
+  outage as a pre-ship verification step, not a blocker to the build
+  itself.
 
 ### Recently viewed tools
 - **Status:** SHIPPED 113f375 — built as scoped below: `recentlyViewedStore.js`
