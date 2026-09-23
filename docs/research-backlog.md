@@ -5631,7 +5631,38 @@ a client-side SPA with a static tool catalogue.
   unlike its Whizi-adjacent sibling above, this half of the pattern needs
   nothing Toolnaut doesn't already have.
 - **Found:** 2026-09-11 09:20 UTC
-- **Found:** 2026-09-11 03:20 UTC
+- **Deepened 2026-09-23 09:20 UTC — the oldest untouched OPEN entry (12 days,
+  never previously deepened); re-verified against current `src/`, still fully
+  unbuilt and every cited fact still exact:** `Stack.jsx` grew to 465 lines
+  since this was written, but every anchor still resolves — `starterNames`/
+  `addedTools` now sit at `Stack.jsx:100-103` (was 98-101), `allStackTools` at
+  `Stack.jsx:232-235` (was 230-233), and the "your kit" header this entry
+  targets for the sticker is now `Stack.jsx:314-321`. `Compare.jsx:28` still
+  reads `searchParams.get('tools')` as a comma-joined slug list exactly as
+  cited, and `capabilityMatrix.js` still names `Comparison` (line 44) and
+  `deep_comparison_opened` (line 97). Re-ran the category grep against the
+  live bundled catalog instead of trusting the old numbers: `TOOLS.length` is
+  704 (the entry's own "330 bundled" description of that count was already
+  wrong when written — worth noting since nobody had checked it until now),
+  but the counts it actually cites are exact and unaffected: 26 distinct
+  `sourceCategory` values, LLMs & Chatbots at 35, Image Generation & Editing
+  at 60, Video Generation & Avatars at 47. `findOverlaps`/`stackOverlap.js`
+  does not exist anywhere in `src/` (grepped) — still fully unbuilt.
+  One thing this entry's original write-up missed: `Stack.jsx:320` now
+  mounts `<StackCost tools={allStackTools} />` right in the same "your kit"
+  header row this entry wants to add a sticker near — that's the since-shipped
+  `aeaedd0` cost-estimate gap (counts by price bucket only: free/freemium/paid/
+  unpriced, see `src/utils/stackCost.js`), not overlap detection, so it
+  doesn't make this gap redundant. But it does mean the header row this entry
+  points at (`Stack.jsx:314-321`) is more crowded than when it was scoped:
+  it now holds the "N tools locked in" label AND the cost-bucket pills on one
+  line. The overlap sticker should still go where the entry specs it (below
+  the header, near `allStackTools`, not inside that row) — flagging this only
+  so whoever builds it doesn't try to cram a third element into an
+  already-two-element flex row. Also fixed a duplicate `Found:` line left in
+  this entry (two conflicting timestamps, likely a copy-paste artifact from
+  whenever this was first written) — kept the earlier one, matching the
+  09:20 UTC research-run slot this file's other September entries use.
 
 ---
 
