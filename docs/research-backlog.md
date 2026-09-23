@@ -5631,7 +5631,14 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### Stack overlap warning — the catalog already carries the field the cost-estimate gap ruled out needing, nobody reads it for redundancy
-- **Status:** OPEN
+- **Status:** SHIPPED (this run, sha in DEVLOG) — built exactly as scoped
+  below: `src/utils/stackOverlap.js` (`findOverlaps`, ~25 lines, groups
+  `allStackTools` by `sourceCategory`, skips groups that are entirely starter
+  picks) plus a dismissible-per-session sticker in `Stack.jsx` below the
+  crowded "your kit" header, wired into the already-shipped `Compare.jsx` via
+  `/app/compare?tools=slug1,slug2`. Worded as a question ("worth comparing?")
+  per the open question below. No price math, no auto-removal, no new route —
+  exactly the scoped-down version.
 - **Seen in:** Whizi (whizi.io) markets itself around three things: "calculate
   real AI subscription costs, **compare tool overlap**, find wasted spend."
   The Stack cost estimate entry above (found 2026-09-10, still OPEN, `L`,
