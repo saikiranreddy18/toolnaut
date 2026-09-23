@@ -2,17 +2,22 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
 import './index.css'
-import { initAnalytics } from './utils/analyticsEvents'
+import { initAnalytics, loadAnalytics, canInitAnalytics } from './utils/analyticsEvents'
 import { initErrorReporting } from './utils/errorReporting'
 import AppErrorBoundary from './components/AppErrorBoundary'
 import { loadLiveCatalog } from './utils/liveCatalog'
 import { loadTheme, applyTheme } from './state/themeStore'
 import { loadMoon, applyMoon } from './state/moonStore'
+import { loadConsent } from './state/consentStore'
 import { watchSession } from './state/authStore'
 
 // First, so a crash in any of the boot steps below is still reported.
 initErrorReporting()
 initAnalytics()
+// GA4 itself only loads once consent was already granted on a past visit.
+// A first-time visitor sees ConsentBanner (mounted in App) and it calls
+// loadAnalytics() directly when they accept, same-session, no reload.
+if (canInitAnalytics() && loadConsent() === 'granted') loadAnalytics()
 applyTheme(loadTheme()) // paint the saved play-mode before first render
 applyMoon(loadMoon())   // and the saved sky, so there is no flash of the wrong night
 

@@ -23,11 +23,11 @@ import { REFUND_WINDOW_DAYS } from './Support'
 // which is the part a template gets wrong. Have someone qualified read it before
 // relying on it commercially.
 
-const UPDATED = '13 September 2026'
+const UPDATED = '22 September 2026'
 
-function Section({ title, children }) {
+function Section({ id, title, children }) {
   return (
-    <section className="mt-10">
+    <section id={id} className="mt-10 scroll-mt-24">
       <h2 className="font-display text-lg font-semibold" style={{ color: 'var(--lime)' }}>
         {title}
       </h2>
@@ -104,7 +104,7 @@ function Privacy() {
         </p>
       </Section>
 
-      <Section title="Other services that receive data">
+      <Section id="analytics" title="Other services that receive data">
         <p>
           <Strong>Supabase</Strong> stores your account and synced data. <Strong>Razorpay</Strong> processes
           payments. <Strong>Resend</Strong> delivers our emails.
@@ -146,9 +146,10 @@ function Privacy() {
 
       <Section title="Cookies">
         <p>
-          No advertising cookies. Google Analytics sets its own first-party cookies to recognise repeat
-          visits, and signing in stores a session token so you stay signed in. Neither is used to advertise
-          to you.
+          No advertising cookies. Signing in stores a session token so you stay signed in — that one is
+          essential and always on. Google Analytics sets its own first-party cookies to recognise repeat
+          visits, but only after you accept the banner shown on your first visit; declining, or not answering
+          yet, means it never loads. Neither is used to advertise to you.
         </p>
       </Section>
 

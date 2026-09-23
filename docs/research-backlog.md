@@ -6126,7 +6126,20 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### Cookie-consent gate for GA4 — flagged as a follow-up in the entry above, never promoted to its own gap
-- **Status:** OPEN
+- **Status:** BUILT (this run), PR #70 not yet merged — built close to scope
+  below, with one deliberate deviation: the spec said to gate the whole `initAnalytics()`
+  call on consent, but `initAnalytics()` is also where `window.dataLayer`
+  gets initialized, and every `track()` call site in the app assumes that
+  array already exists — gating the whole function would throw on every one
+  of those calls for every visitor who hasn't consented yet (the default
+  state). Split it instead: `initAnalytics()` (dataLayer + first-party
+  page_view/time_on_page bookkeeping) always runs at boot and never talks to
+  GA4 on its own; a new `loadAnalytics()` is the part that actually injects
+  the GA4 script/cookie, called only on explicit accept or a previously-
+  granted choice. `VITE_GA4_ID` is unset in this sandbox, so the banner path
+  itself could not be exercised live here; `npm run build`/`npm test`/
+  `npm run smoke` all pass with the boot-time code paths (which run on every
+  route regardless of GA4 config) exercised clean.
 - **Seen in:** the previous entry's own "what this would NOT include" section named
   this and left it unbuilt; a GitHub Actions run titled "docs(research):
   promote the GA4 consent-gate follow-up to its own gap" exists in this repo's

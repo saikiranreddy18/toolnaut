@@ -9,6 +9,80 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-22
+
+**Radar health:** `npm run radar:health` reports **NO-PUBLISH** — 3 runs in
+the last 26h window, 0 tools published in any of them (16 candidates went to
+the review queue instead). This is the same already-diagnosed cause as
+before: Featherless AI's account has an overdue invoice, every LLM enrichment
+call 403s, and the rules-classifier fallback scores below
+`RADAR_PUBLISH_THRESHOLD` by design (issue #63, open, needs a human to pay
+the invoice or add a fallback provider secret — PR #62 already wires four
+fallback providers through the workflow, just needs one secret to activate).
+Feed still holds 377 tools; no new code action available today.
+
+**Researched today (4 research-hour runs before this one):** re-verified four
+already-open backlog gaps against current `src/` rather than adding new
+ones — the embeddable "Featured on Toolnaut" badge (03:08 UTC), the outbound
+RSS/Atom feed (06:09 UTC, found a real gap in the original plan: `radar.yml`'s
+commit step git-adds `radar/data` and `public/tools.json` explicitly, so a
+future `feed.xml` would need that line edited too), the tool favicon/logo gap
+(12:09 UTC), and the community "Suggest a tool" gap (15:10 UTC, pinned the
+Settings.jsx placement to an exact line range). All four remain OPEN and
+buildable; none was deepened enough today to become the obvious pick over a
+gap that was already fully spec'd from a prior day.
+
+**Shipped today, NOT yet deployed:** a cookie-consent gate for GA4, as PR #70
+(`bot/claude/ga4-cookie-consent-gate-2026-09-22`), still awaiting merge as
+this entry is written. `src/main.jsx` fired GA4 unconditionally on every
+visitor's first paint, with no consent mechanism, for as long as
+`VITE_GA4_ID` has been set in production — a live GDPR/ePrivacy exposure, not
+just a missing feature, and the one compliance-shaped gap in the backlog.
+This exact feature was already built once, fully tested, on an unmerged
+branch (PR #57, 2026-09-20) that never landed on `master` — rather than let
+verified work rot a second time, it was rebuilt fresh against current
+`master` today to the same design: new `src/state/consentStore.js` (same
+shape as `moonStore.js`: one guarded localStorage key,
+`granted | denied | null`) and `src/components/ConsentBanner.jsx` (mirrors
+`InstallPrompt.jsx`'s fixed-bar shape) show a one-time Accept/Decline banner
+on every route; `analyticsEvents.js` now splits `initAnalytics()` (always
+safe at boot — sets up the `dataLayer` queue every `track()` call site
+depends on, never talks to GA4) from a new `loadAnalytics()` that actually
+injects the GA4 script/cookie, called only on explicit accept or a
+previously-granted choice. `Legal.jsx`'s Cookies section now describes the
+gate honestly instead of claiming GA4 just "recognises repeat visits"
+unconditionally. **Not visible on the live site until PR #70 is merged** —
+the code is correct and verified but sits on a branch, same as #57 before it
+(note: `VITE_GA4_ID` is unset in this sandbox, so the banner's accept/decline
+path itself couldn't be exercised live here; the boot-time code paths that
+run on every route regardless of GA4 config were exercised clean by all three
+checks — 297/297 tests, a clean build, and 24/24 routes rendering with 0
+console errors on smoke). 8 files changed, 2 new — 222 insertions, 21
+deletions.
+
+**Note on process:** the scheduled prompt says to work on and push directly
+to `master`; this session's own safety classifier denied that specific
+action ("Production Deploy") when staging these files for a direct-to-master
+commit, though the same session's four earlier research-only commits today
+landed on `master` without issue. Falling back to CLAUDE.md's actual hard
+rule instead — PR from a `bot/<agent>/<slug>` branch, never `master` directly
+— which is also why this entry itself only reaches `master` once a human
+merges PR #70. Several prior *feature*-run sessions made the same call
+already and opened PRs (#36, #37, #39, #48, #54, #57...) — those PRs are why
+`master`'s own `DEVLOG.md` has had no feature-ship entry since 2026-09-19
+despite real, tested work landing on branches in the meantime (see issue #67:
+22 open bot PRs, oldest 4 weeks, none merged). Today's ship reuses #57's
+exact verified design rather than
+leaving it to rot a second time — it still needs a human merge to reach the
+deploy pipeline, same as #57 did.
+
+**Queued next:** the four re-verified OPEN gaps above (badge, RSS feed,
+favicon, suggest-a-tool) are all buildable; "No way to flag a wrong listing"
+(S) and "No browsable gallery of shared stacks" (M) are also still
+build-ready from an earlier day's queue.
+
+---
+
 ## 2026-09-19
 
 **Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h

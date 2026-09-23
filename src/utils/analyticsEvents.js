@@ -84,18 +84,33 @@ export const EVENTS = {
 
 const GA_ID = import.meta.env.VITE_GA4_ID
 
+// Whether there is a GA4 property to gate consent for at all — false in dev
+// and in any deploy without VITE_GA4_ID set, in which case no banner is shown
+// and loadAnalytics() below is simply never worth calling.
+export function canInitAnalytics() {
+  return !!GA_ID
+}
+
+// The one non-essential, cookie-setting script in the app. Call this only
+// once the visitor has actively accepted analytics — never at boot.
+export function loadAnalytics() {
+  if (!GA_ID) return
+  const s = document.createElement('script')
+  s.async = true
+  s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
+  document.head.appendChild(s)
+  window.gtag = function () { window.dataLayer.push(arguments) }
+  window.gtag('js', new Date())
+  window.gtag('config', GA_ID)
+}
+
+// Always safe to call at boot, consent or not: it only sets up the in-memory
+// event queue and first-party page_view/time_on_page bookkeeping that every
+// track() call site in the app depends on existing. It never talks to a
+// third party by itself — track() only reaches GA4 once loadAnalytics() has
+// run and window.gtag exists.
 export function initAnalytics() {
   window.dataLayer = window.dataLayer || []
-
-  if (GA_ID) {
-    const s = document.createElement('script')
-    s.async = true
-    s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
-    document.head.appendChild(s)
-    window.gtag = function () { window.dataLayer.push(arguments) }
-    window.gtag('js', new Date())
-    window.gtag('config', GA_ID)
-  }
 
   track(EVENTS.PAGE_VIEW, { path: location.pathname })
 
