@@ -5820,6 +5820,35 @@ a client-side SPA with a static tool catalogue.
   in `Discover.jsx`. No backend, no schema change, no new store, no new
   dependency.
 - **Found:** 2026-09-11 12:30 UTC
+- **Deepened 2026-09-23 21:14 UTC — the oldest untouched OPEN entry (12 days,
+  never previously deepened); re-verified against current `src/` rather than
+  starting a new finding.** `streakStore.js` is untouched since this entry was
+  written — `loadStreak()` (`:69-72`), the `WINDOW = 28` trim (`:24`, applied
+  at `:88`), and the `days` shape are all still exactly as described, so
+  `daysSinceLastVisit()` can be added with zero adjustment to the plan.
+  `getNewTools(days = 7)` also unchanged (`newTools.js:15-19`, was cited as
+  `:16-20` — one-line drift only). `recordVisit()`'s call site moved from
+  `Stack.jsx:93` to `:95` — cosmetic.
+  **What did change, and matters:** the separate "Weekly Fresh Finds
+  domain-blind" gap (below) shipped in the meantime (`6552af5`), and it
+  touched the exact code this entry plans to edit. `freshTools` is now at
+  `Discover.jsx:159-165` (was `:141`) and already does one kind of
+  personalization — sorting same-domain tools first and swapping the heading
+  to `` 🆕 New in ${domain} `` when `hasFreshDomainMatch` is true
+  (`:167`, `:226`) — so the heading is no longer this entry's clean two-way
+  switch ("New since you were last here" vs. "New this week"). It is now a
+  three-way choice, and the two personalizations need an explicit precedence
+  instead of colliding: check `hasFreshDomainMatch` first (a visitor's actual
+  role match is more specific than a timeframe) and only fall back to the
+  visit-recency copy when there is no domain match, i.e. `hasFreshDomainMatch
+  ? "🆕 New in ${name}" : sinceLast != null ? "🆕 New since you were last
+  here" : "🆕 New this week"`. The `freshTools` `useMemo`'s dependency array
+  also needs `sinceLast` added alongside `answers?.domain` once its
+  `getNewTools(7)` call becomes `getNewTools(sinceLast == null ? 7 :
+  Math.min(Math.max(sinceLast, 1), 30))` — today the array is `[answers?.domain]`
+  only. Everything else in the original plan (the pure `daysSinceLastVisit()`
+  function, reading `loadStreak()` without writing, the 1–30 day clamp, the
+  "what this would NOT include" scope cuts) still holds exactly as scoped.
 
 ---
 
