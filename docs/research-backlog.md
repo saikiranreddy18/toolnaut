@@ -5307,6 +5307,43 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-09-03 00:35 UTC (recovered from unmerged PR #40 and
   re-verified against master 2026-09-10 12:xx UTC — all file:line references
   above checked fresh, not copied blind)
+- **Deepened 2026-09-22 09:xx UTC — re-verified against current master, two
+  corrections:** `IS_SAMPLE = true` is still set (`leaderboardData.js:51`,
+  unchanged) and `RankCard.jsx` still imports `SAMPLE_LEADERBOARD`/`IS_SAMPLE`
+  and renders the fictional seven-row table — the gap itself is exactly as
+  live as it was on 2026-09-10. Two things drifted:
+  1. **Migration numbering is stale.** `supabase/migrations/` now runs through
+     `0010_saved_limit.sql` — three more shipped since the last check
+     (`0008_account_deletion.sql`, `0009_subscriber_count.sql`,
+     `0010_saved_limit.sql`). The next free number for this gap's migration is
+     **0011**, not 0008. `public.profiles` (`0002_user_state.sql:25-31`) still
+     has no `handle` column, so the "add a handle column" half of the spec is
+     unchanged — only the filename needs correcting before this ships.
+  2. **The precedent got stronger, and there is now a closer template to copy
+     than `explorer_count()`.** `0009_subscriber_count.sql` did exactly this
+     gap's pattern a second time — a `security definer` aggregate function
+     exposed to `anon, authenticated` with no new SELECT policy on the
+     underlying table — and `src/utils/subscriberCount.js` is a second live
+     example (after `explorerCount.js`) of the client-side contract this
+     gap's `leaderboard.js` should copy verbatim rather than inventing its
+     own: `null` means "not known, could not be read", never `0` and never a
+     silent fallback to sample data; a `cached`/`inFlight` pair de-dupes
+     concurrent calls; a `42P01` (table/function missing) or any other
+     Supabase error is swallowed with a `console.warn`, not thrown, so a
+     leaderboard read can never break the page it renders on. The original
+     spec's "feature-detect via `sync.js`'s `syncAvailable()`" instinct was
+     right in spirit but is the wrong precedent to copy code from —
+     `explorerCount.js`/`subscriberCount.js` are the two purpose-built
+     examples of this exact read pattern (anonymous aggregate over
+     RLS-protected rows) and now that there are two of them, `leaderboard.js`
+     should look like a third sibling in that file, not a one-off.
+  One more small drift while re-reading: `communityStats.js`'s `myStanding()`
+  is now defined at line 64, not 70 (`SEEDED`/`STARTING_RANK`/
+  `POINTS_PER_PLACE` at lines 23/42/53 are all otherwise unchanged). No other
+  part of the spec (the `handle` pseudonym scheme, `leaderboard_top(n)`/
+  `my_rank()` RPC shapes, dropping `perStreakDay` from the server formula,
+  the "verify against zero signed-up accounts" step) changes — the gap is
+  still fully concrete and still M-sized.
 
 ---
 
