@@ -37,7 +37,6 @@ const COLUMNS = [
       { label: 'Build my AI stack', to: '/goal' },
       { label: 'See an example stack', to: '/example' },
       { label: 'Newest tools', to: '/new' },
-      { label: 'Pricing', to: '/pricing' },
     ],
   },
   {
