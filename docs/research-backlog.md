@@ -5323,6 +5323,43 @@ a client-side SPA with a static tool catalogue.
   link, one `prerender.mjs` `ROUTES` entry. No backend, no new dependency, no
   radar/schema change.
 - **Found:** 2026-09-10 15:xx UTC
+- **Deepened 2026-09-23 03:20 UTC:** research run (UTC hour 03). CI green on
+  master, no agent-fixable issues, radar health NO-PUBLISH (issue #63,
+  Featherless still 403ing on an overdue invoice — already fully diagnosed,
+  not re-reported here). This was the oldest untouched OPEN entry (13 days,
+  never previously deepened) so re-verified it rather than starting a new
+  gap.
+  Every claim still holds; only one line reference drifted. `vercel.json`'s
+  `/tools.json` block moved from `:18-21` to `:89-97` — the file grew a
+  `redirects` block (host-based `www`/preview-URL redirects) and a security
+  `headers` block (HSTS, CSP-Report-Only, Permissions-Policy, etc.) ahead of
+  it since this entry was written, but the block itself is unchanged: still
+  exactly one `Cache-Control: public, max-age=0, must-revalidate` key, still
+  no `Access-Control-Allow-Origin`, so the cross-origin-fetch defect is
+  confirmed still live. `App.jsx`'s route list (now ~29 routes, grepped in
+  full) still has no `/developers`. `ContactSection.jsx`'s `Resources`
+  column is still exactly `:44-51` with the same four links (`How it works`,
+  `How we choose` → `/methodology`, `What's new` → `/changelog`, `Open the
+  app`) in the same order — the planned fifth link slots in without
+  reordering anything. `scripts/prerender.mjs`'s `ROUTES` array still opens
+  `/`, `/about`, `/changelog`, `/pricing`, `/methodology`, ... at `:43-54`,
+  same flat-string pattern. `Changelog.jsx`'s own header comment still
+  literally says "Reuses About.jsx's exact page shell" — confirmed both
+  files share the same `useHead()` + `starfield` + `BrandLogo` opening,
+  so a third page reusing it is still the right, already-proven pattern.
+  Re-pulled a live record from `public/tools.json` and diffed it against
+  this entry's field list field-by-field: `slug, name, category,
+  sourceCategory, price, pricing, level, blurb, audience, dev, year,
+  website, status, note, tags, discoveredAt` — exact match, zero drift,
+  confirming `radar/scripts/sync-to-app.js`'s `FIELDS` array (`:12`) is
+  still the single source of truth for the shape a `/developers` page would
+  document. `public/llms.txt` still exists (3.5KB, last touched 2026-09-18)
+  and is still prose for AI crawlers, not a fetchable-schema doc — still the
+  right thing to cross-link from the new page rather than duplicate.
+  Still fully unbuilt, still Build size S, still a strong pick for the next
+  feature run: zero risk to load-bearing files (`vite.config.js`, `sw.js`
+  stamping, the service-worker fetch handler), touches only `vercel.json`
+  headers, one new static page, one footer link, one prerender route.
 
 ---
 
