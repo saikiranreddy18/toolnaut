@@ -10,6 +10,7 @@ import { matchScore, matchReasonShort, fitBand } from '../../utils/matchScore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
 import { haptic } from '../../utils/haptics'
 import { encodeStackSlugs } from '../../utils/shareStack'
+import { findOverlaps } from '../../utils/stackOverlap'
 import { recognisableStarters } from '../../utils/prominence'
 import { recordVisit, weekDots } from '../../state/streakStore'
 import { generateRoadmap } from '../../utils/roadmapGenerator'
@@ -79,6 +80,9 @@ export default function Stack() {
   const [progress, setProgress] = useState(loadProgress)
   const [addedSlugs, setAddedSlugs] = useState(loadStack)
   const [copied, setCopied] = useState(false)
+  // Per-session only — not persisted. A stack's category mix changes often
+  // enough that a stale dismissal could hide a genuinely new overlap.
+  const [dismissedOverlaps, setDismissedOverlaps] = useState(() => new Set())
 
   const hour = new Date().getHours()
   const period = hour < 5 ? 'night' : hour < 12 ? 'morning' : hour < 18 ? 'afternoon' : 'evening'
@@ -234,6 +238,7 @@ export default function Stack() {
     ...addedTools,
   ]
   const untouchedCount = allStackTools.filter((t) => !progress[t.name]).length
+  const overlaps = findOverlaps(allStackTools).filter((o) => !dismissedOverlaps.has(o.category))
 
   // Persona → arcade level nametag (mirrors QuizResult)
   const experienceLevels = {
@@ -374,6 +379,41 @@ export default function Stack() {
             )
           })}
         </div>
+
+        {/* Overlap warning — same sourceCategory, might be the same job twice.
+            Worded as a question, not an assertion: 26 buckets over up to 10
+            slots can false-positive on tools that don't actually compete. */}
+        {overlaps.length > 0 && (
+          <div className="sticker mt-4 p-4" style={{ transform: 'rotate(0)' }}>
+            <div className="flex items-start justify-between gap-3">
+              <p className="font-display text-[10px] font-semibold text-zinc-400">
+                might be doing the same job
+              </p>
+              <button
+                onClick={() => setDismissedOverlaps((prev) => new Set([...prev, ...overlaps.map((o) => o.category)]))}
+                aria-label="Dismiss overlap warning"
+                className="press shrink-0 font-display text-[10px] font-semibold text-zinc-500 hover:text-white"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="mt-2 space-y-2">
+              {overlaps.map((o) => (
+                <p key={o.category} className="text-sm font-bold text-white">
+                  {o.tools.map((t) => t.name).join(' & ')} — both{' '}
+                  <span className="font-normal text-zinc-300">{o.category}</span> — worth comparing?{' '}
+                  <Link
+                    to={`/app/compare?tools=${o.tools.map((t) => t.slug).filter(Boolean).join(',')}`}
+                    className="font-display text-xs font-semibold underline decoration-2"
+                    style={{ color: 'var(--lime)' }}
+                  >
+                    Compare →
+                  </Link>
+                </p>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Today's drop — one unexplored, high-scoring pick per day */}
