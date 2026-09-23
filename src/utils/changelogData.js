@@ -7,6 +7,36 @@
 // SHIPPED — pulled from that day's real commit, not invented.
 export const CHANGELOG = [
   {
+    date: '2026-09-19',
+    title: 'Compare Toolnaut to other AI directories',
+    body: 'New pages break down how Toolnaut differs from other tool directories — a personalized stack and roadmap, not just a bigger list.',
+  },
+  {
+    date: '2026-09-17',
+    title: 'Status warnings now show up in your stack',
+    body: 'A tool marked uncertain or degraded now shows that warning on your Stack page too, not just on its own tool page.',
+  },
+  {
+    date: '2026-09-16',
+    title: 'The spend audit is easier to find',
+    body: 'The tool that flags overlapping subscriptions and estimates savings is now mentioned everywhere Pro is sold, not just buried in the app.',
+  },
+  {
+    date: '2026-09-16',
+    title: 'Fixed the Founder checkout link',
+    body: 'The "Founder" pricing link now actually selects the Founder plan at checkout instead of defaulting to a different one.',
+  },
+  {
+    date: '2026-09-15',
+    title: 'The galaxy is clickable',
+    body: 'Hover over a star in the interactive galaxy and click through straight to search for that tool.',
+  },
+  {
+    date: '2026-09-14',
+    title: 'Fresh Finds matches your role',
+    body: 'The "New this week" strip on Discover now surfaces tools in your own domain first, instead of showing the same list to everyone.',
+  },
+  {
     date: '2026-09-05',
     title: 'Settings tells the truth about syncing',
     body: 'The Settings page used to say your data never leaves this device — it now correctly says when sign-in sync is on, since that backend already existed.',

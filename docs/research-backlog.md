@@ -5517,6 +5517,36 @@ a client-side SPA with a static tool catalogue.
   ongoing cost is a one-line addition to the feature run's own existing
   end-of-day writing step (it already composes a "queued next" line for
   `DEVLOG.md`; the same sentence, in the same words, goes here too).
+- **Found:** (never recorded when this entry was written — inferred
+  ~2026-09-11 from its position between the 2026-09-10 and 2026-09-11
+  09:20 UTC neighbors; noted here so the omission itself doesn't repeat).
+- **Deepened 2026-09-23 06:11 UTC — the backward-looking half has quietly
+  broken too, which makes the page's honesty problem worse than "half the
+  promise is missing":** re-read `Changelog.jsx` and `changelogData.js` in
+  full. The page still renders nothing but `CHANGELOG.map(...)` (no forward
+  section exists, core claim unchanged), but `changelogData.js`'s own newest
+  entry is dated **2026-09-05** — 18 days stale as of this run — while the
+  page's own heading still reads "Shipping, almost every day." That claim is
+  now demonstrably false to anyone who opens `/changelog` and reads the date
+  on the top card. Checked against real shipped work in this shallow clone's
+  reachable history (older shas this backlog cites, e.g. `927ee5b`/`c04149e`/
+  `f075d88`, predate the clone's 80-commit depth and can't be re-verified
+  directly, but six more recent ones are directly confirmed): `6552af5`
+  (2026-09-14, Fresh Finds domain-matching), `86c7066` (2026-09-15, galaxy
+  stars clickable), `680b760` and `b7f87af` (both 2026-09-16, founder-offer
+  fix and spend-audit surfacing), `c60fd8d` (2026-09-17, stack status
+  warning), and `83805fc` (2026-09-19, vs-competitor pages) — six real,
+  user-visible ships in this file's own SHIPPED trail, none reflected in
+  `changelogData.js`. `changelogData.js`'s own header comment already says
+  the fix: "Add one entry here whenever the daily feature run marks a
+  backlog gap SHIPPED" — that step has evidently been skipped on most
+  feature runs since 2026-09-05, not a code gap so much as a process one.
+  **Fixed in this run** (small, demonstrable, verifiably-true fix, same
+  category as the other FIXED entries in this file): backfilled the six
+  confirmed shas above into `changelogData.js` in the same plain-language
+  voice and newest-first order the file already uses, no shas or file paths
+  added. This does not touch this gap's own remaining scope — the page still
+  has no forward-looking section, that build is unaffected and still OPEN.
 
 ---
 
