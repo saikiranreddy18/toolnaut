@@ -4804,6 +4804,41 @@ a client-side SPA with a static tool catalogue.
   subcategory match turns up on review (design and code are each dominated
   by one or two subcategories close enough to the whole domain that
   re-pointing them may not be worth a special case).
+- **Deepened 2026-09-23 15:07 UTC — re-verified against current master, this
+  was the oldest untouched OPEN entry (17 days since its last touch) with no
+  competing unmerged PR already covering it (checked open PR titles —
+  `bot/claude/deepen-leaderboard-real-gap-2026-09-22` and
+  `bot/claude/research-rss-feed-reverify-2026-09-21` cover other entries, not
+  this one):** every cited fact still holds, with only cosmetic line drift
+  from files that grew in the meantime. `toolsCatalog.js` moved from
+  `src/data/` to `src/utils/` at some point before this check (the entry's
+  original path was already stale) but `SOURCE_CATEGORIES` is unchanged byte-
+  for-byte — same 26 ids, same 6 domains, same counts, still at lines 19-45.
+  `CategoryLanding.jsx` grew from 111 to 123 lines (a `newestDiscovery`/
+  "Updated" date feature landed since, unrelated to this gap) — the filter is
+  now `:27` not `:26`, the render map now `:94-109` not `:64-99`, same logic
+  both times. `RolesSection.jsx:124`'s `Link to={`/tools/${r.domain}`}` and
+  `rolesData.js`'s PM→automation/Marketer→writing/Founder→data mapping (with
+  its own "each domain used exactly once" comment) are both still exactly as
+  described in the 2026-09-06 deepening above — the RolesSection fast-follow
+  plan needs no changes. `Discover.jsx`'s `PAGE_SIZE = 24` (now `:35`) and
+  `SearchTools.jsx`'s `RESULT_CAP = 60` (now `:8`, `"narrow your search"` at
+  `:130`) precedents are unchanged. `public/sitemap.xml` still lists exactly
+  the 6 domain URLs, zero subcategory URLs. No `categorySlug.js` exists yet,
+  no `/tools/:domain/:category` route exists in `App.jsx` — the gap is fully
+  unbuilt, exactly as scoped, not partially started by unrelated work.
+  One new, small observation for whoever builds this: `CategoryLanding.jsx:98`
+  already renders each card's real `tool.sourceCategory` as a small label next
+  to its color dot (a detail this entry never mentioned, likely added after
+  the entry was written) — so a visitor on `/tools/design` already sees
+  "Image Generation & Editing" printed on every matching card today, just not
+  as a link. That badge is the natural place to add the per-card subcategory
+  link this gap's spec currently only proposes as a domain-page-level "Browse
+  by category" chip row — worth wiring both (chip row for browsing, per-card
+  label for direct navigation from a card a visitor is already looking at)
+  when this gets built, since the second one is close to free once
+  `categorySlug.js` exists. No other part of the spec changes — still fully
+  concrete, still M-sized.
 
 ### Access-method facet ("Web app" / "API" / "Self-hosted") — Discover has no way to filter out API-only or open-weights tools from a beginner's results
 
