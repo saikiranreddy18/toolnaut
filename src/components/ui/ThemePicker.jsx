@@ -2,8 +2,7 @@ import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { THEMES, loadTheme, setTheme } from '../../state/themeStore'
-import { loadMoon, setMoon } from '../../state/moonStore'
-import MoonToggle from './MoonToggle'
+import { loadMoon, setMoon, MOONS } from '../../state/moonStore'
 import { GALAXY_LEVELS, loadGalaxyQuality, setGalaxyQuality } from '../../state/galaxyQualityStore'
 import { haptic } from '../../utils/haptics'
 
@@ -90,26 +89,27 @@ export default function ThemePicker() {
             {showMoon && (
             <>
             <div className="my-1 h-px bg-white/10" role="separator" />
-            <div className="flex items-center gap-3 px-3 py-2">
-              <span className="flex flex-col">
-                <label
-                  htmlFor="moonlight-switch"
-                  className="font-display text-xs font-semibold uppercase tracking-wider text-white"
-                >
-                  Moonlight
-                </label>
-                {/* the hint has to say what changes, because the switch shows
-                    the moon and not the sky it is lighting */}
-                <span className="text-[10px] text-zinc-400">
-                  {moon === 'full' ? 'Lit sky, softer stars' : 'Deep dark, more stars'}
+            {/* A switch when there were two skies; a list now that Daylight is a
+                third. Same rows as ME -> settings, so the two places that set
+                the sky look like the same control. */}
+            <p className="px-3 pb-1 font-display text-[9px] font-semibold text-zinc-500">
+              SKY
+            </p>
+            {MOONS.map((m) => (
+              <button
+                key={m.id}
+                onClick={() => pickMoon(m.id)}
+                aria-pressed={moon === m.id}
+                className="flex w-full cursor-pointer items-center gap-2.5 rounded-lg px-3 py-2 text-left transition-colors hover:bg-white/5"
+              >
+                <span aria-hidden="true" className="w-3 text-center text-xs text-zinc-300">{m.icon}</span>
+                <span className="flex flex-col">
+                  <span className="font-display text-xs font-semibold text-white">{m.name}</span>
+                  <span className="text-[10px] text-zinc-400">{m.hint}</span>
                 </span>
-              </span>
-              <MoonToggle
-                id="moonlight-switch"
-                lit={moon === 'full'}
-                onChange={(on) => pickMoon(on ? 'full' : 'none')}
-              />
-            </div>
+                {moon === m.id && <span className="ml-auto text-xs" style={{ color: 'var(--lime)' }}>✓</span>}
+              </button>
+            ))}
             </>
             )}
 

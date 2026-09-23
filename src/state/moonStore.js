@@ -26,6 +26,15 @@ export const MOONS = [
     hint: 'Deep dark, more stars',
     icon: '○',
   },
+  // Daylight is the same sky at sunrise rather than a third brightness: the sun
+  // is up, the stars are gone and the horizon is warm. It stops short of a true
+  // white sky because every surface above it draws its text in white.
+  {
+    id: 'day',
+    name: 'Daylight',
+    hint: 'Sun up, stars out',
+    icon: '☀',
+  },
 ]
 
 export function loadMoon() {

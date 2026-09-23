@@ -314,18 +314,8 @@ export default function QuizResult() {
           )}
         </div>
 
-        {/* Suggested plan — chip */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.4 }}
-          className="mt-4 font-display text-sm font-bold text-zinc-400"
-        >
-          plan match:{' '}
-          <span className="rounded-full bg-white/10 px-3 py-1 text-white" style={{ boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}>
-            {persona.suggestedPlan}
-          </span>
-        </motion.p>
+        {/* No plan chip while the product is free: naming a paid tier here
+            invited a price the visitor cannot pay for and we do not charge. */}
 
         {/* CTA — chunky neubrutalism button */}
         <motion.div
@@ -342,19 +332,13 @@ export default function QuizResult() {
             Save my stack — sign in →
           </Link>
           {/* The step the old label hid: the result is saved to an account, and
-              the account is where the app opens. Said plainly, with the trial
-              terms, so nobody wonders what the button commits them to. */}
+              the account is where the app opens. No trial terms while the
+              product is free — there is nothing to convert to. */}
           <p className="-mt-1 text-xs text-zinc-400">
-            Next: sign in, then your app opens. 7 days free, no card needed.
+            Next: sign in, then your app opens. Free, no card needed.
           </p>
 
           <div className="flex items-center gap-6 pt-2">
-            <Link
-              to="/pricing"
-              className="font-display text-xs font-bold uppercase tracking-wider text-zinc-300 underline decoration-2 decoration-zinc-400/60 underline-offset-4 hover:text-white"
-            >
-              see the plans
-            </Link>
             <button
               onClick={retake}
               className="cursor-pointer font-display text-xs font-bold uppercase tracking-wider text-zinc-400 underline decoration-2 decoration-white/20 underline-offset-4 hover:text-white"
