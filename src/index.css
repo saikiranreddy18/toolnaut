@@ -287,6 +287,52 @@ button, a, input, select, textarea {
   opacity: 0.8;
 }
 
+/* Daylight: the sun is up. The sky lifts to a lit blue with a warm band along
+   the bottom, and the star layers go out — you do not see stars at noon.
+
+   IT STOPS AT A DAWN SKY RATHER THAN A WHITE ONE. Everything above .starfield
+   draws its text in white, so a genuinely bright backdrop would leave the app's
+   own copy unreadable. This is the brightest sky that keeps white type legible;
+   a true light mode is a different change, one that has to restyle the text. */
+[data-moon='day'] .starfield {
+  background:
+    radial-gradient(ellipse 70% 55% at 80% 6%, rgba(56, 189, 248, 0.38), transparent 72%),
+    radial-gradient(ellipse 60% 45% at 18% 14%, rgba(129, 140, 248, 0.26), transparent 70%),
+    radial-gradient(ellipse 90% 50% at 50% 104%, rgba(251, 146, 60, 0.3), transparent 72%),
+    linear-gradient(180deg, #14224a 0%, #1b2b56 55%, #2a2f52 100%);
+}
+[data-moon='day'] .starfield::before,
+[data-moon='day'] .starfield::after {
+  opacity: 0;
+}
+
+/* The sun, in the same slot the moon uses — one rule reaches every surface that
+   mounts .starfield. Drawn in gradients rather than an asset: a sun is a disc
+   with a corona, which is exactly what a radial-gradient is. */
+[data-moon='day'] body::after {
+  content: '';
+  position: fixed;
+  top: 84px;
+  right: 168px;
+  width: 116px;
+  height: 116px;
+  background: radial-gradient(circle at 50% 50%, #fffdf2 34%, #fde68a 58%, rgba(251, 191, 36, 0) 72%);
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0.85;
+  box-shadow: 0 0 90px 30px rgba(253, 224, 71, 0.22);
+}
+
+@media (max-width: 640px) {
+  [data-moon='day'] body::after {
+    top: 64px;
+    right: 26px;
+    width: 76px;
+    height: 76px;
+  }
+}
+
 /* Comet scroll progress indicator */
 .comet-track {
   position: fixed;
