@@ -4466,6 +4466,23 @@ a client-side SPA with a static tool catalogue.
     `published` filter is still `lifecycle === 'published'`, both load-
     bearing assumptions this plan depends on and both still hold exactly as
     described.
+- **Verification 2026-09-24 03:20 UTC:** this was the oldest untouched OPEN
+  entry (last checked 2 days ago, longer than any other OPEN entry's gap
+  since its own last touch). Re-checked every load-bearing fact against
+  current `master` rather than deepening further — the plan is already this
+  thorough and build-ready, so the useful work today is confirming it hasn't
+  gone stale, not adding more prose. Zero drift found:
+  `radar/scripts/gen-feed.js` and `public/feed.xml` still don't exist
+  (confirmed via direct file check, not just grep); `radar.yml`'s export step
+  is still `node radar/scripts/sync-to-app.js` immediately followed by
+  `git add radar/data public/tools.json` at line 122, still missing a
+  `public/feed.xml` glob exactly as the last deepening flagged;
+  `isCatalogNoise()` is at `prominence.js:66-72` (regexes 66-68, function
+  70-72 — one line lower than last cited, cosmetic only);
+  `sync-to-app.js`'s `FIELDS` array (line 12) is unchanged; `NewTools.jsx:38`
+  still links to the public `${SITE}/ai-tools/${t.slug}` route. Still OPEN,
+  still build size S, no corrections needed — ready to build exactly as
+  scoped whenever a feature run picks it.
 
 ### Settings page hardcodes "no server copy" — the sync backend it's describing already exists elsewhere in the app
 - **Status:** FIXED (this commit) — small, well-scoped defect in already-shipped
