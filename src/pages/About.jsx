@@ -29,6 +29,14 @@ const SECTIONS = [
     a: `Live in public beta. A working product — 9-question quiz → career-aware persona → personalized starter stack from a ${BUNDLED_COUNT}-tool curated catalog → 4-week learning roadmap with lessons and gated checkpoints. Behind it, an autonomous discovery pipeline monitors GitHub, Product Hunt, Hacker News and tech feeds daily, filters the noise, AI-enriches genuine new tools, and publishes them straight into the live catalog. Free for 7 days, then a one-time 30-day pass — nothing recurs.`,
   },
   {
+    q: 'What is the best AI tools directory for finding tools for my job?',
+    a: `It depends on what you want. If you want to browse the widest possible list, the big directories like There's An AI For That (~47,000 tools) and Futurepedia (~5,000) index far more. If you want to be told which few tools fit your role, experience, budget and goal — with the reasoning for each pick shown — that is what ${BRAND} is for: a 60-second quiz, a ranked shortlist from ${TOOL_FLOOR}+ curated tools, and a 4-week plan to learn them.`,
+  },
+  {
+    q: 'How is Toolnaut different from other AI tool directories?',
+    a: `Most directories list everything and leave the choosing to you. ${BRAND} personalizes: it scores tools against your role, skill level, budget and goals with a transparent weighted model, shows why each tool was picked, and follows discovery with a guided learning roadmap. The catalog is curated rather than scraped wholesale, and a daily radar adds genuinely new tools so it doesn't go stale.`,
+  },
+  {
     q: 'Who is behind it?',
     a: `Built solo by an indie builder in India, shipping fast on a near-zero budget — free-tier infrastructure, open APIs, and a lot of iteration. The product you see funds itself on curiosity.`,
   },

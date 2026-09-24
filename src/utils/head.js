@@ -19,7 +19,7 @@ const SITE = 'https://toolnaut.xyz'
 const DEFAULTS = {
   title: 'Toolnaut — Find the best AI tools for your job',
   description:
-    'Toolnaut compares 1,100+ AI tools and builds the AI stack for your role, goal and budget — ranked picks with the reasoning shown, plus a 4-week plan. Free to start.',
+    'Toolnaut compares 1,000+ AI tools and builds the AI stack for your role, goal and budget — ranked picks with the reasoning shown, plus a 4-week plan. Free to start.',
 }
 
 function setMeta(selector, attr, key, value) {

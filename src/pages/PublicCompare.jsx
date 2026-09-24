@@ -30,7 +30,7 @@ export default function PublicCompare() {
     tools.length > 0
       ? {
           title,
-          description: `Side-by-side comparison of ${names.join(', ')} — category, price, level and more, from Toolnaut's 700+ tool catalog.`,
+          description: `Side-by-side comparison of ${names.join(', ')} — category, price, level and more, from Toolnaut's 1,000+ tool catalog.`,
           path: `/compare/${slugs}`,
           jsonLd: {
             '@context': 'https://schema.org',

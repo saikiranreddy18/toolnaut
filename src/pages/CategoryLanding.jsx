@@ -2,6 +2,7 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import { useHead, SITE } from '../utils/head'
 import { TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../utils/toolsCatalog'
 import { newestDiscovery, formatUpdated } from '../utils/freshness'
+import { FLAGSHIP, starterScore, isCatalogNoise } from '../utils/prominence'
 
 // One-line, honest descriptions — no per-tool editorial content is invented,
 // this just frames what the domain's filtered tool list already contains.
@@ -12,6 +13,35 @@ const DOMAIN_BLURB = {
   data: 'Research, analytics, finance, healthcare and science tools for anyone working with data.',
   automation: 'Agents, meeting notes, HR and customer-support tools that automate the busywork.',
   learning: 'Tools built for education, tutoring and skill-building.',
+}
+
+// The questions people ask a search engine or an AI assistant about a category,
+// answered only from catalog fields (price, level, flagship list) so every
+// sentence is checkable. A question with nothing true to say is dropped.
+function categoryFaq(domain, name, tools) {
+  const lower = name.toLowerCase()
+  const ranked = tools
+    .filter((t) => !isCatalogNoise(t))
+    .map((t) => ({ t, s: starterScore(t, FLAGSHIP[domain] || []) }))
+    .sort((a, b) => b.s - a.s || a.t.name.localeCompare(b.t.name))
+    .map((x) => x.t)
+  const names = (list) => list.slice(0, 5).map((t) => t.name).join(', ')
+  const free = ranked.filter((t) => t.price === 'free' || t.price === 'freemium')
+  const beginner = ranked.filter((t) => t.level === 'beginner')
+  return [
+    ranked.length && {
+      q: `What are the best AI tools for ${lower}?`,
+      a: `Well-known starting points among the ${tools.length} ${lower} tools on Toolnaut are ${names(ranked)}. The right pick depends on your role, budget and experience — Toolnaut's 60-second quiz ranks them for you and shows why each one fits.`,
+    },
+    free.length && {
+      q: `Are there free AI tools for ${lower}?`,
+      a: `Yes. ${free.length} of the ${tools.length} ${lower} tools on Toolnaut are free or have a free tier, including ${names(free)}.`,
+    },
+    beginner.length && {
+      q: `Which AI tools for ${lower} are good for beginners?`,
+      a: `${beginner.length} ${lower} tools on Toolnaut are rated beginner-friendly, including ${names(beginner)}.`,
+    },
+  ].filter(Boolean)
 }
 
 // Public, crawlable, no session required — the top-of-funnel surface a search
@@ -28,6 +58,7 @@ export default function CategoryLanding() {
   // Only tools the radar added carry a date. A category with none shows no
   // "updated" date at all rather than an invented one — see utils/freshness.js.
   const updated = newestDiscovery(tools)
+  const faq = meta ? categoryFaq(domain, meta.name, tools) : []
 
   // These six pages are the strongest organic-search assets on the site —
   // "best AI tools for design" is exactly what someone types — and every one of
@@ -42,7 +73,7 @@ export default function CategoryLanding() {
             DOMAIN_BLURB[domain] ||
             `${tools.length} AI tools for ${meta.name.toLowerCase()}, with pricing, difficulty and what each one is actually for.`,
           path: `/tools/${domain}`,
-          jsonLd: {
+          jsonLd: [{
             '@context': 'https://schema.org',
             '@type': 'CollectionPage',
             name: `Best AI tools for ${meta.name}`,
@@ -60,6 +91,17 @@ export default function CategoryLanding() {
               })),
             },
           },
+          ...(faq.length
+            ? [{
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: faq.map((f) => ({
+                  '@type': 'Question',
+                  name: f.q,
+                  acceptedAnswer: { '@type': 'Answer', text: f.a },
+                })),
+              }]
+            : [])],
         }
       : {},
   )
@@ -108,6 +150,20 @@ export default function CategoryLanding() {
             </div>
           ))}
         </div>
+      )}
+
+      {faq.length > 0 && (
+        <section className="mt-14 max-w-3xl">
+          <h2 className="arcade-heading text-xl">Common questions</h2>
+          <div className="mt-4 space-y-4">
+            {faq.map((f) => (
+              <div key={f.q} className="glass rounded-2xl p-5">
+                <h3 className="text-sm font-semibold text-white">{f.q}</h3>
+                <p className="mt-2 text-xs leading-relaxed text-zinc-300">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       )}
 
       <div className="mt-12 text-center">
