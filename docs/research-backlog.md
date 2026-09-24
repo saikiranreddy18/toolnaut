@@ -5307,6 +5307,50 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-09-03 00:35 UTC (recovered from unmerged PR #40 and
   re-verified against master 2026-09-10 12:xx UTC — all file:line references
   above checked fresh, not copied blind)
+- **Deepened 2026-09-24 00:06 UTC — oldest untouched OPEN entry (14 days since
+  the last check), re-verified against current master. The core gap is
+  unchanged and still real: `IS_SAMPLE = true` at `leaderboardData.js:51`,
+  `RankCard.jsx` still imports `SAMPLE_LEADERBOARD`/`IS_SAMPLE` verbatim, no
+  `handle` column or leaderboard RPC exists anywhere in `supabase/migrations/`
+  (grepped `handle` across every migration — the only hit is an unrelated
+  comment about a payment provider's UPI handle in `0008_account_deletion.sql`).
+  Two things in the plan itself had drifted or were incomplete:**
+  - **Migration number is stale.** Three more migrations landed since this was
+    last checked — `0008_account_deletion.sql`, `0009_subscriber_count.sql`,
+    `0010_saved_limit.sql` all now exist (the last two are exactly the
+    `explorer_count()`-style "expose one aggregate via `security definer`"
+    pattern this gap already cited as precedent, which is further evidence the
+    approach is accepted practice here). The next free number is **0011**, not
+    0008.
+  - **The `roadmapComplete` question the original plan left open is actually
+    already answered by the client, and the SQL needs one exclusion to match
+    it.** Checked `communityStats.js:66-93`'s `myStanding()` — the function
+    that computes what a user sees in their *own* "your standing" tile today —
+    and it never passes `roadmapComplete` to `computeScore()` at all
+    (`communityStats.js:89`: `computeScore({ stackSize, stepsDone,
+    streakDays })`, no fourth field). So the local score this gap must match
+    already omits `roadmapCompleteBonus`; `leaderboard_top()`/`my_rank()` don't
+    need to solve "how does SQL know a roadmap is complete," they just need to
+    leave that term out too, same as the client. But `stepsDone` itself has a
+    filter the original plan's SQL sketch didn't carry over:
+    `communityStats.js:81` counts roadmap steps as
+    `Object.entries(p).filter(([k, v]) => v && !k.endsWith(':quiz')).length` —
+    it explicitly excludes any `step_key` ending in `:quiz`. The new SQL
+    function's `roadmap_progress` count must add `and step_key not like
+    '%:quiz'` (`0002_user_state.sql:96`'s `step_key` format is
+    `"<milestoneId>:<stepIndex>"` or `"<milestoneId>:quiz"`, confirmed in that
+    file's own comment) or a user's server rank would silently outscore their
+    own local "your standing" tile by counting quiz-completion rows as
+    roadmap steps — the exact kind of client/server drift this gap's own
+    "kept in SQL so client and server can't drift" line was trying to avoid,
+    just in the one spot the original sketch didn't check against
+    `communityStats.js` closely enough.
+  No other part of the plan needed correcting — `tool_refs`/`roadmap_progress`
+  schemas (`0002_user_state.sql:60-99`), RLS posture, and the
+  `syncAvailable()`-gated fallback all still match exactly as described.
+  Still OPEN; still build size M; ready to build as scoped, with the migration
+  renumbered to 0011 and the `:quiz` exclusion added to `leaderboard_top()`'s
+  roadmap-step count.
 
 ---
 
