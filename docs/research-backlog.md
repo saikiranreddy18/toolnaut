@@ -4821,6 +4821,48 @@ a client-side SPA with a static tool catalogue.
   subcategory match turns up on review (design and code are each dominated
   by one or two subcategories close enough to the whole domain that
   re-pointing them may not be worth a special case).
+- **Verification 2026-09-25 12:07 UTC:** re-checked the whole plan against
+  current master (untouched for 19 days, longest of any OPEN entry). Every
+  cited fact still holds exactly, zero drift: `CategoryLanding.jsx:26` still
+  filters only by `t.category === domain`, still no pagination on its
+  `tools.map()` render; `SOURCE_CATEGORIES` still has the same 26 entries
+  with the same counts (design still sums to 184, code to 137); `App.jsx:128`
+  still has only `/tools/:domain`, no nested `:category` route;
+  `sitemap.xml` still lists exactly the same 6 `/tools/*` URLs; `Discover.jsx`
+  still has `PAGE_SIZE = 24` at line 35 with the same LOAD-MORE pattern;
+  `RolesSection.jsx:124` and `rolesData.js` are byte-identical to what this
+  entry already quoted (PM→automation, Marketer→writing, Founder→data,
+  each domain still used exactly once).
+  One correction found in the plan itself, not the code: the claim that
+  "`scripts/smoke.mjs` and `scripts/prerender.mjs`'s route lists need at
+  least one representative subcategory URL added (not all 26)" is right for
+  `smoke.mjs` but wrong for `prerender.mjs`. Read `prerender.mjs` in full —
+  it isn't a sampled route list like `smoke.mjs`'s. Its own header comment
+  explains why it exists at all: the app is client-rendered, so "two
+  separate external reviewers could not read the site at all" until this
+  script started walking every public, crawler-facing route in a real
+  browser and writing static HTML into `dist/` for it. Its `ROUTES` array
+  (`prerender.mjs:41-59`) already lists all 6 domain pages individually —
+  not a sample — alongside every other public/SEO route (both `/vs/*`
+  pages, but deliberately *not* the 6 sitemap-listed `/compare/*` pairs,
+  which stay SPA-only). Since this gap's entire "why it matters" section is
+  the SEO/crawlability case for the 26 subcategory pages specifically, and
+  `prerender.mjs` is the exact mechanism that makes a Toolnaut page
+  independently readable rather than a blank shell, prerendering only 1 of
+  26 new pages would reproduce, for 25 of them, the identical problem this
+  script was built to fix on the 6 pages it already covers. **Corrected
+  scope:** all 26 subcategory routes belong in `prerender.mjs`'s `ROUTES`
+  array (one line each, same shape as the existing 6 domain lines), not
+  just a representative sample; `smoke.mjs` still only needs one example
+  (its job is catching a route-shape regression in headless Chromium, not
+  crawlability, and it already treats the analogous `/s/:slugs` family that
+  way with a single `/s/chatgpt` entry). This roughly triples
+  `prerender.mjs`'s route count (19 → 45); nothing in the script caps or
+  parallelizes differently by count — it walks `ROUTES` one at a time with
+  a 45s per-page timeout, so this is a longer build step, not a different
+  mechanism, and stays a build-time-only cost. No other part of the plan
+  changed; still OPEN, still M, ready for a feature run to build from the
+  spec above with this one correction folded in.
 
 ### Access-method facet ("Web app" / "API" / "Self-hosted") — Discover has no way to filter out API-only or open-weights tools from a beginner's results
 
