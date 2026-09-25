@@ -4821,6 +4821,36 @@ a client-side SPA with a static tool catalogue.
   subcategory match turns up on review (design and code are each dominated
   by one or two subcategories close enough to the whole domain that
   re-pointing them may not be worth a special case).
+- **Re-verified 2026-09-25 09:07 UTC — this was the oldest untouched OPEN
+  entry (last touched 2026-09-06, longer since-last-check than any other
+  OPEN entry), already build-ready with exact file:line targets, so nothing
+  thin to deepen: re-checked every load-bearing fact against current master
+  instead.** All of it still holds exactly:
+  - `CategoryLanding.jsx` grew from 111 to 123 lines (unrelated copy/JSON-LD
+    drift, not a functional change) — the two citations that moved:
+    `t.category === domain` filter is now line 27 (was 26), and the
+    unpaginated `tools.map((tool) => …)` render is now lines 69-113 for the
+    whole JSX return, with the map itself at line 94 (was cited as `:64-99`
+    for the render block). Both still confirm the gap exactly as described:
+    single-domain filter only, zero pagination cap.
+  - `SOURCE_CATEGORIES` counts in `toolsCatalog.js:19-45` are byte-for-byte
+    unchanged from this entry's original citation (code 62/58/12/5, design
+    60/47/37/21/19, writing 41/35/27/12/11/9, data 23/21/17/16/10/8,
+    automation 47/46/21/19, learning 20) despite `public/tools.json` growing
+    to 377 published tools since — confirms these per-category counts are a
+    static snapshot baked into the auto-generated catalog file, not
+    recomputed from the live feed, so they'll need regenerating whenever the
+    radar's sync script next runs, independent of this gap's own build.
+  - `public/sitemap.xml` still lists exactly the 6 domain URLs (26 total
+    `<url>` entries site-wide, none of them a `/tools/:domain/:category`
+    path) — zero drift.
+  - `RolesSection.jsx:124` still links every role card to `/tools/${r.domain}`
+    unchanged — the PM/Marketer subcategory re-pointing fast-follow noted in
+    the 2026-09-06 deepening is still available and still not part of this
+    entry's own build.
+  Still OPEN, still build size M, ready for a feature run to pick up exactly
+  as scoped — this is the single most build-ready gap in the backlog right
+  now by staleness of its last check.
 
 ### Access-method facet ("Web app" / "API" / "Self-hosted") — Discover has no way to filter out API-only or open-weights tools from a beginner's results
 
