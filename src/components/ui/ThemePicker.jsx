@@ -22,21 +22,17 @@ import { haptic } from '../../utils/haptics'
 //   the detail of, so the control there offered Full / Light / Off over
 //   nothing at all.
 //
-//   Moonlight lights the in-app sky and already has a labelled home in
-//   ME -> settings. On the landing page the galaxy is the sky, so the toggle
-//   was a second control for a thing the visitor cannot see changing.
+//   The sky (moon / Daylight) is offered everywhere: every public page now
+//   paints it, the landing galaxy included, so it changes something on each.
 //
 // Themes stay in both: accent colours apply everywhere.
 export default function ThemePicker() {
   // /app/* is the in-app shell; everything else is the public site.
   const pathname = useLocation().pathname
   const inApp = pathname.startsWith('/app')
-  // The intake surfaces — the Naut chat and the quiz/result pages. They render
-  // no 3D galaxy (that lives on the landing page), but they DO mount the
-  // starfield sky that data-moon lights, so they get the Moonlight toggle and
-  // not a Galaxy detail control over nothing.
+  // The intake surfaces — the Naut chat and the quiz/result pages — render no
+  // 3D galaxy, so no Galaxy detail control over nothing.
   const isIntake = pathname.startsWith('/goal') || pathname.startsWith('/quiz')
-  const showMoon = inApp || isIntake
   const showGalaxy = !inApp && !isIntake
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState(loadTheme)
@@ -86,8 +82,6 @@ export default function ThemePicker() {
               </button>
             ))}
 
-            {showMoon && (
-            <>
             <div className="my-1 h-px bg-white/10" role="separator" />
             {/* A switch when there were two skies; a list now that Daylight is a
                 third. Same rows as ME -> settings, so the two places that set
@@ -110,8 +104,6 @@ export default function ThemePicker() {
                 {moon === m.id && <span className="ml-auto text-xs" style={{ color: 'var(--lime)' }}>✓</span>}
               </button>
             ))}
-            </>
-            )}
 
             {showGalaxy && (
             <>
@@ -153,7 +145,7 @@ export default function ThemePicker() {
 
       <button
         onClick={() => { haptic.tap(); setOpen((v) => !v) }}
-        aria-label={showMoon ? 'Sky settings — theme and moonlight' : 'Sky settings — theme and galaxy detail'}
+        aria-label={showGalaxy ? 'Sky settings — theme, sky and galaxy detail' : 'Sky settings — theme and sky'}
         aria-expanded={open}
         className="nb-btn dark flex h-11 w-11 items-center justify-center !rounded-full !p-0"
       >

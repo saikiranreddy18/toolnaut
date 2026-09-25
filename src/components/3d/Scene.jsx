@@ -6,6 +6,7 @@ import CameraController from './CameraController'
 import { startScrollTracking, scrollProgress } from '../../utils/scrollProgress'
 import { weakRenderer } from '../../utils/webgl'
 import { loadGalaxyQuality, watchGalaxyQuality } from '../../state/galaxyQualityStore'
+import { loadMoon, watchMoon } from '../../state/moonStore'
 
 // Quality tiers (mobile-first launch):
 //   full   — desktop: 70k-point galaxy, 2400 stars, pointer parallax, dpr 2
@@ -44,6 +45,11 @@ export default function Scene({ mode = 'full' }) {
   // The visitor's own call, and it wins over every heuristic here.
   const [level, setLevel] = useState(loadGalaxyQuality)
   useEffect(() => watchGalaxyQuality(setLevel), [])
+  // Daylight lifts the space behind the galaxy to the same dawn blue the rest
+  // of the site uses (index.css), so the setting is visible here too.
+  const [moon, setMoonState] = useState(loadMoon)
+  useEffect(() => watchMoon(setMoonState), [])
+  const sky = moon === 'day' ? '#14224a' : '#060609'
   const calm = mode === 'calm'
   const mobile = mode === 'mobile'
   const [dpr, setDpr] = useState(DPR[mode])
@@ -112,7 +118,7 @@ export default function Scene({ mode = 'full' }) {
           style={{
             background:
               'radial-gradient(ellipse 90% 70% at 50% 40%, rgba(255, 255, 255,0.20), transparent 60%),' +
-              'radial-gradient(ellipse 70% 50% at 50% 45%, rgba(255, 255, 255,0.12), transparent 55%), #060609',
+              'radial-gradient(ellipse 70% 50% at 50% 45%, rgba(255, 255, 255,0.12), transparent 55%), ' + sky,
           }}
         />
       </div>
@@ -132,7 +138,7 @@ export default function Scene({ mode = 'full' }) {
         frameloop={lightened ? 'demand' : 'always'}
         gl={{ antialias: !mobile && dpr >= 1.5, powerPreference: 'high-performance' }}
       >
-        <color attach="background" args={['#060609']} />
+        <color attach="background" args={[sky]} />
         <Suspense fallback={null}>
           <Galaxy reduced={calm || mobile} spin={!calm && !lightened} count={points} />
         </Suspense>

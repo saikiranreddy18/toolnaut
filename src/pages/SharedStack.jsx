@@ -52,7 +52,7 @@ export default function SharedStack() {
   }
 
   return (
-    <div id="main-content" tabIndex={-1} className="mx-auto max-w-4xl px-5 py-10 lg:py-16">
+    <div id="main-content" tabIndex={-1} className="relative z-10 mx-auto max-w-4xl px-5 py-10 lg:py-16">
       <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">
         Shared stack
       </p>

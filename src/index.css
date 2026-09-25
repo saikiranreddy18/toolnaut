@@ -306,6 +306,17 @@ button, a, input, select, textarea {
   opacity: 0;
 }
 
+/* Tool, category, search and comparison pages mount no .starfield; their sky
+   is the site-wide body::before below, so Daylight never reached them. Same
+   daylight sky on that layer. */
+[data-moon='day'] body::before {
+  background:
+    radial-gradient(ellipse 70% 55% at 80% 6%, rgba(56, 189, 248, 0.38), transparent 72%),
+    radial-gradient(ellipse 60% 45% at 18% 14%, rgba(129, 140, 248, 0.26), transparent 70%),
+    radial-gradient(ellipse 90% 50% at 50% 104%, rgba(251, 146, 60, 0.3), transparent 72%),
+    linear-gradient(180deg, #14224a 0%, #1b2b56 55%, #2a2f52 100%);
+}
+
 /* The sun, in the same slot the moon uses — one rule reaches every surface that
    mounts .starfield. Drawn in gradients rather than an asset: a sun is a disc
    with a corona, which is exactly what a radial-gradient is. */

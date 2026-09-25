@@ -41,7 +41,7 @@ export default function CompareCompetitor() {
   ]
 
   return (
-    <div id="main-content" tabIndex={-1} className="mx-auto max-w-4xl px-5 py-10 lg:py-16">
+    <div id="main-content" tabIndex={-1} className="relative z-10 mx-auto max-w-4xl px-5 py-10 lg:py-16">
       <p className="font-display text-xs uppercase tracking-[0.2em] font-semibold cosmic-text">
         Toolnaut vs {c.name}
       </p>

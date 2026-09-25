@@ -54,5 +54,14 @@ export function applyMoon(id) {
 export function setMoon(id) {
   try { localStorage.setItem(KEY, id) } catch { /* storage blocked */ }
   applyMoon(id)
+  window.dispatchEvent(new CustomEvent('moon', { detail: id }))
   return id
+}
+
+// The landing galaxy is WebGL, not CSS, so it cannot follow data-moon on its
+// own and has to be told.
+export function watchMoon(fn) {
+  const h = (e) => fn(e.detail)
+  window.addEventListener('moon', h)
+  return () => window.removeEventListener('moon', h)
 }

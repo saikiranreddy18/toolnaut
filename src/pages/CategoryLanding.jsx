@@ -109,7 +109,7 @@ export default function CategoryLanding() {
   if (!meta) return <Navigate to="/" replace />
 
   return (
-    <div id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-5 py-10 lg:py-16">
+    <div id="main-content" tabIndex={-1} className="relative z-10 mx-auto max-w-5xl px-5 py-10 lg:py-16">
       <p className="font-display text-xs uppercase tracking-[0.2em] font-semibold" style={{ color: meta.color }}>
         {meta.name} tools
       </p>
