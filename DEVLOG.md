@@ -9,6 +9,52 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-26
+
+**Radar health:** NO-PUBLISH per `npm run radar:health`. Featherless AI's
+account still has an overdue invoice (403 on every LLM call — first flagged
+2026-09-21 in issue #63, still open). The 2026-09-26 13:45 UTC run found 9
+new candidates; every one fell back to the deterministic rules classifier
+and scored below the 0.75 publish threshold (6 to review, 3 rejected).
+**0 tools published in the last 24h.** Not a code bug — the fallback-provider
+wiring already shipped in PR #62; it just needs a secret (`ANTHROPIC_API_KEY`,
+`NVIDIA_API_KEY`, `OPENAI_API_KEY`, or `OPENROUTER_API_KEY`) behind it, or the
+Featherless invoice paid. Commented on #63 with today's recurrence.
+
+**Researched today:** none — the hour that would have gone to a fresh gap
+went instead to catching a near-miss (below), which mattered more.
+
+**Shipped today:** nothing new landed. Picked the backlog's top gap —
+"Cookie-consent gate for GA4," the one live GDPR/ePrivacy exposure in the
+file (GA4 fires on every visitor's first paint, no consent mechanism) — and
+built it in full before checking open PRs first. Turned out PR #57
+(2026-09-20) and PR #70 (2026-09-22) already build the same feature, both
+tested and green, neither merged. Mine would have been a third independent
+copy, so it was discarded rather than pushed. Same check surfaced PR #75
+(2026-09-23, "Stack overlap warning") sitting unmerged the same way.
+
+**What actually blocked shipping:** the merge path, not the feature.
+`CLAUDE.md`'s hard rule (no direct push to `master` for code, PR only, never
+merge your own PR) means every code change since ~2026-09-20 has landed in a
+PR, and none has been merged since. Issue #67 flagged this five days ago at
+22 open PRs; it's now 25+, oldest five weeks old (#3, 2026-08-22). Shipping a
+fourth "new" feature today would not have made anything more visible on
+toolnaut.xyz — it would have grown the same stuck queue, with a real risk of
+duplicating work already sitting in it, as almost happened here. Updated #67
+with today's count and a merge order (land #70 over #57 — #70 splits GA4's
+script injection from the always-safe bookkeeping `track()` depends on,
+`57` doesn't and would regress every `track()` call for a not-yet-consented
+visitor; then #75). Marked both affected backlog entries "BUILT, UNMERGED"
+instead of "OPEN" so future runs stop re-building them.
+
+**Queued next:** once the PR queue drains, #70 and #75 are both ready to
+merge as written. After that, "Command palette / ⌘K quick jump" and
+"Per-tool ratings & reviews" are the next build-ready OPEN gaps — unchanged
+from before, blocked on the same merge bottleneck rather than on more
+building.
+
+---
+
 ## 2026-09-19
 
 **Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h

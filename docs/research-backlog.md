@@ -5734,7 +5734,12 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### Stack overlap warning — the catalog already carries the field the cost-estimate gap ruled out needing, nobody reads it for redundancy
-- **Status:** OPEN
+- **Status:** BUILT, UNMERGED — PR #75 (2026-09-23) already implements this
+  in full (`stackOverlap.js`, the dismissible `Stack.jsx` sticker linking to
+  Compare, 5 new tests, all three checks green), not merged — see issue #67.
+  **Do not rebuild this** — it needs a human to merge #75, not more agent
+  code. Re-verified 2026-09-26: gap still real on current `master`, fix
+  still sitting in PR form only.
 - **Seen in:** Whizi (whizi.io) markets itself around three things: "calculate
   real AI subscription costs, **compare tool overlap**, find wasted spend."
   The Stack cost estimate entry above (found 2026-09-10, still OPEN, `L`,
@@ -6258,7 +6263,17 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### Cookie-consent gate for GA4 — flagged as a follow-up in the entry above, never promoted to its own gap
-- **Status:** OPEN
+- **Status:** BUILT, UNMERGED — PR #57 (2026-09-20) and PR #70 (2026-09-22)
+  both already implement this in full (banner, `consentStore.js`, gated
+  `initAnalytics()`/`loadAnalytics()` split, `Legal.jsx` `#analytics` anchor),
+  both green (`npm test`/`build`/`smoke`), neither merged — see issue #67.
+  #70 is the better of the two (splits GA4's script injection from the
+  always-safe `dataLayer`/`page_view` bookkeeping `track()` depends on, so
+  `track()` doesn't throw for a not-yet-consented visitor; #57 gates the
+  whole function and would regress every `track()` call site until accept).
+  **Do not rebuild this a third time** — it needs a human to merge #70 (and
+  close #57 as superseded), not more agent code. Re-verified 2026-09-26:
+  gap still real on current `master`, fix still sitting in PR form only.
 - **Seen in:** the previous entry's own "what this would NOT include" section named
   this and left it unbuilt; a GitHub Actions run titled "docs(research):
   promote the GA4 consent-gate follow-up to its own gap" exists in this repo's
