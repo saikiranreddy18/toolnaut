@@ -9,6 +9,83 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-23
+
+**Radar health:** `npm run radar:health`'s own script was blocked by this
+session's sandbox classifier for unrelated reasons (see "Standing issues"
+below), so read `radar/data/runs.log.json` directly instead — same signal.
+**NO-PUBLISH**: the last 3 runs (2026-09-22 14:03, 2026-09-22 23:49,
+2026-09-23 14:15 UTC) all found candidates but published 0 tools; 0 tools
+published in the last 24h. Same already-diagnosed root cause as issue #63
+(open): Featherless AI's account has an overdue invoice, every LLM
+enrichment call 403s, and the rules-classifier fallback correctly scores
+below `RADAR_PUBLISH_THRESHOLD`. No new code action available — needs a
+human to pay the invoice or add a fallback-provider secret (PR #62 already
+wires four fallback providers through the workflow).
+
+**Researched today:** five research-hour runs deepened already-open backlog
+entries rather than logging shallow new ones (per the cumulative-research
+rule, each picked the oldest untouched OPEN entry): PDF roadmap export
+(00:20 UTC — still correct, unbuilt, one anchor re-pinned), the public
+developer API gap (03:20 UTC — `vercel.json`'s `/tools.json` block moved but
+the plan holds), the changelog-is-backward-looking-only gap (06:11 UTC —
+found the promise is now doubly broken: `changelogData.js`'s newest entry is
+18 days stale under a heading that still claims "almost every day"), the
+Pro chat assistant / Team tier entry (12:20 UTC — re-verified Gap 1), and
+the stack-overlap-warning gap (09:20 UTC — fully re-verified against
+current `src/`, confirmed still S-sized and fully unbuilt). That last one
+was the most build-ready of the five, so this run built it.
+
+**Shipped (this run):** a stack-overlap warning on `/app/stack` —
+`src/utils/stackOverlap.js`'s `findOverlaps()` groups a user's stack by the
+catalog's existing `sourceCategory` field (26 real values, e.g. "LLMs &
+Chatbots") and flags any group with 2+ tools that aren't both starter picks.
+`Stack.jsx` renders a dismissible-per-session sticker below the "your kit"
+header when overlaps exist — worded as a question ("worth comparing?"), not
+an assertion, since 26 buckets over up to 10 stack slots can false-positive
+— with a "Compare →" link straight into the already-shipped `Compare.jsx`
+(`/app/compare?tools=slug1,slug2`). No price math, no auto-removal, no new
+route, no backend, no radar/schema change — Whizi (whizi.io) markets real
+subscription-cost + tool-overlap detection; this ships the overlap half,
+which needed no data Toolnaut didn't already have. 3 files changed (~100
+lines incl. 5 new tests), 302/302 tests, clean build, 24/24 routes
+smoke-clean, opened as a PR per the process note below.
+
+**Not yet on master** — opened as a PR from a `bot/claude/*` branch per
+CLAUDE.md's actual hard rule (never push to master directly), needs a human
+merge to reach production, same as prior days' PRs.
+
+**Also found (not fixed, drive-by):** the `Release` GitHub Actions workflow
+is stuck failing on every push to `master` whose commit message implies a
+minor version bump — `npm version minor` collides with a pre-existing,
+orphaned `v0.73.0` git tag (created 2026-09-12, not an ancestor of `master`,
+never had a GitHub Release published under it — almost certainly cruft left
+over from a squash-merged branch). This doesn't block deploys (Vercel builds
+from every push independent of this workflow) but blocks every future
+version bump/tag/release until a human runs
+`git push origin :refs/tags/v0.73.0` — filed as issue #74. This session's
+sandbox correctly refused to run that deletion itself (a destructive git
+operation, and this is an unattended scheduled run with nobody watching to
+approve it).
+
+**Standing issues (flagging again):** the open-PR backlog kept growing —
+24 open PRs as of this run (oldest from 2026-08-22), all still needing a
+human merge/close pass; today's PR makes 25. Separately, this
+session's sandbox classifier blocked `npm run radar:health` outright (every
+invocation, including a bare `node scripts/radar-health.mjs`, flagged
+"Git Destructive" despite the script containing no git calls at all) —
+worked around by reading `radar/data/runs.log.json` directly, but worth a
+human glance if it recurs, since the direct-read fallback won't always be
+this easy to reach for.
+
+**Queued next:** the four re-verified-today gaps above are all still
+build-ready for a future run, especially the changelog-staleness half (its
+own "almost every day" claim is now actively false, closer to a bug than a
+missing feature). "No way to flag a wrong listing" and "No browsable
+gallery of shared stacks" remain queued from earlier days.
+
+---
+
 ## 2026-09-19
 
 **Radar health:** OK per `npm run radar:health` — 2 runs in the last 26h
