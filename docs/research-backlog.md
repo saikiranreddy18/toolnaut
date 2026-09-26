@@ -4981,6 +4981,45 @@ a client-side SPA with a static tool catalogue.
     same soft-preference-not-eligibility-gate reasoning `eligibility.js`
     already applies to every other unenforceable constraint; no change to
     `EXPERIENCE_LEVEL_BONUS` itself, this is additive and parallel to it.
+- **Re-verified 2026-09-26 21:20 UTC — research run (UTC hour 21).** CI green
+  on master. Radar health is **NO-PUBLISH**, confirmed against this run's
+  actual logs (job 108415805348, 2026-09-26 13:45 UTC): still the same root
+  cause as issue #63 (Featherless AI 403 `upgrade_required` on every enrich
+  call, all four fallback provider env vars present in `radar.yml` but empty
+  — no fallback secret configured), fully diagnosed already, no new code
+  action available. No `agent-fixable` issues open. This entry was the
+  oldest untouched OPEN backlog item (16 days since last touch, longest of
+  any OPEN entry) and was already build-ready (S size, exact scoping for
+  both the filter and the quiz-bias half), so there was nothing thin to
+  deepen — re-verified every load-bearing fact against current `master`
+  instead:
+  - `toolsCatalog.js`'s 704-record `TOOLS` array (parsed and counted, not
+    eyeballed): still zero `platform` field on any record, `tags` still
+    carries exactly **14** `"api"`-tagged and **33** `"open-source"`-tagged
+    tools — both counts unchanged from the original finding. `radar/
+    schema.js`'s `makeToolRecord()`/`REQUIRED_TOOL_FIELDS`/`HASHED_FIELDS`
+    still list the same field set with no `platform` addition.
+  - `eligibility.js`'s header comment is unchanged in substance (now lines
+    26-32, was cited as 26-35): still names "API availability" as an
+    unenforceable hard constraint for the same reason (no `hasApi`/
+    `selfHosted` field), still only enforces the free-budget case in
+    `passesHardConstraints`.
+  - `matchScore.js`'s `EXPERIENCE_LEVEL_BONUS` and the scoring call site are
+    unchanged in shape; the one line this gap would touch in `scoreTool` is
+    now at line 111 (`score += EXPERIENCE_LEVEL_BONUS[answers.experience]?.[
+    tool.level] ?? 0`) — still the single real-scoring call site the
+    2026-09-10 deepening identified (the other two `EXPERIENCE_LEVEL_BONUS`
+    reads, lines 167 and 197, are in `matchReasons`/`matchReasonShort`,
+    display-only, not scoring).
+  - **One correction:** `Discover.jsx`'s price/level `Pill` rows have moved
+    from the originally-cited 220-233 to **267-292** — a sort-control row
+    (`Discover.jsx:288-292`, from the since-shipped Discover-sort-control
+    gap elsewhere in this file) was added between the two filter rows this
+    entry targets. The pattern this gap reuses (`searchParams`-backed
+    `Pill` row, `setParam` helper) is unchanged, only the line numbers a
+    future build should target have shifted.
+  Zero data or reasoning drift otherwise. Entry stays `OPEN`, ready to build
+  exactly as scoped, with corrected line citations for whoever picks it up.
 
 ### The "no credit card" claim survived on three more pages the payment audit never checked — including the hero every visitor sees first
 
