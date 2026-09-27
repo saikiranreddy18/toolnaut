@@ -56,7 +56,14 @@ today**, on every `/app/discover` visit, once this deploy lands.
 overlap warning) remain open and unmerged (issue #67) — both backlog entries
 they implement are correctly marked "BUILT, UNMERGED, do not rebuild" and
 still need a human to merge #70 (closing #57 as superseded) and #75. Not
-rebuilding a third/second copy of either.
+rebuilding a third/second copy of either. Separately, tonight's `feat:`
+commit tripped the pre-existing orphaned-tag Release-workflow failure
+(issue #74, filed 2026-09-23): `npm test`/`npm run build` both passed, only
+the version-bump-and-tag step failed on the same stale `v0.73.0` ref.
+`package.json` stays at `0.72.15` (unbumped, since `npm version` aborts
+before committing) and the deploy itself is unaffected — Vercel builds from
+the push directly. Left for a human to clear per that issue's ask; not a
+regression from today's change.
 
 **Queued next:** once #70 and #75 land, "Command palette / ⌘K quick jump"
 and "Per-tool ratings & reviews" are the next build-ready OPEN gaps.
