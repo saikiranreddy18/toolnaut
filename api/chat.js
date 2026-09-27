@@ -1,7 +1,7 @@
 // Serverless endpoint that lets Naut actually understand a typed reply.
 //
 // WHY THIS EXISTS ON THE SERVER
-// The app has no backend and the browser bundle is public, so calling Featherless
+// The app has no backend and the browser bundle is public, so calling NVIDIA
 // from the client would ship the API key to every visitor. This function is the
 // only place the key exists. Vercel runs it; the browser never sees it.
 //
@@ -13,16 +13,17 @@
 // and is unchanged, so the model can never produce a persona the app cannot build.
 //
 // MODEL CHOICE
-// Featherless, but NOT Kimi-K3. Measured: K3 ~49s per call, Kimi-K2-Instruct ~10s,
-// Qwen2.5-7B-Instruct ~2.6s for this exact classification. K3 is a reasoning model
-// and reasons before answering, which is right for nightly enrichment and wrong for
-// a conversation someone is waiting on. K3 also costs 4 concurrency units against a
-// plan limit of 4, meaning one visitor at a time.
+// NVIDIA (integrate.api.nvidia.com), but NOT Kimi-K3. Measured on Featherless: K3
+// ~49s per call, Qwen2.5-7B-Instruct ~2.6s for this exact classification. K3 is a
+// reasoning model and reasons before answering, which is right for nightly
+// enrichment (radar uses it) and wrong for a conversation someone is waiting on:
+// against the 9s ceiling below, every call would time out. A small instruct model
+// is the default; NVIDIA_CHAT_MODEL overrides it.
 
 import { rateLimit, securityLog } from './_security.js'
 
-const FEATHERLESS_URL = 'https://api.featherless.ai/v1/chat/completions'
-const MODEL = process.env.FEATHERLESS_CHAT_MODEL || 'Qwen/Qwen2.5-7B-Instruct'
+const NVIDIA_URL = 'https://integrate.api.nvidia.com/v1/chat/completions'
+const MODEL = process.env.NVIDIA_CHAT_MODEL || 'meta/llama-3.1-8b-instruct'
 
 // ── abuse limits ─────────────────────────────────────────────────────────────
 // This is a public endpoint that spends money per call, so every client-supplied
@@ -128,7 +129,7 @@ export function validateChatPayload(body) {
 
 // Hard ceiling. If the model is slow the visitor must not sit staring at a typing
 // indicator — the client falls back to keyword matching, which always answers.
-const TIMEOUT_MS = Number(process.env.FEATHERLESS_CHAT_TIMEOUT_MS) || 9000
+const TIMEOUT_MS = Number(process.env.NVIDIA_CHAT_TIMEOUT_MS) || 9000
 
 // Trimmed context so the model knows what the product is choosing between. This is
 // the "retrieval" half: it is given the live option set for the question at hand
@@ -183,7 +184,7 @@ export default async function handler(req, res) {
   // limiting. Answers 429 with Retry-After and logs the first refusal.
   if (rateLimit(req, res, 'chat', { max: CHAT_PER_MINUTE })) return
 
-  const key = process.env.FEATHERLESS_API_KEY
+  const key = process.env.NVIDIA_API_KEY
   // No key configured is not an error the visitor should see. The client has a
   // deterministic fallback; tell it to use that.
   if (!key) return res.status(200).json({ key: null, reply: null, source: 'unconfigured' })
@@ -197,14 +198,15 @@ export default async function handler(req, res) {
   const prompt = buildPrompt(payload)
 
   try {
-    const upstream = await fetch(FEATHERLESS_URL, {
+    const upstream = await fetch(NVIDIA_URL, {
       method: 'POST',
       headers: { 'content-type': 'application/json', authorization: `Bearer ${key}` },
       body: JSON.stringify({
         model: MODEL,
         max_tokens: 160,
         temperature: 0.3,
-        response_format: { type: 'json_object' },
+        // No response_format: many NVIDIA-hosted models reject it. The prompt
+        // demands JSON and the parser below strips any fence.
         messages: [
           { role: 'system', content: prompt.system },
           { role: 'user', content: prompt.user },
@@ -215,7 +217,7 @@ export default async function handler(req, res) {
 
     if (!upstream.ok) {
       const detail = (await upstream.text()).slice(0, 300)
-      console.error('featherless', upstream.status, detail)
+      console.error('nvidia', upstream.status, detail)
       return res.status(200).json({ key: null, reply: null, source: 'upstream_error' })
     }
 

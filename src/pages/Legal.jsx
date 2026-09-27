@@ -23,7 +23,7 @@ import { REFUND_WINDOW_DAYS } from './Support'
 // which is the part a template gets wrong. Have someone qualified read it before
 // relying on it commercially.
 
-const UPDATED = '13 September 2026'
+const UPDATED = '27 September 2026'
 
 function Section({ title, children }) {
   return (
@@ -110,7 +110,7 @@ function Privacy() {
           payments. <Strong>Resend</Strong> delivers our emails.
         </p>
         <p>
-          <Strong>Featherless AI</Strong> powers the assistant. When you type an answer in your own words
+          <Strong>NVIDIA</Strong> (NVIDIA API Catalog) powers the assistant. When you type an answer in your own words
           during the intake, or send a message to the in-app assistant, that text is sent to be answered.
           Your name, email and account id are not attached.
         </p>

@@ -22,14 +22,14 @@ export const config = {
   llm: {
     // provider-agnostic; the first configured one (in this order) is used, and
     // enrich/course-gen fall back to deterministic rules if none is set.
+    nvidia: process.env.NVIDIA_API_KEY
+      ? { key: process.env.NVIDIA_API_KEY, model: process.env.NVIDIA_MODEL || 'moonshotai/kimi-k3' }
+      : null,
     featherless: process.env.FEATHERLESS_API_KEY
       ? { key: process.env.FEATHERLESS_API_KEY, model: process.env.FEATHERLESS_MODEL || 'moonshotai/Kimi-K3' }
       : null,
     anthropic: process.env.ANTHROPIC_API_KEY
       ? { key: process.env.ANTHROPIC_API_KEY, model: process.env.ANTHROPIC_MODEL || 'claude-opus-4-8' }
-      : null,
-    nvidia: process.env.NVIDIA_API_KEY
-      ? { key: process.env.NVIDIA_API_KEY, model: process.env.NVIDIA_MODEL || 'meta/llama-3.1-70b-instruct' }
       : null,
     openai: process.env.OPENAI_API_KEY
       ? { key: process.env.OPENAI_API_KEY, model: process.env.OPENAI_MODEL || 'gpt-4o' }

@@ -23,7 +23,37 @@ test('throws NoLLMError when no provider is configured', async () => {
   await assert.rejects(() => callLLM('sys', 'user'), NoLLMError)
 })
 
-test('featherless is preferred over every other configured provider', async () => {
+test('nvidia is preferred over every other configured provider', async () => {
+  let calledUrl
+  await withLLMConfig(
+    { nvidia: { key: 'n', model: 'm' }, featherless: { key: 'f', model: 'm' }, anthropic: { key: 'a', model: 'm' } },
+    () =>
+      withFetch(
+        async (url) => {
+          calledUrl = String(url)
+          return { ok: true, status: 200, headers: new Headers(), json: async () => ({ choices: [{ message: { content: 'hi' } }] }) }
+        },
+        () => callLLM('sys', 'user'),
+      ),
+  )
+  assert.match(calledUrl, /integrate\.api\.nvidia\.com/)
+})
+
+test('nvidia floors maxTokens at 1024 so a reasoning pass never empties the response', async () => {
+  let sentBody
+  await withLLMConfig({ nvidia: { key: 'n', model: 'm' } }, () =>
+    withFetch(
+      async (url, opts) => {
+        sentBody = JSON.parse(opts.body)
+        return { ok: true, status: 200, headers: new Headers(), json: async () => ({ choices: [{ message: { content: '' } }] }) }
+      },
+      () => callLLM('sys', 'user', { maxTokens: 100 }),
+    ),
+  )
+  assert.equal(sentBody.max_tokens, 1024)
+})
+
+test('featherless is preferred over the remaining providers when nvidia is unset', async () => {
   let calledUrl
   await withLLMConfig(
     { featherless: { key: 'f', model: 'm' }, anthropic: { key: 'a', model: 'm' }, openai: { key: 'o', model: 'm' } },
