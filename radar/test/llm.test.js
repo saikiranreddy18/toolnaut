@@ -39,7 +39,7 @@ test('nvidia is preferred over every other configured provider', async () => {
   assert.match(calledUrl, /integrate\.api\.nvidia\.com/)
 })
 
-test('nvidia floors maxTokens at 1024 so a reasoning pass never empties the response', async () => {
+test('nvidia floors maxTokens at 8192 so a reasoning pass never empties the response', async () => {
   let sentBody
   await withLLMConfig({ nvidia: { key: 'n', model: 'm' } }, () =>
     withFetch(
@@ -50,7 +50,7 @@ test('nvidia floors maxTokens at 1024 so a reasoning pass never empties the resp
       () => callLLM('sys', 'user', { maxTokens: 100 }),
     ),
   )
-  assert.equal(sentBody.max_tokens, 1024)
+  assert.equal(sentBody.max_tokens, 8192)
 })
 
 test('featherless is preferred over the remaining providers when nvidia is unset', async () => {
