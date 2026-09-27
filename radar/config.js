@@ -6,6 +6,20 @@ import { fileURLToPath } from 'node:url'
 const num = (v, d) => (v != null && v !== '' && !Number.isNaN(Number(v)) ? Number(v) : d)
 const list = (v) => (v || '').split(',').map((s) => s.trim()).filter(Boolean)
 
+// A key pasted into a secrets form often carries a trailing newline or the
+// "Bearer " prefix copied from a curl example; either makes the provider answer
+// 401 with nothing in the log to say why.
+const cleanKey = (v) => (v || '').trim().replace(/^Bearer\s+/i, '').trim()
+
+// Shape only, never the value: enough to tell a mis-pasted key from a revoked one.
+export function describeKey(v) {
+  const raw = v || ''
+  const k = cleanKey(raw)
+  return `${k.startsWith('nvapi-') ? 'starts with nvapi-' : 'does NOT start with nvapi-'}, length ${k.length}` +
+    (raw !== k ? ', had whitespace/Bearer trimmed' : '') +
+    (/\s/.test(k) ? ', contains inner whitespace' : '')
+}
+
 export const config = {
   thresholds: {
     publish: num(process.env.RADAR_PUBLISH_THRESHOLD, 0.75),
@@ -22,8 +36,8 @@ export const config = {
   llm: {
     // provider-agnostic; the first configured one (in this order) is used, and
     // enrich/course-gen fall back to deterministic rules if none is set.
-    nvidia: process.env.NVIDIA_API_KEY
-      ? { key: process.env.NVIDIA_API_KEY, model: process.env.NVIDIA_MODEL || 'moonshotai/kimi-k3' }
+    nvidia: cleanKey(process.env.NVIDIA_API_KEY)
+      ? { key: cleanKey(process.env.NVIDIA_API_KEY), model: process.env.NVIDIA_MODEL || 'moonshotai/kimi-k3' }
       : null,
     featherless: process.env.FEATHERLESS_API_KEY
       ? { key: process.env.FEATHERLESS_API_KEY, model: process.env.FEATHERLESS_MODEL || 'moonshotai/Kimi-K3' }
