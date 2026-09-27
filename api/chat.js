@@ -184,7 +184,7 @@ export default async function handler(req, res) {
   // limiting. Answers 429 with Retry-After and logs the first refusal.
   if (rateLimit(req, res, 'chat', { max: CHAT_PER_MINUTE })) return
 
-  const key = process.env.NVIDIA_API_KEY
+  const key = (process.env.NVIDIA_API_KEY || '').trim().replace(/^Bearer\s+/i, '').trim()
   // No key configured is not an error the visitor should see. The client has a
   // deterministic fallback; tell it to use that.
   if (!key) return res.status(200).json({ key: null, reply: null, source: 'unconfigured' })
