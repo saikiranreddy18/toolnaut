@@ -713,5 +713,14 @@
   "s:ai-agents-gone-rogue",
   "s:the-quickest-path-to-a-diff",
   "s:ogre-mcp",
-  "s:the-office-harness-for-ai-agents"
+  "s:the-office-harness-for-ai-agents",
+  "s:ppgrid",
+  "s:augur",
+  "s:an-openai-compatible-model-agnostic-agent-api",
+  "s:openai-is-pausing-training-for-a-second-time",
+  "s:a-simple-gpu-job-scheduler",
+  "s:openai-halts-training-of-latest-models",
+  "s:peertalkai",
+  "s:mcp-audit-tool",
+  "s:stepstogreat"
 ]
