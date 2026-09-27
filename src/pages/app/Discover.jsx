@@ -5,6 +5,7 @@ import { matchScore, matchReasonShort } from '../../utils/matchScore'
 import { byProminence, isCatalogNoise } from '../../utils/prominence'
 import { getNewTools } from '../../utils/newTools'
 import { loadRecentlyViewed } from '../../state/recentlyViewedStore'
+import { loadStreak, daysSinceLastVisit } from '../../state/streakStore'
 import { matchesQuery } from '../../utils/search'
 import { compareByNewest, compareByName } from '../../utils/sortResults'
 import { loadQuiz } from '../../state/quizStore'
@@ -156,13 +157,22 @@ export default function Discover() {
   // Recency order comes first from getNewTools(); when a domain is on file,
   // Array.prototype.sort's stability keeps that order within each group and
   // only moves same-domain tools ahead of the rest (a reorder, not a rescore).
+  // A visitor's own visit log (already recorded for the streak dots) beats a
+  // fixed window: a daily visitor sees only what's new since they last looked,
+  // and someone back after a gap sees everything they missed, capped at the
+  // streak log's own 28-day retention so a dormant account doesn't get an
+  // unbounded dump. No prior visit on record (first-ever visit, cleared site
+  // data) falls back to the original fixed 7-day window.
+  const sinceLast = useMemo(() => daysSinceLastVisit(loadStreak().days), [])
+  const freshWindowDays = sinceLast == null ? 7 : Math.min(Math.max(sinceLast, 1), 30)
+
   const freshTools = useMemo(() => {
-    const candidates = getNewTools(7).filter((t) => !isCatalogNoise(t))
+    const candidates = getNewTools(freshWindowDays).filter((t) => !isCatalogNoise(t))
     const sorted = answers?.domain
       ? [...candidates].sort((a, b) => (a.category === answers.domain ? 0 : 1) - (b.category === answers.domain ? 0 : 1))
       : candidates
     return sorted.slice(0, 8)
-  }, [answers?.domain])
+  }, [answers?.domain, freshWindowDays])
 
   const hasFreshDomainMatch = !!(answers?.domain && freshTools.some((t) => t.category === answers.domain))
 
@@ -223,7 +233,11 @@ export default function Discover() {
         <div className="mt-6">
           <div className="flex items-center justify-between gap-2">
             <h2 className="text-xs font-bold uppercase tracking-widest text-slate-500">
-              {hasFreshDomainMatch ? `🆕 New in ${CATEGORY_META[answers.domain].name}` : '🆕 New this week'}
+              {hasFreshDomainMatch
+                ? `🆕 New in ${CATEGORY_META[answers.domain].name}`
+                : sinceLast != null
+                  ? '🆕 New since you were last here'
+                  : '🆕 New this week'}
             </h2>
             <Link to="/new" className="flex min-h-11 items-center text-[10px] font-bold uppercase tracking-widest text-exus-lime hover:opacity-80">
               See the full feed →

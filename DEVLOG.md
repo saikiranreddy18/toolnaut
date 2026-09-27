@@ -9,6 +9,60 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-27
+
+**Radar health:** was `NO-PUBLISH` at the start of this run — 3 straight runs
+with candidates arriving but 0 publishing (24 to the review queue), the same
+Featherless-outage fallout tracked in issue #63 since 2026-09-21. Fixed
+tonight: a stray, unmerged branch (`claude/brave-dijkstra-fi0zrm`, from an
+earlier ad-hoc session between scheduled slots) already contained five
+commits switching the radar's LLM provider from the still-403ing Featherless
+to NVIDIA/Kimi-K3, plus three follow-on fixes for Kimi-K3-specific failure
+modes (a mis-pasted-key 401, a silent empty-answer abort, a too-small
+reasoning-token floor, and finally reading the answer from
+`reasoning_content` when `content` comes back empty on `finish_reason=stop`).
+Verified those five commits worked (a `--dry-run` on that branch scored
+`published: 1` instead of everything falling to the review queue), cherry-
+picked just the radar/NVIDIA commits onto `master` (left that branch's other,
+unrelated, unverified feature commits behind), ran all three checks green,
+and pushed directly to `master` — sha `7c319bc`. Then triggered a real
+(non-dry-run) radar run against the fixed `master` to confirm end-to-end:
+run [#74](https://github.com/saikiranreddy18/toolnaut/actions/runs/36339566670)
+completed, exported, and committed — `chore(radar): publish newly discovered
+tools` landed at `baca4fe`. **NO-PUBLISH is resolved and confirmed live**,
+not just diagnosed.
+
+**Researched today:** the three earlier research-hour runs (00:03, 06:03,
+12:03 UTC) re-verified existing OPEN backlog entries with no drift found;
+no new gap was needed for this run since the backlog already had well-
+developed, build-ready OPEN entries waiting.
+
+**Shipped today:** "Fresh Finds ignores the one signal that would actually
+personalize it — visit history the streak dots already log." `Discover.jsx`'s
+"New this week" strip used a fixed 7-day window for every visitor regardless
+of when they'd last looked, even though `streakStore.js` already logs real
+visit dates for the streak dots. Added `daysSinceLastVisit()` to
+`streakStore.js` (6 new tests), wired `Discover.jsx` to read it (read-only —
+no new write, no new store) and use it as the freshness window (clamped
+1–30 days), with a three-way heading precedence: domain match ("New in
+X") beats visit-recency ("New since you were last here") beats the original
+default ("New this week") for a visitor with no log. Verified live in a
+local preview build, not just via the smoke test, by seeding a stale visit
+date and confirming the heading actually changes. All three checks green,
+pushed directly to `master` — sha in this commit. **Visible on toolnaut.xyz
+today**, on every `/app/discover` visit, once this deploy lands.
+
+**Still stuck:** PRs #57, #70 (GA4 cookie-consent gate) and #75 (stack
+overlap warning) remain open and unmerged (issue #67) — both backlog entries
+they implement are correctly marked "BUILT, UNMERGED, do not rebuild" and
+still need a human to merge #70 (closing #57 as superseded) and #75. Not
+rebuilding a third/second copy of either.
+
+**Queued next:** once #70 and #75 land, "Command palette / ⌘K quick jump"
+and "Per-tool ratings & reviews" are the next build-ready OPEN gaps.
+
+---
+
 ## 2026-09-26
 
 **Radar health:** NO-PUBLISH per `npm run radar:health`. Featherless AI's

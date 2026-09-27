@@ -95,6 +95,18 @@ export function recordVisit(now = new Date()) {
   return { count, days: nextDays }
 }
 
+// Calendar days between `now` and the most recent recorded visit strictly
+// before today — null when there is no such entry (empty log, or the only
+// entry is today), so callers can tell "no prior visit on record" apart from
+// "visited yesterday".
+export function daysSinceLastVisit(days, now = new Date()) {
+  const todayKey = toDateKey(now)
+  const prior = [...days].sort().reverse().find((k) => k < todayKey)
+  if (!prior) return null
+  const diffMs = fromDateKey(todayKey) - fromDateKey(prior)
+  return Math.round(diffMs / (24 * 60 * 60 * 1000))
+}
+
 const DAY_LETTERS = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
 
 // The current Sunday→Saturday week, each day flagged with whether it was

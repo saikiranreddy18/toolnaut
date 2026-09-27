@@ -5920,7 +5920,21 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### Fresh Finds ignores the one signal that would actually personalize it — visit history the streak dots already log
-- **Status:** OPEN
+- **Status:** SHIPPED (this run, sha in DEVLOG) — built exactly as scoped:
+  `daysSinceLastVisit(days, now)` added to `streakStore.js` (sorts the log,
+  finds the most recent entry strictly before today, returns the calendar-day
+  gap or `null`), 6 new tests in `test/streak-store.test.mjs`. `Discover.jsx`
+  reads `loadStreak().days` (no new `recordVisit()` call — read-only, per the
+  "what this would NOT include" scope), clamps the result to 1–30 days, and
+  uses it as the `getNewTools()` window instead of the fixed `7`. Heading
+  now resolves the three-way precedence the 2026-09-23 deepening flagged
+  once the domain-match personalization shipped in between: domain match
+  first, then visit-recency ("🆕 New since you were last here"), then the
+  original "🆕 New this week" for a visitor with no log. Verified live in a
+  local preview build: seeding a 10-day-old visit renders the recency
+  heading; clearing the log falls back to the default. Did not touch
+  `recordVisit()`, `Stack.jsx`, the public `/new` feed, or the log's 28-day
+  retention window, matching scope.
 - **Seen in:** not a competitor pattern — a self-audit of the already-shipped
   "Surface tool freshness" gap above (found 2026-08-22, SHIPPED `2d7d192`)
   against what the codebase has grown since. That entry's own "what this
