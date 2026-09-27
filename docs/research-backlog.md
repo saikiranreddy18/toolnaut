@@ -7732,3 +7732,80 @@ a client-side SPA with a static tool catalogue.
 - **Build size:** N/A (fix already applied — a straight deletion, no new
   code).
 - **Found:** 2026-09-21 15:09 UTC
+
+---
+
+### No testimonial or social-proof quote exists anywhere on the site, and the one survey component built to ask users things is deliberately incapable of collecting one
+- **Status:** OPEN
+- **Seen in:** every directory competitor already studied in this file
+  carries user quotes or reviews as a trust signal — G2/Capterra's whole
+  business model is user-written reviews (cited above re: the review-count
+  gap); There's An AI For That and Futurepedia both surface pull-quotes or
+  ratings on listing pages; standard SaaS landing pages (Webflow, Notion)
+  lead with a named customer quote near the fold. Toolnaut's own
+  `HeroSection.jsx`/`FeaturesSection.jsx`/`AudienceSection.jsx` make
+  confidence claims ("Built for people who can't afford to fall behind")
+  with nothing beneath them from an actual user.
+- **Gap:** grepped `testimonial|review quote|case stud|social proof|Trustpilot`
+  (case-insensitive) across all of `src` — zero hits. `StatsSection.jsx`
+  already draws a hard line on this exact category of claim: its own
+  comment says "a number on a landing page is a claim, and an unavailable
+  one is not a licence to make one up" — real counts (`explorerCount()`,
+  `subscriberCount()`) render, and a tile that cannot be read is not shown,
+  not backfilled with a placeholder. A testimonial is the same problem in
+  qualitative form, and the project is pre-revenue with no confirmed
+  outside users yet, so there is nothing genuine to quote today — inventing
+  one would break the same discipline `StatsSection.jsx` was written to
+  enforce. The one component built to ask real users anything,
+  `src/components/app/StackSurvey.jsx`, is fixed-choice with **no free
+  text by design**: its own comment states answers go to GA4 as an event
+  and the privacy policy promises GA never receives anything a person
+  types, so a text box "would break that promise." That rules out the
+  obvious shortcut of just adding a text field to the existing survey —
+  a real quote needs a different, non-GA storage path plus explicit
+  per-response consent to display it publicly, neither of which
+  `StackSurvey.jsx` was built for.
+- **Why it matters:** this isn't "add a testimonials section" (that would
+  mean fabricating quotes, which the codebase already treats as
+  disqualifying) — it's that no *honest path to ever having one* exists
+  yet. Every day without a capture mechanism is a day of real user
+  reactions (people who did complete a stack, did follow the roadmap)
+  going uncaptured, unlike the GA survey answers which are already being
+  collected. The gap is the missing plumbing, not the missing section.
+- **Smallest useful version (what to actually build):**
+  - A second, separate, optional prompt — not an extension of
+    `StackSurvey.jsx` — shown only to a signed-in user with sync available
+    (`isSupabaseConfigured()`, same feature-detection `sync.js` already
+    uses) after a real usage milestone (e.g. a stack with 3+ tools and at
+    least one tool cycled to "using" — signals this is a person who
+    actually engaged, not someone bouncing off the quiz).
+  - One free-text field ("What would you tell a friend deciding whether to
+    try Toolnaut?") plus a required, separately-worded opt-in checkbox
+    ("You can show this publicly, with my first name") — unchecked by
+    default, so silence never becomes a public quote.
+  - Written to a new Supabase table (`quotes`: user id, text, display_name
+    or null, `public_ok` boolean, `created_at`, `featured` boolean a human
+    sets later) via the same RPC-gated pattern `explorerCount()`/
+    `subscriberCount()` already use — never through `useAnalytics()`/GA,
+    keeping the free-text data out of the analytics pipeline entirely,
+    which is what actually resolves the conflict with the privacy policy
+    that blocked `StackSurvey.jsx` from doing this.
+  - `StatsSection.jsx`'s own rule extends naturally: a small quote-carousel
+    section renders only when at least one row has `featured = true`, and
+    disappears entirely otherwise — a landing page with zero real quotes
+    should show none, not a stock placeholder.
+  - **What this would NOT include** (kept out to bound the diff and because
+    it's the whole point): no auto-publishing a submitted quote (a human
+    sets `featured`, same manual-trust step radar's own status field
+    uses); no star ratings or NPS score (a separate, larger feature — this
+    is quote capture only); no editing after submission; no
+    surfacing this on `StackSurvey.jsx` itself — it stays untouched,
+    fixed-choice, GA-bound, exactly as designed.
+- **Build size:** M — one new Supabase table plus RLS policy (opt-in write,
+  `featured=true` rows public-readable only), one new prompt component
+  gated the same way `sync.js` gates its own features, and a small
+  conditional block in `StatsSection.jsx` or a new sibling section for
+  display. No new dependency. Larger than a pure-frontend gap because it
+  needs the schema change, same category as the shared-stacks-gallery gap
+  above.
+- **Found:** 2026-09-27 00:12 UTC
