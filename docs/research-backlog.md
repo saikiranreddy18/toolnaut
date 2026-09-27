@@ -6148,6 +6148,50 @@ a client-side SPA with a static tool catalogue.
   pattern, one sticker in an already-existing page, one pricing-copy edit. No
   new route, no new dependency.
 - **Found:** 2026-09-11 21:20 UTC
+- **Deepened 2026-09-27 15:20 UTC — this entry's own headline claim is now
+  false, and that changes what kind of gap this is:** re-checked `planData.js`
+  for the cited `planned('Weekly trending tools + personalized alerts')`
+  bullet this entry is framed around and it is gone — grepped `trending`
+  case-insensitively across all of `src/` and got zero hits anywhere in the
+  app, not just that one file. The Pro tier's current feature list
+  (`planData.js:116-118`) is now `live('Unlimited favorite tools')`,
+  `planned('AI-powered chat assistant (Claude-powered Q&A)')`,
+  `planned('Priority email support')`, `planned('Export learning roadmaps as
+  PDF')` — a shorter, already-audited list per the comment directly above it
+  ("ONLY WHAT PRO ADDS... What Pro really adds today is the saved-tools limit
+  lifted"). Whichever pricing cleanup rewrote that block (this checkout ran
+  against a shallow clone, so the specific commit isn't recoverable from
+  `git log` here) already removed the exact false promise this gap set out to
+  fix. **This means the "why it matters" framing — a paid-tier promise sitting
+  unbuilt, the same shape as the leaderboard-real finding — no longer applies
+  today; there is nothing false on the pricing page for this gap to correct
+  anymore.** The technical case underneath is still sound (`tool_refs` really
+  does hold real per-account stack membership, unused for any aggregate
+  today, and a live "N members have this" count is still a genuine, honest
+  feature this catalog could show), so this stays OPEN as a feature-value
+  idea rather than a marketing-honesty fix — just a materially lower-urgency
+  one than gaps that still involve a live false claim, and `planData.js:130`'s
+  proposed "drop to `live()`" step above no longer has anything to drop.
+  Two smaller citations also drifted and are corrected here: (1) the
+  migration-numbering plan ("0001 through 0008 are already applied... 0009 is
+  next free") is stale — `supabase/migrations/` now runs through
+  `0010_saved_limit.sql` (0009 was taken by `0009_subscriber_count.sql`,
+  shipped for the leaderboard/subscriber-count gap; 0010 added the saved-tools
+  cap trigger), so the next free number is **0011**, not 0009. (2) `sync.js`'s
+  `pushAll()` still deletes-then-reinserts `tool_refs` on every sync (so the
+  entry's core "`added_at` resets to now, don't build a real 'weekly' window"
+  caveat is unchanged and still correct) but the function's shape moved: the
+  delete is now at `sync.js:96`, and what was one combined insert is now two
+  separate ones (`sync.js:103-106` for `stack`, `107-119` for `saved`) because
+  0010's per-plan saved cap meant one failed combined insert used to discard
+  the stack half too — the explanatory comment cited at "100-104" is now at
+  `sync.js:99-102`. `ToolDetail.jsx`'s cited mount point also moved: the
+  `sticker` card this entry proposes reusing is now at `ToolDetail.jsx:185`
+  ("Why it fits"), not `:174` — the buttons row above it (add-to-stack,
+  favorite) grew a few lines first. `tool_refs`'s schema/RLS citations in
+  `0002_user_state.sql:60-66,75-77` are unchanged and still accurate, and the
+  proposed `tool_stack_counts()` function only reads `kind = 'stack'` rows, so
+  0010's saved-only cap trigger doesn't interact with it.
 
 ---
 
