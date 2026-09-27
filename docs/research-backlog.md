@@ -5286,6 +5286,44 @@ a client-side SPA with a static tool catalogue.
   `capabilityMatrix.js`. No backend, no new dependency, no radar/schema
   change.
 - **Found:** 2026-09-10 09:07 UTC
+- **Deepened 2026-09-27 12:20 UTC — the oldest untouched OPEN entry (17 days,
+  never previously deepened); re-verified every cited fact against current
+  `src/`. Still fully unbuilt (`grep -rniE "collection|bundle|curated.{0,15}
+  (stack|list)" src/pages src/components` still turns up only the same
+  unrelated `CollectionPage` JSON-LD hits), the plan is still exactly the
+  right shape, but three citations drifted:**
+  1. **`App.jsx:109` no longer resolves to the insertion point.** The public
+     route block has grown; `/tools/:domain` — the route this entry said to
+     add `/collections` "alongside" — is now `App.jsx:128`. The routes
+     immediately around it are unchanged in kind (`/s/:slugs`, `/compare/:slugs`,
+     `/vs/:slug` above it, `/ai-tools/:slug`, `/new`, `/search` below it), so
+     the placement advice itself still holds — just the line number.
+  2. **`CategoryLanding.jsx:85`'s card markup moved to line 95.** Still the
+     same `<div key={tool.slug} className="glass rounded-2xl p-5">` this entry
+     said to reuse — content and shape unchanged, only pushed down 10 lines
+     by unrelated additions above it (the "Take the 60-second quiz" CTA link
+     and an `updated`/`formatUpdated` timestamp block now sit between the
+     `<h1>` and the grid). Same for the two `CollectionPage` JSON-LD
+     citations: `NewTools.jsx:23` is now `:26`, `CategoryLanding.jsx:43` is
+     now `:47` — both still the same schema shape to copy.
+  3. **`toolReviewsData.js` does not exist.** The entry cited it alongside
+     `communityData.js` as an example of "seed-data discipline already
+     established" — `communityData.js` exists and matches (confirmed via
+     `ls src/utils/`), but `toolReviewsData.js` is a name from the still-OPEN
+     "Per-tool ratings & reviews" gap's own plan, not a file on disk yet.
+     Whoever builds Collections should model `collectionsData.js` on
+     `communityData.js` alone.
+  - **Still accurate, re-confirmed:** `capabilityMatrix.js:62-66`'s
+    `'Workflow templates'` row — capability at line 62, all three tier cells
+    at 63-65, closing brace at 66, exact match, free-column `status: 'planned'`
+    with `'A few samples'` copy unchanged. `SharedStack.jsx`'s `adoptAndGo`
+    (line 48) and `getTool` import (line 3) are both unchanged and still the
+    right adopt pattern to mirror. `hydrateCatalog()` behavior (mutates
+    `TOOLS` in place) is unchanged. No other backlog entry references
+    `capabilityMatrix.js`'s Workflow-templates row (re-checked).
+  - **No change** to the build size, the data shape, or any of the "what
+    this would NOT include" exclusions — this deepening only corrects three
+    stale line citations and one file-existence claim.
 
 ---
 
