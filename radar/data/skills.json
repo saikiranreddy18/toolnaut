@@ -486,7 +486,8 @@
       "pixelboard",
       "ipad-computer-use",
       "ggg",
-      "crypllm-ai-chat-agent-for-cryptool-2"
+      "crypllm-ai-chat-agent-for-cryptool-2",
+      "banker"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -535,7 +536,8 @@
       "course-pixelboard",
       "course-ipad-computer-use",
       "course-ggg",
-      "course-crypllm-ai-chat-agent-for-cryptool-2"
+      "course-crypllm-ai-chat-agent-for-cryptool-2",
+      "course-banker"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3266,7 +3268,8 @@
       "scry-programmable-internet-search-w-congestion-pricing",
       "jawz",
       "do-your-vitamins-work",
-      "open-health-atlas"
+      "open-health-atlas",
+      "banker"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3308,7 +3311,8 @@
       "course-scry-programmable-internet-search-w-congestion-pricing",
       "course-jawz",
       "course-do-your-vitamins-work",
-      "course-open-health-atlas"
+      "course-open-health-atlas",
+      "course-banker"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3726,14 +3730,16 @@
       "will-your-money-last-ai-assisted-financial-simulator",
       "xfinlab",
       "atlas-finance-evaluating-ai-agents-inside-a-bank",
-      "jawz"
+      "jawz",
+      "banker"
     ],
     "courses": [
       "course-aifi-on-aws",
       "course-will-your-money-last-ai-assisted-financial-simulator",
       "course-xfinlab",
       "course-atlas-finance-evaluating-ai-agents-inside-a-bank",
-      "course-jawz"
+      "course-jawz",
+      "course-banker"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4519,7 +4525,8 @@
       "neurogrid-terminal-coding-agent",
       "vim-like-hyper-efficient-llm-power-tool",
       "aclif",
-      "crt"
+      "crt",
+      "banker"
     ],
     "courses": [
       "course-devx",
@@ -4537,7 +4544,8 @@
       "course-neurogrid-terminal-coding-agent",
       "course-vim-like-hyper-efficient-llm-power-tool",
       "course-aclif",
-      "course-crt"
+      "course-crt",
+      "course-banker"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -16403,10 +16411,12 @@
     "domain": "data",
     "level": "advanced",
     "toolsTeaching": [
-      "atlas-finance-evaluating-ai-agents-inside-a-bank"
+      "atlas-finance-evaluating-ai-agents-inside-a-bank",
+      "banker"
     ],
     "courses": [
-      "course-atlas-finance-evaluating-ai-agents-inside-a-bank"
+      "course-atlas-finance-evaluating-ai-agents-inside-a-bank",
+      "course-banker"
     ],
     "updatedAt": "2026-09-15T23:42:46.820Z"
   },
@@ -18588,5 +18598,18 @@
       "course-open-health-atlas"
     ],
     "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "skill-sqlite",
+    "name": "sqlite",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "banker"
+    ],
+    "courses": [
+      "course-banker"
+    ],
+    "updatedAt": "2026-09-27T18:09:19.103Z"
   }
 ]

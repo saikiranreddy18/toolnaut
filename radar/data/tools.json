@@ -12021,5 +12021,37 @@
     "enrichedBy": "llm",
     "lifecycle": "published",
     "version": 1
+  },
+  {
+    "slug": "banker",
+    "name": "Banker",
+    "category": "data",
+    "sourceCategory": "Finance & Accounting",
+    "price": "free",
+    "pricing": "Free, open source",
+    "level": "intermediate",
+    "blurb": "CLI for managing personal finances via Enable Banking API and SQLite storage.",
+    "audience": "developers and CLI power users",
+    "dev": "Karlis Vagalis",
+    "year": 2026,
+    "website": "https://github.com/karlis-vagalis/banker",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "finance",
+      "cli",
+      "banking",
+      "sqlite",
+      "open-source"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49868228",
+    "discoveredAt": "2026-09-27T18:09:19.103Z",
+    "updatedAt": "2026-09-27T18:09:19.103Z",
+    "contentHash": "2eab6919b4d791f9",
+    "confidence": 0.95,
+    "enrichedBy": "llm",
+    "lifecycle": "published",
+    "version": 1
   }
 ]

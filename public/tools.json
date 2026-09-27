@@ -9005,5 +9005,29 @@
       "analytics"
     ],
     "discoveredAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "slug": "banker",
+    "name": "Banker",
+    "category": "data",
+    "sourceCategory": "Finance & Accounting",
+    "price": "free",
+    "pricing": "Free, open source",
+    "level": "intermediate",
+    "blurb": "CLI for managing personal finances via Enable Banking API and SQLite storage.",
+    "audience": "developers and CLI power users",
+    "dev": "Karlis Vagalis",
+    "year": 2026,
+    "website": "https://github.com/karlis-vagalis/banker",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "finance",
+      "cli",
+      "banking",
+      "sqlite",
+      "open-source"
+    ],
+    "discoveredAt": "2026-09-27T18:09:19.103Z"
   }
 ]

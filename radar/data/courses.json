@@ -26102,5 +26102,54 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-19T13:12:02.389Z"
+  },
+  {
+    "id": "course-banker",
+    "toolSlug": "banker",
+    "title": "Master Banker",
+    "objectives": [
+      "Understand what Banker is for",
+      "Use Banker on a real task",
+      "Know where Banker fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Banker for your real workflow, not the demo.",
+          "Say what Banker does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Banker.",
+          "Push Banker to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Banker into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-finance",
+      "skill-cli",
+      "skill-banking",
+      "skill-sqlite",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-27T18:09:19.103Z"
   }
 ]
