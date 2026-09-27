@@ -16,7 +16,10 @@ export class NoLLMError extends Error {}
 // it gets the same reasoning-model treatment: a token floor and a long timeout
 // (see the Featherless notes below for why both are needed).
 const NVIDIA_URL = 'https://integrate.api.nvidia.com/v1/chat/completions'
-const NVIDIA_MIN_TOKENS = 1024
+// 1024 was not enough on NVIDIA: a longer tool's reasoning pass used the whole
+// budget and returned empty content ("Unexpected end of JSON input"). It is a
+// ceiling, not a spend — the model stops when it has answered.
+const NVIDIA_MIN_TOKENS = 8192
 const NVIDIA_TIMEOUT_MS = Number(process.env.NVIDIA_TIMEOUT_MS) || 180000
 
 // Featherless is OpenAI-compatible and supports response_format json_object.
