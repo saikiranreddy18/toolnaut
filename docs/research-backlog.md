@@ -7932,3 +7932,98 @@ a client-side SPA with a static tool catalogue.
   needs the schema change, same category as the shared-stacks-gallery gap
   above.
 - **Found:** 2026-09-27 00:12 UTC
+
+---
+
+### No lookup surface outside toolnaut.xyz — every competitor pattern in this space now includes a way to check a tool without opening the directory
+- **Status:** OPEN
+- **Seen in:** studied fresh this run (new problem area — this file's grep
+  for `extension|browser extension` before today turned up zero prior
+  entries on the topic, only one unrelated mention of the dev-API gap
+  naming "a Raycast extension" as a hypothetical downstream consumer of a
+  public feed, never Toolnaut shipping its own lookup surface). Concretely:
+  "AI Tools Explorer," a Chrome extension in active use today, adds a
+  right-click "Check on AI Tools Explorer" context-menu item that looks up
+  whatever tool/site you're on against its directory and opens the full
+  profile — all local-storage, no account, no data collection, free
+  (per its own DEV Community writeup, dev.to/aitoolsexplorer). Monica AI
+  bundles the same "look this up without leaving the page" idea into its
+  own browser extension, one layer up (image/video generation triggered
+  from any page). The shape recurs because it solves a real moment: a
+  visitor is reading about some tool on a third-party page or landing site
+  and wants a fast, trustworthy second opinion, without a context switch to
+  a new tab and a fresh search.
+- **Gap:** confirmed Toolnaut has no lookup surface of any kind outside its
+  own site — `find . -iname "manifest.json" -not -path "*/node_modules/*"`
+  and `grep -rniE "manifest_version|chrome\.runtime"` across the repo both
+  return zero hits, and neither `src/` nor `radar/` has a third directory
+  for anything extension-shaped. This is not blocked on missing data: the
+  same public, already-committed `public/tools.json` the "No public
+  developer API" gap above documents in full (`slug, name, category,
+  price, pricing, blurb, tags, website, status, ...`) is exactly the
+  payload a lookup popup needs, and — unlike a same-origin `fetch()` from
+  a third-party web page — a browser extension's own manifest
+  `host_permissions` grant cross-origin access independent of the
+  `Access-Control-Allow-Origin` header `vercel.json` is still missing
+  today, so this gap does not need that one fixed first to be buildable
+  (though both should ship the CORS header eventually, and an extension is
+  exactly the kind of consumer that gap already predicted). `src/utils/
+  search.js`'s `matchesQuery(tool, q)` — the same word-order-independent
+  matcher `SearchTools.jsx` and `Discover.jsx` both already share — is a
+  small, dependency-free pure function; an extension's popup script can
+  vendor the same ~10 lines rather than reinvent search logic, keeping the
+  two surfaces from silently drifting the way this file's own comment on
+  `search.js` already warns against for the two in-app callers.
+- **Why it matters:** every other public surface this file has logged
+  (developer API, RSS feed, embeddable badge, public search) assumes the
+  visitor is already on toolnaut.xyz or deliberately seeking it out. A
+  lookup extension is the one surface that reaches a visitor who is
+  somewhere else — reading a "best AI tools" blog post, a Product Hunt
+  launch, a tool's own landing page — at the exact moment they're
+  evaluating an AI tool and would benefit from Toolnaut's role-aware
+  framing (is this Active/Uncertain/Discontinued per radar's own status
+  field, what's the honest price, what tier does it sit at) instead of
+  taking the tool's own marketing at face value. It is also a standing,
+  low-maintenance growth channel: once installed, every lookup is an
+  impression with no repeat marketing spend, the same "free distribution
+  left on the table" argument the developer-API gap already makes for a
+  different consumer.
+- **Smallest useful version (what to actually build):** deliberately the
+  narrowest version of this pattern, not the context-menu/auto-detect
+  version competitors ship:
+  - New top-level `extension/` directory (a third surface alongside
+    `src/` and `radar/`, not inside either — it ships independently and
+    on a different release cadence, the same reasoning that already keeps
+    `radar/` out of `src/`).
+  - Manifest V3, `popup` only: `manifest.json`, `popup.html`, `popup.js`,
+    `popup.css`. No content script, no background service worker, no
+    `host_permissions` beyond `https://toolnaut.xyz/tools.json` — the
+    popup fetches the catalog on open (browser HTTP cache keeps repeat
+    opens cheap) and filters client-side with a vendored copy of
+    `matchesQuery()`.
+  - One search box; each result row shows name, category, live/uncertain
+    status badge (reusing radar's existing `status` field, same badge
+    logic `ToolDetail.jsx:123-130` already renders, ported to plain
+    JS/CSS since the extension can't import React), and a link to the
+    real `https://toolnaut.xyz/ai-tools/:slug` page for the full profile
+    — the popup is a fast triage view, not a replacement for the site.
+  - **What this would NOT include** (kept out to bound the diff and match
+    this file's narrowest-useful-version discipline): no context-menu
+    "check this page" integration and no content-script page scanning —
+    that needs `activeTab`/broader host permissions and real accuracy
+    work (matching a tool's own landing page to a catalog slug reliably)
+    that a v1 popup search sidesteps entirely; no Firefox/Safari builds,
+    Chrome/Chromium (MV3) only for v1; no telemetry or analytics inside
+    the extension (a different privacy surface than the SPA's own GA4,
+    not worth the scope this run); no publishing to the Chrome Web Store
+    as part of this backlog item — that is a separate account/listing
+    task for a human, out of scope for an automated build; no CORS header
+    change bundled in (that stays the separate, already-logged dev-API
+    gap, even though both would benefit from it).
+- **Build size:** M — new top-level directory and build target the repo
+  doesn't have today (manifest + popup HTML/JS/CSS, no bundler needed for
+  a popup this small), one vendored copy of an existing pure function, no
+  backend and no schema change. Larger than a pure-`src/`-diff gap only
+  because it is a new artifact type this repo has never shipped, not
+  because any single file is large.
+- **Found:** 2026-09-27 21:20 UTC
