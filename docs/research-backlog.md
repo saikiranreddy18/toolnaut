@@ -2405,6 +2405,33 @@ a client-side SPA with a static tool catalogue.
   during `enrich()`, nothing has shipped that changes the plan, and the
   feature run can build straight from the spec above without re-reading the
   radar pipeline first.
+- **Verification 2026-09-27 09:20 UTC:** research run (UTC hour 09). CI green
+  on master, no agent-fixable issues. Radar health is NO-PUBLISH (issue #63) —
+  pulled the latest run's own logs (run 36280867800, 2026-09-26 23:54 UTC) to
+  confirm it's still the identical Featherless billing 403 ("You do not have
+  an active subscription") on every candidate, not the timeout bug fixed
+  earlier (`FEATHERLESS_TIMEOUT_MS` is already 180000 in the workflow env) —
+  same already-diagnosed outage, no new code action, not re-reported as its
+  own finding.
+  This was the oldest untouched OPEN entry (26 days since found, never
+  re-checked since the 2026-09-19 verification) so re-verified again rather
+  than starting a new gap. Zero drift this time, down to the exact line
+  numbers: `radar/sources/github.js:25` and `radar/sources/hackernews.js:27`
+  still fetch `stars`/`points` into `candidate.raw` untouched; `radar/enrich.js`
+  grepped fresh for `stars|points|popularity` — zero hits, still never reads
+  either value off `candidate.raw`; `radar/schema.js`'s `makeToolRecord()`
+  content fields (now `:54-65`, shifted from `:53-61` by unrelated additions
+  earlier in the file, but still the same field list) have no `popularity`
+  slot. Both `FIELDS` plumbing arrays are exactly where the last verification
+  left them — `radar/scripts/sync-to-app.js:12-16`, `src/utils/
+  liveCatalog.js:7-10` — still lacking `popularity`/`popularityLabel`.
+  `ToolCard.jsx`'s badge wrapper is now pixel-identical to the corrected
+  2026-09-19 target: `<span className="flex shrink-0 items-center
+  gap-1.5">` at line 45, NEW pill at 46-53, fit-band pill at 58-65, status
+  pill at 69-76 — not one line moved in 8 days. This gap has now gone three
+  verification passes with zero substantive drift; it is as build-ready as a
+  spec in this file gets. Strong candidate for the next feature run if a
+  more urgent gap doesn't outrank it.
 
 ### "Community access (Discord & forum)" — half the claim doesn't exist
 - **Status:** REJECTED — the real half (forum) already ships; the missing half
