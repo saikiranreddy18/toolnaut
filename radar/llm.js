@@ -103,6 +103,10 @@ async function chatCompletions(url, cfg, system, user, json, maxTokens, useRespo
   // input", which says nothing about why. Name the cause instead.
   if (!content.trim()) {
     const reasoning = choice?.message?.reasoning_content ?? choice?.message?.reasoning ?? ''
+    // Kimi-K3 on NVIDIA sometimes finishes cleanly with its short answer in the
+    // reasoning field and content empty. Measured: finish_reason=stop,
+    // ~32 completion tokens, ~32 reasoning chars — that IS the answer.
+    if (choice?.finish_reason === 'stop' && String(reasoning).trim()) return String(reasoning)
     throw new Error(
       `LLM returned empty content (finish_reason=${choice?.finish_reason}, ` +
       `completion_tokens=${data.usage?.completion_tokens}, reasoning_chars=${String(reasoning).length})`,
