@@ -2,7 +2,7 @@ import { config } from './config.js'
 import { retry, httpError } from './util/retry.js'
 
 // Provider-agnostic LLM dispatch. Uses whichever provider is configured, in
-// order (Featherless → Anthropic → NVIDIA → OpenAI → OpenRouter). If none is set it throws
+// order (NVIDIA → Featherless → Anthropic → OpenAI → OpenRouter). If none is set it throws
 // NoLLMError, which callers catch to fall back to deterministic rules — the
 // pipeline never hard-depends on an LLM being available.
 export class NoLLMError extends Error {}
@@ -11,7 +11,13 @@ export class NoLLMError extends Error {}
 // chat-completions path — but many NVIDIA-hosted models reject the
 // `response_format: json_object` param, so we skip it there and lean on the
 // prompt's "return only JSON" instruction instead.
+//
+// It is the primary provider now, serving the same Kimi-K3 Featherless did, so
+// it gets the same reasoning-model treatment: a token floor and a long timeout
+// (see the Featherless notes below for why both are needed).
 const NVIDIA_URL = 'https://integrate.api.nvidia.com/v1/chat/completions'
+const NVIDIA_MIN_TOKENS = 1024
+const NVIDIA_TIMEOUT_MS = Number(process.env.NVIDIA_TIMEOUT_MS) || 180000
 
 // Featherless is OpenAI-compatible and supports response_format json_object.
 // Its default model (Kimi-K3) is a REASONING model: it burns completion tokens
@@ -37,10 +43,11 @@ const FEATHERLESS_TIMEOUT_MS = Number(process.env.FEATHERLESS_TIMEOUT_MS) || 180
 
 export async function callLLM(system, user, { json = false, maxTokens = 512 } = {}) {
   const { featherless, anthropic, nvidia, openai, openrouter } = config.llm
+  if (nvidia)
+    return chatCompletions(NVIDIA_URL, nvidia, system, user, json, Math.max(maxTokens, NVIDIA_MIN_TOKENS), false, NVIDIA_TIMEOUT_MS)
   if (featherless)
     return chatCompletions(FEATHERLESS_URL, featherless, system, user, json, Math.max(maxTokens, FEATHERLESS_MIN_TOKENS), true, FEATHERLESS_TIMEOUT_MS)
   if (anthropic) return anthropicCall(anthropic, system, user, json, maxTokens)
-  if (nvidia) return chatCompletions(NVIDIA_URL, nvidia, system, user, json, maxTokens, false)
   if (openai) return chatCompletions('https://api.openai.com/v1/chat/completions', openai, system, user, json, maxTokens)
   if (openrouter) return chatCompletions('https://openrouter.ai/api/v1/chat/completions', openrouter, system, user, json, maxTokens)
   throw new NoLLMError('No LLM provider configured')
