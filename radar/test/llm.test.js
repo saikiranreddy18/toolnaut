@@ -159,3 +159,12 @@ test('an empty completion throws with the finish reason instead of returning ""'
     ),
   )
 })
+
+test('a clean stop with the answer only in reasoning_content returns that answer', async () => {
+  await withLLMConfig({ nvidia: { key: 'n', model: 'm' } }, () =>
+    withFetch(
+      async () => ({ ok: true, status: 200, headers: new Headers(), json: async () => ({ choices: [{ finish_reason: 'stop', message: { content: '', reasoning_content: '{"is_tool": false}' } }] }) }),
+      async () => assert.equal(await callLLM('sys', 'user'), '{"is_tool": false}'),
+    ),
+  )
+})
