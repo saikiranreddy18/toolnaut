@@ -97,5 +97,16 @@ async function chatCompletions(url, cfg, system, user, json, maxTokens, useRespo
     if (!res.ok) throw httpError(res, `LLM ${res.status}: ${await res.text()}`)
     return res.json()
   })
-  return data.choices?.[0]?.message?.content ?? ''
+  const choice = data.choices?.[0]
+  const content = choice?.message?.content ?? ''
+  // An empty answer otherwise surfaces downstream as "Unexpected end of JSON
+  // input", which says nothing about why. Name the cause instead.
+  if (!content.trim()) {
+    const reasoning = choice?.message?.reasoning_content ?? choice?.message?.reasoning ?? ''
+    throw new Error(
+      `LLM returned empty content (finish_reason=${choice?.finish_reason}, ` +
+      `completion_tokens=${data.usage?.completion_tokens}, reasoning_chars=${String(reasoning).length})`,
+    )
+  }
+  return content
 }

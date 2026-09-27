@@ -45,7 +45,7 @@ test('nvidia floors maxTokens at 8192 so a reasoning pass never empties the resp
     withFetch(
       async (url, opts) => {
         sentBody = JSON.parse(opts.body)
-        return { ok: true, status: 200, headers: new Headers(), json: async () => ({ choices: [{ message: { content: '' } }] }) }
+        return { ok: true, status: 200, headers: new Headers(), json: async () => ({ choices: [{ message: { content: 'ok' } }] }) }
       },
       () => callLLM('sys', 'user', { maxTokens: 100 }),
     ),
@@ -78,7 +78,7 @@ test('featherless floors maxTokens at 1024 so a reasoning pass never empties the
     withFetch(
       async (url, opts) => {
         sentBody = JSON.parse(opts.body)
-        return { ok: true, status: 200, headers: new Headers(), json: async () => ({ choices: [{ message: { content: '' } }] }) }
+        return { ok: true, status: 200, headers: new Headers(), json: async () => ({ choices: [{ message: { content: 'ok' } }] }) }
       },
       () => callLLM('sys', 'user', { maxTokens: 100 }),
     ),
@@ -92,7 +92,7 @@ test('a maxTokens above the featherless floor is passed through unchanged', asyn
     withFetch(
       async (url, opts) => {
         sentBody = JSON.parse(opts.body)
-        return { ok: true, status: 200, headers: new Headers(), json: async () => ({ choices: [{ message: { content: '' } }] }) }
+        return { ok: true, status: 200, headers: new Headers(), json: async () => ({ choices: [{ message: { content: 'ok' } }] }) }
       },
       () => callLLM('sys', 'user', { maxTokens: 2000 }),
     ),
@@ -149,4 +149,13 @@ test('openai includes response_format when json is requested', async () => {
     ),
   )
   assert.deepEqual(sentBody.response_format, { type: 'json_object' })
+})
+
+test('an empty completion throws with the finish reason instead of returning ""', async () => {
+  await withLLMConfig({ nvidia: { key: 'n', model: 'm' } }, () =>
+    withFetch(
+      async () => ({ ok: true, status: 200, headers: new Headers(), json: async () => ({ choices: [{ finish_reason: 'length', message: { content: '' } }], usage: { completion_tokens: 8192 } }) }),
+      () => assert.rejects(() => callLLM('sys', 'user'), /empty content \(finish_reason=length, completion_tokens=8192/),
+    ),
+  )
 })
