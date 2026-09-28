@@ -1706,7 +1706,7 @@ a client-side SPA with a static tool catalogue.
   exist when this entry was written.
 
 ### Command palette / ⌘K quick jump
-- **Status:** OPEN
+- **Status:** SHIPPED 2cce654
 - **Seen in:** Linear, Notion, Vercel, GitHub and Raycast all ship a ⌘K/Ctrl+K
   overlay as a first-class navigation surface — type a few letters from
   anywhere in the app, land on the exact page or record instantly, no menu

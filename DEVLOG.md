@@ -9,6 +9,49 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-28
+
+**Radar health:** `OK` — 2 runs in the last 26h window, most recent publish
+18.1h ago (4 tools), 382 tools total in `public/tools.json`. No action needed.
+
+**Researched today:** no CI red on `master`, no open `agent-fixable` issues.
+The three earlier research-hour runs (00:03, 06:03, 12:03 UTC) restored and
+re-verified the backlog itself — this file had been silently truncated by an
+earlier commit and the restore chain rebuilt it across those three runs. By
+this run the backlog already had well-developed, build-ready OPEN entries
+waiting, so no new gap was needed.
+
+**Shipped today:** the "Command palette / ⌘K quick jump" gap flagged as
+next-up in yesterday's digest. 700+ tools deep, the only way to reach any
+specific tool was nav-to-Discover-then-filter, or already knowing its
+`/app/tools/:slug` URL — pure power-user retention UX with zero backend
+needed. Added `src/components/app/CommandPalette.jsx`: a hand-rolled overlay
+(matching `ChatPanel`/`AppTour`'s existing per-component dialog precedent,
+no new `Modal` abstraction) that searches the 7 `AppShell` nav destinations
+plus the `TOOLS` catalog via the existing `matchesQuery()` multi-word
+matcher, capped at 8 tool results. Arrow keys move selection, Enter
+navigates, Escape closes. Wired into `AppShell.jsx` with a global
+Cmd/Ctrl+K listener, a labelled trigger in the desktop sidebar (under
+`SyncStatus`, before the nav links), and an icon-only trigger in the mobile
+top bar for touch users who can't reach a keyboard shortcut. `NAV` is now
+exported from `AppShell.jsx` so the palette's "Go to" list can't drift from
+the real nav. Verified live in a local dev server (not just the smoke test):
+Ctrl+K opens the dialog, typing "chatgpt" surfaces the tool, Enter navigates
+to `/app/tools/chatgpt`. All three checks green, pushed directly to
+`master` — sha `2cce654`. **Visible on toolnaut.xyz today**, on every
+`/app/*` page, once this deploy lands.
+
+**Still stuck:** PRs #57, #70 (GA4 cookie-consent gate) and #75 (stack
+overlap warning) remain open and unmerged (issue #67) — still need a human
+to merge #70 (closing #57 as superseded) and #75. Not rebuilding either.
+
+**Queued next:** "Per-tool ratings & reviews" and "Recently viewed"-aware
+result ranking inside the palette (data already exists via
+`recentlyViewedStore.js`, explicitly out of scope for this v1) are the next
+build-ready OPEN gaps.
+
+---
+
 ## 2026-09-27
 
 **Radar health:** was `NO-PUBLISH` at the start of this run — 3 straight runs
