@@ -7961,3 +7961,99 @@ a client-side SPA with a static tool catalogue.
   because it is a new artifact type this repo has never shipped, not
   because any single file is large.
 - **Found:** 2026-09-27 21:20 UTC
+
+---
+
+### None of the app's 7 modal overlays trap keyboard focus — Tab walks a keyboard user straight through the backdrop into the page behind it
+- **Status:** OPEN
+- **Seen in:** not a competitor pattern — a baseline conformance gap against
+  the WAI-ARIA Authoring Practices Guide's own Dialog (Modal) pattern, which
+  every serious component library (Radix `Dialog`, Headless UI `Dialog`,
+  react-aria's `useDialog` + `FocusScope`) implements as table stakes: while
+  a modal is open, `Tab`/`Shift+Tab` must cycle only through the modal's own
+  focusable elements, never escape to the page underneath. This is a fresh
+  problem area for this file — grepped `focus trap|focus-trap|trapFocus|
+  keyboard trap` across `docs/research-backlog.md` before writing this up,
+  zero prior hits.
+- **Gap:** `grep -rln 'role="dialog"' src/` finds exactly six files —
+  `InstallPrompt.jsx:78`, `DeleteAccount.jsx:140`, `CommandPalette.jsx:64`,
+  `AppTour.jsx:196`, `GuestImportPrompt.jsx:71`, and `AppShell.jsx:334` (the
+  mobile bottom-sheet wrapper around `ChatPanel`) — plus `GalaxyExplorer.jsx`,
+  a seventh full-screen overlay that closes on `Escape` (`GalaxyExplorer.jsx:
+  109`) but was never even marked `role="dialog"`. Checked every one of the
+  seven for `'Tab'`/`"Tab"`/`key === 'Tab'` handling: zero hits in any of
+  them. `CommandPalette.jsx` (shipped this same day, read in full while
+  investigating this) is representative — its `onKey` handler
+  (`CommandPalette.jsx:48-59`) handles `Escape`/`ArrowDown`/`ArrowUp`/`Enter`
+  but nothing for `Tab`, so from the search input, `Tab` moves focus to the
+  close button, and `Tab` again lands on whatever the *next DOM element after
+  the dialog* is — the app's own sidebar/nav behind the `bg-black/70`
+  backdrop the dialog itself renders to visually block it. A sighted mouse
+  user never notices; a keyboard-only or screen-reader user tabbing through
+  is dropped into a part of the page that looks covered but is fully
+  interactive underneath. None of the seven restore focus to the triggering
+  element on close either (confirmed no `document.activeElement` capture or
+  `.focus()` call on any close path) — closing `CommandPalette` with `Escape`
+  after opening it from the sidebar's Cmd/Ctrl+K trigger leaves focus
+  wherever `Tab` last wandered, not back on the trigger, which is the other
+  half of the same APG requirement.
+- **Why it matters:** this is infrastructure, the same class of gap as the
+  already-shipped skip-link fix above — it doesn't add a feature, it fixes a
+  baseline expectation that affects every keyboard or screen-reader visitor
+  on every one of these seven surfaces, several of which (`GuestImportPrompt`,
+  the mobile chat sheet, `AppTour`) a new user hits within their first minute
+  in `/app`. `DeleteAccount.jsx` is the highest-stakes instance: its dialog
+  gates an irreversible action behind a multi-step confirmation
+  (`step !== 'done'`), and a keyboard user whose focus silently leaks behind
+  the backdrop mid-flow can end up interacting with the page underneath
+  without any visual sign the modal lost their input. WCAG 2.1's own
+  "keyboard trap" criterion (2.1.2) is usually read as "don't trap focus
+  inside a widget with no way out" — modal dialogs are the documented
+  exception the APG carves out precisely because *not* containing focus is
+  the actual accessibility failure there.
+- **Smallest useful version (what to actually build):**
+  - One new `src/utils/useFocusTrap.js` hook: `useFocusTrap(containerRef,
+    active)`. On `active` becoming `true`, captures
+    `document.activeElement` to restore later; queries
+    `containerRef.current.querySelectorAll('a[href], button:not([disabled]),
+    input:not([disabled]), textarea:not([disabled]), select:not([disabled]),
+    [tabindex]:not([tabindex="-1"])')` for the focusable set; adds a
+    `keydown` listener that, on `Tab`, wraps `Shift+Tab` from the first
+    focusable element to the last and `Tab` from the last back to the first
+    (the standard two-branch wrap the APG pattern describes), letting every
+    other key pass through untouched so it never fights a dialog's own
+    `Escape`/arrow-key handling. On cleanup (`active` → `false` or unmount),
+    restores focus to the captured element. Pure DOM + one `useEffect`, no
+    new dependency — this codebase already has no focus-trap library
+    installed (checked `package.json`), and the logic is small enough that
+    adding one (`focus-trap-react` et al.) would be a heavier fix than
+    writing the ~30 lines directly, consistent with this repo's existing
+    preference for small hand-rolled utilities over new dependencies (same
+    reasoning `CommandPalette.jsx` used reusing `matchesQuery()` instead of a
+    command-palette library).
+  - Wire it into all seven surfaces: each already has (or, for
+    `GalaxyExplorer.jsx`, would gain) a container `ref` and a boolean for
+    "is this open" — `useFocusTrap(dialogRef, open)` is a one-line addition
+    per file, not a rewrite. `GalaxyExplorer.jsx` additionally needs
+    `role="dialog"`/`aria-modal="true"` added alongside the trap, since it's
+    currently missing both.
+  - **What this would NOT include** (kept out to bound the diff): no new
+    generic `<Modal>` component wrapping all seven — this file's own
+    "Share/export" entry already noted the codebase's deliberate
+    per-component dialog precedent over a shared abstraction, and a focus-
+    trap hook composes onto that precedent without forcing a structural
+    rewrite; no change to any dialog's visual design, animation, or existing
+    `Escape`/arrow-key behavior; no focus trapping for non-modal overlays
+    that don't block the page (e.g. any dropdown/tooltip that isn't in the
+    `role="dialog"` list above) — scope is exactly these seven full-page
+    overlays.
+  - `scripts/smoke.mjs` renders routes headlessly and asserts zero console
+    errors; it doesn't simulate `Tab` key sequences, so this fix needs a
+    plain `node --test` unit test against the hook itself (mount a small DOM
+    fixture with three focusable children, dispatch `Tab`/`Shift+Tab` events,
+    assert wraparound) rather than relying on the existing smoke/build gates
+    to catch a regression here.
+- **Build size:** S/M — one new hook file (~30 lines) plus a one-line call
+  added to seven existing components (`role="dialog"` added to one of them),
+  no new dependency, no backend, no visual change.
+- **Found:** 2026-09-28 21:20 UTC
