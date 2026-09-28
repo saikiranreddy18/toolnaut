@@ -26151,5 +26151,221 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-09-27T18:09:19.103Z"
+  },
+  {
+    "id": "course-squint",
+    "toolSlug": "squint",
+    "title": "Master Squint",
+    "objectives": [
+      "Capture a screen region with Squint and get an AI answer about it",
+      "Write clear questions that make the AI's answers more accurate",
+      "Use Squint on real tasks like reading charts and error messages"
+    ],
+    "modules": [
+      {
+        "title": "Install and Make Your First Capture",
+        "estMinutes": 10,
+        "steps": [
+          "Download Squint from the official site and grant screen-recording permission when prompted",
+          "Open any webpage, press the Squint hotkey, and drag a box around a paragraph of text",
+          "Type 'Summarize this in one sentence' and read the AI's answer"
+        ]
+      },
+      {
+        "title": "Ask Better Questions About What's on Screen",
+        "estMinutes": 15,
+        "steps": [
+          "Capture a chart or graph and ask 'What is the highest value and which category does it belong to?'",
+          "Capture a dialog or error message and ask 'What does this mean and how do I fix it?'",
+          "Compare a vague question ('what is this?') vs. a specific one ('explain the third column') on the same capture and note the difference"
+        ]
+      },
+      {
+        "title": "Put Squint to Work in Your Day",
+        "estMinutes": 10,
+        "steps": [
+          "Pick one real task—decoding a confusing email, spreadsheet, or settings panel—and capture just that area",
+          "Ask a follow-up question on the same capture to dig deeper (e.g., 'now give me the steps to do that')",
+          "Copy the AI's answer into a notes app so you build a habit of saving useful results"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-screen capture",
+      "skill-visual qa",
+      "skill-desktop ai",
+      "skill-ocr",
+      "skill-productivity"
+    ],
+    "prerequisites": [
+      "A computer where you can install desktop apps",
+      "An account or API key if Squint requires one at sign-up"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-27T23:59:08.565Z"
+  },
+  {
+    "id": "course-ufo-core-multiplayer-agentic-environs",
+    "toolSlug": "ufo-core-multiplayer-agentic-environs",
+    "title": "Master UFO-core multiplayer agentic environs",
+    "objectives": [
+      "Stand up a local UFO-core multiplayer environment with two or more agents sharing an OSWorld-style Windows session",
+      "Configure HostAgent and AppAgent roles to coordinate task delegation across applications",
+      "Instrument and evaluate a multi-agent run with custom logging, replay, and a scoring harness"
+    ],
+    "modules": [
+      {
+        "title": "Install and Launch a Multi-Agent Session",
+        "estMinutes": 35,
+        "steps": [
+          "Clone the UFO repo, create a conda env from requirements.txt, and set your LLM endpoint keys in config.yaml under the HOST_AGENT and APP_AGENT sections",
+          "Edit config_dev.yaml to enable multi-agent mode, assign one HostAgent plus two AppAgents, and point RAG offline indexes at a local docs directory",
+          "Run `python -m ufo --task demo_multi` and confirm in the logs that the HostAgent dispatches subtasks to each AppAgent"
+        ]
+      },
+      {
+        "title": "Build a Custom Agent and Shared Environment",
+        "estMinutes": 50,
+        "steps": [
+          "Subclass AppAgent in ufo/agents/agent to create a custom agent with its own prompt template and application-specific Puppeteer receiver",
+          "Register a new application control backend by implementing a receiver class exposing atomic actions (click, set_text, scroll) and wire it into the environment's action space",
+          "Define a shared blackboard/state channel so agents exchange intermediate results, then run a two-agent workflow where Agent A extracts data and Agent B summarizes it in another app"
+        ]
+      },
+      {
+        "title": "Evaluate, Debug, and Replay Agent Runs",
+        "estMinutes": 40,
+        "steps": [
+          "Enable session recording in config so each step logs screenshots, control states, and LLM prompts to a session folder",
+          "Use the replay utility to step through a failed run, identify the dispatch turn where the HostAgent misrouted a subtask, and patch the app selection prompt",
+          "Write a small evaluation script that runs 10 tasks headlessly, asserts completion via your environment's success checker, and reports per-agent cost and step counts"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-multiplayer",
+      "skill-open-source",
+      "skill-framework",
+      "skill-environments"
+    ],
+    "prerequisites": [
+      "Solid Python (classes, async, pydantic configs)",
+      "Experience prompting and orchestrating LLM agents",
+      "Working Windows VM or Windows host with UI automation access",
+      "Familiarity with OpenAI/Azure OpenAI APIs and key management"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-27T23:59:08.565Z"
+  },
+  {
+    "id": "course-tinyaiarena-watch-ai-agents-battle-it-out",
+    "toolSlug": "tinyaiarena-watch-ai-agents-battle-it-out",
+    "title": "Master TinyAIArena watch AI agents battle it out",
+    "objectives": [
+      "Configure a live battle between two or more AI agents in TinyAIArena",
+      "Choose match settings (task type, rounds, win conditions) for fair comparisons",
+      "Read the results dashboard and export a match summary for reporting"
+    ],
+    "modules": [
+      {
+        "title": "Explore the Arena & Agent Catalog",
+        "estMinutes": 15,
+        "steps": [
+          "Open TinyAIArena and browse the agent catalog; click two agents to view their model, prompt profile, and stats",
+          "Check each agent's past match history and win rate from the profile panel",
+          "Add your two chosen agents to a match lineup using the 'Queue Battle' button"
+        ]
+      },
+      {
+        "title": "Set Up and Launch a Live Battle",
+        "estMinutes": 20,
+        "steps": [
+          "Pick a task type (e.g., code generation or trivia duel) and set round count to 3–5 with a fixed win condition",
+          "Adjust fairness settings: match token limits, temperature, and give both agents identical prompts",
+          "Click 'Start Battle' and watch the live turn-by-turn feed in the arena stream"
+        ]
+      },
+      {
+        "title": "Analyze Results & Share Outcomes",
+        "estMinutes": 15,
+        "steps": [
+          "Review the post-match dashboard: round scores, latency, and token usage per agent",
+          "Open the transcript viewer to compare both agents' responses side by side",
+          "Export the match summary as JSON/PDF and copy the shareable replay link for your team"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-arena",
+      "skill-battles",
+      "skill-simulation",
+      "skill-llm"
+    ],
+    "prerequisites": [
+      "Basic understanding of LLM behavior (prompts, temperature, tokens)",
+      "A TinyAIArena account with arena access enabled",
+      "Comfort reading simple performance metrics like latency and win rates"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-27T23:59:08.565Z"
+  },
+  {
+    "id": "course-logo-design-skill",
+    "toolSlug": "logo-design-skill",
+    "title": "Master logo-design-skill",
+    "objectives": [
+      "Understand what logo-design-skill is for",
+      "Use logo-design-skill on a real task",
+      "Know where logo-design-skill fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure logo-design-skill for your real workflow, not the demo.",
+          "Say what logo-design-skill does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through logo-design-skill.",
+          "Push logo-design-skill to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold logo-design-skill into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-logo",
+      "skill-svg",
+      "skill-ai-agents",
+      "skill-skill"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-09-27T23:59:08.565Z"
   }
 ]

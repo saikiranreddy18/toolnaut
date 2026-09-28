@@ -174,7 +174,8 @@
       "agentgit",
       "ggg",
       "swarmauth",
-      "inventor-of-chatgpt-and-rlhf-launches-typesafeai"
+      "inventor-of-chatgpt-and-rlhf-launches-typesafeai",
+      "tinyaiarena-watch-ai-agents-battle-it-out"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -346,7 +347,8 @@
       "course-agentgit",
       "course-ggg",
       "course-swarmauth",
-      "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai"
+      "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai",
+      "course-tinyaiarena-watch-ai-agents-battle-it-out"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -358,12 +360,14 @@
     "toolsTeaching": [
       "ablo-make-your-ai-app-multiplayer",
       "crew",
-      "radio"
+      "radio",
+      "ufo-core-multiplayer-agentic-environs"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
       "course-crew",
-      "course-radio"
+      "course-radio",
+      "course-ufo-core-multiplayer-agentic-environs"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -487,7 +491,8 @@
       "ipad-computer-use",
       "ggg",
       "crypllm-ai-chat-agent-for-cryptool-2",
-      "banker"
+      "banker",
+      "ufo-core-multiplayer-agentic-environs"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -537,7 +542,8 @@
       "course-ipad-computer-use",
       "course-ggg",
       "course-crypllm-ai-chat-agent-for-cryptool-2",
-      "course-banker"
+      "course-banker",
+      "course-ufo-core-multiplayer-agentic-environs"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -579,7 +585,8 @@
       "ai-agent-for-animation",
       "sharpniq",
       "awesome-ui-design",
-      "i-built-a-digital-wrap-tool-for-tesla-owners"
+      "i-built-a-digital-wrap-tool-for-tesla-owners",
+      "logo-design-skill"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -614,7 +621,8 @@
       "course-ai-agent-for-animation",
       "course-sharpniq",
       "course-awesome-ui-design",
-      "course-i-built-a-digital-wrap-tool-for-tesla-owners"
+      "course-i-built-a-digital-wrap-tool-for-tesla-owners",
+      "course-logo-design-skill"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -897,7 +905,9 @@
       "keydris-sudo-for-ai-agents",
       "app-launch-grabthat-nlp-launcher-for-windows",
       "ipad-computer-use",
-      "agentmeasure"
+      "agentmeasure",
+      "squint",
+      "ufo-core-multiplayer-agentic-environs"
     ],
     "courses": [
       "course-headless-tools",
@@ -1102,7 +1112,9 @@
       "course-keydris-sudo-for-ai-agents",
       "course-app-launch-grabthat-nlp-launcher-for-windows",
       "course-ipad-computer-use",
-      "course-agentmeasure"
+      "course-agentmeasure",
+      "course-squint",
+      "course-ufo-core-multiplayer-agentic-environs"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1278,7 +1290,8 @@
       "a-public-bulletin-board-for-ai-agents",
       "keydris-sudo-for-ai-agents",
       "swarmauth",
-      "agentmeasure"
+      "agentmeasure",
+      "tinyaiarena-watch-ai-agents-battle-it-out"
     ],
     "courses": [
       "course-headless-tools",
@@ -1432,7 +1445,8 @@
       "course-a-public-bulletin-board-for-ai-agents",
       "course-keydris-sudo-for-ai-agents",
       "course-swarmauth",
-      "course-agentmeasure"
+      "course-agentmeasure",
+      "course-tinyaiarena-watch-ai-agents-battle-it-out"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1530,7 +1544,8 @@
       "lakera",
       "recursively-scaling-auto-research-loops-for-efficient-agent-",
       "anthropic-is-planning-to-launch-its-ipo-in-november",
-      "inventor-of-chatgpt-and-rlhf-launches-typesafeai"
+      "inventor-of-chatgpt-and-rlhf-launches-typesafeai",
+      "tinyaiarena-watch-ai-agents-battle-it-out"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1578,7 +1593,8 @@
       "course-lakera",
       "course-recursively-scaling-auto-research-loops-for-efficient-agent-",
       "course-anthropic-is-planning-to-launch-its-ipo-in-november",
-      "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai"
+      "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai",
+      "course-tinyaiarena-watch-ai-agents-battle-it-out"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2615,14 +2631,16 @@
       "covenant",
       "mastra-agent-factory",
       "sokit",
-      "aclif"
+      "aclif",
+      "ufo-core-multiplayer-agentic-environs"
     ],
     "courses": [
       "course-mrea",
       "course-covenant",
       "course-mastra-agent-factory",
       "course-sokit",
-      "course-aclif"
+      "course-aclif",
+      "course-ufo-core-multiplayer-agentic-environs"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2933,7 +2951,8 @@
       "plurnk-yet-another-ai-harness",
       "i-built-a-router-for-agent-tools",
       "an-open-add-search-evaluation-framework-for-agent-memory",
-      "recursively-scaling-auto-research-loops-for-efficient-agent-"
+      "recursively-scaling-auto-research-loops-for-efficient-agent-",
+      "ufo-core-multiplayer-agentic-environs"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -2967,7 +2986,8 @@
       "course-plurnk-yet-another-ai-harness",
       "course-i-built-a-router-for-agent-tools",
       "course-an-open-add-search-evaluation-framework-for-agent-memory",
-      "course-recursively-scaling-auto-research-loops-for-efficient-agent-"
+      "course-recursively-scaling-auto-research-loops-for-efficient-agent-",
+      "course-ufo-core-multiplayer-agentic-environs"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3352,14 +3372,16 @@
       "civitas",
       "will-your-money-last-ai-assisted-financial-simulator",
       "open-source-simulation-testing-infra-for-voice-agents",
-      "simtower-decompiled-rewritten-and-in-the-browser"
+      "simtower-decompiled-rewritten-and-in-the-browser",
+      "tinyaiarena-watch-ai-agents-battle-it-out"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
       "course-civitas",
       "course-will-your-money-last-ai-assisted-financial-simulator",
       "course-open-source-simulation-testing-infra-for-voice-agents",
-      "course-simtower-decompiled-rewritten-and-in-the-browser"
+      "course-simtower-decompiled-rewritten-and-in-the-browser",
+      "course-tinyaiarena-watch-ai-agents-battle-it-out"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3418,7 +3440,8 @@
       "i-tested-ai-agents-for-everyday-work",
       "productivity-effects-across-generations-of-ai-coding-tools",
       "turnpanel-is-a-local-first-ai-workspace",
-      "app-launch-grabthat-nlp-launcher-for-windows"
+      "app-launch-grabthat-nlp-launcher-for-windows",
+      "squint"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -3442,7 +3465,8 @@
       "course-i-tested-ai-agents-for-everyday-work",
       "course-productivity-effects-across-generations-of-ai-coding-tools",
       "course-turnpanel-is-a-local-first-ai-workspace",
-      "course-app-launch-grabthat-nlp-launcher-for-windows"
+      "course-app-launch-grabthat-nlp-launcher-for-windows",
+      "course-squint"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4142,7 +4166,8 @@
       "andon-labs-puts-ai-agents-in-charge-of-real-businesses",
       "i-tested-ai-agents-for-everyday-work",
       "legion",
-      "wvm"
+      "wvm",
+      "logo-design-skill"
     ],
     "courses": [
       "course-placeroot",
@@ -4166,7 +4191,8 @@
       "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses",
       "course-i-tested-ai-agents-for-everyday-work",
       "course-legion",
-      "course-wvm"
+      "course-wvm",
+      "course-logo-design-skill"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5107,10 +5133,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "ta"
+      "ta",
+      "squint"
     ],
     "courses": [
-      "course-ta"
+      "course-ta",
+      "course-squint"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -12348,10 +12376,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "inspyry"
+      "inspyry",
+      "logo-design-skill"
     ],
     "courses": [
-      "course-inspyry"
+      "course-inspyry",
+      "course-logo-design-skill"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -16935,10 +16965,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "skill-to-generate-change-preview-pages"
+      "skill-to-generate-change-preview-pages",
+      "logo-design-skill"
     ],
     "courses": [
-      "course-skill-to-generate-change-preview-pages"
+      "course-skill-to-generate-change-preview-pages",
+      "course-logo-design-skill"
     ],
     "updatedAt": "2026-09-16T14:13:20.724Z"
   },
@@ -18611,5 +18643,96 @@
       "course-banker"
     ],
     "updatedAt": "2026-09-27T18:09:19.103Z"
+  },
+  {
+    "id": "skill-screen capture",
+    "name": "screen capture",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "squint"
+    ],
+    "courses": [
+      "course-squint"
+    ],
+    "updatedAt": "2026-09-27T23:59:08.565Z"
+  },
+  {
+    "id": "skill-visual qa",
+    "name": "visual qa",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "squint"
+    ],
+    "courses": [
+      "course-squint"
+    ],
+    "updatedAt": "2026-09-27T23:59:08.565Z"
+  },
+  {
+    "id": "skill-desktop ai",
+    "name": "desktop ai",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "squint"
+    ],
+    "courses": [
+      "course-squint"
+    ],
+    "updatedAt": "2026-09-27T23:59:08.565Z"
+  },
+  {
+    "id": "skill-environments",
+    "name": "environments",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ufo-core-multiplayer-agentic-environs"
+    ],
+    "courses": [
+      "course-ufo-core-multiplayer-agentic-environs"
+    ],
+    "updatedAt": "2026-09-27T23:59:08.565Z"
+  },
+  {
+    "id": "skill-arena",
+    "name": "arena",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "tinyaiarena-watch-ai-agents-battle-it-out"
+    ],
+    "courses": [
+      "course-tinyaiarena-watch-ai-agents-battle-it-out"
+    ],
+    "updatedAt": "2026-09-27T23:59:08.565Z"
+  },
+  {
+    "id": "skill-battles",
+    "name": "battles",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "tinyaiarena-watch-ai-agents-battle-it-out"
+    ],
+    "courses": [
+      "course-tinyaiarena-watch-ai-agents-battle-it-out"
+    ],
+    "updatedAt": "2026-09-27T23:59:08.565Z"
+  },
+  {
+    "id": "skill-logo",
+    "name": "logo",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "logo-design-skill"
+    ],
+    "courses": [
+      "course-logo-design-skill"
+    ],
+    "updatedAt": "2026-09-27T23:59:08.565Z"
   }
 ]

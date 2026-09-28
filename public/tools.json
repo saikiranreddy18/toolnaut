@@ -9029,5 +9029,101 @@
       "open-source"
     ],
     "discoveredAt": "2026-09-27T18:09:19.103Z"
+  },
+  {
+    "slug": "squint",
+    "name": "Squint",
+    "category": "automation",
+    "sourceCategory": "Productivity & Meetings",
+    "price": "free",
+    "pricing": "free (Show HN launch)",
+    "level": "beginner",
+    "blurb": "Drag a box anywhere on your screen and ask AI questions about what's in it.",
+    "audience": "general desktop users and knowledge workers",
+    "dev": "",
+    "year": 2026,
+    "website": "https://heysquint.com/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "screen capture",
+      "visual qa",
+      "desktop ai",
+      "ocr",
+      "productivity"
+    ],
+    "discoveredAt": "2026-09-27T23:59:08.565Z"
+  },
+  {
+    "slug": "ufo-core-multiplayer-agentic-environs",
+    "name": "UFO-core multiplayer agentic environs",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free / Open Source",
+    "level": "advanced",
+    "blurb": "Open-source framework for building multiplayer agentic environments for AI agents.",
+    "audience": "AI developers and researchers",
+    "dev": "ufo-ai",
+    "year": 2026,
+    "website": "https://github.com/ufo-ai/ufo-core",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "agents",
+      "multiplayer",
+      "open-source",
+      "framework",
+      "environments"
+    ],
+    "discoveredAt": "2026-09-27T23:59:08.565Z"
+  },
+  {
+    "slug": "tinyaiarena-watch-ai-agents-battle-it-out",
+    "name": "TinyAIArena watch AI agents battle it out",
+    "category": "code",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free",
+    "level": "intermediate",
+    "blurb": "Watch AI agents compete and battle against each other in a live arena.",
+    "audience": "developers and AI enthusiasts",
+    "dev": "",
+    "year": 2026,
+    "website": "https://tinyaiarena.com/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "arena",
+      "battles",
+      "simulation",
+      "llm"
+    ],
+    "discoveredAt": "2026-09-27T23:59:08.565Z"
+  },
+  {
+    "slug": "logo-design-skill",
+    "name": "logo-design-skill",
+    "category": "design",
+    "sourceCategory": "Presentations, Design & Websites",
+    "price": "free",
+    "pricing": "Free / open source",
+    "level": "intermediate",
+    "blurb": "Logo-design skill for AI agents with principles, SVG craft, and 1,400+ logo references.",
+    "audience": "Designers and AI agent users",
+    "dev": "kaankiziltug",
+    "year": 2026,
+    "website": "https://github.com/kaankiziltug/logo-design-skill",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "logo",
+      "design",
+      "svg",
+      "ai-agents",
+      "skill"
+    ],
+    "discoveredAt": "2026-09-27T23:59:08.565Z"
   }
 ]
