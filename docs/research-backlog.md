@@ -991,6 +991,7 @@ a client-side SPA with a static tool catalogue.
       the share button's slot.
     - Nothing else in the build (the `@media print` scope, `window.print()`
       approach, entitlement gating) needed correction this pass.
+### Per-route page titles, meta descriptions & social preview cards
 - **Status:** SHIPPED, but PARTIALLY REOPENED 2026-09-13 21:20 UTC — the
   `ToolDetail`/`Compare` follow-up this entry closed itself against on
   2026-08-31 ("still gated behind AppShell") is now stale: the gate is gone.
@@ -998,6 +999,19 @@ a client-side SPA with a static tool catalogue.
   closing note rather than rewritten into it, so the discovery trail stays
   intact. The hook, its prerender bug fix, and the five originally-scoped
   top-level call sites are still correctly SHIPPED and unaffected.
+- **Restored 2026-09-28 12:04 UTC:** this entry's own `### ` heading was
+  missing from the file — found by chance while reading straight through for
+  this hour's research pass, not by searching for it. Confirmed with `awk`
+  that it's the only such orphan in the whole file (every other `- **Status:**`
+  line has a `### ` heading directly above it). The body below was intact the
+  whole time and needed no reconstruction, unlike the "Popularity signal"
+  gap above, which lost its entire body the same way — only this section's
+  header line had dropped, most likely in one of the earlier "restore
+  research-backlog.md" incidents (`021f943`, `7069ef4`). That's exactly why
+  it never showed up in a `### ` table-of-contents grep and why later entries
+  (the source-categories gap, this same popularity-signal gap) could only
+  ever cross-reference it as "the per-route-meta gap" rather than link a real
+  heading. No content below this line changed.
 - **Seen in:** every directory competitor treats per-listing metadata as
   table stakes because it's their primary organic-search channel — G2 and
   Capterra generate a unique `<title>`/description per product page keyed off
