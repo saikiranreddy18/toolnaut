@@ -2231,3 +2231,103 @@ a client-side SPA with a static tool catalogue.
   - Grepped `Weekly discovery digest|Weekly trending tools` across `src/`
     and `test/` after the edit: no other reference to the stale phrasing
     exists to update.
+
+### Popularity signal discarded before it reaches a record
+- **Status:** OPEN
+- **Seen in:** GitHub's own Trending page ranks by stars; Hacker News ranks
+  by points; Product Hunt's entire ranking mechanism is upvotes. There's An
+  AI For That and Futurepedia both expose a "trending"/"most popular" sort
+  as a primary tab next to "newest" — real-world popularity is the cheapest
+  legible trust signal a directory can show without running its own review
+  corpus (the still-open "Per-tool ratings & reviews" gap above is the
+  harder, human-generated version of the same idea; this one is free,
+  because the data already arrives at the door and gets thrown away).
+- **Gap:** this thread was referenced twice already in this file — once in
+  the per-route-meta entry's 2026-09-13 deepening ("the still-open
+  'popularity signal discarded before it reaches a record' gap elsewhere in
+  this file") and once in the weekly-alerts entry's 2026-09-12 verification
+  ("no stars/points join yet — that's the separate, still-OPEN 'popularity
+  signal' gap") — but it was never actually written up as its own entry.
+  Most likely lost in one of the two "restore research-backlog.md" incidents
+  visible in recent git log (`021f943`, `7069ef4`) rather than deliberately
+  cut. Re-derived and re-verified from scratch against current `radar/` and
+  `src/`, not reconstructed from either phantom reference.
+  Confirmed still true by reading the full pipeline: `radar/sources/
+  github.js:9` queries `sort=stars&order=desc` and line 25 stores
+  `stargazers_count` into `candidate.raw.stars`; `radar/sources/
+  hackernews.js:27` stores `hit.points` into `candidate.raw.points`. Grepped
+  `stars|points` across every file in `radar/` outside the two source files
+  and `radar/test/` — zero hits. `radar/enrich.js`'s two builders
+  (`enrichFallback:127` and `normalizeEnriched:155`) only ever read
+  `candidate.raw?.owner` (into `dev`); neither `stars` nor `points` is read
+  anywhere in `enrich.js`, `filter.js`, `dedup.js`, or `schema.js`.
+  `makeToolRecord()` (`schema.js:47-54`) has no popularity-shaped field at
+  all — a repo with 40,000 stars and one with 40 enter the catalog as
+  identical records the moment enrichment runs. Confirmed downstream too:
+  `Discover.jsx`'s three sort pills (`match`/`newest`/`name`,
+  `Discover.jsx:131-138,302-304`) have nothing to sort by "popular" even if
+  they wanted to, because no record anywhere carries the number.
+- **Why it matters:** this is the concrete missing half of two things this
+  backlog already shipped honest-but-incomplete copy around. (1) The
+  weekly-alerts entry's own 2026-09-12 verification had to correct
+  `planData.js` to drop the word "trending" specifically because
+  `alerts-send.js` only had `discoveredAt` recency to rank by — that
+  correction is honest, not fixed, and stays that way until this data
+  exists. (2) At 700+ tools deep, `Discover.jsx` has no way to distinguish
+  "what's actually good" from "what merely showed up today" — sorting by
+  "newest" surfaces every day's low-signal candidates exactly as
+  prominently as the rare breakout tool, because nothing differentiates
+  them once they're both `published`.
+- **Smallest useful version (what to actually build):**
+  - Add one optional field to `makeToolRecord()` (`schema.js:47`):
+    `popularity: null` — deliberately **not** added to
+    `REQUIRED_TOOL_FIELDS` (`schema.js:44`, so every already-published
+    record without it still passes the validate gate) and **not** added to
+    `HASHED_FIELDS` (`schema.js:41` — a star count drifting upward on its
+    own shouldn't flip `contentHash` and trigger a spurious re-review of a
+    record whose actual content hasn't changed).
+  - In `enrich.js`'s `record = makeToolRecord({...})` call (`enrich.js:23`),
+    one line: `popularity: candidate.raw?.stars ?? candidate.raw?.points ??
+    null` — same optional-chaining fallback shape the file already uses one
+    line below for `dev`. Deliberately source-local, not cross-normalized:
+    GitHub stars and HN points are different units on different scales, so
+    this stores "whichever popularity signal this source actually has," not
+    an attempt to rank a GitHub tool against an HN tool on one shared axis.
+  - **The step every naive version of this would miss:**
+    `radar/scripts/sync-to-app.js:12-16`'s `FIELDS` allowlist is the actual
+    gate on what reaches `public/tools.json` — it explicitly enumerates 16
+    field names and drops everything else (`sync-to-app.js:31-36`), so
+    `popularity` must be added to that array too, or the schema/enrich work
+    above would be invisible in production while looking finished in
+    `radar/data/`.
+  - `src/utils/sortResults.js`: one new `compareByPopularity(a, b)`
+    alongside the existing `compareByNewest`/`compareByName`, mirroring
+    `compareByNewest`'s exact null-handling shape (has-a-value beats
+    `null`/`undefined` beats neither, tie-break on `a.name.localeCompare
+    (b.name)`) — every bundled/seed tool and every non-GitHub/HN source
+    sorts last, never coerced to a fake zero. Wire it into `Discover.jsx`'s
+    sort branch (`Discover.jsx:131-138`) and add one more pill next to
+    `match`/`newest`/`name` (`Discover.jsx:302-304`), e.g. "popular".
+  - **What this would NOT include** (kept out to bound the diff): no
+    cross-source normalization into one blended "trending score" (stars vs.
+    points on a shared scale is a real design problem, worth its own pass
+    if ever tackled, not a one-line addition); no backfill of `popularity`
+    onto the ~382 already-bundled catalog tools (a data-entry/scraping
+    project, not a code change — the new sort only differentiates
+    radar-discovered tools until/unless that happens separately, and should
+    say so plainly if shipped); no visible star/point badge on `Discover`/
+    `ToolDetail` cards in v1 (ranking-only first cut; a "⭐ 12.4k" chip is a
+    natural, separate follow-up once the field exists); no change to
+    `alerts-send.js`'s matching/ranking logic (closing the "trending" half
+    of the alerts copy for real is genuine future value but is its own
+    follow-up once this field exists at all, not part of this build).
+- **Build size:** S — one schema field, one `enrich.js` line, one
+  `sync-to-app.js` allowlist entry, one new sort comparator, one Discover
+  pill. Touches the radar pipeline directly, which this repo's own
+  CLAUDE.md flags as mattering more for reliability than cleverness — ship
+  behind all three gates (`npm test`, `npm run build`, `npm run smoke`) same
+  as any other change, and specifically extend `radar/test/schema.test.js`
+  and `radar/test/enrich.test.js` (both already exist and directly cover
+  the two files this touches) rather than relying on the app-level smoke
+  test alone to catch a regression here.
+- **Found:** 2026-09-28 09:09 UTC
