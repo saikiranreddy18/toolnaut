@@ -21,9 +21,12 @@ import AppTour, { tourSeen, TOUR_REPLAY_EVENT } from '../components/app/AppTour'
 import SyncStatus from '../components/app/SyncStatus'
 import Avatar from '../components/app/Avatar'
 import { loadAvatar, AVATAR_EVENT } from '../state/avatarStore'
-import { StackIcon, DiscoverIcon, LearningIcon, CommunityIcon, SettingsIcon, ChatIcon, HeartIcon, AuditIcon } from '../components/app/icons'
+import CommandPalette from '../components/app/CommandPalette'
+import { StackIcon, DiscoverIcon, LearningIcon, CommunityIcon, SettingsIcon, ChatIcon, HeartIcon, AuditIcon, SearchIcon } from '../components/app/icons'
 
-const NAV = [
+// Exported so CommandPalette's "Go to" results stay identical to the real
+// sidebar/bottom nav instead of hand-rolling a second list that can drift.
+export const NAV = [
   { to: '/app/stack', label: 'Stack', Icon: StackIcon },
   { to: '/app/discover', label: 'Find', Icon: DiscoverIcon },
   { to: '/app/favorites', label: 'Saved', Icon: HeartIcon },
@@ -60,6 +63,19 @@ export default function AppShell() {
   // Publish the plan saved-tools limit for the save buttons on every page.
   useEffect(() => { setSavedLimit(savedLimitFor(ent)) }, [ent.loading, ent.unknown, ent.active, ent.trial, ent.plan]) // eslint-disable-line react-hooks/exhaustive-deps
   const [chatOpen, setChatOpen] = useState(loadChatOpen)
+  const [paletteOpen, setPaletteOpen] = useState(false)
+
+  // Cmd/Ctrl+K quick jump, reachable from anywhere in /app.
+  useEffect(() => {
+    function onKey(e) {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault()
+        setPaletteOpen(true)
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
 
   // The first-run tour. Delayed a beat so the shell has laid out before the
   // spotlight measures real elements, and it stands down when another dialog
@@ -183,6 +199,15 @@ export default function AppShell() {
 
         <SyncStatus />
 
+        <button
+          type="button"
+          onClick={() => setPaletteOpen(true)}
+          className="mt-4 flex items-center justify-between gap-2 rounded-xl border border-white/10 px-4 py-2.5 text-xs font-medium text-zinc-400 transition-colors hover:bg-white/5 hover:text-white"
+        >
+          <span className="flex items-center gap-2"><SearchIcon /> Quick jump</span>
+          <span className="rounded-md border border-white/10 px-1.5 py-0.5 font-mono text-[10px] text-zinc-500">⌘K</span>
+        </button>
+
         <nav className="mt-6 flex flex-col gap-1" aria-label="Sidebar">
           {NAV.map(({ to, label, Icon }) => (
             <NavLink key={to} to={to} data-tour={to} className={navLinkClass}>
@@ -225,6 +250,14 @@ export default function AppShell() {
             <BrandLogo {...LOGO.compact} />
           </Link>
           <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setPaletteOpen(true)}
+            aria-label="Quick jump"
+            className="press flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300"
+          >
+            <SearchIcon />
+          </button>
           <PlanChip ent={ent} compact />
           <Link to="/app/settings" className="flex items-center gap-2" aria-label="Your profile">
             {persona && (
@@ -274,6 +307,7 @@ export default function AppShell() {
       <GuestImportPrompt />
       <AppTour open={tour} onClose={() => setTour(false)} />
       <SaveLimitNotice />
+      <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} />
 
       {/* chat launcher (both breakpoints when closed) */}
       {!chatOpen && (
