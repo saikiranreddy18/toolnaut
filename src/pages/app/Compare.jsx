@@ -1,5 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom'
 import { getTool, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
+import { resourcesFor } from '../../data/toolResources'
 import { matchScore, fitBand } from '../../utils/matchScore'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
@@ -66,6 +67,10 @@ export default function Compare() {
     { label: 'Audience', get: (t) => t.audience || '—' },
     { label: 'Status', get: (t) => t.status === 'Active' ? 'Active' : `${t.status || '—'}${t.note ? ` (${t.note})` : ''}` },
     { label: 'Tags', get: (t) => (t.tags && t.tags.length > 0 ? t.tags.join(', ') : '—') },
+    { label: 'Integrations', get: (t) => {
+      const r = resourcesFor(t.slug)?.integrations
+      return r ? (r.summary || `${r.names.length}+ verified`) : '—'
+    } },
   ]
   if (answers) {
     // Band, not a percentage — see fitBand's note in matchScore.js.

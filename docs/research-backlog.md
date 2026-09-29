@@ -6583,7 +6583,15 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### "Live Tool Comparison" promises integration comparisons — Compare.jsx has none
-- **Status:** OPEN
+- **Status:** SHIPPED (this run, sha in DEVLOG) — built exactly as scoped
+  below: `Compare.jsx` and `PublicCompare.jsx` each import `resourcesFor` and
+  add one `Integrations` row, rendering `r.summary` when present (e.g.
+  claude/chatgpt have no `summary`, so they show `20+ verified`/`6+ verified`
+  via the names-length fallback; zapier/make show their `summary` string) or
+  `—` for the 693 slugs with no verified data — the same honest-absence
+  convention already used by every other row. All three checks green,
+  `npm run smoke` confirms both `/app/compare?tools=chatgpt,claude` and
+  `/compare/chatgpt,claude` render the new row with 0 console errors.
 - **Seen in:** not a competitor pattern — a marketing-copy-vs-reality audit of
   `src/components/sections/FeaturesSection.jsx`, the same file/method that
   produced several other gaps in this backlog (the pattern this run followed:
@@ -8205,3 +8213,33 @@ a client-side SPA with a static tool catalogue.
   next to `StackCost`. No backend, no new dependency, no radar/schema change,
   no new route.
 - **Found:** 2026-09-29 06:10 UTC
+
+---
+
+### Research check 2026-09-29 09:00 UTC — no new gap found, small fix shipped instead
+Research run (UTC hour 09). CI green on master, radar health OK (1 run in 26h
+window, feed at 382 tools, last publish 33h ago — inside window), no
+agent-fixable issues open.
+
+Every one of the 29 OPEN entries above already carries a "Smallest useful
+version" section (spot-checked two in full — the extension/lookup-surface
+gap and the focus-trap gap — both genuinely build-ready, nothing thin enough
+to deepen further). Per the cumulative-research rule this hour studied three
+fresh competitor patterns instead: FutureTools.io's community upvoting,
+TopAI.tools' personalized collections, and the price-intelligence/price-drop-
+alert pattern common to shopping extensions. All three came back already
+covered: upvoting already exists as community-thread upvotes
+(`communityStore.js`) and per-tool ratings are already the logged "Per-tool
+ratings & reviews" OPEN gap; personalized collections are already the logged
+"Collections" OPEN gap; price-drop tracking is blocked by the same missing
+catalog field (`radar/schema.js` has no price-amount field, only the
+free/freemium/paid enum) the already-logged Stack Cost Estimate gap
+documents. Also checked reduced-motion support (already respected in
+`Landing.jsx`/`ToolStars.jsx`) and the "no credit card" claims fixed in an
+earlier run (`CTASection.jsx:53`, `ContactSection.jsx:112-114` both still
+correctly branch on `VITE_PAYMENTS_ENABLED` — no regression).
+
+Per the "never invent a gap to fill the hour" rule, appended nothing new.
+Instead shipped the one already-fully-specced, small, real fix sitting in
+this backlog: the "Live Tool Comparison" integrations-row entry above,
+marked SHIPPED in place with its sha in DEVLOG.

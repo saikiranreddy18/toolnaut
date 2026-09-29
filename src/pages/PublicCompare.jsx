@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { getTool, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../utils/toolsCatalog'
 import { decodeStackSlugs } from '../utils/shareStack'
+import { resourcesFor } from '../data/toolResources'
 import { useHead, SITE } from '../utils/head'
 
 // Public, read-only fork of the authenticated Compare.jsx table — no session,
@@ -16,6 +17,10 @@ const ROWS = [
   { label: 'Audience', get: (t) => t.audience || '—' },
   { label: 'Status', get: (t) => (t.status === 'Active' ? 'Active' : `${t.status || '—'}${t.note ? ` (${t.note})` : ''}`) },
   { label: 'Tags', get: (t) => (t.tags && t.tags.length > 0 ? t.tags.join(', ') : '—') },
+  { label: 'Integrations', get: (t) => {
+    const r = resourcesFor(t.slug)?.integrations
+    return r ? (r.summary || `${r.names.length}+ verified`) : '—'
+  } },
 ]
 
 export default function PublicCompare() {
