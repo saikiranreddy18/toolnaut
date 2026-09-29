@@ -8142,7 +8142,16 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### No time/value calculator — a self-reported ROI widget, not a catalog-price one, sidesteps the exact blocker that already stopped the dollar-cost gap
-- **Status:** OPEN
+- **Status:** SHIPPED 2855c9e — built exactly as scoped below: `src/utils/stackValue.js`
+  (`estimateValue`, 6 new tests), `src/components/app/StackValue.jsx` rendered
+  beside `StackCost` in `Stack.jsx`'s "your kit" header, gated on the stack
+  being non-empty the same way `StackCost` is. Two number inputs (hours/wk
+  saved, hourly value), both empty by default, persisted via `scopedStorage`
+  under `exus_stack_value_v1` so they survive a reload but are never required
+  or synced. Currency symbol from `region.js`'s `initialCurrency()`, no new
+  detection path. Verified live in a local dev server (not just the smoke
+  test) by seeding a stack and a completed quiz, typing 5 hrs/wk and $20/hr,
+  and confirming "≈ $433/mo in time saved" renders and survives a reload.
 - **Seen in:** studied fresh this run: "SaaS AI Tools" (a 400+ tool AI-SaaS
   directory) lists "ROI calculators for business tools" as a named feature
   alongside its enterprise filters and daily updates — distinct from a price

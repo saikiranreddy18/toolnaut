@@ -9,6 +9,67 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-29
+
+**Radar health:** `OK` — 2 runs in the last 26h window, most recent publish
+2.3h ago (12 tools), feed now at 394 tools total in `public/tools.json` (up
+from 382 at the start of the day). No action needed.
+
+**Researched today:** four research-hour passes (03:11, 06:14, 09:13, 15:10
+UTC). Every OPEN backlog entry kept coming back build-ready on spot-check, so
+three of the four studied fresh ground instead of re-deepening: the
+OpenSearch-descriptor gap (browser "add as search engine" support — logged,
+still OPEN), the focus-trap gap across all 7 modal overlays (logged the
+evening before, re-confirmed still OPEN), and a sweep of four more
+directories (ToolDirectory.ai, AIXploria, RankmyAI, PoweredbyAI) that found
+nothing not already shipped or logged. Two small honest bugs were fixed
+along the way rather than left for the feature run: `18e4762` wired
+`Compare`/`PublicCompare`'s already-verified integration data into the tile
+that has promised it since before the data existed, and `0afe1d9` corrected
+a stale "1,100+ tools" crawler-facing claim (actual count 1,084) to "1,000+"
+across `index.html`, og/twitter tags and `PublicCompare.jsx`. The 06:14 run
+also logged today's feature: a self-reported time-value calculator, the one
+gap in this space that needs no catalog price data.
+
+One research run (15:10 UTC) flagged what still needs a human: **27 open
+`bot/*` PRs** (`#3`…`#82`) sit unmerged, oldest five-plus weeks old (issue
+#67, open since 2026-09-08). Several duplicate each other's intent (three
+separate "deepen embed-badge gap" / "re-verify subcategory-pages" passes).
+Not this routine's job to clear — CLAUDE.md's PR workflow governs those
+agent runs, this routine ships straight to `master` — but it is growing, not
+shrinking, and worth a human's attention.
+
+**Shipped today:** the self-reported time-value calculator logged this
+morning. `Stack.jsx`'s existing `StackCost` widget already says what a
+stack costs in price-type counts, deliberately never a rupee figure, because
+the catalogue has no per-tool price amount to sum — but it never answered
+whether the time spent on the stack is worth it. Added `estimateValue()` in
+`src/utils/stackValue.js` (pure arithmetic, 6 new tests: weekly × ~4.33 =
+monthly, `null` until both inputs are present and positive) and
+`src/components/app/StackValue.jsx`, rendered beside `StackCost` in
+`Stack.jsx`'s "your kit" header row, gated on the stack being non-empty the
+same way `StackCost` is. Two number inputs — hours/week these tools save
+you, what an hour of your time is worth, both empty by default, never a
+pre-filled guess — produce one line of output once both are filled: "≈
+$433/mo in time saved", tagged "your inputs, not ours" so it reads as the
+visitor's own math, not a Toolnaut claim. Currency symbol reuses
+`region.js`'s existing `initialCurrency()` INR/USD detection rather than a
+new one. Inputs persist locally via the same `scopedStorage` pattern every
+other `src/state/*` module uses, but are never required or synced. Verified
+live in a local dev server (not just the smoke test): seeded a stack and a
+completed quiz, typed 5 hrs/wk and $20/hr, confirmed the output line renders
+and survives a reload. All three checks green, pushed directly to
+`master` — sha `2855c9e`. **Visible on toolnaut.xyz today**, on
+`/app/stack` for any signed-in-or-guest visitor with at least one tool in
+their stack, once this deploy lands.
+
+**Queued next:** the OpenSearch descriptor (small, SEO/UX, `public/opensearch.xml`
++ one `<link>` tag) and the focus-trap hook across the app's 7 modal overlays
+(a11y, one `useFocusTrap` hook, no `Modal` rewrite) are the next build-ready
+OPEN gaps.
+
+---
+
 ## 2026-09-28
 
 **Radar health:** `OK` — 2 runs in the last 26h window, most recent publish
