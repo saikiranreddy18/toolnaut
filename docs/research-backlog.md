@@ -8130,3 +8130,78 @@ a client-side SPA with a static tool catalogue.
   `manifest.webmanifest`) plus one `<link>` tag in `index.html`. No backend,
   no new dependency, no new route, no change to `SearchTools.jsx` itself.
 - **Found:** 2026-09-29 03:20 UTC
+
+---
+
+### No time/value calculator — a self-reported ROI widget, not a catalog-price one, sidesteps the exact blocker that already stopped the dollar-cost gap
+- **Status:** OPEN
+- **Seen in:** studied fresh this run: "SaaS AI Tools" (a 400+ tool AI-SaaS
+  directory) lists "ROI calculators for business tools" as a named feature
+  alongside its enterprise filters and daily updates — distinct from a price
+  aggregator, this pattern asks the visitor for their own inputs (time spent,
+  hourly value) rather than trying to total up vendor list prices. Whizi and
+  the pricing-aggregator sites this file's own "Stack cost estimate" gap
+  already cites (`aipricingcalculators.com`, `itoolverse`) all work the other
+  way — summing *catalog* dollar figures Toolnaut doesn't have — which is
+  exactly why that gap is blocked (`radar/schema.js` has no `priceAmount`
+  field, confirmed there and re-confirmed here). An ROI/time-value calculator
+  is the one competitor-observed pattern in this family that needs no such
+  field: it multiplies numbers the *visitor* supplies, not numbers the
+  catalog would have to supply.
+- **Gap:** confirmed absent — `grep -rniE "roi|time saved|hours saved|hourly
+  rate|value calculator" src/` returns zero hits outside unrelated substring
+  noise (`toolResources.js`'s device-name lists, `haptics.js`'s comment). The
+  existing `StackCost.jsx` (wired into `Stack.jsx:320`) already answers "how
+  many of my tools are free/freemium/paid" as counts, deliberately never a
+  dollar figure, per its own header comment ("Adding those up into
+  '₹4,200/month' would be inventing a number"). Nothing anywhere answers the
+  next question a stack-builder actually has: "is the time I'll spend
+  learning/using these tools worth it?" `quizStore.js`'s `answers` object
+  (checked in full) carries no time-budget or hours-per-week field to seed
+  one from either — this would be the first such input Toolnaut collects.
+- **Why it matters:** it's the natural companion to the already-shipped cost
+  counts on the exact same page — `Stack.jsx`'s "your kit" section
+  (`Stack.jsx:312-320`) already tells a visitor what their stack costs in
+  subscription-type terms; it says nothing about what it's worth. Unlike the
+  blocked dollar-cost gap, this one needs no new radar field, no LLM
+  enrichment change, and no backfill — every number it uses is typed in by
+  the visitor at the moment they use it, so there is no fabrication risk:
+  Toolnaut supplies the arithmetic, never an assumed "AI tools save you N
+  hours" multiplier per tool or category (that would be exactly the kind of
+  invented number the cost-estimate and catalogue-count entries in this file
+  both already refuse to ship).
+- **Smallest useful version (what to actually build):**
+  - New pure util `src/utils/stackValue.js`: `estimateValue({ hoursSavedPerWeek,
+    hourlyValue })` → `{ weeklyValue, monthlyValue }` (simple multiplication,
+    monthly = weekly × ~4.33) — trivial, testable arithmetic with no currency
+    logic of its own.
+  - New `src/components/app/StackValue.jsx`, rendered directly beside
+    `StackCost` in `Stack.jsx`'s "your kit" header row (`Stack.jsx:319-320`):
+    two small number inputs (hours/week you expect these tools to save you,
+    your hourly value, in your own currency) defaulting to empty — never a
+    pre-filled guess — and, once both are filled, one line of output: "≈
+    {symbol}{monthly}/mo in time saved, by your own estimate" with a small
+    "your inputs, not ours" caption so it's legible as user-supplied math,
+    not a Toolnaut claim. The ₹/$ symbol reuses `src/utils/region.js`'s
+    `initialCurrency`/`fetchCountry` — the same INR-vs-USD detection
+    `PricingSection.jsx:29-37` already runs — rather than a new detection
+    path; since the visitor types the amount directly in their own currency,
+    no conversion is needed, only the right symbol. Inputs persist locally
+    (same `scopedStorage` pattern every other `src/state/*` module already
+    uses) so they don't reset every visit, but are never synced or required —
+    closing without filling them in changes nothing else on the page.
+  - **What this would NOT include** (kept out to bound the diff): no
+    per-tool or per-category default multiplier of any kind — the entire
+    reason this gap is buildable where the dollar-cost one isn't is that it
+    invents nothing; no combination with `StackCost`'s dollar figures (that
+    stays blocked on real catalog data, unrelated to this); no historical
+    tracking of value over time, no export, no sharing of the computed
+    number; no application of this pattern anywhere outside `Stack.jsx` (not
+    Discover, not the quiz) since a value estimate only makes sense once a
+    stack exists to estimate.
+- **Build size:** S — one new pure util (`stackValue.js`, trivially unit-
+  testable), one small new component reusing `region.js`'s existing currency
+  detection, two number inputs wired into `Stack.jsx`'s existing header row
+  next to `StackCost`. No backend, no new dependency, no radar/schema change,
+  no new route.
+- **Found:** 2026-09-29 06:10 UTC
