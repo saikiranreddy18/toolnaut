@@ -8301,3 +8301,45 @@ to make.
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap and
 made no code change this run.
+
+---
+
+### Research check 2026-09-29 21:00 UTC — no new gap found, third pass today came back covered
+Off-cycle research run. CI green on master (`Release` run #409, `f709837`,
+the 18:xx feature-run digest commit), radar health OK (2 runs in 26h window,
+feed at 394 tools, last publish 5.1h ago), no `agent-fixable` issues open.
+
+Noted, not actioned: the open-`bot/*`-PR pile flagged in issue #67 is now 27
+PRs (`#3`…`#82`), still unmerged; today's 18:18 UTC digest run already left
+an update comment there clarifying it's a separate `agent-*.yml` PR-based
+flow, not this scheduled routine (which pushes straight to `master`), so no
+further comment added here.
+
+This is the third research pass today (following the 09:00 and 15:00 UTC
+entries above) and the backlog is now heavily saturated — grepped this file
+for prior competitor citations before searching to avoid re-covering ground:
+StackShare, Futurepedia, TAAFT, ToolFinder, Product Hunt, G2, Capterra,
+FutureTools, TopAI.tools, ToolDirectory.ai, AIXploria, RankmyAI, PoweredByAI,
+ToolJunction, Toolify.ai, AlternativeTo, SaaSHub and Zapier are all already
+cited. Two fresh angles were checked instead of re-running those:
+- Feature-request/roadmap-voting boards (Canny/Frill-style, common on SaaS
+  marketing sites) — would need a shared vote count visible across users,
+  which this client-side-only SPA with no backend can't honestly provide
+  (same constraint that already got the email-digest and vendor-deals gaps
+  REJECTED above); not logged.
+- Dark mode / theme toggle, sometimes missing on directory sites — already
+  shipped: `src/state/themeStore.js`, `prefers-color-scheme` handling in
+  `src/index.css`, and `CursorStars.jsx` all branch on theme. Not a gap.
+- WebSearch for 2026 AI-directory feature roadmaps (There's An AI For That,
+  OpenFuture AI, Garanix) surfaced only listing-count/category-count PR
+  copy, nothing naming a concrete feature not already covered above.
+
+Also re-ran the marketing-copy-vs-code check the "gap between promise and
+behaviour" hint calls for, on `src/components/sections/*.jsx` this time
+(prior runs checked payment/pricing claims specifically) — grepped for
+overclaiming language (`guarantee`, `100% accurate/secure/verified`,
+`real-time`, `instantly`, `unlimited`, `always up-to-date`, `automatically
+sync/updated`): zero hits. No stale claim to fix.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap and
+made no code change this run.
