@@ -8243,3 +8243,57 @@ Per the "never invent a gap to fill the hour" rule, appended nothing new.
 Instead shipped the one already-fully-specced, small, real fix sitting in
 this backlog: the "Live Tool Comparison" integrations-row entry above,
 marked SHIPPED in place with its sha in DEVLOG.
+
+---
+
+### Research check 2026-09-29 12:00 UTC — no new gap found after live competitor research
+Research run (UTC hour 12). CI green on master (`ci.yml`/`release.yml` both
+succeeded on the current head, `18e4762`), radar health OK (1 run in the 26h
+window, feed at 382 tools, last publish 36.1h ago — inside window), no
+agent-fixable issues open. 33 OPEN entries above; re-confirmed every one still
+carries a full "Smallest useful version" section (spot-checked the two newest,
+the "No OpenSearch descriptor" and "No time/value calculator" entries — both
+genuinely build-ready).
+
+Ran live `WebSearch`/`WebFetch` against fresh sources this run (a 2026 AI-
+directory landscape roundup, a February-2026 directory ranking, and an
+indie-built directory's own "3 features I built because every other directory
+frustrated me" writeup) rather than re-reading directories already cited
+in-file, per the cumulative-research rule. Every concrete feature that came
+back was already covered:
+- "Price Explorer" budget-slider filter and shopping-style price-drop
+  alerts — same missing-`priceAmount`-field blocker the Stack Cost Estimate
+  gap already documents.
+- "AI Tool of the Day" countdown pick — already shipped (`Stack.jsx`'s tool-
+  of-the-day, PR #25 fixed its budget-constraint bug 2026-09-06).
+- Side-by-side comparison across pricing/features/skill-level — already
+  shipped (`Compare.jsx`/`PublicCompare.jsx`).
+- A directory ("Garanix") that vets every tool for performance/security/
+  scalability, and "review dates showing when each listing was last
+  verified" — checked both against `TrustPanel.jsx` (rendered on
+  `ToolDetail.jsx`) in full: its "Last checked" row already reports
+  `tool.discoveredAt` for radar-sourced tools and honestly says "Part of the
+  founding catalogue — not individually date-stamped" for the 322 bundled
+  ones with no date, exactly the review-date pattern researched here.
+  Nothing to add.
+- Task-based natural-language search — already the logged "public search
+  page's own placeholder promises task search" OPEN gap.
+- Retirement/graveyard tracking — already the logged "Tool graveyard page"
+  OPEN gap.
+
+Also code-checked two angles with no prior mention in this file: MCP/agent-
+protocol compatibility tags and per-tool compliance badges (SOC2/GDPR) as a
+directory differentiator for enterprise buyers. Both would need a new,
+unverifiable catalog field back-filled across 704 existing entries by LLM
+inference rather than real vendor data — the same invented-data risk the
+vendor-coupon-codes gap was REJECTED for and the compliance-badge idea is a
+strictly higher-stakes version of (a wrong SOC2 claim is a legal liability,
+not just an inaccurate blurb) — not logging either as a buildable gap.
+Separately checked `CommandPalette.jsx` for an un-trapped-focus regression
+introduced after the "7 modal overlays" focus-trap gap was written — it was
+already the representative example cited in that entry, so no new finding
+there either.
+
+Per the "never invent a gap to fill the hour" rule, appended nothing new and
+shipped no code change this run — no demonstrable bug, a11y, or perf issue
+turned up in the surfaces checked.
