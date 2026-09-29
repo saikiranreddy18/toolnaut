@@ -8243,3 +8243,52 @@ Per the "never invent a gap to fill the hour" rule, appended nothing new.
 Instead shipped the one already-fully-specced, small, real fix sitting in
 this backlog: the "Live Tool Comparison" integrations-row entry above,
 marked SHIPPED in place with its sha in DEVLOG.
+
+---
+
+### Research check 2026-09-29 15:00 UTC — no new gap found, none of the 29 OPEN entries thin enough to deepen
+Off-cycle research run. CI green on master (run #474, `18e4762`), radar
+health OK (1 run in 26h window, feed at 382 tools, last publish 39h ago —
+inside window), no `agent-fixable` issues open.
+
+Noted but out of scope for this run: 25 open `bot/*` PRs sit unmerged going
+back to 2026-09-03 (`#3`…`#82`), several superseding each other (three
+separate "deepen embed-badge gap" / "re-verify subcategory-pages" passes).
+That is a merge-queue problem, not a research gap, and cleaning it up isn't
+this hour's job — flagging it here so the digest run sees it.
+
+Spot-checked three more of the 29 OPEN entries in full this run (Weekly
+trending tools, Stack overlap warning, First-session onboarding checklist) —
+all three still genuinely build-ready with concrete "Smallest useful
+version" sections, nothing thin enough to deepen further.
+
+Studied four directories not yet cited in this file: ToolDirectory.ai,
+AIXploria, RankmyAI and PoweredbyAI (via a 2026 roundup plus direct search),
+plus re-checked ToolJunction's "scored verdicts" framing. Every distinctive
+feature found was already shipped, already logged, or blocked on the same
+invented-data risk already documented elsewhere in this file:
+- ToolDirectory.ai's "graveyard" of discontinued tools → already the logged
+  "Tool graveyard page" OPEN gap.
+- ToolDirectory.ai's "review dates" (when a listing was last verified) →
+  already shipped, and more honest than the competitor version: checked
+  `src/components/app/TrustPanel.jsx:111-115` — every tool page already has
+  a "Last checked" row reading `tool.discoveredAt`, and it says outright
+  "not re-verified on a schedule" rather than implying active upkeep.
+- Toolify.ai's "Most Used This Month" / AIXploria's "real-time Top 10" /
+  RankmyAI's traffic-driven rankings → same usage-ranking shape as the
+  already-logged (and detailed) "leaderboard goes real" and "Weekly trending
+  tools" OPEN gaps.
+- RankmyAI's funding data alongside tool metrics → would need a new,
+  unverifiable catalog field (`radar/schema.js` has no funding field), the
+  same invented-data risk that blocks the dollar-cost-estimate gap.
+- ToolJunction's "scored verdicts naming each tool's limitations" → already
+  shipped as `TrustPanel.jsx`'s "Watch out for" row (`limitationOf()`,
+  `TrustPanel.jsx:30-38`), derived from catalogue data only, no LLM opinion.
+
+Also ran one small honest bug check this run (grep for `<img` across `src/`
+for missing/decorative alt text) — the one image in the app
+(`InstallPrompt.jsx:81`) is already correctly `alt=""` as decorative. No fix
+to make.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap and
+made no code change this run.
