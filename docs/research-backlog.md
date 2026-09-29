@@ -8057,3 +8057,76 @@ a client-side SPA with a static tool catalogue.
   added to seven existing components (`role="dialog"` added to one of them),
   no new dependency, no backend, no visual change.
 - **Found:** 2026-09-28 21:20 UTC
+
+---
+
+### No OpenSearch descriptor — the site's own `/search?q=` page is invisible to every browser's built-in "add as a search engine" detector
+- **Status:** OPEN
+- **Seen in:** this is a decades-old, still-supported browser standard (the
+  `<link rel="search" type="application/opensearchdescription+xml">` tag),
+  not a competitor-specific pattern — but directory sites are exactly where
+  it earns its keep: Wikipedia, MDN, and most dictionary/reference sites
+  ship one so a visitor who types the site's name into Chrome/Firefox/Edge's
+  address bar, hits Tab, then types a query goes straight to a results page
+  with zero clicks. Checked whether any AI-directory competitor in this
+  file's usual set (Futurepedia, There's An AI For That) ships one —
+  neither does, which makes it a genuine differentiator rather than table
+  stakes to merely match.
+- **Gap:** confirmed both halves are missing. `find . -iname "*opensearch*"
+  -not -path "*/node_modules/*"` and `grep -rn "opensearchdescription\|rel=\"search\""
+  src index.html` both return zero hits — no descriptor XML file exists under
+  `public/` (which already holds the equivalent `manifest.webmanifest` for
+  PWA install, same static-asset pattern this would follow) and `index.html`'s
+  `<head>` has no `<link rel="search">` pointing to one. This is not a
+  missing capability, only a missing few lines of glue: `src/pages/
+  SearchTools.jsx` already is exactly the target this needs —public, no
+  session required, reads/writes its query via `?q=` on `useSearchParams()`
+  (`SearchTools.jsx:15-16,54`), so the OpenSearch template URL is already
+  `https://toolnaut.xyz/search?q={searchTerms}` with no new route or page
+  to build, only a descriptor file pointing at what's already there.
+- **Why it matters:** every other public search/lookup surface this file has
+  logged (the public search page itself, the RSS feed, the dev API, the
+  browser-extension lookup gap) still requires the visitor to first navigate
+  to toolnaut.xyz. An OpenSearch descriptor is the one integration that
+  reaches a returning visitor who is already sitting in their own browser's
+  address bar — once Chrome/Firefox auto-detects the tag on a single visit to
+  `/search`, the visitor can permanently add "toolnaut.xyz" as a custom
+  search-engine keyword (Chrome: Settings → Search engines → "Manage search
+  engines," auto-populated; Firefox: a one-click "Add Search Engine" icon
+  appears in the address bar itself) and thereafter type e.g. `toolnaut
+  video editor` directly into the address bar from any tab, skipping the
+  homepage and the quiz entirely. It costs nothing to maintain and, unlike
+  the browser-extension gap above, needs no install flow at all — detection
+  is automatic the moment a visitor's browser sees the `<link>` tag on any
+  page they land on.
+- **Smallest useful version (what to actually build):**
+  - New static `public/opensearch.xml` (served at `/opensearch.xml`, same
+    zero-build-step pattern as `public/manifest.webmanifest`): the standard
+    OpenSearch 1.1 XML — `ShortName` ("Toolnaut"), `Description` ("Search
+    Toolnaut's 1,000+ AI tool catalog"), one `Url` element with
+    `type="text/html"` and
+    `template="https://toolnaut.xyz/search?q={searchTerms}"`, and an
+    `Image` pointing at the existing `favicon-32.png` (16x16/32x32, already
+    committed, no new asset needed).
+  - One `<link rel="search" type="application/opensearchdescription+xml"
+    title="Toolnaut" href="/opensearch.xml">` tag added to `index.html`'s
+    `<head>`, next to the existing `<link rel="manifest">` — static, so
+    every crawler and every first page-load sees it with no JS required,
+    same reasoning `head.js`'s own top comment already gives for why
+    crawler-visible tags live in static HTML rather than only being set by
+    a `useEffect`.
+  - **What this would NOT include** (kept out to bound the diff): no
+    `suggestions` endpoint (the `Url type="application/x-suggestions+json"`
+    OpenSearch also supports, for live autocomplete in the address bar
+    dropdown before Enter) — that needs a real JSON endpoint returning
+    ranked completions, a meaningfully bigger build than a static
+    descriptor; no per-browser install prompt or onboarding UI nudging
+    visitors to add it (detection is the browser's own native UI, not
+    something this app should duplicate); no equivalent descriptor for the
+    in-app `Discover.jsx` search (that page sits behind `AppShell`'s
+    session guard, not a target for an address-bar shortcut a signed-out
+    browser would use).
+- **Build size:** S — one new static XML file (no build step, same as
+  `manifest.webmanifest`) plus one `<link>` tag in `index.html`. No backend,
+  no new dependency, no new route, no change to `SearchTools.jsx` itself.
+- **Found:** 2026-09-29 03:20 UTC
