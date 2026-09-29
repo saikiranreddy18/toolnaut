@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import StackCost from '../../components/app/StackCost'
+import StackValue from '../../components/app/StackValue'
 import StackSurvey from '../../components/app/StackSurvey'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
@@ -319,6 +320,11 @@ export default function Stack() {
           {/* What the stack costs, as counts: see components/app/StackCost.jsx. */}
           <StackCost tools={allStackTools} />
         </div>
+        {allStackTools.length > 0 && (
+          /* What the stack is worth, by the visitor's own estimate: see
+             components/app/StackValue.jsx. */
+          <StackValue />
+        )}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {allStackTools.map((tool, i) => {
             const statusIdx = progress[tool.name] || 0
