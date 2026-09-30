@@ -8495,3 +8495,66 @@ errors on each. No bug found to fix this run.
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap and
 made no code change this run.
+
+---
+
+### Research check 2026-09-30 15:03 UTC — no new gap found, seventh pass tried three genuinely new angles
+Off-cycle research run (fired ~15:04 UTC). CI green on `master` (`CI` run
+#482 / `Release` run #413, both `success` at `26eae9b`), `npm run radar:health`
+`OK` (2 runs in the 26h window, last publish 14.3h ago, 7 tools, feed at
+401 total), no `agent-fixable` issues open. Noted, not actioned: the
+`Agent · Research` scheduled workflow shows a `failure` conclusion at
+10:05 UTC on `88e5d6f` — same as the `Agent · Bugfix` failure the 09:00 UTC
+entry above already flagged, a separate `agent-*.yml` automation, not the
+CI/build/smoke gate this routine owns; master's own CI stayed green.
+
+Seventh research pass since 2026-09-29 09:00 UTC. Rather than re-running the
+same competitor-name sweep as the last three passes (all 32 OPEN entries are
+still build-ready per the fifth pass's programmatic check, so nothing to
+deepen), tried three angles none of the prior six passes used:
+
+- **Fresh WebSearch for Sept 2026 AI-directory launches** ("AI tool directory
+  website new feature launch September 2026" and a Toolify.ai/Supertools.io
+  features search): surfaced OpenResources (280 tools), AIToolsHub's "AI
+  Intelligence Terminal" (live pricing/velocity dashboards), Critiqs AI
+  (5,000+ tools with reviews), and Garanix (1,000+ "verified" tools) as 2026
+  launches, plus Toolify's traffic-stats-driven ranking as its headline
+  differentiator. Every one of these lands on a shape this file already has
+  logged: traffic/velocity dashboards → the already-detailed "leaderboard
+  goes real" and "Weekly trending tools" OPEN gaps; reviews → the OPEN
+  "Per-tool ratings & reviews" gap; "verified" badges → already checked and
+  passed over by the 06:00 UTC entry above (no honest data source to compute
+  one from). Nothing new.
+- **Cross-checked `capabilityMatrix.js` against `AlertSettings.jsx`/`api/alerts.js`**
+  — the promise-vs-code check this file's own hint calls for, aimed at a
+  surface no prior pass tried: the pricing capability table's "Alerts" row
+  claims Free gets a "General new-tool feed" while Pro (`planned`) gets
+  "Price changes, better alternatives, stack drift." Read `AlertSettings.jsx`
+  in full: it's ungated behind any tier check in `Settings.jsx` (line 419,
+  no entitlement wrapper), and it's actually domain-filtered (6 category
+  toggles: code/design/writing/data/automation/learning), which is a closer
+  read on "general" than the row's plain wording suggests but is not a false
+  claim — a domain-filtered new-tool feed is still a new-tool feed, not a
+  price/drift alert, so it doesn't collide with the still-`planned` Pro row
+  either. Confirmed accurate, not a gap.
+- **Tried real production telemetry via the Vercel MCP tools** (`list_teams`,
+  `list_projects`) instead of only local `build`/`smoke` checks, on the
+  theory that a live runtime-error cluster would be a gap no static check
+  could find. `list_teams` returns exactly one team
+  (`saikiranreddy18s-projects`); `list_projects` against it returns zero
+  projects, with or without a name filter. This session's Vercel credentials
+  are not connected to the deployed `toolnaut` project (or any project), so
+  `get_runtime_errors`/`get_runtime_logs` were never reachable this run.
+  Worth a future run retrying this once/if the Vercel connector is scoped to
+  the real project — production error clusters are a category of gap this
+  file has never been able to check for.
+
+Also looked at `radar/sources/` for a discovery-source gap (Reddit, Hugging
+Face Spaces, arXiv are all absent — only GitHub/HN/Product Hunt/RSS exist)
+but did not log it: `RSS_FEEDS` is already an env-configured escape hatch
+for arbitrary feeds with zero code change, and a wholly new source is
+radar-pipeline infra work, not the client-side product gap shape every
+other entry in this file takes. Left unlogged rather than force-fit.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap and
+made no code change this run.
