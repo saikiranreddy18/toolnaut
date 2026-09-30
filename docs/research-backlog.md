@@ -8390,3 +8390,51 @@ either.
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap and
 made no code change this run.
+
+---
+
+### Research check 2026-09-30 09:00 UTC — no new gap found, MCP-marketplace and verified-review angles both already covered
+Off-cycle research run (fired ~09:03 UTC, outside the usual 00/06/12/18
+schedule). CI green on `master` (`CI`/`Release` both passing at `8eb416a`),
+`npm run radar:health` `OK` (2 runs in the 26h window, last publish 8.3h
+ago, 7 tools, feed at 401 total), no `agent-fixable` issues open. The
+`Agent · Bugfix` scheduled workflow shows a `failure` conclusion at
+08:50 UTC on this same commit — that is a separate `agent-*.yml` automation,
+not the CI/build/smoke gate this routine owns, and master's own CI stayed
+green, so left uninvestigated per this run's scope.
+
+This is the fifth research pass since 2026-09-29 09:00 UTC. Confirmed
+programmatically before searching that all 32 OPEN entries already carry a
+"Smallest useful version" section (`grep -c` template-only match), so none
+are thin enough to deepen — same conclusion the 09:00/15:00 UTC passes on
+2026-09-29 already reached.
+
+Two fresh angles checked against 2026 sources, both already covered:
+- WebSearch on Futurepedia's 2026 changes: its headline addition is
+  "verified reviews" replacing star ratings — same shape as this file's
+  already-detailed, build-ready "Per-tool ratings & reviews" OPEN gap
+  (line 587), which already specs an author+rating+body review surface
+  layered on `ToolDetail.jsx`. Nothing to add.
+- WebSearch on the MCP-server-marketplace trend (11,000+ indexed servers,
+  described as AI tooling's "App Store moment" in 2026) as a possible new
+  catalog category. Checked whether Toolnaut's schema or catalog actually
+  lacks this: `radar/schema.js`'s `SOURCE_CATEGORIES` already has an
+  "AI Agents & Automation" domain, catalog tags already include a
+  cross-cutting `agent` tag (90 tools, noted in the 2026-09-13 entry above),
+  and `grep -ic mcp public/tools.json` returns 76 hits already in shipped
+  tool blurbs — MCP support is already a well-represented feature across
+  existing catalog entries, not a missing category. A dedicated
+  MCP-server-only directory section would also be a developer-infra feature
+  sitting oddly against Toolnaut's role-based, largely non-developer quiz
+  audience. Not logged.
+
+Also checked one shipped-yesterday surface for bugs rather than gaps, per
+the "small real improvement" allowance: read `StackValue.jsx` and
+`stackValue.js` in full (the time-value calculator from the 18:14 UTC ship)
+and confirmed it's wired into `Stack.jsx:326` and visible, its
+`localStorage` read/write is wrapped in `try/catch` per the `src/state/*`
+rule, and `estimateValue()` correctly excludes non-positive/non-finite
+inputs from the result. No bug found.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap and
+made no code change this run.
