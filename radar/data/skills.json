@@ -179,7 +179,9 @@
       "appmaker",
       "termaxa",
       "vibe-coding-discover",
-      "agentcap"
+      "agentcap",
+      "glance",
+      "tracelanedev"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -356,7 +358,9 @@
       "course-appmaker",
       "course-termaxa",
       "course-vibe-coding-discover",
-      "course-agentcap"
+      "course-agentcap",
+      "course-glance",
+      "course-tracelanedev"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -503,7 +507,9 @@
       "ufo-core-multiplayer-agentic-environs",
       "talktome",
       "vibe-coding-discover",
-      "fab"
+      "fab",
+      "paperweight",
+      "moching"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -557,7 +563,9 @@
       "course-ufo-core-multiplayer-agentic-environs",
       "course-talktome",
       "course-vibe-coding-discover",
-      "course-fab"
+      "course-fab",
+      "course-paperweight",
+      "course-moching"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -932,7 +940,10 @@
       "fab",
       "giving-voice-agents-a-voice-that-adapts-to-context",
       "coreweave-aria-ai-research-and-iteration-agent",
-      "semrush-ai-tool"
+      "semrush-ai-tool",
+      "paperweight",
+      "hosted-mcp-server-for-google-search-console",
+      "moching"
     ],
     "courses": [
       "course-headless-tools",
@@ -1150,7 +1161,10 @@
       "course-fab",
       "course-giving-voice-agents-a-voice-that-adapts-to-context",
       "course-coreweave-aria-ai-research-and-iteration-agent",
-      "course-semrush-ai-tool"
+      "course-semrush-ai-tool",
+      "course-paperweight",
+      "course-hosted-mcp-server-for-google-search-console",
+      "course-moching"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1330,7 +1344,8 @@
       "tinyaiarena-watch-ai-agents-battle-it-out",
       "squidbrake",
       "emulate-ai",
-      "termaxa"
+      "termaxa",
+      "glance"
     ],
     "courses": [
       "course-headless-tools",
@@ -1488,7 +1503,8 @@
       "course-tinyaiarena-watch-ai-agents-battle-it-out",
       "course-squidbrake",
       "course-emulate-ai",
-      "course-termaxa"
+      "course-termaxa",
+      "course-glance"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2277,7 +2293,8 @@
       "vscode-mcp-api",
       "open-health-atlas",
       "vibe-coding-discover",
-      "semrush-ai-tool"
+      "semrush-ai-tool",
+      "hosted-mcp-server-for-google-search-console"
     ],
     "courses": [
       "course-coolplugz",
@@ -2307,7 +2324,8 @@
       "course-vscode-mcp-api",
       "course-open-health-atlas",
       "course-vibe-coding-discover",
-      "course-semrush-ai-tool"
+      "course-semrush-ai-tool",
+      "course-hosted-mcp-server-for-google-search-console"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3180,7 +3198,9 @@
       "uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
       "i-told-my-open-source-ai-agent-it-was-a-prisoner",
       "forcefield-a-fast-lightweight-local-first-ai-agent-harness",
-      "open-source-skills-for-end-to-end-video-ad-campaigns"
+      "open-source-skills-for-end-to-end-video-ad-campaigns",
+      "glance",
+      "tracelanedev"
     ],
     "courses": [
       "course-limitless-library",
@@ -3238,7 +3258,9 @@
       "course-uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
       "course-i-told-my-open-source-ai-agent-it-was-a-prisoner",
       "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness",
-      "course-open-source-skills-for-end-to-end-video-ad-campaigns"
+      "course-open-source-skills-for-end-to-end-video-ad-campaigns",
+      "course-glance",
+      "course-tracelanedev"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3363,7 +3385,9 @@
       "open-health-atlas",
       "banker",
       "emulate-ai",
-      "prompt-anonymization-and-deanonymization"
+      "prompt-anonymization-and-deanonymization",
+      "hosted-mcp-server-for-google-search-console",
+      "rhubarb"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3408,7 +3432,9 @@
       "course-open-health-atlas",
       "course-banker",
       "course-emulate-ai",
-      "course-prompt-anonymization-and-deanonymization"
+      "course-prompt-anonymization-and-deanonymization",
+      "course-hosted-mcp-server-for-google-search-console",
+      "course-rhubarb"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3921,7 +3947,8 @@
       "ai-agents-now-have-a-place-to-snitch",
       "ai-crawler-honeypot",
       "agentmeasure",
-      "agentcap"
+      "agentcap",
+      "glance"
     ],
     "courses": [
       "course-agenttrail",
@@ -3935,7 +3962,8 @@
       "course-ai-agents-now-have-a-place-to-snitch",
       "course-ai-crawler-honeypot",
       "course-agentmeasure",
-      "course-agentcap"
+      "course-agentcap",
+      "course-glance"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4163,7 +4191,8 @@
       "google-seo-mcp",
       "nowdex",
       "open-health-atlas",
-      "emulate-ai"
+      "emulate-ai",
+      "hosted-mcp-server-for-google-search-console"
     ],
     "courses": [
       "course-launch-hn-risklytics-yc-s26",
@@ -4174,7 +4203,8 @@
       "course-google-seo-mcp",
       "course-nowdex",
       "course-open-health-atlas",
-      "course-emulate-ai"
+      "course-emulate-ai",
+      "course-hosted-mcp-server-for-google-search-console"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5708,7 +5738,8 @@
       "atlas-finance-evaluating-ai-agents-inside-a-bank",
       "how-to-build-effective-evals-for-ai-agents",
       "quantifying-context-rot",
-      "an-open-add-search-evaluation-framework-for-agent-memory"
+      "an-open-add-search-evaluation-framework-for-agent-memory",
+      "glance"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -5725,7 +5756,8 @@
       "course-atlas-finance-evaluating-ai-agents-inside-a-bank",
       "course-how-to-build-effective-evals-for-ai-agents",
       "course-quantifying-context-rot",
-      "course-an-open-add-search-evaluation-framework-for-agent-memory"
+      "course-an-open-add-search-evaluation-framework-for-agent-memory",
+      "course-glance"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5743,7 +5775,8 @@
       "how-to-build-effective-evals-for-ai-agents",
       "quantifying-context-rot",
       "fault-tolerance-in-low-bandwidth-model-parallelism",
-      "agentmeasure"
+      "agentmeasure",
+      "tracelanedev"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -5754,7 +5787,8 @@
       "course-how-to-build-effective-evals-for-ai-agents",
       "course-quantifying-context-rot",
       "course-fault-tolerance-in-low-bandwidth-model-parallelism",
-      "course-agentmeasure"
+      "course-agentmeasure",
+      "course-tracelanedev"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -6718,7 +6752,8 @@
       "respawn",
       "turnpanel-is-a-local-first-ai-workspace",
       "forcefield-a-fast-lightweight-local-first-ai-agent-harness",
-      "ggg"
+      "ggg",
+      "paperweight"
     ],
     "courses": [
       "course-datazen",
@@ -6729,7 +6764,8 @@
       "course-respawn",
       "course-turnpanel-is-a-local-first-ai-workspace",
       "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness",
-      "course-ggg"
+      "course-ggg",
+      "course-paperweight"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -6918,10 +6954,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "my-free-code"
+      "my-free-code",
+      "tracelanedev"
     ],
     "courses": [
-      "course-my-free-code"
+      "course-my-free-code",
+      "course-tracelanedev"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -8150,7 +8188,8 @@
       "inbundly",
       "dearagent",
       "prmptree",
-      "tabmail-open-source-ai-email-for-thunderbird-and-iphone"
+      "tabmail-open-source-ai-email-for-thunderbird-and-iphone",
+      "paperweight"
     ],
     "courses": [
       "course-unitpost-email",
@@ -8159,7 +8198,8 @@
       "course-inbundly",
       "course-dearagent",
       "course-prmptree",
-      "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone"
+      "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone",
+      "course-paperweight"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -8636,7 +8676,8 @@
       "turnpanel-is-a-local-first-ai-workspace",
       "ggg",
       "prompt-anonymization-and-deanonymization",
-      "pyunto"
+      "pyunto",
+      "paperweight"
     ],
     "courses": [
       "course-pearpie",
@@ -8651,7 +8692,8 @@
       "course-turnpanel-is-a-local-first-ai-workspace",
       "course-ggg",
       "course-prompt-anonymization-and-deanonymization",
-      "course-pyunto"
+      "course-pyunto",
+      "course-paperweight"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -9135,12 +9177,16 @@
     "toolsTeaching": [
       "soulauth",
       "awesome-rust-migrations",
-      "respawn"
+      "respawn",
+      "moching",
+      "tracelanedev"
     ],
     "courses": [
       "course-soulauth",
       "course-awesome-rust-migrations",
-      "course-respawn"
+      "course-respawn",
+      "course-moching",
+      "course-tracelanedev"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -9568,11 +9614,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "openvurp",
-      "i-built-a-router-for-agent-tools"
+      "i-built-a-router-for-agent-tools",
+      "moching"
     ],
     "courses": [
       "course-openvurp",
-      "course-i-built-a-router-for-agent-tools"
+      "course-i-built-a-router-for-agent-tools",
+      "course-moching"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -12090,13 +12138,15 @@
       "awesome-geo-tools",
       "google-seo-mcp",
       "ecommerce-ai-tools",
-      "semrush-ai-tool"
+      "semrush-ai-tool",
+      "hosted-mcp-server-for-google-search-console"
     ],
     "courses": [
       "course-awesome-geo-tools",
       "course-google-seo-mcp",
       "course-ecommerce-ai-tools",
-      "course-semrush-ai-tool"
+      "course-semrush-ai-tool",
+      "course-hosted-mcp-server-for-google-search-console"
     ],
     "updatedAt": "2026-09-07T15:05:03.707Z"
   },
@@ -12553,10 +12603,12 @@
     "domain": "data",
     "level": "beginner",
     "toolsTeaching": [
-      "ai-agent-for-beautiful-data-visuals"
+      "ai-agent-for-beautiful-data-visuals",
+      "rhubarb"
     ],
     "courses": [
-      "course-ai-agent-for-beautiful-data-visuals"
+      "course-ai-agent-for-beautiful-data-visuals",
+      "course-rhubarb"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -12566,10 +12618,12 @@
     "domain": "data",
     "level": "beginner",
     "toolsTeaching": [
-      "ai-agent-for-beautiful-data-visuals"
+      "ai-agent-for-beautiful-data-visuals",
+      "rhubarb"
     ],
     "courses": [
-      "course-ai-agent-for-beautiful-data-visuals"
+      "course-ai-agent-for-beautiful-data-visuals",
+      "course-rhubarb"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -14644,10 +14698,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "minimal-static-website-hosting-tool"
+      "minimal-static-website-hosting-tool",
+      "glance"
     ],
     "courses": [
-      "course-minimal-static-website-hosting-tool"
+      "course-minimal-static-website-hosting-tool",
+      "course-glance"
     ],
     "updatedAt": "2026-09-11T23:32:03.204Z"
   },
@@ -18984,10 +19040,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "appmaker"
+      "appmaker",
+      "rhubarb"
     ],
     "courses": [
-      "course-appmaker"
+      "course-appmaker",
+      "course-rhubarb"
     ],
     "updatedAt": "2026-09-29T15:55:26.286Z"
   },
@@ -19276,5 +19334,70 @@
       "course-semrush-ai-tool"
     ],
     "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "skill-inbox-cleanup",
+    "name": "inbox cleanup",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "paperweight"
+    ],
+    "courses": [
+      "course-paperweight"
+    ],
+    "updatedAt": "2026-09-30T15:56:40.668Z"
+  },
+  {
+    "id": "skill-search console",
+    "name": "search console",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "hosted-mcp-server-for-google-search-console"
+    ],
+    "courses": [
+      "course-hosted-mcp-server-for-google-search-console"
+    ],
+    "updatedAt": "2026-09-30T15:56:40.668Z"
+  },
+  {
+    "id": "skill-d3",
+    "name": "d3",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "rhubarb"
+    ],
+    "courses": [
+      "course-rhubarb"
+    ],
+    "updatedAt": "2026-09-30T15:56:40.668Z"
+  },
+  {
+    "id": "skill-desktop-agent",
+    "name": "desktop agent",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "moching"
+    ],
+    "courses": [
+      "course-moching"
+    ],
+    "updatedAt": "2026-09-30T15:56:40.668Z"
+  },
+  {
+    "id": "skill-audit ledger",
+    "name": "audit ledger",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "tracelanedev"
+    ],
+    "courses": [
+      "course-tracelanedev"
+    ],
+    "updatedAt": "2026-09-30T15:56:40.668Z"
   }
 ]

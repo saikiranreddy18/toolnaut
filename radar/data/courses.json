@@ -27459,5 +27459,374 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "course-paperweight",
+    "toolSlug": "paperweight",
+    "title": "Master Paperweight",
+    "objectives": [
+      "Install Paperweight and connect it to a local mail sync (e.g., mbsync or Maildir)",
+      "Build rule-based cleanup filters that classify and archive email locally without cloud services",
+      "Set up a repeatable weekly inbox-zero workflow with undo-safe batch actions"
+    ],
+    "modules": [
+      {
+        "title": "Private, Local-First Setup",
+        "estMinutes": 25,
+        "steps": [
+          "Install Paperweight from source (git clone + cargo build) or your distro package, then run `paperweight init` to create a config directory",
+          "Configure Paperweight to read from a local Maildir synced via mbsync/isync so no credentials ever leave your machine",
+          "Run `paperweight scan --dry-run` to index your mailbox and verify message counts match your IMAP server"
+        ]
+      },
+      {
+        "title": "Building Cleanup Rules",
+        "estMinutes": 35,
+        "steps": [
+          "Write TOML rules matching newsletters by List-Id header and auto-archive senders older than 30 days",
+          "Create a 'noise' rule set for automated notifications (GitHub, Jira, receipts) that files them into per-source folders",
+          "Test every rule with `paperweight rules test --rule newsletter.toml` against 100 sample messages before applying"
+        ]
+      },
+      {
+        "title": "Batch Cleanup with a Safety Net",
+        "estMinutes": 30,
+        "steps": [
+          "Run a bulk archive of messages over 2 years old using `--older-than 2y` while logging every move to Paperweight's journal file",
+          "Practice restoring a batch with `paperweight undo <journal-id>` to confirm nothing is deleted irreversibly",
+          "Set up deduplication with `paperweight dedupe --by message-id` to reclaim local disk space from copied folders"
+        ]
+      },
+      {
+        "title": "Automating a Weekly Inbox-Zero Routine",
+        "estMinutes": 20,
+        "steps": [
+          "Combine your rules into a single `paperweight sweep` profile and schedule it via cron or systemd timer for Sunday nights",
+          "Add a `--report` flag and pipe output to a weekly digest so you can audit what was archived",
+          "Exclude your 'waiting-on' tag/folder from sweeps so pending threads never get auto-archived"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-email",
+      "skill-privacy",
+      "skill-open-source",
+      "skill-local-first",
+      "skill-inbox-cleanup"
+    ],
+    "prerequisites": [
+      "Comfortable editing TOML/YAML config files and using the command line",
+      "A local mail sync tool (mbsync, offlineimap) or willingness to set one up",
+      "Basic understanding of email headers (From, List-Id, Message-ID)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-30T15:56:40.668Z"
+  },
+  {
+    "id": "course-hosted-mcp-server-for-google-search-console",
+    "toolSlug": "hosted-mcp-server-for-google-search-console",
+    "title": "Master Hosted MCP Server for Google Search Console",
+    "objectives": [
+      "Connect your AI assistant to the hosted Google Search Console MCP server and verify access to your properties",
+      "Run natural-language queries to pull search performance data (clicks, impressions, CTR, position) by page, query, and date",
+      "Build repeatable workflows that combine indexing status and performance data to diagnose SEO issues"
+    ],
+    "modules": [
+      {
+        "title": "Connect and Authenticate",
+        "estMinutes": 20,
+        "steps": [
+          "Add the hosted MCP server URL to your AI assistant's MCP config (e.g., claude_desktop_config.json) and restart the client",
+          "Complete the OAuth flow with the Google account that has GSC access, then run `list properties` to confirm your sites appear",
+          "Test a minimal query like 'show clicks for my top 5 pages last 28 days' to verify data flows correctly"
+        ]
+      },
+      {
+        "title": "Query Search Performance Data",
+        "estMinutes": 30,
+        "steps": [
+          "Ask the assistant to fetch performance data filtered by query, page, country, and device for a specific date range, and note the tool calls it makes",
+          "Compare two periods (e.g., 'last 28 days vs previous 28 days') and have the assistant rank pages by biggest click drops",
+          "Export the raw results as a table or CSV from the conversation to sanity-check numbers against the GSC web UI"
+        ]
+      },
+      {
+        "title": "Diagnose SEO Issues with Combined Queries",
+        "estMinutes": 35,
+        "steps": [
+          "Ask for pages with high impressions but CTR below 1% and position under 10 — a 'quick wins' report for title/meta improvements",
+          "Query URL inspection / index coverage data for your declining pages to check for crawl or indexing errors",
+          "Save a reusable prompt (e.g., 'weekly SEO health check') that chains performance + indexing queries into one report"
+        ]
+      },
+      {
+        "title": "Handle Limits and Data Caveats",
+        "estMinutes": 15,
+        "steps": [
+          "Test large date ranges to observe row limits and data sampling, then narrow queries by dimension or split into batches",
+          "Learn to prompt around GSC's query anonymization by aggregating at the page level instead",
+          "Document your working prompts and expected response shapes in a team runbook for consistent reuse"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-mcp",
+      "skill-seo",
+      "skill-search console",
+      "skill-automation",
+      "skill-analytics"
+    ],
+    "prerequisites": [
+      "Access to at least one verified Google Search Console property",
+      "An AI assistant that supports MCP servers (e.g., Claude Desktop, Cursor)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-30T15:56:40.668Z"
+  },
+  {
+    "id": "course-rhubarb",
+    "toolSlug": "rhubarb",
+    "title": "Master Rhubarb",
+    "objectives": [
+      "Build a working D3-based visualization from a dataset in Rhubarb's editor",
+      "Customize scales, axes, and interaction using Rhubarb's live preview workflow",
+      "Publish and embed a finished chart with proper data bindings"
+    ],
+    "modules": [
+      {
+        "title": "Project Setup and Data Binding",
+        "estMinutes": 25,
+        "steps": [
+          "Create a new Rhubarb project and import a CSV of your data, verifying column types in the data panel",
+          "Write the binding code to map two columns to x/y encodings and confirm points render in live preview",
+          "Add a transform (filter + sort) in Rhubarb's pipeline and check that the preview updates on save"
+        ]
+      },
+      {
+        "title": "Scales, Axes, and Styling",
+        "estMinutes": 30,
+        "steps": [
+          "Replace default linear scales with a time scale and log scale, then format axis ticks with locale-aware labels",
+          "Apply a custom color palette via a categorical scale mapping a category column to fill colors",
+          "Add responsive margins using Rhubarb's viewBox settings and test at two container widths"
+        ]
+      },
+      {
+        "title": "Interaction and Tooltips",
+        "estMinutes": 30,
+        "steps": [
+          "Attach mouseover/mouseout handlers to marks to drive a tooltip showing formatted values",
+          "Add a brush or click-to-filter interaction that highlights a subset of marks while dimming others",
+          "Wire a legend that toggles series visibility and persists state across re-renders"
+        ]
+      },
+      {
+        "title": "Publishing and Embedding",
+        "estMinutes": 20,
+        "steps": [
+          "Run Rhubarb's publish step, review the generated bundle size, and trim unused D3 imports",
+          "Embed the published chart in a test page and confirm it initializes correctly with production data",
+          "Add a fallback static image and a title/aria description for accessibility before shipping"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-data visualization",
+      "skill-d3",
+      "skill-javascript",
+      "skill-charts"
+    ],
+    "prerequisites": [
+      "Comfortable writing modern JavaScript (functions, array methods, ES modules)",
+      "Basic familiarity with D3 concepts: selections, data joins, and scales",
+      "Experience reading and cleaning tabular data (CSV/JSON)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-30T15:56:40.668Z"
+  },
+  {
+    "id": "course-moching",
+    "toolSlug": "moching",
+    "title": "Master Moching",
+    "objectives": [
+      "Install and configure Moching with API keys and workspace permissions",
+      "Build task automations using Moching's built-in tool registry",
+      "Chain tools into multi-step agent workflows with error handling"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Agent Run",
+        "estMinutes": 25,
+        "steps": [
+          "Install Moching via cargo (cargo install moching) and verify with `moching --version`",
+          "Run `moching init` in a project folder, then add your LLM API key to ~/.moching/config.toml",
+          "Launch the desktop app and run a test prompt like 'list files in this directory and summarize them'"
+        ]
+      },
+      {
+        "title": "Exploring the Tool Registry",
+        "estMinutes": 35,
+        "steps": [
+          "Run `moching tools list` to browse the 219 built-in tools, then filter by category with `moching tools list --category file`",
+          "Inspect a single tool's schema with `moching tools describe fs.move` to see required parameters",
+          "Restrict agent access by whitelisting only safe tools in config.toml (e.g., disable shell and network tools for a first project)"
+        ]
+      },
+      {
+        "title": "Building a Multi-Step Workflow",
+        "estMinutes": 40,
+        "steps": [
+          "Create a workflow file (workflow.yaml) that chains tools: read a folder of CSVs, clean the data, then export a summary report",
+          "Add a condition node so the agent asks for confirmation before any destructive step like file deletion",
+          "Run the workflow with `moching run workflow.yaml --dry-run` to preview the tool calls before executing live"
+        ]
+      },
+      {
+        "title": "Debugging, Logs, and Scheduling",
+        "estMinutes": 30,
+        "steps": [
+          "Open the trace view in the desktop app to inspect each tool call, its inputs, and token cost per step",
+          "Reproduce a failure locally with `moching replay <session-id>` after a run goes off track",
+          "Schedule a recurring automation with `moching schedule add --cron \"0 9 * * *\" workflow.yaml` and verify it in the task list"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-desktop-agent",
+      "skill-rust",
+      "skill-tools",
+      "skill-open-source"
+    ],
+    "prerequisites": [
+      "Basic command-line familiarity and Rust toolchain (cargo) installed",
+      "An API key for a supported LLM provider",
+      "Understanding of YAML or JSON configuration files"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-30T15:56:40.668Z"
+  },
+  {
+    "id": "course-glance",
+    "toolSlug": "glance",
+    "title": "Master Glance",
+    "objectives": [
+      "Build and configure an AI agent in Glance with custom tools and prompts",
+      "Run evaluations against test datasets and interpret scoring metrics",
+      "Set up monitoring dashboards to track agent performance in production"
+    ],
+    "modules": [
+      {
+        "title": "Building Your First Agent",
+        "estMinutes": 25,
+        "steps": [
+          "Install Glance desktop, create a new project, and connect your LLM provider API key in Settings > Providers",
+          "Create an agent with a system prompt, then attach two tools (e.g., web search and a custom function) via the Tools panel",
+          "Run the agent in the playground with a sample query and inspect the step-by-step trace to verify tool calls fire correctly"
+        ]
+      },
+      {
+        "title": "Evaluating Agent Behavior",
+        "estMinutes": 30,
+        "steps": [
+          "Import a test dataset (CSV/JSON) of input-expected output pairs into the Evaluations tab",
+          "Configure evaluators: add an exact-match scorer and an LLM-as-judge scorer with a custom rubric prompt",
+          "Run the evaluation, compare two prompt variants side-by-side, and drill into failing cases to identify regression causes"
+        ]
+      },
+      {
+        "title": "Production Monitoring",
+        "estMinutes": 20,
+        "steps": [
+          "Instrument your deployed agent with the Glance SDK to stream traces to the desktop app",
+          "Create a dashboard tracking latency, token cost, and error rate, then set an alert threshold on failure rate above 5%",
+          "Tag a suspicious production trace, export it into your eval dataset as a regression test case"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-evaluation",
+      "skill-monitoring",
+      "skill-developer tool",
+      "skill-open source"
+    ],
+    "prerequisites": [
+      "An API key for at least one LLM provider (OpenAI, Anthropic, etc.)",
+      "Basic understanding of agent concepts: prompts, tools, and traces",
+      "Familiarity with JSON/CSV data formats"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-30T15:56:40.668Z"
+  },
+  {
+    "id": "course-tracelanedev",
+    "toolSlug": "tracelanedev",
+    "title": "Master Tracelane.dev",
+    "objectives": [
+      "Deploy and configure Tracelane as a routing gateway in front of multiple LLM providers",
+      "Verify and audit the tamper-evident ledger to detect modified or missing request records",
+      "Tune gateway performance (connection pooling, streaming, ledger write batching) under load"
+    ],
+    "modules": [
+      {
+        "title": "Gateway Setup & Provider Routing",
+        "estMinutes": 35,
+        "steps": [
+          "Install via `cargo install tracelane` (or build from source with `--features ledger`), then create `tracelane.toml` defining upstream providers (OpenAI, Anthropic, a local vLLM endpoint) with per-provider API keys and rate limits.",
+          "Configure routing rules: map model aliases like `gpt-fast` and `claude-safe` to upstreams, add a fallback chain so a 429 or 5xx from the primary provider retries against the secondary.",
+          "Point an existing OpenAI-compatible client at `http://localhost:8080/v1`, send a chat completion, and confirm in the logs that the request was routed, cost-tracked, and recorded."
+        ]
+      },
+      {
+        "title": "Tamper-Evident Audit Ledger",
+        "estMinutes": 40,
+        "steps": [
+          "Enable the ledger with `[ledger] path = \"./audit.log\" hash_chain = true` and send 20 test requests; inspect the append-only log to see each entry's hash referencing the previous entry.",
+          "Run `tracelane ledger verify ./audit.log` to validate the hash chain and the periodic signed checkpoints, then manually edit one line of the log with a text editor and re-run verify to observe the exact entry where the chain breaks.",
+          "Export a compliance report with `tracelane ledger export --from <date> --format json` and filter entries by model, API key identity, and token usage for an audit scenario."
+        ]
+      },
+      {
+        "title": "Production Hardening & Performance Tuning",
+        "estMinutes": 35,
+        "steps": [
+          "Run a load test (e.g., `oha` or `wrk`) against a streaming completion endpoint; measure added gateway latency and identify whether ledger writes are on the hot path.",
+          "Tune `[performance]` settings: set `ledger_batch_size = 64` and async fsync intervals, increase upstream connection pool sizes, and re-run the load test to quantify the improvement.",
+          "Configure checkpoint signing with an Ed25519 key, set up log rotation plus off-host ledger replication (e.g., shipping checkpoints to object storage), and write a systemd unit with restart policy and file-descriptor limits."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-llm gateway",
+      "skill-rust",
+      "skill-open source",
+      "skill-audit ledger",
+      "skill-llmops"
+    ],
+    "prerequisites": [
+      "Rust toolchain (cargo) installed",
+      "Working knowledge of the OpenAI API and at least one LLM provider account",
+      "Basic familiarity with cryptographic hashing and log-structured storage concepts"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-30T15:56:40.668Z"
   }
 ]
