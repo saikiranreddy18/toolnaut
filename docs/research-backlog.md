@@ -8575,3 +8575,58 @@ other entry in this file takes. Left unlogged rather than force-fit.
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap and
 made no code change this run.
+
+---
+
+### Research check 2026-09-30 21:03 UTC — no new gap found, eighth pass; Vercel telemetry still unreachable
+Off-cycle research run. CI green on `master` (`CI` run #485 / `Release` run
+#416, both `success` at `eac94ba`), `npm run radar:health` `OK` (2 runs in
+the 26h window, last publish 5.1h ago, 6 tools, feed at 407 total), no
+`agent-fixable` issues open (`search_issues label:agent-fixable state:open`
+returns zero).
+
+Eighth research pass since 2026-09-29 09:00 UTC. All 29 real OPEN entries
+(30 minus the `<short gap name>` format template) still carry a build-ready
+"Smallest useful version" section from prior passes, so this run again
+looked for fresh ground rather than re-reading the list:
+
+- **Retried the Vercel MCP telemetry path** the seventh pass flagged as
+  worth another attempt (`list_teams` → `list_projects`): `list_teams`
+  still returns exactly one team (`saikiranreddy18s-projects`);
+  `list_projects` against it still returns zero projects. This session's
+  Vercel credentials remain unconnected to the deployed `toolnaut` project,
+  so `get_runtime_errors`/`get_runtime_logs` stay unreachable. Not
+  re-flagging again as a "retry later" — two attempts on two different days
+  both came back empty, so this path needs someone to actually scope the
+  Vercel connector to the project, not another agent retry.
+- **Two fresh WebSearches**: "AI tool directory new feature launched this
+  week September 2026" and a gamification/badges-specific search. Surfaced
+  nothing dated this week; the only new names (AI ToolFit's "describe what
+  you need" natural-language search, The AI Library's gamified leaderboard)
+  land on shapes already logged here — AI ToolFit matches the OPEN "public
+  search page... still only knows literal word stems" gap, The AI Library's
+  leaderboard matches the OPEN "leaderboard's own precondition" and "Weekly
+  trending tools" gaps. Nothing new.
+- **Re-audited `AudienceSection.jsx` and `HowItWorksSection.jsx`** — the
+  two marketing sections with the fewest prior mentions in this file (2
+  each, vs. 6-20 for every other section). `AudienceSection.jsx`'s two
+  claims ("Build your edge before your first job", "Adapt without carving
+  out a sabbatical") are aspirational framing with no specific, checkable
+  feature promise — nothing to verify against code. `HowItWorksSection.jsx`'s
+  "Master... Track progress against your role" line is the same claim the
+  sixth pass already logged as the OPEN "no benchmark of either kind exists"
+  gap; re-read in full, nothing beyond what that entry already covers.
+- **Self-audit: `prefers-reduced-motion` coverage.** Checked whether the
+  focus-trap fix shipped at 18:03 UTC today left a matching a11y gap
+  nearby. Grepped `src/` for `prefers-reduced-motion`/`useReducedMotion`:
+  9 files respect it directly (`CursorStars`, `AnimatedWordmark`, `Tilt`,
+  `DottedWordmark`, `SignInPage`, `ArrivalLaunch`, `RolesSection`,
+  `HeroSection`, `ToolStars`) plus 3 `@media` blocks in `index.css` and an
+  explicit mention in `Settings.jsx`. Thorough, not a gap.
+- Ran `npm test` (311/311), `npm run build` (19 static routes + 1081 tool
+  pages, no errors), and `npm run smoke` (24/24 routes, 0 console errors
+  each) directly against current master to check for a small real fix per
+  the "small real improvement" allowance. All three clean. No bug found.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap and
+made no code change this run.
