@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import useFocusTrap from '../../hooks/useFocusTrap'
 import { CloseIcon } from './icons'
 
 const DISMISS_KEY = 'exus_a2hs_dismissed'
@@ -11,6 +12,8 @@ export default function InstallPrompt() {
   const [deferred, setDeferred] = useState(null)
   const [show, setShow] = useState(false)
   const [iosHint, setIosHint] = useState(false)
+  const dialogRef = useRef(null)
+  useFocusTrap(dialogRef, show)
 
   useEffect(() => {
     let dismissed = false
@@ -69,6 +72,7 @@ export default function InstallPrompt() {
     <AnimatePresence>
       {show && (
         <motion.div
+          ref={dialogRef}
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 80, opacity: 0 }}

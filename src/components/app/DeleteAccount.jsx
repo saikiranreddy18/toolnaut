@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { getAccessToken, fetchEntitlement } from '../../utils/entitlement'
 import { signOut } from '../../state/authStore'
 import { haptic } from '../../utils/haptics'
+import useFocusTrap from '../../hooks/useFocusTrap'
 
 // Permanent account deletion, confirmed by a code emailed to the account.
 //
@@ -58,7 +59,9 @@ export default function DeleteAccount({ session }) {
   const [cooldown, setCooldown] = useState(0)
   const [plan, setPlan] = useState(null)
   const firstRef = useRef(null)
+  const dialogRef = useRef(null)
   const uid = session?.user?.id
+  useFocusTrap(dialogRef, open)
 
   function close() {
     setOpen(false); setStep('warn'); setError(''); setCode(''); setBusy(false)
@@ -137,6 +140,7 @@ export default function DeleteAccount({ session }) {
           onClick={() => { if (!busy && step !== 'done') close() }}
         >
           <div
+            ref={dialogRef}
             role="dialog"
             aria-modal="true"
             aria-labelledby="delete-account-title"

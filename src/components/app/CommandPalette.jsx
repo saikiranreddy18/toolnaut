@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { NAV } from '../../shells/AppShell'
 import { TOOLS } from '../../utils/toolsCatalog'
 import { matchesQuery } from '../../utils/search'
+import useFocusTrap from '../../hooks/useFocusTrap'
 import { CloseIcon } from './icons'
 
 const TOOL_CAP = 8
@@ -15,6 +16,8 @@ export default function CommandPalette({ open, onClose }) {
   const [q, setQ] = useState('')
   const [selected, setSelected] = useState(0)
   const inputRef = useRef(null)
+  const dialogRef = useRef(null)
+  useFocusTrap(dialogRef, open)
 
   useEffect(() => {
     if (!open) return
@@ -61,7 +64,7 @@ export default function CommandPalette({ open, onClose }) {
   if (!open) return null
 
   return (
-    <div className="fixed inset-0 z-[95] flex items-start justify-center px-4 pt-[12vh]" role="dialog" aria-modal="true" aria-label="Quick jump">
+    <div ref={dialogRef} className="fixed inset-0 z-[95] flex items-start justify-center px-4 pt-[12vh]" role="dialog" aria-modal="true" aria-label="Quick jump">
       <div className="fixed inset-0 bg-black/70" aria-hidden="true" onClick={onClose} />
       <div className="sticker relative w-full max-w-lg overflow-hidden !p-0" style={{ boxShadow: '0 24px 60px -20px rgba(0,0,0,0.85)' }}>
         <div className="flex items-center gap-3 border-b border-white/10 px-4 py-3">

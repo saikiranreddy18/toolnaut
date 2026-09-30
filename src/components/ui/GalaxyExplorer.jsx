@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { galaxyState } from '../../state/galaxyStore'
+import useFocusTrap from '../../hooks/useFocusTrap'
 
 const ZOOM_MIN = 2.4
 const ZOOM_MAX = 16
@@ -31,7 +32,9 @@ function tiltForZoom(zoom) {
 export default function GalaxyExplorer({ onClose }) {
   const surface = useRef(null)
   const badge = useRef(null)
+  const root = useRef(null)
   const navigate = useNavigate()
+  useFocusTrap(root, true)
 
   useEffect(() => {
     const el = surface.current
@@ -133,10 +136,14 @@ export default function GalaxyExplorer({ onClose }) {
 
   return (
     <motion.div
+      ref={root}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-[75]"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Explore the galaxy"
     >
       <div ref={surface} className="absolute inset-0 cursor-grab active:cursor-grabbing" style={{ touchAction: 'none' }} />
 

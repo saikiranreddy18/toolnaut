@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { read, write } from '../../state/scopedStorage'
 import { useAnalytics } from '../../hooks/useAnalytics'
+import useFocusTrap from '../../hooks/useFocusTrap'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
 
@@ -106,6 +107,7 @@ export default function AppTour({ open, onClose }) {
   const [rect, setRect] = useState(null)
   const cardRef = useRef(null)
   const startedRef = useRef(false)
+  useFocusTrap(cardRef, open)
 
   // Steps whose element exists right now. Recomputed on open so a phone and a
   // desktop each get the steps that make sense for them.

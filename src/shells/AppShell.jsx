@@ -18,6 +18,7 @@ import ChatPanel from '../components/app/ChatPanel'
 import InstallPrompt from '../components/app/InstallPrompt'
 import GuestImportPrompt from '../components/app/GuestImportPrompt'
 import AppTour, { tourSeen, TOUR_REPLAY_EVENT } from '../components/app/AppTour'
+import useFocusTrap from '../hooks/useFocusTrap'
 import SyncStatus from '../components/app/SyncStatus'
 import Avatar from '../components/app/Avatar'
 import { loadAvatar, AVATAR_EVENT } from '../state/avatarStore'
@@ -117,6 +118,13 @@ export default function AppShell() {
   }, [session?.user?.id])
   const launcherRef = useRef(null)
   const chatWasOpenRef = useRef(false)
+  const mobileChatSheetRef = useRef(null)
+  // Only the mobile bottom sheet needs a trap — the desktop rail's ChatPanel
+  // sits beside the page, not over it, so Tab leaving it is not a keyboard
+  // trap escape the way it is for an overlay. Both mount together on
+  // `chatOpen`, breakpoint-switched by CSS alone (`lg:hidden`/`lg:block`), so
+  // gating on `chatOpen` is enough — the hidden one is never in the tab order.
+  useFocusTrap(mobileChatSheetRef, chatOpen)
 
   // ChatPanel unmounts the launcher the instant it opens and moves focus onto
   // its own close button; when it closes, send focus back here instead of
@@ -326,12 +334,14 @@ export default function AppShell() {
       <AnimatePresence>
         {chatOpen && (
           <motion.div
+            ref={mobileChatSheetRef}
             initial={{ y: '100%' }}
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
             transition={{ duration: 0.28, ease: 'easeOut' }}
             className="fixed inset-x-0 bottom-0 z-50 h-[75dvh] rounded-t-2xl border-t border-white/10 bg-[#12121c] lg:hidden"
             role="dialog"
+            aria-modal="true"
             aria-label="AI assistant"
           >
             <ChatPanel personaName={persona?.name} onClose={() => toggleChat(false)} idPrefix="chat-mobile" />

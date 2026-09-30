@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { pendingImport, adoptGuestData, discardGuestData } from '../../state/scopedStorage'
 import { pushAll } from '../../state/sync'
 import { haptic } from '../../utils/haptics'
+import useFocusTrap from '../../hooks/useFocusTrap'
 
 // Offered once, the first time an account signs in on a browser that already
 // has guest data and has nothing of its own yet.
@@ -18,6 +19,8 @@ export default function GuestImportPrompt() {
   const [found, setFound] = useState(null)
   const [busy, setBusy] = useState(false)
   const firstRef = useRef(null)
+  const dialogRef = useRef(null)
+  useFocusTrap(dialogRef, Boolean(found))
 
   useEffect(() => {
     setFound(pendingImport())
@@ -73,6 +76,7 @@ export default function GuestImportPrompt() {
         aria-labelledby="import-title"
       >
         <motion.div
+          ref={dialogRef}
           initial={{ y: 24, scale: 0.97 }}
           animate={{ y: 0, scale: 1 }}
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
