@@ -8438,3 +8438,60 @@ inputs from the result. No bug found.
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap and
 made no code change this run.
+
+---
+
+### Research check 2026-09-30 12:03 UTC — no new gap found, sixth pass since yesterday comes back covered
+Research run (UTC hour 12, on the regular 00/06/12/18 schedule). CI green on
+`master` (`CI`/`Release` both passing at `88e5d6f`), `npm run radar:health`
+`OK` (2 runs in the 26h window, last publish 11.3h ago, 7 tools, feed at
+401 total), no `agent-fixable` issues open.
+
+This is the sixth research pass since 2026-09-29 09:00 UTC and all 32 OPEN
+entries already carry a build-ready "Smallest useful version" section (per
+the fifth pass's confirmation above), so this run searched fresh ground
+instead of re-reading the list:
+- JSON-LD/structured data, sitemap.xml, robots.txt — already shipped
+  (`src/utils/toolSeo.js`, `src/utils/head.js`, `public/sitemap.xml`,
+  `public/robots.txt` all present and wired in). Not a gap.
+- Keyboard-shortcut discoverability for the Cmd/Ctrl+K command palette —
+  already has a visible `⌘K` hint rendered in `AppShell.jsx:208`. Not a gap.
+- Legal.jsx's "New-tool alerts... store your email address and the
+  categories you chose" claim, checked against actual code since this file's
+  own "best kind of find" hint is a promise/behaviour mismatch: real,
+  fully built — `Settings.jsx`'s Notifications section renders a genuine
+  `AlertSettings` component when signed in, backed by real Supabase/Resend
+  integration (`@supabase/supabase-js`, `razorpay`, `@sentry/react` are all
+  real dependencies in `package.json`, not aspirational). Confirms this
+  project has more real backend surface than `CLAUDE.md`'s "no backend, all
+  state in localStorage" line describes for `src/` alone — that line is
+  accurate for the *quiz/discovery* half but the account/sync/payments path
+  genuinely talks to Supabase, Razorpay and Resend. Not a gap, not
+  something to fix (the line describes the SPA's default/guest path
+  correctly), but worth noting for future research runs so nobody logs
+  "no backend" as a reason to reject a signed-in-only feature without
+  checking first.
+- Affiliate links / vendor deal codes — already deliberately absent by
+  design (`TrustPanel.jsx:118`, `Methodology.jsx:132` both state "no
+  affiliate links" as a trust position) and already REJECTED in this file
+  (line 3830). Re-confirmed, not re-logged.
+- i18n / regional-language localization — confirmed genuinely absent
+  (`grep -rniE "i18n|locale|translat"` returns no real hits), and worth
+  naming explicitly as *considered and passed over* rather than silently
+  skipped: Toolnaut's INR-aware pricing (`region.js`) and Razorpay
+  integration suggest a partly Indian audience, which is exactly the profile
+  full localization would serve. Not logged as an OPEN gap because it fails
+  this file's own size test — translating the quiz, ~1000 tool blurbs, all
+  marketing copy and every UI string is an L-or-larger, ongoing-maintenance
+  commitment with no scoped-down S/M slice, unlike every other entry in this
+  file. A single-language toggle with no actual translations would be worse
+  than not having one.
+
+Also ran `npm run build` and `npm run smoke` directly (not just as part of
+this backlog check) to look for a small real fix per the "small real
+improvement" allowance: build produced all 19 static routes + 1075 tool
+pages with no errors, smoke rendered all 24 routes clean with 0 console
+errors on each. No bug found to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap and
+made no code change this run.
