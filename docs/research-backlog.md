@@ -8343,3 +8343,50 @@ sync/updated`): zero hits. No stale claim to fix.
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap and
 made no code change this run.
+
+---
+
+### Research check 2026-09-30 06:00 UTC — no new gap found, two OPEN entries re-verified against current master
+First research run of the day. CI green on `master` (`Release`/`CI` both
+passing at `404b855`; the newer `48be4d5` radar-publish commit hadn't yet
+triggered a fresh run), `npm run radar:health` `OK` (2 runs in the 26h
+window, last publish 5.3h ago, 7 tools, feed at 401 total), no `agent-fixable`
+issues open.
+
+Re-verified two OPEN entries directly against current code rather than
+trusting their last-checked date, since yesterday shipped two features
+(Command Palette, self-reported time-value calculator) that could have made
+either stale:
+- "The public search page's own placeholder promises task search" (found
+  2026-09-16): read `src/utils/search.js` in full — `matchesQuery()` is
+  still an exact-substring-per-word check with no stem/prefix matching, so
+  "transcribe meetings" still returns zero results against the live catalog
+  while `Otter.ai`/`Notta`/`Fireflies.ai` etc. remain unreachable by that
+  query. Still accurate, still OPEN, still build-ready.
+- "None of the app's 7 modal overlays trap keyboard focus" (found
+  2026-09-28, the same day `CommandPalette.jsx` shipped): confirmed the
+  entry already accounts for `CommandPalette.jsx` in its seven-surface count
+  (it was written the same evening the palette landed) — no update needed,
+  not stale.
+
+Checked one fresh pattern from this run's competitor search: a proprietary
+"Trust Score" / "Verified" badge system, used by several smaller AI-tool
+review sites (e.g. Mr Review AI) to rank/badge listings. Deliberately not
+logged as a gap — `TrustPanel.jsx`'s own header comment states the
+component's whole design principle is "everything is derived, nothing is
+invented," and a numeric trust score has no honest catalogue-derived source
+(no review volume, no uptime data, no independent audit) to compute it from;
+inventing one would be the same fabricated-number problem this file's own
+"Stack cost estimate" and "RankmyAI funding data" entries above already
+reject for the same reason. `TrustPanel.jsx`'s existing "Watch out for" /
+"Last checked" / "Commercial ties" rows already give a visitor everything a
+trust score would gesture at, without inventing a score.
+
+Also checked the second half of that badge idea (per-tool "Verified" status)
+against what Toolnaut already ships: `ToolDetail.jsx`'s existing
+Active/Uncertain/Discontinued status badge, sourced from radar's own
+`status` field, already is the honest version of "verified" — no gap there
+either.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap and
+made no code change this run.
