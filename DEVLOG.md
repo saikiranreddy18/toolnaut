@@ -9,6 +9,87 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-09-30
+
+**Radar health:** `OK` — 2 runs in the last 26h window, most recent publish
+2.3h ago (6 tools), feed now at 407 tools total in `public/tools.json` (up
+from 394 at the start of the day).
+
+**Researched today:** four research-hour passes (06:11, 09:06, 12:09, 15:09
+UTC, the last off-cycle). The backlog already held two well-developed,
+build-ready OPEN entries from yesterday's queue (the focus-trap gap and the
+OpenSearch descriptor), so three of the four passes looked for drift instead
+of adding new ground: re-verified two existing OPEN entries and rejected an
+invented "trust score" pattern that didn't hold up (06:11), checked the
+MCP-marketplace and verified-review angles against current `master` and
+found both already covered (09:06), and confirmed `Legal.jsx`'s alert-email
+claim is backed by a real Supabase/Resend integration, not just
+`localStorage` (12:09). The 15:09 off-cycle pass tried three fresh angles —
+a WebSearch for September AI-directory launches, a `capabilityMatrix.js`
+promise check, and an attempt to reach real Vercel telemetry (no project
+connected to this session's credentials) — and found nothing new. All 32
+OPEN entries remain build-ready.
+
+**Shipped today:** the focus-trap gap queued up yesterday — **"None of the
+app's 7 modal overlays trap keyboard focus."** `DeleteAccount.jsx`,
+`CommandPalette.jsx`, `InstallPrompt.jsx`, `GuestImportPrompt.jsx`,
+`AppTour.jsx`, the mobile chat bottom sheet in `AppShell.jsx`, and
+`GalaxyExplorer.jsx` all had `role="dialog"` but none of them kept Tab
+inside — a keyboard user tabbing through any of them, `DeleteAccount`'s
+irreversible confirmation included, was dropped into the page behind the
+backdrop with no visual sign the modal lost their input. Added
+`src/hooks/useFocusTrap.js` (wraps Tab/Shift+Tab at the dialog boundary,
+restores focus to the trigger on close — the two halves of the WAI-ARIA
+Dialog pattern) and wired it into all seven; `GalaxyExplorer` also picked up
+the `role="dialog"`/`aria-modal` it never had. One deviation from the
+backlog's spec: the unit test targets a pure `wrapTarget()` helper extracted
+from the hook rather than mounting a real DOM fixture, because this repo has
+no jsdom or component-testing infra and `test:app` only ever tests pure
+`src/utils/*` logic — adding a DOM-testing stack for one hook would have
+been a bigger diff than the fix itself. The DOM glue was verified live
+instead: a real-browser Playwright check against the built app confirmed Tab
+wraps inside `CommandPalette` without escaping to the page behind it, and
+closing it returns focus to the "Quick jump" trigger button.
+`DeleteAccount`'s dialog couldn't be exercised the same way in this sandbox
+(it renders nothing without an authenticated Supabase session) but uses the
+identical `useFocusTrap(dialogRef, open)` call as the verified surfaces.
+
+Also shipped the small bonus improvement queued alongside it: a
+`public/opensearch.xml` descriptor plus a `<link rel="search">` tag in
+`index.html`, so Chrome/Firefox/Edge can auto-detect toolnaut.xyz as an
+address-bar search engine pointing at the `/search?q=` page that already
+exists — no suggestions endpoint, no install-prompt UI, exactly as scoped.
+
+All three checks green (311 app tests + 106 radar tests, build, smoke — 24
+routes, zero console errors), pushed directly to `master` — sha
+[`70ceb14`](https://github.com/saikiranreddy18/toolnaut/commit/70ceb14). Both
+gaps marked `SHIPPED` in the backlog. **Visible on toolnaut.xyz today**: the
+OpenSearch tag is crawlable immediately on any page load; the focus trap is
+live the moment a keyboard user opens any of the seven dialogs, once this
+deploy lands.
+
+**Still stuck:** the open-PR backlog (issue #67) has grown, not shrunk —
+**27 open `bot/*` PRs** now (`#3`…`#82`), oldest almost five weeks old.
+Several duplicate each other's intent. Not this routine's job to clear —
+CLAUDE.md's PR workflow governs those agent runs, this routine ships
+straight to `master` — but it keeps growing and is worth a human's
+attention. Also still open, unrelated to this routine: #74 (release
+workflow blocked by an orphaned tag), #69 and #34 (the `review` CI check
+failing on every PR), #52 (release workflow tag collisions), #11
+(re-enriching the radar catalogue for real scorecard coverage).
+
+**Queued next:** the leaderboard-goes-real gap (`src/utils/leaderboardData.js`
+still serves `SAMPLE_LEADERBOARD` to `RankCard.jsx` though real Supabase
+accounts and sync have existed for a while) is the next-highest-value OPEN
+entry, but it needs a new `supabase/migrations/0008_leaderboard.sql` applied
+to the live project — bigger than an S/M slice and riskier to ship
+unattended than today's a11y fix, so it's flagged rather than attempted.
+"Download my data" (the counterpart to the already-shipped "Delete my
+account" flow) is the next build-ready smaller gap if a lighter day is
+needed instead.
+
+---
+
 ## 2026-09-29
 
 **Radar health:** `OK` — 2 runs in the last 26h window, most recent publish

@@ -7973,7 +7973,20 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### None of the app's 7 modal overlays trap keyboard focus — Tab walks a keyboard user straight through the backdrop into the page behind it
-- **Status:** OPEN
+- **Status:** SHIPPED 70ceb14 (2026-09-30) — `src/hooks/useFocusTrap.js` wired
+  into all 7 surfaces exactly as scoped below. One deviation from the spec:
+  the unit test targets a pure `wrapTarget()` helper extracted from the hook
+  rather than mounting a real DOM fixture — this repo has no jsdom (or any
+  React-component-testing infra) installed, and `test:app` only ever tests
+  pure `src/utils/*` logic, so adding one for a single hook's test would have
+  been a bigger diff than the hook itself. The DOM glue (querySelectorAll,
+  `.focus()`) is manually verified instead: a real-browser Playwright check
+  against the built app confirmed Tab wraps inside CommandPalette, never
+  escapes to the page behind it, and Escape restores focus to the "Quick
+  jump" trigger. DeleteAccount's dialog (the highest-stakes surface) could
+  not be exercised the same way in this environment — it renders `null`
+  without an authenticated Supabase session — but uses the identical
+  `useFocusTrap(dialogRef, open)` wiring as the verified surfaces.
 - **Seen in:** not a competitor pattern — a baseline conformance gap against
   the WAI-ARIA Authoring Practices Guide's own Dialog (Modal) pattern, which
   every serious component library (Radix `Dialog`, Headless UI `Dialog`,
@@ -8069,7 +8082,11 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### No OpenSearch descriptor — the site's own `/search?q=` page is invisible to every browser's built-in "add as a search engine" detector
-- **Status:** OPEN
+- **Status:** SHIPPED 70ceb14 (2026-09-30) — bundled as this same run's small
+  bonus improvement alongside the focus-trap feature above, built exactly as
+  scoped below: `public/opensearch.xml` plus the one `<link rel="search">`
+  tag in `index.html`. No suggestions endpoint, no install-prompt UI, no
+  `Discover.jsx` equivalent — same exclusions as originally scoped.
 - **Seen in:** this is a decades-old, still-supported browser standard (the
   `<link rel="search" type="application/opensearchdescription+xml">` tag),
   not a competitor-specific pattern — but directory sites are exactly where
