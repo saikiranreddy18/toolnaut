@@ -177,7 +177,9 @@
       "inventor-of-chatgpt-and-rlhf-launches-typesafeai",
       "tinyaiarena-watch-ai-agents-battle-it-out",
       "appmaker",
-      "termaxa"
+      "termaxa",
+      "vibe-coding-discover",
+      "agentcap"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -352,7 +354,9 @@
       "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai",
       "course-tinyaiarena-watch-ai-agents-battle-it-out",
       "course-appmaker",
-      "course-termaxa"
+      "course-termaxa",
+      "course-vibe-coding-discover",
+      "course-agentcap"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -497,7 +501,9 @@
       "crypllm-ai-chat-agent-for-cryptool-2",
       "banker",
       "ufo-core-multiplayer-agentic-environs",
-      "talktome"
+      "talktome",
+      "vibe-coding-discover",
+      "fab"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -549,7 +555,9 @@
       "course-crypllm-ai-chat-agent-for-cryptool-2",
       "course-banker",
       "course-ufo-core-multiplayer-agentic-environs",
-      "course-talktome"
+      "course-talktome",
+      "course-vibe-coding-discover",
+      "course-fab"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -919,7 +927,12 @@
       "open-source-skills-for-end-to-end-video-ad-campaigns",
       "talktome",
       "investment-bets",
-      "hnwatch"
+      "hnwatch",
+      "infinihash-app-store",
+      "fab",
+      "giving-voice-agents-a-voice-that-adapts-to-context",
+      "coreweave-aria-ai-research-and-iteration-agent",
+      "semrush-ai-tool"
     ],
     "courses": [
       "course-headless-tools",
@@ -1132,7 +1145,12 @@
       "course-open-source-skills-for-end-to-end-video-ad-campaigns",
       "course-talktome",
       "course-investment-bets",
-      "course-hnwatch"
+      "course-hnwatch",
+      "course-infinihash-app-store",
+      "course-fab",
+      "course-giving-voice-agents-a-voice-that-adapts-to-context",
+      "course-coreweave-aria-ai-research-and-iteration-agent",
+      "course-semrush-ai-tool"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2257,7 +2275,9 @@
       "friday",
       "mcpjam",
       "vscode-mcp-api",
-      "open-health-atlas"
+      "open-health-atlas",
+      "vibe-coding-discover",
+      "semrush-ai-tool"
     ],
     "courses": [
       "course-coolplugz",
@@ -2285,7 +2305,9 @@
       "course-friday",
       "course-mcpjam",
       "course-vscode-mcp-api",
-      "course-open-health-atlas"
+      "course-open-health-atlas",
+      "course-vibe-coding-discover",
+      "course-semrush-ai-tool"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2412,7 +2434,8 @@
       "my-ai-agent-gets-his-own-calendar",
       "ipad-computer-use",
       "talktome",
-      "pyunto"
+      "pyunto",
+      "coreweave-aria-ai-research-and-iteration-agent"
     ],
     "courses": [
       "course-hermes-agent",
@@ -2421,7 +2444,8 @@
       "course-my-ai-agent-gets-his-own-calendar",
       "course-ipad-computer-use",
       "course-talktome",
-      "course-pyunto"
+      "course-pyunto",
+      "course-coreweave-aria-ai-research-and-iteration-agent"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2996,7 +3020,8 @@
       "i-built-a-router-for-agent-tools",
       "an-open-add-search-evaluation-framework-for-agent-memory",
       "recursively-scaling-auto-research-loops-for-efficient-agent-",
-      "ufo-core-multiplayer-agentic-environs"
+      "ufo-core-multiplayer-agentic-environs",
+      "vibe-coding-discover"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3031,7 +3056,8 @@
       "course-i-built-a-router-for-agent-tools",
       "course-an-open-add-search-evaluation-framework-for-agent-memory",
       "course-recursively-scaling-auto-research-loops-for-efficient-agent-",
-      "course-ufo-core-multiplayer-agentic-environs"
+      "course-ufo-core-multiplayer-agentic-environs",
+      "course-vibe-coding-discover"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3864,7 +3890,8 @@
       "observational-reconstruction-then-the-inverse-problem",
       "selfshipai",
       "stroq",
-      "ai-cost-dashboard-is-probably-wrong"
+      "ai-cost-dashboard-is-probably-wrong",
+      "agentcap"
     ],
     "courses": [
       "course-agenttrail",
@@ -3872,7 +3899,8 @@
       "course-observational-reconstruction-then-the-inverse-problem",
       "course-selfshipai",
       "course-stroq",
-      "course-ai-cost-dashboard-is-probably-wrong"
+      "course-ai-cost-dashboard-is-probably-wrong",
+      "course-agentcap"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3892,7 +3920,8 @@
       "pizza-bot",
       "ai-agents-now-have-a-place-to-snitch",
       "ai-crawler-honeypot",
-      "agentmeasure"
+      "agentmeasure",
+      "agentcap"
     ],
     "courses": [
       "course-agenttrail",
@@ -3905,7 +3934,8 @@
       "course-pizza-bot",
       "course-ai-agents-now-have-a-place-to-snitch",
       "course-ai-crawler-honeypot",
-      "course-agentmeasure"
+      "course-agentmeasure",
+      "course-agentcap"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4225,7 +4255,10 @@
       "wvm",
       "logo-design-skill",
       "search2o",
-      "investment-bets"
+      "investment-bets",
+      "infinihash-app-store",
+      "fab",
+      "agentcap"
     ],
     "courses": [
       "course-placeroot",
@@ -4252,7 +4285,10 @@
       "course-wvm",
       "course-logo-design-skill",
       "course-search2o",
-      "course-investment-bets"
+      "course-investment-bets",
+      "course-infinihash-app-store",
+      "course-fab",
+      "course-agentcap"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4612,7 +4648,9 @@
       "vim-like-hyper-efficient-llm-power-tool",
       "aclif",
       "crt",
-      "banker"
+      "banker",
+      "fab",
+      "semrush-ai-tool"
     ],
     "courses": [
       "course-devx",
@@ -4631,7 +4669,9 @@
       "course-vim-like-hyper-efficient-llm-power-tool",
       "course-aclif",
       "course-crt",
-      "course-banker"
+      "course-banker",
+      "course-fab",
+      "course-semrush-ai-tool"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5391,10 +5431,12 @@
     "domain": "learning",
     "level": "intermediate",
     "toolsTeaching": [
-      "chessrabbit"
+      "chessrabbit",
+      "coreweave-aria-ai-research-and-iteration-agent"
     ],
     "courses": [
-      "course-chessrabbit"
+      "course-chessrabbit",
+      "course-coreweave-aria-ai-research-and-iteration-agent"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -5783,11 +5825,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "ai-engineer-notebooks",
-      "hermes-agent-demo"
+      "hermes-agent-demo",
+      "vibe-coding-discover"
     ],
     "courses": [
       "course-ai-engineer-notebooks",
-      "course-hermes-agent-demo"
+      "course-hermes-agent-demo",
+      "course-vibe-coding-discover"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -6842,12 +6886,14 @@
     "toolsTeaching": [
       "microsoft-publishes-ai-agent-shared-responsibility-model",
       "trustnotch",
-      "ai-agents-now-have-a-place-to-snitch"
+      "ai-agents-now-have-a-place-to-snitch",
+      "infinihash-app-store"
     ],
     "courses": [
       "course-microsoft-publishes-ai-agent-shared-responsibility-model",
       "course-trustnotch",
-      "course-ai-agents-now-have-a-place-to-snitch"
+      "course-ai-agents-now-have-a-place-to-snitch",
+      "course-infinihash-app-store"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -7472,10 +7518,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals"
+      "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
+      "giving-voice-agents-a-voice-that-adapts-to-context"
     ],
     "courses": [
-      "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals"
+      "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
+      "course-giving-voice-agents-a-voice-that-adapts-to-context"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -12041,12 +12089,14 @@
     "toolsTeaching": [
       "awesome-geo-tools",
       "google-seo-mcp",
-      "ecommerce-ai-tools"
+      "ecommerce-ai-tools",
+      "semrush-ai-tool"
     ],
     "courses": [
       "course-awesome-geo-tools",
       "course-google-seo-mcp",
-      "course-ecommerce-ai-tools"
+      "course-ecommerce-ai-tools",
+      "course-semrush-ai-tool"
     ],
     "updatedAt": "2026-09-07T15:05:03.707Z"
   },
@@ -13287,10 +13337,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "t3rnel-browser"
+      "t3rnel-browser",
+      "fab"
     ],
     "courses": [
-      "course-t3rnel-browser"
+      "course-t3rnel-browser",
+      "course-fab"
     ],
     "updatedAt": "2026-09-09T13:45:32.864Z"
   },
@@ -13787,10 +13839,12 @@
     "domain": "learning",
     "level": "intermediate",
     "toolsTeaching": [
-      "humble-bundle"
+      "humble-bundle",
+      "coreweave-aria-ai-research-and-iteration-agent"
     ],
     "courses": [
-      "course-humble-bundle"
+      "course-humble-bundle",
+      "course-coreweave-aria-ai-research-and-iteration-agent"
     ],
     "updatedAt": "2026-09-10T13:38:44.077Z"
   },
@@ -14341,10 +14395,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "cli-tools"
+      "cli-tools",
+      "vibe-coding-discover"
     ],
     "courses": [
-      "course-cli-tools"
+      "course-cli-tools",
+      "course-vibe-coding-discover"
     ],
     "updatedAt": "2026-09-10T23:24:02.732Z"
   },
@@ -17990,10 +18046,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "unmute"
+      "unmute",
+      "giving-voice-agents-a-voice-that-adapts-to-context"
     ],
     "courses": [
-      "course-unmute"
+      "course-unmute",
+      "course-giving-voice-agents-a-voice-that-adapts-to-context"
     ],
     "updatedAt": "2026-09-17T23:41:16.935Z"
   },
@@ -19088,5 +19146,135 @@
       "course-hnwatch"
     ],
     "updatedAt": "2026-09-29T15:55:26.286Z"
+  },
+  {
+    "id": "skill-app-store",
+    "name": "app store",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "infinihash-app-store"
+    ],
+    "courses": [
+      "course-infinihash-app-store"
+    ],
+    "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "skill-business-tools",
+    "name": "business tools",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "infinihash-app-store"
+    ],
+    "courses": [
+      "course-infinihash-app-store"
+    ],
+    "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "skill-ebpf",
+    "name": "ebpf",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "agentcap"
+    ],
+    "courses": [
+      "course-agentcap"
+    ],
+    "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "skill-grafana",
+    "name": "grafana",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "agentcap"
+    ],
+    "courses": [
+      "course-agentcap"
+    ],
+    "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "skill-voice design",
+    "name": "voice design",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "giving-voice-agents-a-voice-that-adapts-to-context"
+    ],
+    "courses": [
+      "course-giving-voice-agents-a-voice-that-adapts-to-context"
+    ],
+    "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "skill-adaptive voice",
+    "name": "adaptive voice",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "giving-voice-agents-a-voice-that-adapts-to-context"
+    ],
+    "courses": [
+      "course-giving-voice-agents-a-voice-that-adapts-to-context"
+    ],
+    "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "skill-speech",
+    "name": "speech",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "giving-voice-agents-a-voice-that-adapts-to-context"
+    ],
+    "courses": [
+      "course-giving-voice-agents-a-voice-that-adapts-to-context"
+    ],
+    "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "skill-ml-research",
+    "name": "ml research",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "coreweave-aria-ai-research-and-iteration-agent"
+    ],
+    "courses": [
+      "course-coreweave-aria-ai-research-and-iteration-agent"
+    ],
+    "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "skill-semrush",
+    "name": "semrush",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "semrush-ai-tool"
+    ],
+    "courses": [
+      "course-semrush-ai-tool"
+    ],
+    "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "skill-keyword-research",
+    "name": "keyword research",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "semrush-ai-tool"
+    ],
+    "courses": [
+      "course-semrush-ai-tool"
+    ],
+    "updatedAt": "2026-09-30T00:46:05.167Z"
   }
 ]

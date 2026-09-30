@@ -27068,5 +27068,396 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-09-29T15:55:26.286Z"
+  },
+  {
+    "id": "course-infinihash-app-store",
+    "toolSlug": "infinihash-app-store",
+    "title": "Master InfiniHash App Store",
+    "objectives": [
+      "Navigate the InfiniHash App Store and filter tools by compliance category",
+      "Install and configure an AI-built compliance tool in your workspace",
+      "Evaluate, test, and safely roll back a tool version"
+    ],
+    "modules": [
+      {
+        "title": "Finding and Evaluating Tools",
+        "estMinutes": 15,
+        "steps": [
+          "Open the App Store and filter by category (e.g., 'Compliance > Data Privacy'), then sort by 'Recently Updated'",
+          "Open a tool's detail page and review its agent-generated build log, permissions list, and version history",
+          "Compare two candidate tools on data-access scope and last validated compliance standard (e.g., SOC 2, GDPR)"
+        ]
+      },
+      {
+        "title": "Installing and Configuring a Tool",
+        "estMinutes": 20,
+        "steps": [
+          "Click 'Install' on your chosen tool, approve only the minimum required permissions, and assign it to a sandbox workspace",
+          "Run the tool's guided setup: map your data sources, set alert thresholds, and enable audit logging",
+          "Trigger a test run against sample data and confirm outputs appear in your dashboard"
+        ]
+      },
+      {
+        "title": "Versioning, Updates, and Rollback",
+        "estMinutes": 15,
+        "steps": [
+          "Enable update notifications and read the agent-generated release notes for the latest version before upgrading",
+          "Schedule the update in sandbox first, re-run your test case, and diff the results against the previous version",
+          "If results regress, use 'Roll Back' to restore the pinned version and export the audit log for your records"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-compliance",
+      "skill-ai-agents",
+      "skill-app-store",
+      "skill-business-tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "course-vibe-coding-discover",
+    "toolSlug": "vibe-coding-discover",
+    "title": "Master Vibe Coding Discover",
+    "objectives": [
+      "Find tools by capability, not hype",
+      "Evaluate repos for production fit",
+      "Shortlist an agent/MCP/RAG stack"
+    ],
+    "modules": [
+      {
+        "title": "Search the Catalog Efficiently",
+        "estMinutes": 12,
+        "steps": [
+          "Filter by category: agents, MCP servers, skills, and RAG.",
+          "Search one concrete task such as \"web research agent\" or \"Postgres MCP\".",
+          "Save 5 candidates that match your runtime and language."
+        ]
+      },
+      {
+        "title": "Evaluate Tool Quality",
+        "estMinutes": 15,
+        "steps": [
+          "Open each repo and check stars and last commit date.",
+          "Verify license, install steps, and example usage.",
+          "Flag tools with unclear auth, config, or data-retention behavior."
+        ]
+      },
+      {
+        "title": "Compare Fit for Your Stack",
+        "estMinutes": 14,
+        "steps": [
+          "Score candidates for setup effort, maintenance, and observability.",
+          "Check compatibility with your model provider and framework.",
+          "Drop tools missing tests, docs, or MCP schema clarity."
+        ]
+      },
+      {
+        "title": "Build a Shortlist and Test Plan",
+        "estMinutes": 10,
+        "steps": [
+          "Pick one primary and one fallback per capability.",
+          "Write a 30-minute smoke test for each finalist.",
+          "Define success metrics: latency, cost, accuracy, and failure modes."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-open-source",
+      "skill-agents",
+      "skill-mcp",
+      "skill-rag",
+      "skill-catalog"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "course-fab",
+    "toolSlug": "fab",
+    "title": "Master Fab",
+    "objectives": [
+      "Install Fab and drive a real browser session from the CLI",
+      "Extract structured data from pages using selectors and snapshots",
+      "Chain Fab commands into reproducible automation scripts"
+    ],
+    "modules": [
+      {
+        "title": "Setup & first browser session",
+        "estMinutes": 20,
+        "steps": [
+          "Install Fab via npm and run `fab doctor` to verify the browser driver and dependencies are configured",
+          "Launch a headless session with `fab open https://news.ycombinator.com` and confirm the page title prints to stdout",
+          "Re-run the same command with the `--headed` flag to watch the controlled browser window and compare behavior"
+        ]
+      },
+      {
+        "title": "Navigation & page interaction",
+        "estMinutes": 25,
+        "steps": [
+          "Use `fab click` and `fab type` to fill a search form (e.g., duckduckgo.com) and submit it, then capture the results URL",
+          "Run `fab snapshot --interactive` to list clickable elements with their refs, and click one by ref instead of a CSS selector",
+          "Practice waiting correctly: use `fab wait --selector` after navigation so your script doesn't read a half-loaded page"
+        ]
+      },
+      {
+        "title": "Data extraction & automation scripts",
+        "estMinutes": 25,
+        "steps": [
+          "Extract structured data with `fab eval` running a JS snippet that maps DOM nodes to JSON (e.g., top 10 HN titles and links)",
+          "Save the output with `fab snapshot --format json > results.json` and parse it with `jq` to pull a single field",
+          "Combine open → wait → extract into a single bash script with error handling, and pipe it into an AI agent prompt for summarization"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-browser",
+      "skill-cli",
+      "skill-ai-agents",
+      "skill-open-source"
+    ],
+    "prerequisites": [
+      "Comfortable with the command line and Node.js/npm",
+      "Basic knowledge of CSS selectors and DOM structure",
+      "A browser (Chromium-based) installed locally"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "course-agentcap",
+    "toolSlug": "agentcap",
+    "title": "Master Agentcap",
+    "objectives": [
+      "Deploy Agentcap as a DaemonSet and verify agent-activity eBPF probes attach cleanly",
+      "Parse and label the Prometheus metrics stream for AI-agent sessions, tokens, and tool calls",
+      "Build a Grafana dashboard with latency, cost, and anomaly-alert panels for agent workloads"
+    ],
+    "modules": [
+      {
+        "title": "Install Agentcap with kernel-safe probe config",
+        "estMinutes": 35,
+        "steps": [
+          "Confirm kernel >= 5.10 and CO-RE support (`bpftool feature probe kernel | grep btf`), then apply the Agentcap Helm chart with `--set probes.network=true,probes.syscalls=true` as a privileged DaemonSet",
+          "Check each node's pod logs for 'probe attached' lines and debug failures by disabling the tc-egress hook with `--set probes.tcEgress=false`",
+          "Curl the node-local endpoint `http://<node-ip>:9137/metrics` and confirm `agentcap_session_active` and `agentcap_llm_request_bytes_total` series appear"
+        ]
+      },
+      {
+        "title": "Wire metrics into Prometheus with agent-aware labeling",
+        "estMinutes": 30,
+        "steps": [
+          "Add a scrape job with Kubernetes SD targeting port 9137, and set relabel rules to copy pod namespace and `app` label onto all agentcap series",
+          "Configure Agentcap's `--agent-id-source=env:AGENT_NAME` flag so each AI agent emits a stable `agent_id` label; drop high-cardinality `session_uuid` labels via metric_relabel_configs",
+          "Validate with a PromQL query: `sum by (agent_id, llm_provider) (rate(agentcap_llm_tokens_total[5m]))` returning non-zero data"
+        ]
+      },
+      {
+        "title": "Build the Grafana ops dashboard and alerts",
+        "estMinutes": 40,
+        "steps": [
+          "Import Agentcap's bundled JSON dashboard, then add a time-series panel of p95 LLM request latency: `histogram_quantile(0.95, rate(agentcap_llm_duration_seconds_bucket[5m]))` grouped by agent_id",
+          "Add a cost panel multiplying token usage by per-provider pricing constants via `agentcap_llm_tokens_bytpe{token_type=\"output\"}` and a stat panel for active tool-call invocations per agent",
+          "Create an alert rule firing when `sum(rate(agentcap_tool_call_errors_total[10m])) / sum(rate(agentcap_tool_calls_total[10m])) > 0.15` for 15m, routed to your Slack/PagerDuty contact point"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ebpf",
+      "skill-observability",
+      "skill-grafana",
+      "skill-ai-agents",
+      "skill-monitoring"
+    ],
+    "prerequisites": [
+      "Working knowledge of eBPF concepts, kernel versions, and CO-RE",
+      "Admin access to a Kubernetes cluster (privileged DaemonSets allowed)",
+      "Fluent PromQL and intermediate Grafana dashboard/alerting experience",
+      "An existing Prometheus (or Mimir) + Grafana stack"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "course-giving-voice-agents-a-voice-that-adapts-to-context",
+    "toolSlug": "giving-voice-agents-a-voice-that-adapts-to-context",
+    "title": "Master Giving voice agents a voice that adapts to context",
+    "objectives": [
+      "Configure a TTS pipeline that switches voice parameters based on conversation context",
+      "Use tags or prompts to adjust tone, pace, and emotion per response",
+      "Build fallback rules so voice stays natural under uncertainty"
+    ],
+    "modules": [
+      {
+        "title": "Map context signals to voice parameters",
+        "estMinutes": 25,
+        "steps": [
+          "Define 4-6 context states your agent faces (e.g., greeting, apology, escalation, urgent alert) and list the desired tone, pace, and warmth for each",
+          "Create a state-to-config table in code mapping each context to TTS settings (voice ID, stability, speed, style)",
+          "Instrument your agent to emit the current context state at each turn so the TTS layer can consume it"
+        ]
+      },
+      {
+        "title": "Wire dynamic voice control into the TTS call",
+        "estMinutes": 30,
+        "steps": [
+          "Refactor your TTS function to accept a context parameter and apply the matching voice settings before sending text to the provider API",
+          "Add inline control where supported (SSML tags or expressive markers like pauses/emphasis) and write 5 sample responses with annotated markup",
+          "A/B test two parameter presets per context state and log latency, since streaming TTS settings can affect time-to-first-audio"
+        ]
+      },
+      {
+        "title": "Handle transitions and edge cases",
+        "estMinutes": 20,
+        "steps": [
+          "Smooth context switches by keeping the same base voice ID and only varying pace/style, avoiding jarring mid-call voice changes",
+          "Implement a fallback: if context classification confidence is low or the state is unknown, default to a neutral professional preset",
+          "Test failure paths (API timeout, unsupported character in markup) and verify the agent degrades to plain speech instead of silence"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-voice agents",
+      "skill-tts",
+      "skill-voice design",
+      "skill-adaptive voice",
+      "skill-speech"
+    ],
+    "prerequisites": [
+      "Working voice agent or chatbot pipeline with a TTS integration",
+      "Familiarity with a TTS API (e.g., ElevenLabs, Azure, Google TTS) and basic SSML",
+      "Basic backend coding skills (Node.js or Python)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "course-coreweave-aria-ai-research-and-iteration-agent",
+    "toolSlug": "coreweave-aria-ai-research-and-iteration-agent",
+    "title": "Master CoreWeave ARIA: AI Research and Iteration Agent",
+    "objectives": [
+      "Configure ARIA to run autonomous experiment sweeps on CoreWeave GPU clusters",
+      "Define training iteration loops with checkpointing, evaluation, and early-stop policies",
+      "Monitor agent-driven runs and control cost via quotas and spot-instance policies"
+    ],
+    "modules": [
+      {
+        "title": "Connecting ARIA to Your CoreWeave Cluster",
+        "estMinutes": 25,
+        "steps": [
+          "Install the ARIA CLI and authenticate with your CoreWeave API token and kubeconfig context",
+          "Create an aria.yaml manifest specifying GPU type (e.g., 8x H100), namespace, and storage class for checkpoints",
+          "Run 'aria doctor' to validate cluster permissions, CSI volumes, and network access to your model registry"
+        ]
+      },
+      {
+        "title": "Defining an Autonomous Research Loop",
+        "estMinutes": 40,
+        "steps": [
+          "Write an experiment spec with hyperparameter search space, training entrypoint, and evaluation metric (e.g., val loss) to optimize",
+          "Set iteration policy: max parallel trials, early-stop threshold, and checkpoint-to-S3 interval for fault recovery",
+          "Launch with 'aria run experiment.yaml' and inspect the agent's first proposed configurations via 'aria status --trials'"
+        ]
+      },
+      {
+        "title": "Monitoring, Overrides, and Cost Control",
+        "estMinutes": 30,
+        "steps": [
+          "Stream live trial metrics with 'aria logs --follow' and link Prometheus/Grafana to the ARIA metrics endpoint",
+          "Inject a human override to kill a diverging trial and re-seed the search with 'aria intervene --kill-trial <id> --adjust-lr'",
+          "Configure spend guardrails: max GPU-hours budget, spot-fallback policy, and Slack alerts on budget threshold"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai-agent",
+      "skill-ml-research",
+      "skill-training",
+      "skill-cloud"
+    ],
+    "prerequisites": [
+      "Experience training ML models on multi-GPU Kubernetes clusters",
+      "Familiarity with CoreWeave SUNK or native k8s job submission",
+      "Working knowledge of YAML experiment configs and hyperparameter tuning"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-30T00:46:05.167Z"
+  },
+  {
+    "id": "course-semrush-ai-tool",
+    "toolSlug": "semrush-ai-tool",
+    "title": "Master semrush-ai-tool",
+    "objectives": [
+      "Connect Claude or another MCP client to the semrush-ai-tool server and verify authentication",
+      "Run keyword and domain overview queries via CLI and MCP prompts to extract actionable SEO metrics",
+      "Use backlink and competitor gap analysis to build a prioritized outreach and content plan"
+    ],
+    "modules": [
+      {
+        "title": "Setup & Authentication",
+        "estMinutes": 20,
+        "steps": [
+          "Install the CLI (npm install -g semrush-ai-tool) and export your SEMRUSH_API_KEY as an environment variable",
+          "Add the server to your MCP client config (e.g., claude_desktop_config.json) with the correct command and env block",
+          "Run 'semrush-ai auth check' and a test domain overview for example.com to confirm API quota access"
+        ]
+      },
+      {
+        "title": "Keyword & Domain Research",
+        "estMinutes": 35,
+        "steps": [
+          "From the CLI, run a domain overview for your site and export organic keywords with position, volume, and difficulty filters (KD < 50, volume > 200)",
+          "In your MCP client, prompt: 'Find keyword gaps between mysite.com and competitor.com with keyword_magic filters' and interpret the returned table",
+          "Cluster 20 target keywords by intent using the phrase_related keyword set and save results to CSV for content planning"
+        ]
+      },
+      {
+        "title": "Backlink & Competitor Analysis",
+        "estMinutes": 30,
+        "steps": [
+          "Query your competitor's backlink profile via the MCP backlink_analytics tool, filtering by Authority Score and do-follow links",
+          "Run a backlink gap comparison between your domain and two competitors to list referring domains they share that you lack",
+          "Prioritize the top 10 link prospects into an outreach list and set weekly position-tracking queries for your target keywords"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-seo",
+      "skill-semrush",
+      "skill-mcp",
+      "skill-keyword-research",
+      "skill-cli"
+    ],
+    "prerequisites": [
+      "Active Semrush account with API access and an API key",
+      "Node.js 18+ installed for the CLI",
+      "An MCP-compatible client (Claude Desktop, Cursor, etc.) configured and running"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-09-30T00:46:05.167Z"
   }
 ]
