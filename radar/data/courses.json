@@ -27828,5 +27828,455 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-09-30T15:56:40.668Z"
+  },
+  {
+    "id": "course-nine",
+    "toolSlug": "nine",
+    "title": "Master Nine",
+    "objectives": [
+      "Install and bootstrap the Nine single-binary runtime and run a WASM-hosted agent",
+      "Register persistent agent tools and manage tool state across sessions",
+      "Author, compile, and sandbox a custom WASM tool module for the runtime"
+    ],
+    "modules": [
+      {
+        "title": "Install & First Agent Session",
+        "estMinutes": 20,
+        "steps": [
+          "Download the platform-specific nine binary, verify its checksum, and place it on your PATH",
+          "Run `nine init` to scaffold the runtime config and model provider credentials, then confirm setup with `nine doctor`",
+          "Launch an interactive agent loop with `nine run` and execute a simple task to inspect its tool-call trace"
+        ]
+      },
+      {
+        "title": "Persistent Tools & Agent Memory",
+        "estMinutes": 30,
+        "steps": [
+          "Enable the built-in persistent tool manifest and restart the runtime to observe tools surviving across sessions",
+          "Configure the state store (embedded KV or SQLite path) and inspect on-disk entries written between runs",
+          "At runtime, register a new tool via the manifest/API, restart nine, and verify the agent still calls it without re-registration"
+        ]
+      },
+      {
+        "title": "Custom WASM Tool Modules",
+        "estMinutes": 45,
+        "steps": [
+          "Scaffold a WASI module in Rust (or AssemblyScript) exporting a tool entrypoint per nine's guest ABI, define its input/output JSON schema",
+          "Compile to wasm32-wasi with wasm-opt applied, then install the .wasm artifact into nine's tools directory and add a manifest entry with declared capabilities",
+          "Test sandboxing: unset filesystem/network capabilities, invoke the tool via `nine call <tool>`, and confirm host-access denials behave as expected"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai-runtime",
+      "skill-wasm",
+      "skill-agents",
+      "skill-open-source",
+      "skill-harness"
+    ],
+    "prerequisites": [
+      "Comfortable with CLI workflows and shell environment configuration",
+      "Working knowledge of Rust or AssemblyScript and wasm32-wasi toolchains",
+      "Familiarity with agent loops, tool/function calling, and sandbox capability models"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-01T00:50:30.348Z"
+  },
+  {
+    "id": "course-quiet",
+    "toolSlug": "quiet",
+    "title": "Master Quiet",
+    "objectives": [
+      "Understand what Quiet is for",
+      "Use Quiet on a real task",
+      "Know where Quiet fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Quiet for your real workflow, not the demo.",
+          "Say what Quiet does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Quiet.",
+          "Push Quiet to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Quiet into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai assistant",
+      "skill-proactive ai",
+      "skill-hci",
+      "skill-experiment",
+      "skill-intervention"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-01T00:50:30.348Z"
+  },
+  {
+    "id": "course-kyno",
+    "toolSlug": "kyno",
+    "title": "Master Kyno",
+    "objectives": [
+      "Define and compose direction primitives to steer agent behavior at runtime",
+      "Build an agent that updates its direction based on intermediate results",
+      "Debug and trace directional drift in multi-step agent runs"
+    ],
+    "modules": [
+      {
+        "title": "Direction as a Primitive",
+        "estMinutes": 25,
+        "steps": [
+          "Install Kyno and scaffold a project: kyno init steering-demo, then open the generated agent.yaml",
+          "Write a Direction object with goal, constraints, and priority fields, and attach it to a basic agent run",
+          "Run kyno trace to inspect how the direction influenced each model call and tool selection"
+        ]
+      },
+      {
+        "title": "Dynamic Steering Loops",
+        "estMinutes": 35,
+        "steps": [
+          "Implement an onStep hook that rewrites the agent's direction when a tool returns a low-confidence result",
+          "Compose two directions (e.g., 'explore broadly' then 'converge on best option') using Kyno's direction sequencing API",
+          "Add a guardrail constraint that blocks the agent from calling cost-heavy tools after a token budget threshold"
+        ]
+      },
+      {
+        "title": "Debugging Directional Drift",
+        "estMinutes": 30,
+        "steps": [
+          "Replay a failing run with kyno replay --inspect to visualize where the agent's actions diverged from its direction",
+          "Add direction assertions (kyno assert alignment) to flag steps whose tool calls contradict active constraints",
+          "Tune direction specificity and re-run, comparing trace diffs to measure reduced drift"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-framework",
+      "skill-open-source",
+      "skill-direction",
+      "skill-orchestration"
+    ],
+    "prerequisites": [
+      "Experience building LLM agents with tool use (e.g., function calling, ReAct loops)",
+      "Comfortable writing TypeScript or Python middleware/hooks",
+      "An API key for at least one LLM provider"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-01T00:50:30.348Z"
+  },
+  {
+    "id": "course-growthengineer",
+    "toolSlug": "growthengineer",
+    "title": "Master Growth.engineer",
+    "objectives": [
+      "Install and run a vetted growth workflow template from the Growth.engineer registry",
+      "Customize a template's agent instructions and data inputs for a real campaign",
+      "Evaluate and fork templates safely, checking vetting status and source before running"
+    ],
+    "modules": [
+      {
+        "title": "Explore and Install Templates",
+        "estMinutes": 20,
+        "steps": [
+          "Browse the Growth.engineer registry and filter templates by growth stage (acquisition, activation, retention) and agent framework compatibility",
+          "Inspect a template's vetting badge, source repo, and last-reviewed date, then read its README to confirm required API keys and permissions",
+          "Install one template (e.g., an onboarding email sequence generator) into your local project and verify the scaffolded files match the registry checksum"
+        ]
+      },
+      {
+        "title": "Customize a Workflow for Your Funnel",
+        "estMinutes": 35,
+        "steps": [
+          "Edit the template's config file to point at your data source (e.g., your CRM export or analytics API) and define your target user segment",
+          "Rewrite the agent's prompt/instruction block with your brand voice, offer, and success metric, keeping the template's safety constraints intact",
+          "Run the workflow in dry-run mode, review the agent's output plan, and approve a small live run (e.g., 50 contacts) before scaling"
+        ]
+      },
+      {
+        "title": "Evaluate, Fork, and Contribute",
+        "estMinutes": 25,
+        "steps": [
+          "Compare two competing templates for the same task by running both on a sample dataset and scoring output quality, cost, and latency",
+          "Fork a template to a private repo, add your own step (e.g., A/B variant assignment), and pin it to a specific version to avoid upstream drift",
+          "Optionally, submit a review or improvement back to the registry with test results so the vetting signal stays current"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-growth",
+      "skill-workflows",
+      "skill-open-source",
+      "skill-ai-agents",
+      "skill-marketing"
+    ],
+    "prerequisites": [
+      "Experience running AI agents or LLM-based workflows (any framework)",
+      "Comfort editing JSON/YAML configs and running CLI tools",
+      "Access to a real or sample growth dataset (CRM, analytics, or email list)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-01T00:50:30.348Z"
+  },
+  {
+    "id": "course-perspica",
+    "toolSlug": "perspica",
+    "title": "Master Perspica",
+    "objectives": [
+      "Review a pull request using Perspica's semantic diff view instead of a raw line diff",
+      "Configure Perspica to flag behavior changes and refactorings separately",
+      "Integrate Perspica into a CI pipeline and interpret its change-summary annotations"
+    ],
+    "modules": [
+      {
+        "title": "Semantic Diff Basics",
+        "estMinutes": 20,
+        "steps": [
+          "Install the Perspica CLI and connect it to a local git repo with `perspica init`",
+          "Run `perspica diff main feature-branch` and compare its grouped, intent-labeled hunks against the plain `git diff` output",
+          "Use the keyboard-driven reviewer UI to accept, annotate, or defer each semantic change cluster"
+        ]
+      },
+      {
+        "title": "Filtering Signal from Noise",
+        "estMinutes": 25,
+        "steps": [
+          "Edit `.perspicarc` to classify changes: mark renames and formatting as 'cosmetic' and logic edits as 'behavioral'",
+          "Review a noisy PR (e.g., an auto-formatted file mixed with real changes) using `perspica diff --only behavioral` to isolate meaningful edits",
+          "Tune the similarity threshold so moved-but-unchanged functions stop appearing as modifications"
+        ]
+      },
+      {
+        "title": "CI Integration and Team Workflow",
+        "estMinutes": 25,
+        "steps": [
+          "Add Perspica's PR comment action to a CI workflow so every pull request gets an auto-generated semantic summary",
+          "Set a policy that blocks merge when 'behavioral' changes lack a reviewer annotation",
+          "Practice a full review cycle: push a branch with mixed changes, read the CI summary, comment on flagged logic changes, and approve"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-code review",
+      "skill-diff",
+      "skill-semantic analysis",
+      "skill-developer tools",
+      "skill-open source"
+    ],
+    "prerequisites": [
+      "Comfortable with git branching and pull request workflows",
+      "Experience using command-line developer tools",
+      "Basic familiarity with at least one CI system (e.g., GitHub Actions)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-01T00:50:30.348Z"
+  },
+  {
+    "id": "course-openappa-deterministic-guardrails-that-dont-break-agents",
+    "toolSlug": "openappa-deterministic-guardrails-that-dont-break-agents",
+    "title": "Master OpenAPPA: Deterministic guardrails that don't break agents",
+    "objectives": [
+      "Define deterministic guardrail rules that intercept agent tool calls without breaking autonomy",
+      "Compose policy chains (allow/deny/transform) for multi-step agent workflows",
+      "Audit and debug guardrail decisions using OpenAPPA's decision trace logs"
+    ],
+    "modules": [
+      {
+        "title": "Core Concepts: Policies, Scopes, Enforcement Points",
+        "estMinutes": 25,
+        "steps": [
+          "Install the framework (`pip install openappa`) and scaffold a project with `openappa init`",
+          "Write your first policy: deny shell commands matching a regex in `policies/shell.yaml`",
+          "Wrap a sample agent's tool executor with `openappa.guard(executor)` and verify blocked calls return structured denials, not exceptions"
+        ]
+      },
+      {
+        "title": "Writing Non-Breaking Guardrails",
+        "estMinutes": 35,
+        "steps": [
+          "Implement a transform rule that redacts PII from tool arguments before execution using the `on_match: transform` hook",
+          "Add fallback behaviors: configure `on_deny: respond_with_reason` so the agent receives actionable feedback and can retry",
+          "Test escalation rules that require human approval for destructive actions (e.g., file deletion) via the `require_approval` scope"
+        ]
+      },
+      {
+        "title": "Policy Composition for Multi-Step Agents",
+        "estMinutes": 30,
+        "steps": [
+          "Chain three policies (rate limit, schema validation, content filter) using `openappa.chain()` and observe evaluation order",
+          "Define session-scoped rules that restrict an agent to a working directory using context variables",
+          "Simulate a 10-step agent run against your chain and confirm zero policy violations allowed unsafe state changes"
+        ]
+      },
+      {
+        "title": "Auditing and Debugging Decision Traces",
+        "estMinutes": 20,
+        "steps": [
+          "Enable trace logging with `openappa.config(trace=True)` and run a guarded agent session",
+          "Inspect the trace output to identify which policy fired on each tool call and why",
+          "Reproduce and fix a false-positive denial by relaxing an overly broad regex rule, then re-run the trace to confirm"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-guardrails",
+      "skill-agents",
+      "skill-safety",
+      "skill-open-source",
+      "skill-llmops"
+    ],
+    "prerequisites": [
+      "Experience building or orchestrating LLM agents (e.g., LangChain, custom tool loops)",
+      "Comfortable with YAML configuration and Python middleware/decorator patterns",
+      "Understanding of common agent failure modes (prompt injection, unsafe tool use, runaway loops)"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-01T00:50:30.348Z"
+  },
+  {
+    "id": "course-jamb-ai",
+    "toolSlug": "jamb-ai",
+    "title": "Master Jamb AI",
+    "objectives": [
+      "Configure a Jamb AI voice agent with a persona, instructions, and voice settings suited to a specific meeting type",
+      "Deploy an agent into a live group call (Zoom/Meet/Teams) and monitor its real-time behavior",
+      "Set up post-call outputs: transcripts, action items, and webhook delivery to your own systems"
+    ],
+    "modules": [
+      {
+        "title": "Design and Configure Your First Agent",
+        "estMinutes": 25,
+        "steps": [
+          "In the Jamb dashboard, create a new agent: choose a voice model, set its display name as it will appear to meeting participants, and write a system prompt defining its role (e.g., note-taker, interviewer, customer stand-in)",
+          "Configure participation rules: when the agent may speak (on mention, on silence, on schedule), interruption sensitivity, and max speaking turns per call",
+          "Test the agent in the sandbox call simulator and iterate on the prompt until it responds appropriately to 3 adversarial inputs (crosstalk, jargon, being asked to leave)"
+        ]
+      },
+      {
+        "title": "Join Live Group Calls and Manage Behavior",
+        "estMinutes": 30,
+        "steps": [
+          "Connect your calendar or paste a meeting URL to schedule the agent's join; verify it enters with the correct name and announces itself per your disclosure settings",
+          "Run a 10-minute live test call with two colleagues and use the live control panel to mute, redirect, or inject instructions mid-call",
+          "Handle edge cases: configure fallback behavior for when the agent is removed from the call, loses audio, or exceeds its turn limit"
+        ]
+      },
+      {
+        "title": "Automate Post-Call Workflows",
+        "estMinutes": 25,
+        "steps": [
+          "Define a structured output schema (summary, decisions, action items with owners) so every call produces consistent JSON rather than freeform notes",
+          "Register a webhook endpoint and verify delivery of the transcript and structured summary payload after a test call ends",
+          "Build one end-to-end automation (e.g., Zapier/n8n or direct API): call ends → summary posted to Slack → action items created as tasks in your project tool"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-voice agents",
+      "skill-group calls",
+      "skill-ai assistant",
+      "skill-meetings",
+      "skill-speech"
+    ],
+    "prerequisites": [
+      "Completed at least one basic Jamb AI agent setup and sandbox test call",
+      "Working knowledge of webhooks and REST APIs",
+      "Access to Zoom, Google Meet, or Teams with permission to add external participants/bots"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-01T00:50:30.348Z"
+  },
+  {
+    "id": "course-uai",
+    "toolSlug": "uai",
+    "title": "Master UAI",
+    "objectives": [
+      "Explain UAI's identity model for AI agents and its trust assumptions",
+      "Issue and verify a UAI agent identity credential end-to-end",
+      "Implement accountability logging and signature verification for agent actions"
+    ],
+    "modules": [
+      {
+        "title": "UAI Protocol Fundamentals",
+        "estMinutes": 40,
+        "steps": [
+          "Read the UAI specification's core sections on agent identity, credential issuance, and delegation chains",
+          "Set up the reference UAI SDK locally and generate a keypair for a test agent",
+          "Map a real agent workflow (e.g., API-calling assistant) onto UAI's identity and accountability concepts"
+        ]
+      },
+      {
+        "title": "Issuing and Verifying Agent Identities",
+        "estMinutes": 50,
+        "steps": [
+          "Register an agent identity anchored to your keypair and issue a verifiable credential for it",
+          "Write a verifier script that checks another agent's credential chain before allowing a request",
+          "Test edge cases: revoked credentials, expired delegations, and mismatched signature schemes"
+        ]
+      },
+      {
+        "title": "Action Accountability and Audit Trails",
+        "estMinutes": 45,
+        "steps": [
+          "Instrument an agent action (e.g., tool call) to emit a signed UAI action record",
+          "Build a verification step that confirms each action record's signature and links it to the agent identity",
+          "Simulate a dispute scenario: replay the audit trail to attribute a specific action to a specific agent and delegation chain"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-identity",
+      "skill-protocol",
+      "skill-open source",
+      "skill-accountability"
+    ],
+    "prerequisites": [
+      "Public-key cryptography basics (signatures, keypairs)",
+      "Experience with verifiable credentials or decentralized identifiers (DIDs)",
+      "Backend development experience in a language with a UAI SDK"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-01T00:50:30.348Z"
   }
 ]
