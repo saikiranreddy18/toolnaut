@@ -13,6 +13,8 @@ import { haptic } from '../../utils/haptics'
 import { HeartIcon } from '../../components/app/icons'
 import TrustPanel from '../../components/app/TrustPanel'
 import ToolResources from '../../components/app/ToolResources'
+import ApiCostCalculator from '../../components/app/ApiCostCalculator'
+import { modelsForTool } from '../../data/modelPricing'
 
 export default function ToolDetail() {
   const { slug } = useParams()
@@ -64,6 +66,7 @@ export default function ToolDetail() {
   const score = matchScore(tool, answers)
   const reasons = matchReasons(tool, answers)
   const meta = CATEGORY_META[tool.category] || { name: tool.category, color: 'var(--cyan)' }
+  const apiModels = modelsForTool(tool.slug)
   const added = stack.includes(tool.slug)
   const favorited = favorites.includes(tool.slug)
 
@@ -206,6 +209,8 @@ export default function ToolDetail() {
       {/* Reasoning sits with the decision, before the page moves on to other
           products. */}
       <TrustPanel tool={tool} answers={quiz.completed ? quiz.answers : null} />
+
+      {apiModels.length > 0 && <ApiCostCalculator models={apiModels} />}
 
       {/* Verified integrations and official training, each linked to its source. */}
       <ToolResources tool={tool} />
