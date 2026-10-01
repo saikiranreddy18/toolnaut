@@ -15,6 +15,15 @@ export default function InstallPrompt() {
   const dialogRef = useRef(null)
   useFocusTrap(dialogRef, show)
 
+  // It appears on its own (a beforeinstallprompt event or a timed iOS hint),
+  // never from a user clicking a trigger — so unlike this app's other
+  // role="dialog" surfaces there is no prior click to leave focus near. A
+  // keyboard/screen-reader user gets no signal it opened at all unless focus
+  // moves here directly, same reasoning as GuestImportPrompt.jsx's own note.
+  useEffect(() => {
+    if (show) dialogRef.current?.focus()
+  }, [show])
+
   useEffect(() => {
     let dismissed = false
     try { dismissed = !!localStorage.getItem(DISMISS_KEY) } catch { /* storage blocked */ }
@@ -81,6 +90,7 @@ export default function InstallPrompt() {
           style={{ transform: 'none' }}
           role="dialog"
           aria-label="Install Toolnaut"
+          tabIndex={-1}
         >
           <img src="/icon.svg" alt="" width="44" height="44" className="shrink-0 rounded-xl" />
           <div className="min-w-0 flex-1">

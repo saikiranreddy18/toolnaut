@@ -8630,3 +8630,72 @@ looked for fresh ground rather than re-reading the list:
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap and
 made no code change this run.
+
+---
+
+### Research check 2026-10-01 00:04 UTC — no new product gap found, ninth pass; shipped the one real bug it turned up
+Research run (UTC hour 00). CI green on `master` (`CI` run #486 / `Release`
+run #417, both `success` at `abad463`), `npm run radar:health` `OK` (2 runs
+in the 26h window, last publish 8.1h ago, 6 tools, feed at 407 total), no
+`agent-fixable` issues open.
+
+Noted, not actioned: issue #67 ("22+ open bot PRs, none merged") is a known,
+already-tracked problem with the separate `.github/workflows/agent-*.yml`
+PR-based flow `CLAUDE.md` governs — confirmed again this run (27 open
+`bot/*`/`feat/*` PRs, oldest `#3` from 2026-08-22) but it is not this
+routine's queue (this routine ships straight to `master`, per its own
+instructions, and a prior comment on #67 already established that split).
+Two backlog entries above (`Stack overlap warning`, `Cookie-consent gate for
+GA4`) are specifically blocked on that same stuck queue — PR #75 and PR #70
+already implement them in full and green, waiting on a human merge. Not
+re-litigating either; both already say "do not rebuild."
+
+Ninth research pass since 2026-09-29 09:00 UTC. All 28 real OPEN entries
+still carry a build-ready "Smallest useful version" from prior passes (spot-
+checked the oldest-untouched ones — `First-session onboarding checklist`,
+`Per-tool ratings & reviews`, `PDF roadmap export`, `Discover's filter chips`,
+`Tool "graveyard" page` — each already has a 2026-09 "Deepened"/"Re-verified"
+note, none are thin or stale), so this pass tried fresh ground instead of
+re-reading the list:
+
+- **Fetched the live production site directly** (`https://toolnaut.xyz`, not
+  just local `build`/`smoke`) for the first time in this file's history —
+  prior passes only tried this via the Vercel MCP telemetry tools, which stay
+  unreachable. The rendered page matches local `build` output exactly: hero,
+  stats (1,109 tools / 26 categories / 790 free-to-start / 30 new this week —
+  consistent with this run's own `npm run build` log: "1109 tools (704
+  bundled + 405 live)"), community numbers, methodology section, roles
+  section, footer all present, zero visible errors or stale-cache artifacts.
+  Production and `master` agree; not a gap.
+- **WebSearch for AI-directory feature launches dated this week**: nothing
+  new surfaced beyond names already logged (OpenResources, Critiqs AI,
+  AIDIRS.best — the latter's "Email Updates" feature maps to the already-OPEN
+  RSS-feed gap). Nothing new.
+- **Read `src/hooks/useFocusTrap.js` and every one of its 7 call sites fresh**
+  — new code (shipped yesterday 18:03 UTC, so no prior pass had reason to
+  check it) rather than a re-audit of old files. Found a real, demonstrable
+  bug: `InstallPrompt.jsx` got `useFocusTrap` wired in that same commit but,
+  unlike the other three dialogs shipped alongside it (`DeleteAccount.jsx`,
+  `GuestImportPrompt.jsx`, `AppTour.jsx` — all three already had a pre-existing
+  focus-on-open call before yesterday's commit even touched them), nothing
+  ever moved focus into it. `GuestImportPrompt.jsx`'s own comment states the
+  rule directly: "a full-screen dialog still has to receive focus on open...
+  or a keyboard/screen-reader user is left behind it with no indication
+  anything opened." Worse for `InstallPrompt` specifically: it appears on its
+  own (a `beforeinstallprompt` event or a timed iOS hint), never from a user
+  clicking a trigger, so there is no prior click near it for focus to land on
+  either — a keyboard/screen-reader user got zero signal it ever opened.
+  Confirmed `aria-modal` was correctly left off (unlike the other four, this
+  is a non-blocking toast with no backdrop, so `aria-modal="true"` would be
+  inaccurate) — only the missing initial-focus half of the pattern was a bug.
+  **Fixed this run**: added a `useEffect` that calls `dialogRef.current?.focus()`
+  when `show` becomes true (mirrors `GuestImportPrompt.jsx`'s exact pattern)
+  and `tabIndex={-1}` on the dialog container so it's focusable. `npm test`
+  (311/311), `npm run build` (19 routes + 1081 tool pages), and `npm run
+  smoke` (24/24 routes, 0 console errors) all re-run clean after the fix.
+- Per the "never invent a gap to fill the hour" rule, no new product gap was
+  invented — the one real finding this run surfaced was a bug, not a gap, and
+  it shipped directly rather than being logged for a future feature run.
+
+**Status: small real fix shipped this run** (see commit — `InstallPrompt.jsx`
+focus-on-open), no new OPEN gap appended.
