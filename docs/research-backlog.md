@@ -8883,3 +8883,65 @@ per-tool Alternatives pages). Nothing new.
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap and
 made no code change this run — the dialog audit found nothing left to fix.
+
+---
+
+### Research check 2026-10-01 09:04 UTC — no new gap found, Vercel runtime-error tool now reachable but still returns 403
+Research run (off-cycle, UTC hour 09). CI green on `master` (latest commit
+`f00189d`), `npm run radar:health` `OK` (2 runs in the 26h window, last
+publish 8.2h ago, 8 tools, feed at 415 total), no `agent-fixable` issues
+open, no `open` PR from this agent.
+
+Twelfth research pass since 2026-09-29 09:00 UTC. Spent this pass on the
+under-explored corners of `src/pages/` the earlier eleven passes' own
+mention-count never touched — `Office.jsx` (0 mentions anywhere in this
+file), `src/pages/app/Thread.jsx` (0), `GoalChat.jsx` (1),
+`CompareCompetitor.jsx` (3), `ExampleStack.jsx` (3) — on the theory that a
+page nobody has named yet is more likely to hide an unaudited promise than
+one this file already has six entries about.
+
+`Office.jsx` turns out to be a standalone `JellyBlob` 3D test fixture (not
+linked from any nav, not a real surface) — not a gap, just dead test
+scaffolding, and outside this backlog's scope (no visible product claim
+attached to it). `Thread.jsx` (community reply view) is solid: upvote,
+reply, reasonable empty states, no false claims. Went looking for the
+specific thing earlier passes' "Community" mentions never checked —
+whether `communityStore.js` posts are actually shared across users (they
+are not; everything is `scopedStorage`, i.e. per-browser) — expecting an
+undisclosed-gap finding there, but `Community.jsx:98-111` already discloses
+this explicitly and accurately: "They are written by us, not posted by
+users — accounts are not live yet. Your own posts and upvotes are real and
+saved," with a visible "Preview" badge on every seed thread. Already
+honest; nothing to log. `GoalChat.jsx` and `ExampleStack.jsx` (the two
+pages that run the real recommendation engine for a visitor who has not
+signed up) were both read in full — no gap between what either claims and
+what it does; `ExampleStack.jsx`'s own code comments show this was already
+debugged once (a prior version silently returned an unranked list).
+
+Also tried one tool angle no prior pass had reached: this run's Vercel MCP
+credentials DO resolve a project (`prj_xc3Tcw1dJ7jd0KYMs3zmQ7UKysOB`, team
+`team_mgcyQyyiLXC2GZetRHeKhRLY`) where the seventh/ninth passes got "no
+project scoped to these credentials." Progress, but `get_runtime_errors`
+still 403s on that project — real production error telemetry remains
+unreachable from this sandbox, same practical outcome as before, just a
+different failure point. Not worth re-trying every pass; worth a note so
+the next one doesn't re-discover the same 403 from scratch.
+
+Two fresh WebSearches this run (AI tool directory launches/features,
+October 2026; AI discovery platform personalization features, 2026) turned
+up Futurepedia's "verified reviews" pivot (maps to the already-OPEN
+per-tool ratings & reviews entry), "AI Tool Hunt" and Toolify's
+collection/comparison features (map to the already-OPEN Collections entry
+and the already-shipped public Compare), and nothing naming a feature shape
+this file doesn't already carry as SHIPPED or OPEN.
+
+Checked `public/manifest.json` against the PWA spec for gaps competitors in
+this exact shape wouldn't have (an AI directory is not usually installable
+at all) — it has icons and `display: standalone` but no `shortcuts` or
+`share_target`. Considered and declined to log: this is a generic platform
+capability, not a competitor-observed pattern or a marketing-copy mismatch,
+and against this file's own ranking rule (reach × obviousness ÷ build
+size) a PWA-install-only feature scores far below the 27 OPEN entries
+already queued ahead of it.
+
+No new gap appended, no code change this run.
