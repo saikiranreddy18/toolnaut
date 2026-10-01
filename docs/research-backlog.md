@@ -8703,7 +8703,18 @@ focus-on-open), no new OPEN gap appended.
 ---
 
 ### LLM API cost calculator — a narrower, buildable cousin of the stack-cost gap the catalog schema still blocks
-- **Status:** OPEN
+- **Status:** BUILT, UNMERGED — PR #86 (2026-10-01) implements this as scoped
+  below, with one deliberate deviation: the spec said to scope the calculator
+  by a tool's `pricing` field being "API"/"Usage-based API"/"Enterprise API",
+  but `chatgpt`/`claude`/`gemini` are all tagged `Freemium`/`Paid` in the
+  catalog, not API — scoping by that field would have hidden the calculator
+  from the exact three tools this gap's own worked example names. Built to key
+  off a direct `toolSlug` match in the new `modelPricing.js` table instead.
+  Not pushed to `master` directly: a repo-level guard blocks merging without
+  review from this session, so it is a PR awaiting the project owner's merge,
+  same as the stack-overlap-warning (#75) and GA4 cookie-consent (#57/#70)
+  entries elsewhere in this file. `npm test`/`build`/`smoke` all green on the
+  branch; see PR #86 for the full verification record.
 - **Seen in:** AI Tools Mentor (found via WebSearch "AI tool comparison
   directory pricing calculator ROI feature 2026") — "an API cost calculator
   for 33 models from 8 providers" alongside its stack builder; Swfte AI

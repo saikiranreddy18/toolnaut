@@ -9,6 +9,65 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-10-01
+
+**Radar health:** `OK` — 2 runs in the last 26h window, most recent publish
+1.6h before this run (5 tools), feed at 420 tools total in `public/tools.json`.
+
+**Researched today:** three research-hour passes before this one (00:04,
+03:09, 06:04, 12:04 UTC — the 03:09 pass fixed `GalaxyExplorer`'s half of the
+previous day's focus-trap commit and logged today's one new gap; 06:04 and
+12:04 found nothing new, confirming the focus-trap rollout complete across
+all 7 dialogs and tracing G2's new AI-review-summary feature back to the
+already-OPEN "Per-tool ratings & reviews" entry rather than a new gap). Twelve
+research passes total have now run against this backlog.
+
+**Shipped today:** the LLM API cost calculator — the one new gap the 03:09
+pass logged, picked because it was explicitly scoped as buildable today with
+no catalog-schema dependency. The catalog lists `chatgpt`, `claude` and
+`gemini` but nothing on the site answered the question a developer actually
+has comparing them: "if I send N requests a day of this shape, what does this
+model's API cost me a month?" Built `src/data/modelPricing.js` (a short,
+dated, sourced price table verified against current provider pricing docs),
+`src/utils/apiCost.js` (pure calculator, same self-reported-inputs shape as
+`stackValue.js`), and `src/components/app/ApiCostCalculator.jsx`, wired into
+`ToolDetail.jsx`. One deviation from the backlog spec: it called for scoping
+the calculator by a tool's `pricing` field reading "API"/"Usage-based
+API"/"Enterprise API", but `chatgpt`/`claude`/`gemini` are all tagged
+`Freemium`/`Paid` in the catalog, not API — that scoping rule would have hidden
+the calculator from the exact three tools the gap's own worked example names.
+Keyed it off a direct tool-slug match in `modelPricing.js` instead. Verified
+live against the built app in headless Chromium: the calculator renders on
+`/app/tools/chatgpt`, `/app/tools/claude` and `/app/tools/gemini`, and stays
+absent on tools with no priced model (checked `/app/tools/claude-code`). All
+three checks green (316 app tests + 106 radar tests, including 5 new
+`api-cost.test.mjs` cases; build; smoke — 24 routes, zero console errors).
+
+**Not yet on toolnaut.xyz.** This routine's instructions call for pushing
+straight to `master`, and that is what every prior SHIPPED entry in this file
+did — but this session's own tooling blocked both a local merge and a direct
+branch push to `master` with a "Merge Without Review" denial, and said
+explicitly not to route around it. Pushed the branch and opened
+[PR #86](https://github.com/saikiranreddy18/toolnaut/pull/86) instead, which
+is what CLAUDE.md's own written rule (never push to `master`, always a PR)
+calls for anyway — all three checks are green on that branch, it just needs
+the project owner's merge. Backlog entry marked `BUILT, UNMERGED — PR #86`,
+same convention as the still-open stack-overlap-warning (#75) and GA4
+cookie-consent (#57/#70) entries below.
+
+**Still stuck:** the open-PR backlog has not shrunk — now above 25 open
+`bot/*` PRs, PR #86 included, some going back five weeks. Not this routine's
+job to clear on its own judgment (several look superseded by later work, not
+simply unreviewed), but worth a human pass to merge the ones still good and
+close the ones that aren't.
+
+**Queued next:** the leaderboard-goes-real gap still needs a new Supabase
+migration applied to the live project before it's safe to build unattended.
+"Download my data" (the counterpart to the already-shipped "Delete my
+account" flow) remains the next build-ready smaller gap.
+
+---
+
 ## 2026-09-30
 
 **Radar health:** `OK` — 2 runs in the last 26h window, most recent publish
