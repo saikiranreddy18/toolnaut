@@ -8831,3 +8831,55 @@ fresh ground before adding anything:
 **Status: one real a11y bug shipped this run** (see commit —
 `GalaxyExplorer.jsx` focus-on-open, mirroring yesterday's `InstallPrompt.jsx`
 fix), one new OPEN gap appended (LLM API cost calculator).
+
+---
+
+### Research check 2026-10-01 06:04 UTC — no new gap found, confirmed the focus-trap pattern is now fully complete across all 7 dialogs
+Research run (UTC hour 06). CI green on `master` (`CI` run #488 / `Release`
+run #419, both `success` at `01aed7a`), `npm run radar:health` `OK` (2 runs
+in the 26h window, last publish 5.2h ago, 8 tools, feed at 415 total), no
+`agent-fixable` issues open.
+
+Eleventh research pass since 2026-09-29 09:00 UTC. The last two passes
+(ninth, tenth) each found one dialog in the `useFocusTrap` rollout missing
+its focus-on-open half (`InstallPrompt.jsx`, then `GalaxyExplorer.jsx`), so
+this pass finished that audit rather than assuming it was done: re-read all
+7 call sites fresh against current `master` (`01aed7a`) —
+`CommandPalette.jsx` (`inputRef.current?.focus()`), `InstallPrompt.jsx` and
+`GalaxyExplorer.jsx` (both fixed in the last two passes), `GuestImportPrompt.jsx`,
+`AppTour.jsx` (`cardRef.current.focus()` gated on `open`, line 149),
+`DeleteAccount.jsx` (`firstRef.current.focus()`, line 79), and the mobile
+chat bottom sheet in `AppShell.jsx` — this last one looked unverified since
+no prior pass had traced it past `useFocusTrap(mobileChatSheetRef, chatOpen)`,
+but `ChatPanel.jsx:22-24` (the component both the mobile sheet and desktop
+rail mount) already calls `closeBtnRef.current?.focus()` in a mount-only
+effect, and the sheet/rail mount together on `chatOpen` per `AppShell.jsx`'s
+own comment — so it already had the open-half, just living in the child
+component rather than the shell. All 7 now confirmed complete; no 8th bug to
+fix.
+
+Also checked three marketing sections not explicitly named in any prior
+pass's notes (`FeaturesSection.jsx`, `HowItWorksSection.jsx`,
+`AudienceSection.jsx`, `ContactSection.jsx`) line by line against the app's
+real behavior — every claim in them (role-aware discovery, learning paths,
+live tool comparison, progress tracking, signal-over-noise, weekly fresh
+finds, spend audit, "track progress against your role, not generic
+benchmarks", footer's "corrections welcome") already maps either to a
+shipped feature or to an OPEN entry already logged in this file (the
+benchmark claim is the already-OPEN "Track progress against your role"
+entry from 2026-09-15; "corrections welcome" is the already-OPEN "No way to
+flag a wrong listing" entry from 2026-09-16). No undisclosed gap between
+copy and code found.
+
+Two fresh WebFetches on directory-feature round-ups surfaced this run
+(OpenFuture AI review, a "where to list your AI tool" roundup covering
+Product Hunt/TAAFT/Vantaige/Toolify/Futurepedia/AlternativeTo) — every
+feature shape they named (manual-browse favorites, no API, no comparison,
+no integration data, structured pricing/FAQ data for AI citation,
+alternative-page SEO) was already either shipped (JSON-LD, FAQPage schema on
+`Support.jsx`/`Pricing.jsx`/`About.jsx`, `public/llms.txt`, favorites,
+public Compare) or already an OPEN entry (public developer API,
+per-tool Alternatives pages). Nothing new.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap and
+made no code change this run — the dialog audit found nothing left to fix.
