@@ -36,6 +36,15 @@ export default function GalaxyExplorer({ onClose }) {
   const navigate = useNavigate()
   useFocusTrap(root, true)
 
+  // This dialog has a real trigger (Landing.jsx's "Explore" button) but, same
+  // as InstallPrompt.jsx's fix, gained the focus trap without the matching
+  // focus-on-open half: the trigger stays focused while a full-screen dialog
+  // covers the viewport behind it, so a screen reader never announces one
+  // opened. Runs once on mount — this component only exists while open.
+  useEffect(() => {
+    root.current?.focus()
+  }, [])
+
   useEffect(() => {
     const el = surface.current
     const pointers = new Map()
@@ -144,6 +153,7 @@ export default function GalaxyExplorer({ onClose }) {
       role="dialog"
       aria-modal="true"
       aria-label="Explore the galaxy"
+      tabIndex={-1}
     >
       <div ref={surface} className="absolute inset-0 cursor-grab active:cursor-grabbing" style={{ touchAction: 'none' }} />
 

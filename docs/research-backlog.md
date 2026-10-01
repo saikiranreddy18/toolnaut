@@ -8699,3 +8699,135 @@ re-reading the list:
 
 **Status: small real fix shipped this run** (see commit — `InstallPrompt.jsx`
 focus-on-open), no new OPEN gap appended.
+
+---
+
+### LLM API cost calculator — a narrower, buildable cousin of the stack-cost gap the catalog schema still blocks
+- **Status:** OPEN
+- **Seen in:** AI Tools Mentor (found via WebSearch "AI tool comparison
+  directory pricing calculator ROI feature 2026") — "an API cost calculator
+  for 33 models from 8 providers" alongside its stack builder; Swfte AI
+  Directory — "an AI Cost Calculator to estimate monthly AI API spend for any
+  usage profile". Distinct from the subscription-price aggregators (Whizi,
+  itoolverse, aipricingcalculators.com) already logged under the "Stack cost
+  estimate" entry above — those total what a *stack of SaaS subscriptions*
+  costs per month; this is what *calling one model's API* costs per month,
+  a question with its own public, independently-known price list (dollars
+  per million input/output tokens) that has nothing to do with our catalog's
+  `pricing` field.
+- **Gap:** our catalog already carries `ChatGPT`, `Claude`, `Claude Code`,
+  `Gemini`, `Gemini CLI`, `Gemini Code Assist`, `OpenAI Codex`, `OpenAI
+  Agents SDK` (`grep -noiE '"name": "[^"]*(chatgpt|claude|gemini|openai)[^"]*"'
+  src/utils/toolsCatalog.js`, 12 hits) inside the "ML Infrastructure &
+  LLMOps" (58 tools) and "AI Coding & Development" (62 tools) source
+  categories — exactly the categories mapped to the Engineer persona's
+  `code` domain (`src/utils/rolesData.js:12`). None of their tool-detail
+  pages, nor any other page, answer the question a developer actually has
+  when picking between them: "if I send N requests a day of this shape,
+  what does GPT-4o vs. Claude vs. Gemini cost me a month?" Checked
+  `ToolDetail.jsx` and `CategoryLanding.jsx` for any cost math beyond the
+  three-value pricing badge (free/freemium/paid) — none exists; checked
+  `grep -rn "token\|per1M\|inputCost" src/` — zero hits, nothing like this
+  has ever been attempted.
+- **Why it matters:** this is the one AI-cost question Toolnaut's existing
+  "Usage-based API" tagged tools actively raise and the site has no answer
+  for, and — unlike the dollar-amount half of "Stack cost estimate" above —
+  it does not need a radar schema change or a `priceAmount` field on every
+  catalog record to exist first. Frontier model API pricing (GPT-4o/mini,
+  Claude Opus/Sonnet/Haiku, Gemini Pro/Flash) is a short, independently-known
+  reference table, not something the radar pipeline would ever need to
+  discover or enrich — so this is buildable today, where the broader
+  stack-cost gap still isn't.
+- **Build size:** S-M — one new static data file, one pure calculator
+  function, one small UI component surfaced only on the handful of tools it
+  applies to.
+- **Smallest useful version (what to actually build):**
+  - New `src/data/modelPricing.js`: a short static array — 6-10 entries for
+    the frontier model families actually in the catalog (GPT-4o family,
+    Claude family, Gemini family), each `{ slug, model, provider,
+    inputPer1M, outputPer1M, asOf, sourceUrl }`. `slug` matches the
+    catalog's own tool slug so a result can link back via `getTool(slug)`
+    from `toolsCatalog.js`. Carrying `asOf` + `sourceUrl` on every row and
+    showing both next to the result is the same honesty pattern
+    `PRICE_LABELS` and the status-note gap already established in this
+    file — model prices change and a stale silent number is worse than a
+    dated, sourced one.
+  - New `src/utils/apiCost.js`: pure `estimateApiCost({ model,
+    requestsPerDay, avgInputTokens, avgOutputTokens })` → monthly $. Same
+    self-reported-inputs shape `src/utils/stackValue.js` already
+    established for the time-value calculator (the visitor types their own
+    usage shape, Toolnaut only multiplies) — zero catalog-schema
+    dependency, easy to unit test with `node --test` the same way
+    `stackValue.js` already is.
+  - New `src/components/app/ApiCostCalculator.jsx`: a model dropdown
+    (`modelPricing.js` entries) + 3 number inputs, visual style matching
+    `StackValue.jsx` (pill inputs, `role="status"` result, "your inputs,
+    not ours" disclaimer). Surfaced only on `ToolDetail.jsx` for a tool
+    whose `pricing` is `API`/`Usage-based API`/`Enterprise API` — reuses the
+    pricing-badge check already there — not a global/always-visible widget,
+    since a token calculator makes no sense on a Canva or Notion listing.
+  - **What this would NOT include** (kept out to bound the diff): no
+    live/scraped pricing feed — a hand-maintained table re-verified like any
+    other dated fact in this app; no "which model is cheapest for my
+    workload" cross-model ranking in v1, one model at a time only; no
+    attempt to cover all 12 LLM-named catalog tools, just the 3 frontier
+    families that account for the overwhelming majority of real
+    "which model's API should I use" searches.
+- **Found:** 2026-10-01 03:09 UTC
+
+---
+
+### Research check 2026-10-01 03:09 UTC — tenth pass; fixed GalaxyExplorer's half of yesterday's focus-trap commit, logged one new buildable gap
+Research run (UTC hour 03). CI green on `master` (`CI` run #487 / `Release`
+run #418, both `success` at `166056c`), `npm run radar:health` `OK` (2 runs
+in the 26h window, last publish 2.2h ago, 8 tools, feed at 415 total — now
+417 after this run's own build), no `agent-fixable` issues open
+(`list_issues label:agent-fixable state:OPEN` returns zero).
+
+Tenth research pass since 2026-09-29 09:00 UTC. All 30 real OPEN entries
+(31 minus the `<short gap name>` template) already carry a build-ready
+"Smallest useful version" from prior passes — spot-checked several of the
+least-recently-touched ones, none thin — so this pass again looked for
+fresh ground before adding anything:
+
+- **Read `useFocusTrap.js` and all 4 of its call sites the ninth pass's own
+  fix didn't re-check** (`CommandPalette.jsx`, `GalaxyExplorer.jsx`,
+  `DeleteAccount.jsx`, `GuestImportPrompt.jsx`, `AppTour.jsx` — the ninth
+  pass only read the 7 sites to find the `InstallPrompt.jsx` bug, not to
+  re-audit the fix's own completeness). `CommandPalette.jsx` already moves
+  focus to its search input (`inputRef.current?.focus()`), confirmed fine.
+  **`GalaxyExplorer.jsx` had the exact same bug class**: wired `useFocusTrap`
+  in the same 70ceb14 commit, got `role="dialog"`/`aria-modal="true"`, but
+  no `tabIndex` and no focus-on-open call anywhere in the file — unlike
+  `InstallPrompt.jsx`, this dialog does have a real trigger (Landing.jsx's
+  "Explore" button, which stays visible and focused at z-[76], above the
+  dialog's own z-[75]), so Tab from it happens to land inside the dialog
+  next in DOM order — but a screen reader never gets the focus-move signal
+  that announces a modal opened, the same WAI-ARIA Dialog pattern half
+  `GuestImportPrompt.jsx`'s own comment states as the rule. **Fixed this
+  run**: added `tabIndex={-1}` to the dialog's root div and a
+  mount-only `useEffect` calling `root.current?.focus()` (no `active`
+  toggle needed — this component only exists while `explore` is true, so
+  mount-time is open-time). `npm test` (311/311), `npm run build` (19
+  routes + 1089 tool pages, feed grew to 417 live tools this run), and
+  `npm run smoke` (24/24 routes, 0 console errors) all clean after the fix.
+- **Two fresh WebSearches** ("AI tool directory new feature launch October
+  2026", "AI tool comparison directory pricing calculator ROI feature
+  2026") surfaced nothing dated this week, but turned up a feature shape no
+  prior pass had logged: AI Tools Mentor's and Swfte's **API cost
+  calculators** (dollars per request/token for specific LLM models) —
+  distinct from the dollar-amount "Stack cost estimate" gap already OPEN
+  above, which totals SaaS *subscriptions* and stays blocked on a missing
+  `priceAmount` catalog field. An LLM API cost calculator needs no catalog
+  schema change at all — model token pricing is an independent, short,
+  hand-maintained reference table — so it's buildable where the broader gap
+  isn't. Logged as a new OPEN entry above with a build-ready "Smallest
+  useful version."
+- Confirmed via `grep` that none of this file's 30 OPEN/prior entries
+  already cover this specific shape before logging it (searched for
+  "API cost calculator", "token cost", "per-token", "LLM pricing" — zero
+  hits before this run).
+
+**Status: one real a11y bug shipped this run** (see commit —
+`GalaxyExplorer.jsx` focus-on-open, mirroring yesterday's `InstallPrompt.jsx`
+fix), one new OPEN gap appended (LLM API cost calculator).
