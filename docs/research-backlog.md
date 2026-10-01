@@ -8883,3 +8883,57 @@ per-tool Alternatives pages). Nothing new.
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap and
 made no code change this run — the dialog audit found nothing left to fix.
+
+---
+
+### Research check 2026-10-01 12:04 UTC — no new gap found, twelfth pass; G2's AI-review-summary feature traces back to the already-OPEN reviews gap, not a new one
+Research run (UTC hour 12). CI green on `master` (`CI` run #489 `success` at
+`f00189d`), `npm run radar:health` `OK` (2 runs in the 26h window, last
+publish 11.2h ago, 8 tools, feed at 415 total), no `agent-fixable` issues
+open. Noted for awareness, not actioned: issue #67 ("22 open bot PRs...")
+is still open and growing — those PRs come from the separate
+`agent-*.yml` GitHub Actions automation (per-branch, PR-based, governed by
+`CLAUDE.md`'s "never merge your own PR" rule), a different system from
+this session's own direct-to-`master` runs; merging/closing them needs a
+human with merge rights, as #67 itself already says, so it stays
+unactioned here.
+
+Twelfth research pass since 2026-09-29 09:00 UTC. Two fresh WebSearches
+("AI tool directory new feature launched September 2026",
+"G2 Capterra AI software category page features 2026 verified reviews
+badges") surfaced one shape worth checking against this file before
+logging it as new: G2's product pages now lead with an "AI buyer summary"
+— a weekly-refreshed synthesis of verified-user reviews into structured
+pros/cons/use-case fit. Checked whether this is a new gap or a restatement
+of one already here: it isn't new. `ToolDetail.jsx`'s `TrustPanel` already
+renders an algorithmic pros/cons/best-for/limitations panel (confirmed
+still mounted, `ToolDetail.jsx:208` per the reviews gap's own 2026-09-20
+deepening), so the only thing G2's version adds is that its summary is
+synthesized from *real peer reviews* rather than written editorially — and
+Toolnaut has zero peer reviews to synthesize from in the first place. That
+precondition is exactly the still-OPEN "Per-tool ratings & reviews" gap
+(2026-08-24, deepened 2026-09-20) — an AI-summary layer on top of reviews
+that don't exist yet is a follow-on refinement of that entry, not an
+independent one, so it was not logged separately; the existing entry's
+"what this would NOT include" scope cut already keeps v1 to raw
+rating+text, which is the correct build order regardless.
+
+A third search ("AI tools directory browser extension Chrome check tool
+while browsing 2026") returned the same "AI Tools Explorer" extension and
+pattern already logged as the "No lookup surface outside toolnaut.xyz" gap
+(2026-09-27) — confirmed no new information in today's results changes
+that entry's scope or build plan.
+
+Also re-read `StatsSection.jsx` fresh (not explicitly re-audited by name in
+the last several passes' notes) against its own claims: every number is
+either read live from `TOOLS`/`SOURCE_CATEGORIES`/`getNewTools()` or
+fetched from `explorerCount()`/`subscriberCount()` with an explicit
+null-means-unknown-never-zero contract documented in the file's own
+header comment — no placeholder or stale figure found. Grepped
+`src/**/*.jsx` for `<img` tags missing an `alt` attribute (a common silent
+a11y regression) — all 5 hits (`AIRobot.jsx` ×3, `SpiralMark.jsx`,
+`Mascot.jsx`) already carry a real or explicitly-empty `alt` plus
+`aria-hidden` where decorative. No bug found to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap and
+made no code change this run.
