@@ -28278,5 +28278,313 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-01T00:50:30.348Z"
+  },
+  {
+    "id": "course-call4me-an-ai-agent-that-handles-phone-calls-for-you",
+    "toolSlug": "call4me-an-ai-agent-that-handles-phone-calls-for-you",
+    "title": "Master Call4me, an AI agent that handles phone calls for you",
+    "objectives": [
+      "Set up your Call4me account and connect your phone identity",
+      "Configure and launch your first AI-handled phone call",
+      "Review call transcripts and recordings to verify results"
+    ],
+    "modules": [
+      {
+        "title": "Account Setup & Phone Identity",
+        "estMinutes": 10,
+        "steps": [
+          "Sign up at Call4me and verify your email and phone number",
+          "Choose whether calls show your own number or a Call4me-provided caller ID",
+          "Record or type a short voice introduction so the agent can identify itself when a call is answered"
+        ]
+      },
+      {
+        "title": "Making Your First AI Call",
+        "estMinutes": 15,
+        "steps": [
+          "Create a new call task: enter the recipient's number and write a clear goal, e.g., 'Book a dentist appointment for next Tuesday afternoon'",
+          "Add key details the agent may need (your name, availability, constraints, fallback answers to likely questions)",
+          "Start the call and watch the live transcript, using the listen-in option to monitor without interrupting"
+        ]
+      },
+      {
+        "title": "Reviewing Results & Improving Calls",
+        "estMinutes": 10,
+        "steps": [
+          "Open the completed call record and read the summary, transcript, and outcome (e.g., confirmed appointment time)",
+          "Mark the call as successful or flag errors, then edit your instructions where the agent struggled",
+          "Save your refined script as a reusable template for recurring call types like appointment booking"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-phone calls",
+      "skill-ai agent",
+      "skill-voice"
+    ],
+    "prerequisites": [
+      "A valid phone number for account verification",
+      "A real call task in mind (e.g., booking, inquiry, or reminder)",
+      "Headphones or speakers for listening to recordings"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-01T16:28:36.438Z"
+  },
+  {
+    "id": "course-truescribe",
+    "toolSlug": "truescribe",
+    "title": "Master TrueScribe",
+    "objectives": [
+      "Install TrueScribe on Linux and grant microphone access",
+      "Download a local speech model and transcribe an audio file",
+      "Fine-tune transcription settings and export results as text or SRT"
+    ],
+    "modules": [
+      {
+        "title": "Install and First Launch",
+        "estMinutes": 10,
+        "steps": [
+          "Install TrueScribe via its AppImage or your distro's Flatpak package, then launch it from your applications menu",
+          "On first run, allow microphone access when the system permission prompt appears",
+          "Open Settings > Audio and confirm your microphone appears in the input device dropdown and the level meter moves when you speak"
+        ]
+      },
+      {
+        "title": "Download a Local Model",
+        "estMinutes": 10,
+        "steps": [
+          "Go to Settings > Models and click Download next to a model — start with the 'small' model (~1 GB) for a balance of speed and accuracy",
+          "Wait for the download and verification to finish, then set the model as Active",
+          "Pick your audio language in the Language dropdown, or leave it on Auto-detect"
+        ]
+      },
+      {
+        "title": "Record and Transcribe Live",
+        "estMinutes": 10,
+        "steps": [
+          "Click the Record button and speak clearly for 30-60 seconds",
+          "Stop recording and watch the live transcript panel fill in on-device (no internet needed)",
+          "Click any transcript segment to replay that portion of the audio and fix errors inline"
+        ]
+      },
+      {
+        "title": "Transcribe an Existing Audio File",
+        "estMinutes": 10,
+        "steps": [
+          "Drag an MP3, WAV, or M4A file into the main window (or use File > Import Audio)",
+          "Click Transcribe and wait for processing — a 5-minute clip typically finishes in under a minute with the small model",
+          "Enable 'Show timestamps' in the transcript panel to verify segment timing"
+        ]
+      },
+      {
+        "title": "Export and Tune Settings",
+        "estMinutes": 10,
+        "steps": [
+          "Click Export and save the transcript as plain .txt for notes, or .srt for video subtitles",
+          "In Settings > Transcription, enable 'Remove filler words' and 'Smart punctuation', then re-transcribe a clip to compare results",
+          "If accuracy is poor, switch to the 'medium' model and re-run transcription on the same file"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-transcription",
+      "skill-speech-to-text",
+      "skill-linux",
+      "skill-local-ai",
+      "skill-privacy"
+    ],
+    "prerequisites": [
+      "A Linux machine with 4+ GB RAM and ~2 GB free disk space",
+      "A working microphone or an audio file to transcribe",
+      "Internet access once, to download the speech model"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-01T16:28:36.438Z"
+  },
+  {
+    "id": "course-bananasplit-cli",
+    "toolSlug": "bananasplit-cli",
+    "title": "Master BananaSplit CLI",
+    "objectives": [
+      "Understand what BananaSplit CLI is for",
+      "Use BananaSplit CLI on a real task",
+      "Know where BananaSplit CLI fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure BananaSplit CLI for your real workflow, not the demo.",
+          "Say what BananaSplit CLI does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through BananaSplit CLI.",
+          "Push BananaSplit CLI to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold BananaSplit CLI into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-expense-splitting",
+      "skill-cli",
+      "skill-ai-agents",
+      "skill-finance",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-01T16:28:36.438Z"
+  },
+  {
+    "id": "course-gaussian-splat-avatars-for-realtime-ai-agents",
+    "toolSlug": "gaussian-splat-avatars-for-realtime-ai-agents",
+    "title": "Master Gaussian Splat Avatars for Realtime AI Agents",
+    "objectives": [
+      "Deploy a real-time Gaussian splat talking-head avatar locally",
+      "Drive lip-sync and expressions from a live audio/text-to-speech stream",
+      "Integrate the avatar renderer with an LLM agent pipeline under latency budgets"
+    ],
+    "modules": [
+      {
+        "title": "Environment Setup and Baseline Render",
+        "estMinutes": 45,
+        "steps": [
+          "Clone the Gaussian splat avatar repo (e.g., GaussianAvatars or similar) and install CUDA-enabled PyTorch, diff-gaussian-rasterization, and required submodules",
+          "Download or train a head avatar checkpoint from a monocular video using the provided tracking/FLAME-fitting scripts",
+          "Run the offline render script on the checkpoint and verify output frames at target resolution (512x512) before attempting realtime"
+        ]
+      },
+      {
+        "title": "Real-Time Rendering and Performance Tuning",
+        "estMinutes": 50,
+        "steps": [
+          "Launch the interactive viewer with the trained checkpoint and measure FPS on your GPU; target 30+ FPS at 1080p",
+          "Reduce splat count via pruning thresholds and sh_degree settings, then re-measure the quality/latency tradeoff",
+          "Profile the render loop with nsys or PyTorch profiler to identify whether rasterization or expression-deformation is the bottleneck"
+        ]
+      },
+      {
+        "title": "Audio-Driven Lip Sync Pipeline",
+        "estMinutes": 60,
+        "steps": [
+          "Pipe TTS output (e.g., from your agent's voice engine) into an audio-to-expression model to produce per-frame FLAME/expression coefficients",
+          "Stream coefficients into the splat deformation module frame-by-frame instead of batch rendering, verifying A/V sync within ~100ms",
+          "Handle streaming chunk boundaries so phonemes blend without visible popping between audio segments"
+        ]
+      },
+      {
+        "title": "Agent Integration and Latency Budget",
+        "estMinutes": 55,
+        "steps": [
+          "Wire the pipeline as: LLM token stream → sentence-chunked TTS → expression stream → rendered frames, using async queues between stages",
+          "Implement barge-in: cancel in-flight TTS/render jobs when the user interrupts and flush the frame queue",
+          "Measure end-to-end latency (user speech end → first avatar frame) and tune chunk sizes to get under 1.5 seconds"
+        ]
+      },
+      {
+        "title": "Deployment and Delivery",
+        "estMinutes": 40,
+        "steps": [
+          "Package the renderer behind a WebRTC or WebSocket video stream (e.g., via aiortc) so the avatar runs on a GPU server and displays in a browser",
+          "Add idle animation and listening-state expressions driven by agent state rather than audio",
+          "Load-test with concurrent sessions and document per-session VRAM usage to plan GPU capacity"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-gaussian splatting",
+      "skill-avatars",
+      "skill-real-time",
+      "skill-ai agents",
+      "skill-open source"
+    ],
+    "prerequisites": [
+      "A CUDA GPU with at least 12GB VRAM and working PyTorch install",
+      "Experience with PyTorch C++ extensions and building custom CUDA kernels",
+      "Familiarity with 3D face models (FLAME) and blendshape/expression coefficients",
+      "Working knowledge of async Python, streaming TTS, and WebRTC basics"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-01T16:28:36.438Z"
+  },
+  {
+    "id": "course-verzeta-studio",
+    "toolSlug": "verzeta-studio",
+    "title": "Master Verzeta-Studio",
+    "objectives": [
+      "Configure Verzeta-Studio with local and remote model providers on a single machine",
+      "Orchestrate a multi-model conversation with explicit roles and turn routing",
+      "Export and version shared conversation state using the local-first sync layer"
+    ],
+    "modules": [
+      {
+        "title": "Local-First Setup & Model Registry",
+        "estMinutes": 35,
+        "steps": [
+          "Install via `cargo install verzeta-studio`, then run `verzeta init` to generate the workspace.toml and encrypted local store",
+          "Register at least three providers in workspace.toml: one local Ollama model, one OpenAI-compatible endpoint, and one Anthropic endpoint, each with its own API key scope",
+          "Run `verzeta doctor` to verify latency, context-window limits, and offline fallback behavior for each registered model"
+        ]
+      },
+      {
+        "title": "Multi-Model Orchestration & Turn Routing",
+        "estMinutes": 45,
+        "steps": [
+          "Create a `debate.verz` session file assigning roles (proposer, critic, synthesizer) to different models with per-role system prompts",
+          "Use the @route syntax (e.g., `@critic /review last 2`) to direct specific turns, and set a `max_turns` and `stop_on_consensus` policy in the session config",
+          "Inspect the token and cost ledger with `verzeta ledger show` and tune per-model `max_tokens` and temperature to control drift between participants"
+        ]
+      },
+      {
+        "title": "State Sync, Branching & Auditability",
+        "estMinutes": 40,
+        "steps": [
+          "Fork a running conversation with `verzeta branch <session> --from-turn 12` to explore alternate model answers without losing the original thread",
+          "Enable CRDT-based sync to a second device via `verzeta sync serve --relay local`, then resolve a simulated edit conflict between the two peers",
+          "Export the full transcript plus per-turn provenance (model, seed, prompt hash) with `verzeta export --format jsonl --with-provenance` and commit it to git"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-multi-model",
+      "skill-local-first",
+      "skill-open-source",
+      "skill-agents",
+      "skill-workspace"
+    ],
+    "prerequisites": [
+      "Comfortable editing TOML/YAML config files and working in a CLI",
+      "Prior experience calling at least one LLM API (keys, rate limits, context windows)",
+      "Git fundamentals including branching and merge conflict resolution"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-01T16:28:36.438Z"
   }
 ]

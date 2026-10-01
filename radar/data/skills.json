@@ -183,7 +183,8 @@
       "glance",
       "tracelanedev",
       "perspica",
-      "uai"
+      "uai",
+      "gaussian-splat-avatars-for-realtime-ai-agents"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -364,7 +365,8 @@
       "course-glance",
       "course-tracelanedev",
       "course-perspica",
-      "course-uai"
+      "course-uai",
+      "course-gaussian-splat-avatars-for-realtime-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -395,12 +397,14 @@
     "toolsTeaching": [
       "ablo-make-your-ai-app-multiplayer",
       "i-built-a-real-time-translator-for-google-meet",
-      "dont-hit-send"
+      "dont-hit-send",
+      "gaussian-splat-avatars-for-realtime-ai-agents"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
       "course-i-built-a-real-time-translator-for-google-meet",
-      "course-dont-hit-send"
+      "course-dont-hit-send",
+      "course-gaussian-splat-avatars-for-realtime-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -517,7 +521,9 @@
       "nine",
       "kyno",
       "growthengineer",
-      "openappa-deterministic-guardrails-that-dont-break-agents"
+      "openappa-deterministic-guardrails-that-dont-break-agents",
+      "bananasplit-cli",
+      "verzeta-studio"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -577,7 +583,9 @@
       "course-nine",
       "course-kyno",
       "course-growthengineer",
-      "course-openappa-deterministic-guardrails-that-dont-break-agents"
+      "course-openappa-deterministic-guardrails-that-dont-break-agents",
+      "course-bananasplit-cli",
+      "course-verzeta-studio"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -961,7 +969,10 @@
       "kyno",
       "growthengineer",
       "openappa-deterministic-guardrails-that-dont-break-agents",
-      "jamb-ai"
+      "jamb-ai",
+      "call4me-an-ai-agent-that-handles-phone-calls-for-you",
+      "bananasplit-cli",
+      "verzeta-studio"
     ],
     "courses": [
       "course-headless-tools",
@@ -1188,7 +1199,10 @@
       "course-kyno",
       "course-growthengineer",
       "course-openappa-deterministic-guardrails-that-dont-break-agents",
-      "course-jamb-ai"
+      "course-jamb-ai",
+      "course-call4me-an-ai-agent-that-handles-phone-calls-for-you",
+      "course-bananasplit-cli",
+      "course-verzeta-studio"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1370,7 +1384,8 @@
       "emulate-ai",
       "termaxa",
       "glance",
-      "uai"
+      "uai",
+      "gaussian-splat-avatars-for-realtime-ai-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -1530,7 +1545,8 @@
       "course-emulate-ai",
       "course-termaxa",
       "course-glance",
-      "course-uai"
+      "course-uai",
+      "course-gaussian-splat-avatars-for-realtime-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3074,7 +3090,8 @@
       "vibe-coding-discover",
       "nine",
       "kyno",
-      "openappa-deterministic-guardrails-that-dont-break-agents"
+      "openappa-deterministic-guardrails-that-dont-break-agents",
+      "verzeta-studio"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3113,7 +3130,8 @@
       "course-vibe-coding-discover",
       "course-nine",
       "course-kyno",
-      "course-openappa-deterministic-guardrails-that-dont-break-agents"
+      "course-openappa-deterministic-guardrails-that-dont-break-agents",
+      "course-verzeta-studio"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3240,7 +3258,8 @@
       "glance",
       "tracelanedev",
       "perspica",
-      "uai"
+      "uai",
+      "gaussian-splat-avatars-for-realtime-ai-agents"
     ],
     "courses": [
       "course-limitless-library",
@@ -3302,7 +3321,8 @@
       "course-glance",
       "course-tracelanedev",
       "course-perspica",
-      "course-uai"
+      "course-uai",
+      "course-gaussian-splat-avatars-for-realtime-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3429,7 +3449,8 @@
       "emulate-ai",
       "prompt-anonymization-and-deanonymization",
       "hosted-mcp-server-for-google-search-console",
-      "rhubarb"
+      "rhubarb",
+      "truescribe"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3476,7 +3497,8 @@
       "course-emulate-ai",
       "course-prompt-anonymization-and-deanonymization",
       "course-hosted-mcp-server-for-google-search-console",
-      "course-rhubarb"
+      "course-rhubarb",
+      "course-truescribe"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3716,7 +3738,8 @@
       "cc-is-an-ai-agent-for-families-and-groups",
       "robodiag-harness",
       "i-told-my-open-source-ai-agent-it-was-a-prisoner",
-      "meta-muse-hits-1-in-apple-app-store"
+      "meta-muse-hits-1-in-apple-app-store",
+      "call4me-an-ai-agent-that-handles-phone-calls-for-you"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -3747,7 +3770,8 @@
       "course-cc-is-an-ai-agent-for-families-and-groups",
       "course-robodiag-harness",
       "course-i-told-my-open-source-ai-agent-it-was-a-prisoner",
-      "course-meta-muse-hits-1-in-apple-app-store"
+      "course-meta-muse-hits-1-in-apple-app-store",
+      "course-call4me-an-ai-agent-that-handles-phone-calls-for-you"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3902,7 +3926,8 @@
       "atlas-finance-evaluating-ai-agents-inside-a-bank",
       "jawz",
       "banker",
-      "investment-bets"
+      "investment-bets",
+      "bananasplit-cli"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -3911,7 +3936,8 @@
       "course-atlas-finance-evaluating-ai-agents-inside-a-bank",
       "course-jawz",
       "course-banker",
-      "course-investment-bets"
+      "course-investment-bets",
+      "course-bananasplit-cli"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4335,7 +4361,8 @@
       "infinihash-app-store",
       "fab",
       "agentcap",
-      "growthengineer"
+      "growthengineer",
+      "bananasplit-cli"
     ],
     "courses": [
       "course-placeroot",
@@ -4366,7 +4393,8 @@
       "course-infinihash-app-store",
       "course-fab",
       "course-agentcap",
-      "course-growthengineer"
+      "course-growthengineer",
+      "course-bananasplit-cli"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4730,7 +4758,8 @@
       "crt",
       "banker",
       "fab",
-      "semrush-ai-tool"
+      "semrush-ai-tool",
+      "bananasplit-cli"
     ],
     "courses": [
       "course-devx",
@@ -4751,7 +4780,8 @@
       "course-crt",
       "course-banker",
       "course-fab",
-      "course-semrush-ai-tool"
+      "course-semrush-ai-tool",
+      "course-bananasplit-cli"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5009,12 +5039,14 @@
     "toolsTeaching": [
       "bytedance-launches-ai-office-product-doubao-work",
       "crew",
-      "turnpanel-is-a-local-first-ai-workspace"
+      "turnpanel-is-a-local-first-ai-workspace",
+      "verzeta-studio"
     ],
     "courses": [
       "course-bytedance-launches-ai-office-product-doubao-work",
       "course-crew",
-      "course-turnpanel-is-a-local-first-ai-workspace"
+      "course-turnpanel-is-a-local-first-ai-workspace",
+      "course-verzeta-studio"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6603,11 +6635,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "grith",
-      "humble-bundle"
+      "humble-bundle",
+      "truescribe"
     ],
     "courses": [
       "course-grith",
-      "course-humble-bundle"
+      "course-humble-bundle",
+      "course-truescribe"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -6813,7 +6847,8 @@
       "turnpanel-is-a-local-first-ai-workspace",
       "forcefield-a-fast-lightweight-local-first-ai-agent-harness",
       "ggg",
-      "paperweight"
+      "paperweight",
+      "verzeta-studio"
     ],
     "courses": [
       "course-datazen",
@@ -6825,7 +6860,8 @@
       "course-turnpanel-is-a-local-first-ai-workspace",
       "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness",
       "course-ggg",
-      "course-paperweight"
+      "course-paperweight",
+      "course-verzeta-studio"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -8741,7 +8777,8 @@
       "ggg",
       "prompt-anonymization-and-deanonymization",
       "pyunto",
-      "paperweight"
+      "paperweight",
+      "truescribe"
     ],
     "courses": [
       "course-pearpie",
@@ -8757,7 +8794,8 @@
       "course-ggg",
       "course-prompt-anonymization-and-deanonymization",
       "course-pyunto",
-      "course-paperweight"
+      "course-paperweight",
+      "course-truescribe"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -10038,12 +10076,14 @@
     "toolsTeaching": [
       "hermes-agent-demo",
       "ethersflow-adversarial-multi-model-consensus-gate-for-ai-age",
-      "a-stateful-llm-api-that-works-across-providers"
+      "a-stateful-llm-api-that-works-across-providers",
+      "verzeta-studio"
     ],
     "courses": [
       "course-hermes-agent-demo",
       "course-ethersflow-adversarial-multi-model-consensus-gate-for-ai-age",
-      "course-a-stateful-llm-api-that-works-across-providers"
+      "course-a-stateful-llm-api-that-works-across-providers",
+      "course-verzeta-studio"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -10451,10 +10491,12 @@
     "domain": "writing",
     "level": "beginner",
     "toolsTeaching": [
-      "openwhispr"
+      "openwhispr",
+      "truescribe"
     ],
     "courses": [
-      "course-openwhispr"
+      "course-openwhispr",
+      "course-truescribe"
     ],
     "updatedAt": "2026-09-04T13:33:57.801Z"
   },
@@ -10464,10 +10506,12 @@
     "domain": "writing",
     "level": "beginner",
     "toolsTeaching": [
-      "openwhispr"
+      "openwhispr",
+      "truescribe"
     ],
     "courses": [
-      "course-openwhispr"
+      "course-openwhispr",
+      "course-truescribe"
     ],
     "updatedAt": "2026-09-04T13:33:57.801Z"
   },
@@ -19181,10 +19225,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "talktome"
+      "talktome",
+      "call4me-an-ai-agent-that-handles-phone-calls-for-you"
     ],
     "courses": [
-      "course-talktome"
+      "course-talktome",
+      "course-call4me-an-ai-agent-that-handles-phone-calls-for-you"
     ],
     "updatedAt": "2026-09-29T15:55:26.286Z"
   },
@@ -19605,5 +19651,70 @@
       "course-uai"
     ],
     "updatedAt": "2026-10-01T00:50:30.348Z"
+  },
+  {
+    "id": "skill-phone calls",
+    "name": "phone calls",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "call4me-an-ai-agent-that-handles-phone-calls-for-you"
+    ],
+    "courses": [
+      "course-call4me-an-ai-agent-that-handles-phone-calls-for-you"
+    ],
+    "updatedAt": "2026-10-01T16:28:36.438Z"
+  },
+  {
+    "id": "skill-speech-to-text",
+    "name": "speech to text",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "truescribe"
+    ],
+    "courses": [
+      "course-truescribe"
+    ],
+    "updatedAt": "2026-10-01T16:28:36.438Z"
+  },
+  {
+    "id": "skill-expense-splitting",
+    "name": "expense splitting",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "bananasplit-cli"
+    ],
+    "courses": [
+      "course-bananasplit-cli"
+    ],
+    "updatedAt": "2026-10-01T16:28:36.438Z"
+  },
+  {
+    "id": "skill-gaussian splatting",
+    "name": "gaussian splatting",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "gaussian-splat-avatars-for-realtime-ai-agents"
+    ],
+    "courses": [
+      "course-gaussian-splat-avatars-for-realtime-ai-agents"
+    ],
+    "updatedAt": "2026-10-01T16:28:36.438Z"
+  },
+  {
+    "id": "skill-avatars",
+    "name": "avatars",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "gaussian-splat-avatars-for-realtime-ai-agents"
+    ],
+    "courses": [
+      "course-gaussian-splat-avatars-for-realtime-ai-agents"
+    ],
+    "updatedAt": "2026-10-01T16:28:36.438Z"
   }
 ]

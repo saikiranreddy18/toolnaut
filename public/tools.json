@@ -9915,5 +9915,124 @@
       "accountability"
     ],
     "discoveredAt": "2026-10-01T00:50:30.348Z"
+  },
+  {
+    "slug": "call4me-an-ai-agent-that-handles-phone-calls-for-you",
+    "name": "Call4me, an AI agent that handles phone calls for you",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "freemium",
+    "level": "beginner",
+    "blurb": "AI agent that makes and handles phone calls on your behalf.",
+    "audience": "busy professionals and small businesses",
+    "dev": "Call4me",
+    "year": 2026,
+    "website": "https://call4.me/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "phone calls",
+      "ai agent",
+      "voice",
+      "automation"
+    ],
+    "discoveredAt": "2026-10-01T16:28:36.438Z"
+  },
+  {
+    "slug": "truescribe",
+    "name": "TrueScribe",
+    "category": "data",
+    "sourceCategory": "Audio, Music & Voice",
+    "price": "free",
+    "pricing": "free local app",
+    "level": "beginner",
+    "blurb": "Local AI transcription studio for Linux with on-device speech-to-text.",
+    "audience": "Linux users and privacy-conscious transcribers",
+    "dev": "",
+    "year": 2026,
+    "website": "https://truescribe.app/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "transcription",
+      "speech-to-text",
+      "linux",
+      "local-ai",
+      "privacy"
+    ],
+    "discoveredAt": "2026-10-01T16:28:36.438Z"
+  },
+  {
+    "slug": "bananasplit-cli",
+    "name": "BananaSplit CLI",
+    "category": "automation",
+    "sourceCategory": "Finance & Accounting",
+    "price": "free",
+    "pricing": "Free CLI",
+    "level": "intermediate",
+    "blurb": "CLI tool using AI agents to manage personal and group expense splitting.",
+    "audience": "developers and groups splitting expenses",
+    "dev": "",
+    "year": 2026,
+    "website": "https://bananasplit.net/en/agents/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "expense-splitting",
+      "cli",
+      "ai-agents",
+      "finance",
+      "open-source"
+    ],
+    "discoveredAt": "2026-10-01T16:28:36.438Z"
+  },
+  {
+    "slug": "gaussian-splat-avatars-for-realtime-ai-agents",
+    "name": "Gaussian Splat Avatars for Realtime AI Agents",
+    "category": "code",
+    "sourceCategory": "Video Generation & Avatars",
+    "price": "free",
+    "pricing": "Open source",
+    "level": "advanced",
+    "blurb": "Open-source Gaussian splat talking-head avatars for real-time AI agents.",
+    "audience": "Developers building real-time AI avatar agents",
+    "dev": "Navod Peiris",
+    "year": 2026,
+    "website": "https://github.com/NavodPeiris/gsplat-talkinghead",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "gaussian splatting",
+      "avatars",
+      "real-time",
+      "ai agents",
+      "open source"
+    ],
+    "discoveredAt": "2026-10-01T16:28:36.438Z"
+  },
+  {
+    "slug": "verzeta-studio",
+    "name": "Verzeta-Studio",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open source",
+    "level": "advanced",
+    "blurb": "Open-source local-first workspace where multiple AI models collaborate in one conversation.",
+    "audience": "Developers & AI power users",
+    "dev": "Verzeta",
+    "year": 2026,
+    "website": "https://verzeta.com",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "multi-model",
+      "local-first",
+      "open-source",
+      "agents",
+      "workspace"
+    ],
+    "discoveredAt": "2026-10-01T16:28:36.438Z"
   }
 ]
