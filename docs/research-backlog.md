@@ -8734,7 +8734,23 @@ focus-on-open), no new OPEN gap appended.
 ---
 
 ### LLM API cost calculator — a narrower, buildable cousin of the stack-cost gap the catalog schema still blocks
-- **Status:** OPEN
+- **Status:** BUILT, UNMERGED — PR #86 (2026-10-01) implements this as scoped
+  below, with one deliberate deviation: the spec said to scope the calculator
+  by a tool's `pricing` field being "API"/"Usage-based API"/"Enterprise API",
+  but `chatgpt`/`claude`/`gemini` are all tagged `Freemium`/`Paid` in the
+  catalog, not API — scoping by that field would have hidden the calculator
+  from the exact three tools this gap's own worked example names. Built to key
+  off a direct `toolSlug` match in the new `modelPricing.js` table instead.
+  Not pushed to `master` directly: a repo-level guard blocks merging without
+  review from this session, so it is a PR awaiting the project owner's merge,
+  same as the stack-overlap-warning (#75) and GA4 cookie-consent (#57/#70)
+  entries elsewhere in this file. `npm test`/`build`/`smoke` all green on the
+  branch; see PR #86 for the full verification record. **Do not rebuild
+  this** — it needs a human to merge #86, not more agent code. This status
+  line was correct on the PR #86 branch since 2026-10-01 but never carried
+  over to `master`, where every later research pass (13th/14th/15th) kept
+  re-noting the same fact in prose without fixing the entry itself — fixed
+  2026-10-02 15:04 UTC.
 - **Seen in:** AI Tools Mentor (found via WebSearch "AI tool comparison
   directory pricing calculator ROI feature 2026") — "an API cost calculator
   for 33 models from 8 providers" alongside its stack builder; Swfte AI
@@ -9154,3 +9170,62 @@ no bug found.
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap and
 made no code change this run.
+
+---
+
+### Research check 2026-10-02 15:04 UTC — no new gap found, sixteenth pass; fixed a stale Status field the PR #86 branch carried but master never got
+Research run (UTC hour 15, an off-schedule firing between the usual
+00:03/06:03/12:03/18:03 UTC slots). CI green on `master` at `a227c99`
+(checked via `mcp__github__actions_list` filtered to `ci.yml`: run #497,
+`success` — the unfiltered `list_workflow_runs` call this session tried
+first returned a stale-looking page capped at 2026-09-11 and should not be
+trusted without the per-workflow filter). `npm run radar:health` `OK` (2
+runs in the 26h window, last publish 14h ago, 8 tools, feed at 428 total).
+No `agent-fixable` issues open.
+
+**Fixed a real inconsistency before searching anything new:** the "LLM API
+cost calculator" entry (found 2026-10-01, line ~8736) was still plain `OPEN`
+on `master`, even though PR #86's own diff (confirmed by reading it directly
+via `pull_request_read`) already rewrote this exact entry's Status field to
+`BUILT, UNMERGED — PR #86` back on 2026-10-01 — that rewrite lives only on
+the unmerged PR branch and never reached `master`, so every pass since
+(13th, 14th, 15th) kept re-noting "PR #86 still open" in its own prose
+without correcting the entry itself. Verified PR #86's diff still matches
+the entry's "Smallest useful version" as written (same `modelPricing.js`
+shape, same `toolSlug`-keyed deviation from the `pricing`-field scoping rule,
+same tests-plus-build-plus-smoke green record) before copying its Status
+line onto `master`, following the exact convention already used for the
+stack-overlap-warning (#75) and GA4 cookie-consent (#57/#70) entries. This is
+a documentation correction, not a new finding — the 28+ open `bot/*` PR
+pileup this file has flagged since the 13th pass is still a human merge
+queue problem, not something this session's direct-to-`master` runs can or
+should route around.
+
+**New competitor checked:** GateOnAI (via Capterra listing, not previously
+named in this file). Its three pitched differentiators — a "GateOnAI Score"
+(uptime + pricing + features rolled into one rating), an "AI Stack Builder"
+("create and share custom tool workflows ... without needing an account"),
+and a side-by-side comparison view — all trace back to ground this file
+already covers, not new gaps:
+- The uptime component of the Score is the same shape the 13th pass already
+  considered and set aside ("uptime-tracker idea needs backend infra") —
+  scheduled polling plus a datastore this static-SPA-plus-radar architecture
+  doesn't have.
+- The quality-rating component is the already-OPEN "Per-tool ratings &
+  reviews" entry (line 587) — a rating needs real review data first, which
+  doesn't exist yet here either.
+- The Stack Builder's "share... without needing an account" framing is
+  exactly what Toolnaut's own `/app/stack` already does today (localStorage-
+  backed, no sign-in required) plus the already-`SHIPPED` share/export flow
+  — the one genuinely-missing half of that pattern (a public page to browse
+  *other* people's shared stacks) is already the OPEN "No browsable gallery
+  of shared stacks" entry (line 7537), not a new one.
+
+Ran `npm test` (311/311), `npm run build` (19 static routes + 1102 tool
+pages, feed holding at 428 tools, no errors), and `npm run smoke` (24/24
+routes, 0 console errors) directly against current `master`. All three
+clean, no bug found to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — only the one-line Status correction above, which fixes an existing
+entry's accuracy rather than adding ground.
