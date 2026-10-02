@@ -186,7 +186,10 @@
       "uai",
       "gaussian-splat-avatars-for-realtime-ai-agents",
       "qlcodepreview-syntax-highlighting-in-finders-quick-look",
-      "crafting-express"
+      "crafting-express",
+      "spens-sandboxed-observable-coding-agents",
+      "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
+      "ai-agent-gateway"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -370,7 +373,10 @@
       "course-uai",
       "course-gaussian-splat-avatars-for-realtime-ai-agents",
       "course-qlcodepreview-syntax-highlighting-in-finders-quick-look",
-      "course-crafting-express"
+      "course-crafting-express",
+      "course-spens-sandboxed-observable-coding-agents",
+      "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
+      "course-ai-agent-gateway"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -528,7 +534,10 @@
       "openappa-deterministic-guardrails-that-dont-break-agents",
       "bananasplit-cli",
       "verzeta-studio",
-      "pbi-guard"
+      "pbi-guard",
+      "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
+      "wsp-wordpress-mcp",
+      "bootloops"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -591,7 +600,10 @@
       "course-openappa-deterministic-guardrails-that-dont-break-agents",
       "course-bananasplit-cli",
       "course-verzeta-studio",
-      "course-pbi-guard"
+      "course-pbi-guard",
+      "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
+      "course-wsp-wordpress-mcp",
+      "course-bootloops"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -983,7 +995,11 @@
       "premortem",
       "nvidia-debuted-the-open-agent-safety-platform",
       "mutually-beneficial-agentic-common-law",
-      "ai-agents-can-now-buy-real-services"
+      "ai-agents-can-now-buy-real-services",
+      "spens-sandboxed-observable-coding-agents",
+      "knowledge-platform-powered-by-agents-demonstration",
+      "wsp-wordpress-mcp",
+      "bootloops"
     ],
     "courses": [
       "course-headless-tools",
@@ -1218,7 +1234,11 @@
       "course-premortem",
       "course-nvidia-debuted-the-open-agent-safety-platform",
       "course-mutually-beneficial-agentic-common-law",
-      "course-ai-agents-can-now-buy-real-services"
+      "course-ai-agents-can-now-buy-real-services",
+      "course-spens-sandboxed-observable-coding-agents",
+      "course-knowledge-platform-powered-by-agents-demonstration",
+      "course-wsp-wordpress-mcp",
+      "course-bootloops"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1403,7 +1423,8 @@
       "uai",
       "gaussian-splat-avatars-for-realtime-ai-agents",
       "nvidia-debuted-the-open-agent-safety-platform",
-      "ai-agents-can-now-buy-real-services"
+      "ai-agents-can-now-buy-real-services",
+      "ai-agent-gateway"
     ],
     "courses": [
       "course-headless-tools",
@@ -1566,7 +1587,8 @@
       "course-uai",
       "course-gaussian-splat-avatars-for-realtime-ai-agents",
       "course-nvidia-debuted-the-open-agent-safety-platform",
-      "course-ai-agents-can-now-buy-real-services"
+      "course-ai-agents-can-now-buy-real-services",
+      "course-ai-agent-gateway"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2149,7 +2171,8 @@
       "ai-crawler-honeypot",
       "keydris-sudo-for-ai-agents",
       "swarmauth",
-      "squidbrake"
+      "squidbrake",
+      "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -2188,7 +2211,8 @@
       "course-ai-crawler-honeypot",
       "course-keydris-sudo-for-ai-agents",
       "course-swarmauth",
-      "course-squidbrake"
+      "course-squidbrake",
+      "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2214,13 +2238,15 @@
       "gibson-adk-and-zero-trust-runtime",
       "oconee-runtime",
       "public-beta-a-decision-governance-runtime-for-ai-agents",
-      "apowerb"
+      "apowerb",
+      "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
       "course-oconee-runtime",
       "course-public-beta-a-decision-governance-runtime-for-ai-agents",
-      "course-apowerb"
+      "course-apowerb",
+      "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2358,7 +2384,9 @@
       "open-health-atlas",
       "vibe-coding-discover",
       "semrush-ai-tool",
-      "hosted-mcp-server-for-google-search-console"
+      "hosted-mcp-server-for-google-search-console",
+      "wsp-wordpress-mcp",
+      "ai-agent-gateway"
     ],
     "courses": [
       "course-coolplugz",
@@ -2389,7 +2417,9 @@
       "course-open-health-atlas",
       "course-vibe-coding-discover",
       "course-semrush-ai-tool",
-      "course-hosted-mcp-server-for-google-search-console"
+      "course-hosted-mcp-server-for-google-search-console",
+      "course-wsp-wordpress-mcp",
+      "course-ai-agent-gateway"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2901,7 +2931,8 @@
       "aclif",
       "forcefield-a-fast-lightweight-local-first-ai-agent-harness",
       "inventor-of-chatgpt-and-rlhf-launches-typesafeai",
-      "perspica"
+      "perspica",
+      "spens-sandboxed-observable-coding-agents"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -2946,7 +2977,8 @@
       "course-aclif",
       "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness",
       "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai",
-      "course-perspica"
+      "course-perspica",
+      "course-spens-sandboxed-observable-coding-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3116,7 +3148,9 @@
       "kyno",
       "openappa-deterministic-guardrails-that-dont-break-agents",
       "verzeta-studio",
-      "mutually-beneficial-agentic-common-law"
+      "mutually-beneficial-agentic-common-law",
+      "knowledge-platform-powered-by-agents-demonstration",
+      "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3157,7 +3191,9 @@
       "course-kyno",
       "course-openappa-deterministic-guardrails-that-dont-break-agents",
       "course-verzeta-studio",
-      "course-mutually-beneficial-agentic-common-law"
+      "course-mutually-beneficial-agentic-common-law",
+      "course-knowledge-platform-powered-by-agents-demonstration",
+      "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3285,7 +3321,8 @@
       "tracelanedev",
       "perspica",
       "uai",
-      "gaussian-splat-avatars-for-realtime-ai-agents"
+      "gaussian-splat-avatars-for-realtime-ai-agents",
+      "knowledge-platform-powered-by-agents-demonstration"
     ],
     "courses": [
       "course-limitless-library",
@@ -3348,7 +3385,8 @@
       "course-tracelanedev",
       "course-perspica",
       "course-uai",
-      "course-gaussian-splat-avatars-for-realtime-ai-agents"
+      "course-gaussian-splat-avatars-for-realtime-ai-agents",
+      "course-knowledge-platform-powered-by-agents-demonstration"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4017,7 +4055,9 @@
       "selfshipai",
       "stroq",
       "ai-cost-dashboard-is-probably-wrong",
-      "agentcap"
+      "agentcap",
+      "spens-sandboxed-observable-coding-agents",
+      "ai-agent-gateway"
     ],
     "courses": [
       "course-agenttrail",
@@ -4026,7 +4066,9 @@
       "course-selfshipai",
       "course-stroq",
       "course-ai-cost-dashboard-is-probably-wrong",
-      "course-agentcap"
+      "course-agentcap",
+      "course-spens-sandboxed-observable-coding-agents",
+      "course-ai-agent-gateway"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4218,10 +4260,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "build-your-own-theme-park"
+      "build-your-own-theme-park",
+      "knowledge-platform-powered-by-agents-demonstration"
     ],
     "courses": [
-      "course-build-your-own-theme-park"
+      "course-build-your-own-theme-park",
+      "course-knowledge-platform-powered-by-agents-demonstration"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4397,7 +4441,8 @@
       "agentcap",
       "growthengineer",
       "bananasplit-cli",
-      "premortem"
+      "premortem",
+      "wsp-wordpress-mcp"
     ],
     "courses": [
       "course-placeroot",
@@ -4430,7 +4475,8 @@
       "course-agentcap",
       "course-growthengineer",
       "course-bananasplit-cli",
-      "course-premortem"
+      "course-premortem",
+      "course-wsp-wordpress-mcp"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4674,14 +4720,18 @@
       "dev-sandbox",
       "legion",
       "wvm",
-      "crafting-express"
+      "crafting-express",
+      "spens-sandboxed-observable-coding-agents",
+      "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
     ],
     "courses": [
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
       "course-dev-sandbox",
       "course-legion",
       "course-wvm",
-      "course-crafting-express"
+      "course-crafting-express",
+      "course-spens-sandboxed-observable-coding-agents",
+      "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5254,7 +5304,8 @@
       "benchmarking-coding-agents-perform-on-scraping",
       "viaduct",
       "friday",
-      "crafting-express"
+      "crafting-express",
+      "spens-sandboxed-observable-coding-agents"
     ],
     "courses": [
       "course-ai-tools-list",
@@ -5267,7 +5318,8 @@
       "course-benchmarking-coding-agents-perform-on-scraping",
       "course-viaduct",
       "course-friday",
-      "course-crafting-express"
+      "course-crafting-express",
+      "course-spens-sandboxed-observable-coding-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -7790,10 +7842,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "kiso"
+      "kiso",
+      "knowledge-platform-powered-by-agents-demonstration"
     ],
     "courses": [
-      "course-kiso"
+      "course-kiso",
+      "course-knowledge-platform-powered-by-agents-demonstration"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -16178,10 +16232,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "andon-labs-puts-ai-agents-in-charge-of-real-businesses"
+      "andon-labs-puts-ai-agents-in-charge-of-real-businesses",
+      "bootloops"
     ],
     "courses": [
-      "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses"
+      "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses",
+      "course-bootloops"
     ],
     "updatedAt": "2026-09-14T15:54:36.868Z"
   },
@@ -19901,5 +19957,83 @@
       "course-ai-agents-can-now-buy-real-services"
     ],
     "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "skill-wordpress",
+    "name": "wordpress",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "wsp-wordpress-mcp"
+    ],
+    "courses": [
+      "course-wsp-wordpress-mcp"
+    ],
+    "updatedAt": "2026-10-02T15:51:16.985Z"
+  },
+  {
+    "id": "skill-physics",
+    "name": "physics",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "bootloops"
+    ],
+    "courses": [
+      "course-bootloops"
+    ],
+    "updatedAt": "2026-10-02T15:51:16.985Z"
+  },
+  {
+    "id": "skill-computational-science",
+    "name": "computational science",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "bootloops"
+    ],
+    "courses": [
+      "course-bootloops"
+    ],
+    "updatedAt": "2026-10-02T15:51:16.985Z"
+  },
+  {
+    "id": "skill-quantitative",
+    "name": "quantitative",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "bootloops"
+    ],
+    "courses": [
+      "course-bootloops"
+    ],
+    "updatedAt": "2026-10-02T15:51:16.985Z"
+  },
+  {
+    "id": "skill-gateway",
+    "name": "gateway",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-agent-gateway"
+    ],
+    "courses": [
+      "course-ai-agent-gateway"
+    ],
+    "updatedAt": "2026-10-02T15:51:16.985Z"
+  },
+  {
+    "id": "skill-llm security",
+    "name": "llm security",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "ai-agent-gateway"
+    ],
+    "courses": [
+      "course-ai-agent-gateway"
+    ],
+    "updatedAt": "2026-10-02T15:51:16.985Z"
   }
 ]

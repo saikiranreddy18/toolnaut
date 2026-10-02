@@ -29015,5 +29015,341 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "course-spens-sandboxed-observable-coding-agents",
+    "toolSlug": "spens-sandboxed-observable-coding-agents",
+    "title": "Master Spens sandboxed, observable coding agents",
+    "objectives": [
+      "Understand what Spens sandboxed, observable coding agents is for",
+      "Use Spens sandboxed, observable coding agents on a real task",
+      "Know where Spens sandboxed, observable coding agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Spens sandboxed, observable coding agents for your real workflow, not the demo.",
+          "Say what Spens sandboxed, observable coding agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Spens sandboxed, observable coding agents.",
+          "Push Spens sandboxed, observable coding agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Spens sandboxed, observable coding agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding agents",
+      "skill-sandbox",
+      "skill-observability",
+      "skill-automation",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-02T15:51:16.985Z"
+  },
+  {
+    "id": "course-knowledge-platform-powered-by-agents-demonstration",
+    "toolSlug": "knowledge-platform-powered-by-agents-demonstration",
+    "title": "Master Knowledge platform powered by agents demonstration",
+    "objectives": [
+      "Deploy the agent-powered knowledge platform demo locally",
+      "Ingest documents into the knowledge store and verify indexing",
+      "Run agent-driven queries and inspect how agents retrieve and synthesize answers"
+    ],
+    "modules": [
+      {
+        "title": "Setup and Local Deployment",
+        "estMinutes": 20,
+        "steps": [
+          "Clone the demo repository and install dependencies per the README (e.g., `pip install -r requirements.txt` or `npm install`)",
+          "Configure required API keys (LLM provider key) in the `.env` file and start the platform with the provided run script or `docker compose up`",
+          "Open the web UI in your browser and confirm the dashboard loads without errors"
+        ]
+      },
+      {
+        "title": "Ingesting and Organizing Knowledge",
+        "estMinutes": 25,
+        "steps": [
+          "Upload 3-5 sample documents (PDFs, markdown, or notes) through the ingest interface",
+          "Create collections or tags to organize the documents, then check the indexing log to confirm embeddings were generated",
+          "Test basic search to verify your documents are retrievable before involving agents"
+        ]
+      },
+      {
+        "title": "Querying with Agents",
+        "estMinutes": 30,
+        "steps": [
+          "Submit a natural-language question that requires combining information from multiple ingested documents",
+          "Open the agent trace/debug view and observe which retrieval steps and tool calls the agent executed",
+          "Modify the agent configuration (e.g., system prompt, retriever settings, or number of retrieved chunks) and compare answer quality before and after"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-knowledge base",
+      "skill-open source",
+      "skill-demo"
+    ],
+    "prerequisites": [
+      "Comfortable running projects from the command line",
+      "An API key for an LLM provider (e.g., OpenAI)",
+      "Basic familiarity with embeddings and retrieval-augmented generation concepts"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-02T15:51:16.985Z"
+  },
+  {
+    "id": "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
+    "toolSlug": "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
+    "title": "Master Nvidia/OpenShell: Safe, private runtime for autonomous AI agents",
+    "objectives": [
+      "Install OpenShell and configure sandboxed agent runtimes",
+      "Define policy rules controlling tool, network, and filesystem access",
+      "Audit and monitor agent executions using OpenShell logs and telemetry"
+    ],
+    "modules": [
+      {
+        "title": "Install & First Sandboxed Agent Run",
+        "estMinutes": 25,
+        "steps": [
+          "Install the openshell CLI from NVIDIA's repo and verify with `openshell doctor` to confirm container isolation prerequisites (gVisor/Firecracker)",
+          "Create a `shell.yaml` manifest defining an agent workload with a bounded resource profile, then launch it with `openshell run`",
+          "Verify sandboxing by attempting a blocked syscall/network call inside the runtime and confirming it is denied"
+        ]
+      },
+      {
+        "title": "Policy-Enforced Tool & Network Access",
+        "estMinutes": 35,
+        "steps": [
+          "Write a policy file restricting egress to an allowlist of API domains (e.g., model endpoints only) and attach it via `openshell run --policy`",
+          "Mount a scoped, read-only workspace directory into the sandbox and test that writes outside it are rejected",
+          "Configure per-tool permissions so the agent can invoke only approved tools, and revoking a credential to confirm the agent fails safely"
+        ]
+      },
+      {
+        "title": "Private Model Routing & Execution Auditing",
+        "estMinutes": 30,
+        "steps": [
+          "Point the runtime's model gateway at a self-hosted/enterprise endpoint so no prompts leave your network, verifying via connection logs",
+          "Enable execution tracing with `openshell logs --trace` to capture every tool call, file access, and outbound request for a full agent session",
+          "Export an audit report for a run and replay the session to reproduce a specific agent decision"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-agents",
+      "skill-runtime",
+      "skill-security",
+      "skill-open-source",
+      "skill-sandbox"
+    ],
+    "prerequisites": [
+      "Experience running containerized workloads (Docker, OCI runtimes)",
+      "Familiarity with LLM agent frameworks and tool-calling patterns",
+      "Basic Linux security concepts (syscall isolation, network namespaces)"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-02T15:51:16.985Z"
+  },
+  {
+    "id": "course-wsp-wordpress-mcp",
+    "toolSlug": "wsp-wordpress-mcp",
+    "title": "Master WSP WordPress MCP",
+    "objectives": [
+      "Install and configure a WordPress MCP server with authenticated site access",
+      "Use MCP tools to create, query, and update posts, pages, and media programmatically",
+      "Build a repeatable agent workflow for bulk content operations with error handling"
+    ],
+    "modules": [
+      {
+        "title": "Setup and Authentication",
+        "estMinutes": 20,
+        "steps": [
+          "Clone the WSP WordPress MCP repo and register it in your MCP client config (e.g., claude_desktop_config.json) with filesystem path and node command",
+          "On a staging WordPress site, create an Application Password under Users → Profile and store it in the server's env config alongside WP_URL and WP_USER",
+          "Restart the MCP client and verify connection by asking the agent to list the 5 most recent posts via the wp_get_posts tool"
+        ]
+      },
+      {
+        "title": "Core Content Operations via Tools",
+        "estMinutes": 30,
+        "steps": [
+          "Create a draft post with wp_create_post, passing title, raw block content, category IDs, and a featured image ID — confirm it appears in wp-admin",
+          "Query existing content with filters: fetch published pages modified in the last 30 days, then update one with wp_update_post to change its slug and status",
+          "Upload a local image via the media tool, capture the returned attachment ID, and attach it as featured media to your test post"
+        ]
+      },
+      {
+        "title": "Agent Workflow: Bulk Operations",
+        "estMinutes": 25,
+        "steps": [
+          "Prompt the agent to audit all posts missing excerpts, generate excerpts from each post's first paragraph, and update them in sequence",
+          "Add a taxonomy pass: have the agent create missing tags, then assign them to posts based on keyword matching in titles",
+          "Test failure handling by pointing the server at an invalid URL, observe the error response, and write a retry/fallback instruction into your agent prompt"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-wordpress",
+      "skill-mcp",
+      "skill-ai-agents",
+      "skill-open-source"
+    ],
+    "prerequisites": [
+      "Admin access to a WordPress site (staging recommended) with REST API enabled",
+      "Node.js 18+ and an MCP-compatible client (e.g., Claude Desktop) installed",
+      "Familiarity with WordPress content types: posts, pages, media, taxonomies"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-02T15:51:16.985Z"
+  },
+  {
+    "id": "course-bootloops",
+    "toolSlug": "bootloops",
+    "title": "Master bootloops",
+    "objectives": [
+      "Configure and launch a certified bootloops physics engine session from an LLM agent",
+      "Write numerically stable queries with correct units, tolerances, and precision settings",
+      "Validate and certify engine outputs against error bounds for downstream quantitative use"
+    ],
+    "modules": [
+      {
+        "title": "Engine Setup and Agent Integration",
+        "estMinutes": 25,
+        "steps": [
+          "Install the bootloops SDK and authenticate with your engine API key via `bootloops.init(api_key, engine='physics-hp')`",
+          "Connect your LLM agent loop: define the tool schema so the agent can call `bootloops.solve()` with structured JSON arguments",
+          "Run the built-in smoke test problem (two-body orbital integration) and confirm the returned certificate hash is valid"
+        ]
+      },
+      {
+        "title": "Precision, Units, and Stability Control",
+        "estMinutes": 30,
+        "steps": [
+          "Set working precision explicitly (e.g., `precision=64` bits) and request interval-arithmetic bounds on a test ODE integration",
+          "Annotate all inputs with SI units and let bootloops' unit checker reject a deliberately mismatched query to see the error format",
+          "Compare a low-tolerance vs high-tolerance run on a stiff differential equation and record runtime vs certified error bound tradeoffs"
+        ]
+      },
+      {
+        "title": "Certified Output Verification and Agent Pipelines",
+        "estMinutes": 35,
+        "steps": [
+          "Parse the certificate attached to a result: verify the residual bound and condition-number fields before trusting the value in downstream code",
+          "Build an agent retry policy: re-run with doubled precision whenever the certificate's error bound exceeds your threshold",
+          "Compose a two-stage pipeline where the LLM agent chains a bootloops physics solve into a quantitative optimization query, logging all certificates for audit"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-physics",
+      "skill-llm-agents",
+      "skill-computational-science",
+      "skill-open-source",
+      "skill-quantitative"
+    ],
+    "prerequisites": [
+      "Experience writing LLM agent tool-calling loops (function calling / JSON schemas)",
+      "Working knowledge of numerical methods: ODEs, floating-point error, condition numbers",
+      "Python proficiency and familiarity with SI unit conventions"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-02T15:51:16.985Z"
+  },
+  {
+    "id": "course-ai-agent-gateway",
+    "toolSlug": "ai-agent-gateway",
+    "title": "Master ai-agent-gateway",
+    "objectives": [
+      "Deploy ai-agent-gateway in front of MCP servers and LLM providers with policy enforcement enabled",
+      "Author fine-grained governance policies that allow, deny, or redact tool calls and LLM requests",
+      "Use the gateway's observability pipeline (tracing, audit logs, cost metrics) to detect anomalous agent behavior"
+    ],
+    "modules": [
+      {
+        "title": "Install and Route Agent Traffic Through the Gateway",
+        "estMinutes": 35,
+        "steps": [
+          "Clone the repo and start the gateway with Docker Compose: `docker compose up gateway`, then point your agent's MCP client at the gateway endpoint (e.g. `http://localhost:8080/mcp`) instead of the upstream MCP server.",
+          "Register one upstream MCP server and one LLM provider in `gateway.yaml` under `upstreams:`, including API keys loaded from environment variables, and verify routing with a single test tool call through the proxy.",
+          "Enable TLS and mutual auth for agent-to-gateway connections by setting `auth.mode: mtls` and generating client certs, then confirm direct upstream access is blocked so all traffic must traverse the gateway."
+        ]
+      },
+      {
+        "title": "Author and Test Governance Policies",
+        "estMinutes": 45,
+        "steps": [
+          "Write a policy file (e.g. `policies/default.yaml`) that denies destructive tools by name pattern—block `delete_*` and `drop_*` across all agents—and reload policies at runtime via the `/admin/policies/reload` endpoint.",
+          "Add per-agent scoping: give one agent identity read-only access (allow only `get_*`/`list_*` tools) and rate-limit its LLM calls to 20 req/min, then test violations with scripted curl/CLI calls and confirm you receive structured denial responses.",
+          "Implement PII redaction on LLM payloads by enabling the content filter rule (`filters: [pii_redact]`), send a prompt containing a fake SSN, and inspect the upstream request log to verify masking occurred before the model saw the data."
+        ]
+      },
+      {
+        "title": "Observability: Tracing, Audit Logs, and Anomaly Detection",
+        "estMinutes": 40,
+        "steps": [
+          "Export OpenTelemetry traces by setting `telemetry.otel_endpoint` to a local Jaeger instance, run a multi-tool agent workflow, and trace each MCP call—from policy decision to upstream response—as spans in the Jaeger UI.",
+          "Query the structured audit log (JSONL or the `/admin/audit` API) to answer: which agent called which tool, with what arguments, what policy decision, and what latency; filter by a specific session ID.",
+          "Configure alerting rules (e.g. deny-rate > 10% in 5 min, or a single agent exceeding a token budget) and trigger one alert deliberately with a loop of blocked tool calls to validate the full detection path."
+        ]
+      },
+      {
+        "title": "Hardening and Production Rollout",
+        "estMinutes": 30,
+        "steps": [
+          "Run the gateway in enforce-plus-shadow mode: keep existing direct routes live while the gateway logs what it *would* block, then compare shadow decisions against real traffic for one day before flipping to enforce-only.",
+          "Set up high availability by running two gateway replicas behind a load balancer with a shared policy store, and kill one replica mid-workflow to confirm zero dropped in-flight tool calls.",
+          "Load test with `k6` simulating 200 concurrent agents making mixed MCP and LLM calls; set resource limits and tune connection pooling until p99 added latency stays under 15ms per proxied call."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-gateway",
+      "skill-mcp",
+      "skill-llm security",
+      "skill-observability"
+    ],
+    "prerequisites": [
+      "Comfortable with Docker Compose, YAML configuration, and reverse-proxy concepts",
+      "Working knowledge of the Model Context Protocol (MCP) client/server flow and LLM API semantics",
+      "Familiarity with OpenTelemetry/Jaeger and basic policy-as-code or IAM rule languages"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-02T15:51:16.985Z"
   }
 ]
