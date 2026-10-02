@@ -26,6 +26,7 @@ import BillingCard from '../../components/app/BillingCard'
 import DeleteAccount from '../../components/app/DeleteAccount'
 import { replayTour } from '../../components/app/AppTour'
 import { loadAvatar } from '../../state/avatarStore'
+import { downloadUserData } from '../../utils/exportUserData'
 
 // ME — the control centre.
 //
@@ -118,6 +119,10 @@ export default function Settings() {
   function handleReplayTour() {
     replayTour()
     navigate('/app/stack')
+  }
+
+  function handleDownloadData() {
+    downloadUserData(session)
   }
 
   function handleRetake() {
@@ -508,6 +513,12 @@ export default function Settings() {
             the tour is about the app rather than the account. */}
         <button onClick={handleReplayTour} className="nb-btn dark min-h-11 px-4 py-2.5 text-xs">
           Replay the tour
+        </button>
+        {/* Also outside the signed-in check: a guest's stack/quiz/roadmap data
+            is just as real and just as exportable, it's simply scoped to this
+            browser instead of an account. */}
+        <button onClick={handleDownloadData} className="nb-btn dark min-h-11 px-4 py-2.5 text-xs">
+          Download my data
         </button>
         {session && (
           <>
