@@ -8937,3 +8937,58 @@ a11y regression) — all 5 hits (`AIRobot.jsx` ×3, `SpiralMark.jsx`,
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap and
 made no code change this run.
+
+---
+
+### Research check 2026-10-02 00:04 UTC — no new gap found, thirteenth pass; uptime-tracker idea considered and set aside as backend-shaped
+Research run (UTC hour 00). `master` was stale in this session's local
+checkout (8 commits behind `origin/master`, left over from a prior
+detached-HEAD state) — fast-forwarded before anything else ran. CI green on
+`master` at `9dcbc18` (`CI` #491, `Release` #421 both `success`), `npm run
+radar:health` initially reported `STALE` against the un-fast-forwarded
+checkout's `radar/data/runs.log.json`; re-ran after the fast-forward and it
+came back `OK` (2 runs in the 26h window, last publish 7.6h ago, 5 tools,
+feed at 420 total). No `agent-fixable` issues open. Noted for awareness, not
+actioned: issue #67 ("22 open bot PRs...") is still open — now **28** open
+`bot/*`/`feat/*` PRs, oldest (`#3`) six weeks old; same conclusion as every
+prior pass, merging/closing needs a human with merge rights. Also noted: PR
+`#86` ("LLM API cost calculator") from the 2026-10-01 18:03 UTC feature run
+landed as an open PR (`bot/claude/api-cost-calculator-2026-10-01`) rather
+than a direct push to `master` — the backlog's "LLM API cost calculator"
+entry (2026-10-01, this file) is therefore still correctly `OPEN`, not
+`SHIPPED`, since nothing reached `master`. Flagging here so tonight's
+feature run checks that PR before re-building the same feature from
+scratch.
+
+Thirteenth research pass since 2026-09-29 09:00 UTC. Re-verified the two
+smallest build-ready OPEN entries against current `master` rather than
+trusting the backlog's own text: `grep -n "DeleteAccount\|new Blob\|
+createObjectURL" src/pages/app/Settings.jsx` still shows only the
+`DeleteAccount` import/mount, no export util or download button — "Download
+my data" (2026-09-13) is unchanged and still the smallest build-ready gap in
+the file. `grep -rn "report\|incorrect\|flag" src/pages/app/ToolDetail.jsx
+src/pages/ToolPublic.jsx` and `grep -rn "suggestTool\|SuggestTool" src/`
+both still return zero hits — "No way to flag a wrong listing" (2026-09-16)
+and the "Suggest a tool" entry it extends are both still accurate, neither
+util exists yet.
+
+Tried one fresh angle: WebSearched "AI tool directory status page outage
+tracker 2026" after noticing OpenAI/Anthropic/Google/Microsoft all run
+live status pages and wondering whether a directory-level "is my AI stack
+down" aggregator was a gap. It's a real pattern (found an open-source "AI
+Tool Status Checker" doing exactly this), but it requires polling every
+listed tool's endpoint on a schedule and holding the results somewhere
+queryable — the same backend shape this file's ranking note already treats
+as the default REJECTED case (digest email, Discord bot, vendor deals
+above), not a client-side SPA feature. Not logged as OPEN; would need to be
+proposed alongside real infra (a cron + a datastore), not as a frontend
+gap. A second search ("AI tools directory new feature launch 2026") surfaced
+three new-to-this-file directories (AIToolsHub, Garanix, AIToolly) — none
+do anything Toolnaut doesn't already have or hasn't already logged
+(AIToolsHub's "Algorithmic Tool Radar" is the same discovery-pipeline shape
+as this project's own `radar/`; Garanix's "1,000+ verified tools" claim is a
+catalog-size flex, not a feature; AIToolly is a bare curated list with no
+feature beyond what `Discover.jsx` already does).
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap and
+made no code change this run.
