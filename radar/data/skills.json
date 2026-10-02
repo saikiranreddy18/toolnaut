@@ -184,7 +184,9 @@
       "tracelanedev",
       "perspica",
       "uai",
-      "gaussian-splat-avatars-for-realtime-ai-agents"
+      "gaussian-splat-avatars-for-realtime-ai-agents",
+      "qlcodepreview-syntax-highlighting-in-finders-quick-look",
+      "crafting-express"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -366,7 +368,9 @@
       "course-tracelanedev",
       "course-perspica",
       "course-uai",
-      "course-gaussian-splat-avatars-for-realtime-ai-agents"
+      "course-gaussian-splat-avatars-for-realtime-ai-agents",
+      "course-qlcodepreview-syntax-highlighting-in-finders-quick-look",
+      "course-crafting-express"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -523,7 +527,8 @@
       "growthengineer",
       "openappa-deterministic-guardrails-that-dont-break-agents",
       "bananasplit-cli",
-      "verzeta-studio"
+      "verzeta-studio",
+      "pbi-guard"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -585,7 +590,8 @@
       "course-growthengineer",
       "course-openappa-deterministic-guardrails-that-dont-break-agents",
       "course-bananasplit-cli",
-      "course-verzeta-studio"
+      "course-verzeta-studio",
+      "course-pbi-guard"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -972,7 +978,12 @@
       "jamb-ai",
       "call4me-an-ai-agent-that-handles-phone-calls-for-you",
       "bananasplit-cli",
-      "verzeta-studio"
+      "verzeta-studio",
+      "i-got-sick-of-sequencers-and-crms-so-i-built-this",
+      "premortem",
+      "nvidia-debuted-the-open-agent-safety-platform",
+      "mutually-beneficial-agentic-common-law",
+      "ai-agents-can-now-buy-real-services"
     ],
     "courses": [
       "course-headless-tools",
@@ -1202,7 +1213,12 @@
       "course-jamb-ai",
       "course-call4me-an-ai-agent-that-handles-phone-calls-for-you",
       "course-bananasplit-cli",
-      "course-verzeta-studio"
+      "course-verzeta-studio",
+      "course-i-got-sick-of-sequencers-and-crms-so-i-built-this",
+      "course-premortem",
+      "course-nvidia-debuted-the-open-agent-safety-platform",
+      "course-mutually-beneficial-agentic-common-law",
+      "course-ai-agents-can-now-buy-real-services"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1385,7 +1401,9 @@
       "termaxa",
       "glance",
       "uai",
-      "gaussian-splat-avatars-for-realtime-ai-agents"
+      "gaussian-splat-avatars-for-realtime-ai-agents",
+      "nvidia-debuted-the-open-agent-safety-platform",
+      "ai-agents-can-now-buy-real-services"
     ],
     "courses": [
       "course-headless-tools",
@@ -1546,7 +1564,9 @@
       "course-termaxa",
       "course-glance",
       "course-uai",
-      "course-gaussian-splat-avatars-for-realtime-ai-agents"
+      "course-gaussian-splat-avatars-for-realtime-ai-agents",
+      "course-nvidia-debuted-the-open-agent-safety-platform",
+      "course-ai-agents-can-now-buy-real-services"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2705,14 +2725,18 @@
       "foundry-toolbox-radar-lab",
       "microsoft-publishes-ai-agent-shared-responsibility-model",
       "covenant",
-      "public-beta-a-decision-governance-runtime-for-ai-agents"
+      "public-beta-a-decision-governance-runtime-for-ai-agents",
+      "nvidia-debuted-the-open-agent-safety-platform",
+      "mutually-beneficial-agentic-common-law"
     ],
     "courses": [
       "course-mrea",
       "course-foundry-toolbox-radar-lab",
       "course-microsoft-publishes-ai-agent-shared-responsibility-model",
       "course-covenant",
-      "course-public-beta-a-decision-governance-runtime-for-ai-agents"
+      "course-public-beta-a-decision-governance-runtime-for-ai-agents",
+      "course-nvidia-debuted-the-open-agent-safety-platform",
+      "course-mutually-beneficial-agentic-common-law"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3091,7 +3115,8 @@
       "nine",
       "kyno",
       "openappa-deterministic-guardrails-that-dont-break-agents",
-      "verzeta-studio"
+      "verzeta-studio",
+      "mutually-beneficial-agentic-common-law"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3131,7 +3156,8 @@
       "course-nine",
       "course-kyno",
       "course-openappa-deterministic-guardrails-that-dont-break-agents",
-      "course-verzeta-studio"
+      "course-verzeta-studio",
+      "course-mutually-beneficial-agentic-common-law"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3450,7 +3476,8 @@
       "prompt-anonymization-and-deanonymization",
       "hosted-mcp-server-for-google-search-console",
       "rhubarb",
-      "truescribe"
+      "truescribe",
+      "pbi-guard"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3498,7 +3525,8 @@
       "course-prompt-anonymization-and-deanonymization",
       "course-hosted-mcp-server-for-google-search-console",
       "course-rhubarb",
-      "course-truescribe"
+      "course-truescribe",
+      "course-pbi-guard"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3609,7 +3637,8 @@
       "productivity-effects-across-generations-of-ai-coding-tools",
       "turnpanel-is-a-local-first-ai-workspace",
       "app-launch-grabthat-nlp-launcher-for-windows",
-      "squint"
+      "squint",
+      "qlcodepreview-syntax-highlighting-in-finders-quick-look"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -3634,7 +3663,8 @@
       "course-productivity-effects-across-generations-of-ai-coding-tools",
       "course-turnpanel-is-a-local-first-ai-workspace",
       "course-app-launch-grabthat-nlp-launcher-for-windows",
-      "course-squint"
+      "course-squint",
+      "course-qlcodepreview-syntax-highlighting-in-finders-quick-look"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3873,7 +3903,8 @@
       "humble-bundle",
       "restarted",
       "is-ai-solving-math-too-fast",
-      "can-ai-build-a-toilet-yet"
+      "can-ai-build-a-toilet-yet",
+      "mutually-beneficial-agentic-common-law"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -3884,7 +3915,8 @@
       "course-humble-bundle",
       "course-restarted",
       "course-is-ai-solving-math-too-fast",
-      "course-can-ai-build-a-toilet-yet"
+      "course-can-ai-build-a-toilet-yet",
+      "course-mutually-beneficial-agentic-common-law"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4264,7 +4296,8 @@
       "nowdex",
       "open-health-atlas",
       "emulate-ai",
-      "hosted-mcp-server-for-google-search-console"
+      "hosted-mcp-server-for-google-search-console",
+      "pbi-guard"
     ],
     "courses": [
       "course-launch-hn-risklytics-yc-s26",
@@ -4276,7 +4309,8 @@
       "course-nowdex",
       "course-open-health-atlas",
       "course-emulate-ai",
-      "course-hosted-mcp-server-for-google-search-console"
+      "course-hosted-mcp-server-for-google-search-console",
+      "course-pbi-guard"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4362,7 +4396,8 @@
       "fab",
       "agentcap",
       "growthengineer",
-      "bananasplit-cli"
+      "bananasplit-cli",
+      "premortem"
     ],
     "courses": [
       "course-placeroot",
@@ -4394,7 +4429,8 @@
       "course-fab",
       "course-agentcap",
       "course-growthengineer",
-      "course-bananasplit-cli"
+      "course-bananasplit-cli",
+      "course-premortem"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4637,13 +4673,15 @@
       "a-benchmark-for-safely-measuring-container-breakout-capabili",
       "dev-sandbox",
       "legion",
-      "wvm"
+      "wvm",
+      "crafting-express"
     ],
     "courses": [
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
       "course-dev-sandbox",
       "course-legion",
-      "course-wvm"
+      "course-wvm",
+      "course-crafting-express"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5215,7 +5253,8 @@
       "usero-mcp-give-your-coding-agent-your-user-feedback",
       "benchmarking-coding-agents-perform-on-scraping",
       "viaduct",
-      "friday"
+      "friday",
+      "crafting-express"
     ],
     "courses": [
       "course-ai-tools-list",
@@ -5227,7 +5266,8 @@
       "course-usero-mcp-give-your-coding-agent-your-user-feedback",
       "course-benchmarking-coding-agents-perform-on-scraping",
       "course-viaduct",
-      "course-friday"
+      "course-friday",
+      "course-crafting-express"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5284,7 +5324,8 @@
       "sagashield",
       "the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "squidbrake",
-      "openappa-deterministic-guardrails-that-dont-break-agents"
+      "openappa-deterministic-guardrails-that-dont-break-agents",
+      "pbi-guard"
     ],
     "courses": [
       "course-agentseed",
@@ -5296,7 +5337,8 @@
       "course-sagashield",
       "course-the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "course-squidbrake",
-      "course-openappa-deterministic-guardrails-that-dont-break-agents"
+      "course-openappa-deterministic-guardrails-that-dont-break-agents",
+      "course-pbi-guard"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5398,14 +5440,16 @@
       "darwin-vm",
       "cli-tools",
       "noodle-computer",
-      "grove"
+      "grove",
+      "qlcodepreview-syntax-highlighting-in-finders-quick-look"
     ],
     "courses": [
       "course-ta",
       "course-darwin-vm",
       "course-cli-tools",
       "course-noodle-computer",
-      "course-grove"
+      "course-grove",
+      "course-qlcodepreview-syntax-highlighting-in-finders-quick-look"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6185,7 +6229,8 @@
       "urml",
       "vigilator",
       "termaxa",
-      "openappa-deterministic-guardrails-that-dont-break-agents"
+      "openappa-deterministic-guardrails-that-dont-break-agents",
+      "nvidia-debuted-the-open-agent-safety-platform"
     ],
     "courses": [
       "course-dipstick-alerts",
@@ -6193,7 +6238,8 @@
       "course-urml",
       "course-vigilator",
       "course-termaxa",
-      "course-openappa-deterministic-guardrails-that-dont-break-agents"
+      "course-openappa-deterministic-guardrails-that-dont-break-agents",
+      "course-nvidia-debuted-the-open-agent-safety-platform"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -8367,14 +8413,16 @@
       "jern-cloud",
       "nimvarya",
       "static-hosting-a-coding-agent-can-drive-end-to-end",
-      "symphony"
+      "symphony",
+      "crafting-express"
     ],
     "courses": [
       "course-compilrdev-studio",
       "course-jern-cloud",
       "course-nimvarya",
       "course-static-hosting-a-coding-agent-can-drive-end-to-end",
-      "course-symphony"
+      "course-symphony",
+      "course-crafting-express"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -8477,10 +8525,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "free-business-builder"
+      "free-business-builder",
+      "premortem"
     ],
     "courses": [
-      "course-free-business-builder"
+      "course-free-business-builder",
+      "course-premortem"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -8675,13 +8725,15 @@
       "adds-x402-payments-access-for-ai-agents-with-coinbase",
       "gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
       "paygate",
-      "nexus-arc"
+      "nexus-arc",
+      "ai-agents-can-now-buy-real-services"
     ],
     "courses": [
       "course-adds-x402-payments-access-for-ai-agents-with-coinbase",
       "course-gatekeep402-deterministic-pre-payment-guardrails-for-ai-agen",
       "course-paygate",
-      "course-nexus-arc"
+      "course-nexus-arc",
+      "course-ai-agents-can-now-buy-real-services"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -9438,10 +9490,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "coos"
+      "coos",
+      "i-got-sick-of-sequencers-and-crms-so-i-built-this"
     ],
     "courses": [
-      "course-coos"
+      "course-coos",
+      "course-i-got-sick-of-sequencers-and-crms-so-i-built-this"
     ],
     "updatedAt": "2026-09-02T23:33:29.474Z"
   },
@@ -12965,10 +13019,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "remarc"
+      "remarc",
+      "premortem"
     ],
     "courses": [
-      "course-remarc"
+      "course-remarc",
+      "course-premortem"
     ],
     "updatedAt": "2026-09-08T23:40:07.345Z"
   },
@@ -13741,10 +13797,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "adiosdev"
+      "adiosdev",
+      "crafting-express"
     ],
     "courses": [
-      "course-adiosdev"
+      "course-adiosdev",
+      "course-crafting-express"
     ],
     "updatedAt": "2026-09-09T23:30:23.231Z"
   },
@@ -14405,10 +14463,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "i-built-an-ai-agent-that-sell-itself"
+      "i-built-an-ai-agent-that-sell-itself",
+      "i-got-sick-of-sequencers-and-crms-so-i-built-this"
     ],
     "courses": [
-      "course-i-built-an-ai-agent-that-sell-itself"
+      "course-i-built-an-ai-agent-that-sell-itself",
+      "course-i-got-sick-of-sequencers-and-crms-so-i-built-this"
     ],
     "updatedAt": "2026-09-10T23:24:02.732Z"
   },
@@ -14419,11 +14479,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "i-built-an-ai-agent-that-sell-itself",
-      "the-worst-spam-emails-inside-ilands-ai-agent-hustle"
+      "the-worst-spam-emails-inside-ilands-ai-agent-hustle",
+      "i-got-sick-of-sequencers-and-crms-so-i-built-this"
     ],
     "courses": [
       "course-i-built-an-ai-agent-that-sell-itself",
-      "course-the-worst-spam-emails-inside-ilands-ai-agent-hustle"
+      "course-the-worst-spam-emails-inside-ilands-ai-agent-hustle",
+      "course-i-got-sick-of-sequencers-and-crms-so-i-built-this"
     ],
     "updatedAt": "2026-09-10T23:24:02.732Z"
   },
@@ -14710,10 +14772,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "basedagents-give-your-idle-ai-agent-a-paying-job"
+      "basedagents-give-your-idle-ai-agent-a-paying-job",
+      "ai-agents-can-now-buy-real-services"
     ],
     "courses": [
-      "course-basedagents-give-your-idle-ai-agent-a-paying-job"
+      "course-basedagents-give-your-idle-ai-agent-a-paying-job",
+      "course-ai-agents-can-now-buy-real-services"
     ],
     "updatedAt": "2026-09-11T13:37:11.155Z"
   },
@@ -14998,10 +15062,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "ethersflow-adversarial-multi-model-consensus-gate-for-ai-age"
+      "ethersflow-adversarial-multi-model-consensus-gate-for-ai-age",
+      "premortem"
     ],
     "courses": [
-      "course-ethersflow-adversarial-multi-model-consensus-gate-for-ai-age"
+      "course-ethersflow-adversarial-multi-model-consensus-gate-for-ai-age",
+      "course-premortem"
     ],
     "updatedAt": "2026-09-11T23:32:03.204Z"
   },
@@ -15390,10 +15456,12 @@
     "domain": "learning",
     "level": "intermediate",
     "toolsTeaching": [
-      "nvidia-is-the-central-bank-of-ai"
+      "nvidia-is-the-central-bank-of-ai",
+      "nvidia-debuted-the-open-agent-safety-platform"
     ],
     "courses": [
-      "course-nvidia-is-the-central-bank-of-ai"
+      "course-nvidia-is-the-central-bank-of-ai",
+      "course-nvidia-debuted-the-open-agent-safety-platform"
     ],
     "updatedAt": "2026-09-12T23:23:08.913Z"
   },
@@ -19716,5 +19784,122 @@
       "course-gaussian-splat-avatars-for-realtime-ai-agents"
     ],
     "updatedAt": "2026-10-01T16:28:36.438Z"
+  },
+  {
+    "id": "skill-quick-look",
+    "name": "quick look",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "qlcodepreview-syntax-highlighting-in-finders-quick-look"
+    ],
+    "courses": [
+      "course-qlcodepreview-syntax-highlighting-in-finders-quick-look"
+    ],
+    "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "skill-syntax-highlighting",
+    "name": "syntax highlighting",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "qlcodepreview-syntax-highlighting-in-finders-quick-look"
+    ],
+    "courses": [
+      "course-qlcodepreview-syntax-highlighting-in-finders-quick-look"
+    ],
+    "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "skill-finder",
+    "name": "finder",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "qlcodepreview-syntax-highlighting-in-finders-quick-look"
+    ],
+    "courses": [
+      "course-qlcodepreview-syntax-highlighting-in-finders-quick-look"
+    ],
+    "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "skill-power-bi",
+    "name": "power bi",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "pbi-guard"
+    ],
+    "courses": [
+      "course-pbi-guard"
+    ],
+    "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "skill-email sequencing",
+    "name": "email sequencing",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "i-got-sick-of-sequencers-and-crms-so-i-built-this"
+    ],
+    "courses": [
+      "course-i-got-sick-of-sequencers-and-crms-so-i-built-this"
+    ],
+    "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "skill-local environments",
+    "name": "local environments",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "crafting-express"
+    ],
+    "courses": [
+      "course-crafting-express"
+    ],
+    "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "skill-red-team",
+    "name": "red team",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "premortem"
+    ],
+    "courses": [
+      "course-premortem"
+    ],
+    "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "skill-legal",
+    "name": "legal",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "mutually-beneficial-agentic-common-law"
+    ],
+    "courses": [
+      "course-mutually-beneficial-agentic-common-law"
+    ],
+    "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "skill-services",
+    "name": "services",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agents-can-now-buy-real-services"
+    ],
+    "courses": [
+      "course-ai-agents-can-now-buy-real-services"
+    ],
+    "updatedAt": "2026-10-02T01:04:56.387Z"
   }
 ]

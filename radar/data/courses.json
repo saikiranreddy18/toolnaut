@@ -28586,5 +28586,434 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-01T16:28:36.438Z"
+  },
+  {
+    "id": "course-qlcodepreview-syntax-highlighting-in-finders-quick-look",
+    "toolSlug": "qlcodepreview-syntax-highlighting-in-finders-quick-look",
+    "title": "Master QLCodePreview, syntax highlighting in Finder's Quick Look",
+    "objectives": [
+      "Install QLCodePreview and activate it as a Quick Look extension",
+      "Preview code files in Finder with syntax highlighting using the spacebar",
+      "Adjust theme and view settings for readable code previews"
+    ],
+    "modules": [
+      {
+        "title": "Install and Activate the Extension",
+        "estMinutes": 10,
+        "steps": [
+          "Download QLCodePreview from the App Store or the official site, then move it to your Applications folder",
+          "Open the app once to register the extension, then go to System Settings > General > Login Items & Extensions and enable it under Quick Look",
+          "Run 'qlmanage -r plugins' in Terminal (or restart your Mac) to reload Quick Look extensions"
+        ]
+      },
+      {
+        "title": "Preview Your First Code File",
+        "estMinutes": 15,
+        "steps": [
+          "In Finder, select a code file (e.g., a .py, .js, or .json file) and press the spacebar to open Quick Look",
+          "Confirm the file shows syntax highlighting instead of plain text or a generic icon; try files in two or three languages",
+          "Use the Quick Look window's resize handle or full-screen button to read longer files comfortably"
+        ]
+      },
+      {
+        "title": "Customize Themes and Fallback Behavior",
+        "estMinutes": 15,
+        "steps": [
+          "Open the QLCodePreview settings panel and switch between light and dark themes to match your Mac's appearance",
+          "Change the default font size and line numbers option, then re-preview a file to verify the changes took effect",
+          "Test a file with an uncommon extension, map it to a language in settings if highlighting is missing, and preview it again"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-macos",
+      "skill-quick-look",
+      "skill-syntax-highlighting",
+      "skill-finder",
+      "skill-productivity"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "course-pbi-guard",
+    "toolSlug": "pbi-guard",
+    "title": "Master PBI Guard",
+    "objectives": [
+      "Install and connect PBI Guard to an existing Power BI workspace",
+      "Define protection rules that block breaking changes to reports and datasets",
+      "Review blocked-change alerts and manage approval workflows for exceptions"
+    ],
+    "modules": [
+      {
+        "title": "Setup and Workspace Connection",
+        "estMinutes": 20,
+        "steps": [
+          "Install PBI Guard and authenticate with your Power BI service account (service principal or delegated user)",
+          "Register the target workspace and run the initial scan to inventory all reports, datasets, and dataflows",
+          "Verify the baseline snapshot is captured so future changes can be diffed against it"
+        ]
+      },
+      {
+        "title": "Defining Protection Rules",
+        "estMinutes": 30,
+        "steps": [
+          "Create a rule that blocks measure deletions and renames on certified datasets",
+          "Add rules for schema changes (removed columns, changed data types) and repointing reports to different datasets",
+          "Scope rules by workspace, report tag, or sensitivity label, then test by publishing a deliberately breaking change in a dev workspace"
+        ]
+      },
+      {
+        "title": "Alerts, Reviews, and Exceptions",
+        "estMinutes": 25,
+        "steps": [
+          "Configure alert routing to email/Teams so owners are notified when a change is blocked",
+          "Walk through the review queue: inspect the diff, compare against the baseline snapshot, and approve or reject the change",
+          "Grant a time-limited exception to a developer, then audit the exception log and export a compliance report"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-power-bi",
+      "skill-guardrails",
+      "skill-analytics",
+      "skill-open-source"
+    ],
+    "prerequisites": [
+      "Working knowledge of Power BI Desktop and publishing to the Power BI service",
+      "Access to at least one Power BI workspace with Admin or Member role",
+      "Familiarity with datasets, measures, and report-dataset relationships"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "course-i-got-sick-of-sequencers-and-crms-so-i-built-this",
+    "toolSlug": "i-got-sick-of-sequencers-and-crms-so-i-built-this",
+    "title": "Master I got sick of sequencers and CRMs, so I built this",
+    "objectives": [
+      "Understand what I got sick of sequencers and CRMs, so I built this is for",
+      "Use I got sick of sequencers and CRMs, so I built this on a real task",
+      "Know where I got sick of sequencers and CRMs, so I built this fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure I got sick of sequencers and CRMs, so I built this for your real workflow, not the demo.",
+          "Say what I got sick of sequencers and CRMs, so I built this does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through I got sick of sequencers and CRMs, so I built this.",
+          "Push I got sick of sequencers and CRMs, so I built this to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold I got sick of sequencers and CRMs, so I built this into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-sales",
+      "skill-outreach",
+      "skill-crm",
+      "skill-email sequencing"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "course-crafting-express",
+    "toolSlug": "crafting-express",
+    "title": "Master Crafting Express",
+    "objectives": [
+      "Launch an isolated sandbox for an AI coding agent",
+      "Configure filesystem, network, and resource limits",
+      "Inspect, diff, and safely discard agent-written changes"
+    ],
+    "modules": [
+      {
+        "title": "Your First Sandbox",
+        "estMinutes": 20,
+        "steps": [
+          "Install Crafting Express CLI and run `craftx init` in a sample repo to generate a sandbox profile",
+          "Start a sandbox with `craftx up` and verify the agent can edit files inside it but not on your host",
+          "Run a small agent task (e.g., 'add a failing test') and confirm the container exits cleanly with `craftx down`"
+        ]
+      },
+      {
+        "title": "Locking Down Permissions",
+        "estMinutes": 25,
+        "steps": [
+          "Edit the sandbox profile to disable outbound network access, then test that the agent's `curl` attempt fails",
+          "Set CPU/memory caps and a wall-clock timeout; trigger a runaway loop to watch the sandbox kill it",
+          "Mount only a specific subdirectory as writable and verify writes outside it are rejected"
+        ]
+      },
+      {
+        "title": "Reviewing and Merging Agent Work",
+        "estMinutes": 20,
+        "steps": [
+          "Have the agent implement a small feature, then run `craftx diff` to review changes before leaving the sandbox",
+          "Use `craftx export --patch` to apply approved changes to your real repo",
+          "Destroy the sandbox with `craftx down --purge` and confirm no artifacts leaked to the host"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-sandbox",
+      "skill-coding agents",
+      "skill-local environments",
+      "skill-devtools",
+      "skill-isolation"
+    ],
+    "prerequisites": [
+      "Comfortable with command-line basics",
+      "Git fundamentals (diffs, patches)",
+      "Some experience running an AI coding assistant or agent"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "course-premortem",
+    "toolSlug": "premortem",
+    "title": "Master Premortem",
+    "objectives": [
+      "Craft a clear startup idea brief that Premortem agents can attack effectively",
+      "Run a red-team session and interpret the generated risk reports",
+      "Turn surfaced weaknesses into a prioritized mitigation plan"
+    ],
+    "modules": [
+      {
+        "title": "Set Up Your Idea Brief",
+        "estMinutes": 15,
+        "steps": [
+          "Create an account on Premortem and start a new project",
+          "Write a one-paragraph description of your startup idea covering target customer, problem, and solution",
+          "Add key details the agents will probe: business model, pricing guess, top competitors, and your unfair advantage"
+        ]
+      },
+      {
+        "title": "Run Your First Red-Team Session",
+        "estMinutes": 25,
+        "steps": [
+          "Select agent personas to attack your idea (e.g., skeptical investor, rival founder, churned customer) and launch the session",
+          "Read each agent's critique and flag the top 5 risks that repeat across multiple agents",
+          "Use the follow-up prompt feature to ask agents to go deeper on your 2 weakest areas, like unit economics or distribution"
+        ]
+      },
+      {
+        "title": "Build a Mitigation Plan",
+        "estMinutes": 20,
+        "steps": [
+          "Export the session's risk summary and sort risks by likelihood and impact using the built-in severity tags",
+          "For each high-severity risk, write one concrete validation experiment (e.g., landing page test, 5 customer interviews)",
+          "Re-run the red-team after updating your brief with mitigations to check whether the agents still flag the same weaknesses"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-startup",
+      "skill-validation",
+      "skill-red-team",
+      "skill-ai-agents",
+      "skill-feedback"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "course-nvidia-debuted-the-open-agent-safety-platform",
+    "toolSlug": "nvidia-debuted-the-open-agent-safety-platform",
+    "title": "Master Nvidia debuted the Open Agent Safety Platform",
+    "objectives": [
+      "Deploy a safety-governed agent on the Open Agent Safety Platform",
+      "Configure policy guardrails and enforce them at inference time",
+      "Audit agent behavior via the platform's logging and evaluation tools"
+    ],
+    "modules": [
+      {
+        "title": "Platform Setup & First Agent",
+        "estMinutes": 45,
+        "steps": [
+          "Install the Open Agent Safety Platform SDK and authenticate with your Nvidia NGC API key",
+          "Register a basic tool-calling agent (e.g., a retrieval agent) in the platform's agent registry",
+          "Deploy the agent to a sandboxed runtime and verify it responds through the safety wrapper"
+        ]
+      },
+      {
+        "title": "Writing and Enforcing Guardrail Policies",
+        "estMinutes": 60,
+        "steps": [
+          "Author a policy file defining forbidden actions, PII handling rules, and tool-call allowlists",
+          "Attach the policy to your deployed agent and test it with adversarial prompts (jailbreaks, data exfiltration attempts)",
+          "Tune policy thresholds using the violation dashboard until false-positive rates are acceptable"
+        ]
+      },
+      {
+        "title": "Monitoring, Auditing, and Incident Response",
+        "estMinutes": 50,
+        "steps": [
+          "Enable full trace logging and stream agent decision logs to the audit console",
+          "Run the built-in red-team evaluation suite against your agent and review the scored safety report",
+          "Configure automated kill-switch triggers that halt the agent on critical policy violations"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-safety",
+      "skill-governance",
+      "skill-nvidia"
+    ],
+    "prerequisites": [
+      "Experience deploying LLM-based agents in production",
+      "Familiarity with Nvidia NGC and GPU-based inference infrastructure",
+      "Working knowledge of AI safety concepts (jailbreaks, prompt injection, PII leakage)"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "course-mutually-beneficial-agentic-common-law",
+    "toolSlug": "mutually-beneficial-agentic-common-law",
+    "title": "Master Mutually beneficial agentic Common Law",
+    "objectives": [
+      "Define precedent-based rules that govern how your agents negotiate with each other",
+      "Implement a mutual-benefit scoring function to reject one-sided agent agreements",
+      "Build a dispute-resolution layer that escalates stalled agent negotiations using case history"
+    ],
+    "modules": [
+      {
+        "title": "Encoding Common Law Precedents as Agent Constraints",
+        "estMinutes": 40,
+        "steps": [
+          "Create a precedent store (e.g., a versioned JSON/DSL file) where each entry records: agent action, counterparty response, outcome, and a ruling label (permitted/prohibited/conditional)",
+          "Write a rule compiler that converts these precedents into runtime guardrails injected into each agent's system prompt or tool-call validator",
+          "Seed the store with 10 initial cases from a simulated negotiation trace, then run 5 new traces and confirm prohibited patterns are blocked"
+        ]
+      },
+      {
+        "title": "Mutual-Benefit Scoring for Agent Agreements",
+        "estMinutes": 45,
+        "steps": [
+          "Implement a bilateral utility function that computes expected payoff for both parties in a proposed agent-to-agent contract (task swap, resource share, or delegation)",
+          "Add a hard constraint: any agreement where one party's payoff falls below a configurable floor (e.g., 0.6 of the other's) is rejected and sent back for renegotiation",
+          "Stress-test with adversarial prompts where one agent attempts to extract value unilaterally, and log all rejections with their scores"
+        ]
+      },
+      {
+        "title": "Precedent-Driven Dispute Resolution",
+        "estMinutes": 50,
+        "steps": [
+          "Build a resolver agent that receives deadlocked negotiations and retrieves the 3 most similar precedents via embedding search over the case store",
+          "Have the resolver issue a ruling (accept/modify/reject) plus a written rationale, and append that ruling as a new precedent with full provenance metadata",
+          "Run a 20-round multi-agent simulation, measure how deadlock rate and resolution time change as the precedent store grows, and prune low-citation precedents"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-legal",
+      "skill-governance",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Experience building multi-agent systems with tool calling",
+      "Familiarity with utility functions and game-theoretic bargaining basics",
+      "Working knowledge of vector search/embeddings for retrieval",
+      "Ability to run and log multi-round agent simulations"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-02T01:04:56.387Z"
+  },
+  {
+    "id": "course-ai-agents-can-now-buy-real-services",
+    "toolSlug": "ai-agents-can-now-buy-real-services",
+    "title": "Master AI agents can now buy real services",
+    "objectives": [
+      "Configure an AI agent with a funded spending wallet and budget limits",
+      "Set up approval policies so the agent can purchase services autonomously within guardrails",
+      "Run and audit an end-to-end agent purchase with logging and rollback"
+    ],
+    "modules": [
+      {
+        "title": "Register Your Agent & Fund Its Wallet",
+        "estMinutes": 25,
+        "steps": [
+          "Create an agent identity on the marketplace and generate its API keys, storing them in a secrets manager (not plaintext env files)",
+          "Fund the agent's wallet with a small test amount (e.g., $25) and set per-transaction and daily spending caps",
+          "Verify connectivity by having the agent call the marketplace catalog endpoint and list 3 available services"
+        ]
+      },
+      {
+        "title": "Define Purchase Policies & Guardrails",
+        "estMinutes": 30,
+        "steps": [
+          "Write a policy file specifying allowed service categories, max price per purchase, and vendor allowlist/denylist",
+          "Configure human-in-the-loop approval for any purchase above your threshold (e.g., >$10) and test it with a deliberately over-budget request",
+          "Add idempotency keys and retry limits so a failed purchase call can't double-charge the wallet"
+        ]
+      },
+      {
+        "title": "Execute and Audit a Live Purchase",
+        "estMinutes": 35,
+        "steps": [
+          "Prompt the agent to complete a real task (e.g., 'order a logo design draft under $15') and watch it browse, quote, and purchase",
+          "Inspect the transaction log: confirm the service delivered, the receipt, and that the spend matched the quote",
+          "Simulate a dispute by requesting a refund on a test order and document the resolution flow for your runbook"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-marketplace",
+      "skill-services",
+      "skill-payments"
+    ],
+    "prerequisites": [
+      "Experience building or scripting an AI agent (e.g., with an LLM API or agent framework)",
+      "Comfort with API keys, environment variables, and basic REST calls",
+      "A small test budget you're willing to spend on real services"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-02T01:04:56.387Z"
   }
 ]
