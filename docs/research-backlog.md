@@ -8992,3 +8992,69 @@ feature beyond what `Discover.jsx` already does).
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap and
 made no code change this run.
+
+---
+
+### Research check 2026-10-02 03:04 UTC — no new gap found, fourteenth pass; flagging a missing 2026-10-01 DEVLOG entry
+Research run (UTC hour 03). `master` was detached locally at session start
+(left over from a prior run); re-pointed to `origin/master` before anything
+ran. CI green at `73814fa` (`CI`/`Release` both `success`), `npm run
+radar:health` `OK` (2 runs in the 26h window, last publish 2.0h ago, 8
+tools, feed at 428 total), no `agent-fixable` issues open.
+
+Fourteenth research pass since 2026-09-29 09:00 UTC. All 31 real OPEN entries
+still carry a build-ready "Smallest useful version" (spot-checked the two
+smallest — "Download my data", "No way to flag a wrong listing" — both
+re-confirmed accurate against current `master` via the same greps the
+thirteenth pass used), so this pass again looked for fresh ground:
+
+- **Two WebSearches** ("AI tool directory new feature launched October
+  2026", "best AI tool finder directory 2026 compare/stack-builder/team-
+  workspace feature") surfaced three names not previously cited here
+  (AIToolIndex, YouTools.ai, FutureStack) plus a re-mention of AI Comparator.
+  All land on shapes already covered: AIToolIndex's "alternatives, comparison
+  context, editorial guides" maps to the already-OPEN "Per-tool Alternatives
+  SEO pages" and "No educational/how-to content" gaps; YouTools.ai's
+  structured compare-to-alternatives framing is the same; AI Comparator's
+  200-tool compare feature matches Toolnaut's own already-shipped
+  `Compare.jsx`/`PublicCompare.jsx`. Nothing new.
+- **Checked a genuinely untried angle**: bulk/multi-select actions on
+  `Stack.jsx`/`Favorites.jsx` (remove several tools at once), a pattern
+  common in list-management SaaS UIs. Read both files in full — a user's
+  stack is quiz-derived and typically single digits of tools, and no
+  competitor cited anywhere in this file ships bulk-select for a
+  Spotify-playlist-sized list. Thin value, correctly left unlogged rather
+  than force-fit to fill the hour.
+- **Checked an annual-vs-monthly pricing toggle** (the one explicitly-excluded
+  detail from the Stack-cost-estimate entry's scope cut, line ~5097) against
+  Toolnaut's own Pricing page rather than the catalog-tool-pricing gap it was
+  excluded from: `Pricing.jsx:17` gates all paid-plan rendering behind
+  `VITE_PAYMENTS_ENABLED`, a pre-revenue beta kill-switch per `CLAUDE.md` —
+  building a billing-cycle toggle for a payment surface not confirmed live
+  would be solving a problem that may not exist yet. Not logged.
+- Confirmed by re-reading the build output directly that the "Toolnaut vs
+  [competitor]" SEO pages this file already marks `SHIPPED 83805fc` are real
+  and current: `npm run build` prerendered both `/vs/theres-an-ai-for-that`
+  and `/vs/futurepedia` with real text content, and `npm run smoke` rendered
+  `/vs/futurepedia` with 0 console errors — no regression.
+
+**Process note, not a product gap:** `DEVLOG.md` has no 2026-10-01 section —
+its newest entry is still 2026-09-30, even though this backlog shows four
+research passes and a feature-run ship attempt happened on 2026-10-01 (the
+13th pass, 2026-10-02 00:04 UTC entry above, already flagged that the
+10-01 18:03 UTC feature run's output landed as an open PR, `#86`, rather than
+a `master` push). That same run appears to have skipped writing its DEVLOG
+entry and digest issue too — both are scoped to the FEATURE RUN's job, not
+this hour's, so left unwritten here, but flagging explicitly so tonight's
+18:03 UTC feature run checks whether `#86` should be merged/ported and
+writes DEVLOG sections for both the missing 10-01 day and today rather than
+assuming yesterday closed cleanly.
+
+Ran `npm test` (311 app tests + radar suite, all pass), `npm run build` (19
+static routes + 1102 tool pages, no errors), and `npm run smoke` (24/24
+routes, 0 console errors) directly against current `master` to check for a
+small real fix per the "small real improvement" allowance. All three clean.
+No bug found to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap and
+made no code change this run.
