@@ -9058,3 +9058,68 @@ No bug found to fix this run.
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap and
 made no code change this run.
+
+---
+
+### Research check 2026-10-02 06:04 UTC — no new gap found, fifteenth pass; pricing-model filter idea folds into the already-OPEN access-method entry
+Research run (UTC hour 06). Session's local checkout was detached at start
+(leftover from a prior run, same as the 03:04 UTC pass); re-pointed to
+`origin/master` and fast-forwarded 11 commits before anything ran. CI green
+on `master` at `aad59be` (checked via `mcp__github__` tools: `CI`, `Release`,
+`Radar`, and `Daily report` workflows all `success`; one `Claude` run shows
+`skipped`, triggered by an `issue_comment` event, not a failure). `npm run
+radar:health` `OK` (2 runs in the 26h window, last publish 5.0h ago, 8
+tools, feed at 428 total). No `agent-fixable` issues open. Confirmed again:
+the 28 open `bot/claude/*`/`bot/deps/*` PRs flagged by every pass since the
+13th are a separate `agent-*.yml` automation this session's own direct-to-
+`master` runs don't touch; newest is still `#86` (the LLM API cost
+calculator from the 2026-10-01 18:03 UTC feature run, which landed as an
+open PR instead of a `master` push — tonight's 18:03 UTC feature run needs
+to check it before rebuilding that gap from scratch, same note the 13th/14th
+passes already left).
+
+Fifteenth research pass since 2026-09-29 09:00 UTC. All OPEN entries still
+carry a build-ready "Smallest useful version," so this pass again looked for
+fresh ground rather than re-sweeping what's already there:
+
+- **Two fresh WebSearches** ("AI tool directory accessibility seat-based
+  team pricing comparison export feature 2026", "Futurepedia Toolify
+  There's An AI For That new feature launch October 2026") surfaced one
+  shape worth checking seriously: several 2026 directories (Benchmark
+  Directory, WorthToTry) now filter/compare by **pricing model** — per-seat
+  vs. usage-based vs. pay-as-you-go — as a facet distinct from a tool's
+  price tier. Checked whether this is genuinely new ground or a restatement
+  of something already here: it's the latter. The already-OPEN "Access-
+  method facet" entry (2026-09-06, deepened 2026-09-10) already worked
+  through this exact shape — deriving a clean enum from the catalog's
+  free-text `pricing` field — and deliberately kept it to three broad,
+  honestly-derived buckets (`web`/`api`/`self-hosted`) rather than a finer
+  pricing-model taxonomy, for the same reason a per-seat/usage-based/flat
+  split would hit: `pricing` strings ("Usage-based API", "Freemium/API",
+  "Enterprise", "Open weights", ...) are free text written by radar's LLM
+  enrichment step, not a controlled vocabulary, so a finer split would
+  either need the same LLM-re-enrichment-across-704-records cost that
+  entry already rejected, or produce a noisier derived label than the
+  three-bucket version already scoped. Not logged as a separate gap — it's
+  the same access-method entry's problem restated with more buckets, not a
+  new one.
+- The two searches also surfaced no features dated this week; the directory
+  names that came up (Benchmark Directory, WorthToTry, Stripe.Directory,
+  YouTools.ai) either repeat ground already covered (comparison, pricing
+  transparency) or, per the "which tools integrate with each other" angle
+  Stripe.Directory raises, trace back to the already-`SHIPPED` "Live Tool
+  Comparison" integrations row.
+- **Retried the Vercel-telemetry angle** flagged open by the 7th/9th/13th
+  passes: `list_teams` still returns exactly one team
+  (`saikiranreddy18s-projects`), `list_projects` against it still returns
+  zero. Still not connected to the deployed project; nothing new to check
+  here yet.
+
+Ran `npm test` (311/311), `npm run build` (19 static routes + 1102 tool
+pages, feed holding at 428 tools, no errors), and `npm run smoke` (24/24
+routes, 0 console errors) directly against current `master` to check for a
+small real fix per the "small real improvement" allowance. All three clean,
+no bug found.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap and
+made no code change this run.
