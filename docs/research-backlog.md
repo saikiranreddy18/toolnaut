@@ -6481,6 +6481,37 @@ a client-side SPA with a static tool catalogue.
   button plus a ~6-line download helper in `Settings.jsx`. No backend, no
   new dependency, no new route, no schema change.
 - **Found:** 2026-09-13 06:35 UTC
+- **Deepened 2026-10-02 09:04 UTC — oldest untouched OPEN entry (19 days,
+  never previously deepened), re-verified against current `master`. The core
+  gap is completely unchanged: `grep -rn "new Blob\|createObjectURL\|download="
+  src/` and `grep -rln "exportUserData\|Download my data\|buildUserDataExport"
+  src/` both still return zero hits — no export utility, no download button,
+  nothing has encroached on this since it was written. Every function the
+  spec names (`loadSession`, `loadQuiz`, `loadStack`, `loadFavorites`,
+  `loadProgress`, `loadRoadmapProgress`, `loadStreak`, `loadTheme`,
+  `loadMoon`, `loadCursor`, `loadAvatar`) is still imported into
+  `Settings.jsx` exactly as described, still called with the same signatures.
+  **One real contradiction in the original plan, found by re-reading the
+  current action row instead of trusting the three-week-old line numbers:**
+  the plan says the button goes "in the same action row as `DeleteAccount`"
+  *and* that it should be "shown for guests too, not just signed-in
+  accounts." Both were true when this was written, but the row's structure
+  has since settled into a shape where they can't both hold. Re-read
+  `Settings.jsx:506-522` fresh: the bottom action row opens with "Replay the
+  tour" (`Settings.jsx:509-511`), which is deliberately *outside* the
+  signed-in check — its own inline comment says so ("guests use /app too,
+  and the tour is about the app rather than the account") — and only then
+  does `{session && (...)}` wrap Sign out and `DeleteAccount`
+  (`Settings.jsx:512-521`). Nesting the new button inside that same
+  fragment, as "same row as DeleteAccount" implies, would hide it from
+  guests — the opposite of what this entry asks for. **Corrected placement:**
+  put "Download my data" next to "Replay the tour", before the `{session &&
+  ...}` block, not beside `DeleteAccount`. It still visually reads as part of
+  the same row (same flex container, `Settings.jsx:506`) without being
+  guest-gated. No other part of the spec changes — `buildUserDataExport()`'s
+  list of calls, the guest-inclusive scope, the JSON-not-CSV reasoning, and
+  the "no server-side billing data in v1" boundary are all still accurate as
+  written.
 
 ---
 
