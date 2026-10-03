@@ -4827,7 +4827,9 @@ a client-side SPA with a static tool catalogue.
 
 ### Access-method facet ("Web app" / "API" / "Self-hosted") — Discover has no way to filter out API-only or open-weights tools from a beginner's results
 
-- **Status:** OPEN
+- **Status:** SHIPPED 2e256db08501cf380cdcf5b74999b97dc46f18c4 — built as scoped,
+  Discover filter + `matchScore.js` soft bias both landed in the same commit;
+  the quiz-scoring half was not left for later.
 - **Seen in:** studied fresh this run — Tool Finder (toolfinder.com, a
   1,300+-tool software directory; fetched its `/categories/ai-tools` and
   `/tools?platform=web` pages, both 403'd to a direct fetch, so worked from
@@ -6422,7 +6424,7 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### "Download my data" has no counterpart to the "Delete my account" flow that already exists
-- **Status:** OPEN
+- **Status:** SHIPPED c4a24deb210425e316d765ac277318f63b87c3b1
 - **Seen in:** not a competitor in this file's usual AI-directory set —
   Futurepedia/TAAFT/G2 are anonymous browse-only catalogs with no accounts to
   export from, so this doesn't apply to them. The pattern instead is general
