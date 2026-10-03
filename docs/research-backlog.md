@@ -4827,7 +4827,18 @@ a client-side SPA with a static tool catalogue.
 
 ### Access-method facet ("Web app" / "API" / "Self-hosted") — Discover has no way to filter out API-only or open-weights tools from a beginner's results
 
-- **Status:** OPEN
+- **Status:** BUILT, UNMERGED — PR #89 (sha `2e256db` on branch
+  `bot/claude/access-method-facet-2026-10-03`) — built as scoped below:
+  `src/utils/accessMethod.js`, the Discover filter pill and `matchScore.js`'s
+  soft bias all landed in the same commit, with 8 new unit tests. All three
+  checks (`npm test`/`build`/`smoke`) green on the branch, but
+  `git push origin master` was blocked by that session's own permission
+  layer ("Production Deploy" denial, the same block issue #88 hit on
+  2026-10-02), so it shipped as a PR instead — same convention as PR #86's
+  entry below. This status line was correct on the PR #89 branch since
+  2026-10-03 but had not yet reached `master`; copied over 2026-10-03 21:11
+  UTC after confirming PR #89's diff still matches. **Do not rebuild
+  this** — it needs a human to merge #89, not more agent code.
 - **Seen in:** studied fresh this run — Tool Finder (toolfinder.com, a
   1,300+-tool software directory; fetched its `/categories/ai-tools` and
   `/tools?platform=web` pages, both 403'd to a direct fetch, so worked from
@@ -6422,7 +6433,12 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### "Download my data" has no counterpart to the "Delete my account" flow that already exists
-- **Status:** OPEN
+- **Status:** SHIPPED c4a24deb210425e316d765ac277318f63b87c3b1 — live on
+  `master`/toolnaut.xyz since 2026-10-02. This status line itself was blocked
+  from reaching `master` by the same "Production Deploy" push denial (fixed
+  on the PR #89 branch 2026-10-03, copied over here 2026-10-03 21:11 UTC
+  after confirming the code is genuinely live — see `src/utils/
+  exportUserData.js` and `Settings.jsx`'s "Download my data" button).
 - **Seen in:** not a competitor in this file's usual AI-directory set —
   Futurepedia/TAAFT/G2 are anonymous browse-only catalogs with no accounts to
   export from, so this doesn't apply to them. The pattern instead is general
@@ -9229,3 +9245,137 @@ clean, no bug found to fix this run.
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — only the one-line Status correction above, which fixes an existing
 entry's accuracy rather than adding ground.
+
+---
+
+### Vendor/maker claim-listing path — a third, still-missing direction alongside "suggest a tool" and "report a wrong listing"
+- **Status:** OPEN
+- **Seen in:** "claim your listing" is a standing feature on every
+  established review/directory site that lists businesses or products it
+  didn't create itself — G2 and Capterra both run a vendor-facing "claim
+  this profile" flow distinct from their visitor-facing review/correction
+  paths; this run's fresh competitor check (AI Kaptan, a 15,000+-tool AI
+  directory and "launch platform" found via Product Hunt search) frames
+  itself explicitly as a two-sided product — visitors discover tools, makers
+  launch and manage their own listing — which is the same two-sided pattern
+  G2/Capterra run, just newer to this specific AI-directory niche.
+- **Gap:** Toolnaut already has two visitor-facing correction paths logged in
+  this file — "Suggest a tool" (OPEN, line ~724, a missing tool) and "No way
+  to flag a wrong listing" (OPEN, line ~7474 at time of writing, an existing
+  entry that's wrong) — but neither one is from the maker's own side. The
+  "Suggest a tool" entry explicitly scopes out "a separate vendor/company
+  submission path" as not-included; this is that excluded path, not a
+  duplicate of it. Grepped `claim` across `src/` and `radar/`: the only hits
+  are `FounderRibbon.jsx`/`FounderOffer.jsx`'s unrelated "Claim founder
+  price" checkout copy and `toolResources.js`'s comment about mirroring a
+  Supabase `tool_claims` table — that table is about sourced *integration
+  facts* (`supabase/migrations/0003_tool_claims.sql`), not vendor identity, a
+  coincidental name collision confirmed by reading the migration directly.
+  There is no "are you the maker of this tool?" link anywhere on
+  `ToolDetail.jsx` or `ToolPublic.jsx`, and no way for a vendor to tell
+  Toolnaut their own listing is stale, their pricing changed, or their tool
+  should be marked differently in `tool.status`.
+- **Why it matters:** radar discovers and enriches tools automatically, which
+  means every one of the 704+ catalog entries describes a product from the
+  outside, on a schedule the vendor never agreed to or gets a say in — the
+  maker of a tool is the single most motivated, most informed person to flag
+  a stale price, a wrong category, or a shut-down product, and today they
+  have no path to do that distinct from a random visitor's. It's also a
+  legitimate distribution incentive for vendors to link back to their
+  Toolnaut listing (same growth logic as the already-OPEN "Embeddable
+  Featured on Toolnaut badge" entry) once they know a listing is something
+  they can claim and keep accurate.
+- **Smallest useful version (what to actually build):** extend, don't
+  duplicate, the same planned util the other two correction paths already
+  share:
+  - Add a third export to the planned `src/utils/suggestTool.js` (shared
+    with "Suggest a tool" and "report a wrong listing," none of which exist
+    yet as of this run — confirmed `ls src/utils/` has no `suggestTool.js`) —
+    `buildClaimListingUrl({ slug, name, role })` → a GitHub `issues/new` URL
+    built the same `URLSearchParams` way, `title` pre-filled with the tool
+    name, a structured `body` asking for the claimant's role and a link
+    proving affiliation (the tool's own site, a social profile, or a company
+    email domain — a human reads and judges this, same as every other entry
+    in this file that touches trust), `labels=vendor-claim`.
+  - One small, low-emphasis link on `ToolDetail.jsx` (near the existing
+    "Visit website" button, `ToolDetail.jsx:156-163`) and the equivalent spot
+    on `ToolPublic.jsx` (near its own `ToolDetail` link row, `:75-88`): "Are
+    you the maker? Claim this listing" — opens
+    `window.open(buildClaimListingUrl({ slug: tool.slug, name: tool.name }), '_blank', 'noopener')`,
+    no modal, no in-app form, same division of labor the other two
+    GitHub-issue-based entries already establish.
+  - **What this would NOT include** (kept out to bound the diff, and to stay
+    honest about what a GitHub issue can and can't prove): no identity or
+    domain verification of any kind — a human triages every claim exactly
+    like every other `tool-submission`/`tool-report` issue, and this entry
+    does not pretend otherwise; no vendor login, dashboard, or self-service
+    edit rights to the catalog record — a confirmed claim still goes through
+    a manual edit or the next radar enrichment pass, same as any other
+    correction; no automatic "verified maker" badge on the tool card (a
+    fabricated-trust-signal risk this file has consistently avoided
+    elsewhere, e.g. the status-note and leaderboard-sample-data entries); no
+    change to `tool.status` or any other catalog field from this build
+    alone.
+- **Build size:** S — one more export in the same not-yet-built util file
+  "Suggest a tool" and "report a wrong listing" already plan to create, two
+  small link additions (`ToolDetail.jsx`, `ToolPublic.jsx`). No backend, no
+  new dependency, no new route. Cheapest to build in the same pass as either
+  of the other two GitHub-issue-link entries, since all three would share
+  one `GITHUB_REPO_URL` constant and one util file.
+- **Found:** 2026-10-03 21:11 UTC
+
+---
+
+### Research check 2026-10-03 21:11 UTC — seventeenth pass; synced two stale Status fields PR #89 already carried, logged one new gap
+Research run (UTC hour 21, one of the three research slots on a feature-run
+day). CI green on `master` (`ci.yml` run #499, `success` at `c4a24deb`; the
+two `master` commits since then are both `github-actions[bot]` radar
+publishes, which don't trigger `push`-based workflows under GitHub's own
+default token-permission behaviour — not a CI failure). `npm run
+radar:health` `OK` (2 runs in the 26h window, last publish 6.7h ago, 4 tools,
+feed at 446 total). No `agent-fixable` issues open. One open PR per agent
+rule: this session is the scheduled cloud routine, not one of the
+`agent-*.yml` workflows or an `@claude`-mention responder CLAUDE.md scopes
+that rule to, so it proceeded same as every prior research pass in this log.
+
+**Synced two stale Status fields before searching anything new:** today's
+feature run (PR #89, opened 18:21 UTC) rewrote both the "Access-method
+facet" entry (to `BUILT, UNMERGED — PR #89`) and the "Download my data"
+entry (to `SHIPPED c4a24deb`, since that gap's code has been live on
+`master` since 2026-10-02) on its own branch — but `git push origin master`
+had blocked that session the same way it blocked the 2026-10-01 and
+2026-10-02 feature runs (see PR #89's own body and the backfilled
+2026-10-03 `DEVLOG.md` section once PR #89 merges), so neither correction
+had reached `master` yet. Read PR #89's diff directly via
+`pull_request_read` to confirm both rewrites before copying them over,
+following the exact convention already used for PR #86's entry by the
+sixteenth pass. This is a documentation correction, not a new finding — the
+growing open-PR pileup (issue #67) is still a human-merge-queue problem, not
+something a research pass's direct-to-`master` docs commit can route around
+for the code itself.
+
+**New gap logged:** the vendor/maker claim-listing path above. Checked three
+fresh sources this run — Meta Tools and Vantaige (both via WebSearch for
+2026 AI-tool-finder features: Meta Tools' "Community Stacks" and "Stack
+Packs" both trace back to the already-OPEN "browsable gallery of shared
+stacks" and "Collections" entries respectively, not new ground; Vantaige's
+quiz is the same personalized-recommendation pattern Toolnaut's own quiz
+already covers) and a general "what do AI directories get criticized for
+lacking" search (an OpenFuture AI directory review), whose "no watchlists or
+change tracking" point traces back to the already-rejected price-drop-alert
+finding from the ninth pass (blocked on the same missing catalog price-
+amount field as Stack Cost Estimate) — but whose "thin community layer...
+missing case studies, verification, [vendor] documentation" framing pointed
+at AI Kaptan's explicit two-sided maker/visitor framing, which is genuinely
+new: Toolnaut has a visitor-submission path and a visitor-correction path,
+but no maker-side path at all. Confirmed via grep that a commit message
+referencing this same idea ("log vendor claim-listing gap") exists in this
+file's own git history (commit `986c146`) but its actual content was
+destroyed by that commit's own truncation bug and never recovered by the
+2026-09-28 restoration pass (which rebuilt from `3dca42e`, a commit that
+predates `986c146`) — so this is that idea, researched and written up
+properly for the first time, not a duplicate.
+
+Ran `npm test`, `npm run build` and `npm run smoke` directly against current
+`master` to check for a small real fix per the "small real improvement"
+allowance. All three green, no bug found to fix this run.
