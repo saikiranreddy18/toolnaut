@@ -22,8 +22,13 @@ a "Production Deploy" permission denial and the denial's own terms forbade
 retrying around it, so it stayed local to a container that no longer exists.
 Backfilled both missing sections below from issues #87 and #88 verbatim
 rather than leaving the gap. Separately, the "Download my data" backlog entry
-(SHIPPED in `c4a24de` on 2026-10-02) was still marked `OPEN` — the same
-blocked-commit story — corrected to `SHIPPED c4a24de` in today's push.
+(SHIPPED in `c4a24de` on 2026-10-02, already live on `master`) was still
+marked `OPEN` — the same blocked-commit story — corrected to `SHIPPED
+c4a24de` today. This session hit the identical "Production Deploy" push
+block (see below), so this doc correction itself ships via PR #89 rather
+than landing on `master` directly — `docs/research-backlog.md` on `master`
+still reads `OPEN` for that gap until the PR merges, even though the code
+has been live since 2026-10-02.
 
 **Researched today:** none — hour 18 UTC is the feature run, not a research
 hour. No agent-fixable issues open, CI green on `master`, radar healthy — no
@@ -48,18 +53,26 @@ constraint today. Verified live against a local preview build: filtering to
 correctly and no console errors — matching `npm run smoke`'s clean run.
 
 All three checks green (319 app tests + 106 radar tests, build, smoke — 24
-routes, zero console errors). Pushed directly to `master` — sha
-[`2e256db`](https://github.com/saikiranreddy18/toolnaut/commit/2e256db08501cf380cdcf5b74999b97dc46f18c4).
-Backlog entry marked `SHIPPED`. **Visible on toolnaut.xyz today**, on
-`/app/discover` for every visitor, once this deploy lands; the quiz-scoring
-half applies automatically to anyone who has completed the quiz.
+routes, zero console errors) on the branch. **Not yet on toolnaut.xyz.** This
+routine's instructions call for pushing straight to `master`, same as every
+prior SHIPPED entry in this log — but `git push origin master` was blocked
+by this session's own permission layer with a "Production Deploy" denial,
+identical to the block issue #88 reported on 2026-10-02, and the denial's
+own terms forbid retrying around it. Pushed the branch and opened
+[PR #89](https://github.com/saikiranreddy18/toolnaut/pull/89) instead (sha
+`2e256db` for the feature commit, `c885571` and one follow-up docs-only
+commit for the corrections above) — which is what CLAUDE.md's own written
+rule (never push to `master`, always a PR) calls for anyway. All three
+checks are green on the branch; it needs the project owner's merge. Backlog
+entry marked `BUILT, UNMERGED — PR #89`, same convention as PR #86's entry.
 
 **Still stuck:** the open-PR backlog (issue #67) keeps growing — still
 25+ open `bot/*` PRs, oldest five-plus weeks old, PR #86 (LLM API cost
 calculator, built 2026-10-01, all three checks green on its branch) still
-unmerged among them. Not this routine's call — CLAUDE.md's PR workflow
-governs those agent runs, this routine ships straight to `master` — but it
-needs a human pass.
+unmerged among them, and now PR #89 joins it for the same reason. Not this
+routine's call to merge — but it needs a human pass, and it's worth noting
+that two of this routine's last three feature runs (2026-10-01 and today)
+hit the same "Production Deploy" push block, not just one-off flakiness.
 
 **Queued next:** "No way to flag a wrong listing" (the catalog has a
 "suggest a new tool" path but no "this one is wrong" path) is the next

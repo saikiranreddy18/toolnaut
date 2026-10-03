@@ -4827,9 +4827,13 @@ a client-side SPA with a static tool catalogue.
 
 ### Access-method facet ("Web app" / "API" / "Self-hosted") — Discover has no way to filter out API-only or open-weights tools from a beginner's results
 
-- **Status:** SHIPPED 2e256db08501cf380cdcf5b74999b97dc46f18c4 — built as scoped,
-  Discover filter + `matchScore.js` soft bias both landed in the same commit;
-  the quiz-scoring half was not left for later.
+- **Status:** BUILT, UNMERGED — PR #89 (sha `2e256db` on branch
+  `bot/claude/access-method-facet-2026-10-03`) — built as scoped, Discover
+  filter + `matchScore.js` soft bias both landed in the same commit, all
+  three checks green on the branch, but direct push to `master` was blocked
+  by this session's own permission layer ("Production Deploy" denial, the
+  same block issue #88 hit on 2026-10-02) — same `BUILT, UNMERGED` convention
+  as PR #86's entry. Not yet live; needs the project owner's merge.
 - **Seen in:** studied fresh this run — Tool Finder (toolfinder.com, a
   1,300+-tool software directory; fetched its `/categories/ai-tools` and
   `/tools?platform=web` pages, both 403'd to a direct fetch, so worked from
