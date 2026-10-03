@@ -1,4 +1,5 @@
 import { CATEGORY_META } from './toolsCatalog'
+import { accessMethodOf } from './accessMethod'
 
 // Persona → tool fit score (20–99). Client-side stand-in for the real
 // recommendation service; the inputs (quiz answers) and output shape won't
@@ -18,6 +19,20 @@ const EXPERIENCE_LEVEL_BONUS = {
   regular: { beginner: 2, intermediate: 10, advanced: 4 },
   builder: { beginner: -2, intermediate: 6, advanced: 10 },
   teacher: { beginner: 0, intermediate: 6, advanced: 10 },
+}
+
+// A soft preference, not a hard eligibility gate — eligibility.js's own header
+// comment names "API availability" as a constraint nothing in the catalog can
+// enforce today, and this stays derived-only (accessMethod.js), so excluding
+// a tool outright here would contradict that. Beginners/dabblers take a small
+// penalty for a tool that needs an API key or self-hosting before it's usable;
+// builders, who can already self-select "API" in Discover, aren't penalized.
+const ACCESS_METHOD_BONUS = {
+  beginner: { web: 0, api: -8, 'self-hosted': -10 },
+  dabbler: { web: 0, api: -4, 'self-hosted': -6 },
+  regular: { web: 0, api: 0, 'self-hosted': 0 },
+  builder: { web: 0, api: 0, 'self-hosted': 0 },
+  teacher: { web: 0, api: 0, 'self-hosted': 0 },
 }
 
 // Secondary domains that still earn a partial category bonus.
@@ -109,6 +124,7 @@ export function matchScore(tool, answers) {
 
   score += BUDGET_PRICE_BONUS[answers.budget]?.[tool.price] ?? 0
   score += EXPERIENCE_LEVEL_BONUS[answers.experience]?.[tool.level] ?? 0
+  score += ACCESS_METHOD_BONUS[answers.experience]?.[accessMethodOf(tool)] ?? 0
 
   // Learners get a nudge toward learning tools regardless of domain.
   if (answers.goal === 'job' && tool.category === 'learning') score += 6
