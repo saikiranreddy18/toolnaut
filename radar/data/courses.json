@@ -29351,5 +29351,454 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-02T15:51:16.985Z"
+  },
+  {
+    "id": "course-teacher-planner",
+    "toolSlug": "teacher-planner",
+    "title": "Master Teacher Planner",
+    "objectives": [
+      "Set up your classes and schedule in Teacher Planner",
+      "Create your first lesson plan using AI tools",
+      "Organize weekly plans in the digital planbook view"
+    ],
+    "modules": [
+      {
+        "title": "Getting Started & Account Setup",
+        "estMinutes": 10,
+        "steps": [
+          "Sign up for a Teacher Planner account and choose your school year and grading term dates",
+          "Add your first class by entering the class name, subject, grade level, and meeting times",
+          "Set your weekly schedule grid to match your actual teaching periods"
+        ]
+      },
+      {
+        "title": "Building Your First Lesson Plan with AI",
+        "estMinutes": 20,
+        "steps": [
+          "Open a new lesson slot in your planbook and click the AI lesson generator button",
+          "Enter your topic, grade level, and learning objective, then let the AI draft an activity sequence",
+          "Edit the generated plan: adjust timing, add your own materials, and attach any files or links"
+        ]
+      },
+      {
+        "title": "Organizing and Reusing Plans",
+        "estMinutes": 15,
+        "steps": [
+          "Use the weekly planbook view to drag lessons into different time slots and copy them across days",
+          "Tag your lesson plans by unit or standard so you can filter and find them later",
+          "Duplicate a lesson into another class section and tweak it for that group's needs"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-lesson planning",
+      "skill-teaching",
+      "skill-education",
+      "skill-planbook",
+      "skill-classroom"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "course-made-an-open-source-lego-ai-generator",
+    "toolSlug": "made-an-open-source-lego-ai-generator",
+    "title": "Master Made an open-source Lego AI generator",
+    "objectives": [
+      "Install and run the open-source Lego AI generator locally",
+      "Prompt the model to generate valid LDraw (.ldr) models",
+      "Export, inspect, and edit generated builds in LDraw-compatible tools"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Generation",
+        "estMinutes": 35,
+        "steps": [
+          "Clone the repository, create a Python virtual environment, and install dependencies from requirements.txt",
+          "Download the pretrained model weights and place them in the expected checkpoints directory",
+          "Run the sample inference script with the default prompt and confirm a .ldr file is produced in the output folder"
+        ]
+      },
+      {
+        "title": "Controlling Generation Quality",
+        "estMinutes": 40,
+        "steps": [
+          "Experiment with text prompts of varying specificity (e.g., 'small red car' vs '4-wide red sports car with spoiler') and compare outputs",
+          "Tune key parameters such as brick-count limits, part category constraints, and sampling temperature or seed",
+          "Identify invalid or floating bricks in a generated file and rerun with stricter connectivity constraints"
+        ]
+      },
+      {
+        "title": "Viewing and Refining in LDraw Tools",
+        "estMinutes": 35,
+        "steps": [
+          "Open a generated .ldr file in LeoCAD or BrickLink Studio and inspect brick placement and connectivity",
+          "Manually fix unsupported or colliding bricks and resave the model",
+          "Export the final model as a parts list (BrickLink XML) to check real-world buildability and piece availability"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-lego",
+      "skill-open-source",
+      "skill-3d",
+      "skill-generative",
+      "skill-ldraw"
+    ],
+    "prerequisites": [
+      "Comfortable with command line and Python virtual environments",
+      "Basic familiarity with text-to-3D or generative AI concepts",
+      "Some experience with Lego Digital Designer, Studio, or other brick-building software is helpful"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "course-open-source-m-a-tools",
+    "toolSlug": "open-source-m-a-tools",
+    "title": "Master Open-Source M&A Tools",
+    "objectives": [
+      "Stand up an open-source deal pipeline stack (n8n + Baserow) and automate a target-tracking workflow",
+      "Build a comparable companies and precedent transactions model in Python using yfinance and SEC EDGAR data",
+      "Run scenario and accretion/dilution analysis with an open-source financial modeling toolkit and version-control deal models in Git"
+    ],
+    "modules": [
+      {
+        "title": "Deal Pipeline & Workflow Automation",
+        "estMinutes": 45,
+        "steps": [
+          "Self-host Baserow (Docker) and schema a target database: company, sector, revenue, EBITDA, deal stage, owner, next-action date",
+          "Build an n8n workflow that pulls new targets from a form/email inbox, enriches them via Clearbit API, and writes rows to Baserow",
+          "Add an n8n scheduled trigger that posts a weekly pipeline digest (stage changes, stale deals >14 days) to Slack or Matrix"
+        ]
+      },
+      {
+        "title": "Comps & Precedent Transactions in Python",
+        "estMinutes": 60,
+        "steps": [
+          "Use yfinance to pull financials for a 6-competitor peer set and compute EV/EBITDA, EV/Revenue, and P/E multiples in pandas",
+          "Query SEC EDGAR's XBRL API for precedent deal filings (8-K, DEF 14A) to extract announced transaction values and target financials",
+          "Output a comps football field valuation range chart with matplotlib and save the notebook to a Git repo"
+        ]
+      },
+      {
+        "title": "Accretion/Dilution & Scenario Modeling",
+        "estMinutes": 60,
+        "steps": [
+          "Model a merger in a Python notebook: combine acquirer and target income statements with purchase price allocation and financing mix assumptions",
+          "Compute pro forma EPS accretion/dilution across a 3x3 sensitivity grid (deal premium vs. cash/stock mix) using numpy",
+          "Parameterize the model for three scenarios (base/upside/downside synergies) and render results in a terminal dashboard with the `rich` library"
+        ]
+      },
+      {
+        "title": "Model Governance & Audit Trail",
+        "estMinutes": 30,
+        "steps": [
+          "Structure the deal-model repo with Git branches per bid round and tag signed-off versions (e.g., v1.2-ic-approved)",
+          "Add pre-commit hooks (black, nbstripout) to keep notebooks clean and diffable",
+          "Export the final model outputs to a reproducible PDF/HTML report with Jupyter+Quarto for the investment committee"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-m&a",
+      "skill-open-source",
+      "skill-finance",
+      "skill-deal-analysis"
+    ],
+    "prerequisites": [
+      "Fluent Python (pandas, notebooks) and basic financial modeling concepts",
+      "Comfortable with Docker and self-hosting services",
+      "Working knowledge of M&A fundamentals: valuation multiples, purchase accounting, EPS accretion/dilution"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "course-aitoolsuite",
+    "toolSlug": "aitoolsuite",
+    "title": "Master Aitoolsuite",
+    "objectives": [
+      "Locate and launch the right utility from the 107-tool dashboard quickly",
+      "Run core dev utilities (JSON formatter, Base64, regex tester) on real data",
+      "Verify tools run fully offline and organize favorites for repeat use"
+    ],
+    "modules": [
+      {
+        "title": "Tour the dashboard and find tools fast",
+        "estMinutes": 8,
+        "steps": [
+          "Open Aitoolsuite in your browser and scan the category sidebar (encoders, formatters, generators)",
+          "Use the search bar to find three specific tools: JSON Formatter, Base64 Encode/Decode, and UUID Generator",
+          "Pin or bookmark these three tools using the favorites feature"
+        ]
+      },
+      {
+        "title": "Hands-on with everyday utilities",
+        "estMinutes": 12,
+        "steps": [
+          "Paste a minified JSON snippet into JSON Formatter, pretty-print it, then validate a broken JSON sample and read the error",
+          "Encode a string to Base64, decode it back, then generate 3 UUIDs and copy one to your clipboard",
+          "Open the Regex Tester, write a pattern to match an email address, and test it against 3 sample strings"
+        ]
+      },
+      {
+        "title": "Confirm privacy and build a workflow",
+        "estMinutes": 8,
+        "steps": [
+          "Open browser DevTools > Network tab, run any tool, and confirm zero network requests are made",
+          "Disable Wi-Fi, reload the page from cache if available, and verify your pinned tools still work",
+          "Create a personal cheat sheet listing your top 5 tools and when you'd use each during a typical coding task"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-developer tools",
+      "skill-utilities",
+      "skill-browser-based",
+      "skill-privacy",
+      "skill-offline"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "course-usejunction",
+    "toolSlug": "usejunction",
+    "title": "Master UseJunction",
+    "objectives": [
+      "Connect UseJunction to your team's AI tool accounts",
+      "Build a usage dashboard tracking spend and adoption by team member",
+      "Set up alerts for anomalous AI spend and unused licenses"
+    ],
+    "modules": [
+      {
+        "title": "Install & Connect Data Sources",
+        "estMinutes": 25,
+        "steps": [
+          "Clone the UseJunction repo and start it with `docker compose up`",
+          "Add your first connector (e.g., OpenAI API key) in Settings > Sources and verify ingestion runs",
+          "Connect a second source (Anthropic or Cursor) and confirm both appear in the Sources list with 'Active' status"
+        ]
+      },
+      {
+        "title": "Build a Team Usage Dashboard",
+        "estMinutes": 35,
+        "steps": [
+          "Map API keys or emails to team members in the Users page so spend attributes correctly",
+          "Create a dashboard with three panels: cost per tool, cost per user, and daily request volume",
+          "Add a filter for date range and save the dashboard as 'Monthly AI Review'"
+        ]
+      },
+      {
+        "title": "Alerts, Budgets & Optimization",
+        "estMinutes": 25,
+        "steps": [
+          "Create a budget rule for your OpenAI source (e.g., $500/month) with a Slack webhook alert at 80%",
+          "Add an anomaly alert for spend spikes over 2x the 7-day average",
+          "Run the unused-seat report to find licenses with zero usage in the last 30 days and export it as CSV"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-ai usage tracking",
+      "skill-analytics",
+      "skill-open source",
+      "skill-team insights",
+      "skill-governance"
+    ],
+    "prerequisites": [
+      "Basic Docker/Docker Compose experience",
+      "Admin access to your team's AI provider accounts (API keys)",
+      "Familiarity with your team's org structure and AI tool subscriptions"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "course-bootloops-a-toolkit-for-exact-quantitative-science",
+    "toolSlug": "bootloops-a-toolkit-for-exact-quantitative-science",
+    "title": "Master BootLoops: A toolkit for exact quantitative science",
+    "objectives": [
+      "Configure BootLoops for exact arithmetic and reproducible results",
+      "Convert floating-point pipelines to exact rational/symbolic computations",
+      "Validate numerically sensitive results with interval-certified bounds"
+    ],
+    "modules": [
+      {
+        "title": "Exact Arithmetic Foundations",
+        "estMinutes": 45,
+        "steps": [
+          "Install BootLoops and run `bootloops init --precision exact` to create a project with the ExactNumber engine enabled by default",
+          "Rewrite an existing float-based summation (e.g., variance calculation) using `bl.Rational` and confirm zero rounding error against a known-answer dataset",
+          "Benchmark exact vs. float runtime on a 10k-element reduction and record the slowdown factor to understand when exactness is worth the cost"
+        ]
+      },
+      {
+        "title": "Certified Interval Computation",
+        "estMinutes": 50,
+        "steps": [
+          "Wrap uncertain inputs in `bl.Interval(lo, hi)` and propagate them through a chain of operations, printing the certified output bounds with `result.certificate()`",
+          "Set `BL_STRICT=1` and trigger the automatic fallback when an interval widens past your tolerance, then tighten it using adaptive refinement (`refine_until(eps=1e-12)`)",
+          "Verify a matrix inversion result by checking that the residual interval contains zero, and export the proof log via `bl.export_certificate('proof.json')`"
+        ]
+      },
+      {
+        "title": "Reproducible Quantitative Pipelines",
+        "estMinutes": 40,
+        "steps": [
+          "Tag pipeline stages with `@bl.reproducible` so every intermediate value carries a hash and precision provenance record",
+          "Port one stage of a real analysis (e.g., a regression or integration step) to exact mode and compare outputs before/after with `bl.diff_report()`",
+          "Lock the environment with `bootloops freeze` and re-run the pipeline from the lockfile on a second machine to confirm bit-identical results"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-quantitative",
+      "skill-science",
+      "skill-analysis",
+      "skill-statistics",
+      "skill-accurate"
+    ],
+    "prerequisites": [
+      "Strong Python programming and numerical computing experience",
+      "Familiarity with floating-point error, conditioning, and interval arithmetic concepts",
+      "Experience debugging numerically unstable scientific code"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "course-drama-song-ad",
+    "toolSlug": "drama-song-ad",
+    "title": "Master drama-song-ad",
+    "objectives": [
+      "Write a short ad script and convert it into structured sung lyrics",
+      "Generate a drama-style sung vocal track matched to the ad's mood",
+      "Assemble vocals, visuals, and captions into a finished 30-second video ad"
+    ],
+    "modules": [
+      {
+        "title": "Script to Song-Ready Lyrics",
+        "estMinutes": 20,
+        "steps": [
+          "Draft a 15-30 second ad script with a hook in the first 3 seconds",
+          "Rewrite the script as 4-6 rhyming lyric lines with a clear emotional arc (problem to solution)",
+          "Tag each line with a mood/emotion label (e.g., [tense], [hopeful]) to guide the vocal generation"
+        ]
+      },
+      {
+        "title": "Generating the Drama-Style Sung Vocal",
+        "estMinutes": 35,
+        "steps": [
+          "Install drama-song-ad from its repo and generate a base track using your tagged lyrics with a tension-release style preset",
+          "Iterate 2-3 generations, adjusting tempo and vocal intensity so the chorus lands on the product name",
+          "Export the best take as a WAV file and note the exact timestamps of the hook and chorus"
+        ]
+      },
+      {
+        "title": "Assembling and Finishing the Video Ad",
+        "estMinutes": 30,
+        "steps": [
+          "Import the WAV into the video editor module and sync 3-5 dramatic visual clips or generated scenes to the beat",
+          "Add burned-in captions timed to each lyric line and a product card at the chorus timestamp",
+          "Export a 1080x1920 MP4 with loudness normalized, then review on mobile and re-export if captions or music clip off-screen"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-video ads",
+      "skill-song generation",
+      "skill-workflow",
+      "skill-mcp",
+      "skill-storytelling"
+    ],
+    "prerequisites": [
+      "A machine capable of running the drama-song-ad workflow locally (GPU recommended)",
+      "Familiarity with basic audio/video editing concepts (timelines, exports, resolution)",
+      "A product or offer in mind with a clear value proposition to advertise"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "course-now",
+    "toolSlug": "now",
+    "title": "Master now",
+    "objectives": [
+      "Pipe terminal output into `now` for AI analysis without leaving the shell",
+      "Compose `now` with standard Unix tools (grep, tail, jq) for targeted queries",
+      "Safely handle sensitive data using redaction and scoping techniques"
+    ],
+    "modules": [
+      {
+        "title": "Unix-Style Basics: stdin, Files, and Pipes",
+        "estMinutes": 12,
+        "steps": [
+          "Run `tail -100 /var/log/syslog | now 'summarize errors'` to analyze log output via a pipe",
+          "Pass a file directly: `now --file config.yml 'what breaks if I change the port?'`",
+          "Test exit behavior: check `echo $?` after a `now` call inside a shell script to confirm it composes cleanly in pipelines"
+        ]
+      },
+      {
+        "title": "Composing now with the Unix Toolchain",
+        "estMinutes": 15,
+        "steps": [
+          "Filter before sending: `kubectl logs app --since=1h | grep ERROR | now 'rank root causes'` to cut noise and token usage",
+          "Chain structured data: `curl api/health | jq '.failures' | now 'explain these failures'`",
+          "Capture AI output in a variable and reuse it: `FIX=$(git diff | now 'suggest a fix'); echo \"$FIX\" > fix-notes.md`"
+        ]
+      },
+      {
+        "title": "Operating Safely with Sensitive Data",
+        "estMinutes": 18,
+        "steps": [
+          "Pre-redact before piping: `cat .env | sed 's/=.*$/=REDACTED/' | now 'review this env layout'`",
+          "Restrict scope deliberately: send only the relevant function (`sed -n '40,80p' deploy.sh | now ...`) instead of whole files",
+          "Audit what leaves your machine: run a dry-run/preview mode (or pipe through `tee /tmp/payload.txt`) to inspect the exact payload before the real call",
+          "Add a shell alias like `alias nsec='redact | now'` wrapping your redaction script so safe usage is the default"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-terminal",
+      "skill-cli",
+      "skill-ai-assistant",
+      "skill-open-source",
+      "skill-linux"
+    ],
+    "prerequisites": [
+      "Comfort with shell pipes, redirection, and exit codes",
+      "Familiarity with grep, sed, tail, and jq",
+      "Understanding of what data is sensitive in your environment (secrets, PII)"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-03T00:44:32.304Z"
   }
 ]

@@ -189,7 +189,9 @@
       "crafting-express",
       "spens-sandboxed-observable-coding-agents",
       "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
-      "ai-agent-gateway"
+      "ai-agent-gateway",
+      "aitoolsuite",
+      "now"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -376,7 +378,9 @@
       "course-crafting-express",
       "course-spens-sandboxed-observable-coding-agents",
       "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
-      "course-ai-agent-gateway"
+      "course-ai-agent-gateway",
+      "course-aitoolsuite",
+      "course-now"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -537,7 +541,10 @@
       "pbi-guard",
       "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
       "wsp-wordpress-mcp",
-      "bootloops"
+      "bootloops",
+      "made-an-open-source-lego-ai-generator",
+      "open-source-m-a-tools",
+      "now"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -603,7 +610,10 @@
       "course-pbi-guard",
       "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
       "course-wsp-wordpress-mcp",
-      "course-bootloops"
+      "course-bootloops",
+      "course-made-an-open-source-lego-ai-generator",
+      "course-open-source-m-a-tools",
+      "course-now"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -646,7 +656,8 @@
       "sharpniq",
       "awesome-ui-design",
       "i-built-a-digital-wrap-tool-for-tesla-owners",
-      "logo-design-skill"
+      "logo-design-skill",
+      "made-an-open-source-lego-ai-generator"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -682,7 +693,8 @@
       "course-sharpniq",
       "course-awesome-ui-design",
       "course-i-built-a-digital-wrap-tool-for-tesla-owners",
-      "course-logo-design-skill"
+      "course-logo-design-skill",
+      "course-made-an-open-source-lego-ai-generator"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -999,7 +1011,8 @@
       "spens-sandboxed-observable-coding-agents",
       "knowledge-platform-powered-by-agents-demonstration",
       "wsp-wordpress-mcp",
-      "bootloops"
+      "bootloops",
+      "drama-song-ad"
     ],
     "courses": [
       "course-headless-tools",
@@ -1238,7 +1251,8 @@
       "course-spens-sandboxed-observable-coding-agents",
       "course-knowledge-platform-powered-by-agents-demonstration",
       "course-wsp-wordpress-mcp",
-      "course-bootloops"
+      "course-bootloops",
+      "course-drama-song-ad"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2386,7 +2400,8 @@
       "semrush-ai-tool",
       "hosted-mcp-server-for-google-search-console",
       "wsp-wordpress-mcp",
-      "ai-agent-gateway"
+      "ai-agent-gateway",
+      "drama-song-ad"
     ],
     "courses": [
       "course-coolplugz",
@@ -2419,7 +2434,8 @@
       "course-semrush-ai-tool",
       "course-hosted-mcp-server-for-google-search-console",
       "course-wsp-wordpress-mcp",
-      "course-ai-agent-gateway"
+      "course-ai-agent-gateway",
+      "course-drama-song-ad"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2757,7 +2773,8 @@
       "covenant",
       "public-beta-a-decision-governance-runtime-for-ai-agents",
       "nvidia-debuted-the-open-agent-safety-platform",
-      "mutually-beneficial-agentic-common-law"
+      "mutually-beneficial-agentic-common-law",
+      "usejunction"
     ],
     "courses": [
       "course-mrea",
@@ -2766,7 +2783,8 @@
       "course-covenant",
       "course-public-beta-a-decision-governance-runtime-for-ai-agents",
       "course-nvidia-debuted-the-open-agent-safety-platform",
-      "course-mutually-beneficial-agentic-common-law"
+      "course-mutually-beneficial-agentic-common-law",
+      "course-usejunction"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2932,7 +2950,8 @@
       "forcefield-a-fast-lightweight-local-first-ai-agent-harness",
       "inventor-of-chatgpt-and-rlhf-launches-typesafeai",
       "perspica",
-      "spens-sandboxed-observable-coding-agents"
+      "spens-sandboxed-observable-coding-agents",
+      "aitoolsuite"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -2978,7 +2997,8 @@
       "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness",
       "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai",
       "course-perspica",
-      "course-spens-sandboxed-observable-coding-agents"
+      "course-spens-sandboxed-observable-coding-agents",
+      "course-aitoolsuite"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3050,7 +3070,8 @@
       "lakera",
       "adam-tooze-on-ai-regulation-video",
       "what-other-languages-call-ai-agents",
-      "crypllm-ai-chat-agent-for-cryptool-2"
+      "crypllm-ai-chat-agent-for-cryptool-2",
+      "teacher-planner"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3100,7 +3121,8 @@
       "course-lakera",
       "course-adam-tooze-on-ai-regulation-video",
       "course-what-other-languages-call-ai-agents",
-      "course-crypllm-ai-chat-agent-for-cryptool-2"
+      "course-crypllm-ai-chat-agent-for-cryptool-2",
+      "course-teacher-planner"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3322,7 +3344,8 @@
       "perspica",
       "uai",
       "gaussian-splat-avatars-for-realtime-ai-agents",
-      "knowledge-platform-powered-by-agents-demonstration"
+      "knowledge-platform-powered-by-agents-demonstration",
+      "usejunction"
     ],
     "courses": [
       "course-limitless-library",
@@ -3386,7 +3409,8 @@
       "course-perspica",
       "course-uai",
       "course-gaussian-splat-avatars-for-realtime-ai-agents",
-      "course-knowledge-platform-powered-by-agents-demonstration"
+      "course-knowledge-platform-powered-by-agents-demonstration",
+      "course-usejunction"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3515,7 +3539,10 @@
       "hosted-mcp-server-for-google-search-console",
       "rhubarb",
       "truescribe",
-      "pbi-guard"
+      "pbi-guard",
+      "open-source-m-a-tools",
+      "usejunction",
+      "bootloops-a-toolkit-for-exact-quantitative-science"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3564,7 +3591,10 @@
       "course-hosted-mcp-server-for-google-search-console",
       "course-rhubarb",
       "course-truescribe",
-      "course-pbi-guard"
+      "course-pbi-guard",
+      "course-open-source-m-a-tools",
+      "course-usejunction",
+      "course-bootloops-a-toolkit-for-exact-quantitative-science"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3748,12 +3778,14 @@
     "toolsTeaching": [
       "aristra-your-life-os",
       "astah-pro-mcp",
-      "anyhropic-launches-google-docs-alternative-claude-docs"
+      "anyhropic-launches-google-docs-alternative-claude-docs",
+      "now"
     ],
     "courses": [
       "course-aristra-your-life-os",
       "course-astah-pro-mcp",
-      "course-anyhropic-launches-google-docs-alternative-claude-docs"
+      "course-anyhropic-launches-google-docs-alternative-claude-docs",
+      "course-now"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3997,7 +4029,8 @@
       "jawz",
       "banker",
       "investment-bets",
-      "bananasplit-cli"
+      "bananasplit-cli",
+      "open-source-m-a-tools"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -4007,7 +4040,8 @@
       "course-jawz",
       "course-banker",
       "course-investment-bets",
-      "course-bananasplit-cli"
+      "course-bananasplit-cli",
+      "course-open-source-m-a-tools"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4341,7 +4375,8 @@
       "open-health-atlas",
       "emulate-ai",
       "hosted-mcp-server-for-google-search-console",
-      "pbi-guard"
+      "pbi-guard",
+      "usejunction"
     ],
     "courses": [
       "course-launch-hn-risklytics-yc-s26",
@@ -4354,7 +4389,8 @@
       "course-open-health-atlas",
       "course-emulate-ai",
       "course-hosted-mcp-server-for-google-search-console",
-      "course-pbi-guard"
+      "course-pbi-guard",
+      "course-usejunction"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4847,7 +4883,8 @@
       "banker",
       "fab",
       "semrush-ai-tool",
-      "bananasplit-cli"
+      "bananasplit-cli",
+      "now"
     ],
     "courses": [
       "course-devx",
@@ -4869,7 +4906,8 @@
       "course-banker",
       "course-fab",
       "course-semrush-ai-tool",
-      "course-bananasplit-cli"
+      "course-bananasplit-cli",
+      "course-now"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5980,10 +6018,12 @@
     "domain": "data",
     "level": "advanced",
     "toolsTeaching": [
-      "terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+      "terminal-bench-science-evaluating-ai-agents-on-scientific-re",
+      "bootloops-a-toolkit-for-exact-quantitative-science"
     ],
     "courses": [
-      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re"
+      "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
+      "course-bootloops-a-toolkit-for-exact-quantitative-science"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -6734,12 +6774,14 @@
     "toolsTeaching": [
       "grith",
       "humble-bundle",
-      "truescribe"
+      "truescribe",
+      "now"
     ],
     "courses": [
       "course-grith",
       "course-humble-bundle",
-      "course-truescribe"
+      "course-truescribe",
+      "course-now"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -7737,12 +7779,14 @@
     "toolsTeaching": [
       "what-agent-skills-are-made-of-programming-languages",
       "the-thinking-wattage-of-ai-agents-vs-the-human-brain",
-      "who-bankrolls-the-ai-agent-swarm"
+      "who-bankrolls-the-ai-agent-swarm",
+      "bootloops-a-toolkit-for-exact-quantitative-science"
     ],
     "courses": [
       "course-what-agent-skills-are-made-of-programming-languages",
       "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain",
-      "course-who-bankrolls-the-ai-agent-swarm"
+      "course-who-bankrolls-the-ai-agent-swarm",
+      "course-bootloops-a-toolkit-for-exact-quantitative-science"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
   },
@@ -8074,13 +8118,15 @@
       "ai-old-video-restoration-tool",
       "local-ai-assistants-can-be-user-friendly-too",
       "phntm-one-i-built-a-local-ai-desk-assistant",
-      "turnpanel-is-a-local-first-ai-workspace"
+      "turnpanel-is-a-local-first-ai-workspace",
+      "aitoolsuite"
     ],
     "courses": [
       "course-ai-old-video-restoration-tool",
       "course-local-ai-assistants-can-be-user-friendly-too",
       "course-phntm-one-i-built-a-local-ai-desk-assistant",
-      "course-turnpanel-is-a-local-first-ai-workspace"
+      "course-turnpanel-is-a-local-first-ai-workspace",
+      "course-aitoolsuite"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -8302,7 +8348,8 @@
       "new-york-city-pausing-some-ai-tools-in-schools",
       "ai-agents-built-a-secret-society-inside-the-lab-video",
       "eliza-the-ai-that-fooled-the-world",
-      "is-ai-solving-math-too-fast"
+      "is-ai-solving-math-too-fast",
+      "teacher-planner"
     ],
     "courses": [
       "course-aicademy",
@@ -8310,7 +8357,8 @@
       "course-new-york-city-pausing-some-ai-tools-in-schools",
       "course-ai-agents-built-a-secret-society-inside-the-lab-video",
       "course-eliza-the-ai-that-fooled-the-world",
-      "course-is-ai-solving-math-too-fast"
+      "course-is-ai-solving-math-too-fast",
+      "course-teacher-planner"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -8506,7 +8554,8 @@
       "aiope",
       "neurogrid-terminal-coding-agent",
       "vim-like-hyper-efficient-llm-power-tool",
-      "termaxa"
+      "termaxa",
+      "now"
     ],
     "courses": [
       "course-tenux",
@@ -8516,7 +8565,8 @@
       "course-aiope",
       "course-neurogrid-terminal-coding-agent",
       "course-vim-like-hyper-efficient-llm-power-tool",
-      "course-termaxa"
+      "course-termaxa",
+      "course-now"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -8884,7 +8934,8 @@
       "prompt-anonymization-and-deanonymization",
       "pyunto",
       "paperweight",
-      "truescribe"
+      "truescribe",
+      "aitoolsuite"
     ],
     "courses": [
       "course-pearpie",
@@ -8901,7 +8952,8 @@
       "course-prompt-anonymization-and-deanonymization",
       "course-pyunto",
       "course-paperweight",
-      "course-truescribe"
+      "course-truescribe",
+      "course-aitoolsuite"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -11214,10 +11266,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "airuncode"
+      "airuncode",
+      "made-an-open-source-lego-ai-generator"
     ],
     "courses": [
-      "course-airuncode"
+      "course-airuncode",
+      "course-made-an-open-source-lego-ai-generator"
     ],
     "updatedAt": "2026-09-04T23:20:31.711Z"
   },
@@ -11852,10 +11906,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "alternaterealitieslol"
+      "alternaterealitieslol",
+      "drama-song-ad"
     ],
     "courses": [
-      "course-alternaterealitieslol"
+      "course-alternaterealitieslol",
+      "course-drama-song-ad"
     ],
     "updatedAt": "2026-09-06T23:10:17.799Z"
   },
@@ -12299,10 +12355,12 @@
     "domain": "learning",
     "level": "beginner",
     "toolsTeaching": [
-      "manware-s-ai-learning-toolkit"
+      "manware-s-ai-learning-toolkit",
+      "teacher-planner"
     ],
     "courses": [
-      "course-manware-s-ai-learning-toolkit"
+      "course-manware-s-ai-learning-toolkit",
+      "course-teacher-planner"
     ],
     "updatedAt": "2026-09-07T15:05:03.707Z"
   },
@@ -12964,11 +13022,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "logitech-launches-mx-keypad-for-developers",
-      "radio"
+      "radio",
+      "drama-song-ad"
     ],
     "courses": [
       "course-logitech-launches-mx-keypad-for-developers",
-      "course-radio"
+      "course-radio",
+      "course-drama-song-ad"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -13563,10 +13623,12 @@
     "domain": "data",
     "level": "intermediate",
     "toolsTeaching": [
-      "starwell"
+      "starwell",
+      "bootloops-a-toolkit-for-exact-quantitative-science"
     ],
     "courses": [
-      "course-starwell"
+      "course-starwell",
+      "course-bootloops-a-toolkit-for-exact-quantitative-science"
     ],
     "updatedAt": "2026-09-09T13:45:32.864Z"
   },
@@ -17149,10 +17211,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "ai-subtools"
+      "ai-subtools",
+      "aitoolsuite"
     ],
     "courses": [
-      "course-ai-subtools"
+      "course-ai-subtools",
+      "course-aitoolsuite"
     ],
     "updatedAt": "2026-09-16T14:13:20.724Z"
   },
@@ -19256,10 +19320,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "open-source-skills-for-end-to-end-video-ad-campaigns"
+      "open-source-skills-for-end-to-end-video-ad-campaigns",
+      "drama-song-ad"
     ],
     "courses": [
-      "course-open-source-skills-for-end-to-end-video-ad-campaigns"
+      "course-open-source-skills-for-end-to-end-video-ad-campaigns",
+      "course-drama-song-ad"
     ],
     "updatedAt": "2026-09-29T15:55:26.286Z"
   },
@@ -20003,10 +20069,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "bootloops"
+      "bootloops",
+      "bootloops-a-toolkit-for-exact-quantitative-science"
     ],
     "courses": [
-      "course-bootloops"
+      "course-bootloops",
+      "course-bootloops-a-toolkit-for-exact-quantitative-science"
     ],
     "updatedAt": "2026-10-02T15:51:16.985Z"
   },
@@ -20035,5 +20103,174 @@
       "course-ai-agent-gateway"
     ],
     "updatedAt": "2026-10-02T15:51:16.985Z"
+  },
+  {
+    "id": "skill-lesson planning",
+    "name": "lesson planning",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "teacher-planner"
+    ],
+    "courses": [
+      "course-teacher-planner"
+    ],
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "skill-planbook",
+    "name": "planbook",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "teacher-planner"
+    ],
+    "courses": [
+      "course-teacher-planner"
+    ],
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "skill-classroom",
+    "name": "classroom",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "teacher-planner"
+    ],
+    "courses": [
+      "course-teacher-planner"
+    ],
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "skill-lego",
+    "name": "lego",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "made-an-open-source-lego-ai-generator"
+    ],
+    "courses": [
+      "course-made-an-open-source-lego-ai-generator"
+    ],
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "skill-generative",
+    "name": "generative",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "made-an-open-source-lego-ai-generator"
+    ],
+    "courses": [
+      "course-made-an-open-source-lego-ai-generator"
+    ],
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "skill-ldraw",
+    "name": "ldraw",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "made-an-open-source-lego-ai-generator"
+    ],
+    "courses": [
+      "course-made-an-open-source-lego-ai-generator"
+    ],
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "skill-m&a",
+    "name": "m&a",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "open-source-m-a-tools"
+    ],
+    "courses": [
+      "course-open-source-m-a-tools"
+    ],
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "skill-deal-analysis",
+    "name": "deal analysis",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "open-source-m-a-tools"
+    ],
+    "courses": [
+      "course-open-source-m-a-tools"
+    ],
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "skill-browser-based",
+    "name": "browser based",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "aitoolsuite"
+    ],
+    "courses": [
+      "course-aitoolsuite"
+    ],
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "skill-ai usage tracking",
+    "name": "ai usage tracking",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "usejunction"
+    ],
+    "courses": [
+      "course-usejunction"
+    ],
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "skill-team insights",
+    "name": "team insights",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "usejunction"
+    ],
+    "courses": [
+      "course-usejunction"
+    ],
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "skill-accurate",
+    "name": "accurate",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "bootloops-a-toolkit-for-exact-quantitative-science"
+    ],
+    "courses": [
+      "course-bootloops-a-toolkit-for-exact-quantitative-science"
+    ],
+    "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "skill-song generation",
+    "name": "song generation",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "drama-song-ad"
+    ],
+    "courses": [
+      "course-drama-song-ad"
+    ],
+    "updatedAt": "2026-10-03T00:44:32.304Z"
   }
 ]
