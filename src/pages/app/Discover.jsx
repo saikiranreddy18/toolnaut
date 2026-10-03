@@ -2,6 +2,7 @@ import { useMemo, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS, getTool } from '../../utils/toolsCatalog'
 import { matchScore, matchReasonShort } from '../../utils/matchScore'
+import { accessMethodOf, ACCESS_METHODS, ACCESS_METHOD_LABELS } from '../../utils/accessMethod'
 import { byProminence, isCatalogNoise } from '../../utils/prominence'
 import { getNewTools } from '../../utils/newTools'
 import { loadRecentlyViewed } from '../../state/recentlyViewedStore'
@@ -63,6 +64,7 @@ export default function Discover() {
   const cat = searchParams.get('cat') || ''
   const price = searchParams.get('price') || ''
   const level = searchParams.get('level') || ''
+  const access = searchParams.get('access') || ''
   const sort = searchParams.get('sort') || 'match'
   // Search is counted once per visit, not once per keystroke.
   const searchedRef = useRef(false)
@@ -124,6 +126,7 @@ export default function Discover() {
         (!cat || tool.category === cat) &&
         (!price || tool.price === price) &&
         (!level || tool.level === level) &&
+        (!access || accessMethodOf(tool) === access) &&
         matchesQuery(tool, q),
       )
       .map((tool) => ({ ...tool, score: matchScore(tool, answers) }))
@@ -136,14 +139,14 @@ export default function Discover() {
     // The baseline is fixed and scores now spread, but prominence still
     // breaks the genuine ties.
     return scored.sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || tieBreak(a, b))
-  }, [q, cat, price, level, sort, answersKey, tieBreak])
+  }, [q, cat, price, level, access, sort, answersKey, tieBreak])
 
-  const hasFilters = !!(q || cat || price || level)
+  const hasFilters = !!(q || cat || price || level || access)
 
   // Paging is derived, not an effect: storing the filter signature alongside
   // the count resets the page during the same render that changes the filters,
   // so a new result set never flashes the previous page length first.
-  const filterKey = `${q}|${cat}|${price}|${level}|${sort}`
+  const filterKey = `${q}|${cat}|${price}|${level}|${access}|${sort}`
   const [page, setPage] = useState({ key: filterKey, count: PAGE_SIZE })
   const visibleCount = page.key === filterKey ? page.count : PAGE_SIZE
   const visible = results.slice(0, visibleCount)
@@ -299,6 +302,12 @@ export default function Discover() {
             {LEVEL_LABELS[l]}
           </Pill>
         ))}
+        <span className="ml-3 shrink-0 text-xs uppercase tracking-widest text-zinc-600">Access</span>
+        {ACCESS_METHODS.map((a) => (
+          <Pill key={a} active={access === a} onClick={() => setParam('access', access === a ? '' : a)}>
+            {ACCESS_METHOD_LABELS[a]}
+          </Pill>
+        ))}
         <span className="ml-3 shrink-0 text-xs uppercase tracking-widest text-zinc-600">Sort</span>
         {SORTS.map(({ key, label }) => (
           <Pill key={key} active={sort === key} onClick={() => setParam('sort', key === 'match' ? '' : key)}>
@@ -314,7 +323,7 @@ export default function Discover() {
           <h2 className="arcade-heading section text-xl sm:text-2xl">No tools match</h2>
           <p className="mt-3 max-w-md text-sm text-zinc-400">
             {q ? <>Nothing in the catalog matches “<span className="font-bold text-white">{q}</span>”</> : 'Nothing matches these filters'}
-            {(cat || price || level) && ' with the filters you have on'}. Try a
+            {(cat || price || level || access) && ' with the filters you have on'}. Try a
             broader search, or jump into a category that has tools waiting:
           </p>
           <div className="mt-5 flex flex-wrap gap-2">

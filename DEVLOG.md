@@ -9,6 +9,209 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-10-03
+
+**Radar health:** `OK` — 2 runs in the last 26h window, most recent publish
+4h before this run (4 tools), feed at 446 tools total in `public/tools.json`.
+
+**Housekeeping first:** this file was three days stale. The 2026-10-01 and
+2026-10-02 feature runs both shipped and both posted a digest issue (#87,
+#88), but the docs commit recording either day in this file never reached
+`master` — #88 says its own docs commit (local sha `17c7ac2`) was blocked by
+a "Production Deploy" permission denial and the denial's own terms forbade
+retrying around it, so it stayed local to a container that no longer exists.
+Backfilled both missing sections below from issues #87 and #88 verbatim
+rather than leaving the gap. Separately, the "Download my data" backlog entry
+(SHIPPED in `c4a24de` on 2026-10-02, already live on `master`) was still
+marked `OPEN` — the same blocked-commit story — corrected to `SHIPPED
+c4a24de` today. This session hit the identical "Production Deploy" push
+block (see below), so this doc correction itself ships via PR #89 rather
+than landing on `master` directly — `docs/research-backlog.md` on `master`
+still reads `OPEN` for that gap until the PR merges, even though the code
+has been live since 2026-10-02.
+
+**Researched today:** none — hour 18 UTC is the feature run, not a research
+hour. No agent-fixable issues open, CI green on `master`, radar healthy — no
+urgent work ahead of today's feature.
+
+**Shipped today:** the access-method facet — Discover had no way to filter
+out API-only or open-weights tools from a beginner's results, even though
+the quiz's whole pitch is not recommending something a non-technical visitor
+can't actually use. The catalog has no `platform` field (and getting one
+would mean re-enriching 704+ live records), so this derives the label from
+data already on each record instead: the existing `api`/`open-source` tags
+and literal wording in `pricing` ("Usage-based API", "Open weights"). Added
+`src/utils/accessMethod.js` (`accessMethodOf()`, pure, 8 new unit tests),
+one more filter pill on `/app/discover` (Web app / API / Self-hosted,
+URL-param-backed like every other facet), and a small negative
+`ACCESS_METHOD_BONUS` in `matchScore.js` for beginner/dabbler personas only —
+a soft nudge, not a hard eligibility gate, matching `eligibility.js`'s own
+documented reasoning that nothing in the catalog can enforce this as a hard
+constraint today. Verified live against a local preview build: filtering to
+"API" cut the 1,148-tool live catalogue to 42 (704-bundled count), to
+"Self-hosted" to 105, with the result count and `?access=` URL updating
+correctly and no console errors — matching `npm run smoke`'s clean run.
+
+All three checks green (319 app tests + 106 radar tests, build, smoke — 24
+routes, zero console errors) on the branch. **Not yet on toolnaut.xyz.** This
+routine's instructions call for pushing straight to `master`, same as every
+prior SHIPPED entry in this log — but `git push origin master` was blocked
+by this session's own permission layer with a "Production Deploy" denial,
+identical to the block issue #88 reported on 2026-10-02, and the denial's
+own terms forbid retrying around it. Pushed the branch and opened
+[PR #89](https://github.com/saikiranreddy18/toolnaut/pull/89) instead (sha
+`2e256db` for the feature commit, `c885571` and one follow-up docs-only
+commit for the corrections above) — which is what CLAUDE.md's own written
+rule (never push to `master`, always a PR) calls for anyway. All three
+checks are green on the branch; it needs the project owner's merge. Backlog
+entry marked `BUILT, UNMERGED — PR #89`, same convention as PR #86's entry.
+
+**Still stuck:** the open-PR backlog (issue #67) keeps growing — still
+25+ open `bot/*` PRs, oldest five-plus weeks old, PR #86 (LLM API cost
+calculator, built 2026-10-01, all three checks green on its branch) still
+unmerged among them, and now PR #89 joins it for the same reason. Not this
+routine's call to merge — but it needs a human pass, and it's worth noting
+that two of this routine's last three feature runs (2026-10-01 and today)
+hit the same "Production Deploy" push block, not just one-off flakiness.
+
+**Queued next:** "No way to flag a wrong listing" (the catalog has a
+"suggest a new tool" path but no "this one is wrong" path) is the next
+build-ready smaller gap. The leaderboard-goes-real gap still needs a new
+Supabase migration applied to the live project before it's safe to build
+unattended.
+
+---
+
+## 2026-10-02
+
+**Radar health:** `OK` — 3 runs in the last 26h window, most recent publish
+2.4h before this run (6 tools), feed now at 434 tools total in
+`public/tools.json` (up from 420 yesterday).
+
+**Researched today:** five research-hour passes before this one (00:12,
+03:10, 06:10, 09:08, 15:11 UTC). Four of the five found no new gap: the
+twelfth pass checked GateOnAI (its Score/Stack-Builder/compare trio all trace
+to ground already OPEN or REJECTED elsewhere in the backlog) and corrected a
+backlog sync bug where PR #86's own branch had marked its entry
+`BUILT, UNMERGED` but that edit never reached `master` since the PR is still
+open. The 09:08 pass deepened "Download my data" — the oldest untouched OPEN
+entry (19 days) — and caught a real contradiction in the original plan:
+re-reading `Settings.jsx`'s current action row showed "same row as
+`DeleteAccount`" and "visible to guests" can no longer both hold, since
+`DeleteAccount` now sits inside a session-gated fragment. Corrected
+placement: beside "Replay the tour" instead.
+
+**Shipped today:** `c4a24de` — the "Download my data" gap, the counterpart to
+`DeleteAccount.jsx`'s existing permanent-deletion flow. Added
+`src/utils/exportUserData.js` (aggregates quiz answers, stack, favorites,
+progress, roadmap progress, streak, and sky/cursor/avatar prefs — everything
+`Settings.jsx` already loads for on-screen display — into one JSON object)
+and one "Download my data" button in `Settings.jsx`, placed beside "Replay
+the tour" so it stays visible to guests. **Live on toolnaut.xyz** — pushed
+straight to `master` cleanly, no PR blocker this time.
+
+One scoping deviation: `buildUserDataExport()` takes `session` as a parameter
+rather than calling `loadSession()` internally, so it stays a pure,
+`node --test`-able function — importing `authStore.js` directly would pull in
+the Supabase client, which reads `import.meta.env` and crashes this repo's
+plain-ESM test loader (the same reason `avatarStore.js`, which pulls in JSX,
+has never had a test either). No automated unit test was added for this
+reason; verified instead with `npm run smoke` (clean `/app/settings` render)
+and a manual Playwright click against the built preview, confirming the
+download fires with the exact expected JSON shape. All three gating checks
+green (311 tests, build, 24-route smoke).
+
+**Still stuck:** the open-PR backlog from issue #67 hasn't moved — PR #86
+(LLM API cost calculator, built 2026-10-01 but blocked from `master` that
+day) is still open and unmerged, alongside the longer-standing
+stack-overlap-warning (#75) and GA4 cookie-consent (#57/#70) PRs. Not this
+routine's call to merge; still needs a human pass.
+
+**Housekeeping:** backfilled this file's missing 2026-10-01 section from
+digest issue #87 — that day's feature run posted the issue but never wrote
+this file, something three later research passes flagged in prose without
+fixing. Closed #87 as part of that day's digest. (That backfill commit itself
+then failed to reach `master` — see 2026-10-03's housekeeping note above for
+how it was finally recovered.)
+
+**One blocker flagged that day:** the DEVLOG/backlog docs commit was blocked
+from pushing to `master` by that session's own permission layer (reason:
+"Production Deploy"), and the denial's own terms forbade retrying around it.
+It stayed committed locally but never reached `origin/master`. The code
+change (`c4a24de`) pushed fine and was unaffected.
+
+**Queued next:** the next build-ready smaller gap is "No way to flag a wrong
+listing" (the catalog has a "suggest a new tool" path but no "this one is
+wrong" path). The leaderboard-goes-real gap still needs a new Supabase
+migration applied to the live project before it's safe to build unattended.
+
+---
+
+## 2026-10-01
+
+**Radar health:** `OK` — 2 runs in the last 26h window, most recent publish
+1.6h before this run (5 tools), feed at 420 tools total in
+`public/tools.json`.
+
+**Researched today:** three research-hour passes before this one (00:04,
+03:09, 06:04, 12:04 UTC — the 03:09 pass fixed `GalaxyExplorer`'s half of the
+previous day's focus-trap commit and logged today's one new gap; 06:04 and
+12:04 found nothing new, confirming the focus-trap rollout complete across
+all 7 dialogs and tracing G2's new AI-review-summary feature back to the
+already-OPEN "Per-tool ratings & reviews" entry rather than a new gap).
+Twelve research passes total have now run against this backlog.
+
+**Shipped today:** the LLM API cost calculator — the one new gap the 03:09
+pass logged, picked because it was explicitly scoped as buildable today with
+no catalog-schema dependency. The catalog lists `chatgpt`, `claude` and
+`gemini` but nothing on the site answered the question a developer actually
+has comparing them: "if I send N requests a day of this shape, what does
+this model's API cost me a month?" Built `src/data/modelPricing.js` (a short,
+dated, sourced price table verified against current provider pricing docs),
+`src/utils/apiCost.js` (pure calculator, same self-reported-inputs shape as
+`stackValue.js`), and `src/components/app/ApiCostCalculator.jsx`, wired into
+`ToolDetail.jsx`.
+
+One deviation from the backlog spec: it called for scoping the calculator by
+a tool's `pricing` field reading "API"/"Usage-based API"/"Enterprise API",
+but `chatgpt`/`claude`/`gemini` are all tagged `Freemium`/`Paid` in the
+catalog, not API — that scoping rule would have hidden the calculator from
+the exact three tools the gap's own worked example names. Keyed it off a
+direct tool-slug match in `modelPricing.js` instead.
+
+Verified live against the built app in headless Chromium: the calculator
+renders on `/app/tools/chatgpt`, `/app/tools/claude` and `/app/tools/gemini`,
+and stays absent on tools with no priced model (checked
+`/app/tools/claude-code`). All three checks green (316 app tests + 106 radar
+tests, including 5 new `api-cost.test.mjs` cases; build; smoke — 24 routes,
+zero console errors).
+
+**Not yet on toolnaut.xyz that day.** This routine's instructions call for
+pushing straight to `master`, and that is what every prior SHIPPED entry in
+this log did — but that session's own tooling blocked both a local merge and
+a direct branch push to `master` with a "Merge Without Review" denial, and
+said explicitly not to route around it. Pushed the branch and opened #86
+instead, which is what CLAUDE.md's own written rule (never push to `master`,
+always a PR) calls for anyway — all three checks were green on that branch,
+it just needed the project owner's merge. Backlog entry marked
+`BUILT, UNMERGED — PR #86`, same convention as the still-open
+stack-overlap-warning (#75) and GA4 cookie-consent (#57/#70) entries. **As of
+2026-10-03, PR #86 is still open and unmerged** — not yet live.
+
+**Still stuck:** the open-PR backlog had not shrunk — above 25 open `bot/*`
+PRs, #86 included, some going back five weeks. Not this routine's job to
+clear on its own judgment (several look superseded by later work, not simply
+unreviewed), but worth a human pass to merge the ones still good and close
+the ones that aren't.
+
+**Queued next:** the leaderboard-goes-real gap still needs a new Supabase
+migration applied to the live project before it's safe to build unattended.
+"Download my data" (the counterpart to the already-shipped "Delete my
+account" flow) was the next build-ready smaller gap — shipped the next day,
+2026-10-02.
+
+---
+
 ## 2026-09-30
 
 **Radar health:** `OK` — 2 runs in the last 26h window, most recent publish
