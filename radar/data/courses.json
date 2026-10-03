@@ -29800,5 +29800,224 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "course-web2md",
+    "toolSlug": "web2md",
+    "title": "Master Web2MD",
+    "objectives": [
+      "Install and configure the Web2MD MCP server with an AI client",
+      "Convert webpages to clean Markdown and control output options",
+      "Integrate Web2MD into agent workflows for reliable content ingestion"
+    ],
+    "modules": [
+      {
+        "title": "Setup & First Conversion",
+        "estMinutes": 20,
+        "steps": [
+          "Install Web2MD via npm/npx and add it to your MCP client config (e.g., claude_desktop_config.json) with the correct command and args",
+          "Restart your MCP client and verify the server appears in the tools list",
+          "Run your first conversion by asking the agent to fetch a simple article URL and inspect the returned Markdown"
+        ]
+      },
+      {
+        "title": "Controlling Conversion Quality",
+        "estMinutes": 25,
+        "steps": [
+          "Convert a complex page (docs site or news article) and compare output with and without options like selector targeting or link/image handling",
+          "Test edge cases: paywalled pages, JavaScript-heavy SPAs, and pages with tables/code blocks — note what survives conversion",
+          "Save 3 converted outputs to files and diff them to identify which options produce the cleanest token-efficient Markdown"
+        ]
+      },
+      {
+        "title": "Building an Agent Ingestion Pipeline",
+        "estMinutes": 30,
+        "steps": [
+          "Chain Web2MD with a file-writing tool so the agent fetches a URL, converts it, and saves the Markdown with a slugified filename",
+          "Build a batch workflow: give the agent a list of 5 URLs and have it summarize each from its converted Markdown",
+          "Add error handling rules to your agent's system prompt for failed fetches, timeouts, and non-HTML content types"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-mcp",
+      "skill-web scraping",
+      "skill-markdown",
+      "skill-ai agents",
+      "skill-open source"
+    ],
+    "prerequisites": [
+      "Basic familiarity with MCP servers and client configuration",
+      "An MCP-compatible AI client installed (e.g., Claude Desktop, Cursor)",
+      "Node.js and npm/npx available on your machine"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-03T14:19:48.129Z"
+  },
+  {
+    "id": "course-a-document-layer-for-ai-agents",
+    "toolSlug": "a-document-layer-for-ai-agents",
+    "title": "Master A document layer for AI agents",
+    "objectives": [
+      "Connect a document source and parse files into structured, indexed content",
+      "Query documents from an AI agent via tool/function calling with citations",
+      "Apply chunking, metadata filters, and permission scoping to control agent access"
+    ],
+    "modules": [
+      {
+        "title": "Ingest and Index Your First Document Set",
+        "estMinutes": 35,
+        "steps": [
+          "Install the SDK, create a project, and authenticate with an API key",
+          "Upload 3-5 sample files (PDF, Markdown, DOCX) and trigger parsing to normalize them into structured documents",
+          "Verify the index by running a semantic search query and inspecting which chunks and metadata are returned"
+        ]
+      },
+      {
+        "title": "Give Your Agent a Document Query Tool",
+        "estMinutes": 40,
+        "steps": [
+          "Wrap the retrieval endpoint as a function/tool definition (name, description, parameters like query and top_k) for your LLM framework",
+          "Run an agent loop where the model decides when to call the tool, and log the tool arguments it generates",
+          "Require source citations: configure the response to include file name and page/section, then assert citations appear for a factual question"
+        ]
+      },
+      {
+        "title": "Control Quality and Access",
+        "estMinutes": 35,
+        "steps": [
+          "Experiment with chunk size and overlap on one document, then compare retrieval precision on a fixed set of test questions",
+          "Add metadata tags (e.g., team, doc_type) at ingestion and test filter expressions so queries only search relevant subsets",
+          "Create a scoped API key or a collection-level permission, and confirm the agent cannot retrieve documents outside its scope"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-documents",
+      "skill-knowledge base",
+      "skill-developer tools"
+    ],
+    "prerequisites": [
+      "Experience calling LLM APIs and defining tool/function calls",
+      "Basic understanding of embeddings and semantic search",
+      "Comfort working in Python or TypeScript with SDKs"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-03T14:19:48.129Z"
+  },
+  {
+    "id": "course-google-maps-scraper-mcp",
+    "toolSlug": "google-maps-scraper-mcp",
+    "title": "Master Google Maps Scraper MCP",
+    "objectives": [
+      "Install and configure a Google Maps Scraper MCP server with a working API key",
+      "Run structured queries (location + category) from your AI assistant and parse returned business data",
+      "Export, deduplicate, and store scraped results in CSV/JSON for downstream use"
+    ],
+    "modules": [
+      {
+        "title": "Setup & Connection",
+        "estMinutes": 20,
+        "steps": [
+          "Clone or install the Maps Scraper MCP package (e.g., npm/pip) and add your Google Places or scraping API key to the .env file",
+          "Register the server in your MCP client config (claude_desktop_config.json or equivalent) with the correct command and env vars",
+          "Run a test query like 'coffee shops in Austin, TX' and confirm the assistant returns structured business records"
+        ]
+      },
+      {
+        "title": "Querying & Filtering Results",
+        "estMinutes": 25,
+        "steps": [
+          "Craft prompts with specific parameters: location, category, radius, and minimum rating (e.g., 'plumbers in Denver with rating >= 4.0')",
+          "Request specific fields per result: name, address, phone, website, rating, review count, and opening hours",
+          "Paginate through results by asking for additional result sets or raising the results limit, then compare record counts"
+        ]
+      },
+      {
+        "title": "Cleaning, Exporting & Respecting Limits",
+        "estMinutes": 20,
+        "steps": [
+          "Have the assistant deduplicate results by name+address and normalize phone numbers and addresses into a consistent format",
+          "Export the cleaned dataset to CSV or JSON and load it into a spreadsheet or database to verify all fields are populated",
+          "Set rate limits / delays between queries and review Google Maps scraping Terms of Service to keep usage compliant"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-mcp",
+      "skill-scraping",
+      "skill-google-maps",
+      "skill-data-extraction",
+      "skill-automation"
+    ],
+    "prerequisites": [
+      "Basic familiarity with MCP servers and an MCP-compatible AI client (e.g., Claude Desktop)",
+      "Node.js or Python environment installed to run the server",
+      "A Google Maps scraping or Places API key/credits available"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-03T14:19:48.129Z"
+  },
+  {
+    "id": "course-whirl",
+    "toolSlug": "whirl",
+    "title": "Master whirl",
+    "objectives": [
+      "Set up a whirl account and start your first chat",
+      "Switch between AI models and compare their answers",
+      "Use memory and living documents across conversations"
+    ],
+    "modules": [
+      {
+        "title": "Getting Started with whirl",
+        "estMinutes": 10,
+        "steps": [
+          "Create a whirl account and open the main chat window",
+          "Send your first prompt, e.g. 'Summarize this article in 3 bullet points'",
+          "Rename and pin the chat so you can find it later"
+        ]
+      },
+      {
+        "title": "Exploring Multiple Models",
+        "estMinutes": 15,
+        "steps": [
+          "Use the model picker to switch between top models (e.g., GPT, Claude, Gemini)",
+          "Send the same prompt to two different models and compare the responses side by side",
+          "Set a default model for everyday chats in settings"
+        ]
+      },
+      {
+        "title": "Memory & Living Documents",
+        "estMinutes": 20,
+        "steps": [
+          "Tell whirl a fact about yourself (e.g., your role or preferences) and verify it remembers it in a new chat",
+          "Create a living document from a chat, such as a project brief or notes",
+          "Edit the living document and ask the AI to update it in a follow-up conversation"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-chatbot",
+      "skill-llm",
+      "skill-memory",
+      "skill-documents",
+      "skill-multi-model"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-03T14:19:48.129Z"
   }
 ]

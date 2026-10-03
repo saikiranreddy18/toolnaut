@@ -1012,7 +1012,10 @@
       "knowledge-platform-powered-by-agents-demonstration",
       "wsp-wordpress-mcp",
       "bootloops",
-      "drama-song-ad"
+      "drama-song-ad",
+      "web2md",
+      "a-document-layer-for-ai-agents",
+      "google-maps-scraper-mcp"
     ],
     "courses": [
       "course-headless-tools",
@@ -1252,7 +1255,10 @@
       "course-knowledge-platform-powered-by-agents-demonstration",
       "course-wsp-wordpress-mcp",
       "course-bootloops",
-      "course-drama-song-ad"
+      "course-drama-song-ad",
+      "course-web2md",
+      "course-a-document-layer-for-ai-agents",
+      "course-google-maps-scraper-mcp"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1438,7 +1444,9 @@
       "gaussian-splat-avatars-for-realtime-ai-agents",
       "nvidia-debuted-the-open-agent-safety-platform",
       "ai-agents-can-now-buy-real-services",
-      "ai-agent-gateway"
+      "ai-agent-gateway",
+      "web2md",
+      "a-document-layer-for-ai-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -1602,7 +1610,9 @@
       "course-gaussian-splat-avatars-for-realtime-ai-agents",
       "course-nvidia-debuted-the-open-agent-safety-platform",
       "course-ai-agents-can-now-buy-real-services",
-      "course-ai-agent-gateway"
+      "course-ai-agent-gateway",
+      "course-web2md",
+      "course-a-document-layer-for-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1702,7 +1712,8 @@
       "anthropic-is-planning-to-launch-its-ipo-in-november",
       "inventor-of-chatgpt-and-rlhf-launches-typesafeai",
       "tinyaiarena-watch-ai-agents-battle-it-out",
-      "prompt-anonymization-and-deanonymization"
+      "prompt-anonymization-and-deanonymization",
+      "whirl"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1752,7 +1763,8 @@
       "course-anthropic-is-planning-to-launch-its-ipo-in-november",
       "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai",
       "course-tinyaiarena-watch-ai-agents-battle-it-out",
-      "course-prompt-anonymization-and-deanonymization"
+      "course-prompt-anonymization-and-deanonymization",
+      "course-whirl"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2401,7 +2413,9 @@
       "hosted-mcp-server-for-google-search-console",
       "wsp-wordpress-mcp",
       "ai-agent-gateway",
-      "drama-song-ad"
+      "drama-song-ad",
+      "web2md",
+      "google-maps-scraper-mcp"
     ],
     "courses": [
       "course-coolplugz",
@@ -2435,7 +2449,9 @@
       "course-hosted-mcp-server-for-google-search-console",
       "course-wsp-wordpress-mcp",
       "course-ai-agent-gateway",
-      "course-drama-song-ad"
+      "course-drama-song-ad",
+      "course-web2md",
+      "course-google-maps-scraper-mcp"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2644,7 +2660,8 @@
       "pixelboard",
       "anthropic-is-planning-to-launch-its-ipo-in-november",
       "free-ai-slop-checker-find-the-signs-of-ai-writing",
-      "pyunto"
+      "pyunto",
+      "whirl"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -2673,7 +2690,8 @@
       "course-pixelboard",
       "course-anthropic-is-planning-to-launch-its-ipo-in-november",
       "course-free-ai-slop-checker-find-the-signs-of-ai-writing",
-      "course-pyunto"
+      "course-pyunto",
+      "course-whirl"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2951,7 +2969,8 @@
       "inventor-of-chatgpt-and-rlhf-launches-typesafeai",
       "perspica",
       "spens-sandboxed-observable-coding-agents",
-      "aitoolsuite"
+      "aitoolsuite",
+      "a-document-layer-for-ai-agents"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -2998,7 +3017,8 @@
       "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai",
       "course-perspica",
       "course-spens-sandboxed-observable-coding-agents",
-      "course-aitoolsuite"
+      "course-aitoolsuite",
+      "course-a-document-layer-for-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3345,7 +3365,8 @@
       "uai",
       "gaussian-splat-avatars-for-realtime-ai-agents",
       "knowledge-platform-powered-by-agents-demonstration",
-      "usejunction"
+      "usejunction",
+      "web2md"
     ],
     "courses": [
       "course-limitless-library",
@@ -3410,7 +3431,8 @@
       "course-uai",
       "course-gaussian-splat-avatars-for-realtime-ai-agents",
       "course-knowledge-platform-powered-by-agents-demonstration",
-      "course-usejunction"
+      "course-usejunction",
+      "course-web2md"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3542,7 +3564,8 @@
       "pbi-guard",
       "open-source-m-a-tools",
       "usejunction",
-      "bootloops-a-toolkit-for-exact-quantitative-science"
+      "bootloops-a-toolkit-for-exact-quantitative-science",
+      "google-maps-scraper-mcp"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3594,7 +3617,8 @@
       "course-pbi-guard",
       "course-open-source-m-a-tools",
       "course-usejunction",
-      "course-bootloops-a-toolkit-for-exact-quantitative-science"
+      "course-bootloops-a-toolkit-for-exact-quantitative-science",
+      "course-google-maps-scraper-mcp"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4990,7 +5014,8 @@
       "mdmanagerai",
       "quire",
       "mymarkdown",
-      "texposit"
+      "texposit",
+      "web2md"
     ],
     "courses": [
       "course-serve-markdown-to-ai-agents-with-accept-headers",
@@ -4998,7 +5023,8 @@
       "course-mdmanagerai",
       "course-quire",
       "course-mymarkdown",
-      "course-texposit"
+      "course-texposit",
+      "course-web2md"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5270,12 +5296,16 @@
     "toolsTeaching": [
       "handwrought",
       "opendocbot",
-      "anyhropic-launches-google-docs-alternative-claude-docs"
+      "anyhropic-launches-google-docs-alternative-claude-docs",
+      "a-document-layer-for-ai-agents",
+      "whirl"
     ],
     "courses": [
       "course-handwrought",
       "course-opendocbot",
-      "course-anyhropic-launches-google-docs-alternative-claude-docs"
+      "course-anyhropic-launches-google-docs-alternative-claude-docs",
+      "course-a-document-layer-for-ai-agents",
+      "course-whirl"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6495,12 +6525,14 @@
     "toolsTeaching": [
       "puppetflow-a-free-browser-automation-platform",
       "openais-rogue-ai-agents-used-more-sites",
-      "benchmarking-coding-agents-perform-on-scraping"
+      "benchmarking-coding-agents-perform-on-scraping",
+      "web2md"
     ],
     "courses": [
       "course-puppetflow-a-free-browser-automation-platform",
       "course-openais-rogue-ai-agents-used-more-sites",
-      "course-benchmarking-coding-agents-perform-on-scraping"
+      "course-benchmarking-coding-agents-perform-on-scraping",
+      "course-web2md"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -7116,7 +7148,8 @@
       "a-stateful-llm-api-that-works-across-providers",
       "never-again",
       "friday",
-      "yourchar"
+      "yourchar",
+      "whirl"
     ],
     "courses": [
       "course-itsuki",
@@ -7133,7 +7166,8 @@
       "course-a-stateful-llm-api-that-works-across-providers",
       "course-never-again",
       "course-friday",
-      "course-yourchar"
+      "course-yourchar",
+      "course-whirl"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -7887,11 +7921,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "kiso",
-      "knowledge-platform-powered-by-agents-demonstration"
+      "knowledge-platform-powered-by-agents-demonstration",
+      "a-document-layer-for-ai-agents"
     ],
     "courses": [
       "course-kiso",
-      "course-knowledge-platform-powered-by-agents-demonstration"
+      "course-knowledge-platform-powered-by-agents-demonstration",
+      "course-a-document-layer-for-ai-agents"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -9294,7 +9330,8 @@
       "eliza-the-ai-that-fooled-the-world",
       "meta-launches-subscriptions-with-enhanced-ai-features",
       "anthropic-is-planning-to-launch-its-ipo-in-november",
-      "crypllm-ai-chat-agent-for-cryptool-2"
+      "crypllm-ai-chat-agent-for-cryptool-2",
+      "whirl"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
@@ -9308,7 +9345,8 @@
       "course-eliza-the-ai-that-fooled-the-world",
       "course-meta-launches-subscriptions-with-enhanced-ai-features",
       "course-anthropic-is-planning-to-launch-its-ipo-in-november",
-      "course-crypllm-ai-chat-agent-for-cryptool-2"
+      "course-crypllm-ai-chat-agent-for-cryptool-2",
+      "course-whirl"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -10237,13 +10275,15 @@
       "hermes-agent-demo",
       "ethersflow-adversarial-multi-model-consensus-gate-for-ai-age",
       "a-stateful-llm-api-that-works-across-providers",
-      "verzeta-studio"
+      "verzeta-studio",
+      "whirl"
     ],
     "courses": [
       "course-hermes-agent-demo",
       "course-ethersflow-adversarial-multi-model-consensus-gate-for-ai-age",
       "course-a-stateful-llm-api-that-works-across-providers",
-      "course-verzeta-studio"
+      "course-verzeta-studio",
+      "course-whirl"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -15691,10 +15731,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "scaling-classical-music-concert-crawlers-with-ai-agents"
+      "scaling-classical-music-concert-crawlers-with-ai-agents",
+      "google-maps-scraper-mcp"
     ],
     "courses": [
-      "course-scaling-classical-music-concert-crawlers-with-ai-agents"
+      "course-scaling-classical-music-concert-crawlers-with-ai-agents",
+      "course-google-maps-scraper-mcp"
     ],
     "updatedAt": "2026-09-12T23:23:08.913Z"
   },
@@ -20272,5 +20314,31 @@
       "course-drama-song-ad"
     ],
     "updatedAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "id": "skill-google-maps",
+    "name": "google maps",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "google-maps-scraper-mcp"
+    ],
+    "courses": [
+      "course-google-maps-scraper-mcp"
+    ],
+    "updatedAt": "2026-10-03T14:19:48.129Z"
+  },
+  {
+    "id": "skill-data-extraction",
+    "name": "data extraction",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "google-maps-scraper-mcp"
+    ],
+    "courses": [
+      "course-google-maps-scraper-mcp"
+    ],
+    "updatedAt": "2026-10-03T14:19:48.129Z"
   }
 ]

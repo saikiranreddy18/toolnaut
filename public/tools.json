@@ -10560,5 +10560,101 @@
       "linux"
     ],
     "discoveredAt": "2026-10-03T00:44:32.304Z"
+  },
+  {
+    "slug": "web2md",
+    "name": "Web2MD",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free / open source",
+    "level": "intermediate",
+    "blurb": "MCP server that converts any webpage URL into clean Markdown for AI agents.",
+    "audience": "developers building AI agents",
+    "dev": "Astra Intelligence",
+    "year": 2026,
+    "website": "https://github.com/astra-intelligence/web2md-mcp",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "mcp",
+      "web scraping",
+      "markdown",
+      "ai agents",
+      "open source"
+    ],
+    "discoveredAt": "2026-10-03T14:19:48.129Z"
+  },
+  {
+    "slug": "a-document-layer-for-ai-agents",
+    "name": "A document layer for AI agents",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "A document layer that gives AI agents structured access to files and knowledge.",
+    "audience": "developers building AI agents",
+    "dev": "Claix",
+    "year": 2026,
+    "website": "https://www.claix.dev",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "documents",
+      "knowledge base",
+      "developer tools",
+      "automation"
+    ],
+    "discoveredAt": "2026-10-03T14:19:48.129Z"
+  },
+  {
+    "slug": "google-maps-scraper-mcp",
+    "name": "Google Maps Scraper MCP",
+    "category": "data",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "MCP server enabling AI assistants to scrape and extract Google Maps business data.",
+    "audience": "Developers and data analysts",
+    "dev": "GMapsCrawl",
+    "year": 2026,
+    "website": "https://gmapscrawl.com/google-maps-scraper-mcp",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "mcp",
+      "scraping",
+      "google-maps",
+      "data-extraction",
+      "automation"
+    ],
+    "discoveredAt": "2026-10-03T14:19:48.129Z"
+  },
+  {
+    "slug": "whirl",
+    "name": "whirl",
+    "category": "writing",
+    "sourceCategory": "LLMs & Chatbots",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "beginner",
+    "blurb": "AI chat app with access to every top model, real memory, and living documents.",
+    "audience": "general AI chat users",
+    "dev": "whirlchat",
+    "year": 2026,
+    "website": "https://whirl.chat",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "chatbot",
+      "llm",
+      "memory",
+      "documents",
+      "multi-model"
+    ],
+    "discoveredAt": "2026-10-03T14:19:48.129Z"
   }
 ]
