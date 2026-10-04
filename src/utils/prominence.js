@@ -72,6 +72,15 @@ export function isCatalogNoise(t) {
   return REPO_SLUG.test(name) || FORUM_POST.test(name) || LINK_LIST.test(name)
 }
 
+// Recognisable anywhere, not just in the caller's own domain — a discovery
+// rail with no persona to scope to needs "is this a flagship at all," which
+// starterScore's per-domain list alone cannot answer.
+const ALL_FLAGSHIPS = new Set(Object.values(FLAGSHIP).flat())
+
+export function isFlagship(t) {
+  return ALL_FLAGSHIPS.has(t?.name)
+}
+
 // A tool with a real developer, website, date and description reads as a
 // product. Breaks the remaining ties below starterScore.
 function looksLikeAProduct(t) {
