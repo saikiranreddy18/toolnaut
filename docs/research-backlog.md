@@ -9512,3 +9512,75 @@ this run.
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run.
+
+---
+
+### Research check 2026-10-04 06:04 UTC — twentieth pass; no new gap, but the changelog staleness bug from the 2026-09-23 fix had quietly recurred and is fixed again
+Research run (UTC hour 06). `npm run radar:health` `OK` (2 runs in the 26h
+window, last publish 6.0h ago, 4 tools published that run, feed holding at
+450 total). No `agent-fixable` issues open. `list_pull_requests` shows the
+same 30 open, with the same three `BUILT, UNMERGED` entries this file
+already tracks (#89 access-method facet, #86 LLM cost calculator, #75 stack
+overlap warning) unchanged — nothing to re-sync.
+
+Surveyed every OPEN entry for one thin enough to deepen (sorted all
+`### `/`Status: OPEN` pairs by line length and by `Found:` date). Read the
+three shortest/oldest candidates in full — "No browsable gallery of shared
+stacks," "Vendor/maker claim-listing path," and "Changelog only looks
+backward" — all three already carry a complete "Smallest useful version,"
+file:line citations, and an explicit "what this would NOT include" section;
+none were thin. Rather than force a deepening pass on already-complete
+entries, re-opened the "Changelog only looks backward" entry's own
+2026-09-23 "Deepened" note, since it diagnosed a recurring *process* failure
+(feature runs shipping without adding a `changelogData.js` entry) rather
+than a one-time bug, and a process failure is exactly the kind of thing that
+recurs.
+
+**It had recurred.** `src/utils/changelogData.js`'s newest entry was still
+dated 2026-09-19 — the same file the 2026-09-23 pass had backfilled up to
+`83805fc` — while four real, user-visible commits had shipped since and were
+never added: `2cce654` (2026-09-28, Cmd/Ctrl+K command palette), `18e4762`
+(2026-09-29, Compare's integrations row wired to real data), `2855c9e`
+(2026-09-29, self-reported time-value calculator beside StackCost), `70ceb14`
+(2026-09-30, focus-trap fix across all 7 modals + OpenSearch browser-search
+descriptor), and `c4a24deb` (2026-10-02, "Download my data" button). Verified
+each sha's actual diff with `git show --stat` before writing its entry, same
+standard the original backfill used — no invented copy. (Two narrower
+same-feature follow-up fixes, `166056c` and `01aed7a`, and one internal
+copy-accuracy fix, `0afe1d9`, were left out as not independently user-facing,
+already folded into the `70ceb14` focus-trap entry or too minor for this
+page's voice — consistent with the original backfill's own bar.)
+`/changelog`'s own "Shipping, almost every day" claim was true again only
+retroactively, same false-claim shape the 2026-09-23 note already described.
+
+**Fixed in this run**: added all five entries to `CHANGELOG` in
+`src/utils/changelogData.js`, newest-first, same plain-language voice (no
+shas, no file paths) the file's own header comment requires. This is a
+second instance of the exact same honesty gap, not a new one — the
+underlying fix (translate `SHIPPED` backlog entries into this file as part
+of the feature run's own write-up step) is still the "Smallest useful
+version" this entry already specifies and is still OPEN; a one-off backfill
+does not close a recurring process gap, so the entry's own scope is
+unchanged.
+
+Also checked one fresh angle: WebSearch for "AI tool directory 2026 vendor
+claim listing verified badge trust signal" to see whether the already-OPEN
+"Vendor/maker claim-listing path" entry (found 2026-10-03) had any newer
+competitor precedent worth folding in. Found two real examples — AIChief
+pays a "Verified Owner Badge" to vendors who claim their listing (cited at
+2.4x higher click-through), and TopAI.tools uses a "Verified" badge to mean
+pricing/maintenance claims were checked — but both are the automatic
+verified-badge-on-claim pattern that entry's own "what this would NOT
+include" section already rules out by name, as the same class of
+fabricated-trust-signal risk this file avoids everywhere else (status-note,
+leaderboard-sample-data). Confirms the existing scope rather than widening
+it; nothing to fold in.
+
+Ran `npm test` (311/311), `npm run build` (19 static routes including a
+clean `/changelog` prerender, feed at 450 tools), and `npm run smoke` (24/24
+routes, 0 console errors) against the `changelogData.js` change before
+committing. All three clean.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — logged a recurrence of an existing one instead, and fixed it the same
+way the first occurrence was fixed.

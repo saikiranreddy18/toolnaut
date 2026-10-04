@@ -7,6 +7,36 @@
 // SHIPPED — pulled from that day's real commit, not invented.
 export const CHANGELOG = [
   {
+    date: '2026-10-02',
+    title: 'Download a copy of your data',
+    body: 'Settings now lets you download everything Toolnaut has stored for your account, not just delete it.',
+  },
+  {
+    date: '2026-09-30',
+    title: 'Add Toolnaut as a browser search engine',
+    body: 'Type toolnaut.xyz into most browsers’ address bar and you can now search it directly, like any built-in search engine.',
+  },
+  {
+    date: '2026-09-30',
+    title: 'Keyboard navigation in popups now stays put',
+    body: 'Tabbing through any dialog — delete account, command palette, install prompt, and more — no longer jumps you behind it into the page.',
+  },
+  {
+    date: '2026-09-29',
+    title: 'See the value of your stack, not just its cost',
+    body: 'A new self-reported calculator on your Stack page estimates the time a tool saves you, right beside its cost.',
+  },
+  {
+    date: '2026-09-29',
+    title: 'Compare now shows real integration data',
+    body: 'The Compare page’s "integrations" row now pulls from each tool’s own verified data instead of leaving the promise unfilled.',
+  },
+  {
+    date: '2026-09-28',
+    title: 'Jump to any tool with Cmd/Ctrl+K',
+    body: 'A command palette now lets you search and jump straight to any of the 700+ tools without digging through Discover.',
+  },
+  {
     date: '2026-09-19',
     title: 'Compare Toolnaut to other AI directories',
     body: 'New pages break down how Toolnaut differs from other tool directories — a personalized stack and roadmap, not just a bigger list.',
