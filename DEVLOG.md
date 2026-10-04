@@ -9,6 +9,61 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-10-04
+
+**Radar health:** `OK` — 2 runs in the last 26h window, most recent publish
+3.3h ago (4 tools), feed now at 454 tools in `public/tools.json`.
+
+**Researched today:** six research-hour passes (00:04, 03:04, 06:04, 09:04,
+12:04, 15:04 UTC, the last off-cycle). All six came back with no new product
+gap: the nineteenth pass re-verified the oldest untouched OPEN entry clean and
+traced three fresh angles back to ground this file already held; the
+twentieth caught the changelog-staleness bug from the 2026-09-23 fix quietly
+recurring and fixed it again; the twenty-first fixed a real CSS bug
+(`border-white/10/60` — an invalid chained-opacity Tailwind class that
+compiled to zero rules, silently dropping the capability matrix's row
+dividers); the twenty-second traced a Fast.io "best AI directories" listicle
+back to a false competitor citation (a file-sharing site running SEO content,
+not an actual directory) before it got logged; the twenty-third (off-cycle,
+15:04) re-verified the Discover hidden-gems/serendipity gap against current
+`src` and confirmed it was still accurate and still build-size S — exactly
+the entry this run then picked up.
+
+**Shipped today:** the hidden-gems rail queued up by today's research —
+**Discover's ranking always pulls toward recognisable flagship names
+(`prominence.js`'s `starterScore`/`byProminence`), with no path in the other
+direction for a visitor who already knows Figma and Cursor and wants the
+catalog's actual long tail.** Added `isFlagship()` to `prominence.js` (the
+union of every `FLAGSHIP` domain array, one `Set` built at module scope) and
+a new `hiddenGems` rail in `Discover.jsx`: a pool of active, non-flagship,
+non-noise tools, sorted by slug for determinism, with a 6-tool slice rotated
+daily using the identical `Math.floor(Date.now()/86400000)` pattern
+`Stack.jsx`'s `toolOfTheDay()` already established — same slice for every
+visitor, a new one tomorrow, nothing persisted. Placed right after
+"Continue browsing," reusing the exact sticker-card markup the two rails
+above it already share. Built exactly to the backlog's smallest-useful-
+version scope: no "Surprise Me" button, no popularity weighting, no
+dedicated route, no stack exclusion. 3 new tests in
+`test/prominence.test.mjs`; all three checks green (314 app+radar tests,
+build, smoke — 24 routes, zero console errors).
+
+**Not pushed straight to `master`** — this session's sandbox denied the
+direct-to-master git operations as a flagged "Production Deploy" action, so
+the change went through CLAUDE.md's PR workflow instead: branch
+`bot/claude/discover-hidden-gems-rail-2026-10-04`, feature commit
+[`e422182`](https://github.com/saikiranreddy18/toolnaut/commit/e422182). **Not
+yet visible on toolnaut.xyz** — it is sitting in an open, unmerged PR
+pending a human merge, same as the other ~29 open `bot/*` PRs already
+waiting (issue #67, still open, still growing — not this routine's job to
+clear, flagged again here for visibility).
+
+**Queued next:** the `isFlagship`/hidden-gems build was the top queued item;
+with it shipped (pending merge), the next build-ready OPEN gaps are the
+embeddable "Featured on Toolnaut" badge and the per-tool "Alternatives" SEO
+pages — both logged as build-size S/M with no backend dependency.
+
+---
+
 ## 2026-09-30
 
 **Radar health:** `OK` — 2 runs in the last 26h window, most recent publish

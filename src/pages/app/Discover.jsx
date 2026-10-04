@@ -2,7 +2,7 @@ import { useMemo, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS, getTool } from '../../utils/toolsCatalog'
 import { matchScore, matchReasonShort } from '../../utils/matchScore'
-import { byProminence, isCatalogNoise } from '../../utils/prominence'
+import { byProminence, isCatalogNoise, isFlagship } from '../../utils/prominence'
 import { getNewTools } from '../../utils/newTools'
 import { loadRecentlyViewed } from '../../state/recentlyViewedStore'
 import { loadStreak, daysSinceLastVisit } from '../../state/streakStore'
@@ -184,6 +184,24 @@ export default function Discover() {
     [],
   )
 
+  // Every ranked path on this page pulls toward recognisable flagship names
+  // on purpose (see prominence.js) — right for a first-time user, but it
+  // means the catalog's real differentiator, the long tail past the first
+  // page of Figma/Cursor/ChatGPT, never surfaces anywhere. This rail is the
+  // other direction: active, real tools nobody's ever heard of. Same daily-
+  // rotation shape as toolOfTheDay() in Stack.jsx — one slice of a sorted
+  // pool keyed off the date, identical for every visitor, a new slice
+  // tomorrow, nothing persisted.
+  const hiddenGems = useMemo(() => {
+    const pool = TOOLS
+      .filter((t) => !isCatalogNoise(t) && t.status === 'Active' && !isFlagship(t))
+      .sort((a, b) => a.slug.localeCompare(b.slug))
+    if (pool.length === 0) return []
+    const size = Math.min(6, pool.length)
+    const start = Math.floor(Date.now() / 86400000) % pool.length
+    return Array.from({ length: size }, (_, i) => pool[(start + i) % pool.length])
+  }, [])
+
   // For the no-results state: the categories that actually still have tools,
   // so every suggested escape route is guaranteed to lead somewhere.
   const suggestedCats = useMemo(
@@ -263,6 +281,25 @@ export default function Discover() {
           <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-500">Continue browsing</h2>
           <div className="no-scrollbar -mx-5 mt-2 flex gap-3 overflow-x-auto px-5 sm:mx-0 sm:px-0">
             {recentlyViewed.map((tool) => (
+              <Link
+                key={tool.slug}
+                to={`/app/tools/${tool.slug}`}
+                className="sticker group flex w-40 shrink-0 flex-col p-3"
+              >
+                <span className="arcade-heading compact text-sm group-hover:opacity-80">{tool.name}</span>
+                <span className="mt-1 line-clamp-2 text-[10px] leading-relaxed text-zinc-300">{tool.blurb}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {hiddenGems.length > 0 && (
+        <div className="mt-6">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-500">💎 Hidden gems</h2>
+          <p className="mt-0.5 text-[11px] text-zinc-500">real tools, way off the beaten path</p>
+          <div className="no-scrollbar -mx-5 mt-2 flex gap-3 overflow-x-auto px-5 sm:mx-0 sm:px-0">
+            {hiddenGems.map((tool) => (
               <Link
                 key={tool.slug}
                 to={`/app/tools/${tool.slug}`}

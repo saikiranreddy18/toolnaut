@@ -7070,7 +7070,19 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### Discover only ever ranks toward the mainstream — no "hidden gem" / serendipity path exists
-- **Status:** OPEN
+- **Status:** SHIPPED e422182 — built exactly as scoped below: `isFlagship()`
+  added to `prominence.js` (union of every `FLAGSHIP` domain array), a new
+  `hiddenGems` rail in `Discover.jsx` filtering to active, non-flagship,
+  non-noise tools and rotating a 6-tool slice daily with the same
+  `Math.floor(Date.now()/86400000)` pattern `toolOfTheDay()` already uses,
+  placed after "Continue browsing" and before the filter pills. No Surprise
+  Me button, no popularity weighting, no dedicated route, no stack
+  exclusion — all deferred exactly as the smallest-useful-version scoped.
+  3 new tests in `test/prominence.test.mjs`. Opened as PR (branch
+  `bot/claude/discover-hidden-gems-rail-2026-10-04`) rather than pushed
+  straight to master: this session's sandbox denied the direct-to-master
+  push as a flagged "Production Deploy" action, so it went through
+  CLAUDE.md's PR workflow instead — see the 2026-10-04 DEVLOG entry.
 - **Seen in:** ToolFinder (toolfinder.com/tools — 1,452-tool directory) is the
   one competitor from this file's own suggested-study list
   (There's An AI For That, Futurepedia, ToolFinder, Product Hunt AI, G2/
