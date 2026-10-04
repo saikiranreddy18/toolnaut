@@ -191,7 +191,9 @@
       "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
       "ai-agent-gateway",
       "aitoolsuite",
-      "now"
+      "now",
+      "plushcrew",
+      "ui-for-answering-agent-questions-async"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -380,7 +382,9 @@
       "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
       "course-ai-agent-gateway",
       "course-aitoolsuite",
-      "course-now"
+      "course-now",
+      "course-plushcrew",
+      "course-ui-for-answering-agent-questions-async"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -544,7 +548,8 @@
       "bootloops",
       "made-an-open-source-lego-ai-generator",
       "open-source-m-a-tools",
-      "now"
+      "now",
+      "ui-for-answering-agent-questions-async"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -613,7 +618,8 @@
       "course-bootloops",
       "course-made-an-open-source-lego-ai-generator",
       "course-open-source-m-a-tools",
-      "course-now"
+      "course-now",
+      "course-ui-for-answering-agent-questions-async"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1015,7 +1021,8 @@
       "drama-song-ad",
       "web2md",
       "a-document-layer-for-ai-agents",
-      "google-maps-scraper-mcp"
+      "google-maps-scraper-mcp",
+      "plushcrew"
     ],
     "courses": [
       "course-headless-tools",
@@ -1258,7 +1265,8 @@
       "course-drama-song-ad",
       "course-web2md",
       "course-a-document-layer-for-ai-agents",
-      "course-google-maps-scraper-mcp"
+      "course-google-maps-scraper-mcp",
+      "course-plushcrew"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2758,7 +2766,8 @@
       "clientcoded",
       "how-to-build-effective-evals-for-ai-agents",
       "mcpjam",
-      "emulate-ai"
+      "emulate-ai",
+      "plushcrew"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -2775,7 +2784,8 @@
       "course-clientcoded",
       "course-how-to-build-effective-evals-for-ai-agents",
       "course-mcpjam",
-      "course-emulate-ai"
+      "course-emulate-ai",
+      "course-plushcrew"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3192,7 +3202,9 @@
       "verzeta-studio",
       "mutually-beneficial-agentic-common-law",
       "knowledge-platform-powered-by-agents-demonstration",
-      "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
+      "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
+      "plushcrew",
+      "ui-for-answering-agent-questions-async"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3235,7 +3247,9 @@
       "course-verzeta-studio",
       "course-mutually-beneficial-agentic-common-law",
       "course-knowledge-platform-powered-by-agents-demonstration",
-      "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
+      "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
+      "course-plushcrew",
+      "course-ui-for-answering-agent-questions-async"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3565,7 +3579,9 @@
       "open-source-m-a-tools",
       "usejunction",
       "bootloops-a-toolkit-for-exact-quantitative-science",
-      "google-maps-scraper-mcp"
+      "google-maps-scraper-mcp",
+      "revline",
+      "agentlytics"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3618,7 +3634,9 @@
       "course-open-source-m-a-tools",
       "course-usejunction",
       "course-bootloops-a-toolkit-for-exact-quantitative-science",
-      "course-google-maps-scraper-mcp"
+      "course-google-maps-scraper-mcp",
+      "course-revline",
+      "course-agentlytics"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4400,7 +4418,8 @@
       "emulate-ai",
       "hosted-mcp-server-for-google-search-console",
       "pbi-guard",
-      "usejunction"
+      "usejunction",
+      "agentlytics"
     ],
     "courses": [
       "course-launch-hn-risklytics-yc-s26",
@@ -4414,7 +4433,8 @@
       "course-emulate-ai",
       "course-hosted-mcp-server-for-google-search-console",
       "course-pbi-guard",
-      "course-usejunction"
+      "course-usejunction",
+      "course-agentlytics"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4502,7 +4522,8 @@
       "growthengineer",
       "bananasplit-cli",
       "premortem",
-      "wsp-wordpress-mcp"
+      "wsp-wordpress-mcp",
+      "agentlytics"
     ],
     "courses": [
       "course-placeroot",
@@ -4536,7 +4557,8 @@
       "course-growthengineer",
       "course-bananasplit-cli",
       "course-premortem",
-      "course-wsp-wordpress-mcp"
+      "course-wsp-wordpress-mcp",
+      "course-agentlytics"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6080,7 +6102,8 @@
       "andon-labs-puts-ai-agents-in-charge-of-real-businesses",
       "is-ai-solving-math-too-fast",
       "productivity-effects-across-generations-of-ai-coding-tools",
-      "recursively-scaling-auto-research-loops-for-efficient-agent-"
+      "recursively-scaling-auto-research-loops-for-efficient-agent-",
+      "revline"
     ],
     "courses": [
       "course-terminal-bench-science-evaluating-ai-agents-on-scientific-re",
@@ -6100,7 +6123,8 @@
       "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses",
       "course-is-ai-solving-math-too-fast",
       "course-productivity-effects-across-generations-of-ai-coding-tools",
-      "course-recursively-scaling-auto-research-loops-for-efficient-agent-"
+      "course-recursively-scaling-auto-research-loops-for-efficient-agent-",
+      "course-revline"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -8019,12 +8043,14 @@
     "toolsTeaching": [
       "open-source-thinking-orb-animations-for-ai-agents",
       "vocabdesign",
-      "transitionsdev-ui-transitions-for-ai-agents"
+      "transitionsdev-ui-transitions-for-ai-agents",
+      "ui-for-answering-agent-questions-async"
     ],
     "courses": [
       "course-open-source-thinking-orb-animations-for-ai-agents",
       "course-vocabdesign",
-      "course-transitionsdev-ui-transitions-for-ai-agents"
+      "course-transitionsdev-ui-transitions-for-ai-agents",
+      "course-ui-for-answering-agent-questions-async"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -8971,7 +8997,8 @@
       "pyunto",
       "paperweight",
       "truescribe",
-      "aitoolsuite"
+      "aitoolsuite",
+      "agentlytics"
     ],
     "courses": [
       "course-pearpie",
@@ -8989,7 +9016,8 @@
       "course-pyunto",
       "course-paperweight",
       "course-truescribe",
-      "course-aitoolsuite"
+      "course-aitoolsuite",
+      "course-agentlytics"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -13063,12 +13091,14 @@
     "toolsTeaching": [
       "logitech-launches-mx-keypad-for-developers",
       "radio",
-      "drama-song-ad"
+      "drama-song-ad",
+      "ui-for-answering-agent-questions-async"
     ],
     "courses": [
       "course-logitech-launches-mx-keypad-for-developers",
       "course-radio",
-      "course-drama-song-ad"
+      "course-drama-song-ad",
+      "course-ui-for-answering-agent-questions-async"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -20340,5 +20370,122 @@
       "course-google-maps-scraper-mcp"
     ],
     "updatedAt": "2026-10-03T14:19:48.129Z"
+  },
+  {
+    "id": "skill-code-generation",
+    "name": "code generation",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "plushcrew"
+    ],
+    "courses": [
+      "course-plushcrew"
+    ],
+    "updatedAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "id": "skill-zip",
+    "name": "zip",
+    "domain": "code",
+    "level": "beginner",
+    "toolsTeaching": [
+      "plushcrew"
+    ],
+    "courses": [
+      "course-plushcrew"
+    ],
+    "updatedAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "id": "skill-social media",
+    "name": "social media",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "revline"
+    ],
+    "courses": [
+      "course-revline"
+    ],
+    "updatedAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "id": "skill-tiktok",
+    "name": "tiktok",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "revline"
+    ],
+    "courses": [
+      "course-revline"
+    ],
+    "updatedAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "id": "skill-instagram",
+    "name": "instagram",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "revline"
+    ],
+    "courses": [
+      "course-revline"
+    ],
+    "updatedAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "id": "skill-trends",
+    "name": "trends",
+    "domain": "data",
+    "level": "beginner",
+    "toolsTeaching": [
+      "revline"
+    ],
+    "courses": [
+      "course-revline"
+    ],
+    "updatedAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "id": "skill-async",
+    "name": "async",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ui-for-answering-agent-questions-async"
+    ],
+    "courses": [
+      "course-ui-for-answering-agent-questions-async"
+    ],
+    "updatedAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "id": "skill-cookieless",
+    "name": "cookieless",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentlytics"
+    ],
+    "courses": [
+      "course-agentlytics"
+    ],
+    "updatedAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "id": "skill-web-metrics",
+    "name": "web metrics",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentlytics"
+    ],
+    "courses": [
+      "course-agentlytics"
+    ],
+    "updatedAt": "2026-10-04T00:02:58.648Z"
   }
 ]

@@ -30019,5 +30019,214 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-03T14:19:48.129Z"
+  },
+  {
+    "id": "course-plushcrew",
+    "toolSlug": "plushcrew",
+    "title": "Master PlushCrew",
+    "objectives": [
+      "Write a clear project brief that PlushCrew's AI agents can execute",
+      "Run a write-test-build cycle and monitor the three agents' output",
+      "Download and verify the generated working ZIP of your project"
+    ],
+    "modules": [
+      {
+        "title": "Your First PlushCrew Project",
+        "estMinutes": 15,
+        "steps": [
+          "Create an account at plushcrew.com and click 'New Project'",
+          "Fill in the prompt box with a concrete brief, e.g. 'Build a to-do list web page with add and delete buttons'",
+          "Click 'Launch Crew' and watch the dashboard show the three agents (Writer, Tester, Builder) picking up tasks"
+        ]
+      },
+      {
+        "title": "Understanding the Agent Workflow",
+        "estMinutes": 20,
+        "steps": [
+          "Open the Activity Log while the crew runs to see the Writer agent's code drafts and the Tester agent's pass/fail reports",
+          "If the Tester flags a failure, click 'Retry' to let the Writer revise that file automatically",
+          "Compare two runs: submit a vague prompt ('make me a website') then a specific one, and note the difference in test pass rates"
+        ]
+      },
+      {
+        "title": "Getting and Verifying Your ZIP",
+        "estMinutes": 15,
+        "steps": [
+          "When the Builder agent shows 100% green, click 'Download ZIP' from the project page",
+          "Extract the ZIP locally and follow its included README to run the project (e.g. open index.html or run the start command)",
+          "Test every listed feature manually; if something is broken, paste the error back into the project's 'Feedback' box and click 'Launch Crew' again"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-code-generation",
+      "skill-agents",
+      "skill-testing",
+      "skill-zip",
+      "skill-automation"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "id": "course-revline",
+    "toolSlug": "revline",
+    "title": "Master Revline",
+    "objectives": [
+      "Set up a Revline account and connect your niche or industry",
+      "Run your first trend research query for TikTok and Instagram",
+      "Turn found trends into a ready-to-post content idea list"
+    ],
+    "modules": [
+      {
+        "title": "Getting Started with Revline",
+        "estMinutes": 8,
+        "steps": [
+          "Sign up at Revline's website and create your workspace using your brand or creator name",
+          "Enter your niche (e.g., 'fitness coaching' or 'skincare brand') and select TikTok and Instagram as your research platforms",
+          "Set your target audience details (age range, interests) so trend results are filtered to your market"
+        ]
+      },
+      {
+        "title": "Running Trend Research",
+        "estMinutes": 12,
+        "steps": [
+          "Open the trend research panel and enter a topic keyword related to your niche, then run the search",
+          "Review the results: sort by engagement or recency to spot rising vs. saturated trends",
+          "Save 3-5 promising trends (sounds, formats, hashtags) to your Revline collection for later use"
+        ]
+      },
+      {
+        "title": "Turning Trends into Content Ideas",
+        "estMinutes": 10,
+        "steps": [
+          "Pick one saved trend and use Revline's AI suggestion feature to generate content angles tailored to your niche",
+          "Edit one suggestion into a concrete post plan: hook line, format (e.g., before/after, tutorial), and caption draft",
+          "Export or copy your top 3 content ideas into your content calendar or notes app for this week's posts"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-social media",
+      "skill-tiktok",
+      "skill-instagram",
+      "skill-research",
+      "skill-trends"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "id": "course-ui-for-answering-agent-questions-async",
+    "toolSlug": "ui-for-answering-agent-questions-async",
+    "title": "Master UI for answering agent questions async",
+    "objectives": [
+      "Understand what UI for answering agent questions async is for",
+      "Use UI for answering agent questions async on a real task",
+      "Know where UI for answering agent questions async fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure UI for answering agent questions async for your real workflow, not the demo.",
+          "Say what UI for answering agent questions async does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through UI for answering agent questions async.",
+          "Push UI for answering agent questions async to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold UI for answering agent questions async into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-agents",
+      "skill-workflow",
+      "skill-open-source",
+      "skill-async",
+      "skill-ui"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "id": "course-agentlytics",
+    "toolSlug": "agentlytics",
+    "title": "Master Agentlytics",
+    "objectives": [
+      "Install and verify Agentlytics tracking on a live site",
+      "Structure analytics data for AI agent consumption",
+      "Build an agent workflow that acts on analytics events"
+    ],
+    "modules": [
+      {
+        "title": "Install Cookieless Tracking",
+        "estMinutes": 20,
+        "steps": [
+          "Create a site project in the Agentlytics dashboard and copy the lightweight snippet",
+          "Embed the snippet in your site's <head> and confirm no cookies are set using browser dev tools",
+          "Trigger a test pageview and verify it appears in the real-time event stream within 60 seconds"
+        ]
+      },
+      {
+        "title": "Query Data via the Agent-Readable API",
+        "estMinutes": 25,
+        "steps": [
+          "Generate an API key with read scope and call the /events endpoint using curl",
+          "Filter events by UTM parameters and referrers, then export results as JSON",
+          "Write a schema description of the event payload so an LLM agent can parse it reliably"
+        ]
+      },
+      {
+        "title": "Build an Agent Action Loop",
+        "estMinutes": 30,
+        "steps": [
+          "Configure a webhook alert for a condition such as traffic spike or conversion drop",
+          "Connect the webhook to an AI agent (e.g., a Python script calling an LLM) that summarizes the anomaly",
+          "Have the agent draft a recommended action and log its decision back to Agentlytics via the notes API"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-analytics",
+      "skill-cookieless",
+      "skill-ai-agents",
+      "skill-web-metrics",
+      "skill-privacy"
+    ],
+    "prerequisites": [
+      "Access to a website where you can edit HTML",
+      "Basic familiarity with REST APIs and curl",
+      "An LLM API key for the agent module"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-04T00:02:58.648Z"
   }
 ]

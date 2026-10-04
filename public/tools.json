@@ -10656,5 +10656,101 @@
       "multi-model"
     ],
     "discoveredAt": "2026-10-03T14:19:48.129Z"
+  },
+  {
+    "slug": "plushcrew",
+    "name": "PlushCrew",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "freemium",
+    "pricing": "freemium",
+    "level": "beginner",
+    "blurb": "Three AI agents write, test, and return your project as a working ZIP file.",
+    "audience": "non-developers and makers",
+    "dev": "PlushCrew",
+    "year": 2026,
+    "website": "https://www.plushcrew.ai",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "code-generation",
+      "agents",
+      "testing",
+      "zip",
+      "automation"
+    ],
+    "discoveredAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "slug": "revline",
+    "name": "Revline",
+    "category": "data",
+    "sourceCategory": "Marketing, SEO & Sales",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "beginner",
+    "blurb": "AI web app that researches TikTok and Instagram trends and content for you.",
+    "audience": "Marketers and content creators",
+    "dev": "",
+    "year": 2026,
+    "website": "https://tryrevline.com/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "social media",
+      "tiktok",
+      "instagram",
+      "research",
+      "trends"
+    ],
+    "discoveredAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "slug": "ui-for-answering-agent-questions-async",
+    "name": "UI for answering agent questions async",
+    "category": "code",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open source",
+    "level": "intermediate",
+    "blurb": "UI for answering AI agent questions asynchronously to keep workflows unblocked.",
+    "audience": "developers using AI agents",
+    "dev": "Plannotator",
+    "year": 2026,
+    "website": "https://docs.plannotator.ai/open-source/workflows/questions",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "agents",
+      "workflow",
+      "open-source",
+      "async",
+      "ui"
+    ],
+    "discoveredAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "slug": "agentlytics",
+    "name": "Agentlytics",
+    "category": "data",
+    "sourceCategory": "Data & Analytics",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Cookieless website analytics designed for AI agents to read and act on.",
+    "audience": "Developers and site owners using AI agents",
+    "dev": "",
+    "year": 2026,
+    "website": "https://measuremy.site",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "analytics",
+      "cookieless",
+      "ai-agents",
+      "web-metrics",
+      "privacy"
+    ],
+    "discoveredAt": "2026-10-04T00:02:58.648Z"
   }
 ]

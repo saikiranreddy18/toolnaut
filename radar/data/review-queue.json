@@ -8385,5 +8385,34 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "ai-agents-need-a-system-of-record-not-just-a-dashboard",
+    "name": "AI Agents Need a System of Record, Not Just a Dashboard",
+    "category": "data",
+    "sourceCategory": "Search & Research",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "AI Agents Need a System of Record, Not Just a Dashboard",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://www.anuclei.com/blog/your-ai-agents-need-a-system-of-record",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "data",
+      "agent"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=49945942",
+    "discoveredAt": "2026-10-04T00:02:58.648Z",
+    "updatedAt": "2026-10-04T00:02:58.648Z",
+    "contentHash": "c795bc4eea5e1c99",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]
