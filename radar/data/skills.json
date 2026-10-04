@@ -193,7 +193,9 @@
       "aitoolsuite",
       "now",
       "plushcrew",
-      "ui-for-answering-agent-questions-async"
+      "ui-for-answering-agent-questions-async",
+      "herbarium",
+      "run-osier-to-track-how-your-ai-coding-agent-does"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -384,7 +386,9 @@
       "course-aitoolsuite",
       "course-now",
       "course-plushcrew",
-      "course-ui-for-answering-agent-questions-async"
+      "course-ui-for-answering-agent-questions-async",
+      "course-herbarium",
+      "course-run-osier-to-track-how-your-ai-coding-agent-does"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -549,7 +553,8 @@
       "made-an-open-source-lego-ai-generator",
       "open-source-m-a-tools",
       "now",
-      "ui-for-answering-agent-questions-async"
+      "ui-for-answering-agent-questions-async",
+      "herbarium"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -619,7 +624,8 @@
       "course-made-an-open-source-lego-ai-generator",
       "course-open-source-m-a-tools",
       "course-now",
-      "course-ui-for-answering-agent-questions-async"
+      "course-ui-for-answering-agent-questions-async",
+      "course-herbarium"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -663,7 +669,8 @@
       "awesome-ui-design",
       "i-built-a-digital-wrap-tool-for-tesla-owners",
       "logo-design-skill",
-      "made-an-open-source-lego-ai-generator"
+      "made-an-open-source-lego-ai-generator",
+      "artbucket"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -700,7 +707,8 @@
       "course-awesome-ui-design",
       "course-i-built-a-digital-wrap-tool-for-tesla-owners",
       "course-logo-design-skill",
-      "course-made-an-open-source-lego-ai-generator"
+      "course-made-an-open-source-lego-ai-generator",
+      "course-artbucket"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1454,7 +1462,9 @@
       "ai-agents-can-now-buy-real-services",
       "ai-agent-gateway",
       "web2md",
-      "a-document-layer-for-ai-agents"
+      "a-document-layer-for-ai-agents",
+      "run-osier-to-track-how-your-ai-coding-agent-does",
+      "artbucket"
     ],
     "courses": [
       "course-headless-tools",
@@ -1620,7 +1630,9 @@
       "course-ai-agents-can-now-buy-real-services",
       "course-ai-agent-gateway",
       "course-web2md",
-      "course-a-document-layer-for-ai-agents"
+      "course-a-document-layer-for-ai-agents",
+      "course-run-osier-to-track-how-your-ai-coding-agent-does",
+      "course-artbucket"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1806,7 +1818,8 @@
       "catenary",
       "ai-means-the-end-of-software-as-we-know-it",
       "the-anatomy-of-harness-engineering-for-ai-coding-agents",
-      "agenttik"
+      "agenttik",
+      "run-osier-to-track-how-your-ai-coding-agent-does"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1820,7 +1833,8 @@
       "course-catenary",
       "course-ai-means-the-end-of-software-as-we-know-it",
       "course-the-anatomy-of-harness-engineering-for-ai-coding-agents",
-      "course-agenttik"
+      "course-agenttik",
+      "course-run-osier-to-track-how-your-ai-coding-agent-does"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2980,7 +2994,8 @@
       "perspica",
       "spens-sandboxed-observable-coding-agents",
       "aitoolsuite",
-      "a-document-layer-for-ai-agents"
+      "a-document-layer-for-ai-agents",
+      "gentle-ai-ai-coding-ecosystem"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -3028,7 +3043,8 @@
       "course-perspica",
       "course-spens-sandboxed-observable-coding-agents",
       "course-aitoolsuite",
-      "course-a-document-layer-for-ai-agents"
+      "course-a-document-layer-for-ai-agents",
+      "course-gentle-ai-ai-coding-ecosystem"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3101,7 +3117,8 @@
       "adam-tooze-on-ai-regulation-video",
       "what-other-languages-call-ai-agents",
       "crypllm-ai-chat-agent-for-cryptool-2",
-      "teacher-planner"
+      "teacher-planner",
+      "gentle-ai-ai-coding-ecosystem"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3152,7 +3169,8 @@
       "course-adam-tooze-on-ai-regulation-video",
       "course-what-other-languages-call-ai-agents",
       "course-crypllm-ai-chat-agent-for-cryptool-2",
-      "course-teacher-planner"
+      "course-teacher-planner",
+      "course-gentle-ai-ai-coding-ecosystem"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3380,7 +3398,8 @@
       "gaussian-splat-avatars-for-realtime-ai-agents",
       "knowledge-platform-powered-by-agents-demonstration",
       "usejunction",
-      "web2md"
+      "web2md",
+      "artbucket"
     ],
     "courses": [
       "course-limitless-library",
@@ -3446,7 +3465,8 @@
       "course-gaussian-splat-avatars-for-realtime-ai-agents",
       "course-knowledge-platform-powered-by-agents-demonstration",
       "course-usejunction",
-      "course-web2md"
+      "course-web2md",
+      "course-artbucket"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4930,7 +4950,8 @@
       "fab",
       "semrush-ai-tool",
       "bananasplit-cli",
-      "now"
+      "now",
+      "run-osier-to-track-how-your-ai-coding-agent-does"
     ],
     "courses": [
       "course-devx",
@@ -4953,7 +4974,8 @@
       "course-fab",
       "course-semrush-ai-tool",
       "course-bananasplit-cli",
-      "course-now"
+      "course-now",
+      "course-run-osier-to-track-how-your-ai-coding-agent-does"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5439,7 +5461,8 @@
       "where-every-ai-coding-tool-keeps-its-config",
       "developer-agency-in-the-age-of-ai",
       "security-cards",
-      "productivity-effects-across-generations-of-ai-coding-tools"
+      "productivity-effects-across-generations-of-ai-coding-tools",
+      "gentle-ai-ai-coding-ecosystem"
     ],
     "courses": [
       "course-agentseed",
@@ -5447,7 +5470,8 @@
       "course-where-every-ai-coding-tool-keeps-its-config",
       "course-developer-agency-in-the-age-of-ai",
       "course-security-cards",
-      "course-productivity-effects-across-generations-of-ai-coding-tools"
+      "course-productivity-effects-across-generations-of-ai-coding-tools",
+      "course-gentle-ai-ai-coding-ecosystem"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6773,7 +6797,8 @@
       "toolcraft",
       "skill-to-generate-change-preview-pages",
       "neurogrid-terminal-coding-agent",
-      "antflow-ai-agentic-ai-framework-for-spec-driven-development"
+      "antflow-ai-agentic-ai-framework-for-spec-driven-development",
+      "herbarium"
     ],
     "courses": [
       "course-openinstinct",
@@ -6788,7 +6813,8 @@
       "course-toolcraft",
       "course-skill-to-generate-change-preview-pages",
       "course-neurogrid-terminal-coding-agent",
-      "course-antflow-ai-agentic-ai-framework-for-spec-driven-development"
+      "course-antflow-ai-agentic-ai-framework-for-spec-driven-development",
+      "course-herbarium"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -7927,14 +7953,16 @@
       "dumbdetector",
       "openfork",
       "share-your-ai-setup-learn-from-others",
-      "compute-arena"
+      "compute-arena",
+      "gentle-ai-ai-coding-ecosystem"
     ],
     "courses": [
       "course-open-agent-forum",
       "course-dumbdetector",
       "course-openfork",
       "course-share-your-ai-setup-learn-from-others",
-      "course-compute-arena"
+      "course-compute-arena",
+      "course-gentle-ai-ai-coding-ecosystem"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -16288,10 +16316,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "botbin"
+      "botbin",
+      "herbarium"
     ],
     "courses": [
-      "course-botbin"
+      "course-botbin",
+      "course-herbarium"
     ],
     "updatedAt": "2026-09-14T15:54:36.868Z"
   },
@@ -17562,10 +17592,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "skill-to-generate-change-preview-pages"
+      "skill-to-generate-change-preview-pages",
+      "herbarium"
     ],
     "courses": [
-      "course-skill-to-generate-change-preview-pages"
+      "course-skill-to-generate-change-preview-pages",
+      "course-herbarium"
     ],
     "updatedAt": "2026-09-16T14:13:20.724Z"
   },
@@ -20487,5 +20519,83 @@
       "course-agentlytics"
     ],
     "updatedAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "id": "skill-ai-generated",
+    "name": "ai generated",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "herbarium"
+    ],
+    "courses": [
+      "course-herbarium"
+    ],
+    "updatedAt": "2026-10-04T14:48:35.350Z"
+  },
+  {
+    "id": "skill-tracking",
+    "name": "tracking",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "run-osier-to-track-how-your-ai-coding-agent-does"
+    ],
+    "courses": [
+      "course-run-osier-to-track-how-your-ai-coding-agent-does"
+    ],
+    "updatedAt": "2026-10-04T14:48:35.350Z"
+  },
+  {
+    "id": "skill-npm",
+    "name": "npm",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "run-osier-to-track-how-your-ai-coding-agent-does"
+    ],
+    "courses": [
+      "course-run-osier-to-track-how-your-ai-coding-agent-does"
+    ],
+    "updatedAt": "2026-10-04T14:48:35.350Z"
+  },
+  {
+    "id": "skill-brand assets",
+    "name": "brand assets",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "artbucket"
+    ],
+    "courses": [
+      "course-artbucket"
+    ],
+    "updatedAt": "2026-10-04T14:48:35.350Z"
+  },
+  {
+    "id": "skill-asset portal",
+    "name": "asset portal",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "artbucket"
+    ],
+    "courses": [
+      "course-artbucket"
+    ],
+    "updatedAt": "2026-10-04T14:48:35.350Z"
+  },
+  {
+    "id": "skill-ecosystem",
+    "name": "ecosystem",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "gentle-ai-ai-coding-ecosystem"
+    ],
+    "courses": [
+      "course-gentle-ai-ai-coding-ecosystem"
+    ],
+    "updatedAt": "2026-10-04T14:48:35.350Z"
   }
 ]

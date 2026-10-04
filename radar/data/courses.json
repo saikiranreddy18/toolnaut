@@ -30228,5 +30228,240 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-04T00:02:58.648Z"
+  },
+  {
+    "id": "course-herbarium",
+    "toolSlug": "herbarium",
+    "title": "Master Herbarium",
+    "objectives": [
+      "Import and organize AI-generated HTML pages into tagged collections",
+      "Use the review workflow to compare versions and leave annotations",
+      "Set up review rules and share collections with teammates"
+    ],
+    "modules": [
+      {
+        "title": "Importing and Organizing Pages",
+        "estMinutes": 20,
+        "steps": [
+          "Use the CLI (`herbarium add ./output/*.html`) or drag a folder into the web UI to bulk-import AI-generated pages",
+          "Tag pages by source tool and generation date, then create a saved filter (e.g., `tool:claude status:unreviewed`)",
+          "Group related pages into a Collection and pin it to your sidebar"
+        ]
+      },
+      {
+        "title": "Reviewing and Annotating",
+        "estMinutes": 25,
+        "steps": [
+          "Open a page in split view, toggle between rendered preview and source, and anchor a comment to a specific DOM element",
+          "Import a regenerated version of the same page and use the diff view to check what the AI changed",
+          "Mark pages as approved/rejected and use keyboard shortcuts (j/k to navigate, a to approve) to clear your review queue"
+        ]
+      },
+      {
+        "title": "Automation and Team Sharing",
+        "estMinutes": 20,
+        "steps": [
+          "Add a watch folder so new AI outputs are auto-imported with rules-based tags from filename patterns",
+          "Publish a Collection via share link with reviewer permissions so teammates can annotate without an account",
+          "Export a review report (approved vs. flagged pages) as Markdown to paste into your project docs"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-html",
+      "skill-developer-tools",
+      "skill-open-source",
+      "skill-ai-generated",
+      "skill-code-review"
+    ],
+    "prerequisites": [
+      "Comfort working with HTML files and basic folder structures",
+      "Familiarity with AI coding/content tools that output HTML (e.g., Claude, v0, GPT)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-04T14:48:35.350Z"
+  },
+  {
+    "id": "course-run-osier-to-track-how-your-ai-coding-agent-does",
+    "toolSlug": "run-osier-to-track-how-your-ai-coding-agent-does",
+    "title": "Master Run Osier to track how your AI coding agent does",
+    "objectives": [
+      "Install and initialize Osier in an existing project repository",
+      "Instrument an AI coding agent session so runs are captured as measurable data",
+      "Read Osier's metrics to compare agent performance across tasks and configs"
+    ],
+    "modules": [
+      {
+        "title": "Install & Initialize",
+        "estMinutes": 15,
+        "steps": [
+          "Run `npm install -D osier` (or `npx osier init`) in the repo where your agent works, then commit the generated config file",
+          "Open the Osier config and set which directories the agent touches plus where run data should be stored (local folder, not committed)",
+          "Run a trivial agent task (e.g., 'add a comment to utils.ts') and confirm a new run entry appears in Osier's data store"
+        ]
+      },
+      {
+        "title": "Track an Agent Session",
+        "estMinutes": 25,
+        "steps": [
+          "Launch your AI coding agent through Osier's tracking hook/wrapper so prompts, file edits, and tool calls are logged",
+          "Give the agent a realistic task (fix a failing test), let it finish, and inspect the recorded run: files changed, commands executed, success/failure status",
+          "Trigger a deliberate failure (impossible instruction) and verify Osier flags it as a failed run rather than silently swallowing it"
+        ]
+      },
+      {
+        "title": "Measure & Compare Performance",
+        "estMinutes": 20,
+        "steps": [
+          "View the tracked runs (CLI output or dashboards Osier provides) and check per-run metrics: success rate, time, tokens/steps, files edited",
+          "Define 3 repeatable benchmark tasks, run each twice with different agent settings (e.g., model or prompt variant), and tag the runs",
+          "Compare tagged runs side by side and export the results (CSV/JSON or report) to decide which config wins on success rate and cost"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-coding",
+      "skill-tracking",
+      "skill-cli",
+      "skill-npm"
+    ],
+    "prerequisites": [
+      "Node.js 18+ and npm installed",
+      "A git repo with a project your AI coding agent can edit",
+      "An AI coding agent (e.g., a CLI-based agent) you can run locally"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-04T14:48:35.350Z"
+  },
+  {
+    "id": "course-artbucket",
+    "toolSlug": "artbucket",
+    "title": "Master Artbucket",
+    "objectives": [
+      "Structure a branded asset library with collections, tags, and versioning",
+      "Build and share a public-facing brand portal for external users",
+      "Configure the API and agent tokens so AI agents can fetch correct, current assets"
+    ],
+    "modules": [
+      {
+        "title": "Set up your asset library",
+        "estMinutes": 25,
+        "steps": [
+          "Install Artbucket via Docker, create a workspace, and run the initial admin setup",
+          "Import an existing asset folder using the CLI bulk-import command with tag mapping",
+          "Define a naming and tagging taxonomy (logo, icon, color, font) and apply it to your first collection"
+        ]
+      },
+      {
+        "title": "Versioning and governance",
+        "estMinutes": 20,
+        "steps": [
+          "Upload a new version of a logo and compare it against the previous revision in the diff view",
+          "Set asset statuses (draft, approved, deprecated) and restrict who can mark assets approved",
+          "Deprecate an outdated asset and verify it no longer appears in default search results"
+        ]
+      },
+      {
+        "title": "Publish a brand portal",
+        "estMinutes": 30,
+        "steps": [
+          "Create a portal from your approved collection and customize the header, colors, and download presets",
+          "Generate public and password-protected share links and test download of SVG and PNG variants",
+          "Embed the portal's asset snippet into an external webpage and confirm links stay current on new versions"
+        ]
+      },
+      {
+        "title": "Serve AI agents via the API",
+        "estMinutes": 25,
+        "steps": [
+          "Create a scoped API token with read-only access limited to approved assets",
+          "Query the REST API (e.g., GET /assets?tag=logo&status=approved) and inspect the returned metadata JSON",
+          "Point the agent to the machine-readable manifest endpoint so it always resolves the latest approved version"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-brand assets",
+      "skill-open source",
+      "skill-asset portal",
+      "skill-ai agents"
+    ],
+    "prerequisites": [
+      "Comfort with Docker and basic CLI usage",
+      "An existing folder of brand assets to import",
+      "Basic familiarity with REST APIs and JSON"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-04T14:48:35.350Z"
+  },
+  {
+    "id": "course-gentle-ai-ai-coding-ecosystem",
+    "toolSlug": "gentle-ai-ai-coding-ecosystem",
+    "title": "Master Gentle AI: AI Coding Ecosystem",
+    "objectives": [
+      "Set up your first AI coding assistant and connect it to your editor",
+      "Use curated Gentle AI resources to pick the right tool for a task",
+      "Write effective prompts so the AI generates code you can actually use"
+    ],
+    "modules": [
+      {
+        "title": "Explore the Gentle AI Ecosystem",
+        "estMinutes": 15,
+        "steps": [
+          "Browse the Gentle AI hub and identify 3 categories of tools (code completion, chat assistants, code review)",
+          "Read the beginner guide and bookmark one comparison page of curated coding assistants",
+          "Join the community space (Discord/forum) and introduce yourself in the new-members channel"
+        ]
+      },
+      {
+        "title": "Install Your First AI Coding Assistant",
+        "estMinutes": 20,
+        "steps": [
+          "Create a free account with the curated beginner-recommended assistant (e.g., Copilot, Cursor, or Codeium)",
+          "Install its extension in VS Code and verify it activates with a test autocomplete suggestion",
+          "Accept one AI suggestion in a small practice file and undo it to learn the keyboard controls"
+        ]
+      },
+      {
+        "title": "Prompting for Better Code",
+        "estMinutes": 25,
+        "steps": [
+          "Write a task prompt that includes the language, goal, and one example of expected output",
+          "Ask the AI to generate a small function (under 20 lines), then run it and fix any errors",
+          "Use a follow-up prompt like 'explain this code line by line' to confirm you understand the output"
+        ]
+      },
+      {
+        "title": "Follow a Curated Learning Path",
+        "estMinutes": 20,
+        "steps": [
+          "Pick one beginner tutorial or project from the Gentle AI resource library",
+          "Complete its first exercise using your AI assistant, refining prompts when output is wrong",
+          "Post your result or question in the community to get feedback from other learners"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai coding",
+      "skill-community",
+      "skill-developer tools",
+      "skill-ecosystem"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-04T14:48:35.350Z"
   }
 ]
