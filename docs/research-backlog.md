@@ -7070,7 +7070,16 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### Discover only ever ranks toward the mainstream — no "hidden gem" / serendipity path exists
-- **Status:** OPEN
+- **Status:** BUILT, UNMERGED — PR #91 (2026-10-04, sha `e422182` on branch
+  `bot/claude/discover-hidden-gems-rail-2026-10-04`) already implements this
+  in full: `isFlagship()` added to `prominence.js`, a new `hiddenGems` rail
+  in `Discover.jsx` rotating a daily 6-tool slice of active, non-flagship,
+  non-noise tools, 3 new tests in `test/prominence.test.mjs`, all three
+  checks green. Not merged — see issue #67. **Do not rebuild this** — it
+  needs a human to merge #91, not more agent code. Re-verified 2026-10-04
+  21:04 UTC: gap still real on current `master` (PR unmerged), fix still
+  sitting in PR form only, joining #89/#86/#75 as the fourth tracked
+  BUILT-UNMERGED entry.
 - **Seen in:** ToolFinder (toolfinder.com/tools — 1,452-tool directory) is the
   one competitor from this file's own suggested-study list
   (There's An AI For That, Futurepedia, ToolFinder, Product Hunt AI, G2/
@@ -9811,3 +9820,86 @@ this run.
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run.
+
+### Research check 2026-10-04 21:04 UTC — no new gap found, twenty-fourth pass (off-cycle fire); oldest untouched OPEN entry re-verified clean, feature run's new PR synced
+Off-cycle run — fired at 21:04 UTC, between the day's own feature+digest run
+(18:03) and the next scheduled slot (00:03); treated as an ordinary research
+hour per the routine's hour-based dispatch. `npm run radar:health` → `OK` (2
+runs in the 26h window, last publish 6.3h ago, 4 tools published that run,
+feed at 454 total). No `agent-fixable` issues open. `ci.yml`/`release.yml`
+green on `master` at `89828d9` (the twenty-third pass's own commit; local
+checkout was again in detached-HEAD state at start, same recurring mode the
+14th/15th/18th/22nd passes hit — re-pointed `master` to `origin/master`
+before running any check).
+
+**Open-PR shape changed since the last sync**: `list_pull_requests` now shows
+31 open PRs, one more than every prior pass since the seventeenth —
+today's 18:03 feature run shipped PR #91
+(`bot/claude/discover-hidden-gems-rail-2026-10-04`, sha `605eacc`,
+"feat(discover): hidden-gems rail surfaces the catalog's long tail"). This is
+exactly the "Discover only ever ranks toward the mainstream" entry (line
+~7072) the twenty-third pass re-verified six hours ago and called the most
+build-ready OPEN entry in the file — confirms that call was right. The entry
+itself (below) is updated from OPEN to BUILT, UNMERGED to match, joining the
+three already-tracked unmerged PRs (#89 access-method facet, #86 LLM cost
+calculator, #75 stack overlap warning), all four still open/unmerged with
+unchanged head SHAs on spot-check via `pull_request_read`.
+
+**Re-verified the next-oldest untouched OPEN entry** ("Sharing a stack link
+produces zero personalized preview," found 2026-09-16 03:20 UTC, line ~7236 —
+next after "Track progress against your role" and "Discover only ever ranks
+toward the mainstream," both re-verified earlier today by the nineteenth and
+twenty-third passes). Checked every cited reference against current `src/`:
+`src/utils/shareStack.js` and `src/pages/SharedStack.jsx` (the backlog's own
+first-ever SHIPPED entry) are unchanged; `SharedStack.jsx:21-41`'s `useHead()`
+call still only fires client-side via `useEffect` and still never sets
+`og:image`/`twitter:image` (`src/utils/head.js` grepped for both — zero hits,
+confirmed again); `index.html:21` (`og:image`) and `:29` (`twitter:image`)
+are still the exact lines holding the one static pair, matching the entry's
+citation verbatim; `vercel.json`'s catch-all rewrite
+(`"/((?!api/).*)": "/_shell.html"`) is unchanged and still sends every
+`/s/:slug` request to the unrendered shell; `getTool` is still at
+`toolsCatalog.js:763`; no `middleware.js` exists anywhere in the repo
+(confirmed by listing the repo root). Nothing drifted — the entry's
+"Smallest useful version" (one Vercel Edge Middleware matching `/s/:slug*`,
+reusing the two already-pure utils it names, build size M) is still accurate
+and still the next most build-ready OPEN entry in the file once the four
+PRs above merge or get superseded.
+
+**Two fresh angles checked, both traced back to ground this file already
+holds or to a different product category:**
+- WebSearch ("AI tool directory 2026 gamification badges leaderboard streak
+  engagement feature") surfaced "The AI Library," a gamified AI-launchpad
+  directory (live leaderboards for new *launches*, XP/streak APIs like
+  Trophy 1.0). That's the submission-launchpad shape (vendors submitting,
+  users upvoting) the already-OPEN "leaderboard's own precondition" entry
+  (line ~5275) and the already-REJECTED vendor-claim/affiliate angles cover,
+  not a new gap — Toolnaut's own "leaderboard" is a personal
+  progress-ranking feature, not a launch-upvote board, so the pattern
+  doesn't transfer as-is.
+- WebSearch ("AI tool directory website accessibility WCAG screen reader
+  2026") surfaced AIChief's published WCAG 2.1 AA accessibility statement.
+  Checked whether this is a real, uncovered Toolnaut gap: the app has
+  already shipped focus-trap fixes across all 7 modals (`70ceb14`), a
+  skip-to-content link for signed-in routes, and keyboard-navigable
+  command-palette (`2cce654`) — piecemeal a11y work already exists, it's
+  just never been written up as its own named gap with a single audit and
+  fix list the way other gaps in this file are scoped. Didn't log it: unlike
+  every other OPEN entry, there's no single concrete, bounded defect to cite
+  yet (no failing contrast ratio, no untrappable focus, no missing
+  alt-text found by grep) — only "no one has done a full WCAG pass," which
+  isn't the checkable, demonstrable-gap bar this file holds elsewhere
+  (favorites, PDF export, etc. are all backed by a specific `grep` showing
+  zero matches). Worth a dedicated audit pass if a future run has the hour
+  for it, but not yet a "promising but thin" entry — it's not thin, it's
+  unstarted and unscoped.
+
+Ran `npm test` (311/311), `npm run build` (19 static routes, 1126 tool pages,
+feed at 454 tools, no errors), and `npm run smoke` (24/24 routes, 0 console
+errors) directly against current `master`. All three clean, no bug found to
+fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — synced one entry's status to match today's feature-run PR, re-verified
+the next-oldest OPEN entry clean, and both fresh angles traced back to an
+existing category or an unscoped (not yet "thin") idea.
