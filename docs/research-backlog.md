@@ -9738,3 +9738,76 @@ this run — one angle traced back to a false competitor citation before it
 could be logged, the other is blocked on a radar pipeline capability that
 doesn't exist yet, and the day's two other checks (CI, open-PR sync) found
 nothing changed.
+
+### Research check 2026-10-04 15:04 UTC — no new gap found, twenty-third pass (off-cycle fire); oldest untouched OPEN entry re-verified clean
+Off-cycle run — the schedule's four fixed slots are 00:03/06:03/12:03/18:03
+UTC and this one fired at 15:04, between the twenty-second pass (12:04) and
+the day's feature run (18:03); treated as an ordinary research hour per the
+routine's hour-based dispatch (only hour 18 is feature+digest, everything
+else is research). CI green on `master` (`ci.yml` run #507, `success`, at
+`fec35de` — the push before the radar bot's own `cedc24d` auto-commit, which
+does not retrigger CI since it's pushed by `github-actions[bot]` via the
+workflow's own token, the same no-retrigger behavior every prior radar
+commit in this repo has shown). `npm run radar:health` → `OK` (3 runs in the
+26h window, last run/publish 16m old at check time, 4 tools published that
+run, feed now at 454 total — local `master` had briefly read `STALE` before
+this check because the clone's branch hadn't been fast-forwarded past
+`abad463`; merging to `origin/master` fixed the read, not a real pipeline
+problem). No `agent-fixable` issues open. Open-PR shape unchanged: spot-
+checked all three tracked `BUILT, UNMERGED` entries individually (`pull_request_read`)
+— #89 (access-method facet), #86 (LLM cost calculator), #75 (stack overlap
+warning) all still open, unmerged, same head SHAs as the prior pass recorded.
+
+**Re-verified the oldest untouched OPEN entry** ("Discover only ever ranks
+toward the mainstream — no hidden-gem/serendipity path," found 2026-09-15
+21:06, line ~7072 — next-oldest after "Track progress against your role,"
+which the nineteenth pass already re-verified on 2026-10-04). Checked every
+cited reference against current `src/`: `prominence.js`'s `FLAGSHIP` (line
+24), `starterScore` (line 37), `byProminence` (line 88) all unchanged in
+shape and still exported with no `isFlagship` sibling anywhere in the file.
+`Discover.jsx`'s `freshTools`/`recentlyViewed` rails have drifted a few
+lines (now 232–277, was cited as "~233–260") but the markup pattern the
+entry proposes copying — `sticker` card, `w-40 shrink-0`, `arcade-heading
+compact text-sm`, line-clamp blurb — is identical at both rail sites, so the
+proposed third rail still slots in exactly as scoped. `Stack.jsx`'s
+`toolOfTheDay()` is now at line 26 (was "25–34"), with `.slice(0, 12)` at
+line 31 and the `Math.floor(Date.now() / 86400000)` rotation key at line 33
+— same one-line drift pattern every other re-verified entry in this file has
+shown, nothing structural. Re-ran the entry's own grep (`random|surprise|
+shuffle|serendip|hidden gem` across `src/`) — still only animation/jitter
+hits (`ParticleField.jsx`, `cursorEffects.js`, `Galaxy.jsx`,
+`AppErrorBoundary.jsx`'s one `Math.random()`) plus the unrelated
+`roadmapGenerator.js` quiz-distractor `shuffleWithAnswer()` and
+`goalChat.js`'s `random` keyword list — no discovery-facing hit exists yet.
+Nothing drifted in substance; the entry's "Smallest useful version" (one
+pure `isFlagship()` export, one `useMemo` in `Discover.jsx`, one rail block
+copied from an existing pattern, build size S) is still accurate and still
+the most build-ready OPEN entry in the file after the two LLM-cost-calculator
+and access-method-facet gaps already sitting in unmerged PRs.
+
+**Fresh angles checked, all traced back to ground this file already holds:**
+- WebSearch ("AI tool directory 2026 onboarding personalization") surfaced
+  mostly enterprise-HR-onboarding SaaS content (Disco, Guidde, BenchPrep) —
+  a different product category entirely, not an AI-tool-directory pattern —
+  plus a Fast.io listicle citing itself, the same self-promotional-SEO shape
+  the twenty-second pass already flagged as unreliable. Nothing Toolnaut-
+  relevant.
+- WebSearch ("Futurepedia Toolify new feature October 2026") returned no
+  dated feature announcement for either site; the substantive claims that
+  did surface (Futurepedia's 5,000+ tool count, capability-combination
+  filtering, near-instant indexing) are the same facts this file's existing
+  Futurepedia citations already cover, not new ground.
+- Checked a referral/invite-program angle (prompted by the nineteenth pass's
+  PoweredByAI mention) against both the backlog and current `src/` — the
+  embeddable-badge gap already covers the "backlink + referral traffic"
+  mechanic for vendors, and the Discord-invite gap already covers the only
+  actual invite-link surface in the app; grepped `src/` for `referral` and
+  `invite` and found no unrelated hit. Not a new gap.
+
+Ran `npm test` (311/311), `npm run build` (19 static routes, feed at 454
+tools, no errors), and `npm run smoke` (24/24 routes, 0 console errors)
+directly against current `master`. All three clean, no bug found to fix
+this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run.
