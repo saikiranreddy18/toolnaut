@@ -9379,3 +9379,69 @@ properly for the first time, not a duplicate.
 Ran `npm test`, `npm run build` and `npm run smoke` directly against current
 `master` to check for a small real fix per the "small real improvement"
 allowance. All three green, no bug found to fix this run.
+
+---
+
+### Research check 2026-10-04 00:04 UTC — no new gap found, eighteenth pass; browser-extension find re-confirmed as a duplicate, prompt-library idea folds into the already-OPEN guides entry
+Research run (UTC hour 00). CI green on `master`: `ci.yml` run #502,
+`success`, at `c18ef991` (the commit the seventeenth pass made). The current
+`master` tip, `1006a8b`, is a `github-actions[bot]` radar-publish commit with
+no corresponding `push`-triggered CI run — consistent with every prior
+pass's note that bot-authored pushes don't fire `push`-based workflows under
+GitHub's default token permissions, not a CI gap. `npm run radar:health`
+`OK` (3 runs in the 26h window, last publish 7 minutes before this check,
+450 tools in the feed, up from 446 last pass). No `agent-fixable` issues
+open. Session's local checkout was detached and tracking a stale
+`origin/master` (`abad463`, from 2026-09-30) at start, same failure mode the
+14th/15th passes hit — fetched and re-pointed to current `origin/master`
+before running any check. Open-PR count and shape unchanged from the
+seventeenth pass (#89, #86, #75 still the three `BUILT, UNMERGED` entries;
+still a human-merge-queue problem, not something this session's direct-to-
+`master` docs commits can route around).
+
+All 25 real OPEN entries still carry a build-ready "Smallest useful
+version," so this pass again looked for fresh ground:
+
+- **Re-audited every landing-page marketing section** against current code
+  (`StatsSection.jsx`, `FeaturesSection.jsx`, `HowItWorksSection.jsx`,
+  `RolesSection.jsx`, `AudienceSection.jsx`, `ContactSection.jsx`,
+  `CTASection.jsx`) per this file's own standing instruction to check
+  `src/components/sections/` promises against real behaviour. Nothing
+  unlogged: `FeaturesSection.jsx`'s "Spend audit" card (`:12`) is copy this
+  file's own capability-matrix work already wrote to describe PR #75's
+  still-unmerged overlap-warning feature (traced to line ~7386, "do not
+  rebuild — needs a human to merge #75"); `HowItWorksSection.jsx`'s "Master"
+  step ("Track progress against your role, not generic benchmarks") is the
+  already-OPEN benchmark-tracking entry's own title (line ~6997), verbatim;
+  `ContactSection.jsx`'s payment-status line is flag-driven
+  (`VITE_PAYMENTS_ENABLED`), not typed as a fact, per its own comment —
+  already the fix the "Free public beta" staleness entry (line ~4553)
+  describes, not a new instance of the bug it already caught.
+- **Two fresh WebSearches** ("AI tool directory browser extension save
+  tools 2026", "best AI tools directory new feature launch 2026 workflow
+  templates prompt library"). The first surfaced "AI Tools Explorer for
+  Chrome" as a live, currently-shipping example — but re-reading the
+  already-OPEN "No lookup surface outside toolnaut.xyz" entry (line ~7927)
+  confirmed it already names this exact extension by the same DEV Community
+  source (`dev.to/aitoolsexplorer`) as its own "Seen in" evidence; today's
+  search found nothing that entry doesn't already cite. The second
+  surfaced AIChief's new "Prompt Library" feature (hand-picked prompts per
+  tool, with exact model/generation settings). Considered this seriously
+  before folding it: it's hand-curated content tied to specific tasks, the
+  same shape the already-OPEN "No educational/how-to content" entry
+  (line ~7699) already scopes a build for (`src/content/guides.js`,
+  hand-written, no LLM-generated prose) — a prompt library is a narrower
+  content type within that same guide-content gap, not a separate product
+  surface, and splitting it out would just fragment one entry's eventual
+  build into two. Not logged separately.
+- Checked whether PR #86/#89/#75 status had changed (merged, closed, or
+  rebased) since the seventeenth pass: `list_pull_requests` shows all three
+  still open, unchanged head SHAs. Nothing to re-sync this pass.
+
+Ran `npm test` (311/311), `npm run build` (19 static routes + 1118 tool
+pages, feed holding at 450 tools, no errors), and `npm run smoke` (24/24
+routes, 0 console errors) directly against current `master`. All three
+clean, no bug found to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run.
