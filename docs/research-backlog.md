@@ -9584,3 +9584,88 @@ committing. All three clean.
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — logged a recurrence of an existing one instead, and fixed it the same
 way the first occurrence was fixed.
+
+---
+
+### Research check 2026-10-04 09:04 UTC — no new gap found, twenty-first pass; one real CSS bug fixed instead
+Research run (fired off-cycle at UTC hour 09, not one of the 00/06/12/18
+schedule points — treated as a normal research hour per "any other ->
+RESEARCH RUN"). `npm run radar:health` `OK` (2 runs in the 26h window, last
+publish 9.0h ago, 4 tools published that run, feed holding at 450 total).
+No `agent-fixable` issues open. `ci.yml` green on `master` at `b408265` (the
+twentieth pass's own commit). A separate, unrelated scheduled workflow,
+`.github/workflows/agent-bugfix.yml` ("Agent · Bugfix", run #80), failed at
+08:39 UTC — its single step failure was in `anthropics/claude-code-action@v1`
+itself (22s runtime, no app code executed), not in this project's `ci.yml`,
+and that workflow is outside this routine's scope per CLAUDE.md's "never
+modify `.github/workflows/`" and this prompt's own urgent-work list (which
+names `ci.yml`, radar health, and `agent-fixable` issues, not every
+scheduled workflow in the repo) — noted here for visibility, not acted on.
+`list_pull_requests`/`pull_request_read` on #89, #86, #75 confirm all three
+still open with unchanged head SHAs — the same three `BUILT, UNMERGED`
+entries this file has tracked since the seventeenth pass; nothing to
+re-sync.
+
+**Re-audited four marketing/pricing sections the nineteenth pass's sweep did
+not cover** (`PricingSection.jsx`, `FounderOffer.jsx`, `HeroSection.jsx`,
+`CapabilityMatrix.jsx` — the eighteenth/nineteenth passes' own audits named
+only `Stats/Features/HowItWorks/Roles/Audience/Contact/CTASection.jsx`).
+All four hold up: `PricingSection.jsx`'s comparison table already renders
+`'planned'` as a dimmed badge rather than a live claim; `FounderOffer.jsx`'s
+deadline is the fixed `FOUNDER_DEADLINE` constant (not a per-visitor
+countdown-from-load lie) and already renders nothing once it expires;
+`HeroSection.jsx`'s trust-row claims (`count`, `updated`, "no credit card")
+are all read live from the catalogue or gated on `VITE_PAYMENTS_ENABLED`,
+same pattern the "Free public beta" staleness entry already fixed
+elsewhere; `CapabilityMatrix.jsx`'s live/planned split is correct and
+payment-flag-driven. No unlogged promise/reality gap found in any of the
+four. Also re-checked `Support.jsx` on the theory its FAQ accordion might be
+missing `FAQPage` JSON-LD the way the structured-data gap's own three
+call-sites didn't originally cover it — it already has one
+(`Support.jsx:53-86`), built some earlier run this file has no dedicated
+entry for; not a gap.
+
+**Two fresh WebSearches** ("AI tool directory 2026 new feature team
+workspace collaboration shared workspace", "best AI tools directory site
+2026 launch new feature roundup"). The first surfaced Chipp/TeamAI/Juma —
+all "AI workspace for teams" products for *using* multiple LLMs together
+inside shared prompts/folders, not directory-discovery products; the shape
+closest to Toolnaut (multi-user collaboration on a stack) is the same
+backend-shaped ground the already-OPEN "Team tier" (`src/content/
+capabilityMatrix.js`-adjacent, found earlier) and "No browsable gallery of
+shared stacks" entries already claim — not a new surface. The second
+surfaced only aggregate market-size stats (~47,400 AI tools listed
+globally, Toolify's 29,900-tool catalogue) and a speculative "AI
+Intelligence Terminal" product page with no concrete, reproducible feature
+description beyond marketing copy — nothing citable or buildable. Also
+re-checked referral/affiliate, newsletter, Discord/Slack-bot, and rate-limit
+angles by grepping this file for prior mentions — all four are already
+logged as REJECTED or folded into existing OPEN entries (`TrustPanel.jsx`'s
+explicit "no affiliate link, no referral code" stance; digest-email and
+Discord-bot defaults rejected at the ninth/thirteenth passes; rate limiting
+already scoped into the dev-API gap).
+
+**One real bug found and fixed**: `CapabilityMatrix.jsx` (two call sites,
+the per-cell `<td>` and the per-row `<th scope="row">`) used
+`border-t-2 border-white/10/60` — a double opacity-modifier Tailwind class
+(`color/10/60`) that is not a valid utility. Confirmed by building and
+grepping `dist/assets/index-*.css`: `border-t-2` emitted its width rule as
+expected, but `border-white/10/60` matched zero rules anywhere in the
+compiled stylesheet, meaning the capability-matrix table's row dividers
+carried no border-color utility at all and fell back to the browser
+default. The sibling comparison table in `PricingSection.jsx` uses the
+correct single-opacity form (`border-b-2 border-white/10`) for the exact
+same row-divider purpose, confirming this was a typo, not an intentional
+double-modifier. Fixed both occurrences to `border-white/10`; rebuilt and
+confirmed `dist/assets/index-*.css` now contains exactly one
+`border-white/10`-derived rule and zero `border-white/10/60` matches.
+
+Ran `npm test` (311/311), `npm run build` (19 static routes, 1122 tool
+pages, feed at 450 tools), and `npm run smoke` (24/24 routes, 0 console
+errors) against the `CapabilityMatrix.jsx` fix before committing. All three
+clean.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — the two fresh angles traced back to ground already covered or
+rejected, and the hour's real find was the CSS bug above, not a product
+gap.

@@ -18,7 +18,7 @@ const isLive = (cell) => cell.status === 'live'
 function Cell({ cell, emphasis }) {
   return (
     <td
-      className="border-t-2 border-white/10/60 px-3 py-3 align-top text-sm"
+      className="border-t-2 border-white/10 px-3 py-3 align-top text-sm"
       style={{ background: emphasis ? 'rgba(255, 255, 255,0.05)' : 'transparent' }}
     >
       <span className={isLive(cell) ? 'text-white' : 'text-zinc-500'}>{cell.text}</span>
@@ -80,7 +80,7 @@ export default function CapabilityMatrix() {
                 <tr key={row.capability}>
                   <th
                     scope="row"
-                    className="border-t-2 border-white/10/60 px-3 py-3 align-top text-sm font-semibold text-zinc-300"
+                    className="border-t-2 border-white/10 px-3 py-3 align-top text-sm font-semibold text-zinc-300"
                   >
                     {row.capability}
                   </th>
