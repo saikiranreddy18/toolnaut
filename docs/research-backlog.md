@@ -9445,3 +9445,70 @@ clean, no bug found to fix this run.
 
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run.
+
+---
+
+### Research check 2026-10-04 03:04 UTC — no new gap found, nineteenth pass; oldest untouched OPEN entry re-verified clean, three fresh angles traced back to existing ground
+Research run (UTC hour 03). CI green on `master` (`ci.yml` run #503,
+`success`, at `05c37337` — the eighteenth pass's own commit). `npm run
+radar:health` `OK` (2 runs in the 26h window, last publish 3.0h ago, 4 tools
+published that run, feed holding at 450 total). No `agent-fixable` issues
+open. Open-PR shape unchanged from the eighteenth pass: `list_pull_requests`
+shows 30 open, the same three `BUILT, UNMERGED` entries this file already
+tracks (#89 access-method facet, #86 LLM cost calculator, #75 stack overlap
+warning) all still open with unchanged head SHAs — nothing to re-sync.
+
+**Re-verified the oldest untouched OPEN entry** ("Track progress against
+your role," found 2026-09-15, 19 days with no Deepened note — the longest
+gap of any OPEN entry per a full audit of every `### `/`Deepened` line pair
+in this file). Checked every cited reference against current `src/`:
+`progressStore.js:10`'s `STATUSES` array, `Stack.jsx:234`'s
+`persona.stack.map((t) => ({ ...t, starter: true }))`, the unused `starter`
+read at `Stack.jsx:368`, and `HowItWorksSection.jsx:9`'s exact "Track
+progress against your role, not generic benchmarks" copy — all four still
+match verbatim. Nothing drifted; the entry's own "Smallest useful version"
+already fully specifies the build (one derived stat, one "core" tag reusing
+the existing `starter` flag), so there was nothing to add beyond confirming
+it's still accurate and still buildable as scoped.
+
+**Three fresh angles checked, all traced back to ground this file already
+holds:**
+- WebSearch ("AI tool directory 2026 referral program / waitlist / AI agent
+  marketplace / browser extension") surfaced PoweredByAI's new AI-agent
+  marketplace (build/submit/earn from agents) and Toolify's Chrome-extension
+  sub-directory. The agent marketplace is the same MCP/agent-marketplace
+  shape the thirteenth pass already considered and set aside as backend-
+  shaped (accounts, publishing, payouts — none of which this static SPA
+  has); the Chrome-extension point is the same "AI Tools Explorer for
+  Chrome" finding the already-OPEN "No lookup surface outside toolnaut.xyz"
+  entry (line ~7927) already cites, re-confirmed a duplicate for the second
+  pass running.
+- WebSearch on FutureTools.io/Toolify.ai feature sets turned up nothing not
+  already covered by this file's own "Seen in" citations for those two
+  sites elsewhere.
+- Considered internationalization (grepped `src/` for `i18n`, `locale`,
+  `translat` — only false positives: CSS `transform`, date-formatting
+  `toLocaleString`, and unrelated prose, confirmed genuinely absent) as a
+  possible new gap. Set aside without logging: every directory this file has
+  studied (TAAFT, Futurepedia, FutureTools, Toolify, GateOnAI, Whizi, AI
+  Kaptan) is itself English-only, so this isn't a competitor-pattern gap the
+  way every other OPEN entry is; and a real build would mean translating the
+  quiz, roadmap, and all marketing copy — a content-generation problem this
+  file's own LLM-enrichment-accuracy rules (the dollar-amount pricing gap's
+  "extraction, not estimation" standard) would require real care over, not a
+  same-day feature-run diff. Noted here so a future pass doesn't re-spend
+  time confirming the same absence, but not logged as OPEN — it's not
+  "promising but thin," it's simply not yet a validated, boundable gap.
+- Also checked dark mode and a service-worker/offline pass as possible
+  gaps before researching further — both already exist (`ThemePicker.jsx`,
+  `moonStore.js` for the former; `public/sw.js` with the build-stamped cache
+  this file's own CLAUDE.md flags as load-bearing, for the latter) — not
+  gaps.
+
+Ran `npm test` (311/311), `npm run build` (19 static routes, feed at 450
+tools, no errors), and `npm run smoke` (24/24 routes, 0 console errors)
+directly against current `master`. All three clean, no bug found to fix
+this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run.
