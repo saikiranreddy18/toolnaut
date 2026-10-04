@@ -9669,3 +9669,72 @@ Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — the two fresh angles traced back to ground already covered or
 rejected, and the hour's real find was the CSS bug above, not a product
 gap.
+
+---
+
+### Research check 2026-10-04 12:04 UTC — no new gap found, twenty-second pass; a competitor citation checked out false before it got logged
+Research run (UTC hour 12). `npm run radar:health` `OK` (2 runs in the 26h
+window, last publish 12.0h ago, 4 tools published that run, feed at 450
+total). No `agent-fixable` issues open. `ci.yml` green on `master` at
+`e4dcafb` (`chore(release): v0.72.33`, the twenty-first pass's own release
+tag — `Agent · Research` (run #36, 10:17 UTC) shows a `failure` conclusion,
+but that is the separate `agent-research.yml` scheduled workflow, not this
+session's own routine or `ci.yml`; outside this prompt's named urgent-work
+list (`ci.yml`, radar health, `agent-fixable` issues) same as the
+`Agent · Bugfix` failure the twenty-first pass already noted and left
+alone. `list_pull_requests` shows the same 30 open PRs, including the same
+three `BUILT, UNMERGED` entries this file has tracked since the seventeenth
+pass (#89, #86, #75) with unchanged head SHAs — nothing to re-sync. Local
+checkout was in detached-HEAD state at start (same recurring failure mode
+the 14th/15th/18th passes hit) — fetched and re-pointed `master` to
+`origin/master` before running any check.
+
+**One fresh angle looked promising, then fell apart under verification.**
+A WebFetch of a "Best AI Tool Directories 2026" roundup (`fast.io/resources/
+best-ai-tool-directories-2026.md`) listed, among real directories (TAAFT,
+Toolify, ToolDirectory.ai, AIXploria, RankmyAI), a line crediting "Fast.io"
+itself with "access through a remote MCP server" and a "command line
+client... on npm" — which read as a new angle on the already-OPEN "No
+public developer API" entry (line ~5426): exposing Toolnaut's own catalog
+to AI agents via an MCP endpoint, not just a human-facing docs page, given
+this app already runs serverless functions under `api/` (`api/chat.js`
+etc.) that an MCP transport could reuse. Checked the claim before writing
+anything: a second WebSearch on "fast.io AI tool directory MCP server API"
+confirms Fast.io is an AI-first *file-sharing and collaboration* platform
+(50GB free storage, branded shares, built-in RAG) that published an SEO
+listicle about AI tool directories to catch exactly this kind of search —
+it does not operate one itself, and its MCP server fronts its own file
+storage, not a tool catalog. Not a real "competitor does this" citation,
+so not logged; this file's own standard (every "Seen in" claim gets
+checked against the source's real behavior, not just its marketing copy)
+is exactly what caught it. The underlying idea (MCP access to
+`tools.json`) may still be worth a real competitor citation if one
+surfaces later — none exists yet.
+
+**Second angle: considered whether to add a "last verified" date to
+`ToolDetail.jsx`**, since `ToolDirectory.ai`'s graveyard section (already
+cited in the "Tool graveyard" OPEN entry, line ~2649) also publishes
+"review dates" showing when each listing was re-checked. Toolnaut's
+catalog does carry a timestamp (`discoveredAt`), but grepping `radar/` for
+any re-verification pass (`recheck|reverify|re-verify|refresh.*existing|
+updateExisting`) returns zero hits — radar only discovers new candidates,
+it never revisits a published record to confirm it still holds. Showing
+`discoveredAt` as if it meant "checked recently" would be the same
+fabricated-trust-signal shape this file has consistently ruled out
+elsewhere (the status-note entry, the leaderboard-sample-data entry, the
+vendor-claim entry's "no automatic verified badge") — the date would be
+honest about *discovery*, not *verification*, and labeling it the latter
+would be the lie. Not logged; radar would need an actual re-check pass
+before this is buildable honestly, which is a pipeline change well outside
+a research pass's scope.
+
+Ran `npm test` (311/311), `npm run build` (19 static routes, 1122 tool
+pages, feed at 450 tools), and `npm run smoke` (24/24 routes, 0 console
+errors) directly against current `master`. All three clean, no bug found
+to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap
+this run — one angle traced back to a false competitor citation before it
+could be logged, the other is blocked on a radar pipeline capability that
+doesn't exist yet, and the day's two other checks (CI, open-PR sync) found
+nothing changed.
