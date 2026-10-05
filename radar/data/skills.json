@@ -196,7 +196,10 @@
       "ui-for-answering-agent-questions-async",
       "herbarium",
       "run-osier-to-track-how-your-ai-coding-agent-does",
-      "stateful-linux-microvms-for-coding-agents"
+      "stateful-linux-microvms-for-coding-agents",
+      "self-bench",
+      "open-source-instinct",
+      "borehole"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -390,7 +393,10 @@
       "course-ui-for-answering-agent-questions-async",
       "course-herbarium",
       "course-run-osier-to-track-how-your-ai-coding-agent-does",
-      "course-stateful-linux-microvms-for-coding-agents"
+      "course-stateful-linux-microvms-for-coding-agents",
+      "course-self-bench",
+      "course-open-source-instinct",
+      "course-borehole"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -449,7 +455,8 @@
       "coletivo",
       "provetogether-moltbook-but-for-math",
       "radio",
-      "anyhropic-launches-google-docs-alternative-claude-docs"
+      "anyhropic-launches-google-docs-alternative-claude-docs",
+      "devboard"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -463,7 +470,8 @@
       "course-coletivo",
       "course-provetogether-moltbook-but-for-math",
       "course-radio",
-      "course-anyhropic-launches-google-docs-alternative-claude-docs"
+      "course-anyhropic-launches-google-docs-alternative-claude-docs",
+      "course-devboard"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -558,7 +566,9 @@
       "ui-for-answering-agent-questions-async",
       "herbarium",
       "redactpdfai-open-source-ai-based-pdf-redaction-tool",
-      "stateful-linux-microvms-for-coding-agents"
+      "stateful-linux-microvms-for-coding-agents",
+      "open-source-instinct",
+      "leftovers"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -631,7 +641,9 @@
       "course-ui-for-answering-agent-questions-async",
       "course-herbarium",
       "course-redactpdfai-open-source-ai-based-pdf-redaction-tool",
-      "course-stateful-linux-microvms-for-coding-agents"
+      "course-stateful-linux-microvms-for-coding-agents",
+      "course-open-source-instinct",
+      "course-leftovers"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1039,7 +1051,10 @@
       "plushcrew",
       "redactpdfai-open-source-ai-based-pdf-redaction-tool",
       "the-poteto-frontier-for-ai-agents",
-      "spawned-aio-cloud-platform-for-humans-and-agents"
+      "spawned-aio-cloud-platform-for-humans-and-agents",
+      "devboard",
+      "leftovers",
+      "agentledger"
     ],
     "courses": [
       "course-headless-tools",
@@ -1286,7 +1301,10 @@
       "course-plushcrew",
       "course-redactpdfai-open-source-ai-based-pdf-redaction-tool",
       "course-the-poteto-frontier-for-ai-agents",
-      "course-spawned-aio-cloud-platform-for-humans-and-agents"
+      "course-spawned-aio-cloud-platform-for-humans-and-agents",
+      "course-devboard",
+      "course-leftovers",
+      "course-agentledger"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1749,7 +1767,8 @@
       "inventor-of-chatgpt-and-rlhf-launches-typesafeai",
       "tinyaiarena-watch-ai-agents-battle-it-out",
       "prompt-anonymization-and-deanonymization",
-      "whirl"
+      "whirl",
+      "self-bench"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1800,7 +1819,8 @@
       "course-inventor-of-chatgpt-and-rlhf-launches-typesafeai",
       "course-tinyaiarena-watch-ai-agents-battle-it-out",
       "course-prompt-anonymization-and-deanonymization",
-      "course-whirl"
+      "course-whirl",
+      "course-self-bench"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2453,7 +2473,8 @@
       "ai-agent-gateway",
       "drama-song-ad",
       "web2md",
-      "google-maps-scraper-mcp"
+      "google-maps-scraper-mcp",
+      "devboard"
     ],
     "courses": [
       "course-coolplugz",
@@ -2489,7 +2510,8 @@
       "course-ai-agent-gateway",
       "course-drama-song-ad",
       "course-web2md",
-      "course-google-maps-scraper-mcp"
+      "course-google-maps-scraper-mcp",
+      "course-devboard"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3240,7 +3262,8 @@
       "knowledge-platform-powered-by-agents-demonstration",
       "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
       "plushcrew",
-      "ui-for-answering-agent-questions-async"
+      "ui-for-answering-agent-questions-async",
+      "open-source-instinct"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3285,7 +3308,8 @@
       "course-knowledge-platform-powered-by-agents-demonstration",
       "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
       "course-plushcrew",
-      "course-ui-for-answering-agent-questions-async"
+      "course-ui-for-answering-agent-questions-async",
+      "course-open-source-instinct"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3417,7 +3441,8 @@
       "knowledge-platform-powered-by-agents-demonstration",
       "usejunction",
       "web2md",
-      "artbucket"
+      "artbucket",
+      "self-bench"
     ],
     "courses": [
       "course-limitless-library",
@@ -3484,7 +3509,8 @@
       "course-knowledge-platform-powered-by-agents-demonstration",
       "course-usejunction",
       "course-web2md",
-      "course-artbucket"
+      "course-artbucket",
+      "course-self-bench"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4564,7 +4590,9 @@
       "premortem",
       "wsp-wordpress-mcp",
       "agentlytics",
-      "spawned-aio-cloud-platform-for-humans-and-agents"
+      "spawned-aio-cloud-platform-for-humans-and-agents",
+      "leftovers",
+      "agentledger"
     ],
     "courses": [
       "course-placeroot",
@@ -4600,7 +4628,9 @@
       "course-premortem",
       "course-wsp-wordpress-mcp",
       "course-agentlytics",
-      "course-spawned-aio-cloud-platform-for-humans-and-agents"
+      "course-spawned-aio-cloud-platform-for-humans-and-agents",
+      "course-leftovers",
+      "course-agentledger"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5447,7 +5477,8 @@
       "viaduct",
       "friday",
       "crafting-express",
-      "spens-sandboxed-observable-coding-agents"
+      "spens-sandboxed-observable-coding-agents",
+      "self-bench"
     ],
     "courses": [
       "course-ai-tools-list",
@@ -5461,7 +5492,8 @@
       "course-viaduct",
       "course-friday",
       "course-crafting-express",
-      "course-spens-sandboxed-observable-coding-agents"
+      "course-spens-sandboxed-observable-coding-agents",
+      "course-self-bench"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5521,7 +5553,8 @@
       "the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "squidbrake",
       "openappa-deterministic-guardrails-that-dont-break-agents",
-      "pbi-guard"
+      "pbi-guard",
+      "agentledger"
     ],
     "courses": [
       "course-agentseed",
@@ -5534,7 +5567,8 @@
       "course-the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "course-squidbrake",
       "course-openappa-deterministic-guardrails-that-dont-break-agents",
-      "course-pbi-guard"
+      "course-pbi-guard",
+      "course-agentledger"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5637,7 +5671,8 @@
       "cli-tools",
       "noodle-computer",
       "grove",
-      "qlcodepreview-syntax-highlighting-in-finders-quick-look"
+      "qlcodepreview-syntax-highlighting-in-finders-quick-look",
+      "leftovers"
     ],
     "courses": [
       "course-ta",
@@ -5645,7 +5680,8 @@
       "course-cli-tools",
       "course-noodle-computer",
       "course-grove",
-      "course-qlcodepreview-syntax-highlighting-in-finders-quick-look"
+      "course-qlcodepreview-syntax-highlighting-in-finders-quick-look",
+      "course-leftovers"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6063,7 +6099,8 @@
       "how-to-build-effective-evals-for-ai-agents",
       "quantifying-context-rot",
       "an-open-add-search-evaluation-framework-for-agent-memory",
-      "glance"
+      "glance",
+      "self-bench"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -6081,7 +6118,8 @@
       "course-how-to-build-effective-evals-for-ai-agents",
       "course-quantifying-context-rot",
       "course-an-open-add-search-evaluation-framework-for-agent-memory",
-      "course-glance"
+      "course-glance",
+      "course-self-bench"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -6830,7 +6868,8 @@
       "skill-to-generate-change-preview-pages",
       "neurogrid-terminal-coding-agent",
       "antflow-ai-agentic-ai-framework-for-spec-driven-development",
-      "herbarium"
+      "herbarium",
+      "leftovers"
     ],
     "courses": [
       "course-openinstinct",
@@ -6846,7 +6885,8 @@
       "course-skill-to-generate-change-preview-pages",
       "course-neurogrid-terminal-coding-agent",
       "course-antflow-ai-agentic-ai-framework-for-spec-driven-development",
-      "course-herbarium"
+      "course-herbarium",
+      "course-leftovers"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -7414,11 +7454,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "i-might-have-built-the-best-linear-alternative",
-      "liniora"
+      "liniora",
+      "devboard"
     ],
     "courses": [
       "course-i-might-have-built-the-best-linear-alternative",
-      "course-liniora"
+      "course-liniora",
+      "course-devboard"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -7941,11 +7983,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
-      "quantifying-context-rot"
+      "quantifying-context-rot",
+      "self-bench"
     ],
     "courses": [
       "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
-      "course-quantifying-context-rot"
+      "course-quantifying-context-rot",
+      "course-self-bench"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -9499,11 +9543,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "ai-agents-will-choose-their-own-pricing",
-      "tcs-industrial-autonomy-and-engineering-lab"
+      "tcs-industrial-autonomy-and-engineering-lab",
+      "open-source-instinct"
     ],
     "courses": [
       "course-ai-agents-will-choose-their-own-pricing",
-      "course-tcs-industrial-autonomy-and-engineering-lab"
+      "course-tcs-industrial-autonomy-and-engineering-lab",
+      "course-open-source-instinct"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -9643,13 +9689,15 @@
       "memcode-launches-github-code-review",
       "crt",
       "termaxa",
-      "perspica"
+      "perspica",
+      "borehole"
     ],
     "courses": [
       "course-memcode-launches-github-code-review",
       "course-crt",
       "course-termaxa",
-      "course-perspica"
+      "course-perspica",
+      "course-borehole"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -9659,10 +9707,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "memcode-launches-github-code-review"
+      "memcode-launches-github-code-review",
+      "open-source-instinct"
     ],
     "courses": [
-      "course-memcode-launches-github-code-review"
+      "course-memcode-launches-github-code-review",
+      "course-open-source-instinct"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -20728,5 +20778,122 @@
       "course-spawned-aio-cloud-platform-for-humans-and-agents"
     ],
     "updatedAt": "2026-10-05T00:10:23.845Z"
+  },
+  {
+    "id": "skill-kanban",
+    "name": "kanban",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "devboard"
+    ],
+    "courses": [
+      "course-devboard"
+    ],
+    "updatedAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "id": "skill-dev teams",
+    "name": "dev teams",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "devboard"
+    ],
+    "courses": [
+      "course-devboard"
+    ],
+    "updatedAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "id": "skill-due diligence",
+    "name": "due diligence",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "borehole"
+    ],
+    "courses": [
+      "course-borehole"
+    ],
+    "updatedAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "id": "skill-git analysis",
+    "name": "git analysis",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "borehole"
+    ],
+    "courses": [
+      "course-borehole"
+    ],
+    "updatedAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "id": "skill-acquisition",
+    "name": "acquisition",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "borehole"
+    ],
+    "courses": [
+      "course-borehole"
+    ],
+    "updatedAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "id": "skill-repo insights",
+    "name": "repo insights",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "borehole"
+    ],
+    "courses": [
+      "course-borehole"
+    ],
+    "updatedAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "id": "skill-cleanup",
+    "name": "cleanup",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "leftovers"
+    ],
+    "courses": [
+      "course-leftovers"
+    ],
+    "updatedAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "id": "skill-agent-spend",
+    "name": "agent spend",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentledger"
+    ],
+    "courses": [
+      "course-agentledger"
+    ],
+    "updatedAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "id": "skill-cost-control",
+    "name": "cost control",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentledger"
+    ],
+    "courses": [
+      "course-agentledger"
+    ],
+    "updatedAt": "2026-10-05T18:31:10.418Z"
   }
 ]

@@ -30728,5 +30728,313 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-05T00:10:23.845Z"
+  },
+  {
+    "id": "course-self-bench",
+    "toolSlug": "self-bench",
+    "title": "Master Self-bench",
+    "objectives": [
+      "Configure and run Self-bench against a coding agent on real-world engineering tasks",
+      "Interpret benchmark scores, pass rates, and failure modes from evaluation reports",
+      "Create and validate custom task suites to extend the benchmark for your own repositories"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Benchmark Run",
+        "estMinutes": 30,
+        "steps": [
+          "Install Self-bench, configure API credentials for the coding agent under test (e.g., model keys, sandbox settings), and verify with a single-task dry run",
+          "Launch a baseline evaluation against the default task set and confirm sandboxed execution completes without environment errors"
+        ]
+      },
+      {
+        "title": "Analyzing Agent Performance",
+        "estMinutes": 40,
+        "steps": [
+          "Open the generated evaluation report and break down results by task category (bug fixing, feature addition, refactoring) and pass/fail verdicts",
+          "Inspect failing task logs and agent trajectories to classify failure modes: incorrect patch, test misinterpretation, timeout, or environment issue"
+        ]
+      },
+      {
+        "title": "Custom Benchmark Tasks and CI Integration",
+        "estMinutes": 45,
+        "steps": [
+          "Author a custom task with a repo snapshot, failing tests, and a verification script, then validate it passes with a known-good reference patch",
+          "Wire a scheduled benchmark run into CI to track agent score regressions across model or prompt changes, with thresholds that fail the pipeline on degradation"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-benchmarking",
+      "skill-coding agents",
+      "skill-evaluation",
+      "skill-open source",
+      "skill-llm"
+    ],
+    "prerequisites": [
+      "Experience running coding agents (e.g., SWE-bench-style or LLM tool-use pipelines)",
+      "Solid command of Docker or sandboxed execution environments",
+      "Familiarity with software testing fundamentals (unit tests, pass/fail verification)"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "id": "course-open-source-instinct",
+    "toolSlug": "open-source-instinct",
+    "title": "Master Open-Source Instinct",
+    "objectives": [
+      "Understand what Open-Source Instinct is for",
+      "Use Open-Source Instinct on a real task",
+      "Know where Open-Source Instinct fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Open-Source Instinct for your real workflow, not the demo.",
+          "Say what Open-Source Instinct does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Open-Source Instinct.",
+          "Push Open-Source Instinct to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Open-Source Instinct into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-open-source",
+      "skill-agents",
+      "skill-autonomy",
+      "skill-github"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "id": "course-devboard",
+    "toolSlug": "devboard",
+    "title": "Master DevBoard",
+    "objectives": [
+      "Set up a DevBoard workspace and your first project board",
+      "Create, assign, and move tasks through board columns",
+      "Connect DevBoard to your AI assistant via MCP for basic queries"
+    ],
+    "modules": [
+      {
+        "title": "Install & Create Your First Board",
+        "estMinutes": 15,
+        "steps": [
+          "Download the DevBoard desktop app, sign in, and create a new workspace named after your team",
+          "Create a project called 'Sprint Demo' using the default Kanban template (To Do / In Progress / Done)",
+          "Invite one teammate via email and set their role to Member in workspace settings"
+        ]
+      },
+      {
+        "title": "Working with Tasks",
+        "estMinutes": 20,
+        "steps": [
+          "Add three tasks to 'To Do' with titles, descriptions, and due dates",
+          "Assign each task to a team member and add labels (bug, feature, chore)",
+          "Drag one task to 'In Progress' and use the keyboard shortcut 'M' to move it to 'Done'"
+        ]
+      },
+      {
+        "title": "Filtering & Views",
+        "estMinutes": 15,
+        "steps": [
+          "Filter the board to show only tasks assigned to you using the assignee filter",
+          "Switch to list view and sort tasks by due date",
+          "Save your filter as a personal view named 'My Work'"
+        ]
+      },
+      {
+        "title": "Getting Started with MCP",
+        "estMinutes": 20,
+        "steps": [
+          "Go to Settings > Integrations and copy your DevBoard MCP server token",
+          "Add the DevBoard MCP server to your AI assistant's config using the provided JSON snippet",
+          "Ask your assistant to 'list my open tasks' and 'move task X to Done' to verify the connection"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-project management",
+      "skill-kanban",
+      "skill-dev teams",
+      "skill-mcp",
+      "skill-collaboration"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "id": "course-borehole",
+    "toolSlug": "borehole",
+    "title": "Master Borehole",
+    "objectives": [
+      "Understand what Borehole is for",
+      "Use Borehole on a real task",
+      "Know where Borehole fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Borehole for your real workflow, not the demo.",
+          "Say what Borehole does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Borehole.",
+          "Push Borehole to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Borehole into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-due diligence",
+      "skill-git analysis",
+      "skill-code review",
+      "skill-acquisition",
+      "skill-repo insights"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "id": "course-leftovers",
+    "toolSlug": "leftovers",
+    "title": "Master Leftovers",
+    "objectives": [
+      "Understand what Leftovers is for",
+      "Use Leftovers on a real task",
+      "Know where Leftovers fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Leftovers for your real workflow, not the demo.",
+          "Say what Leftovers does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Leftovers.",
+          "Push Leftovers to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Leftovers into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-macos",
+      "skill-open-source",
+      "skill-cleanup",
+      "skill-ai-agents",
+      "skill-developer-tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "id": "course-agentledger",
+    "toolSlug": "agentledger",
+    "title": "Master AgentLedger",
+    "objectives": [
+      "Understand what AgentLedger is for",
+      "Use AgentLedger on a real task",
+      "Know where AgentLedger fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AgentLedger for your real workflow, not the demo.",
+          "Say what AgentLedger does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AgentLedger.",
+          "Push AgentLedger to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AgentLedger into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agent-spend",
+      "skill-cost-control",
+      "skill-guardrails",
+      "skill-ai-agents"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-05T18:31:10.418Z"
   }
 ]

@@ -10966,5 +10966,148 @@
       "agent-infrastructure"
     ],
     "discoveredAt": "2026-10-05T00:10:23.845Z"
+  },
+  {
+    "slug": "self-bench",
+    "name": "Self-bench",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Open source",
+    "level": "advanced",
+    "blurb": "Benchmark coding agents against real-world software engineering tasks.",
+    "audience": "AI researchers and engineers evaluating coding agents",
+    "dev": "mupt-ai",
+    "year": 2026,
+    "website": "https://github.com/mupt-ai/self-bench",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "benchmarking",
+      "coding agents",
+      "evaluation",
+      "open source",
+      "llm"
+    ],
+    "discoveredAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "slug": "open-source-instinct",
+    "name": "Open-Source Instinct",
+    "category": "code",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open source",
+    "level": "advanced",
+    "blurb": "Open-source project enabling instinct-like decision-making behaviors for AI agents.",
+    "audience": "Developers and AI researchers",
+    "dev": "Maria Gorskikh",
+    "year": 2026,
+    "website": "https://github.com/mariagorskikh/open-instinct",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "open-source",
+      "agents",
+      "autonomy",
+      "github"
+    ],
+    "discoveredAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "slug": "devboard",
+    "name": "DevBoard",
+    "category": "automation",
+    "sourceCategory": "Productivity & Meetings",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "beginner",
+    "blurb": "Lightweight project management tool for small dev teams with native apps and MCP support.",
+    "audience": "small software development teams",
+    "dev": "DevBoard",
+    "year": 2026,
+    "website": "https://getdevboard.app/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "project management",
+      "kanban",
+      "dev teams",
+      "mcp",
+      "collaboration"
+    ],
+    "discoveredAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "slug": "borehole",
+    "name": "Borehole",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "advanced",
+    "blurb": "Analyzes a repo's Git history to produce acquisition-ready technical due diligence reports.",
+    "audience": "investors, acquirers, and engineering leaders",
+    "dev": "",
+    "year": 2026,
+    "website": "https://borehole.dev/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "due diligence",
+      "git analysis",
+      "code review",
+      "acquisition",
+      "repo insights"
+    ],
+    "discoveredAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "slug": "leftovers",
+    "name": "Leftovers",
+    "category": "automation",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Free / open source",
+    "level": "intermediate",
+    "blurb": "FOSS macOS app that cleans up files and artifacts left behind by AI coding agents.",
+    "audience": "developers using AI agents",
+    "dev": "arpwal",
+    "year": 2026,
+    "website": "https://github.com/arpwal/leftovers",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "macos",
+      "open-source",
+      "cleanup",
+      "ai-agents",
+      "developer-tools"
+    ],
+    "discoveredAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "slug": "agentledger",
+    "name": "AgentLedger",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Enforces spend caps on AI agent calls by refusing requests before they happen.",
+    "audience": "AI agent developers and ops teams",
+    "dev": "",
+    "year": 2026,
+    "website": "https://aiagentscity.com/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "agent-spend",
+      "cost-control",
+      "guardrails",
+      "ai-agents",
+      "automation"
+    ],
+    "discoveredAt": "2026-10-05T18:31:10.418Z"
   }
 ]
