@@ -30463,5 +30463,270 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-04T14:48:35.350Z"
+  },
+  {
+    "id": "course-redactpdfai-open-source-ai-based-pdf-redaction-tool",
+    "toolSlug": "redactpdfai-open-source-ai-based-pdf-redaction-tool",
+    "title": "Master Redactpdf.ai: Open-source AI-based PDF redaction tool",
+    "objectives": [
+      "Install and launch Redactpdf.ai locally",
+      "Run AI detection to find sensitive data in a PDF",
+      "Review, adjust, and export a redacted PDF"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Launch",
+        "estMinutes": 10,
+        "steps": [
+          "Clone the Redactpdf.ai repo from GitHub and install dependencies per the README (Python/pip or Docker)",
+          "Start the app locally and open the web interface in your browser",
+          "Upload a sample PDF containing fake names, emails, and phone numbers"
+        ]
+      },
+      {
+        "title": "Detecting Sensitive Information",
+        "estMinutes": 15,
+        "steps": [
+          "Run the AI detection pass and view highlighted entities like names, emails, and IDs",
+          "Toggle detection categories (e.g., PII, phone numbers, credit cards) to fine-tune what gets flagged",
+          "Manually add a redaction box over anything the AI missed"
+        ]
+      },
+      {
+        "title": "Reviewing and Exporting",
+        "estMinutes": 10,
+        "steps": [
+          "Page through the document to approve or remove each suggested redaction",
+          "Apply the redactions and export the sanitized PDF",
+          "Open the exported file and confirm redacted text cannot be selected or copied"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-pdf",
+      "skill-redaction",
+      "skill-open-source",
+      "skill-privacy",
+      "skill-document-processing"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-05T00:10:23.845Z"
+  },
+  {
+    "id": "course-ranking-the-most-ai-agent-friendly-tools",
+    "toolSlug": "ranking-the-most-ai-agent-friendly-tools",
+    "title": "Master Ranking the most AI agent friendly tools",
+    "objectives": [
+      "Search and filter the directory to find tools ranked by agent-friendliness",
+      "Interpret the ranking criteria (API quality, docs, auth, structured output) for a given tool",
+      "Compare two or more tools to pick the best fit for an AI agent workflow"
+    ],
+    "modules": [
+      {
+        "title": "Navigating the Directory",
+        "estMinutes": 10,
+        "steps": [
+          "Open the directory homepage and browse the ranked list, noting the sort order and category filters",
+          "Apply a category filter (e.g., 'payments' or 'databases') and sort by agent-friendliness score",
+          "Use the search bar to look up a tool you already use and check whether it's listed"
+        ]
+      },
+      {
+        "title": "Reading a Tool's Ranking Profile",
+        "estMinutes": 15,
+        "steps": [
+          "Click into a tool's detail page and identify its overall score plus sub-scores (API access, docs quality, authentication, structured outputs, rate limits)",
+          "Read the listed blockers or caveats, such as CAPTCHAs, missing SDKs, or human-only signup flows",
+          "Note the tool's supported agent integration methods (REST API, MCP server, official SDK) and record them for comparison"
+        ]
+      },
+      {
+        "title": "Comparing Tools and Making a Pick",
+        "estMinutes": 15,
+        "steps": [
+          "Select two competing tools in the same category and open their profiles side by side",
+          "Build a quick comparison of their sub-scores against your agent's requirements (e.g., needs OAuth, needs JSON output)",
+          "Pick the winner, then verify it by completing one real action via its API or MCP server from your agent environment"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-ai agents",
+      "skill-directory",
+      "skill-ranking",
+      "skill-developer tools",
+      "skill-discovery"
+    ],
+    "prerequisites": [
+      "Basic understanding of APIs and API keys",
+      "Familiarity with what an AI agent is and how it calls external tools",
+      "An agent environment or API client (e.g., curl, Postman, or an agent framework) for testing"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-05T00:10:23.845Z"
+  },
+  {
+    "id": "course-the-poteto-frontier-for-ai-agents",
+    "toolSlug": "the-poteto-frontier-for-ai-agents",
+    "title": "Master The Poteto Frontier for AI Agents",
+    "objectives": [
+      "Navigate The Poteto Frontier directory to locate agent tools by category and capability",
+      "Evaluate listed AI agent tools using their showcase metadata (use cases, integrations, maturity)",
+      "Shortlist and compare 2-3 frontier agent tools for a specific project need"
+    ],
+    "modules": [
+      {
+        "title": "Orientation: Browsing the Directory",
+        "estMinutes": 15,
+        "steps": [
+          "Open The Poteto Frontier homepage and scan the main listing layout to identify how tools are organized (categories, tags, or featured sections)",
+          "Apply at least two filters (e.g., category + capability) relevant to a task you care about, such as coding agents or research agents",
+          "Open 3 individual tool pages and note what metadata each entry provides (description, links, demos, pricing signals)"
+        ]
+      },
+      {
+        "title": "Evaluating Frontier Agent Tools",
+        "estMinutes": 20,
+        "steps": [
+          "Pick one tool entry and follow its outbound links to the official docs or repo; verify it's actively maintained (recent commits or changelog)",
+          "Identify the tool's core differentiator by comparing its showcase description against a similar tool in the same category",
+          "Check for integration signals: supported models, frameworks (e.g., LangChain, MCP), and deployment options, and jot them down"
+        ]
+      },
+      {
+        "title": "Build a Comparison Shortlist",
+        "estMinutes": 20,
+        "steps": [
+          "Define one concrete use case (e.g., 'automated code review agent') and find 3 candidate tools in the directory that match it",
+          "Create a simple comparison table with columns: core capability, maturity, integrations, and getting-started friction",
+          "Rank your shortlist, pick one tool to trial, and bookmark or save the entries for later reference"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-directory",
+      "skill-discovery",
+      "skill-showcase"
+    ],
+    "prerequisites": [
+      "Basic familiarity with AI agent concepts (autonomous task execution, tool use)",
+      "Comfort navigating web directories and GitHub repositories"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-05T00:10:23.845Z"
+  },
+  {
+    "id": "course-stateful-linux-microvms-for-coding-agents",
+    "toolSlug": "stateful-linux-microvms-for-coding-agents",
+    "title": "Master Stateful Linux microVMs for coding agents",
+    "objectives": [
+      "Understand what Stateful Linux microVMs for coding agents is for",
+      "Use Stateful Linux microVMs for coding agents on a real task",
+      "Know where Stateful Linux microVMs for coding agents fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Stateful Linux microVMs for coding agents for your real workflow, not the demo.",
+          "Say what Stateful Linux microVMs for coding agents does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Stateful Linux microVMs for coding agents.",
+          "Push Stateful Linux microVMs for coding agents to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Stateful Linux microVMs for coding agents into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-microvm",
+      "skill-coding-agents",
+      "skill-sandbox",
+      "skill-infrastructure",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-05T00:10:23.845Z"
+  },
+  {
+    "id": "course-spawned-aio-cloud-platform-for-humans-and-agents",
+    "toolSlug": "spawned-aio-cloud-platform-for-humans-and-agents",
+    "title": "Master Spawned: AIO cloud platform for humans and agents",
+    "objectives": [
+      "Deploy a functional AI agent to Spawned's cloud runtime",
+      "Wire an agent into a shared workspace where humans and agents collaborate",
+      "Monitor, debug, and iterate on a live agent using Spawned's tooling"
+    ],
+    "modules": [
+      {
+        "title": "Provision your first agent on Spawned",
+        "estMinutes": 30,
+        "steps": [
+          "Create a Spawned workspace, then define a new agent with a system prompt, model selection, and a scoped set of tool permissions",
+          "Connect one external tool (e.g., GitHub or Slack) via Spawned's integrations panel and grant the agent least-privilege API credentials",
+          "Run a test task from the console, then inspect the agent's step-by-step execution trace to confirm tool calls fired correctly"
+        ]
+      },
+      {
+        "title": "Design human-agent collaboration flows",
+        "estMinutes": 40,
+        "steps": [
+          "Configure a handoff rule so the agent escalates to a human when confidence is low or an action exceeds a cost/risk threshold",
+          "Build a shared task queue where the agent drafts work (e.g., PR summaries or ticket triage) and a human approves before execution",
+          "Test the full loop: trigger a task, reject the agent's first draft as the human reviewer, and verify the agent incorporates the feedback on retry"
+        ]
+      },
+      {
+        "title": "Operate and iterate in production",
+        "estMinutes": 35,
+        "steps": [
+          "Set up logging and alerts for failed tool calls, latency spikes, and token spend using Spawned's observability dashboard",
+          "Reproduce a real failure from the execution trace, fix the prompt or tool config, and redeploy a new agent version",
+          "Use version rollback to revert the agent to its last stable release and confirm the workspace recovers cleanly"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai-agents",
+      "skill-cloud-platform",
+      "skill-agent-infrastructure"
+    ],
+    "prerequisites": [
+      "Basic experience building or prompting LLM-based agents",
+      "Familiarity with REST APIs and API key management",
+      "Comfort reading application logs and execution traces"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-05T00:10:23.845Z"
   }
 ]

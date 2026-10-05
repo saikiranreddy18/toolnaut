@@ -195,7 +195,8 @@
       "plushcrew",
       "ui-for-answering-agent-questions-async",
       "herbarium",
-      "run-osier-to-track-how-your-ai-coding-agent-does"
+      "run-osier-to-track-how-your-ai-coding-agent-does",
+      "stateful-linux-microvms-for-coding-agents"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -388,7 +389,8 @@
       "course-plushcrew",
       "course-ui-for-answering-agent-questions-async",
       "course-herbarium",
-      "course-run-osier-to-track-how-your-ai-coding-agent-does"
+      "course-run-osier-to-track-how-your-ai-coding-agent-does",
+      "course-stateful-linux-microvms-for-coding-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -554,7 +556,9 @@
       "open-source-m-a-tools",
       "now",
       "ui-for-answering-agent-questions-async",
-      "herbarium"
+      "herbarium",
+      "redactpdfai-open-source-ai-based-pdf-redaction-tool",
+      "stateful-linux-microvms-for-coding-agents"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -625,7 +629,9 @@
       "course-open-source-m-a-tools",
       "course-now",
       "course-ui-for-answering-agent-questions-async",
-      "course-herbarium"
+      "course-herbarium",
+      "course-redactpdfai-open-source-ai-based-pdf-redaction-tool",
+      "course-stateful-linux-microvms-for-coding-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1030,7 +1036,10 @@
       "web2md",
       "a-document-layer-for-ai-agents",
       "google-maps-scraper-mcp",
-      "plushcrew"
+      "plushcrew",
+      "redactpdfai-open-source-ai-based-pdf-redaction-tool",
+      "the-poteto-frontier-for-ai-agents",
+      "spawned-aio-cloud-platform-for-humans-and-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -1274,7 +1283,10 @@
       "course-web2md",
       "course-a-document-layer-for-ai-agents",
       "course-google-maps-scraper-mcp",
-      "course-plushcrew"
+      "course-plushcrew",
+      "course-redactpdfai-open-source-ai-based-pdf-redaction-tool",
+      "course-the-poteto-frontier-for-ai-agents",
+      "course-spawned-aio-cloud-platform-for-humans-and-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1464,7 +1476,9 @@
       "web2md",
       "a-document-layer-for-ai-agents",
       "run-osier-to-track-how-your-ai-coding-agent-does",
-      "artbucket"
+      "artbucket",
+      "ranking-the-most-ai-agent-friendly-tools",
+      "the-poteto-frontier-for-ai-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -1632,7 +1646,9 @@
       "course-web2md",
       "course-a-document-layer-for-ai-agents",
       "course-run-osier-to-track-how-your-ai-coding-agent-does",
-      "course-artbucket"
+      "course-artbucket",
+      "course-ranking-the-most-ai-agent-friendly-tools",
+      "course-the-poteto-frontier-for-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2995,7 +3011,8 @@
       "spens-sandboxed-observable-coding-agents",
       "aitoolsuite",
       "a-document-layer-for-ai-agents",
-      "gentle-ai-ai-coding-ecosystem"
+      "gentle-ai-ai-coding-ecosystem",
+      "ranking-the-most-ai-agent-friendly-tools"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -3044,7 +3061,8 @@
       "course-spens-sandboxed-observable-coding-agents",
       "course-aitoolsuite",
       "course-a-document-layer-for-ai-agents",
-      "course-gentle-ai-ai-coding-ecosystem"
+      "course-gentle-ai-ai-coding-ecosystem",
+      "course-ranking-the-most-ai-agent-friendly-tools"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3601,7 +3619,8 @@
       "bootloops-a-toolkit-for-exact-quantitative-science",
       "google-maps-scraper-mcp",
       "revline",
-      "agentlytics"
+      "agentlytics",
+      "ranking-the-most-ai-agent-friendly-tools"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3656,7 +3675,8 @@
       "course-bootloops-a-toolkit-for-exact-quantitative-science",
       "course-google-maps-scraper-mcp",
       "course-revline",
-      "course-agentlytics"
+      "course-agentlytics",
+      "course-ranking-the-most-ai-agent-friendly-tools"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4543,7 +4563,8 @@
       "bananasplit-cli",
       "premortem",
       "wsp-wordpress-mcp",
-      "agentlytics"
+      "agentlytics",
+      "spawned-aio-cloud-platform-for-humans-and-agents"
     ],
     "courses": [
       "course-placeroot",
@@ -4578,7 +4599,8 @@
       "course-bananasplit-cli",
       "course-premortem",
       "course-wsp-wordpress-mcp",
-      "course-agentlytics"
+      "course-agentlytics",
+      "course-spawned-aio-cloud-platform-for-humans-and-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4678,7 +4700,8 @@
       "fraise-a-memory-database-for-ai-agents",
       "natively",
       "bitroad",
-      "dearagent"
+      "dearagent",
+      "stateful-linux-microvms-for-coding-agents"
     ],
     "courses": [
       "course-we-run-stateful-ai-agents-on-a-serverless-infra",
@@ -4688,7 +4711,8 @@
       "course-fraise-a-memory-database-for-ai-agents",
       "course-natively",
       "course-bitroad",
-      "course-dearagent"
+      "course-dearagent",
+      "course-stateful-linux-microvms-for-coding-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4824,7 +4848,8 @@
       "wvm",
       "crafting-express",
       "spens-sandboxed-observable-coding-agents",
-      "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
+      "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
+      "stateful-linux-microvms-for-coding-agents"
     ],
     "courses": [
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
@@ -4833,7 +4858,8 @@
       "course-wvm",
       "course-crafting-express",
       "course-spens-sandboxed-observable-coding-agents",
-      "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
+      "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
+      "course-stateful-linux-microvms-for-coding-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5392,11 +5418,15 @@
     "level": "beginner",
     "toolsTeaching": [
       "ai-tools-list",
-      "awesome-geo-tools"
+      "awesome-geo-tools",
+      "ranking-the-most-ai-agent-friendly-tools",
+      "the-poteto-frontier-for-ai-agents"
     ],
     "courses": [
       "course-ai-tools-list",
-      "course-awesome-geo-tools"
+      "course-awesome-geo-tools",
+      "course-ranking-the-most-ai-agent-friendly-tools",
+      "course-the-poteto-frontier-for-ai-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6253,7 +6283,8 @@
       "engram",
       "ai-coding-agents-forget-the-codebase-between-sessions",
       "nimvarya",
-      "static-hosting-a-coding-agent-can-drive-end-to-end"
+      "static-hosting-a-coding-agent-can-drive-end-to-end",
+      "stateful-linux-microvms-for-coding-agents"
     ],
     "courses": [
       "course-agentseed-mcp",
@@ -6261,7 +6292,8 @@
       "course-engram",
       "course-ai-coding-agents-forget-the-codebase-between-sessions",
       "course-nimvarya",
-      "course-static-hosting-a-coding-agent-can-drive-end-to-end"
+      "course-static-hosting-a-coding-agent-can-drive-end-to-end",
+      "course-stateful-linux-microvms-for-coding-agents"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -9026,7 +9058,8 @@
       "paperweight",
       "truescribe",
       "aitoolsuite",
-      "agentlytics"
+      "agentlytics",
+      "redactpdfai-open-source-ai-based-pdf-redaction-tool"
     ],
     "courses": [
       "course-pearpie",
@@ -9045,7 +9078,8 @@
       "course-paperweight",
       "course-truescribe",
       "course-aitoolsuite",
-      "course-agentlytics"
+      "course-agentlytics",
+      "course-redactpdfai-open-source-ai-based-pdf-redaction-tool"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -14856,10 +14890,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "free-online-bates-numbering-tool-for-pdfs"
+      "free-online-bates-numbering-tool-for-pdfs",
+      "redactpdfai-open-source-ai-based-pdf-redaction-tool"
     ],
     "courses": [
-      "course-free-online-bates-numbering-tool-for-pdfs"
+      "course-free-online-bates-numbering-tool-for-pdfs",
+      "course-redactpdfai-open-source-ai-based-pdf-redaction-tool"
     ],
     "updatedAt": "2026-09-11T13:37:11.155Z"
   },
@@ -15475,10 +15511,14 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "spitewareai"
+      "spitewareai",
+      "ranking-the-most-ai-agent-friendly-tools",
+      "the-poteto-frontier-for-ai-agents"
     ],
     "courses": [
-      "course-spitewareai"
+      "course-spitewareai",
+      "course-ranking-the-most-ai-agent-friendly-tools",
+      "course-the-poteto-frontier-for-ai-agents"
     ],
     "updatedAt": "2026-09-12T12:53:23.830Z"
   },
@@ -20597,5 +20637,96 @@
       "course-gentle-ai-ai-coding-ecosystem"
     ],
     "updatedAt": "2026-10-04T14:48:35.350Z"
+  },
+  {
+    "id": "skill-redaction",
+    "name": "redaction",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "redactpdfai-open-source-ai-based-pdf-redaction-tool"
+    ],
+    "courses": [
+      "course-redactpdfai-open-source-ai-based-pdf-redaction-tool"
+    ],
+    "updatedAt": "2026-10-05T00:10:23.845Z"
+  },
+  {
+    "id": "skill-document-processing",
+    "name": "document processing",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "redactpdfai-open-source-ai-based-pdf-redaction-tool"
+    ],
+    "courses": [
+      "course-redactpdfai-open-source-ai-based-pdf-redaction-tool"
+    ],
+    "updatedAt": "2026-10-05T00:10:23.845Z"
+  },
+  {
+    "id": "skill-ranking",
+    "name": "ranking",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ranking-the-most-ai-agent-friendly-tools"
+    ],
+    "courses": [
+      "course-ranking-the-most-ai-agent-friendly-tools"
+    ],
+    "updatedAt": "2026-10-05T00:10:23.845Z"
+  },
+  {
+    "id": "skill-showcase",
+    "name": "showcase",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "the-poteto-frontier-for-ai-agents"
+    ],
+    "courses": [
+      "course-the-poteto-frontier-for-ai-agents"
+    ],
+    "updatedAt": "2026-10-05T00:10:23.845Z"
+  },
+  {
+    "id": "skill-microvm",
+    "name": "microvm",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "stateful-linux-microvms-for-coding-agents"
+    ],
+    "courses": [
+      "course-stateful-linux-microvms-for-coding-agents"
+    ],
+    "updatedAt": "2026-10-05T00:10:23.845Z"
+  },
+  {
+    "id": "skill-cloud-platform",
+    "name": "cloud platform",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "spawned-aio-cloud-platform-for-humans-and-agents"
+    ],
+    "courses": [
+      "course-spawned-aio-cloud-platform-for-humans-and-agents"
+    ],
+    "updatedAt": "2026-10-05T00:10:23.845Z"
+  },
+  {
+    "id": "skill-agent-infrastructure",
+    "name": "agent infrastructure",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "spawned-aio-cloud-platform-for-humans-and-agents"
+    ],
+    "courses": [
+      "course-spawned-aio-cloud-platform-for-humans-and-agents"
+    ],
+    "updatedAt": "2026-10-05T00:10:23.845Z"
   }
 ]
