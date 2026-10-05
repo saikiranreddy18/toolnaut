@@ -10177,3 +10177,71 @@ clean, no bug found to fix this run.
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — re-verified the next-oldest OPEN entry clean and all four fresh
 angles traced back to existing, already-logged, or already-shipped ground.
+
+### Research check 2026-10-05 15:05 UTC — no new gap found, twenty-ninth pass (off-cycle fire); oldest untouched OPEN entry re-verified clean
+Scheduled run, UTC hour 15 (off-cycle fire — between the 12:03 and 18:03
+slots). `npm run radar:health` → `OK` (2 runs in the 26h window, last publish
+15.0h ago, 5 tools published that run, feed at 459 total). `list_workflow_runs`
+on `master`: `CI`/`Release` both green at the latest push (`0c4ee41`). No
+`agent-fixable` issues open. Local checkout was again detached from `master`
+at session start, same recurring mode noted since the 14th pass — fetched and
+re-pointed to `origin/master` before running any check.
+
+Open-PR count unchanged: the four tracked `BUILT, UNMERGED` entries
+(#91/#89/#86/#75) are all still open with unchanged head SHAs (`605eacc`/
+`9db220e`/`b2b4a81`/`ffe7e84`) — nothing new to sync this run.
+
+**Re-verified the next-oldest untouched OPEN entry** ("No testimonial or
+social-proof quote exists anywhere on the site," found 2026-09-27 00:12 UTC,
+line ~7859 — next after "No educational/how-to content" (28th pass), itself
+after the run of four entries found within hours of each other on
+2026-09-15/16 that the 19th/23rd/24th/25th passes worked through, and the two
+after those the 26th/27th passes covered). Re-checked every claim against
+current `master`: `grep -rniE "testimonial|review quote|case stud|social
+proof|trustpilot" src/` still returns zero hits; `src/components/app/
+StackSurvey.jsx` is still fixed-choice with no free-text field, its own
+header comment still states answers go to GA4 and that "a text box would
+break" the privacy policy's promise; `src/components/sections/
+StatsSection.jsx`'s "a number on a landing page is a claim" discipline
+comment is still at line 23, unchanged, and both real counts
+(`explorerCount()`/`subscriberCount()`) still render only when non-null,
+nothing backfilled; `isSupabaseConfigured` is confirmed (again) to be the
+boolean export from `src/utils/supabase.js:22`, re-exported by
+`src/state/sync.js`, matching the entry's "same feature-detection sync.js
+already uses" framing — grepped every call site
+(`SignInPage.jsx`/`BillingCard.jsx`/`authStore.js`/`sync.js`/`entitlement.js`/
+`subscriberCount.js`/`explorerCount.js`) and all nine treat it as a plain
+boolean, never with `()`; the entry's own prose calls it
+"`isSupabaseConfigured()`" with parens once, a cosmetic mismatch against how
+the codebase actually uses it, not worth its own edit since the entry never
+cites a line number for that symbol and the build plan doesn't depend on its
+being callable. No new Supabase `quotes` table exists (`grep -rn "quotes\b"
+src/` returns only unrelated code-comment uses of the English word "quotes").
+Nothing drifted — the entry's "Smallest useful version" (new opt-in Supabase
+table + RLS policy, a second milestone-gated prompt component separate from
+`StackSurvey.jsx`, a conditional quote-carousel in or beside
+`StatsSection.jsx`, build size M) is still accurate.
+
+**Two fresh angles checked, both traced back to ground this file already
+holds:**
+- WebSearch ("AI tool directory 2026 user testimonial quote collection
+  feature trust") confirmed community-driven reviews and verified user
+  testimonials are standard 2026 directory practice (AiToolsList.Tools and
+  similar platforms cited) — this reaffirms the re-verified entry's premise
+  rather than surfacing anything new; the entry already treats "add a
+  testimonials section" as the wrong shape (fabricating quotes) and scopes
+  the real gap as the missing honest-capture plumbing.
+- WebSearch ("AI tool discovery platform 2026 new feature AI agent workflow
+  builder missing directory") surfaced no-code AI agent builders as a 2026
+  trend — these are themselves AI *tools* Toolnaut's catalogue already
+  indexes (same category of non-finding as the 28th pass's team-workspace
+  check), not a directory feature Toolnaut is missing. No new entry.
+
+Ran `npm test` (311/311), `npm run build` (19 static routes, 1131 tool pages,
+feed at 457 live tools, no errors), and `npm run smoke` (24/24 routes, 0
+console errors) directly against current `master`. All three clean, no bug
+found to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — re-verified the next-oldest OPEN entry clean and both fresh angles
+traced back to existing, already-logged ground.
