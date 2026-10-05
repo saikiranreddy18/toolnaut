@@ -9903,3 +9903,72 @@ Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — synced one entry's status to match today's feature-run PR, re-verified
 the next-oldest OPEN entry clean, and both fresh angles traced back to an
 existing category or an unscoped (not yet "thin") idea.
+
+### Research check 2026-10-05 03:03 UTC — no new gap found, twenty-fifth pass; oldest untouched OPEN entry re-verified clean
+Scheduled run, UTC hour 03 (research hour). `npm run radar:health` → `OK`
+(2 runs in the 26h window, last publish 2.9h ago, 5 tools published that
+run, feed at 459 total). `list_workflow_runs` on `master`: `CI`/`Release`
+both green at the latest push (`26f7479`/`57e2a8a`). No `agent-fixable`
+issues open. Local checkout was again in detached-HEAD state at start, the
+same recurring mode the 14th/15th/18th/22nd/23rd/24th passes hit —
+re-pointed `master` to `origin/master` before running any check.
+
+Open-PR count unchanged since the twenty-fourth pass's sync (still 31,
+#89/#86/#75/#91 the four tracked `BUILT, UNMERGED` entries with unchanged
+head SHAs) — nothing new to sync this run.
+
+**Re-verified the next-oldest untouched OPEN entry** ("The public search
+page's own placeholder promises task search," found 2026-09-16 09:10 UTC,
+line ~7411 — next after "Track progress against your role" (19th pass),
+"Discover only ever ranks toward the mainstream" (23rd pass, now PR #91),
+and "Sharing a stack link produces zero personalized preview" (24th pass),
+all three found within hours of each other on 2026-09-15/16 and now all
+checked). Read `src/utils/search.js` directly: `matchesQuery()` is still
+exactly the word-order-independent-but-literal-substring check the entry
+cites (`words.every((word) => haystack.includes(word))`, line 15) — no
+stemming, no prefix matching, unchanged since the entry was written.
+Re-ran the entry's own worked example against the live catalog: `Otter.ai`,
+`Notta`, and `Gladia` are all still tagged `meeting`/`transcription` in
+`toolsCatalog.js` (grepped directly — same three tools cited originally,
+unchanged tags), and the query "transcribe meetings" still fails to match
+any of them under the current matcher, for the same two reasons the entry
+names (plural "meetings" vs. singular tag "meeting"; "transcribe" vs.
+"transcription" — neither a literal substring of the other). `SearchTools.jsx`
+still carries the same placeholder/intro copy promising problem-shaped
+search. Nothing drifted — the entry's "Smallest useful version" (a bounded
+5-character leading-prefix match added to, not replacing, the exact-substring
+check, build size S, one function + one test file) is still accurate and
+still the next most build-ready OPEN entry in the file.
+
+**Two fresh angles checked, both traced back to ground this file already
+holds:**
+- WebSearch ("AI tool directory 2026 compare feature side by side new
+  launch competitor analysis") surfaced TheAISelect, YourAIFinder, Add AI
+  Directory, and ToolsPedia all shipping side-by-side comparison as a 2026
+  differentiator, and ToolJunction running a dedicated "ToolJunction vs
+  Futurepedia" comparison page. Toolnaut already ships both: `Compare.jsx`
+  (session) and `PublicCompare.jsx` (public, `/compare/:slugs`) predate this
+  search by weeks (`cba2691`), and the `/vs/:competitor` page type
+  (`83805fc`) is the exact "X vs Y" pattern ToolJunction runs, confirmed
+  still live this run (`/vs/futurepedia` rendered clean in this run's own
+  `npm run build`/`npm run smoke` output above). No new ground.
+- WebSearch ("Futurepedia Toolify AI directory personalization
+  recommendation feature 2026") surfaced Futurepedia's "scored verdicts" and
+  "verified user reviews" framing and real-time-index claims. Scored
+  verdicts/reviews is the already-OPEN "Per-tool ratings & reviews" entry
+  (line ~587, found 2026-08-24, deepened); "real-time updates, new releases
+  indexed almost immediately" is exactly what the radar pipeline already
+  does on a daily cadence — not a gap, a description of a already-shipped
+  mechanism. Checked whether Futurepedia's structured-course content
+  ("education platform") was a new angle: it folds into the already-OPEN
+  "No educational/how-to content" entry (line ~7708, found 2026-09-20), not
+  a new one.
+
+Ran `npm test` (311/311), `npm run build` (19 static routes, 1131 tool pages,
+feed at 459 tools, no errors), and `npm run smoke` (24/24 routes, 0 console
+errors) directly against current `master`. All three clean, no bug found to
+fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — re-verified the next-oldest OPEN entry clean and both fresh angles
+traced back to existing, already-logged categories.
