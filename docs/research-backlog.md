@@ -10044,3 +10044,69 @@ fix this run.
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — re-verified the next-oldest OPEN entry clean and both fresh angles
 traced back to existing, already-logged categories.
+
+### Research check 2026-10-05 09:03 UTC — no new gap found, twenty-seventh pass; oldest untouched OPEN entry re-verified clean
+Scheduled run, UTC hour 09 (off-cycle fire — between the 06:03 and 12:03
+research slots). `npm run radar:health` → `OK` (2 runs in the 26h window,
+last publish 8.9h ago, 5 tools published that run, feed at 459 total).
+`list_workflow_runs` on `master`: `CI`/`Release` both green at the latest
+push (`0d56f29`). No `agent-fixable` issues open. Local checkout was again
+in detached-HEAD state at start, same recurring mode noted since the 14th
+pass — re-pointed `master` to `origin/master` before running any check.
+
+Open-PR count: the four tracked `BUILT, UNMERGED` entries (#91/#89/#86/#75)
+are still open; spot-checked #91 directly — still open, head sha `605eacc`
+unchanged from the 26th pass's record. Nothing new to sync this run.
+
+**Re-verified the next-oldest untouched OPEN entry** ("No browsable gallery
+of shared stacks," found 2026-09-17 03:20 UTC, line ~7562 — next after "No
+way to flag a wrong listing" (26th pass), itself after the four entries
+found within hours of each other on 2026-09-15/16 that the 19th/23rd/24th/
+25th passes worked through). Re-checked every claim against current
+`master`: `src/utils/shareStack.js` is still exactly `encodeStackSlugs`/
+`decodeStackSlugs`, no storage write; `grep -rn "shared_stacks\|public_stacks\|from('stack" src`
+still returns zero hits; `src/App.jsx` still has no `/gallery` route;
+`src/pages/SharedStack.jsx` still reads only from the URL param;
+`src/state/communityStore.js` is still free-text forum posts, not a
+structured stack object; the Legal.jsx server-storage claim is still at
+lines 78-82, unchanged. Nothing drifted — the entry's "Smallest useful
+version" (one Supabase table, one store module, one new public route, one
+opt-in toggle on `Stack.jsx`, build size M) is still accurate. One minor
+precision note, not worth its own edit: the entry cites `entitlement.js`
+alongside `src/state/sync.js` in a way that could read as the same
+directory — it actually lives at `src/utils/entitlement.js`. Left as-is
+since the citation doesn't assert a path and three other citations of the
+same file elsewhere in this backlog (lines 925, 2074, 6483) already get it
+right.
+
+**Two fresh angles checked, both traced back to ground this file already
+holds:**
+- WebSearch ("Toolify.ai FutureTools.io features 2026 AI tool directory")
+  and ("AI tool directory SaaS onboarding referral program feature 2026")
+  surfaced only facts this file already cites (FutureTools' community
+  upvoting and weekly catalogue refresh, There's An AI For That and
+  Futurepedia's directory dominance) plus a referral-program angle the 24th
+  pass already checked and closed — Toolnaut's "no affiliate link, no
+  referral code" stance (`TrustPanel.jsx:118`, `Methodology.jsx:132`) is a
+  deliberate anti-dark-pattern position, not a gap. Re-grepped `src/` for
+  `referral` to confirm the stance hasn't changed; still only those two
+  copy lines.
+- WebSearch ("AI tool discovery platform 2026 personalization feature gap
+  directory") surfaced "independent verification" / tools-not-tested-by-
+  the-directory as a cited 2026 gap for competitors like OpenFuture AI —
+  this is the same ground the already-OPEN "Per-tool ratings & reviews"
+  gap (line ~588) and the twelfth pass's G2-AI-review-summary check already
+  cover, not a new angle. Also re-confirmed `src/components/sections/`
+  marketing claims have no unaudited section left: `AudienceSection`,
+  `StatsSection`, `HowItWorksSection`, `RolesSection`, `ContactSection`, and
+  `CTASection` each already have 6+ prior references in this file from past
+  promise-vs-reality audits.
+
+Ran `npm test` (311/311), `npm run build` (19 static routes, 1131 tool
+pages, feed at 457 live tools, no errors), and `npm run smoke` (24/24
+routes, 0 console errors) directly against current `master`. All three
+clean, no bug found to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — re-verified the next-oldest OPEN entry clean and both fresh angles
+traced back to existing, already-logged categories.
