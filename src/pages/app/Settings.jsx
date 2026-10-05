@@ -18,6 +18,7 @@ import { getTool } from '../../utils/toolsCatalog'
 import { QUESTIONS } from '../../utils/quizLogic'
 import { myStanding } from '../../utils/communityStats'
 import { SEEDED } from '../../utils/communityStats'
+import { buildSuggestToolUrl } from '../../utils/suggestTool'
 import { haptic } from '../../utils/haptics'
 import SkillGraph from '../../components/app/SkillGraph'
 import Avatar from '../../components/app/Avatar'
@@ -520,6 +521,16 @@ export default function Settings() {
         <button onClick={handleDownloadData} className="nb-btn dark min-h-11 px-4 py-2.5 text-xs">
           Download my data
         </button>
+        {/* Also outside the signed-in check: anyone browsing the catalog can
+            notice it's missing a tool, session or not. */}
+        <a
+          href={buildSuggestToolUrl({})}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nb-btn dark min-h-11 px-4 py-2.5 text-xs"
+        >
+          Suggest a tool
+        </a>
         {session && (
           <>
           <button onClick={handleSignOut} className="nb-btn pink min-h-11 px-4 py-2.5 text-xs">

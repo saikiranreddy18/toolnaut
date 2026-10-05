@@ -16,6 +16,7 @@ import { markActed } from '../../utils/funnel'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
+import { buildSuggestToolUrl } from '../../utils/suggestTool'
 import ToolCard from '../../components/app/ToolCard'
 
 const PRICES = ['free', 'freemium', 'paid']
@@ -54,6 +55,8 @@ export default function Discover() {
   const [stack, setStack] = useState(loadStack)
   const [favorites, setFavorites] = useState(loadFavorites)
   const [compare, setCompare] = useState([])
+  const [suggestName, setSuggestName] = useState('')
+  const [suggestUrl, setSuggestUrl] = useState('')
   const track = useAnalytics()
 
   const quiz = loadQuiz()
@@ -197,6 +200,17 @@ export default function Discover() {
       ? 'Recommended for you'
       : 'All tools'
 
+  // No local persistence or submission history — the GitHub issue itself is
+  // the store, same division of labor as every other "opens GitHub" link.
+  function submitSuggestion(e) {
+    e.preventDefault()
+    if (!suggestName.trim()) return
+    track(EVENTS.CTA_CLICK, { cta: 'suggest_tool', from: 'empty_state' })
+    window.open(buildSuggestToolUrl({ name: suggestName.trim(), url: suggestUrl.trim() }), '_blank', 'noopener')
+    setSuggestName('')
+    setSuggestUrl('')
+  }
+
   return (
     <div className="mx-auto max-w-5xl px-5 py-8 lg:py-10 xl:max-w-6xl">
       <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">FIND</p>
@@ -334,6 +348,32 @@ export default function Discover() {
           >
             Clear all filters
           </button>
+
+          {/* Last-resort block for someone who tried both escape routes above
+              and still found nothing — captures the signal a dead-end search
+              would otherwise just throw away. */}
+          <form onSubmit={submitSuggestion} className="glass mt-8 max-w-md rounded-2xl p-4">
+            <p className="font-display text-sm font-semibold text-white">🔭 Don't see it? Suggest a tool</p>
+            <label htmlFor="suggest-name" className="sr-only">Tool name</label>
+            <input
+              id="suggest-name"
+              value={suggestName}
+              onChange={(e) => setSuggestName(e.target.value)}
+              placeholder="Tool name"
+              className="mt-3 w-full rounded-lg bg-black/30 px-3 py-2 text-sm text-white placeholder:text-zinc-500 focus:outline-none"
+            />
+            <label htmlFor="suggest-url" className="sr-only">Tool URL (optional)</label>
+            <input
+              id="suggest-url"
+              value={suggestUrl}
+              onChange={(e) => setSuggestUrl(e.target.value)}
+              placeholder="URL (optional)"
+              className="mt-2 w-full rounded-lg bg-black/30 px-3 py-2 text-sm text-white placeholder:text-zinc-500 focus:outline-none"
+            />
+            <button type="submit" disabled={!suggestName.trim()} className="nb-btn mt-3 min-h-11 px-4 py-2 text-xs disabled:opacity-50">
+              Suggest it
+            </button>
+          </form>
         </div>
       ) : (
         <>

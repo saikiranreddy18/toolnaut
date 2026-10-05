@@ -10,6 +10,7 @@ import { allowSave } from '../../utils/saveLimit'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
+import { buildReportIssueUrl } from '../../utils/suggestTool'
 import { HeartIcon } from '../../components/app/icons'
 import TrustPanel from '../../components/app/TrustPanel'
 import ToolResources from '../../components/app/ToolResources'
@@ -161,6 +162,16 @@ export default function ToolDetail() {
           </svg>
         </a>
       )}
+      {/* Plain text, not another nb-btn — a correction link shouldn't compete
+          with the primary CTAs above it. */}
+      <a
+        href={buildReportIssueUrl({ slug: tool.slug, name: tool.name })}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="press mt-3 block text-xs text-zinc-500 underline underline-offset-4 hover:text-zinc-300"
+      >
+        Something wrong here?
+      </a>
 
       <div className="mt-7 flex items-center gap-3">
         <button

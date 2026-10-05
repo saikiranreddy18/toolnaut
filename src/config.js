@@ -9,6 +9,10 @@ export const BRAND_SHORT = 'Toolnaut'
 // own — so every mail anyone sent from the legal or contact pages went nowhere.
 export const CONTACT_EMAIL = 'info@toolnaut.xyz'
 
+// Where "Suggest a tool" and "Report an issue" land — both are GitHub issues,
+// no backend of their own.
+export const GITHUB_REPO_URL = 'https://github.com/saikiranreddy18/toolnaut'
+
 // Public profiles, rendered in the contact section in this order.
 //
 // EMPTY ON PURPOSE. Inventing handles would put dead links on a live page and

@@ -3,6 +3,7 @@ import { useHead } from '../utils/head'
 import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { TOOLS, getTool, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../utils/toolsCatalog'
 import { relatedTools, toolDescription, toolJsonLd, toolPath, toolTitle } from '../utils/toolSeo'
+import { buildReportIssueUrl } from '../utils/suggestTool'
 
 // /ai-tools/:slug — the public, indexable page for one tool.
 //
@@ -86,6 +87,16 @@ export default function ToolPublic() {
           </a>
         )}
       </div>
+      {/* Plain text, not another nb-btn — a correction link shouldn't compete
+          with the primary CTAs above it. */}
+      <a
+        href={buildReportIssueUrl({ slug: tool.slug, name: tool.name })}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="press mt-3 block text-xs text-zinc-500 underline underline-offset-4 hover:text-zinc-300"
+      >
+        Something wrong here?
+      </a>
 
       <section className="sticker mt-10 p-6">
         <h2 className="font-display text-lg font-semibold text-white">At a glance</h2>
