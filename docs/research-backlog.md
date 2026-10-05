@@ -9972,3 +9972,75 @@ fix this run.
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — re-verified the next-oldest OPEN entry clean and both fresh angles
 traced back to existing, already-logged categories.
+
+### Research check 2026-10-05 06:04 UTC — no new gap found, twenty-sixth pass; oldest untouched OPEN entry re-verified clean
+Scheduled run, UTC hour 06 (research hour). `npm run radar:health` → `OK`
+(2 runs in the 26h window, last publish 5.9h ago, 5 tools published that
+run, feed at 459 total). `list_workflow_runs` on `master`: `CI`/`Release`
+both green at the latest push (`6183ae3`). No `agent-fixable` issues open.
+Local checkout was again in detached-HEAD state at start — same recurring
+mode most passes since the 14th have hit — re-pointed `master` to
+`origin/master` before running any check.
+
+Open-PR count unchanged: the four tracked `BUILT, UNMERGED` entries
+(#91/#89/#86/#75) are all still open with unchanged head SHAs
+(`605eacc`/`9db220e`/`b2b4a81`/`ffe7e84`) — nothing new to sync this run.
+
+**Re-verified the next-oldest untouched OPEN entry** ("No way to flag a
+wrong listing," found 2026-09-16 21:15 UTC, line ~7493 — next after "Track
+progress against your role" (19th pass), "Discover only ever ranks toward
+the mainstream" (23rd pass, now PR #91), "Sharing a stack link" (24th pass),
+and "The public search page's own placeholder promises task search" (25th
+pass), all found within hours of each other on 2026-09-15/16 and now all
+checked). Grepped `report|incorrect|flag` across `src/pages/app/
+ToolDetail.jsx` and `src/pages/ToolPublic.jsx` directly — still zero hits in
+both, confirming the core gap (no user-facing "this is wrong" path anywhere)
+is unchanged. The entry's planned build shares a util with the still-OPEN
+"Suggest a tool" gap (`src/utils/suggestTool.js`'s `buildSuggestToolUrl` /
+`GITHUB_REPO_URL`) — confirmed that file still does not exist anywhere in
+`src/` and the Suggest-a-tool entry is still `OPEN`, so the shared-module
+plan is still valid, neither half has shipped. Line citations re-checked
+against current `master`: the status badge condition
+(`tool.status && tool.status !== 'Active'`) is still at
+`ToolDetail.jsx:123`, exactly as cited; the "Visit website" button block in
+the same file now sits at 151-163 (drifted by a few lines from unrelated
+changes, same range the entry already cites); `ToolPublic.jsx`'s button row
+is now at 74-88, also still matching. Nothing drifted — the entry's
+"Smallest useful version" (one added export on the Suggest-a-tool util, one
+small text link on each of the two tool-detail surfaces, build size S) is
+still accurate and still the next most build-ready OPEN entry in the file.
+
+**Two fresh angles checked, both traced back to ground this file already
+holds:**
+- WebSearch ("AI tool directory 2026 data accuracy 'report incorrect
+  listing' OR 'suggest edit' feature") surfaced The GTM Directory's "Suggest
+  Edit" feature on every tool page plus accuracy-voting, with a committed
+  5-business-day correction SLA — this is the exact same "report this is
+  wrong" pattern the re-verified entry above already describes and plans to
+  build, not a new angle. Confirms the gap is current competitor practice in
+  2026, not stale research; no new entry needed.
+- WebSearch ("SaaS directory site 2026 multi-language internationalization
+  i18n OR dark mode toggle OR keyboard shortcuts power user feature")
+  surfaced directory-builder platforms (Dirstarter, DirectoryStack, FormLine)
+  shipping i18n and dark-mode toggles as 2026 differentiators. Both were
+  already checked and closed in this file: dark mode / theme toggle (line
+  ~8403, "already [ruled out / not a gap]" — Toolnaut's single dark theme is
+  a deliberate design choice, not a missing feature) and i18n/localization
+  (line ~8551 and re-confirmed line ~9498, grepped `i18n|locale|translat`
+  across `src/` with no real hits, rejected as a multi-week SEO/localization
+  project rather than a buildable gap). Re-ran both greps this run to be
+  sure neither state had changed — `grep -rniE "i18n|locale|translat" src/`
+  still returns only false positives (component names like
+  `GalaxyExplorer.jsx`'s unrelated math, not real i18n code), and
+  `grep -rln "theme toggle\|prefers-color-scheme" src/` still returns only
+  `src/index.css`'s system-preference media query, no user-facing toggle.
+  Both still closed, not reopened.
+
+Ran `npm test` (311/311), `npm run build` (19 static routes, 1131 tool pages,
+feed at 459 tools, no errors), and `npm run smoke` (24/24 routes, 0 console
+errors) directly against current `master`. All three clean, no bug found to
+fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — re-verified the next-oldest OPEN entry clean and both fresh angles
+traced back to existing, already-logged categories.
