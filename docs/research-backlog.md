@@ -10110,3 +10110,70 @@ clean, no bug found to fix this run.
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — re-verified the next-oldest OPEN entry clean and both fresh angles
 traced back to existing, already-logged categories.
+
+### Research check 2026-10-05 12:04 UTC — no new gap found, twenty-eighth pass; four fresh angles all traced back to existing ground
+Scheduled run, UTC hour 12. `npm run radar:health` → `OK` (2 runs in the 26h
+window, last publish 11.9h ago, 5 tools published that run, feed at 459
+total). `list_workflow_runs` on `master`: `CI`/`Release` both green at the
+latest push (`f17461a`). No `agent-fixable` issues open. (Separately noted,
+not actioned: the three scheduled `Agent · Research/Maintainer/Bugfix`
+GitHub Actions workflows — a different automation lane from this session,
+governed by `CLAUDE.md`'s bot/PR rules — are failing on every run at the
+`claude-code-action` step, and ~20 `bot/claude/*` PRs sit open and unmerged
+on that lane. Out of scope here: workflow files other than `radar.yml` are
+off-limits, and the actual build-gating CI is green.)
+
+**Re-verified the next-oldest untouched OPEN entry** ("No educational/
+how-to content — the footer's own 'Resources' column links only to existing
+product pages," found 2026-09-17, line ~7708 — next after "No browsable
+gallery of shared stacks" (27th pass)). Re-checked every claim against
+current `master`: `scripts/prerender.mjs`'s `ROUTES` (`:42-62`) still has no
+`/guides` entry; `src/App.jsx` still has no `Guide`/`guides` route or lazy
+import; `src/components/sections/ContactSection.jsx`'s "Resources" column
+(`:43-49`) still links only "How it works," "How we choose," "What's new,"
+and "Open the app" — four existing product pages relabeled, exactly as
+described. Nothing drifted — the "Smallest useful version" (one
+`src/content/guides.js` array, `Guide.jsx` + `Guides.jsx`, one route
+pattern, two prerender/sitemap additions, one footer link edit, build size
+S) is still accurate and still the smallest unclaimed SEO gap in this file.
+
+**Four fresh angles checked, all traced back to ground this file already
+holds:**
+- Team/collaborative-workspace features (Chipp Workspaces, TeamAI, Miro/
+  Notion-style AI collaboration, surfaced via WebSearch "ai tool directory
+  team workspace collaborate feature 2026") — these are themselves AI
+  *tools*, not directory features, and the shape doesn't transfer to a
+  discovery product. The already-OPEN "Pro chat assistant & Team tier" gap
+  (line ~1289) already flags Toolnaut's own Team tier as the backend-shaped
+  problem here, not something to build more of.
+- Trust-score / verified-review AI directories (Mr Review AI's proprietary
+  Trust Score, AIToolsRecap's practitioner reviews, surfaced via WebSearch
+  "AI tool directory verified reviews trust score 2026") — same ground the
+  already-OPEN "Per-tool ratings & reviews" gap (line ~588) and the twelfth
+  pass's G2-AI-review-summary check already cover.
+- G2's 2026 buyer-intent/MCP push (WebSearch "G2 Capterra AI software
+  category new features 2026 buyer intent"), prompted by its own cited stat
+  that 51% of B2B buyers now start research in an AI chatbot rather than
+  Google — checked whether Toolnaut has an equivalent AI-answer-engine
+  surface. It already does, and already predates this pass:
+  `public/robots.txt` explicitly allows GPTBot/ClaudeBot/PerplexityBot/
+  OAI-SearchBot/Google-Extended/etc. with a comment naming this exact
+  rationale, and `public/llms.txt` (prose summary for AI crawlers,
+  last touched 2026-09-18 per the 11th-pass note at line ~5549) already
+  ships. Nothing new to log.
+- Re-confirmed i18n/localization and a user-referral program are still
+  correctly out of scope: `grep -rniE "i18n|locale|translat" src/` still
+  returns no real hits (rejected before as a multi-week SEO/localization
+  project, lines ~8551/9498/10028); `TrustPanel.jsx`/`Methodology.jsx` still
+  carry the explicit "no affiliate link, no referral code" stance, so a
+  referral program would contradict the product's own stated position, not
+  fill a gap in it (rejected before at lines ~9811/10090).
+
+Ran `npm test` (311/311), `npm run build` (19 static routes, 1131 tool
+pages, feed at 457 live tools, no errors), and `npm run smoke` (24/24
+routes, 0 console errors) directly against current `master`. All three
+clean, no bug found to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — re-verified the next-oldest OPEN entry clean and all four fresh
+angles traced back to existing, already-logged, or already-shipped ground.
