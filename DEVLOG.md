@@ -9,6 +9,69 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-10-05
+
+**Radar health:** `OK` — 1 run in the last 26h window, most recent publish
+18h before this run (5 tools), feed at 459 tools total in
+`public/tools.json`. No action needed.
+
+**Researched today:** five research-hour passes (03:03, 06:04, 09:03,
+12:04, 15:05 UTC, the last off-cycle). All five found no new gap and spent
+the hour re-verifying the backlog's remaining untouched OPEN entries
+instead: "The public search page's own placeholder promises task search"
+(25th), "No way to flag a wrong listing" (26th), "No browsable gallery of
+shared stacks" (27th), "No educational/how-to content" (28th), and "No
+testimonial or social-proof quote exists anywhere" (29th) all re-checked
+clean against current `master`, still accurate, still build-ready. Several
+competitor searches across the five passes (team-workspace tools, trust-
+score directories, G2's AI-chatbot-discovery push, testimonial-collection
+trends) all traced back to ground this file already covers. 29 research
+passes have now run against this backlog in total.
+
+**Shipped today:** the two oldest well-specified OPEN gaps, built together
+since they share one module — **"Suggest a tool"** (the catalog only ever
+grows through radar's automated scouting, zero user-facing way to add one;
+oldest untouched entry, logged 2026-08-25) and **"No way to flag a wrong
+listing"** (the mirror-image gap: an existing tool's info goes stale and a
+visitor who notices has no lower-friction option than emailing cold).
+Added `src/utils/suggestTool.js` (`buildSuggestToolUrl()` /
+`buildReportIssueUrl()`, both pure GitHub-issue-URL builders sharing one new
+`GITHUB_REPO_URL` constant in `src/config.js`) plus 4 new tests. Wired an
+inline "🔭 Don't see it? Suggest a tool" form into `Discover.jsx`'s empty
+state (after the existing category-suggestion and clear-filters escape
+routes), a persistent "Suggest a tool" link in `Settings.jsx` next to
+"Replay the tour", and a small plain-text "Something wrong here?" link on
+both `ToolDetail.jsx` and the public `ToolPublic.jsx`, near their existing
+"Visit website" buttons. Every flow opens a pre-filled GitHub issue in a new
+tab — no backend, no moderation queue, no submission history, exactly as
+both backlog entries scoped. Verified live against a built `preview` server
+with Playwright (not just the smoke test): filled the Discover form and
+intercepted `window.open` to confirm the exact issue URL/title/body/labels,
+and checked both report-issue links' `href` resolve correctly, including on
+the statically-generated `/ai-tools/chatgpt` page. All three checks green
+(315 tests, build, smoke — 24 routes, zero console errors), pushed directly
+to `master` — sha
+[`3a7a173`](https://github.com/saikiranreddy18/toolnaut/commit/3a7a173).
+Both gaps marked `SHIPPED` in the backlog. **Visible on toolnaut.xyz
+today** — all four entry points render immediately once this deploy lands;
+no other pipeline needs to run first.
+
+**Still stuck:** the three scheduled `Agent · Research/Maintainer/Bugfix`
+GitHub Actions workflows (a separate automation lane from this routine,
+governed by `CLAUDE.md`'s bot/PR rules) are failing on every run at the
+`claude-code-action` step, and roughly 30 `bot/claude/*` PRs sit open and
+unmerged on that lane, several duplicating each other's intent. Not this
+routine's job to fix — workflow files other than `radar.yml` are off-limits
+to it, and the build-gating CI this routine depends on stays green — but
+it's growing, not shrinking, and still worth a human's attention.
+
+**Queued next:** "The public search page's own placeholder promises task
+search" (build size S — a bounded 5-character leading-prefix match in
+`src/utils/search.js`) is the next build-ready OPEN gap, re-verified clean
+as recently as this morning's 03:03 pass.
+
+---
+
 ## 2026-09-30
 
 **Radar health:** `OK` — 2 runs in the last 26h window, most recent publish

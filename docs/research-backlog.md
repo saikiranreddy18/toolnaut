@@ -722,7 +722,18 @@ a client-side SPA with a static tool catalogue.
   "what this would NOT include" scope cuts).
 
 ### Community-submitted tools ("Suggest a tool")
-- **Status:** OPEN
+- **Status:** SHIPPED 3a7a173 — built together with the "No way to flag a
+  wrong listing" gap below, exactly as both entries' plans called for
+  (shared `src/utils/suggestTool.js`, shared `GITHUB_REPO_URL` constant in
+  `src/config.js`). `Discover.jsx`'s empty state now has an inline "🔭 Don't
+  see it? Suggest a tool" form (name + optional URL, opens
+  `buildSuggestToolUrl()` in a new tab, no local persistence); `Settings.jsx`
+  got the equivalent persistent link next to "Replay the tour" and
+  "Download my data", outside the signed-in check as planned. Verified live
+  against a built `preview` server with Playwright: filled the Discover
+  form, intercepted `window.open`, confirmed the GitHub issue URL is built
+  correctly with the right title/body/`labels=tool-submission`. All three
+  checks green, pushed directly to `master`.
 - **Seen in:** There's An AI For That runs a prominent "Submit a Tool" flow as
   a primary nav item; Futurepedia accepts vendor/user tool submissions into
   its directory; Product Hunt's entire growth loop is community-submitted
@@ -7491,7 +7502,18 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-09-16 09:10 UTC
 
 ### No way to flag a wrong listing — the catalog has a "suggest a new tool" gap already logged, but no "this one is wrong" path at all
-- **Status:** OPEN
+- **Status:** SHIPPED 3a7a173 — built together with "Suggest a tool" above,
+  near-zero marginal diff as planned. `buildReportIssueUrl({ slug, name,
+  note })` added as a second export in the same `src/utils/suggestTool.js`,
+  `labels=tool-report`. A small plain-text "Something wrong here?" link
+  (not another `nb-btn`, exactly as scoped) added on `ToolDetail.jsx` below
+  the "Visit website" button and the equivalent spot on the public
+  `ToolPublic.jsx`. Verified live against a built `preview` server: both
+  links' `href` resolve to a correctly-encoded GitHub issue URL with the
+  tool's slug/name and `tool-report` label. No moderation queue, no report
+  reason dropdown, no change to the `tool.status` badge — all out of scope
+  as planned. All three checks green (315 tests, build, 24/24 smoke
+  routes), pushed directly to `master`.
 - **Seen in:** review/listing directories that let outsiders touch their data
   all ship a correction path distinct from new-entry submission — G2 runs a
   standing "How do I update the software I use?" flow plus live support chat
