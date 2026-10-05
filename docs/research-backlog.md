@@ -10267,3 +10267,78 @@ found to fix this run.
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — re-verified the next-oldest OPEN entry clean and both fresh angles
 traced back to existing, already-logged ground.
+
+### Research check 2026-10-05 21:04 UTC — no new gap found, thirtieth pass (off-cycle fire); oldest untouched OPEN entry re-verified clean
+Off-cycle run (fired at 21:04, between the day's feature run at 18:03/18:35
+and the next scheduled slot at 00:03) — treated as an ordinary research hour
+per the routine's hour-based dispatch, same as the 23rd/24th/29th off-cycle
+fires. `npm run radar:health` → `OK` (2 runs in the 26h window, last run/
+publish 2.6h ago, 6 tools published that run, feed at 465 total). CI green
+on `master`: `list_workflow_runs` on `ci.yml` shows run #516 (`success`) at
+`23d4899` — the day's own dev-digest push — as the latest CI-triggering
+commit; the repo's `HEAD` has since advanced to `b326645` (radar bot's
+"publish newly discovered tools" auto-commit), which per every prior pass's
+confirmed behavior does not retrigger CI on its own. No `agent-fixable`
+issues open (`search_issues` zero results). Local checkout was again
+detached at session start — fetched and re-pointed to `origin/master`
+(`b326645`, matches `origin/master` exactly) before running any check.
+
+Open-PR shape unchanged: all four tracked `BUILT, UNMERGED` entries (#91
+hidden-gems rail, #89 access-method facet, #86 LLM cost calculator, #75
+stack overlap warning) confirmed still open via `list_pull_requests` —
+nothing new to sync this run.
+
+**Re-verified the next-oldest untouched OPEN entry** ("No lookup surface
+outside toolnaut.xyz," found 2026-09-27 21:20 UTC, line ~7958 — next after
+"No testimonial or social-proof quote" (29th pass), itself the entry after
+"No educational/how-to content" (28th pass) in the chain the 19th/23rd/24th/
+25th/26th/27th passes built working forward from "Track progress against
+your role" (found 2026-09-15, the oldest entry with no prior re-verification
+note). Checked every cited reference against current `master`: `find .
+-iname "manifest.json" -not -path "*/node_modules/*"` still returns zero
+hits — no extension directory exists anywhere in the repo. `src/utils/
+search.js:9`'s `matchesQuery(tool, q)` is still the shared, dependency-free
+matcher both `SearchTools.jsx` and `Discover.jsx` import, still ~10 lines,
+still vendorable as-is. `ToolDetail.jsx`'s status badge (cited as
+"`:123-130`") has drifted one line to `:124-130` (`{tool.status &&
+tool.status !== 'Active' && (...)}`, hot-pink pill rendering `tool.status`
+directly) — same one-line drift pattern every other re-verified entry in
+this file has shown, not structural. `vercel.json`'s `/tools.json` rule
+(now at line 90, was unlabeled) still sets only `Cache-Control`, no
+`Access-Control-Allow-Origin` — confirmed the entry's "CORS still missing,
+but this gap doesn't need it fixed first" framing still holds, since a
+Manifest V3 extension's `host_permissions` grant cross-origin fetch
+independent of that header. Nothing drifted in substance; the entry's
+"Smallest useful version" (new top-level `extension/` directory, MV3 popup
+only — manifest + popup.html/js/css, no content script, no background
+worker, vendored `matchesQuery()`, Chrome-only v1, no Web Store publish,
+build size M) is still accurate and still the backlog's one gap that ships
+a wholly new artifact type rather than a `src/`-only diff.
+
+**Two fresh angles checked, both traced back to ground this file already
+holds:**
+- WebSearch ("AI tool directory website 2026 new feature MCP server
+  listing comparison") surfaced a real 2026 trend — dedicated MCP-server
+  directories (Smithery, PulseMCP, Glama, MCP.so, MCP.Directory) letting
+  developers discover/compare/one-click-install MCP servers — but this is
+  the same ground the 2026-09-30 09:00 UTC pass already closed: `grep -ic
+  mcp public/tools.json` was checked then and returns 76 hits already
+  inside shipped tool blurbs, and that pass concluded a dedicated MCP-only
+  directory section is a developer-infra feature outside this consumer
+  product's remit. Re-ran the same grep this pass to confirm it still
+  holds — unchanged. Not a new gap.
+- WebSearch ("AI tool discovery platform 2026 personalization feature gap
+  users want") returned only e-commerce personalization-engine marketing
+  content (Bloomreach, Voyado, generic "hyper-contextual orchestration"
+  listicles) — a different product category (retail merchandising AI, not
+  tool-discovery directories) with no pattern that maps onto Toolnaut's
+  existing quiz/persona/stack personalization. Nothing relevant surfaced.
+
+Ran `npm test` (315/315), `npm run build` (19 static routes, 1137 tool
+pages, feed at 465 live tools, no errors), and `npm run smoke` (24/24
+routes, 0 console errors) directly against current `master`. All three
+clean, no bug found to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — re-verified the next-oldest OPEN entry clean and both fresh angles
+traced back to existing, already-logged ground.
