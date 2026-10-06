@@ -9280,34 +9280,44 @@ entry's accuracy rather than adding ground.
 ---
 
 ### Vendor/maker claim-listing path — a third, still-missing direction alongside "suggest a tool" and "report a wrong listing"
-- **Status:** OPEN
+- **Status:** OPEN — DEEPENED 2026-10-06 00:10 UTC, plan re-grounded against
+  the two sibling paths that shipped since this entry was found; see below.
 - **Seen in:** "claim your listing" is a standing feature on every
   established review/directory site that lists businesses or products it
   didn't create itself — G2 and Capterra both run a vendor-facing "claim
   this profile" flow distinct from their visitor-facing review/correction
-  paths; this run's fresh competitor check (AI Kaptan, a 15,000+-tool AI
-  directory and "launch platform" found via Product Hunt search) frames
+  paths; AI Kaptan (a 15,000+-tool AI directory/launch platform) frames
   itself explicitly as a two-sided product — visitors discover tools, makers
-  launch and manage their own listing — which is the same two-sided pattern
-  G2/Capterra run, just newer to this specific AI-directory niche.
-- **Gap:** Toolnaut already has two visitor-facing correction paths logged in
-  this file — "Suggest a tool" (OPEN, line ~724, a missing tool) and "No way
-  to flag a wrong listing" (OPEN, line ~7474 at time of writing, an existing
-  entry that's wrong) — but neither one is from the maker's own side. The
-  "Suggest a tool" entry explicitly scopes out "a separate vendor/company
-  submission path" as not-included; this is that excluded path, not a
-  duplicate of it. Grepped `claim` across `src/` and `radar/`: the only hits
-  are `FounderRibbon.jsx`/`FounderOffer.jsx`'s unrelated "Claim founder
-  price" checkout copy and `toolResources.js`'s comment about mirroring a
-  Supabase `tool_claims` table — that table is about sourced *integration
-  facts* (`supabase/migrations/0003_tool_claims.sql`), not vendor identity, a
-  coincidental name collision confirmed by reading the migration directly.
-  There is no "are you the maker of this tool?" link anywhere on
-  `ToolDetail.jsx` or `ToolPublic.jsx`, and no way for a vendor to tell
-  Toolnaut their own listing is stale, their pricing changed, or their tool
-  should be marked differently in `tool.status`.
+  launch and manage their own listing — the same two-sided pattern G2/
+  Capterra run, just newer to this specific AI-directory niche. This pass's
+  fresh competitor check (WebSearch, "claim your listing AI tool directory
+  vendor verification flow 2026") confirms the lightweight industry-standard
+  pattern: a verification *email* sent to an address at the product's own
+  domain qualifies for instant approval, anything else (a personal email, a
+  social-profile link) goes to manual review within a day or two — directories
+  don't try to cryptographically prove ownership, they gate on domain-matched
+  email or a human's judgment call. Toolnaut has no email capture anywhere
+  (no backend, no mailer) and isn't adding one for this, so the plan below's
+  GitHub-issue-only, fully-manual-triage approach is the correct shape for a
+  static SPA, not a corner cut relative to what competitors actually do for
+  their non-domain-matched claims.
+- **Gap:** Toolnaut already has two visitor-facing correction paths, and both
+  have since shipped — confirmed `src/utils/suggestTool.js` exists (2026-10-05,
+  `feat(catalog)` commit `3a7a173`) exporting `buildSuggestToolUrl()` (a
+  missing tool) and `buildReportIssueUrl()` (an existing listing that's
+  wrong), both thin `issueUrl({ title, body, labels })` wrappers around a
+  `GitHub issues/new` URL. Neither is from the maker's own side — the
+  "Suggest a tool" entry explicitly scoped out "a separate vendor/company
+  submission path" as not-included, and this is that excluded path. Grepped
+  `claim` across `src/` and `radar/` again this pass: still only
+  `FounderRibbon.jsx`/`FounderOffer.jsx`'s unrelated "Claim founder price"
+  checkout copy and `toolResources.js`'s `tool_claims` Supabase table (sourced
+  *integration facts*, confirmed by `supabase/migrations/0003_tool_claims.sql`,
+  not vendor identity — still a coincidental name collision). There is still
+  no "are you the maker of this tool?" link on `ToolDetail.jsx` or
+  `ToolPublic.jsx`.
 - **Why it matters:** radar discovers and enriches tools automatically, which
-  means every one of the 704+ catalog entries describes a product from the
+  means every one of the 700+ catalog entries describes a product from the
   outside, on a schedule the vendor never agreed to or gets a say in — the
   maker of a tool is the single most motivated, most informed person to flag
   a stale price, a wrong category, or a shut-down product, and today they
@@ -9317,42 +9327,44 @@ entry's accuracy rather than adding ground.
   Featured on Toolnaut badge" entry) once they know a listing is something
   they can claim and keep accurate.
 - **Smallest useful version (what to actually build):** extend, don't
-  duplicate, the same planned util the other two correction paths already
-  share:
-  - Add a third export to the planned `src/utils/suggestTool.js` (shared
-    with "Suggest a tool" and "report a wrong listing," none of which exist
-    yet as of this run — confirmed `ls src/utils/` has no `suggestTool.js`) —
-    `buildClaimListingUrl({ slug, name, role })` → a GitHub `issues/new` URL
-    built the same `URLSearchParams` way, `title` pre-filled with the tool
-    name, a structured `body` asking for the claimant's role and a link
-    proving affiliation (the tool's own site, a social profile, or a company
-    email domain — a human reads and judges this, same as every other entry
-    in this file that touches trust), `labels=vendor-claim`.
-  - One small, low-emphasis link on `ToolDetail.jsx` (near the existing
-    "Visit website" button, `ToolDetail.jsx:156-163`) and the equivalent spot
-    on `ToolPublic.jsx` (near its own `ToolDetail` link row, `:75-88`): "Are
-    you the maker? Claim this listing" — opens
-    `window.open(buildClaimListingUrl({ slug: tool.slug, name: tool.name }), '_blank', 'noopener')`,
-    no modal, no in-app form, same division of labor the other two
-    GitHub-issue-based entries already establish.
+  duplicate, the util the other two correction paths already ship with —
+  re-verified every reference below against current `master`:
+  - Add a third export to **the now-existing** `src/utils/suggestTool.js` —
+    `buildClaimListingUrl({ slug, name, role, note })` reusing the file's own
+    private `issueUrl({ title, body, labels })` helper (`suggestTool.js:6-9`),
+    `title` pre-filled with the tool name, a structured `body` asking for the
+    claimant's role and a link proving affiliation (the tool's own site, a
+    social profile, or a company email domain — a human reads and judges
+    this, same as the industry's own non-domain-matched claims, see above),
+    `labels: 'vendor-claim'`.
+  - One small, low-emphasis link next to the two correction links that
+    already ship this exact way: `ToolDetail.jsx:167-174`'s "Something wrong
+    here?" (`buildReportIssueUrl`, plain-text `<a>`, not an `nb-btn`, styled
+    `text-xs text-zinc-500 underline`) and the identical link at
+    `ToolPublic.jsx:92-99`. Add "Are you the maker? Claim this listing" as a
+    second plain-text link right after each, same classes, same
+    `target="_blank" rel="noopener noreferrer"` pattern, `href=
+    {buildClaimListingUrl({ slug: tool.slug, name: tool.name })}` — no modal,
+    no in-app form, no new import beyond the one extra named export.
   - **What this would NOT include** (kept out to bound the diff, and to stay
     honest about what a GitHub issue can and can't prove): no identity or
-    domain verification of any kind — a human triages every claim exactly
-    like every other `tool-submission`/`tool-report` issue, and this entry
-    does not pretend otherwise; no vendor login, dashboard, or self-service
+    domain-verification *automation* of any kind — a human triages every
+    claim exactly like every `tool-submission`/`tool-report` issue already
+    is, matching how competitors themselves still hand-review every
+    non-domain-matched claim; no vendor login, dashboard, or self-service
     edit rights to the catalog record — a confirmed claim still goes through
     a manual edit or the next radar enrichment pass, same as any other
     correction; no automatic "verified maker" badge on the tool card (a
     fabricated-trust-signal risk this file has consistently avoided
     elsewhere, e.g. the status-note and leaderboard-sample-data entries); no
-    change to `tool.status` or any other catalog field from this build
-    alone.
-- **Build size:** S — one more export in the same not-yet-built util file
-  "Suggest a tool" and "report a wrong listing" already plan to create, two
-  small link additions (`ToolDetail.jsx`, `ToolPublic.jsx`). No backend, no
-  new dependency, no new route. Cheapest to build in the same pass as either
-  of the other two GitHub-issue-link entries, since all three would share
-  one `GITHUB_REPO_URL` constant and one util file.
+    change to `tool.status` or any other catalog field from this build alone.
+- **Build size:** S — one more export in the already-shipped `suggestTool.js`,
+  two one-line link additions (`ToolDetail.jsx`, `ToolPublic.jsx`) placed
+  right next to each file's existing "Something wrong here?" link. No
+  backend, no new dependency, no new route, no new file. Cheaper to build now
+  than when found, since the util and both integration points this entry
+  depends on already exist — this is the single cheapest OPEN entry in the
+  file to ship next.
 - **Found:** 2026-10-03 21:11 UTC
 
 ---
@@ -10342,3 +10354,59 @@ clean, no bug found to fix this run.
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — re-verified the next-oldest OPEN entry clean and both fresh angles
 traced back to existing, already-logged ground.
+
+### Research check 2026-10-06 00:10 UTC — no new gap found, thirty-first pass; deepened the claim-listing entry instead of re-verifying another clean one
+Research run (UTC hour 0, one of the three research slots on a non-feature
+day). `npm run radar:health` → `OK` (2 runs in the 26h window, last run/
+publish 5.6h ago, 6 tools published that run, feed at 465 total — unchanged
+from the 30th pass, no new radar activity since). CI green on `master`:
+`list_workflow_runs` on `ci.yml` shows run #517 (`success`) at `1281608`, the
+30th pass's own push, as the latest commit — nothing has landed since. No
+`agent-fixable` issues open (`list_issues` zero results). Local checkout was
+again detached at session start — fetched and re-pointed to `origin/master`
+before running any check, same recurring container-start behavior every
+prior pass has noted.
+
+Open-PR shape unchanged and explicitly re-confirmed stale: `list_pull_requests`
+returns 29 open `bot/claude/*`/`bot/deps/*` PRs going back to #10
+(2026-08-26), none merged, none closed. The four most recent (#91 hidden-gems
+rail, #89 access-method facet, #86 LLM cost calculator, #75 stack overlap
+warning) are feature branches from the GitHub Actions `agent-*.yml` track
+CLAUDE.md's "one open PR per agent" rule scopes to; this session is the
+scheduled cloud routine using the master-direct workflow documented in every
+prior pass's entry here (and in `DEVLOG.md`'s own "SHIPPED <sha>" pattern),
+so that rule doesn't gate this session and this pass proceeded the same way
+the last 30 have.
+
+**Deepened rather than re-verified:** the oldest-untouched-entry chain (most
+recently "No lookup surface outside toolnaut.xyz," 30th pass) has now run six
+re-verifications in a row that found the cited entry "still accurate, no
+drift, nothing new" — diminishing returns on that specific mechanical check.
+Per the "if an OPEN gap is promising but thin, DEEPEN it" instruction, picked
+a different, newer entry instead: "Vendor/maker claim-listing path" (found
+2026-10-03 21:11 UTC), whose own plan had gone stale in a genuinely useful
+way — it was written against `src/utils/suggestTool.js` as a file that
+"doesn't exist yet," and that file shipped two days later (2026-10-05,
+`3a7a173`) as part of the "Suggest a tool"/"report a wrong listing" build.
+Re-read `suggestTool.js`, `ToolDetail.jsx`, and `ToolPublic.jsx` on current
+`master`, updated every file/line reference in the entry to match what
+actually shipped, and ran one fresh competitor search (WebSearch, "claim
+your listing AI tool directory vendor verification flow 2026") that
+surfaced the industry's actual verification mechanic — domain-matched email
+gets instant approval, everything else goes to manual review — which
+confirms (rather than contradicts) the entry's existing no-backend,
+fully-manual-triage plan: Toolnaut has no mailer, so matching what
+competitors do for their own non-domain-matched claims is the honest
+ceiling, not a corner cut. The entry is now the cheapest OPEN item in this
+file to build (one new named export in an existing file, two one-line links
+next to links that already ship) and does not need another deepening pass
+before the next feature run picks it up.
+
+Ran `npm test` (315/315), `npm run build` (19 static routes, 1137 tool pages,
+feed at 465 live tools, no errors), and `npm run smoke` (24/24 routes, 0
+console errors) directly against current `master`. All three clean, no bug
+found to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — deepened an existing thin entry instead, with one fresh competitor
+search backing the update.
