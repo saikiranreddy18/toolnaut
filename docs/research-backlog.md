@@ -10544,3 +10544,56 @@ clean, no bug found to fix this run.
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — re-verified the oldest never-touched OPEN entry clean instead, with
 one fresh search reconfirming its premise.
+
+### Research check 2026-10-06 09:04 UTC — no new gap found, thirty-fourth pass; enterprise-compliance-badge lead fails primary-source verification
+Scheduled run, UTC hour 09 (one of the three research slots on a non-feature
+day). `npm run radar:health` → `OK` (2 runs in the 26h window, last run/
+publish 7.2h ago, 3 tools published that run, feed at 468 total — unchanged
+from the 33rd pass, no new radar activity since). `list_workflow_runs` on
+`master`: `CI`/`Release` both green at the latest push (`b390e1a`, the 33rd
+pass's own commit) — nothing red since. No `agent-fixable` issues open
+(`list_issues` zero results). Local checkout was again detached at session
+start — fetched and re-pointed to `origin/master` before running any check,
+same recurring container-start behavior every prior pass has noted.
+
+Open-PR shape: `list_pull_requests` now returns 31 open `bot/claude/*`/
+`feat/*`/`docs(research)`-titled PRs (up from 29 at the 31st pass, oldest
+still #3), none merged or closed — still the separate GitHub-Actions
+`agent-*.yml` queue CLAUDE.md's "one open PR per agent" rule scopes to, not
+this session's master-direct scheduled routine, same conclusion every prior
+pass has reached.
+
+**A WebSearch lead that didn't hold up:** searched whether AI tool
+directories display third-party security/compliance certifications (SOC2,
+GDPR, HIPAA, ISO 27001) per listing — a trust-signal axis genuinely distinct
+from everything already in this file (peer reviews, popularity counts,
+vendor claim-listing, and Toolnaut's *own* GDPR-consent-gate for its
+analytics are all covered, but none of them is about surfacing a *catalog
+tool's* compliance posture). Two leads looked promising at the snippet
+level: "Toolify" and "AI Tools Explorer" allegedly show or filter by these
+certifications. Per "read the actual page before claiming a gap," fetched
+the primary sources instead of trusting the summaries. `opentools.ai`'s
+ChatGPT listing has no certification badges, verification seals, or audit
+links anywhere on the page — only a prose "Is ChatGPT Safe?" section with
+checkmarked bullets reproducing OpenAI's own paid-tier marketing copy
+("ChatGPT Business includes compliance support and encryption"), not a
+verified third-party badge. `toolify.ai` returned HTTP 403 to a direct
+fetch — could not verify directly, so not relied on. "AI Tools Explorer"
+turned out not to be an independently fetchable live product at all: the
+only source for its "filter by GDPR/HIPAA/SOC2/ISO27001" claim is its own
+self-submitted listing page on `hunted.space` (a directory-of-tools
+submission site), and no search surfaced an actual URL for the tool itself
+to inspect — the claim is the product's own marketing copy about itself on
+a third-party directory, not something loadable and checkable. Net: one
+inspectable primary source shows no real badge system, and the other
+specific claim has no inspectable primary source at all. Not logged as a
+gap — same bar the 32nd pass's wrapper/native lead failed to clear.
+
+Ran `npm test` (315/315), `npm run build` (19 static routes, 1140 tool
+pages, feed at 466 live tools, no errors), and `npm run smoke` (24/24
+routes, 0 console errors) directly against current `master`. All three
+clean, no bug found to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — the one new lead failed primary-source verification on both halves,
+so nothing was logged.
