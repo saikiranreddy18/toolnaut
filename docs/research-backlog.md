@@ -10645,3 +10645,66 @@ clean `/changelog` prerender, feed at 468 tools, 1140 tool pages), and
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — logged and fixed a recurrence of an existing one instead, same as the
 20th pass.
+
+### Research check 2026-10-06 15:04 UTC — no new gap found, thirty-sixth pass; re-verified the next-oldest untouched OPEN entry
+Scheduled run, UTC hour 15 (one of the three research slots on a non-feature
+day). `npm run radar:health` → `OK` (2 runs in the 26h window, last run/
+publish 13.2h ago, 3 tools published that run, feed at 468 total — unchanged
+from the 35th pass). `list_workflow_runs` on `master`: `CI`/`Release` both
+green at the latest push (`2b4d173`, the 35th pass's own commit) — nothing
+red since. No `agent-fixable` issues open (`list_issues` zero results).
+Local checkout was again detached at session start (pointing at the correct
+tip already) — checked out `master` and fast-forwarded, same recurring
+container-start behavior every prior pass has noted.
+
+**Two fresh WebSearches, both traced back to existing ground, not new gaps:**
+"AI tool directory price tracking / notify me / saved search" surfaced an
+indie-built "Price Explorer" (budget slider) and a daily "Tool of the Day"
+with a countdown. Checked both against the catalog before considering
+either: `public/tools.json`'s `pricing` field has a digit in only 3 of 468
+records (`python3` scan this run) — the same "no numeric price data" wall
+the already-REJECTED stack-cost-estimate gap hit, so a budget slider isn't
+buildable. "Tool of the Day" turned out to already exist —
+`Stack.jsx`'s `toolOfTheDay()` (cited directly in the "hidden gems" entry at
+line ~7072) rotates a daily pick today, just scoped to the signed-in user's
+own top matches rather than the whole catalog; not a gap. A second search
+("AI tool directory browser extension 2026") surfaced real competitor
+extensions (AI Tools Explorer, Quick AI) that confirmed, rather than added
+to, the already-OPEN "No lookup surface outside toolnaut.xyz" entry
+(found 2026-09-27) — same shape, same examples that entry already cites.
+
+**Re-verified the next-oldest untouched OPEN entry** — "Per-tool ratings &
+reviews" (found 2026-08-24, deepened once on 2026-09-20; the 33rd pass's
+re-verification of "First-session onboarding checklist" was the
+oldest-of-all entry, this is the one after it in found-date order). Checked
+every claim against current `master`: `TrustPanel`/`ToolResources` placement
+in `ToolDetail.jsx` has drifted again since the 09-20 deepening —
+`<TrustPanel>` now at `:219` (was `:208`), `<ToolResources>` now at `:222`
+(was `:211`), "Related tools" heading now at `:226` (was `:213`), the "Why
+it fits" sticker block now starts at `:196` (was `:185`), and the MATCH/
+status badge row is now `:111-132` (was `:110-131`) — all one-line-type
+drift, nothing structural. The corrected placement (REVIEWS section after
+`<ToolResources>`, immediately before "Related tools") still applies at the
+new line numbers. `communityStore.js`'s `read`/`write` still wrap
+`scopedRead`/`scopedWrite` from `scopedStorage.js` exactly as the 09-20
+deepening described, and `exus_threads_v1`/`exus_replies_v1`/
+`exus_upvotes_v1` are still the two arrays (`PORTABLE_KEYS`, `AUTHORED_KEYS`)
+a new `exus_tool_reviews_v1` key would need to join. All five example seed
+slugs (`chatgpt`, `claude`, `notion-ai`, `perplexity`, `cursor`) still
+resolve — confirmed in `src/utils/toolsCatalog.js`'s static 704-tool `TOOLS`
+array (not `public/tools.json`, the radar feed, which is a separate,
+smaller set and was the wrong file to check first). No rating/review
+surface has shipped anywhere since: `grep -rn "toolReviews" src/` is still
+empty, and `toolSeo.js:18`'s own comment ("no rating, no review count and
+no price figure the catalogue does not hold") independently confirms the
+gap from the structured-data side. Core claim and build plan both still
+hold, only line references needed correcting.
+
+Ran `npm test` (315/315), `npm run build` (19 static routes, 1140 tool
+pages, feed at 466 live tools, no errors), and `npm run smoke` (24/24
+routes, 0 console errors) directly against current `master`. All three
+clean, no bug found to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — both fresh searches traced back to existing ground and the
+next-oldest untouched OPEN entry was re-verified clean instead.
