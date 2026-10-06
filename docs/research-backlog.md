@@ -10410,3 +10410,75 @@ found to fix this run.
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — deepened an existing thin entry instead, with one fresh competitor
 search backing the update.
+
+### Research check 2026-10-06 03:04 UTC — no new gap found, thirty-second pass; a tempting competitor claim didn't survive primary-source verification
+Scheduled run, UTC hour 03 (one of the three research slots on a non-feature
+day). `npm run radar:health` → `OK` (2 runs in the 26h window, last run/
+publish 1.2h ago, 3 tools published that run, feed at 468 total). CI green on
+`master`: `list_workflow_runs` shows `Radar` run #91 (`success`) at `1ca6dd9`
+as the latest activity, with `CI`/`Release` both green on the push before it
+(`1ca6dd9`, the 31st pass's own commit) — nothing red since. No
+`agent-fixable` issues open (`list_issues` zero results).
+
+Open-PR shape unchanged: `list_pull_requests` still returns the same 29 open
+`bot/claude/*`/`bot/deps/*`/`feat/*` PRs going back to #10, none merged or
+closed — this remains the separate GitHub-Actions `agent-*.yml` queue
+CLAUDE.md's "one open PR per agent" rule scopes to, not this session's
+master-direct routine, same conclusion every prior pass has reached.
+
+**A WebSearch lead that didn't hold up:** two searches for 2026 AI-directory
+feature trends turned up a claim worth chasing — that some directories
+"distinguish wrapper tools (thin API wrappers around GPT/Claude/Gemini) from
+native/foundational AI products" as a trust signal for privacy-conscious
+power users. That would have been a genuinely new axis, distinct from the
+already-OPEN "Access-method facet" gap (which is about deployment shape —
+web app/API/self-hosted — not about what model sits underneath). Before
+logging it, fetched the two actual primary sources this category runs on
+rather than trusting the review-blog summary: `theresanaiforthat.com` and
+`futurepedia.io` directly. Neither shows any wrapper/native distinction —
+Futurepedia presents ChatGPT and Claude with identical treatment, no badge
+or filter separates API-wrapped tools from foundational ones. The claim
+traced back to low-quality SEO content-farm pages (`fast.io/resources/...`,
+`aiindigo.com/blog/...`), not real competitor behavior. Per "read the actual
+page before claiming a gap," this was not logged — it would have been
+build-size M for a feature that doesn't exist anywhere to copy and has no
+reliable data source (most tool descriptions never disclose what model they
+wrap). Same two fetches did reconfirm Futurepedia's real, visible feature:
+per-tool interaction counts and review counts next to every listing (ChatGPT:
+6,719 interactions / 9 reviews; Claude: 1,081 / 12) — this directly
+corroborates two gaps already OPEN in this file ("Popularity signal discarded
+before it reaches a record" and "Per-tool ratings & reviews"), not a reason
+to log a third.
+
+**Re-verified "Popularity signal discarded before it reaches a record"**
+(found 2026-09-28 09:09 UTC) against current `master` since the Futurepedia
+fetch directly touches its premise: `radar/sources/github.js:9` still queries
+`sort=stars&order=desc` and stores `stargazers_count` into `raw.stars`
+(line 25); `radar/sources/hackernews.js:27` still stores `hit.points` into
+`raw.points`; `radar/enrich.js` still never reads either field (grepped
+`stars|points|popularity` across the file, zero hits); `radar/schema.js` has
+no `popularity` field in `makeToolRecord()`; `radar/scripts/sync-to-app.js`'s
+`FIELDS` allowlist (line 12) still enumerates the same 16 field names with no
+`popularity` entry; `src/utils/sortResults.js` still only exports
+`compareByNewest`/`compareByName`, no `compareByPopularity`. Nothing drifted
+— the entry's build-size-S plan (one schema field, one `enrich.js` line, one
+allowlist entry, one new comparator, one Discover pill) is still accurate and
+still ready for a feature run.
+
+Spot-checked the most recently shipped feature (`src/utils/suggestTool.js`
+and its three call sites in `Discover.jsx`/`ToolDetail.jsx`/`ToolPublic.jsx`/
+`Settings.jsx`, shipped 2026-10-05 `3a7a173`) for a fresh bug the way the 10th
+pass caught the `InstallPrompt` focus bug in new code the day after it
+shipped: all four external links carry `target="_blank" rel="noopener
+noreferrer"`, the GitHub issue URL builder correctly URL-encodes title/body/
+labels via `URLSearchParams`, and `Discover.jsx`'s inline form's
+`window.open(...)` call passes the `noopener` string correctly. No bug found.
+
+Ran `npm test` (315/315), `npm run build` (19 static routes, 1140 tool pages,
+feed at 466 live tools, no errors), and `npm run smoke` (24/24 routes, 0
+console errors) directly against current `master`. All three clean, no bug
+found to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — the one new lead failed primary-source verification, so nothing was
+logged; re-verified an existing OPEN entry clean instead.
