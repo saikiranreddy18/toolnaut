@@ -90,6 +90,7 @@ export const PORTABLE_KEYS = [
   'exus_upvotes_v1',
   'exus_funnel_v1',
   'exus_recently_viewed_v1',
+  'exus_tool_reviews_v1',
 ]
 
 // Keys that only exist because a PERSON did something. Deliberately excludes
@@ -109,6 +110,7 @@ const AUTHORED_KEYS = [
   'exus_threads_v1',
   'exus_replies_v1',
   'exus_upvotes_v1',
+  'exus_tool_reviews_v1',
 ]
 
 function rawGuest(key) {

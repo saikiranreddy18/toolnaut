@@ -37,6 +37,12 @@ export const HeartIcon = ({ filled }) => (
   </svg>
 )
 
+export const StarIcon = ({ filled }) => (
+  <svg {...base} width={16} height={16} fill={filled ? 'currentColor' : 'none'}>
+    <path d="M12 2.5l2.9 6.2 6.6.6-5 4.5 1.5 6.6L12 17l-5.9 3.4 1.5-6.6-5-4.5 6.6-.6L12 2.5z" />
+  </svg>
+)
+
 export const ChatIcon = () => (
   <svg {...base}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
 )

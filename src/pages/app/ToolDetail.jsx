@@ -11,9 +11,71 @@ import { useAnalytics } from '../../hooks/useAnalytics'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
 import { buildReportIssueUrl } from '../../utils/suggestTool'
-import { HeartIcon } from '../../components/app/icons'
+import { getReviews, getAverageRating, addReview } from '../../state/toolReviewsStore'
+import { timeAgo } from '../../utils/communityData'
+import { loadSession } from '../../state/authStore'
+import { HeartIcon, StarIcon } from '../../components/app/icons'
 import TrustPanel from '../../components/app/TrustPanel'
 import ToolResources from '../../components/app/ToolResources'
+
+function StarPicker({ value, onChange }) {
+  return (
+    <div className="flex items-center gap-1" role="radiogroup" aria-label="Your rating">
+      {[1, 2, 3, 4, 5].map((n) => (
+        <button
+          key={n}
+          type="button"
+          role="radio"
+          aria-checked={value === n}
+          aria-label={`${n} star${n > 1 ? 's' : ''}`}
+          onClick={() => onChange(n)}
+          className="press p-0.5 text-zinc-500"
+          style={{ color: n <= value ? 'var(--lime)' : undefined }}
+        >
+          <StarIcon filled={n <= value} />
+        </button>
+      ))}
+    </div>
+  )
+}
+
+function ReviewForm({ toolName, onSubmit }) {
+  const [rating, setRating] = useState(0)
+  const [body, setBody] = useState('')
+
+  function submit(e) {
+    e.preventDefault()
+    if (rating < 1) return
+    onSubmit({ rating, body: body.trim() })
+    setRating(0)
+    setBody('')
+  }
+
+  return (
+    <form onSubmit={submit} className="glass mt-4 rounded-2xl p-4">
+      <p className="font-display text-xs font-semibold uppercase text-zinc-400">Rate {toolName}</p>
+      <div className="mt-2">
+        <StarPicker value={rating} onChange={setRating} />
+      </div>
+      <label htmlFor="review-body" className="sr-only">Your review</label>
+      <textarea
+        id="review-body"
+        value={body}
+        onChange={(e) => setBody(e.target.value)}
+        placeholder="What was it like to use? (optional)"
+        rows={2}
+        className="mt-3 w-full resize-none bg-transparent text-sm text-zinc-300 placeholder:text-zinc-600 focus:outline-none"
+      />
+      <button
+        type="submit"
+        disabled={rating < 1}
+        className="nb-btn wide mt-3 w-full py-2.5 text-xs disabled:opacity-40"
+      >
+        Post review
+      </button>
+    </form>
+  )
+}
 
 export default function ToolDetail() {
   const { slug } = useParams()
@@ -23,6 +85,7 @@ export default function ToolDetail() {
   const [favorites, setFavorites] = useState(loadFavorites)
 
   const tool = getTool(slug)
+  const [reviews, setReviews] = useState(() => (tool ? getReviews(tool.slug) : []))
 
   // Prefer neighbours in the exact source category, then fall back to domain.
   // Memoized so actions unrelated to this list (e.g. toggleStack, which only
@@ -41,7 +104,10 @@ export default function ToolDetail() {
   // Records on mount and whenever the slug changes — clicking a related-tool
   // link keeps this same component instance mounted, per the comment above.
   useEffect(() => {
-    if (tool) recordView(tool.slug)
+    if (tool) {
+      recordView(tool.slug)
+      setReviews(getReviews(tool.slug))
+    }
   }, [tool?.slug])
 
   if (!tool) {
@@ -67,6 +133,8 @@ export default function ToolDetail() {
   const meta = CATEGORY_META[tool.category] || { name: tool.category, color: 'var(--cyan)' }
   const added = stack.includes(tool.slug)
   const favorited = favorites.includes(tool.slug)
+  const avgRating = getAverageRating(tool.slug)
+  const alreadyReviewed = reviews.some((r) => r.mine)
 
   // Back preserves Discover's filters when we came from there (history state);
   // on a cold deep link there's nothing to go back to, so land on Discover.
@@ -99,6 +167,14 @@ export default function ToolDetail() {
     }
   }
 
+  function submitReview({ rating, body }) {
+    haptic.select()
+    const session = loadSession()
+    addReview(tool.slug, { rating, body, author: session?.user.name || 'you' })
+    setReviews(getReviews(tool.slug))
+    track(EVENTS.CTA_CLICK, { cta: 'add_review', tool: tool.slug, location: 'detail' })
+  }
+
   return (
     <div className="mx-auto max-w-3xl px-5 py-8 lg:py-10">
       <button
@@ -127,6 +203,12 @@ export default function ToolDetail() {
             style={{ background: 'var(--hot-pink)', color: '#fff', border: '2px solid #000', boxShadow: '0 10px 28px -14px rgba(0,0,0,0.7)' }}
           >
             {tool.status}
+          </span>
+        )}
+        {avgRating != null && (
+          <span className="flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 font-display text-xs font-semibold text-white">
+            <StarIcon filled /> {avgRating.toFixed(1)}
+            <span className="text-zinc-400">({reviews.length})</span>
           </span>
         )}
       </div>
@@ -220,6 +302,48 @@ export default function ToolDetail() {
 
       {/* Verified integrations and official training, each linked to its source. */}
       <ToolResources tool={tool} />
+
+      {/* Toolnaut's own case runs first (why it fits, the honest trust panel,
+          verified resources); real users' case runs here, before the page
+          moves on to other products. */}
+      <div className="sticker mt-8 p-5" style={{ transform: 'rotate(0)' }}>
+        <div className="flex items-center justify-between gap-3">
+          <p className="arcade-heading compact text-lg">Reviews</p>
+          {avgRating != null && (
+            <span className="flex items-center gap-1 font-display text-sm font-semibold text-white">
+              <StarIcon filled /> {avgRating.toFixed(1)}
+              <span className="text-zinc-400">({reviews.length})</span>
+            </span>
+          )}
+        </div>
+        {reviews.length > 0 ? (
+          <ul className="mt-4 space-y-4">
+            {reviews.map((r) => (
+              <li key={r.id} className="border-t border-white/10 pt-3 first:border-t-0 first:pt-0">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="flex items-center gap-0.5" aria-label={`${r.rating} out of 5 stars`}>
+                    {[1, 2, 3, 4, 5].map((n) => <StarIcon key={n} filled={n <= r.rating} />)}
+                  </span>
+                  <span className="font-display text-[10px] font-bold text-zinc-400">
+                    {r.mine ? 'YOU' : r.author} · {timeAgo(r.at)}
+                  </span>
+                </div>
+                {r.body && <p className="mt-1.5 text-sm leading-relaxed text-zinc-300">{r.body}</p>}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="mt-2 text-sm text-zinc-300">
+            No reviews yet — be the first to share how {tool.name} worked for you.
+          </p>
+        )}
+
+        {alreadyReviewed ? (
+          <p className="mt-4 text-xs text-zinc-500">You've already reviewed {tool.name}.</p>
+        ) : (
+          <ReviewForm toolName={tool.name} onSubmit={submitReview} />
+        )}
+      </div>
 
       {related.length > 0 && (
         <div className="mt-10">
