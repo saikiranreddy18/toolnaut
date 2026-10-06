@@ -31036,5 +31036,178 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "id": "course-cold-b2b-email-should-be-free-flyhedwig",
+    "toolSlug": "cold-b2b-email-should-be-free-flyhedwig",
+    "title": "Master Cold B2B email should be free (FlyHedwig)",
+    "objectives": [
+      "Set up a free FlyHedwig account and configure sender details",
+      "Find and import a small list of B2B prospects",
+      "Launch a first cold email sequence with tracking"
+    ],
+    "modules": [
+      {
+        "title": "Account Setup & Sender Configuration",
+        "estMinutes": 10,
+        "steps": [
+          "Sign up for FlyHedwig's free plan and verify your email address",
+          "Connect your sending email (Gmail/Outlook or custom domain) in Settings > Email Accounts",
+          "Fill in sender name, signature, and company details so emails don't look like spam"
+        ]
+      },
+      {
+        "title": "Finding & Importing Prospects",
+        "estMinutes": 15,
+        "steps": [
+          "Use the built-in prospect search to filter by industry, job title, and company size for your ideal customer",
+          "Add 10-20 matching prospects to a new list and check that emails show as verified",
+          "Optionally upload your own CSV with columns: first name, last name, email, company"
+        ]
+      },
+      {
+        "title": "Writing & Launching Your First Sequence",
+        "estMinutes": 20,
+        "steps": [
+          "Create a new campaign and write a 3-step sequence: initial email, follow-up at day 3, final follow-up at day 7",
+          "Use personalization variables like {{first_name}} and {{company}} in subject lines and opening sentences",
+          "Enable open/reply tracking, set a daily send limit under 50, and activate the campaign"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-cold email",
+      "skill-outreach",
+      "skill-b2b",
+      "skill-sales",
+      "skill-lead generation"
+    ],
+    "prerequisites": [
+      "A professional email address you can send from",
+      "A clear idea of your target customer (industry, role, company size)"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-06T01:54:20.176Z"
+  },
+  {
+    "id": "course-ai-agents-zero-to-hero",
+    "toolSlug": "ai-agents-zero-to-hero",
+    "title": "Master AI Agents: Zero to Hero",
+    "objectives": [
+      "Understand the core loop of an AI agent: observe, decide, act",
+      "Build a tool-calling agent in pure Python without frameworks",
+      "Add memory and multi-step reasoning to an agent"
+    ],
+    "modules": [
+      {
+        "title": "What Is an AI Agent?",
+        "estMinutes": 15,
+        "steps": [
+          "Write down the agent loop: input → LLM decision → tool call → result → repeat",
+          "Install Python 3.10+ and the openai (or anthropic) SDK, set your API key",
+          "Run a single hardcoded 'agent' script that prints a decision, then a fake tool result"
+        ]
+      },
+      {
+        "title": "Your First Tool-Calling Agent",
+        "estMinutes": 30,
+        "steps": [
+          "Define two Python functions: get_weather(city) and calculate(expr), each returning a string",
+          "Write a prompt that lists these tools and asks the LLM to reply in JSON: {\"tool\": ..., \"args\": ...}",
+          "Parse the JSON reply, dispatch to the matching function, and print the tool's output"
+        ]
+      },
+      {
+        "title": "Building the Agent Loop",
+        "estMinutes": 35,
+        "steps": [
+          "Wrap your code in a while loop: send conversation history to the LLM until it returns a final answer instead of a tool call",
+          "Append every LLM reply and tool result to a messages list so the agent has context",
+          "Test with a multi-step question like 'What's 15% of the temperature in Paris right now?'"
+        ]
+      },
+      {
+        "title": "Memory, Guardrails, and Polish",
+        "estMinutes": 25,
+        "steps": [
+          "Add a max-iteration limit and try/except around tool calls so failures return error text to the LLM",
+          "Save the conversation history to a JSON file and reload it on start for persistent memory",
+          "Add a simple system prompt defining the agent's persona and allowed behavior, then run 3 test queries"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai-agents",
+      "skill-python",
+      "skill-course",
+      "skill-github"
+    ],
+    "prerequisites": [
+      "Basic Python: functions, loops, dictionaries",
+      "An API key for an LLM provider (OpenAI, Anthropic, etc.)"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-06T01:54:20.176Z"
+  },
+  {
+    "id": "course-headline-arena",
+    "toolSlug": "headline-arena",
+    "title": "Master Headline Arena",
+    "objectives": [
+      "Register an AI agent and connect it to Headline Arena's forecasting pipeline",
+      "Submit structured probabilistic forecasts on live questions via the API",
+      "Interpret leaderboards and scoring metrics to benchmark and iterate on your agent"
+    ],
+    "modules": [
+      {
+        "title": "Set Up Your Agent and Understand the Rules",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account, register your agent, and store the API key issued for it",
+          "Read the question format (resolution criteria, closing dates) and browse 3–5 open questions",
+          "Review the scoring rules (e.g., Brier/log score, calibration weighting) so you know what's being ranked"
+        ]
+      },
+      {
+        "title": "Submit Your First Automated Forecasts",
+        "estMinutes": 30,
+        "steps": [
+          "Write a pipeline step that pulls open questions from the API and filters to your agent's domain",
+          "Have your agent output a probability plus a short rationale, then POST it as a forecast before the deadline",
+          "Log each submission locally with question ID, probability, and timestamp for later analysis"
+        ]
+      },
+      {
+        "title": "Track Performance and Iterate",
+        "estMinutes": 25,
+        "steps": [
+          "Check the leaderboard after questions resolve and compare your agent's score against top-ranked agents",
+          "Download your forecast history and compute calibration: bucketed predicted probability vs. actual outcome rate",
+          "Adjust one variable (e.g., base-rate anchoring or update frequency), resubmit on new questions, and measure the score delta"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-forecasting",
+      "skill-benchmark",
+      "skill-ai-agents",
+      "skill-leaderboard",
+      "skill-predictions"
+    ],
+    "prerequisites": [
+      "Basic understanding of probabilistic forecasting (probabilities, calibration)",
+      "Ability to call a REST API from a script or agent framework"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-06T01:54:20.176Z"
   }
 ]

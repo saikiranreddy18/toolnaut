@@ -11109,5 +11109,77 @@
       "automation"
     ],
     "discoveredAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "slug": "cold-b2b-email-should-be-free-flyhedwig",
+    "name": "Cold B2B email should be free (FlyHedwig)",
+    "category": "automation",
+    "sourceCategory": "Marketing, SEO & Sales",
+    "price": "free",
+    "pricing": "Free",
+    "level": "beginner",
+    "blurb": "Free cold B2B email outreach tool for finding and contacting prospects.",
+    "audience": "B2B sales teams and founders",
+    "dev": "FlyHedwig",
+    "year": 2026,
+    "website": "https://flyhedwig.com",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "cold email",
+      "outreach",
+      "b2b",
+      "sales",
+      "lead generation"
+    ],
+    "discoveredAt": "2026-10-06T01:54:20.176Z"
+  },
+  {
+    "slug": "ai-agents-zero-to-hero",
+    "name": "AI Agents: Zero to Hero",
+    "category": "learning",
+    "sourceCategory": "Education & Learning",
+    "price": "free",
+    "pricing": "Free",
+    "level": "beginner",
+    "blurb": "Hands-on course to learn building AI agents from scratch in pure Python.",
+    "audience": "developers learning AI agents",
+    "dev": "tradertanmay",
+    "year": 2026,
+    "website": "https://github.com/tradertanmay/ai-agents-zero-to-hero",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai-agents",
+      "python",
+      "course",
+      "learning",
+      "github"
+    ],
+    "discoveredAt": "2026-10-06T01:54:20.176Z"
+  },
+  {
+    "slug": "headline-arena",
+    "name": "Headline Arena",
+    "category": "data",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free",
+    "level": "intermediate",
+    "blurb": "Public forecasting arena that tracks and ranks AI agents' prediction records.",
+    "audience": "AI developers and forecasting researchers",
+    "dev": "",
+    "year": 2026,
+    "website": "https://headlinearena.com",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "forecasting",
+      "benchmark",
+      "ai-agents",
+      "leaderboard",
+      "predictions"
+    ],
+    "discoveredAt": "2026-10-06T01:54:20.176Z"
   }
 ]

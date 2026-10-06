@@ -1054,7 +1054,8 @@
       "spawned-aio-cloud-platform-for-humans-and-agents",
       "devboard",
       "leftovers",
-      "agentledger"
+      "agentledger",
+      "cold-b2b-email-should-be-free-flyhedwig"
     ],
     "courses": [
       "course-headless-tools",
@@ -1304,7 +1305,8 @@
       "course-spawned-aio-cloud-platform-for-humans-and-agents",
       "course-devboard",
       "course-leftovers",
-      "course-agentledger"
+      "course-agentledger",
+      "course-cold-b2b-email-should-be-free-flyhedwig"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3158,7 +3160,8 @@
       "what-other-languages-call-ai-agents",
       "crypllm-ai-chat-agent-for-cryptool-2",
       "teacher-planner",
-      "gentle-ai-ai-coding-ecosystem"
+      "gentle-ai-ai-coding-ecosystem",
+      "ai-agents-zero-to-hero"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3210,7 +3213,8 @@
       "course-what-other-languages-call-ai-agents",
       "course-crypllm-ai-chat-agent-for-cryptool-2",
       "course-teacher-planner",
-      "course-gentle-ai-ai-coding-ecosystem"
+      "course-gentle-ai-ai-coding-ecosystem",
+      "course-ai-agents-zero-to-hero"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3646,7 +3650,8 @@
       "google-maps-scraper-mcp",
       "revline",
       "agentlytics",
-      "ranking-the-most-ai-agent-friendly-tools"
+      "ranking-the-most-ai-agent-friendly-tools",
+      "headline-arena"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3702,7 +3707,8 @@
       "course-google-maps-scraper-mcp",
       "course-revline",
       "course-agentlytics",
-      "course-ranking-the-most-ai-agent-friendly-tools"
+      "course-ranking-the-most-ai-agent-friendly-tools",
+      "course-headline-arena"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4592,7 +4598,9 @@
       "agentlytics",
       "spawned-aio-cloud-platform-for-humans-and-agents",
       "leftovers",
-      "agentledger"
+      "agentledger",
+      "ai-agents-zero-to-hero",
+      "headline-arena"
     ],
     "courses": [
       "course-placeroot",
@@ -4630,7 +4638,9 @@
       "course-agentlytics",
       "course-spawned-aio-cloud-platform-for-humans-and-agents",
       "course-leftovers",
-      "course-agentledger"
+      "course-agentledger",
+      "course-ai-agents-zero-to-hero",
+      "course-headline-arena"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4851,7 +4861,8 @@
       "atlas-finance-evaluating-ai-agents-inside-a-bank",
       "auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
       "can-ai-build-a-toilet-yet",
-      "an-open-add-search-evaluation-framework-for-agent-memory"
+      "an-open-add-search-evaluation-framework-for-agent-memory",
+      "headline-arena"
     ],
     "courses": [
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
@@ -4862,7 +4873,8 @@
       "course-atlas-finance-evaluating-ai-agents-inside-a-bank",
       "course-auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
       "course-can-ai-build-a-toilet-yet",
-      "course-an-open-add-search-evaluation-framework-for-agent-memory"
+      "course-an-open-add-search-evaluation-framework-for-agent-memory",
+      "course-headline-arena"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -7514,13 +7526,15 @@
       "simurg",
       "simonagent",
       "swarmauth",
-      "search2o"
+      "search2o",
+      "ai-agents-zero-to-hero"
     ],
     "courses": [
       "course-simurg",
       "course-simonagent",
       "course-swarmauth",
-      "course-search2o"
+      "course-search2o",
+      "course-ai-agents-zero-to-hero"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -9708,11 +9722,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "memcode-launches-github-code-review",
-      "open-source-instinct"
+      "open-source-instinct",
+      "ai-agents-zero-to-hero"
     ],
     "courses": [
       "course-memcode-launches-github-code-review",
-      "course-open-source-instinct"
+      "course-open-source-instinct",
+      "course-ai-agents-zero-to-hero"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -14735,10 +14751,12 @@
     "domain": "learning",
     "level": "advanced",
     "toolsTeaching": [
-      "designing-tests-for-agentic-ai-tools"
+      "designing-tests-for-agentic-ai-tools",
+      "ai-agents-zero-to-hero"
     ],
     "courses": [
-      "course-designing-tests-for-agentic-ai-tools"
+      "course-designing-tests-for-agentic-ai-tools",
+      "course-ai-agents-zero-to-hero"
     ],
     "updatedAt": "2026-09-10T23:24:02.732Z"
   },
@@ -14762,11 +14780,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "i-built-an-ai-agent-that-sell-itself",
-      "i-got-sick-of-sequencers-and-crms-so-i-built-this"
+      "i-got-sick-of-sequencers-and-crms-so-i-built-this",
+      "cold-b2b-email-should-be-free-flyhedwig"
     ],
     "courses": [
       "course-i-built-an-ai-agent-that-sell-itself",
-      "course-i-got-sick-of-sequencers-and-crms-so-i-built-this"
+      "course-i-got-sick-of-sequencers-and-crms-so-i-built-this",
+      "course-cold-b2b-email-should-be-free-flyhedwig"
     ],
     "updatedAt": "2026-09-10T23:24:02.732Z"
   },
@@ -14778,12 +14798,14 @@
     "toolsTeaching": [
       "i-built-an-ai-agent-that-sell-itself",
       "the-worst-spam-emails-inside-ilands-ai-agent-hustle",
-      "i-got-sick-of-sequencers-and-crms-so-i-built-this"
+      "i-got-sick-of-sequencers-and-crms-so-i-built-this",
+      "cold-b2b-email-should-be-free-flyhedwig"
     ],
     "courses": [
       "course-i-built-an-ai-agent-that-sell-itself",
       "course-the-worst-spam-emails-inside-ilands-ai-agent-hustle",
-      "course-i-got-sick-of-sequencers-and-crms-so-i-built-this"
+      "course-i-got-sick-of-sequencers-and-crms-so-i-built-this",
+      "course-cold-b2b-email-should-be-free-flyhedwig"
     ],
     "updatedAt": "2026-09-10T23:24:02.732Z"
   },
@@ -14793,10 +14815,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "i-built-an-ai-agent-that-sell-itself"
+      "i-built-an-ai-agent-that-sell-itself",
+      "cold-b2b-email-should-be-free-flyhedwig"
     ],
     "courses": [
-      "course-i-built-an-ai-agent-that-sell-itself"
+      "course-i-built-an-ai-agent-that-sell-itself",
+      "course-cold-b2b-email-should-be-free-flyhedwig"
     ],
     "updatedAt": "2026-09-10T23:24:02.732Z"
   },
@@ -14806,10 +14830,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "i-built-an-ai-agent-that-sell-itself"
+      "i-built-an-ai-agent-that-sell-itself",
+      "cold-b2b-email-should-be-free-flyhedwig"
     ],
     "courses": [
-      "course-i-built-an-ai-agent-that-sell-itself"
+      "course-i-built-an-ai-agent-that-sell-itself",
+      "course-cold-b2b-email-should-be-free-flyhedwig"
     ],
     "updatedAt": "2026-09-10T23:24:02.732Z"
   },
@@ -20895,5 +20921,57 @@
       "course-agentledger"
     ],
     "updatedAt": "2026-10-05T18:31:10.418Z"
+  },
+  {
+    "id": "skill-b2b",
+    "name": "b2b",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "cold-b2b-email-should-be-free-flyhedwig"
+    ],
+    "courses": [
+      "course-cold-b2b-email-should-be-free-flyhedwig"
+    ],
+    "updatedAt": "2026-10-06T01:54:20.176Z"
+  },
+  {
+    "id": "skill-forecasting",
+    "name": "forecasting",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "headline-arena"
+    ],
+    "courses": [
+      "course-headline-arena"
+    ],
+    "updatedAt": "2026-10-06T01:54:20.176Z"
+  },
+  {
+    "id": "skill-leaderboard",
+    "name": "leaderboard",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "headline-arena"
+    ],
+    "courses": [
+      "course-headline-arena"
+    ],
+    "updatedAt": "2026-10-06T01:54:20.176Z"
+  },
+  {
+    "id": "skill-predictions",
+    "name": "predictions",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "headline-arena"
+    ],
+    "courses": [
+      "course-headline-arena"
+    ],
+    "updatedAt": "2026-10-06T01:54:20.176Z"
   }
 ]
