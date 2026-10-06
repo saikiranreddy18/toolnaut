@@ -2924,7 +2924,9 @@ a client-side SPA with a static tool catalogue.
     explicitly-excluded scope.
 
 ### Per-tool "Alternatives" SEO pages — the single highest-intent directory query has zero pages targeting it
-- **Status:** OPEN
+- **Status:** SHIPPED (discovered already live 2026-10-06 21:04 UTC — commit
+  predates this session's visible history, see note at the end of this
+  entry)
 - **Seen in:** studied fresh this run (ToolChase.com's AI-tools guide, then
   cross-checked against the pattern's general form): dedicated "alternatives
   to X" pages are the load-bearing SEO surface for every tool directory that
@@ -3058,6 +3060,48 @@ a client-side SPA with a static tool catalogue.
   construction" from day one, one inconsistency this backlog would otherwise
   flag on sight (see the freshness/lastmod gap this same commit was built
   to close for other pages).
+- **Discovered already shipped 2026-10-06 21:04 UTC (research run, UTC hour
+  21) — this backlog had drifted out of sync with `master` the same way the
+  changelog-staleness bug (flagged three times above) did, just for a
+  bigger feature.** Re-verifying this entry for the usual line-reference
+  drift found the whole thing already built, publicly live, and exceeding
+  the original spec — not a new build, a bookkeeping fix. Confirmed by
+  reading the actual files rather than trusting the stale "Gap" text above:
+  `src/pages/ToolPublic.jsx` is a public, unauthenticated page at
+  `/ai-tools/:slug` (`src/App.jsx:131`, outside `AppShell`'s session guard)
+  with a dedicated "Alternatives to {tool.name}" section
+  (`ToolPublic.jsx:120-144`) rendering up to 6 related tools from
+  `relatedTools()` in `src/utils/toolSeo.js`, which ranks same-`sourceCategory`
+  tools first (same two-tier logic this entry originally proposed) with one
+  real improvement this entry didn't think of — a `looksLikeAName()` filter
+  (`toolSeo.js:58-62`) that excludes radar-mis-shelved entries whose "name"
+  is actually a headline (the exact "ChatPanel Now Available on Firefox next
+  to ChatGPT" failure mode this entry's own "ranked by recognisable before
+  alphabet" line worried about, now actually solved). `toolJsonLd()`
+  (`toolSeo.js`) emits a real `"name": "Alternatives to {tool.name}"`
+  structured-data block per page, not just HTML.
+  `scripts/gen-tool-pages.mjs` generates a **static HTML file for every
+  catalog tool** (confirmed this run: `npm run build` logged
+  "gen-tool-pages: 1150 tool pages written, sitemap updated") and adds every
+  one to the build-time `dist/sitemap.xml` — both wider than this entry's
+  own scope cut, which proposed hand-adding "a small handful of the
+  highest-traffic slugs" and leaving the rest as a follow-up. `ToolDetail.jsx`
+  does not link out to the public page as this entry proposed, but that was
+  always the optional, non-blocking half of the plan ("the new page does not
+  depend on it being wired") — not a reason to call this unshipped.
+  Could not find the shipping commit: `git log --follow` on all three files
+  resolves to `abad463`, this checkout's root commit (a shallow/squashed
+  clone boundary, confirmed via `git rev-list --max-parents=0 HEAD` — the
+  real history predates what this sandbox can see), and `DEVLOG.md` mentions
+  "the statically-generated `/ai-tools/chatgpt` page" as already existing in
+  its 2026-09-?? "Suggest a tool" entry without naming when it shipped.
+  **One real gap this discovery exposed, fixed this run:** the page was
+  never in `scripts/smoke.mjs`'s route list — exactly the follow-up this
+  entry's own build plan called for ("smoke.mjs's hardcoded route array
+  needs one addition") and apparently the one piece that got missed. Added
+  `/ai-tools/chatgpt`; `npm run smoke` now covers it (25/25 routes clean).
+  No other code change — this is a backlog correction plus one test-route
+  addition, not a feature build.
 - **Status:** SHIPPED f075d88
 - **Seen in:** Product Hunt's entire homepage *is* a chronological feed of
   newly launched products — freshness is the whole product, not a side
@@ -10719,3 +10763,52 @@ clean, no bug found to fix this run.
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — both fresh searches traced back to existing ground and the
 next-oldest untouched OPEN entry was re-verified clean instead.
+
+### Research check 2026-10-06 21:04 UTC — thirty-seventh pass; next-oldest untouched OPEN entry turned out to be already shipped
+Scheduled run, UTC hour 21 (one of the three research slots on a non-feature
+day; hour 18 earlier today was the feature run, which shipped per-tool
+ratings & reviews — `0448e6f` — and is marked SHIPPED above).
+`npm run radar:health` → `OK` (2 runs in the 26h window, last run/publish
+5.1h ago, 10 tools published that run, feed at 478 total — growing).
+`list_workflow_runs` on `master`: `CI`/`Release` both green at the latest
+push (`76310d4`, today's feature-run digest commit) — nothing red since. No
+`agent-fixable` issues open (`list_issues` zero results).
+
+**Continued the found-date sweep the 31st–36th passes have been running.**
+"Per-tool ratings & reviews" (found 2026-08-24, re-verified by the 36th
+pass) shipped in today's feature run, so the next-oldest untouched-by-a-
+dedicated-pass OPEN entry in found-date order is "Per-tool 'Alternatives'
+SEO pages" (found 2026-08-28 06:10 UTC, deepened once 2026-09-12). Re-
+verifying it for the usual line-number drift instead found the entire
+feature already live on `master`, built wider than this entry ever scoped
+it — see the long discovery note now appended to that entry above rather
+than repeated here. Short version: `src/pages/ToolPublic.jsx` at public
+route `/ai-tools/:slug` already renders an "Alternatives to {tool.name}"
+section per tool, `scripts/gen-tool-pages.mjs` already statically generates
+one page per catalog tool (1150 of them, confirmed via this run's own
+`npm run build` log) and sitemaps all of them, and `toolSeo.js` already
+emits real JSON-LD for it. This backlog had simply never been told —
+the same class of bug as the changelog-staleness note recorded three times
+earlier in this file, just for a bigger feature that one research pass
+after another kept re-verifying as "still open" without anyone actually
+opening the file it points at. Marked the entry `SHIPPED` and flagged it so
+the pattern (verify by reading the live code, not by trusting the backlog's
+last description of it) stays visible for whichever pass hits the next one.
+
+**The one real, small thing this discovery exposed:** `scripts/smoke.mjs`
+never had `/ai-tools/:slug` in its route list, despite that being an
+explicit line item in this entry's own original build plan. A statically-
+generated, publicly crawlable page with no smoke coverage can regress
+silently — this is exactly the class of gap the "no signal, no PR" rule
+still allows fixing on sight. Added `/ai-tools/chatgpt` to the route array
+(one line). No other code touched.
+
+Ran all three checks against the fix: `npm test` (315/315), `npm run build`
+(19 static routes + 1150 `/ai-tools/*` pages, feed at 1180 tools counting
+the live radar overlay, no errors), and `npm run smoke` (25/25 routes
+clean, including the newly-added `/ai-tools/chatgpt`). All green.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — the hour went to correcting a stale SHIPPED/OPEN status on an
+already-live feature and closing the one real coverage gap that discovery
+turned up.
