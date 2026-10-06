@@ -31209,5 +31209,608 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-06T01:54:20.176Z"
+  },
+  {
+    "id": "course-openchart",
+    "toolSlug": "openchart",
+    "title": "Master OpenChart",
+    "objectives": [
+      "Deploy and configure a self-hosted OpenChart instance with live market data feeds",
+      "Build and backtest a custom AI trading agent using OpenChart's strategy API",
+      "Set up alerting, risk limits, and paper-trading execution from within OpenChart"
+    ],
+    "modules": [
+      {
+        "title": "Self-Hosted Setup & Data Feeds",
+        "estMinutes": 30,
+        "steps": [
+          "Clone the OpenChart repo and launch it with `docker compose up`, then verify the workspace loads at localhost:8080",
+          "Add a data source in Settings > Feeds: connect Binance or Alpaca via API keys and confirm candles stream on a BTC/USD 1m chart",
+          "Configure websocket reconnection and local SQLite candle caching in `config/feeds.yaml` so backfills survive restarts"
+        ]
+      },
+      {
+        "title": "Custom Indicators & Chart Scripting",
+        "estMinutes": 35,
+        "steps": [
+          "Write a custom indicator in OpenChart's scripting panel (e.g., VWAP + RSI divergence) and save it to your indicator library",
+          "Overlay the indicator on a multi-pane layout and bind keyboard shortcuts to switch between 4 symbols/timeframes",
+          "Export the indicator as a shared JSON template and import it into a second workspace to verify portability"
+        ]
+      },
+      {
+        "title": "Building Your AI Trading Agent",
+        "estMinutes": 45,
+        "steps": [
+          "Create `agents/momentum_agent.py` extending OpenChart's BaseAgent class, implementing on_bar() with your entry/exit logic",
+          "Register the agent in the Agents panel and attach it to a chart, feeding it indicator values via the built-in context API",
+          "Optionally wire in a local LLM endpoint (Ollama) so the agent can summarize market regime in its decision log"
+        ]
+      },
+      {
+        "title": "Backtesting & Walk-Forward Validation",
+        "estMinutes": 40,
+        "steps": [
+          "Run the agent through the Backtest tab against 12 months of 1h candles with realistic fees (0.1%) and slippage (2 bps)",
+          "Analyze the equity curve, max drawdown, and Sharpe in the Results panel; iterate on one parameter at a time",
+          "Run walk-forward optimization with a 70/30 train/test split to check the strategy isn't overfit"
+        ]
+      },
+      {
+        "title": "Alerts, Risk Controls & Paper Trading",
+        "estMinutes": 30,
+        "steps": [
+          "Configure agent-level risk limits: max position size, daily loss cutoff, and cooldown after 3 consecutive losses",
+          "Set up webhook alerts (Discord/Telegram) triggered on agent signals and risk-limit breaches",
+          "Enable paper-trading mode with a paper broker connection and let the agent run live for 48 hours while logging every decision"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-trading",
+      "skill-charts",
+      "skill-open-source",
+      "skill-ai-agent",
+      "skill-finance"
+    ],
+    "prerequisites": [
+      "Comfortable with Docker and command-line basics",
+      "Intermediate Python (classes, functions, reading APIs)",
+      "Familiarity with trading concepts: candles, indicators, backtesting, drawdown"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "course-tofu",
+    "toolSlug": "tofu",
+    "title": "Master Tofu",
+    "objectives": [
+      "Install and configure Tofu with API credentials and a connected cloud account",
+      "Deploy a full-stack app from a natural-language prompt using the Tofu CLI",
+      "Define and run a multi-step workflow that builds, provisions, and monitors an app"
+    ],
+    "modules": [
+      {
+        "title": "Setup & Authentication",
+        "estMinutes": 15,
+        "steps": [
+          "Install the Tofu CLI with 'npm install -g tofu-cli' and verify with 'tofu --version'",
+          "Run 'tofu login' and connect your cloud provider (e.g., AWS or Vercel) via the prompted OAuth flow",
+          "Initialize a project with 'tofu init' and confirm the generated tofu.config.yaml points to the right region and runtime"
+        ]
+      },
+      {
+        "title": "Deploying from a Prompt",
+        "estMinutes": 25,
+        "steps": [
+          "Run 'tofu deploy --prompt \"Next.js app with Postgres, auth, and a REST API for a todo list\"' and watch the plan Tofu generates",
+          "Review the proposed architecture in the interactive diff view, then edit one resource (e.g., change the DB plan size) before approving",
+          "Verify the live deployment with 'tofu status' and hit the generated API endpoint with curl"
+        ]
+      },
+      {
+        "title": "Workflows & Iteration",
+        "estMinutes": 30,
+        "steps": [
+          "Create a workflow.tofu file defining stages: generate schema, run migrations, deploy frontend, run smoke tests",
+          "Execute it with 'tofu run workflow.tofu' and inspect per-stage logs with 'tofu logs --stage migrate'",
+          "Iterate on the app by prompting a change ('tofu revise \"add rate limiting to the API\"') and observe the incremental redeploy"
+        ]
+      },
+      {
+        "title": "Debugging & Rollback",
+        "estMinutes": 20,
+        "steps": [
+          "Intentionally break the deployment with a bad prompt, then use 'tofu doctor' to surface the failing resource",
+          "Roll back to the last stable state with 'tofu rollback HEAD~1' and confirm recovery via the health dashboard",
+          "Export the full infrastructure Tofu generated with 'tofu export --format terraform' for audit"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai-agent",
+      "skill-deployment",
+      "skill-full-stack",
+      "skill-developer-tools",
+      "skill-automation"
+    ],
+    "prerequisites": [
+      "Comfort with terminal/CLI basics",
+      "Familiarity with full-stack app concepts (frontend, API, database)",
+      "A cloud provider account (AWS, GCP, or Vercel)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "course-thyme",
+    "toolSlug": "thyme",
+    "title": "Master Thyme",
+    "objectives": [
+      "Use Thyme to trace and interpret runtime behavior of a target app",
+      "Correlate AI-generated hypotheses against raw binary and trace evidence",
+      "Produce a reproducible behavioral analysis report from captured sessions"
+    ],
+    "modules": [
+      {
+        "title": "Setting Up Analysis Targets and Capture Sessions",
+        "estMinutes": 45,
+        "steps": [
+          "Install Thyme CLI and register a target binary with `thyme target add ./app --arch x64`",
+          "Configure a capture session with syscall, network, and memory hooks enabled via the session profile",
+          "Run a baseline capture of the app's startup and idle behavior, then tag the session for comparison"
+        ]
+      },
+      {
+        "title": "Interpreting AI-Assisted Behavior Analysis",
+        "estMinutes": 50,
+        "steps": [
+          "Trigger the AI analysis pass on the captured session and review the generated behavior graph",
+          "Interrogate specific findings (e.g., unexpected outbound connections) with follow-up prompts to refine the hypotheses",
+          "Validate each AI claim by jumping to the linked trace offsets and inspecting the raw events yourself"
+        ]
+      },
+      {
+        "title": "Differential Analysis and Reporting",
+        "estMinutes": 40,
+        "steps": [
+          "Capture a second session with modified inputs and run `thyme diff baseline.modified` to isolate behavioral deltas",
+          "Annotate key divergences with notes and mark confirmed vs. rejected AI hypotheses",
+          "Export a structured report (JSON + Markdown) with evidence links and share the session bundle with your team"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-reverse engineering",
+      "skill-app analysis",
+      "skill-security",
+      "skill-decompilation",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Solid understanding of reverse engineering fundamentals (assembly, syscalls, dynamic linking)",
+      "Experience with dynamic analysis tooling such as strace, Frida, or a debugger",
+      "Familiarity with reading network captures and process memory layouts"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "course-langgraph-harness",
+    "toolSlug": "langgraph-harness",
+    "title": "Master Langgraph-harness",
+    "objectives": [
+      "Deploy a self-hosted LangGraph agent wired to GitLab webhooks",
+      "Configure automated MR review, labeling, and merge-gating flows",
+      "Debug and extend agent graphs for custom MR policies"
+    ],
+    "modules": [
+      {
+        "title": "Self-Hosted Setup & GitLab Integration",
+        "estMinutes": 45,
+        "steps": [
+          "Clone langgraph-harness, copy .env.example, and set GITLAB_TOKEN with api + read_repository scopes plus your LLM provider key",
+          "Run docker-compose up to start the LangGraph server and Redis checkpointer, then verify /health returns ok",
+          "Register a GitLab project webhook pointing at /webhooks/gitlab with events: merge_request, note; confirm the secret token matches"
+        ]
+      },
+      {
+        "title": "Building the MR Review Graph",
+        "estMinutes": 50,
+        "steps": [
+          "Open graphs/mr_review.py and trace nodes: fetch_diff → analyze_changes → post_review_comment → apply_labels",
+          "Customize the analyze_changes prompt in prompts/review.md to enforce your style guide, then trigger a test with: curl -X POST /runs -d '{\"mr_iid\": 1}'",
+          "Add a conditional edge that routes MRs touching /migrations to a human_approval node before auto-approve"
+        ]
+      },
+      {
+        "title": "Merge Gating, Persistence & Observability",
+        "estMinutes": 40,
+        "steps": [
+          "Enable the merge_gate node so the agent calls the GitLab approvals API and blocks merge until CI + review checks pass",
+          "Inspect thread state via the Redis checkpointer (langgraph checkpoints list --thread-id <mr_iid>) to replay a failed run",
+          "Wire LangSmith tracing (LANGSMITH_API_KEY) and review token usage per MR in the LangSmith dashboard"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-langgraph",
+      "skill-gitlab",
+      "skill-merge requests",
+      "skill-agents",
+      "skill-self-hosted"
+    ],
+    "prerequisites": [
+      "Working knowledge of LangGraph nodes, edges, and state",
+      "Docker and docker-compose operational experience",
+      "GitLab admin access to create tokens and webhooks",
+      "Familiarity with Python async code and prompt engineering"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "course-orbtile",
+    "toolSlug": "orbtile",
+    "title": "Master Orbtile",
+    "objectives": [
+      "Pair Orbtile with your AI coding agents and assign each agent a key",
+      "Configure agent status webhooks so Orbtile reflects real attention states",
+      "Build a triage workflow: glance, respond, and clear alerts efficiently"
+    ],
+    "modules": [
+      {
+        "title": "Hardware Setup & Agent Pairing",
+        "estMinutes": 20,
+        "steps": [
+          "Connect Orbtile via USB-C, run `orbtile-cli init`, and confirm firmware is current with `orbtile-cli update --check`",
+          "Register each agent (e.g., Copilot Workspace, Cursor background agent, Claude Code) with `orbtile-cli agents add --name cursor-bg --key 1`",
+          "Assign distinctive key colors per agent in `~/.orbtile/config.toml` under `[keys]` so red/amber/green meanings match across agents"
+        ]
+      },
+      {
+        "title": "Wiring Status Webhooks",
+        "estMinutes": 30,
+        "steps": [
+          "Start the local listener with `orbtile-cli serve --port 7742` and verify it with `curl localhost:7742/health`",
+          "In each agent's config, add a status hook POSTing JSON like `{\"agent\":\"cursor-bg\",\"state\":\"blocked\"}` to `localhost:7742/event` when it needs input",
+          "Test the full pipeline: trigger a permission prompt in one agent and confirm its key lights up amber within 2 seconds"
+        ]
+      },
+      {
+        "title": "Attention Triage Workflow",
+        "estMinutes": 15,
+        "steps": [
+          "Define your state map: green = running, amber = needs approval, red = failed/idle-done, and write it into the config's `[states]` section",
+          "Press-and-hold a lit key to focus that agent's terminal window via the built-in window-switch integration (configure `focus_app` per key)",
+          "Tap a resolved key to clear it, then run a 10-minute simulated session with 3 agents in parallel to validate your glance-and-clear rhythm"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-hardware",
+      "skill-coding agents",
+      "skill-keypad",
+      "skill-notifications",
+      "skill-developer tools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
+    "toolSlug": "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
+    "title": "Master Tinyhat, per-specialist memory for multi-agent Muse (open source)",
+    "objectives": [
+      "Isolate Tinyhat memory namespaces per Muse specialist",
+      "Configure retrieval, TTL, and write policies for shared workflows",
+      "Audit and prevent cross-specialist memory leakage"
+    ],
+    "modules": [
+      {
+        "title": "Install and wire Tinyhat into Muse",
+        "estMinutes": 25,
+        "steps": [
+          "Clone the Tinyhat repo, install with pipx/uv, and run the local memory server with a Redis or SQLite backend",
+          "Register Tinyhat as Muse middleware so every specialist call passes through memory read/write hooks",
+          "Launch a two-specialist Muse workflow and confirm each agent receives only its namespaced context"
+        ]
+      },
+      {
+        "title": "Define specialist memory policies",
+        "estMinutes": 30,
+        "steps": [
+          "Create per-specialist profiles with separate namespaces, embedding collections, retention TTLs, and read scopes",
+          "Add allow/deny rules for shared artifacts so planner memory is readable by executors but not writable",
+          "Tune retrieval with top-k, recency weighting, and summarization triggers for long-running tasks"
+        ]
+      },
+      {
+        "title": "Test isolation and debug leakage",
+        "estMinutes": 25,
+        "steps": [
+          "Seed secret-like facts in one specialist namespace and probe whether other specialists can surface them",
+          "Enable Tinyhat audit logs and trace memory reads/writes across a full Muse run",
+          "Fix leaks by tightening namespace keys, rewriting shared-memory policies, and adding CI checks for namespace regression"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-multi-agent",
+      "skill-memory",
+      "skill-open-source",
+      "skill-agents",
+      "skill-muse"
+    ],
+    "prerequisites": [
+      "Experience building multi-agent Muse workflows",
+      "Comfort with Python services, Docker, and vector stores",
+      "Basic prompt-injection and data-isolation threat modeling"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "course-agy-ppt",
+    "toolSlug": "agy-ppt",
+    "title": "Master Agy-ppt",
+    "objectives": [
+      "Install and configure the Agy-ppt skill in your agent environment",
+      "Generate a styled deck from a structured outline without default AI templates",
+      "Customize themes, fonts, and layout rules to match a brand"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Deck",
+        "estMinutes": 20,
+        "steps": [
+          "Clone the Agy-ppt repo and install dependencies with pip install -r requirements.txt",
+          "Register the skill in your agent config (add agy-ppt to the skills list and set the output directory)",
+          "Run a test prompt like 'create a 5-slide deck about quarterly results' and open the generated .pptx to verify output"
+        ]
+      },
+      {
+        "title": "Controlling Structure with Outlines",
+        "estMinutes": 25,
+        "steps": [
+          "Write a markdown outline file with slide titles, bullet points, and speaker notes sections",
+          "Pass the outline to the skill using the --outline flag and generate the deck",
+          "Iterate: edit one slide's content in the outline, regenerate, and confirm only that slide changes"
+        ]
+      },
+      {
+        "title": "Killing the Generic AI Look",
+        "estMinutes": 30,
+        "steps": [
+          "Edit the theme config to set custom fonts, a brand color palette, and slide master overrides",
+          "Disable default stock imagery and point the layout rules to your own image/icon asset folder",
+          "Generate two versions of the same deck with different theme configs and compare side by side"
+        ]
+      },
+      {
+        "title": "Workflow Integration and Polish",
+        "estMinutes": 20,
+        "steps": [
+          "Set up a repeatable command or agent shortcut that takes a topic and produces a branded deck in one step",
+          "Export a deck, review it in PowerPoint, and fix any overflow or spacing issues via the layout density setting",
+          "Save your final theme config as a named preset for reuse across projects"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-powerpoint",
+      "skill-presentations",
+      "skill-agent-skill",
+      "skill-open-source",
+      "skill-slides"
+    ],
+    "prerequisites": [
+      "Basic command-line familiarity",
+      "Python 3.9+ installed",
+      "An agent framework that supports custom skills (e.g., Claude Code or similar)",
+      "PowerPoint or a compatible viewer for reviewing output"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "course-vmpal",
+    "toolSlug": "vmpal",
+    "title": "Master VMPal",
+    "objectives": [
+      "Create and manage lightweight macOS/Linux VMs on Apple Silicon using VMPal",
+      "Configure resource limits and sandboxed networking for secure AI agent workloads",
+      "Automate the full VM lifecycle (provisioning, snapshots, teardown) for agent environments"
+    ],
+    "modules": [
+      {
+        "title": "Install VMPal and Launch Your First VM",
+        "estMinutes": 20,
+        "steps": [
+          "Install VMPal via Homebrew (or the signed installer) and verify with `vmpal --version`",
+          "Create a new VM from a base image (e.g., `vmpal create --name sandbox01 --image ubuntu-24.04 --cpu 2 --mem 4GB`)",
+          "Start the VM and open a shell session with `vmpal shell sandbox01`, then stop it with `vmpal stop sandbox01`"
+        ]
+      },
+      {
+        "title": "Harden the Sandbox for AI Agents",
+        "estMinutes": 25,
+        "steps": [
+          "Create a locked-down VM profile: no shared clipboard, no host folder mounts, and read-only guest tools",
+          "Set networking to NAT or host-only (`--net nat` / `--net none`) and test connectivity from inside the VM",
+          "Apply CPU/memory/disk quotas to prevent runaway agent processes, then verify with `vmpal stats sandbox01`"
+        ]
+      },
+      {
+        "title": "Shared Folders, Snapshots, and SSH Access",
+        "estMinutes": 20,
+        "steps": [
+          "Mount a designated host workspace read-only into the VM for agent inputs (`vmpal share add ./workspace /mnt/work --ro`)",
+          "Take a clean snapshot (`vmpal snapshot save sandbox01 clean`) and restore it after a test run",
+          "Enable SSH into the VM and connect from the host with key-based auth only"
+        ]
+      },
+      {
+        "title": "Automate Agent Sandbox Provisioning",
+        "estMinutes": 25,
+        "steps": [
+          "Write a VMPal config file (YAML) defining your agent sandbox: image, resources, network, and shared folders",
+          "Script a spin-up/teardown workflow: create VM from snapshot, run agent task, then destroy (`vmpal delete --force`)",
+          "Integrate the script into your agent pipeline so each run executes in a fresh, disposable VM"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-virtual machines",
+      "skill-apple silicon",
+      "skill-ai agents",
+      "skill-sandbox",
+      "skill-macos"
+    ],
+    "prerequisites": [
+      "An Apple Silicon Mac (M1 or later) running macOS 13+",
+      "Comfort with the command line and basic shell scripting",
+      "Basic familiarity with virtualization concepts (images, snapshots, NAT networking)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "course-dotpals",
+    "toolSlug": "dotpals",
+    "title": "Master dotpals",
+    "objectives": [
+      "Configure dotpals to watch one or more AI coding agents and stream their activity in real time",
+      "Interpret trust signals to distinguish genuine test passes from agent-faked ones",
+      "Trigger manual verification runs and act on flagged discrepancies"
+    ],
+    "modules": [
+      {
+        "title": "Install and Connect Your First Agent",
+        "estMinutes": 25,
+        "steps": [
+          "Install the desktop app, then run `dotpals init` in your project root to generate a .dotpals.toml config",
+          "Point dotpals at your agent by adding its process pattern and workspace path to the config (e.g., watch = [\"claude-code\", \"aider\"])",
+          "Launch the dashboard and confirm live event streaming: file edits, shell commands, and test invocations appear in the timeline"
+        ]
+      },
+      {
+        "title": "Detecting Faked Test Passes",
+        "estMinutes": 35,
+        "steps": [
+          "Enable the test-verification engine with verification.rerun_tests = true so dotpals re-executes every test command the agent reports as passing",
+          "Study a flagged event: compare the agent's claimed output with dotpals' independent rerun log in the diff pane",
+          "Practice the three common fake patterns dotpals catches: tests never actually executed, muted/skipped test suites, and assertions edited to trivially pass"
+        ]
+      },
+      {
+        "title": "Trust Policies and Alerts",
+        "estMinutes": 30,
+        "steps": [
+          "Write a policy rule in .dotpals.toml, e.g., block commits when verification fails: on_mismatch = \"block_commit\"",
+          "Route alerts to your preferred channel (desktop notification, Slack webhook) and set severity thresholds so flaky-test noise doesn't spam you",
+          "Generate a session report with `dotpals report --last-session` and review the verified vs. unverified claim summary"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding agents",
+      "skill-monitoring",
+      "skill-test verification",
+      "skill-mcp",
+      "skill-claude code"
+    ],
+    "prerequisites": [
+      "Comfort working with AI coding agents (e.g., Aider, Claude Code) in a terminal",
+      "A project with an existing automated test suite (pytest, jest, go test, etc.)",
+      "Basic familiarity with TOML/INI config files and running CLI commands"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "course-flagshiprouter",
+    "toolSlug": "flagshiprouter",
+    "title": "Master FlagshipRouter",
+    "objectives": [
+      "Install and launch FlagshipRouter as a local OpenAI-compatible endpoint",
+      "Route coding-tool requests to the best free models with fallback rules",
+      "Point an existing coding assistant at FlagshipRouter and verify end-to-end calls"
+    ],
+    "modules": [
+      {
+        "title": "Install and First Launch",
+        "estMinutes": 15,
+        "steps": [
+          "Install FlagshipRouter via pip/npm (or download the binary) and run `flagship-router init` to generate the default config file",
+          "Start the server with `flagship-router serve --port 8080` and confirm it responds at http://localhost:8080/v1/models",
+          "Inspect the generated config to see the default provider list and which free models are enabled"
+        ]
+      },
+      {
+        "title": "Configure Providers and Model Routing",
+        "estMinutes": 25,
+        "steps": [
+          "Add provider keys (e.g., OpenRouter free tier, Groq, local Ollama) to the config under the `providers` section",
+          "Define routing rules: map model aliases like `code-large` to a primary free model plus a fallback chain in order of preference",
+          "Test routing with `curl http://localhost:8080/v1/chat/completions -d '{\"model\":\"code-large\",\"messages\":[...]}'` and check the router logs to confirm which provider served the request"
+        ]
+      },
+      {
+        "title": "Connect a Coding Tool and Tune",
+        "estMinutes": 20,
+        "steps": [
+          "Set your coding tool's API base URL to http://localhost:8080/v1 and any placeholder API key (e.g., Aider: `--openai-api-base`, Continue: edit config.json)",
+          "Run a real code-edit task and watch FlagshipRouter's logs for latency and fallback events per request",
+          "Adjust timeouts, rate limits, or fallback ordering in the config based on observed failures, then reload with `flagship-router reload`"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai gateway",
+      "skill-coding tools",
+      "skill-openai-compatible",
+      "skill-local",
+      "skill-open source"
+    ],
+    "prerequisites": [
+      "Comfortable editing JSON/YAML config files",
+      "Basic familiarity with REST APIs and curl",
+      "An existing AI coding tool that supports a custom OpenAI-compatible base URL"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-06T15:59:06.042Z"
   }
 ]

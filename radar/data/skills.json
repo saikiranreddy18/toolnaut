@@ -199,7 +199,13 @@
       "stateful-linux-microvms-for-coding-agents",
       "self-bench",
       "open-source-instinct",
-      "borehole"
+      "borehole",
+      "tofu",
+      "thyme",
+      "orbtile",
+      "vmpal",
+      "dotpals",
+      "flagshiprouter"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -396,7 +402,13 @@
       "course-stateful-linux-microvms-for-coding-agents",
       "course-self-bench",
       "course-open-source-instinct",
-      "course-borehole"
+      "course-borehole",
+      "course-tofu",
+      "course-thyme",
+      "course-orbtile",
+      "course-vmpal",
+      "course-dotpals",
+      "course-flagshiprouter"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -568,7 +580,10 @@
       "redactpdfai-open-source-ai-based-pdf-redaction-tool",
       "stateful-linux-microvms-for-coding-agents",
       "open-source-instinct",
-      "leftovers"
+      "leftovers",
+      "openchart",
+      "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
+      "agy-ppt"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -643,7 +658,10 @@
       "course-redactpdfai-open-source-ai-based-pdf-redaction-tool",
       "course-stateful-linux-microvms-for-coding-agents",
       "course-open-source-instinct",
-      "course-leftovers"
+      "course-leftovers",
+      "course-openchart",
+      "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
+      "course-agy-ppt"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -688,7 +706,8 @@
       "i-built-a-digital-wrap-tool-for-tesla-owners",
       "logo-design-skill",
       "made-an-open-source-lego-ai-generator",
-      "artbucket"
+      "artbucket",
+      "agy-ppt"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -726,7 +745,8 @@
       "course-i-built-a-digital-wrap-tool-for-tesla-owners",
       "course-logo-design-skill",
       "course-made-an-open-source-lego-ai-generator",
-      "course-artbucket"
+      "course-artbucket",
+      "course-agy-ppt"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1055,7 +1075,10 @@
       "devboard",
       "leftovers",
       "agentledger",
-      "cold-b2b-email-should-be-free-flyhedwig"
+      "cold-b2b-email-should-be-free-flyhedwig",
+      "tofu",
+      "langgraph-harness",
+      "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
     ],
     "courses": [
       "course-headless-tools",
@@ -1306,7 +1329,10 @@
       "course-devboard",
       "course-leftovers",
       "course-agentledger",
-      "course-cold-b2b-email-should-be-free-flyhedwig"
+      "course-cold-b2b-email-should-be-free-flyhedwig",
+      "course-tofu",
+      "course-langgraph-harness",
+      "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1498,7 +1524,8 @@
       "run-osier-to-track-how-your-ai-coding-agent-does",
       "artbucket",
       "ranking-the-most-ai-agent-friendly-tools",
-      "the-poteto-frontier-for-ai-agents"
+      "the-poteto-frontier-for-ai-agents",
+      "vmpal"
     ],
     "courses": [
       "course-headless-tools",
@@ -1668,7 +1695,8 @@
       "course-run-osier-to-track-how-your-ai-coding-agent-does",
       "course-artbucket",
       "course-ranking-the-most-ai-agent-friendly-tools",
-      "course-the-poteto-frontier-for-ai-agents"
+      "course-the-poteto-frontier-for-ai-agents",
+      "course-vmpal"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2258,7 +2286,8 @@
       "keydris-sudo-for-ai-agents",
       "swarmauth",
       "squidbrake",
-      "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
+      "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
+      "thyme"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -2298,7 +2327,8 @@
       "course-keydris-sudo-for-ai-agents",
       "course-swarmauth",
       "course-squidbrake",
-      "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
+      "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
+      "course-thyme"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2476,7 +2506,8 @@
       "drama-song-ad",
       "web2md",
       "google-maps-scraper-mcp",
-      "devboard"
+      "devboard",
+      "dotpals"
     ],
     "courses": [
       "course-coolplugz",
@@ -2513,7 +2544,8 @@
       "course-drama-song-ad",
       "course-web2md",
       "course-google-maps-scraper-mcp",
-      "course-devboard"
+      "course-devboard",
+      "course-dotpals"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2641,7 +2673,9 @@
       "ipad-computer-use",
       "talktome",
       "pyunto",
-      "coreweave-aria-ai-research-and-iteration-agent"
+      "coreweave-aria-ai-research-and-iteration-agent",
+      "openchart",
+      "tofu"
     ],
     "courses": [
       "course-hermes-agent",
@@ -2651,7 +2685,9 @@
       "course-ipad-computer-use",
       "course-talktome",
       "course-pyunto",
-      "course-coreweave-aria-ai-research-and-iteration-agent"
+      "course-coreweave-aria-ai-research-and-iteration-agent",
+      "course-openchart",
+      "course-tofu"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2672,7 +2708,8 @@
       "friday",
       "yourchar",
       "ggg",
-      "squidbrake"
+      "squidbrake",
+      "langgraph-harness"
     ],
     "courses": [
       "course-hermes-agent",
@@ -2686,7 +2723,8 @@
       "course-friday",
       "course-yourchar",
       "course-ggg",
-      "course-squidbrake"
+      "course-squidbrake",
+      "course-langgraph-harness"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2887,7 +2925,8 @@
       "kingfy",
       "secret-collusion-among-ai-agents",
       "natively",
-      "coletivo"
+      "coletivo",
+      "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
     ],
     "courses": [
       "course-mrea",
@@ -2901,7 +2940,8 @@
       "course-kingfy",
       "course-secret-collusion-among-ai-agents",
       "course-natively",
-      "course-coletivo"
+      "course-coletivo",
+      "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3036,7 +3076,8 @@
       "aitoolsuite",
       "a-document-layer-for-ai-agents",
       "gentle-ai-ai-coding-ecosystem",
-      "ranking-the-most-ai-agent-friendly-tools"
+      "ranking-the-most-ai-agent-friendly-tools",
+      "orbtile"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -3086,7 +3127,8 @@
       "course-aitoolsuite",
       "course-a-document-layer-for-ai-agents",
       "course-gentle-ai-ai-coding-ecosystem",
-      "course-ranking-the-most-ai-agent-friendly-tools"
+      "course-ranking-the-most-ai-agent-friendly-tools",
+      "course-orbtile"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3267,7 +3309,9 @@
       "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
       "plushcrew",
       "ui-for-answering-agent-questions-async",
-      "open-source-instinct"
+      "open-source-instinct",
+      "langgraph-harness",
+      "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3313,7 +3357,9 @@
       "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
       "course-plushcrew",
       "course-ui-for-answering-agent-questions-async",
-      "course-open-source-instinct"
+      "course-open-source-instinct",
+      "course-langgraph-harness",
+      "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3446,7 +3492,8 @@
       "usejunction",
       "web2md",
       "artbucket",
-      "self-bench"
+      "self-bench",
+      "flagshiprouter"
     ],
     "courses": [
       "course-limitless-library",
@@ -3514,7 +3561,8 @@
       "course-usejunction",
       "course-web2md",
       "course-artbucket",
-      "course-self-bench"
+      "course-self-bench",
+      "course-flagshiprouter"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3651,7 +3699,8 @@
       "revline",
       "agentlytics",
       "ranking-the-most-ai-agent-friendly-tools",
-      "headline-arena"
+      "headline-arena",
+      "openchart"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3708,7 +3757,8 @@
       "course-revline",
       "course-agentlytics",
       "course-ranking-the-most-ai-agent-friendly-tools",
-      "course-headline-arena"
+      "course-headline-arena",
+      "course-openchart"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4088,7 +4138,8 @@
       "restarted",
       "is-ai-solving-math-too-fast",
       "can-ai-build-a-toilet-yet",
-      "mutually-beneficial-agentic-common-law"
+      "mutually-beneficial-agentic-common-law",
+      "thyme"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4100,7 +4151,8 @@
       "course-restarted",
       "course-is-ai-solving-math-too-fast",
       "course-can-ai-build-a-toilet-yet",
-      "course-mutually-beneficial-agentic-common-law"
+      "course-mutually-beneficial-agentic-common-law",
+      "course-thyme"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4144,7 +4196,8 @@
       "banker",
       "investment-bets",
       "bananasplit-cli",
-      "open-source-m-a-tools"
+      "open-source-m-a-tools",
+      "openchart"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -4155,7 +4208,8 @@
       "course-banker",
       "course-investment-bets",
       "course-bananasplit-cli",
-      "course-open-source-m-a-tools"
+      "course-open-source-m-a-tools",
+      "course-openchart"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4238,7 +4292,8 @@
       "ai-crawler-honeypot",
       "agentmeasure",
       "agentcap",
-      "glance"
+      "glance",
+      "dotpals"
     ],
     "courses": [
       "course-agenttrail",
@@ -4253,7 +4308,8 @@
       "course-ai-crawler-honeypot",
       "course-agentmeasure",
       "course-agentcap",
-      "course-glance"
+      "course-glance",
+      "course-dotpals"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4767,7 +4823,8 @@
       "static-hosting-a-coding-agent-can-drive-end-to-end",
       "agentica",
       "you-didnt-deploy-the-ai-agent-you-evaluated",
-      "unmute"
+      "unmute",
+      "tofu"
     ],
     "courses": [
       "course-we-run-stateful-ai-agents-on-a-serverless-infra",
@@ -4775,7 +4832,8 @@
       "course-static-hosting-a-coding-agent-can-drive-end-to-end",
       "course-agentica",
       "course-you-didnt-deploy-the-ai-agent-you-evaluated",
-      "course-unmute"
+      "course-unmute",
+      "course-tofu"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4891,7 +4949,8 @@
       "crafting-express",
       "spens-sandboxed-observable-coding-agents",
       "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
-      "stateful-linux-microvms-for-coding-agents"
+      "stateful-linux-microvms-for-coding-agents",
+      "vmpal"
     ],
     "courses": [
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
@@ -4901,7 +4960,8 @@
       "course-crafting-express",
       "course-spens-sandboxed-observable-coding-agents",
       "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
-      "course-stateful-linux-microvms-for-coding-agents"
+      "course-stateful-linux-microvms-for-coding-agents",
+      "course-vmpal"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5490,7 +5550,9 @@
       "friday",
       "crafting-express",
       "spens-sandboxed-observable-coding-agents",
-      "self-bench"
+      "self-bench",
+      "orbtile",
+      "dotpals"
     ],
     "courses": [
       "course-ai-tools-list",
@@ -5505,7 +5567,9 @@
       "course-friday",
       "course-crafting-express",
       "course-spens-sandboxed-observable-coding-agents",
-      "course-self-bench"
+      "course-self-bench",
+      "course-orbtile",
+      "course-dotpals"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5684,7 +5748,8 @@
       "noodle-computer",
       "grove",
       "qlcodepreview-syntax-highlighting-in-finders-quick-look",
-      "leftovers"
+      "leftovers",
+      "vmpal"
     ],
     "courses": [
       "course-ta",
@@ -5693,7 +5758,8 @@
       "course-noodle-computer",
       "course-grove",
       "course-qlcodepreview-syntax-highlighting-in-finders-quick-look",
-      "course-leftovers"
+      "course-leftovers",
+      "course-vmpal"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6881,7 +6947,8 @@
       "neurogrid-terminal-coding-agent",
       "antflow-ai-agentic-ai-framework-for-spec-driven-development",
       "herbarium",
-      "leftovers"
+      "leftovers",
+      "tofu"
     ],
     "courses": [
       "course-openinstinct",
@@ -6898,7 +6965,8 @@
       "course-neurogrid-terminal-coding-agent",
       "course-antflow-ai-agentic-ai-framework-for-spec-driven-development",
       "course-herbarium",
-      "course-leftovers"
+      "course-leftovers",
+      "course-tofu"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -7060,10 +7128,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "slidex"
+      "slidex",
+      "agy-ppt"
     ],
     "courses": [
-      "course-slidex"
+      "course-slidex",
+      "course-agy-ppt"
     ],
     "updatedAt": "2026-08-29T03:23:03.469Z"
   },
@@ -7086,10 +7156,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "slidex"
+      "slidex",
+      "agy-ppt"
     ],
     "courses": [
-      "course-slidex"
+      "course-slidex",
+      "course-agy-ppt"
     ],
     "updatedAt": "2026-08-29T03:23:03.469Z"
   },
@@ -7283,7 +7355,8 @@
       "never-again",
       "friday",
       "yourchar",
-      "whirl"
+      "whirl",
+      "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
     ],
     "courses": [
       "course-itsuki",
@@ -7301,7 +7374,8 @@
       "course-never-again",
       "course-friday",
       "course-yourchar",
-      "course-whirl"
+      "course-whirl",
+      "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -7390,12 +7464,14 @@
     "toolsTeaching": [
       "my-free-code",
       "moshi",
-      "i-forked-jetbrains-new-agent-ide-to-host-claude-code"
+      "i-forked-jetbrains-new-agent-ide-to-host-claude-code",
+      "dotpals"
     ],
     "courses": [
       "course-my-free-code",
       "course-moshi",
-      "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code"
+      "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code",
+      "course-dotpals"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -10322,10 +10398,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "reverify"
+      "reverify",
+      "thyme"
     ],
     "courses": [
-      "course-reverify"
+      "course-reverify",
+      "course-thyme"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -10374,10 +10452,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "claude2api"
+      "claude2api",
+      "flagshiprouter"
     ],
     "courses": [
-      "course-claude2api"
+      "course-claude2api",
+      "course-flagshiprouter"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -11285,7 +11365,8 @@
       "logitech-launches-mx-keypad-for-developers",
       "lapis-one",
       "nvidia-is-the-central-bank-of-ai",
-      "compute-arena"
+      "compute-arena",
+      "orbtile"
     ],
     "courses": [
       "course-open-source-eink-bike-computer",
@@ -11294,7 +11375,8 @@
       "course-logitech-launches-mx-keypad-for-developers",
       "course-lapis-one",
       "course-nvidia-is-the-central-bank-of-ai",
-      "course-compute-arena"
+      "course-compute-arena",
+      "course-orbtile"
     ],
     "updatedAt": "2026-09-04T23:20:31.711Z"
   },
@@ -13095,11 +13177,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "ai-agent-for-beautiful-data-visuals",
-      "rhubarb"
+      "rhubarb",
+      "openchart"
     ],
     "courses": [
       "course-ai-agent-for-beautiful-data-visuals",
-      "course-rhubarb"
+      "course-rhubarb",
+      "course-openchart"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -13204,10 +13288,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "logitech-launches-mx-keypad-for-developers"
+      "logitech-launches-mx-keypad-for-developers",
+      "orbtile"
     ],
     "courses": [
-      "course-logitech-launches-mx-keypad-for-developers"
+      "course-logitech-launches-mx-keypad-for-developers",
+      "course-orbtile"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -15721,10 +15807,12 @@
     "domain": "code",
     "level": "beginner",
     "toolsTeaching": [
-      "simtower-decompiled-rewritten-and-in-the-browser"
+      "simtower-decompiled-rewritten-and-in-the-browser",
+      "thyme"
     ],
     "courses": [
-      "course-simtower-decompiled-rewritten-and-in-the-browser"
+      "course-simtower-decompiled-rewritten-and-in-the-browser",
+      "course-thyme"
     ],
     "updatedAt": "2026-09-12T23:23:08.913Z"
   },
@@ -18390,10 +18478,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "anti-ai-slop"
+      "anti-ai-slop",
+      "agy-ppt"
     ],
     "courses": [
-      "course-anti-ai-slop"
+      "course-anti-ai-slop",
+      "course-agy-ppt"
     ],
     "updatedAt": "2026-09-17T14:18:56.690Z"
   },
@@ -19689,10 +19779,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "investment-bets"
+      "investment-bets",
+      "openchart"
     ],
     "courses": [
-      "course-investment-bets"
+      "course-investment-bets",
+      "course-openchart"
     ],
     "updatedAt": "2026-09-29T15:55:26.286Z"
   },
@@ -20973,5 +21065,187 @@
       "course-headline-arena"
     ],
     "updatedAt": "2026-10-06T01:54:20.176Z"
+  },
+  {
+    "id": "skill-full-stack",
+    "name": "full stack",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "tofu"
+    ],
+    "courses": [
+      "course-tofu"
+    ],
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "skill-app analysis",
+    "name": "app analysis",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "thyme"
+    ],
+    "courses": [
+      "course-thyme"
+    ],
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "skill-langgraph",
+    "name": "langgraph",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "langgraph-harness"
+    ],
+    "courses": [
+      "course-langgraph-harness"
+    ],
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "skill-gitlab",
+    "name": "gitlab",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "langgraph-harness"
+    ],
+    "courses": [
+      "course-langgraph-harness"
+    ],
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "skill-merge requests",
+    "name": "merge requests",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "langgraph-harness"
+    ],
+    "courses": [
+      "course-langgraph-harness"
+    ],
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "skill-notifications",
+    "name": "notifications",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "orbtile"
+    ],
+    "courses": [
+      "course-orbtile"
+    ],
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "skill-muse",
+    "name": "muse",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
+    ],
+    "courses": [
+      "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
+    ],
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "skill-powerpoint",
+    "name": "powerpoint",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agy-ppt"
+    ],
+    "courses": [
+      "course-agy-ppt"
+    ],
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "skill-virtual machines",
+    "name": "virtual machines",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "vmpal"
+    ],
+    "courses": [
+      "course-vmpal"
+    ],
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "skill-apple silicon",
+    "name": "apple silicon",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "vmpal"
+    ],
+    "courses": [
+      "course-vmpal"
+    ],
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "skill-test verification",
+    "name": "test verification",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "dotpals"
+    ],
+    "courses": [
+      "course-dotpals"
+    ],
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "skill-ai gateway",
+    "name": "ai gateway",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "flagshiprouter"
+    ],
+    "courses": [
+      "course-flagshiprouter"
+    ],
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "skill-coding tools",
+    "name": "coding tools",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "flagshiprouter"
+    ],
+    "courses": [
+      "course-flagshiprouter"
+    ],
+    "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "skill-local",
+    "name": "local",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "flagshiprouter"
+    ],
+    "courses": [
+      "course-flagshiprouter"
+    ],
+    "updatedAt": "2026-10-06T15:59:06.042Z"
   }
 ]
