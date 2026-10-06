@@ -9,6 +9,68 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-10-06
+
+**Radar health:** `OK` — 3 runs in the 26h window, most recent 2.1h before
+this run (10 tools published that run), feed at 478 tools total in
+`public/tools.json`. Across the window's 3 runs: 19 tools published total
+(6 + 3 + 10). No action needed.
+
+**Researched today:** six research-hour passes (00:10, 03:04, 06:04, 09:04,
+12:04, 15:04 UTC — the 31st through 36th against this backlog). None found
+a genuinely new gap; each instead deepened or re-verified existing OPEN
+entries against current `master`: the 31st deepened "Vendor/maker
+claim-listing path", the 32nd–35th re-verified four fresh competitor
+searches that all traced back to ground already covered here (compliance
+badges, browser extensions, price sliders, "Tool of the Day"), and the 36th
+re-verified **"Per-tool ratings & reviews"** — confirming the core claim
+and build plan still held, just with `ToolDetail.jsx` line numbers
+corrected after drift since the 2026-09-20 deepening. The 35th pass also
+caught and fixed a recurring bug: `changelogData.js`'s newest entry was
+stuck three days stale because the 2026-10-05 feature commit never got
+translated in — the same process gap already patched twice before
+(2026-09-23, 2026-10-04). That gap ("Changelog only looks backward") is
+still open; it keeps recurring because nothing in the feature run's own
+checklist writes the changelog entry yet.
+
+**Shipped today:** **per-tool ratings & reviews** — picked because the
+36th research pass had just re-verified it fresh, with corrected line
+numbers and a build plan unchanged since 2026-08-24. Toolnaut had zero peer
+social-proof surface anywhere: `ToolDetail.jsx`'s MATCH badge and
+`TrustPanel` are both Toolnaut's own algorithmic case, never another user's
+opinion. Added `src/utils/toolReviewsData.js` (20 seed reviews across 15
+well-known slugs), `src/state/toolReviewsStore.js` (mirrors
+`communityStore.js`'s scoped-storage pattern exactly, including the
+`exus_tool_reviews_v1` additions to `scopedStorage.js`'s `PORTABLE_KEYS`/
+`AUTHORED_KEYS` so reviews migrate and scope correctly on sign-in), a star
+rating badge next to the MATCH/status row, and a REVIEWS section after
+`<ToolResources>` with a star-picker + textarea composer capped at one
+review per tool per browser. No card-grid badge, no moderation, no
+per-category rollups — all deliberately out of scope per the backlog
+entry. Verified beyond the smoke test: built a `vite preview` server,
+seeded a session with Playwright, confirmed the badge/section render real
+seed content on `/app/tools/chatgpt`, submitted a review and watched the
+average recompute and the new review appear, then confirmed the cap shows
+"You've already reviewed ChatGPT" on a second attempt. All three checks
+green (315 tests, build — 1150 tool pages, smoke — 24 routes, 0 console
+errors), pushed to `master` — sha
+[`0448e6f`](https://github.com/saikiranreddy18/toolnaut/commit/0448e6f).
+Marked `SHIPPED` in the backlog. **Visible on toolnaut.xyz today** — no
+other pipeline needs to run first.
+
+**Still stuck:** same as yesterday — the `Agent · Research`/`Maintainer`/
+`Bugfix` GitHub Actions workflows are still failing on every scheduled run
+at the `claude-code-action` step (issue #69), and the open-bot-PR backlog
+(issue #67) hasn't shrunk. Neither is this routine's job to fix directly,
+but both are worth a human's attention.
+
+**Queued next:** "The public search page's own placeholder promises task
+search" (build size S) is next in line, oldest untouched OPEN entry as of
+the 36th pass's accounting. "Vendor/maker claim-listing path" is the
+best-developed larger gap if a bigger slice of a day is available.
+
+---
+
 ## 2026-10-05
 
 **Radar health:** `OK` — 1 run in the last 26h window, most recent publish

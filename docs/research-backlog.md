@@ -585,7 +585,18 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-23 12:04 UTC
 
 ### Per-tool ratings & reviews
-- **Status:** OPEN
+- **Status:** SHIPPED 0448e6f — built exactly as scoped below, at the
+  2026-10-06 15:04 UTC re-verification's corrected line numbers: `toolReviewsData.js`
+  (20 seed reviews across 15 slugs), `toolReviewsStore.js` (wraps
+  `scopedRead`/`scopedWrite`, `exus_tool_reviews_v1` added to both
+  `PORTABLE_KEYS` and `AUTHORED_KEYS`), a rating badge next to MATCH/status,
+  and a REVIEWS sticker section after `<ToolResources>` with a star-picker +
+  textarea composer. Manually verified in a built preview with a seeded
+  session: badge/section render with real seed content, submitting a review
+  appends it and recomputes the average, and the one-per-browser cap shows
+  "You've already reviewed X" on a second attempt. No card-grid badge, no
+  moderation, no per-category rollups — all deliberately deferred per the
+  original scope cut below.
 - **Seen in:** G2 and Capterra are built around per-product star ratings and
   written reviews as the primary trust signal on every category and detail
   page — it's the single biggest reason buyers land there instead of a
