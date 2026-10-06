@@ -10482,3 +10482,65 @@ found to fix this run.
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — the one new lead failed primary-source verification, so nothing was
 logged; re-verified an existing OPEN entry clean instead.
+
+### Research check 2026-10-06 06:04 UTC — no new gap found, thirty-third pass; re-verified the oldest never-touched OPEN entry
+Scheduled run, UTC hour 06 (one of the three research slots on a non-feature
+day). `npm run radar:health` → `OK` (2 runs in the 26h window, last run/
+publish 4.2h ago, 3 tools published that run, feed at 468 total — unchanged
+from the 32nd pass, no new radar activity since). `list_workflow_runs` on
+`master`: `CI`/`Release` both green at the latest push (`9f960ce`, the 32nd
+pass's own commit) — nothing red since. No `agent-fixable` issues open
+(`list_issues` zero results).
+
+Open-PR shape unchanged: this remains the master-direct scheduled routine,
+separate from the `agent-*.yml`/`bot/claude/*` PR queue CLAUDE.md's "one
+open PR per agent" rule scopes to, per every prior pass's conclusion — not
+re-checked line by line this pass since nothing in this session touches
+that queue.
+
+**Re-verified the oldest OPEN entry that has never been re-verified at
+all** — "First-session onboarding checklist" (found 2026-08-23 06:06 UTC,
+line ~357), which predates the "Track progress against your role" chain the
+19th/23rd–30th passes worked through and sits further back than any entry
+that chain has reached. Checked every claim against current `master`:
+`grep -rniE "checklist|getting.started|onboard" src/` still finds no
+persistent nudge/checklist component — only `FlowSteps.jsx` (the three-step
+progress bar shown during the quiz→app transition itself, inside
+`OnboardingShell.jsx`) and unrelated analytics-event/copy hits
+(`funnel.js`, `analyticsEvents.js`, `roadmapGenerator.js` copy strings).
+`Stack.jsx`'s "Next up" card is still exactly two items — add a tool from
+Discover (shown only while `addedTools.length === 0`) or continue the
+roadmap — confirming the gap's "only ever nudges toward Discover or the
+roadmap" framing still holds; Community, Settings, and "post your first
+thread" are still never surfaced as next steps anywhere. `stackStore.js`'s
+`loadStack()`, `quizStore.js`'s `loadQuiz().completed`, and
+`roadmapStore.js`'s `isStepDone`/`allStepsDone` (now at lines 25/29, drifted
+from the cited 7-28 — same one-line-type drift every other re-verified
+entry in this file has shown) are all still exactly the shape the plan
+needs. `communityStore.js` still has no `hasPostedThread()`-equivalent
+export — `loadThreads()`/`getThread()` are the only reads, confirming the
+plan's "needs one new one-line export" is still accurate. Line references
+have drifted (streak card now ~274-294, not 199-219; "Next up" card now
+~434-460, not 337-356; `OnboardingShell` route now `App.jsx:139`, not `:79`)
+but nothing structural moved — the entry's build-size-S plan (one pure
+util, one new component, one community-store export, wired into `Stack.jsx`)
+is still accurate and still buildable as scoped.
+
+**One fresh search, reconfirming rather than adding:** WebSearch ("AI tool
+directory 2026 onboarding checklist new user activation getting started")
+surfaced only AI-powered onboarding *tooling* for other products (Userpilot,
+Chameleon-class platforms) — a different thing (software that builds
+checklists) from the pattern itself (a directory having one). It did
+reconfirm the activation stat this entry's "why it matters" already leans
+on: roughly 75% of new signups churn within the first week after hitting a
+single point of setup friction. Not a new gap — the entry's premise, not
+its build plan, is what this search touched.
+
+Ran `npm test` (315/315), `npm run build` (19 static routes, 1140 tool
+pages, feed at 466 live tools, no errors), and `npm run smoke` (24/24
+routes, 0 console errors) directly against current `master`. All three
+clean, no bug found to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — re-verified the oldest never-touched OPEN entry clean instead, with
+one fresh search reconfirming its premise.
