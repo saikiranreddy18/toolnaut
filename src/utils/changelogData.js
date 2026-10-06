@@ -7,6 +7,11 @@
 // SHIPPED — pulled from that day's real commit, not invented.
 export const CHANGELOG = [
   {
+    date: '2026-10-05',
+    title: 'Suggest a tool or flag a wrong listing',
+    body: 'Can’t find a tool, or spot one with stale info? Discover, Settings and every tool page now have a direct way to tell us.',
+  },
+  {
     date: '2026-10-02',
     title: 'Download a copy of your data',
     body: 'Settings now lets you download everything Toolnaut has stored for your account, not just delete it.',

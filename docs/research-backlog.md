@@ -10597,3 +10597,51 @@ clean, no bug found to fix this run.
 Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — the one new lead failed primary-source verification on both halves,
 so nothing was logged.
+
+### Research check 2026-10-06 12:04 UTC — no new gap found, thirty-fifth pass; changelog staleness recurred a third time and is fixed again
+Scheduled run, UTC hour 12 (one of the three research slots on a non-feature
+day). `npm run radar:health` → `OK` (2 runs in the 26h window, last run/
+publish 10.3h ago, 3 tools published that run, feed at 468 total — unchanged
+from the 34th pass). `list_workflow_runs` on `master`: `CI`/`Release` both
+green at the latest push (`bfee31e`, the 34th pass's own commit) — nothing
+red since. No `agent-fixable` issues open. Local checkout was again detached
+at session start — stashed, fetched, and re-pointed to `origin/master` before
+running any check, same recurring container-start behavior every prior pass
+has noted.
+
+**The changelog staleness bug (first found and fixed 2026-09-23, recurred and
+re-fixed 2026-10-04) had recurred a third time.** Per the 20th pass's own
+"a process failure is exactly the kind of thing that recurs" note, checked
+`src/utils/changelogData.js`'s newest entry against real shipped work:
+`git log --since=2026-10-02` on `master` shows one feature-run commit since
+the 20th pass's backfill that was never added — `3a7a173` (2026-10-05,
+"Suggest a tool" / "Report a wrong listing," shipped same day per the dev
+digest issue, `src/pages/app/Discover.jsx`, `ToolDetail.jsx`, `ToolPublic.jsx`,
+`Settings.jsx`, `src/utils/suggestTool.js`) — `changelogData.js`'s newest
+entry was still dated 2026-10-02 (`c4a24de`, Download my data, already
+present). Verified the commit's actual diff with `git show --stat` before
+writing the entry, same standard every prior backfill in this file uses — no
+invented copy. **Fixed in this run**: added one entry to `CHANGELOG` in
+`src/utils/changelogData.js`, same plain-language voice (no shas, no file
+paths) the file's header comment requires, newest-first ahead of the
+2026-10-02 entry.
+
+This is a third instance of the same recurring process gap the "Changelog
+only looks backward" entry's 2026-09-23 and 2026-10-04 deepening notes
+already describe — the underlying fix (translate `SHIPPED` backlog entries
+into `changelogData.js` as part of the feature run's own end-of-day write-up
+step, not left to research passes to catch after the fact) is still that
+entry's own "Smallest useful version" and is still OPEN. Not re-logging a
+fourth time in that entry's body per this pass's own convention (the 20th
+pass's recurrence note already lives in its dated research-check entry, not
+back-inserted into the gap's body); noting the third occurrence here instead,
+same place the second one was noted.
+
+Ran `npm test` (315/315), `npm run build` (19 static routes including a
+clean `/changelog` prerender, feed at 468 tools, 1140 tool pages), and
+`npm run smoke` (24/24 routes, 0 console errors) against the
+`changelogData.js` change before committing. All three clean.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap this
+run — logged and fixed a recurrence of an existing one instead, same as the
+20th pass.
