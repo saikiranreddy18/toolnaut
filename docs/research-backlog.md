@@ -7150,6 +7150,27 @@ a client-side SPA with a static tool catalogue.
   `Stack.jsx`, one conditional "core" tag on cards already carrying the
   `starter` flag. No new route, no new file, no schema change, no backend.
 - **Found:** 2026-09-15 12:05 UTC
+- **Re-verified 2026-10-07 15:04 UTC:** longest-untouched OPEN entry by
+  last-check date (23 days since found, never deepened or re-verified —
+  staler than any other OPEN entry's own last-check timestamp, checked
+  against all of them this run). `HowItWorksSection.jsx:9` still carries the
+  exact copy verbatim. `progressStore.js:10`'s `STATUSES` array is still
+  `['Not started', 'Exploring', 'Using weekly', 'Mastered']`, index 3 is
+  still Mastered. `personaGenerator.js:117` still sets `career` the same
+  way. One real piece of drift: the "core" tag half of the plan has already
+  shipped under different wording — `Stack.jsx`'s kit-grid card
+  (`Stack.jsx:368`) now renders `tool.starter ? <span>From your persona</span>
+  : <button>Remove</button>`, so starter-stack tools are already visually
+  distinguished from added-from-Discover ones (confirmed this wasn't here
+  when the entry was found: `git log -S "From your persona" --
+  src/pages/app/Stack.jsx` shows only one squashed release commit, no
+  dedicated feature commit, so it's pre-existing drift the 09-15 pass
+  missed rather than something built since). The actual deliverable — a
+  derived "N of 3 core [role] tools mastered" stat near the header — is
+  still entirely unbuilt: grepped `Stack.jsx` for `core.*master|mastered`,
+  zero hits. Narrowed scope for whoever builds this: skip the "core" tag
+  step above, it's done; only the stat line itself remains. Still Build
+  size S, still the most build-ready entry nobody has shipped.
 
 ---
 
@@ -11121,3 +11142,66 @@ fix alongside it. All three clean.
 Per the "never invent a gap to fill the hour" rule, appended no new gap
 this run — the one fresh lead failed primary-source verification, so the
 hour went to re-verifying the longest-untouched OPEN entry instead.
+
+### Research check 2026-10-07 15:04 UTC — no new gap found, forty-first pass; re-verified the longest-untouched OPEN entry, two fresh competitor searches came back empty
+
+Scheduled run, UTC hour 15 (off-cycle fire between the 12:04 and 18:03
+slots; the schedule's own 00:03/06:03/12:03/18:03 cadence drifts by a few
+minutes run to run, same behavior every prior off-cycle pass has noted).
+`npm ci` clean. Local checkout started detached again (same recurring
+container-start behavior every prior pass has flagged); checked out
+`master` and fast-forwarded from `204f40e` to `cc76cc2` before running any
+check. `npm run radar:health` → `OK` (2 runs in the 26h window, last
+run/publish 14.1h ago, 5 tools published that run, feed at 483 total,
+unchanged since the 40th pass). `list_workflow_runs` on `master`'s `CI`
+workflow specifically (the plain `list_workflow_runs` call without a
+`resource_id` returned stale September data this run, worth noting for
+whichever pass hits it next — re-querying with `resource_id: "ci.yml"`
+returned the real current list): green at the latest push (`cc76cc2`, the
+40th pass's own commit) — nothing red since. No `agent-fixable` issues open
+(`list_issues` zero results).
+
+**Checked the last-touched date of every OPEN entry again, this time by
+"Found" date with no later Deepened/Re-verified note at all** (not just
+longest-since-last-pass, which the 40th pass already covered for entries
+that had at least one prior touch). "Track progress against your role, not
+generic benchmarks" (found 2026-09-15, never deepened, never re-verified)
+was the actual most-neglected entry at 23 days — older than the 40th pass's
+own target (graveyard page, 17 days since its last touch, but that one had
+already been deepened once). Re-verified it in full against current
+`master`: every substantive claim still held except one real piece of
+drift worth flagging — half its "smallest useful version" (the "core" tag
+distinguishing starter-stack cards) turns out to already be shipped, under
+different wording (`Stack.jsx`'s "From your persona" label), apparently
+pre-existing and simply missed when the entry was written. The actual
+deliverable, a derived mastery-count stat, is still entirely unbuilt.
+Correction and narrowed scope appended to the entry itself.
+
+**Two fresh WebSearches, neither produced a new gap.** Searched for recent
+(2026) feature coverage of TAAFT/Futurepedia/Toolify — came back with
+general directory-size/editorial-depth comparisons (task-based search,
+video courses, ChatGPT-assisted auto-updates), each already mapped to an
+existing OPEN entry (task search, educational content) or too vague to
+act on (Toolify's "ChatGPT integration" has no checkable product surface).
+Searched for AI-directory deal/discount/price-drop-alert patterns on the
+theory it might differ from the already-REJECTED stack-cost-estimate gap —
+results were generic e-commerce price-tracking tools with no AI-directory
+angle at all, and the underlying blocker is identical to the existing
+rejection (no price data source in the catalog). Also checked one
+code-only lead before it got far enough to search for: whether a
+referral/invite-a-friend growth loop (the pattern the newly-logged
+email-capture gap's own research didn't cover) was missing — reading
+`TrustPanel.jsx:118` and `Methodology.jsx:132` first showed Toolnaut states
+"no referral code" as one of its own stated trust differentiators, so
+building one would contradict the product's existing public position;
+discarded before a web search was even worth running.
+
+Ran `npm test` (315/315), `npm run build` (19 static routes, 1150
+`/ai-tools/*` pages, feed at 483 tools, no errors), and `npm run smoke`
+(25/25 routes, 0 console errors) directly against current `master` — no
+code changed this run, these confirm the backlog edit didn't need a code
+fix alongside it. All three clean.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap
+this run — both fresh leads failed verification, so the hour went to
+re-verifying the longest-truly-untouched OPEN entry instead.
