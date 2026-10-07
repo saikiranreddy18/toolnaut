@@ -7696,6 +7696,37 @@ a client-side SPA with a static tool catalogue.
   needs a schema change rather than reusing existing local state, so it is a
   reasonable feature-run candidate but not a trivial one.
 - **Found:** 2026-09-17 03:20 UTC
+- **Deepened 2026-10-07 00:10 UTC:** re-checked against current master — the
+  gap and the smallest-useful-version plan both still hold (`src/utils/shareStack.js`
+  is still pure encode/decode, `grep -rn "shared_stacks\|gallery" src` still
+  zero hits, no `/gallery` route in `App.jsx`). What the plan glossed over is
+  the auth model it would actually need, which changes the "owner id or null
+  for a guest share" detail:
+  - Every RLS write policy in `supabase/migrations/` (0002, 0003, 0004, 0008)
+    is scoped `to authenticated using (auth.uid() = user_id)` — there is no
+    precedent anywhere in this schema for an anon-key INSERT, and every place
+    the app accepts input from a signed-out visitor (newsletter alerts,
+    account deletion) goes through a serverless function in `api/` using the
+    service-role key instead, never a direct client-side insert. A "guest
+    share" (`owner id or null`) would need either a brand-new anon INSERT
+    policy (nothing else in the product does this) or a new `api/` function.
+  - The second option is tighter than it looks: `api/alerts.js`'s own header
+    comment notes the project was *already at Vercel Hobby's 12-function cap*
+    once before and had to merge two functions into one to free a slot for
+    account deletion. Counting only non-underscore-prefixed files (the actual
+    routed functions, confirmed against `vercel.json`), `api/` holds exactly
+    11 today — one slot free, no more.
+  - Net correction: ship v1 **publish-requires-sign-in only** (no guest
+    publish). This matches `tool_refs`'s existing `to authenticated using
+    (auth.uid() = user_id)` pattern exactly — no new INSERT policy shape, no
+    new serverless function, no spending the one free slot. The anon side
+    (browsing `/gallery` itself) is still fine as a direct public SELECT:
+    `0003_tool_claims.sql:77` already grants `select ... to anon,
+    authenticated` on editorial data, so a `shared_stacks` table with `visible
+    = true` rows readable `to anon` for the gallery read path has a real
+    precedent to copy, even though the write side does not. This keeps the
+    feature at Build size **S/M** (was M) and removes the one thing that
+    would have surprised a builder mid-implementation.
 
 ### No "Toolnaut vs [competitor]" comparison pages — the single highest-intent SEO page type in this category, entirely missing
 - **Status:** SHIPPED 83805fc — built exactly as scoped below:
@@ -10812,3 +10843,23 @@ Per the "never invent a gap to fill the hour" rule, appended no new gap this
 run — the hour went to correcting a stale SHIPPED/OPEN status on an
 already-live feature and closing the one real coverage gap that discovery
 turned up.
+
+### Research check 2026-10-07 00:04 UTC — no new gap found, thirty-eighth pass; deepened the shared-stacks-gallery entry instead of re-verifying another clean one
+
+No new product gap logged this run — urgent-work checks came back clean
+first (CI green on `df5f382`, `npm run radar:health` reports STATUS: OK,
+478 tools published, no `agent-fixable` issues open), so the hour went to
+backlog work per the "deepen before adding" rule.
+
+Picked the thinnest plain-OPEN entry by line count ("No browsable gallery
+of shared stacks", 61 lines, found 2026-09-17) over re-verifying yet another
+already-thorough entry. Re-confirmed the core gap still holds against
+current master, then traced the one thing its build plan got wrong: the
+"owner id or null for a guest share" detail doesn't fit this project's RLS
+model — every write policy in `supabase/migrations/` is `to authenticated`,
+and `api/`'s own history (the 12-function Vercel Hobby cap it already hit
+once) rules out spending a serverless function to work around that for v1.
+Corrected the entry to publish-requires-sign-in, which reuses the existing
+`tool_refs` policy shape exactly and drops the build size from M to S/M.
+See the "Deepened 2026-10-07 00:10 UTC" note on that entry for the full
+detail. No code changed this run — the backlog edit is the only diff.
