@@ -2807,6 +2807,24 @@ a client-side SPA with a static tool catalogue.
     structure, the exclusions (no backfilled notes, no date-of-death field,
     no per-tool graveyard subpage, no removal from Discover/Compare), or the
     build-size estimate.
+- **Re-verified 2026-10-07 12:04 UTC:** oldest-untouched-by-a-dedicated-pass
+  OPEN entry by last-check date (17 days since the 09-20 deepening — staler
+  than every other OPEN entry's own last-check timestamp, checked against
+  all of them this run). Every fact still holds, one more small route-line
+  drift: `grep -o '"status": "[A-Za-z]*"' src/utils/toolsCatalog.js` is
+  still exactly 652 `Active` / 52 `Uncertain`, unchanged down to the digit.
+  `App.jsx`'s route block grew by three lines (a directory-vs-directory
+  `/vs/:slug` comment landed above it) — `/tools/:domain` is now `:128`
+  (was `:125`) and `/ai-tools/:slug` is now `:131` (was `:128`); `/graveyard`
+  still belongs between the two, substance of the "corrected plan" above
+  unchanged. `ToolPublic.jsx:42` still renders only `['Worth knowing',
+  tool.note]`, no `status` row — the small separate fix flagged in point 3
+  above (not part of this gap's own scope) is still there and still unbuilt.
+  `public/sitemap.xml` still lists exactly the 6 `/tools/*` URLs with no
+  `/graveyard` line, and `scripts/smoke.mjs`'s `routes` array (now 25
+  entries, `:32`) still has no `/graveyard` either. Nothing drifted in
+  substance — still Build size S, still unbuilt, still the most build-ready
+  entry nobody has touched in over two weeks.
 
 ### Embeddable "Featured on Toolnaut" badge — the standard directory backlink loop, missing entirely
 - **Status:** OPEN
@@ -11044,3 +11062,62 @@ Per the "never invent a gap to fill the hour" rule, one genuine new gap was
 logged this run, backed by two fresh competitor searches (one of which
 failed verification and was correctly discarded) and a full reading of
 every file the build plan touches — not a vague one-liner.
+
+### Research check 2026-10-07 12:04 UTC — no new gap found, fortieth pass; re-verified the entry nobody had touched in over two weeks
+
+Scheduled run, UTC hour 12 (one of the three research slots on a non-feature
+day). `npm ci` clean. `npm run radar:health` → `OK` (2 runs in the 26h
+window, last run/publish 11.1h ago, 5 tools published that run, feed at 483
+total). `list_workflow_runs` on `master`: `CI`/`Release` both green at the
+latest push (`f92c4995`, the 39th pass's own commit) — nothing red since.
+No `agent-fixable` issues open (`list_issues` zero results). The two
+scheduled `Agent · Research`/`Agent · Bugfix` GitHub Actions runs that fired
+at 09:02 and 10:41 UTC today both show `conclusion: failure` in
+`list_workflow_runs` — these are a separate automation's own runs (not this
+session's master-direct routine, which has no corresponding workflow run of
+its own to check), and CLAUDE.md scopes "CI red on master" to the actual
+`CI` workflow, which stayed green throughout — not investigated further per
+every prior pass's same scoping conclusion for the adjacent `bot/claude/*`
+PR queue.
+
+**Checked the last-touched date of every OPEN entry's own deepening/
+re-verification note** (not just found-date, which the 33rd–37th passes'
+sweep already exhausted down to "First-session onboarding checklist") to
+find which one had gone longest without a dedicated pass. "Tool 'graveyard'
+page" (found 2026-08-28, deepened once 2026-09-20) was the stalest at 17
+days — older than "Embeddable badge" and "RSS feed" (both ~09-20/21), the
+facet-counts and leaderboard entries (~09-22), the developer-API entry
+(09-23), and "Weekly trending tools" (09-27, the freshest of the group).
+Re-verified it in full against current `master` rather than re-verifying a
+fresher one. Every substantive claim still held — the 652/52 Active/
+Uncertain split is byte-identical, `ToolPublic.jsx` still has no `status`
+row, neither `sitemap.xml` nor `smoke.mjs` has a `/graveyard` line — only
+the `App.jsx` route-insertion line numbers had drifted by three (an
+unrelated comment block landed above them). Correction appended to the
+entry itself rather than repeated here.
+
+**One fresh competitor lead checked and not logged:** a WebSearch into
+whether any AI-tool directory lets a signed-in user keep more than one
+named personal list/stack (as opposed to Toolnaut's single `stackStore.js`
+array) surfaced only indirect, weak sources — a directory-of-directories
+listing page for "Meta Tools" describing its own "Stack Packs"/"Community
+Stacks" by name only, and a Product-Hunt-launch blurb for "stackd.cc"
+describing a cross-user leaderboard. Neither is a primary source for the
+actual feature (both read as the submitting product's own marketing copy
+on a third-party aggregator, the same category of source the 34th pass's
+compliance-badge lead already failed on), and both shapes described —
+curated multi-tool bundles, and a cross-user ranking — are already covered
+by this file's own still-OPEN "Collections" and "leaderboard-goes-real"
+entries respectively. Not logged as a new gap; multi-list-per-user stays
+unconfirmed as a real, buildable pattern rather than invented to fill the
+hour.
+
+Ran `npm test` (315/315), `npm run build` (19 static routes, 1150
+`/ai-tools/*` pages, feed at 483 tools, no errors), and `npm run smoke`
+(25/25 routes, 0 console errors) directly against current `master` — no
+code changed this run, these confirm the backlog edit didn't need a code
+fix alongside it. All three clean.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap
+this run — the one fresh lead failed primary-source verification, so the
+hour went to re-verifying the longest-untouched OPEN entry instead.
