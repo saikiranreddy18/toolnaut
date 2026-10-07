@@ -7,6 +7,11 @@
 // SHIPPED — pulled from that day's real commit, not invented.
 export const CHANGELOG = [
   {
+    date: '2026-10-06',
+    title: 'Rate and review tools',
+    body: 'Every tool page now shows a star rating and lets you leave your own review, right alongside our match score and trust notes.',
+  },
+  {
     date: '2026-10-05',
     title: 'Suggest a tool or flag a wrong listing',
     body: 'Can’t find a tool, or spot one with stale info? Discover, Settings and every tool page now have a direct way to tell us.',
