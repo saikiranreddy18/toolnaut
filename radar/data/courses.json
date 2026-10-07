@@ -31812,5 +31812,291 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "course-hieraticbench",
+    "toolSlug": "hieraticbench",
+    "title": "Master HieraticBench",
+    "objectives": [
+      "Set up and run the HieraticBench evaluation suite against a target vision-language model",
+      "Interpret glyph-level and word-level recognition metrics (CER, exact-match, sign confusion matrices)",
+      "Analyze failure cases by hieratic period and script style, and document reproducible benchmark results"
+    ],
+    "modules": [
+      {
+        "title": "Installation and Dataset Preparation",
+        "estMinutes": 25,
+        "steps": [
+          "Clone the HieraticBench repository, create a Python 3.10+ virtual environment, and install dependencies including the evaluation harness",
+          "Download the curated hieratic image corpus (ostraca and papyri scans with verified transcriptions) and validate checksums against the manifest",
+          "Inspect the dataset splits — train-free evaluation set, stratified by period (New Kingdom, Late Period) and document type — using the provided dataset summary script"
+        ]
+      },
+      {
+        "title": "Running Model Evaluations",
+        "estMinutes": 35,
+        "steps": [
+          "Configure a model adapter (API-based like GPT-4o or open-weight like Qwen-VL) via the YAML config, specifying prompt template and image preprocessing settings",
+          "Run the evaluation pipeline on the full benchmark with batch inference, logging raw model outputs to a timestamped results directory",
+          "Test robustness variants: rerun with degraded images (noise, low contrast) and zero-shot vs. few-shot prompting to measure prompting sensitivity"
+        ]
+      },
+      {
+        "title": "Metrics Interpretation and Failure Analysis",
+        "estMinutes": 30,
+        "steps": [
+          "Generate the metrics report: character error rate (CER), sign-level exact match, and per-period breakdowns, comparing against published baselines",
+          "Examine the sign confusion matrix to identify which Gardiner sign classes the model most frequently confuses (e.g., visually similar cursive ligatures)",
+          "Write a reproducibility report documenting model version, prompt, decoding parameters, and aggregate scores for leaderboard submission"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-benchmark",
+      "skill-egyptology",
+      "skill-ocr",
+      "skill-evaluation",
+      "skill-handwriting"
+    ],
+    "prerequisites": [
+      "Python proficiency and command-line experience",
+      "Familiarity with vision-language model APIs",
+      "Basic understanding of evaluation metrics (CER, accuracy)",
+      "Recommended: familiarity with Gardiner's sign list and Egyptian transliteration conventions"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-07T01:01:17.703Z"
+  },
+  {
+    "id": "course-delegator",
+    "toolSlug": "delegator",
+    "title": "Master Delegator",
+    "objectives": [
+      "Launch and configure multiple AI coding-agent sessions from the Delegator dashboard",
+      "Assign scoped tasks to agents and monitor their progress in real time",
+      "Review, merge, or discard agent output without breaking your main codebase"
+    ],
+    "modules": [
+      {
+        "title": "Setup & First Agent Session",
+        "estMinutes": 15,
+        "steps": [
+          "Connect Delegator to a local git repo and verify it detects your default branch",
+          "Create a new agent session, give it a name, and point it at an isolated worktree or branch",
+          "Run a trivial task (e.g., 'add a README section') and watch the live activity feed to confirm the session works end to end"
+        ]
+      },
+      {
+        "title": "Orchestrating Multiple Agents",
+        "estMinutes": 20,
+        "steps": [
+          "Spin up 3 parallel sessions, each with a tightly scoped, non-overlapping task (e.g., tests, docs, refactors in separate directories)",
+          "Write task prompts that include file boundaries and a definition of done so agents don't collide",
+          "Use the dashboard's status indicators to spot a stalled agent, then inspect its log and nudge it with a follow-up instruction"
+        ]
+      },
+      {
+        "title": "Reviewing & Merging Agent Work",
+        "estMinutes": 20,
+        "steps": [
+          "Open an agent's diff view, read every changed file, and leave inline notes requesting fixes instead of editing by hand",
+          "Merge one approved branch and reject another, then verify your main branch still builds and tests pass",
+          "Kill a runaway session, clean up its worktree, and note what prompt change would prevent the failure next time"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding agents",
+      "skill-session management",
+      "skill-orchestration",
+      "skill-developer tools",
+      "skill-multi-agent"
+    ],
+    "prerequisites": [
+      "Comfortable with git branching, merging, and resolving conflicts",
+      "Experience using at least one AI coding assistant (e.g., Copilot, Claude Code, Cursor)",
+      "A repository with tests or a build command to validate agent output"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-07T01:01:17.703Z"
+  },
+  {
+    "id": "course-embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo",
+    "toolSlug": "embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo",
+    "title": "Master EmbeddingGemma 2: An open, lightweight multimodal embedding model",
+    "objectives": [
+      "Generate unified image+text embeddings with EmbeddingGemma 2 for cross-modal retrieval",
+      "Build a quantized on-device RAG pipeline with sub-100MB memory footprint",
+      "Benchmark and tune embedding dimensions (Matryoshka truncation) for latency/quality tradeoffs"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Multimodal Embeddings",
+        "estMinutes": 25,
+        "steps": [
+          "Install dependencies: pip install transformers torch sentence-transformers, then pull the EmbeddingGemma 2 weights from Hugging Face with an accepted license token",
+          "Load the model with AutoModel and embed three text queries and three local images; verify both produce vectors in the same shared embedding space by checking cosine similarity between a caption and its matching image",
+          "Run a tiny cross-modal search: embed 20 images, query with the text 'a dog playing fetch', and confirm relevant images rank in the top-k results"
+        ]
+      },
+      {
+        "title": "On-Device Retrieval Pipeline",
+        "estMinutes": 35,
+        "steps": [
+          "Quantize the model to int8 (or export to ONNX/GGUF) and measure peak RAM and embedding latency on CPU for a batch of 32 inputs",
+          "Index 1,000 mixed documents (text chunks + images) into a local FAISS IndexFlatIP store using normalized EmbeddingGemma 2 vectors",
+          "Wire a minimal RAG loop: embed a user query, retrieve top-5 chunks/images from FAISS, and stuff them into a prompt template for a local small LLM"
+        ]
+      },
+      {
+        "title": "Dimension Truncation and Performance Tuning",
+        "estMinutes": 30,
+        "steps": [
+          "Truncate output embeddings to 512, 256, and 128 dimensions (Matryoshka-style), re-normalize, and re-index the same corpus at each size",
+          "Measure retrieval quality (recall@10) and query latency at each dimension; plot the quality-vs-speed tradeoff curve",
+          "Pick the smallest dimension losing <2% recall, then apply asymmetric task prompts (e.g., 'query:' vs 'document:' prefixes) and confirm retrieval scores improve on your eval set"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-embeddings",
+      "skill-multimodal",
+      "skill-open-source",
+      "skill-lightweight",
+      "skill-rag"
+    ],
+    "prerequisites": [
+      "Solid Python and PyTorch experience",
+      "Prior exposure to vector search (FAISS or similar) and RAG architectures",
+      "Familiarity with quantization and on-device inference constraints"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-07T01:01:17.703Z"
+  },
+  {
+    "id": "course-sulcus",
+    "toolSlug": "sulcus",
+    "title": "Master Sulcus",
+    "objectives": [
+      "Connect Sulcus to a running AI agent session and view its live trace",
+      "Set breakpoints and pause an agent mid-run to inspect its state",
+      "Intervene safely: edit agent inputs or tool calls, then resume execution"
+    ],
+    "modules": [
+      {
+        "title": "Connecting to a Live Agent Session",
+        "estMinutes": 15,
+        "steps": [
+          "Install Sulcus and run `sulcus attach --agent <session-id>` to bind to an active agent process",
+          "Open the dashboard at localhost:4400 and identify the timeline of model calls, tool invocations, and 'thoughts'",
+          "Filter the live event stream by event type (e.g. `tool_call`, `llm_response`) using the stream filter bar"
+        ]
+      },
+      {
+        "title": "Inspecting and Pausing Agent Execution",
+        "estMinutes": 20,
+        "steps": [
+          "Set a breakpoint on any tool call matching a pattern, e.g. `break on tool_call where name = 'shell_exec'`",
+          "When the agent pauses, inspect the current context window, memory variables, and the pending tool arguments in the inspector panel",
+          "Step execution forward one event at a time and note how token usage and latency accumulate per step"
+        ]
+      },
+      {
+        "title": "Intervening and Resuming Safely",
+        "estMinutes": 25,
+        "steps": [
+          "While paused on a breakpoint, edit a pending tool call's arguments and use 'Rewrite' to inject the modified call",
+          "Use 'Redirect' to append a corrective instruction to the agent's context, then resume and observe the changed behavior",
+          "Configure a guardrail rule (e.g. auto-pause before any network write) and export the session trace as JSON for review"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-observability",
+      "skill-monitoring",
+      "skill-agent control",
+      "skill-debugging"
+    ],
+    "prerequisites": [
+      "Experience building or running LLM-based agents (e.g. with LangChain or a similar framework)",
+      "Comfortable reading token-level model outputs and tool call schemas",
+      "Basic familiarity with the command line and JSON"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-07T01:01:17.703Z"
+  },
+  {
+    "id": "course-foundrradio",
+    "toolSlug": "foundrradio",
+    "title": "Master FoundrRadio",
+    "objectives": [
+      "Pick an available frequency and launch a live station",
+      "Add and schedule audio content for broadcast",
+      "Share your station's listen link with an audience"
+    ],
+    "modules": [
+      {
+        "title": "Claim Your Frequency",
+        "estMinutes": 5,
+        "steps": [
+          "Open FoundrRadio and click 'Tune In' to open the frequency dial",
+          "Drag the dial to an open frequency (open slots glow green) and click 'Claim'",
+          "Name your station and press 'Go Live' to start broadcasting silence"
+        ]
+      },
+      {
+        "title": "Load Your First Playlist",
+        "estMinutes": 10,
+        "steps": [
+          "Drag 3–5 audio files from your computer into the 'Crate' panel",
+          "Click 'Auto-Mix' so tracks crossfade without dead air",
+          "Press the big red 'On Air' button and listen back on the built-in monitor"
+        ]
+      },
+      {
+        "title": "Talk Live on the Mic",
+        "estMinutes": 8,
+        "steps": [
+          "Plug in a mic, then enable it under Studio > Input Source",
+          "Hold the 'Mic' button to duck the music and speak over it",
+          "Record a 30-second station ID and save it to your Crate for reuse"
+        ]
+      },
+      {
+        "title": "Share Your Signal",
+        "estMinutes": 5,
+        "steps": [
+          "Copy your station's public listen URL from the Broadcast panel",
+          "Post the link anywhere — listeners need no account to tune in",
+          "Check the Live Listeners counter to confirm people are connected"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-radio",
+      "skill-streaming",
+      "skill-audio",
+      "skill-broadcasting",
+      "skill-live"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-07T01:01:17.703Z"
   }
 ]

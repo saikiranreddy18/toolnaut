@@ -205,7 +205,8 @@
       "orbtile",
       "vmpal",
       "dotpals",
-      "flagshiprouter"
+      "flagshiprouter",
+      "delegator"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -408,7 +409,8 @@
       "course-orbtile",
       "course-vmpal",
       "course-dotpals",
-      "course-flagshiprouter"
+      "course-flagshiprouter",
+      "course-delegator"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -583,7 +585,8 @@
       "leftovers",
       "openchart",
       "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
-      "agy-ppt"
+      "agy-ppt",
+      "embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -661,7 +664,8 @@
       "course-leftovers",
       "course-openchart",
       "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
-      "course-agy-ppt"
+      "course-agy-ppt",
+      "course-embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -813,11 +817,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "i-built-an-ai-music-generator-with-some-harnesses",
-      "audiorealityai"
+      "audiorealityai",
+      "foundrradio"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
-      "course-audiorealityai"
+      "course-audiorealityai",
+      "course-foundrradio"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1078,7 +1084,9 @@
       "cold-b2b-email-should-be-free-flyhedwig",
       "tofu",
       "langgraph-harness",
-      "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
+      "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
+      "sulcus",
+      "foundrradio"
     ],
     "courses": [
       "course-headless-tools",
@@ -1332,7 +1340,9 @@
       "course-cold-b2b-email-should-be-free-flyhedwig",
       "course-tofu",
       "course-langgraph-harness",
-      "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
+      "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
+      "course-sulcus",
+      "course-foundrradio"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1525,7 +1535,8 @@
       "artbucket",
       "ranking-the-most-ai-agent-friendly-tools",
       "the-poteto-frontier-for-ai-agents",
-      "vmpal"
+      "vmpal",
+      "sulcus"
     ],
     "courses": [
       "course-headless-tools",
@@ -1696,7 +1707,8 @@
       "course-artbucket",
       "course-ranking-the-most-ai-agent-friendly-tools",
       "course-the-poteto-frontier-for-ai-agents",
-      "course-vmpal"
+      "course-vmpal",
+      "course-sulcus"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2926,7 +2938,8 @@
       "secret-collusion-among-ai-agents",
       "natively",
       "coletivo",
-      "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
+      "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
+      "delegator"
     ],
     "courses": [
       "course-mrea",
@@ -2941,7 +2954,8 @@
       "course-secret-collusion-among-ai-agents",
       "course-natively",
       "course-coletivo",
-      "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
+      "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
+      "course-delegator"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3077,7 +3091,8 @@
       "a-document-layer-for-ai-agents",
       "gentle-ai-ai-coding-ecosystem",
       "ranking-the-most-ai-agent-friendly-tools",
-      "orbtile"
+      "orbtile",
+      "delegator"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -3128,7 +3143,8 @@
       "course-a-document-layer-for-ai-agents",
       "course-gentle-ai-ai-coding-ecosystem",
       "course-ranking-the-most-ai-agent-friendly-tools",
-      "course-orbtile"
+      "course-orbtile",
+      "course-delegator"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3203,7 +3219,8 @@
       "crypllm-ai-chat-agent-for-cryptool-2",
       "teacher-planner",
       "gentle-ai-ai-coding-ecosystem",
-      "ai-agents-zero-to-hero"
+      "ai-agents-zero-to-hero",
+      "hieraticbench"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3256,7 +3273,8 @@
       "course-crypllm-ai-chat-agent-for-cryptool-2",
       "course-teacher-planner",
       "course-gentle-ai-ai-coding-ecosystem",
-      "course-ai-agents-zero-to-hero"
+      "course-ai-agents-zero-to-hero",
+      "course-hieraticbench"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3700,7 +3718,8 @@
       "agentlytics",
       "ranking-the-most-ai-agent-friendly-tools",
       "headline-arena",
-      "openchart"
+      "openchart",
+      "embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3758,7 +3777,8 @@
       "course-agentlytics",
       "course-ranking-the-most-ai-agent-friendly-tools",
       "course-headline-arena",
-      "course-openchart"
+      "course-openchart",
+      "course-embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4259,7 +4279,8 @@
       "ai-cost-dashboard-is-probably-wrong",
       "agentcap",
       "spens-sandboxed-observable-coding-agents",
-      "ai-agent-gateway"
+      "ai-agent-gateway",
+      "sulcus"
     ],
     "courses": [
       "course-agenttrail",
@@ -4270,7 +4291,8 @@
       "course-ai-cost-dashboard-is-probably-wrong",
       "course-agentcap",
       "course-spens-sandboxed-observable-coding-agents",
-      "course-ai-agent-gateway"
+      "course-ai-agent-gateway",
+      "course-sulcus"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4293,7 +4315,8 @@
       "agentmeasure",
       "agentcap",
       "glance",
-      "dotpals"
+      "dotpals",
+      "sulcus"
     ],
     "courses": [
       "course-agenttrail",
@@ -4309,7 +4332,8 @@
       "course-agentmeasure",
       "course-agentcap",
       "course-glance",
-      "course-dotpals"
+      "course-dotpals",
+      "course-sulcus"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4920,7 +4944,8 @@
       "auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
       "can-ai-build-a-toilet-yet",
       "an-open-add-search-evaluation-framework-for-agent-memory",
-      "headline-arena"
+      "headline-arena",
+      "hieraticbench"
     ],
     "courses": [
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
@@ -4932,7 +4957,8 @@
       "course-auto-autoresearch-self-improving-agents-on-karpathys-nanocha",
       "course-can-ai-build-a-toilet-yet",
       "course-an-open-add-search-evaluation-framework-for-agent-memory",
-      "course-headline-arena"
+      "course-headline-arena",
+      "course-hieraticbench"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5552,7 +5578,8 @@
       "spens-sandboxed-observable-coding-agents",
       "self-bench",
       "orbtile",
-      "dotpals"
+      "dotpals",
+      "delegator"
     ],
     "courses": [
       "course-ai-tools-list",
@@ -5569,7 +5596,8 @@
       "course-spens-sandboxed-observable-coding-agents",
       "course-self-bench",
       "course-orbtile",
-      "course-dotpals"
+      "course-dotpals",
+      "course-delegator"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5698,11 +5726,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "ta",
-      "squint"
+      "squint",
+      "hieraticbench"
     ],
     "courses": [
       "course-ta",
-      "course-squint"
+      "course-squint",
+      "course-hieraticbench"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6045,11 +6075,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "gemini-omni-11-flash",
-      "gemini-agentic-video-understanding"
+      "gemini-agentic-video-understanding",
+      "embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
     ],
     "courses": [
       "course-gemini-omni-11-flash",
-      "course-gemini-agentic-video-understanding"
+      "course-gemini-agentic-video-understanding",
+      "course-embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -6178,7 +6210,8 @@
       "quantifying-context-rot",
       "an-open-add-search-evaluation-framework-for-agent-memory",
       "glance",
-      "self-bench"
+      "self-bench",
+      "hieraticbench"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -6197,7 +6230,8 @@
       "course-quantifying-context-rot",
       "course-an-open-add-search-evaluation-framework-for-agent-memory",
       "course-glance",
-      "course-self-bench"
+      "course-self-bench",
+      "course-hieraticbench"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -6306,12 +6340,14 @@
     "toolsTeaching": [
       "ai-engineer-notebooks",
       "hermes-agent-demo",
-      "vibe-coding-discover"
+      "vibe-coding-discover",
+      "embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
     ],
     "courses": [
       "course-ai-engineer-notebooks",
       "course-hermes-agent-demo",
-      "course-vibe-coding-discover"
+      "course-vibe-coding-discover",
+      "course-embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -7042,14 +7078,16 @@
       "agentbridge",
       "kingfy",
       "starkomand",
-      "kyno"
+      "kyno",
+      "delegator"
     ],
     "courses": [
       "course-coordination-layer-for-coding-agents",
       "course-agentbridge",
       "course-kingfy",
       "course-starkomand",
-      "course-kyno"
+      "course-kyno",
+      "course-delegator"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -8853,14 +8891,16 @@
       "pawbot",
       "your-ai-agent-has-a-cache-invalidation-problem",
       "ai-agent-vercel-eve-web-interface-amazing",
-      "robodiag-harness"
+      "robodiag-harness",
+      "sulcus"
     ],
     "courses": [
       "course-selfshipai",
       "course-pawbot",
       "course-your-ai-agent-has-a-cache-invalidation-problem",
       "course-ai-agent-vercel-eve-web-interface-amazing",
-      "course-robodiag-harness"
+      "course-robodiag-harness",
+      "course-sulcus"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -12876,10 +12916,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "lightpanda-session-bridge"
+      "lightpanda-session-bridge",
+      "delegator"
     ],
     "courses": [
-      "course-lightpanda-session-bridge"
+      "course-lightpanda-session-bridge",
+      "course-delegator"
     ],
     "updatedAt": "2026-09-07T23:46:33.880Z"
   },
@@ -15690,10 +15732,12 @@
     "domain": "writing",
     "level": "intermediate",
     "toolsTeaching": [
-      "dont-hit-send"
+      "dont-hit-send",
+      "foundrradio"
     ],
     "courses": [
-      "course-dont-hit-send"
+      "course-dont-hit-send",
+      "course-foundrradio"
     ],
     "updatedAt": "2026-09-12T12:53:23.830Z"
   },
@@ -21247,5 +21291,109 @@
       "course-flagshiprouter"
     ],
     "updatedAt": "2026-10-06T15:59:06.042Z"
+  },
+  {
+    "id": "skill-egyptology",
+    "name": "egyptology",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "hieraticbench"
+    ],
+    "courses": [
+      "course-hieraticbench"
+    ],
+    "updatedAt": "2026-10-07T01:01:17.703Z"
+  },
+  {
+    "id": "skill-handwriting",
+    "name": "handwriting",
+    "domain": "learning",
+    "level": "advanced",
+    "toolsTeaching": [
+      "hieraticbench"
+    ],
+    "courses": [
+      "course-hieraticbench"
+    ],
+    "updatedAt": "2026-10-07T01:01:17.703Z"
+  },
+  {
+    "id": "skill-embeddings",
+    "name": "embeddings",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
+    ],
+    "courses": [
+      "course-embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
+    ],
+    "updatedAt": "2026-10-07T01:01:17.703Z"
+  },
+  {
+    "id": "skill-lightweight",
+    "name": "lightweight",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
+    ],
+    "courses": [
+      "course-embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
+    ],
+    "updatedAt": "2026-10-07T01:01:17.703Z"
+  },
+  {
+    "id": "skill-agent control",
+    "name": "agent control",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "sulcus"
+    ],
+    "courses": [
+      "course-sulcus"
+    ],
+    "updatedAt": "2026-10-07T01:01:17.703Z"
+  },
+  {
+    "id": "skill-radio",
+    "name": "radio",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "foundrradio"
+    ],
+    "courses": [
+      "course-foundrradio"
+    ],
+    "updatedAt": "2026-10-07T01:01:17.703Z"
+  },
+  {
+    "id": "skill-broadcasting",
+    "name": "broadcasting",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "foundrradio"
+    ],
+    "courses": [
+      "course-foundrradio"
+    ],
+    "updatedAt": "2026-10-07T01:01:17.703Z"
+  },
+  {
+    "id": "skill-live",
+    "name": "live",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "foundrradio"
+    ],
+    "courses": [
+      "course-foundrradio"
+    ],
+    "updatedAt": "2026-10-07T01:01:17.703Z"
   }
 ]
