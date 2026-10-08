@@ -11369,3 +11369,80 @@ Per the "never invent a gap to fill the hour" rule, appended no new gap
 this run — both fresh searches traced back to existing ground or an
 already-REJECTED angle, so the hour went to starting a second
 re-verification sweep at the oldest OPEN entry instead.
+
+---
+
+### Tool pages' JSON-LD still says "no rating ... the catalogue does not hold" — the ratings data it was waiting on shipped three weeks ago
+- **Status:** OPEN
+- **Seen in:** not a new competitor citation — this is the "Structured data
+  (JSON-LD)" entry above (`docs/research-backlog.md:3226`, SHIPPED
+  2026-08-29) catching up with its own explicitly-deferred follow-up, the
+  same "precondition shipped, nobody flipped it" pattern this file already
+  logged once for the leaderboard entry. G2/Capterra's `aggregateRating`
+  markup (cited by that original entry) is exactly what makes their listings
+  show a star rating directly in the Google search snippet instead of a
+  plain blue link.
+- **Gap:** `src/utils/toolSeo.js`'s own file header states the rule under
+  which `toolJsonLd()` was written: "NO INVENTED FACTS... there is no
+  rating, no review count and no price figure the catalogue does not hold."
+  `toolJsonLd(t, related)` (`toolSeo.js:81-98`) emits `SoftwareApplication` +
+  `BreadcrumbList` (+ an `ItemList` of alternatives) — no `aggregateRating`,
+  no `review`, confirmed by reading the function in full. That was the
+  correct call when written: the JSON-LD entry's own 2026-08-29 scoping note
+  (`docs/research-backlog.md:3282-3284`) explicitly left `aggregateRating`
+  out "because the per-tool ratings/reviews gap above is still OPEN — don't
+  emit a rating schema with no rating data behind it." That gap shipped
+  2026-10-06 (`0448e6f`, confirmed in DEVLOG's 2026-10-06 entry) —
+  `src/utils/toolReviewsData.js` now holds 20 real seed reviews across 15
+  slugs as a plain static export (`REVIEWS`, read in full), and
+  `src/state/toolReviewsStore.js`'s `getAverageRating(slug)`/`getReviews(slug)`
+  (read in full) compute a real, non-fabricated average — `getAverageRating`
+  returns `null`, never a fake `0.0`, for a tool with zero reviews. Checked
+  `scopedStorage.js`'s `read()` (`scopedStorage.js:44-52`, read in full): it
+  wraps `localStorage.getItem` in try/catch and returns the fallback on any
+  throw, so `getReviews()`/`getAverageRating()` are already safe to call
+  from Node with no `window` — they'd just see the seed set, since the
+  user-review branch falls back to `[]`. The precondition the original
+  entry was waiting on has held for three weeks and nothing came back to
+  use it.
+- `toolJsonLd()` is called from exactly two places, both already confirmed
+  by the file's own header comment to share one implementation on purpose
+  ("SHARED BY TWO RUNTIMES ON PURPOSE"): `src/pages/ToolPublic.jsx:29` (the
+  live, client-hydrated `/ai-tools/:slug` page) and
+  `scripts/gen-tool-pages.mjs:67` (the static-HTML generator that writes
+  `dist/ai-tools/<slug>/index.html` for all ~1,100+ crawlable tool pages —
+  the actual bytes Googlebot receives, confirmed by reading the script's own
+  header comment). Fixing `toolJsonLd()` once fixes both runtimes, same as
+  every prior SEO entry in this file.
+- **Why it matters:** this is the exact rich-result win the original
+  JSON-LD entry was built to chase, now unlocked for free — and the 15
+  slugs that already have seed reviews (`chatgpt`, `claude`, `notion-ai`,
+  `perplexity`, `cursor`, `midjourney`, `github-copilot`, `v0`, `runway`,
+  `grammarly`, `notebooklm`, `figma-make`, `gemini`, `grok`, `deepseek`) are
+  also the highest-traffic tool pages in the catalog, so the upside
+  concentrates exactly where it's most visible.
+- **Smallest useful version (what to actually build):** inside
+  `toolJsonLd()`, after building `app`, import `getAverageRating`/
+  `getReviews` from `../state/toolReviewsStore` and, only when
+  `getReviews(t.slug).filter(r => r.seed).length > 0`, add
+  `app.aggregateRating = { '@type': 'AggregateRating', ratingValue: avg,
+  reviewCount: seedCount }` using the **seed-only** count and average, not
+  the full `getReviews()` result. Seed reviews are identical in every
+  browser and in the Node build step; a signed-in visitor's own freshly
+  added review lives in that one browser's `scopedStorage` and is invisible
+  to `gen-tool-pages.mjs` — counting it would make the static page Google
+  indexed and the live page the visitor sees disagree about the same tool's
+  rating the moment they submit a review, which is exactly what this file's
+  shared-runtime design exists to prevent.
+- **What this would NOT include** (kept out to bound the diff): no
+  individual `Review` objects in the JSON-LD — Google's own guidance treats
+  `AggregateRating` alone as sufficient, and a full `Review` array for 15
+  tools is unnecessary payload for a first cut; no change to the ~1,085
+  tools with zero seed reviews — they keep emitting exactly the JSON-LD they
+  do today, with the field absent rather than a fabricated `0`, matching
+  this file's own standing rule; no backend or Supabase change, no new
+  store, no new route.
+- **Build size:** S — a few lines added inside the existing `toolJsonLd()`
+  function in `toolSeo.js`, reusing `getAverageRating`/`getReviews` from the
+  already-shipped `toolReviewsStore.js`. No new file, no new dependency.
+- **Found:** 2026-10-08 12:04 UTC
