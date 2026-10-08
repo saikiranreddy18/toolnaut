@@ -1618,8 +1618,43 @@ a client-side SPA with a static tool catalogue.
   to "ships a specced, already-honest feature," with the Featherless
   outage as a pre-ship verification step, not a blocker to the build
   itself.
-
-### Recently viewed tools
+- **Deepened 2026-10-08 21:04 UTC — the 09-23 deepening's own pre-ship risk
+  is now resolved, and the build plan's provider details are stale.** This
+  is the next-oldest OPEN entry in the second sweep (after "First-session
+  onboarding checklist" and "PDF roadmap export," both already re-touched
+  this week). Re-read `api/chat.js` in full against the 09-23 citations:
+  **everything about Gap 1's own blockers still holds** —
+  `ChatPanel.jsx`'s header still reads "Preview — replies are canned" and
+  `send()` still appends the same hardcoded string with zero `fetch` calls
+  (both unchanged); `api/copilot.js` still does not exist (`ls api/` — 17
+  files, no copilot); `planData.js:116`/`:168` citations are unchanged;
+  `Stack.jsx`'s `getTool`/`slugs` pattern is unchanged in substance (now
+  `Stack.jsx:103-124`, drifted one line from a comment edit, not worth a
+  separate note). **What's stale: `api/chat.js` quietly switched LLM
+  providers entirely since 09-23.** It no longer reads
+  `FEATHERLESS_API_KEY` or calls Featherless at all — the file's own header
+  comment now says so explicitly ("NVIDIA (integrate.api.nvidia.com), but
+  NOT Kimi-K3... Qwen2.5-7B-Instruct ~2.6s for this exact classification"),
+  the key lookup is `process.env.NVIDIA_API_KEY` (line 187), the endpoint is
+  `https://integrate.api.nvidia.com/v1/chat/completions`, and the model is
+  `meta/llama-3.1-8b-instruct` by default (`NVIDIA_CHAT_MODEL` overrides
+  it). File grew from 248 to 250 lines; `TIMEOUT_MS` is
+  `NVIDIA_CHAT_TIMEOUT_MS` defaulting to 9000, `CHAT_PER_MINUTE` is 20. The
+  `source` vocabulary is also one value wider than previously cited —
+  `'unconfigured' | 'upstream_error' | 'unparseable' | 'timeout' | 'llm'`
+  (the 09-23 note only listed three, missing `'unparseable'`, the branch for
+  a non-JSON model reply). **This removes the 09-23 pre-ship caution
+  entirely, it doesn't just change which provider it's about:** issue #63
+  (the Featherless overdue-invoice outage this entry flagged as a live risk
+  for anything copying `api/chat.js`'s scaffolding) is now **closed**
+  (2026-09-27, `state_reason: completed`, confirmed via `issue_read`), and
+  separately moot for this entry regardless of Featherless's account status
+  today, since the endpoint this plan would copy from no longer calls
+  Featherless at all. A build of `api/copilot.js` today would inherit the
+  NVIDIA provider, the 9s timeout, and the 5-value `source` contract — same
+  shape, corrected specifics, no outstanding caveat to verify against
+  before calling it done. **Build size, Gap 1: still M**, now with one less
+  reason to hesitate before picking it up.
 - **Status:** SHIPPED 113f375 — built as scoped below: `recentlyViewedStore.js`
   (localStorage, capped at 12, most-recent-first, no duplicates), a
   `useEffect` in `ToolDetail.jsx` recording on mount/slug-change, and a
@@ -11579,3 +11614,60 @@ routes, 0 console errors) directly against current `master` — all three
 clean, no bug found to fix this run. Per the "never invent a gap to fill
 the hour" rule, appended no new gap this run — the hour went to the PDF
 roadmap export re-verification instead.
+
+---
+
+### Research check 2026-10-08 21:04 UTC — no new gap found, forty-sixth pass; second sweep moves to "Pro chat assistant" and finds a real provider-drift correction
+
+Scheduled run, UTC hour 21 (a research slot). `npm ci` clean. Local
+checkout was detached at session start again (same recurring behavior
+every prior pass has noted) — checked out `master` and fast-forwarded 24
+commits from `origin/master` (`204f40e` → `4ba50d2`), which included the
+45th pass's own PDF-export re-verification and the feature run that shipped
+it (`408a2b3`) plus its digest (`4ba50d2`). `npm run radar:health` → `OK`
+(2 runs in the 26h window, last run/publish 4.5h ago, 4 tools published
+that run, feed at 496 total). `list_workflow_runs` on `master`: `CI` and
+`Release` both green at the latest push (`4ba50d2`); the one `failure`
+conclusion in the recent run list belongs to an earlier, superseded push
+(`408a2b3`) that a later commit on the same branch already supersedes with
+a green run — not current-head CI red. No `agent-fixable` issues open
+(`list_issues` zero results).
+
+**Second sweep continued at the next-oldest OPEN entry by found-date.**
+The 43rd pass closed "First-session onboarding checklist" (2026-08-23);
+the 45th closed "PDF roadmap export" (2026-08-25 03:20, now SHIPPED
+`408a2b3`); the next-oldest OPEN entry is "Pro chat assistant & the entire
+Team tier are unbacked and unbuildable client-side" (found 2026-08-25
+15:35, last deepened 2026-09-23). Re-verified Gap 1 in full against
+current `master` (detail appended inline to the entry itself, above,
+matching its own established in-place-deepening pattern) and found a real
+drift worth correcting, not just a clean re-confirmation: `api/chat.js`
+quietly switched its entire LLM provider from Featherless/Qwen2.5-7B to
+NVIDIA (`integrate.api.nvidia.com`, default model
+`meta/llama-3.1-8b-instruct`, key env var now `NVIDIA_API_KEY`) at some
+point after 09-23 — the file's own header comment documents the switch
+and the reasoning. That also makes the 09-23 deepening's pre-ship caution
+(issue #63's Featherless-invoice outage, flagged as a risk for anything
+copying `api/chat.js`'s scaffolding) doubly moot: the issue itself closed
+2026-09-27 (`completed`, confirmed via `issue_read`), and separately the
+endpoint this entry's build plan would copy from no longer calls
+Featherless at all. Net effect: Gap 1's build plan and M sizing are
+unchanged, but it now carries one fewer caveat than before — a cleaner
+pick for a feature run than the 09-23 note suggested.
+
+Two fresh searches were tried first, before falling back to the sweep,
+per the "deepen before you add" rule: "AI tool directory 2026 'tool stack'
+API marketplace integrations feature" and "There's An AI For That OR
+Futurepedia 2026 new feature saved searches alerts community" (WebSearch,
+both standard mode). Neither turned up a verifiable, sourced competitor
+feature — both came back as thin third-party review-blog copy (mostly
+`aiindigo.com`) with no primary-source confirmation of any concrete
+feature this file doesn't already cover, consistent with the pattern the
+last several passes have reported. Nothing genuine to log as a new gap.
+
+Ran `npm test` (315/315) directly against current `master` — clean. This
+was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
+`npm run build`/`npm run smoke` were not re-run; nothing in this commit
+touches build output or runtime behavior. Per the "never invent a gap to
+fill the hour" rule, appended no new gap this run — the hour went to the
+Pro-chat-assistant provider-drift correction instead.
