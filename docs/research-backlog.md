@@ -11278,3 +11278,94 @@ stack-cost-estimate gap's catalog-schema blocker. Ran `npm test`
 and `npm run smoke` (25/25 routes, 0 console errors) directly against
 current `master` to confirm nothing drifted — all three clean, no code
 changed this run.
+
+---
+
+### Research check 2026-10-08 09:04 UTC — no new gap found, forty-third pass; second-sweep re-verification of the oldest OPEN entry, per-tool reviews confirmed shipped
+
+Scheduled run, UTC hour 09 (one of the three research slots on a non-feature
+day). `npm ci` clean. Local checkout was detached at session start again
+(same recurring container-start behavior every prior pass has noted) —
+checked out `master` and fast-forwarded 18 commits from `origin/master`
+(`204f40e` → `2135406`), which turned out to include the 42nd pass's
+own radar-health and process findings plus a full feature+digest cycle
+this pass hadn't seen yet: **"per-tool ratings & reviews" (flagged as
+SHIPPED in this backlog, 36th/37th passes) is confirmed actually on
+`master`** — `src/state/toolReviewsStore.js` and
+`src/utils/toolReviewsData.js` both exist, `ToolDetail.jsx` grew by 128
+lines to wire them in. `npm run radar:health` → `OK` (1 run in the 26h
+window, last run/publish 3.0h ago, 9 tools published that run, feed at 492
+total, growing). `list_workflow_runs` on `master`: `CI`/`Release` both
+green at the latest push (`677c1f2`, a direct radar-fix commit — see
+below). No `agent-fixable` issues open (`list_issues` zero results).
+
+**The 42nd pass's "missing 2026-10-07 18:03 UTC feature+digest run"
+finding still stands, unresolved.** `DEVLOG.md`'s newest section is still
+`## 2026-10-06`; issue #94 (`Dev digest 2026-10-06`) is still `OPEN`,
+unclosed by a following day's digest. Over 24h have now passed since that
+slot was due with no feature or digest commit on `master` — the only
+`master` activity since has been a direct radar-pipeline fix
+(`677c1f2`, "stop retrying LLM timeouts at full budget," fixing the exact
+STALE radar run the 42nd pass's own research pass had separately flagged)
+and routine radar publishes. This is still outside what a research-hour
+pass can diagnose from inside the repo (no access to the scheduler/trigger
+config) — noted again rather than re-investigated, since nothing new is
+knowable about it from here. The open `bot/claude/*` PR queue (`#91`/`#89`/
+`#86`/`#75`, per every prior pass's tracking) is unchanged at the same four
+head SHAs already on record — nothing to sync.
+
+**Full re-verification sweep (passes 19–41) having completed one full
+cycle through every OPEN entry's found-date order, started a second pass
+at the beginning of that order** rather than force a new competitor search
+to fill the hour. Two fresh WebSearches were tried first and both traced
+back to existing ground: "AI tool directory save favorites / personalized
+shortlist / side-by-side compare" surfaced Powered By AI, OpenFuture AI,
+AIAnyTool and AInexfinder (all Product-Hunt-era launches), but every
+feature described already exists here — favoriting/shortlisting maps to
+the existing `stackStore.js` + `progressStore.js` (want/using/tried
+status, already shipped), compare maps to the existing `/compare/:slugs`
+and `/app/compare` routes (both confirmed live in `App.jsx:124,155`), and
+"filter by whether a tool has an API" maps to the already-shipped
+access-method facet (PR #89). A second search for 2026 directory deals/
+price-alert features turned up only a hardware-compute-price monitor
+(irrelevant) and an AppSumo-style deals marketplace still "coming soon" on
+its own listing (unconfirmed, and this file's vendor-deal/coupon angle is
+already REJECTED — no vendor relationships exist to back one).
+
+**Re-verified "First-session onboarding checklist"** (found 2026-08-23
+06:06 UTC, the single oldest OPEN entry by found-date, last touched only
+once by the 33rd pass on 2026-10-06) against current `master` — a genuine
+second look, not a repeat of the first sweep. Core claim still holds:
+`grep -rniE "checklist|getting.started|onboard" src/` still turns up no
+persistent post-signup nudge UI — only `src/components/onboarding/
+FlowSteps.jsx` (the pre-quiz "Getting started" nav, a different surface:
+shown only on the three onboarding *screens*, not after) and
+`src/utils/funnel.js`'s `markOnboarded()` (a one-shot analytics event, not
+a visible checklist). `communityStore.js` (read in full) still has no
+`hasPostedThread()`-shaped export — `loadThreads`/`getThread`/
+`toggleUpvote`/`addReply`/`addThread` are the only exports, exactly as the
+entry describes, so the planned one-line addition is still accurate.
+`roadmapStore.js`'s `allStepsDone`/`isStepDone` exports (cited by the
+entry) are both still present and unchanged. Line-number drift found and
+worth flagging for whoever builds this: `Stack.jsx` has grown from the
+~470-line file the entry was written against to 471 lines today, but the
+cited anchors moved further than the file grew — "Next up" is now at
+`Stack.jsx:436` (entry says `337-356`) and the streak-card section the
+entry plans to mount the checklist under now starts around `Stack.jsx:273`
+(entry says `199-219`), roughly 100 lines of drift from several features
+shipping in between (ratings/reviews, hidden-gems rail's eventual merge,
+etc.). `stackStore.js:7` now holds `loadStack` (entry says `:6`) — one-line
+drift, same pattern every other re-verified entry in this file has shown.
+Correcting the anchors here rather than editing the entry itself, since
+the plan's shape is otherwise untouched and a future builder should expect
+one more drift pass by the time they actually pick this up.
+
+Ran `npm test` (315/315), `npm run build` (19 static routes, 1163 tool
+pages, feed at 492 live tools, no errors), and `npm run smoke` (25/25
+routes, 0 console errors) directly against current `master` — all three
+clean, no bug found to fix this run.
+
+Per the "never invent a gap to fill the hour" rule, appended no new gap
+this run — both fresh searches traced back to existing ground or an
+already-REJECTED angle, so the hour went to starting a second
+re-verification sweep at the oldest OPEN entry instead.
