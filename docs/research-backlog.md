@@ -1013,6 +1013,46 @@ a client-side SPA with a static tool catalogue.
       the share button's slot.
     - Nothing else in the build (the `@media print` scope, `window.print()`
       approach, entitlement gating) needed correction this pass.
+  - **Re-verified 2026-10-08 15:09 UTC — still fully correct and still
+    unbuilt; one more small anchor drift, everything else holds.** Second
+    sweep continuing in found-date order after the 43rd pass closed the
+    oldest entry (onboarding checklist); this is the next-oldest OPEN entry.
+    - Core claim unchanged: `planData.js:118` is still
+      `planned('Export learning roadmaps as PDF')` and `planData.js:172` is
+      still `['PDF roadmap export', false, 'planned', 'planned']` — same
+      line numbers as the 2026-09-23 check, no drift this time. `src/index.css`
+      grew 965 → 1011 lines since the last check and still has zero
+      `@media print` rule. `package.json` still has no `jspdf`/`html2canvas`
+      dependency. `useEntitlement.js`'s `{ active, plan, paymentsEnabled,
+      configured, unknown }` shape and `TrialBanner.jsx:39`'s
+      `if (!ent.paymentsEnabled || !ent.configured) return null` gate are
+      both unchanged — confirmed the plan ids this entry's corrected gating
+      names (`guru`, `founder`, `pandava`) are exactly the three paid tiers
+      in `planData.js` (`:44`, `:97`, `:122`), with `shishya` (`:70`) the
+      only free tier — the gating logic is still exactly right.
+    - **Anchor drift found:** `Learning.jsx` grew 464 → still 464 lines
+      (unchanged), but a new eyebrow line was added above the page's `<h1>`
+      since the 2026-09-23 check — `<p className="... cosmic-text">Learn</p>`
+      now sits at `Learning.jsx:275`, pushing the `<h1>Your 4-week<br/>Orbit</h1>`
+      this entry's corrected placement targets from `:273` to `:276`, and the
+      `{current && (...)}` "next move" sticker right after it from `:275` to
+      `:279`. The plan itself is unaffected — "directly under the `<h1>`,
+      before the next-move sticker" still describes the same two real lines,
+      just renumbered; only the pinned line numbers needed correcting; `allCleared`
+      still opens at `:439` and `🎓 SHARE MY BADGE` is still at `:451`
+      (unchanged from the last check), confirming that slot is still the
+      wrong anchor for the always-visible export button, exactly as
+      previously corrected.
+    - Ran `npm test` (315/315), `npm run build` (19 static routes, 1163 tool
+      pages), and `npm run smoke` (25/25 routes, 0 console errors) directly
+      against current `master` to confirm nothing else drifted — all three
+      clean, no code changed this run. Checked the open `bot/claude/*` PR
+      queue (`list_pull_requests`): still the same long-stale backlog every
+      prior pass has tracked (oldest open PR is `#10`, from the pre-research-
+      backlog era) — unchanged, nothing new to sync. `radar:health` → `OK`
+      (1 run in the 26h window, last run/publish 8.9h ago, 9 tools published,
+      feed at 492 total) and `CI`/`Release` both green at the latest `master`
+      push (`b6389ed`, the 44th pass's JSON-LD research commit).
 ### Per-route page titles, meta descriptions & social preview cards
 - **Status:** SHIPPED, but PARTIALLY REOPENED 2026-09-13 21:20 UTC — the
   `ToolDetail`/`Compare` follow-up this entry closed itself against on
@@ -11446,3 +11486,64 @@ re-verification sweep at the oldest OPEN entry instead.
   function in `toolSeo.js`, reusing `getAverageRating`/`getReviews` from the
   already-shipped `toolReviewsStore.js`. No new file, no new dependency.
 - **Found:** 2026-10-08 12:04 UTC
+
+---
+
+### Research check 2026-10-08 15:09 UTC — no new gap found, forty-fifth pass; second sweep continues at the next-oldest OPEN entry
+
+Scheduled run, UTC hour 15 (a research slot). `npm ci` clean. Local checkout
+was detached at session start again (the same recurring container-start
+behavior every prior pass has noted) — checked out `master` and
+fast-forwarded 20 commits from `origin/master` (`204f40e` → `b6389ed`),
+which included the 44th pass's own JSON-LD aggregateRating finding (new OPEN
+entry, build size S, not yet picked up by a feature run) on top of the
+43rd pass's per-tool-reviews confirmation. `npm run radar:health` → `OK`
+(1 run in the 26h window, last run/publish 8.9h ago, 9 tools published that
+run, feed at 492 total). `list_workflow_runs` on `master`: `CI` green at the
+latest push (`b6389ed`). No `agent-fixable` issues open (`list_issues` zero
+results). The open `bot/claude/*` PR queue (`list_pull_requests`, 28 open
+PRs from `#10` through `#91`) is the same long-stale backlog every prior
+pass has tracked — unchanged, nothing new to sync, and outside what a
+research-hour pass can act on (these predate and run parallel to this
+backlog-driven routine, not something this routine opens or closes).
+
+**Second sweep continued at the next-oldest OPEN entry by found-date.** The
+43rd pass closed the oldest entry ("First-session onboarding checklist,"
+2026-08-23); the next-oldest is "PDF roadmap export" (2026-08-25,
+previously deepened 2026-09-03 and re-verified 2026-09-23). Re-verified it
+again against current `master` (full detail appended inline to the entry
+itself, above, matching that entry's own established pattern of in-place
+deepening rather than a separate note here): the build plan, the
+entitlement-gating logic (`guru`/`founder`/`pandava` paid tiers vs. the
+free `shishya` tier, confirmed against current `planData.js` ids), and the
+dependency-free `window.print()` approach all still hold exactly as last
+corrected. One more small anchor drift found and fixed: a new `<p>` eyebrow
+line ("Learn") was added above `Learning.jsx`'s `<h1>`, shifting the
+previously-pinned insertion point by three lines. Nothing else changed.
+
+Two fresh searches were tried first, before falling back to the sweep, per
+the "deepen before you add" rule: "AI tool directory 2026 pricing
+calculator / newsletter / roadmap builder / integration marketplace" and
+"AI tool directory deprecation / alternatives finder / migration guide
+feature 2026" (WebSearch, both standard mode). Neither turned up a real,
+shipped competitor pattern — the first returned only unrelated SEO-spam
+listicles and generic "best AI directories" roundups with no concrete
+feature to cite; the second surfaced only OpenAI/GitHub Copilot's own
+model-deprecation pages (a different product category entirely, not an
+AI-tool-directory feature) and no directory that actually builds a
+migration-guide surface. Nothing genuine to log as a new gap, and this
+file's existing coverage is already wide enough (26 OPEN entries spanning
+sharing, export, search, filtering, personalization, onboarding, a public
+API, RSS, a backlink badge, visual identity, collections, a leaderboard,
+benchmarks, testimonials, email capture, a browser-extension lookup
+surface, vendor claims, and now structured-data ratings) that two searches
+this hour both traced back to ground already covered rather than opening
+new ground — consistent with the pattern the last several passes have
+already reported.
+
+Ran `npm test` (315/315), `npm run build` (19 static routes, 1163 tool
+pages, feed at 492 live tools, no errors), and `npm run smoke` (25/25
+routes, 0 console errors) directly against current `master` — all three
+clean, no bug found to fix this run. Per the "never invent a gap to fill
+the hour" rule, appended no new gap this run — the hour went to the PDF
+roadmap export re-verification instead.
