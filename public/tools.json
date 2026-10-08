@@ -11756,5 +11756,101 @@
       "chat"
     ],
     "discoveredAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "slug": "opposable",
+    "name": "Opposable",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "AI computer-use agent that controls iPhone and Android devices to complete tasks.",
+    "audience": "developers and power users automating mobile tasks",
+    "dev": "",
+    "year": 2026,
+    "website": "https://getopposable.com",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "computer use",
+      "mobile automation",
+      "ai agent",
+      "android",
+      "ios"
+    ],
+    "discoveredAt": "2026-10-08T16:31:55.768Z"
+  },
+  {
+    "slug": "llmll",
+    "name": "Llmll",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Open source",
+    "level": "advanced",
+    "blurb": "AI agents fill typed holes in code while an SMT solver rejects incorrect fills.",
+    "audience": "Developers using formal methods and typed languages",
+    "dev": "machunter",
+    "year": 2026,
+    "website": "https://github.com/machunter/llmll",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "llm agents",
+      "smt solver",
+      "typed holes",
+      "code generation",
+      "formal verification"
+    ],
+    "discoveredAt": "2026-10-08T16:31:55.768Z"
+  },
+  {
+    "slug": "i-put-an-ai-agent-on-a-nokia-110",
+    "name": "I Put an AI Agent on a Nokia 110",
+    "category": "automation",
+    "sourceCategory": "AI Hardware & Devices",
+    "price": "free",
+    "pricing": "Free / open-source",
+    "level": "advanced",
+    "blurb": "Experimental project running an AI agent on a Nokia 110 feature phone.",
+    "audience": "hackers and hardware tinkerers",
+    "dev": "anupray95",
+    "year": 2026,
+    "website": "https://github.com/anupray95/AI-Agent-on-a-NOKIA",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai-agent",
+      "feature-phone",
+      "nokia",
+      "hack",
+      "open-source"
+    ],
+    "discoveredAt": "2026-10-08T16:31:55.768Z"
+  },
+  {
+    "slug": "promo-video-generator",
+    "name": "promo-video-generator",
+    "category": "automation",
+    "sourceCategory": "Video Generation & Avatars",
+    "price": "free",
+    "pricing": "Free / open source",
+    "level": "intermediate",
+    "blurb": "Open-source toolkit enabling AI agents to build short promotional videos programmatically.",
+    "audience": "Developers and marketers automating video creation",
+    "dev": "visser23",
+    "year": 2026,
+    "website": "https://github.com/visser23/promo-video-generator",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "video generation",
+      "promo videos",
+      "automation",
+      "open source",
+      "ai agents"
+    ],
+    "discoveredAt": "2026-10-08T16:31:55.768Z"
   }
 ]

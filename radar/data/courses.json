@@ -32625,5 +32625,232 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "course-opposable",
+    "toolSlug": "opposable",
+    "title": "Master Opposable",
+    "objectives": [
+      "Understand what Opposable is for",
+      "Use Opposable on a real task",
+      "Know where Opposable fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Opposable for your real workflow, not the demo.",
+          "Say what Opposable does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Opposable.",
+          "Push Opposable to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Opposable into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-computer use",
+      "skill-mobile automation",
+      "skill-ai agent",
+      "skill-android",
+      "skill-ios"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-08T16:31:55.768Z"
+  },
+  {
+    "id": "course-llmll",
+    "toolSlug": "llmll",
+    "title": "Master Llmll",
+    "objectives": [
+      "Write Llmll hole annotations in typed languages so the agent can attempt fills",
+      "Read and fix SMT solver rejections when a proposed fill violates constraints",
+      "Craft refinement types and invariants that make solver verification fast and sound"
+    ],
+    "modules": [
+      {
+        "title": "Anatomy of a Typed Hole",
+        "estMinutes": 35,
+        "steps": [
+          "Install the Llmll CLI and language server, then run `llmll init` in a sample OCaml/Haskell project",
+          "Insert a hole with `??` (or `_`) and implement the surrounding function signature, then run `llmll check` to see the agent's candidate fills",
+          "Trigger a deliberate type mismatch and observe how the SMT solver prunes invalid candidates before they're surfaced"
+        ]
+      },
+      {
+        "title": "Guiding Fills with Refinement Types",
+        "estMinutes": 45,
+        "steps": [
+          "Refine a hole's signature (e.g., `{v: List a | length v > 0}`) and compare candidate quality against the unrefined version",
+          "Add a precondition/postcondition pair to a sorting function hole and verify every accepted fill satisfies the postcondition",
+          "Measure how solver timeout changes as refinements get tighter; document the sweet spot for your codebase"
+        ]
+      },
+      {
+        "title": "Debugging Solver Rejections",
+        "estMinutes": 40,
+        "steps": [
+          "Run `llmll check --trace-smt` on a rejected fill and read the unsat core to identify the violated constraint",
+          "Fix an over-constrained refinement that rejects all fills (vacuous false precondition) and confirm candidates reappear",
+          "Enable `--max-candidates 5` and inspect the solver's ranked list, then accept a fill with `llmll accept <id>`"
+        ]
+      },
+      {
+        "title": "Integrating Llmll into a Real Workflow",
+        "estMinutes": 35,
+        "steps": [
+          "Add `llmll check --ci` to your build pipeline so unverified fills block merges",
+          "Refactor one real function in your codebase into a hole-driven style: signature, refinements, hole, then solver-verified fill",
+          "Configure solver backend settings (Z3 vs. CVC5) in `llmll.toml` and benchmark both on your module"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-llm agents",
+      "skill-smt solver",
+      "skill-typed holes",
+      "skill-code generation",
+      "skill-formal verification"
+    ],
+    "prerequisites": [
+      "Comfort with a statically typed functional language (OCaml, Haskell, or F#)",
+      "Basic familiarity with SMT solvers (e.g., Z3) and formal verification terms like 'unsat core'"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-08T16:31:55.768Z"
+  },
+  {
+    "id": "course-i-put-an-ai-agent-on-a-nokia-110",
+    "toolSlug": "i-put-an-ai-agent-on-a-nokia-110",
+    "title": "Master I Put an AI Agent on a Nokia 110",
+    "objectives": [
+      "Understand what I Put an AI Agent on a Nokia 110 is for",
+      "Use I Put an AI Agent on a Nokia 110 on a real task",
+      "Know where I Put an AI Agent on a Nokia 110 fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure I Put an AI Agent on a Nokia 110 for your real workflow, not the demo.",
+          "Say what I Put an AI Agent on a Nokia 110 does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through I Put an AI Agent on a Nokia 110.",
+          "Push I Put an AI Agent on a Nokia 110 to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold I Put an AI Agent on a Nokia 110 into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai-agent",
+      "skill-feature-phone",
+      "skill-nokia",
+      "skill-hack",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-08T16:31:55.768Z"
+  },
+  {
+    "id": "course-promo-video-generator",
+    "toolSlug": "promo-video-generator",
+    "title": "Master promo-video-generator",
+    "objectives": [
+      "Generate a complete promo video from a script using the toolkit's CLI and Python API",
+      "Compose scenes with text overlays, transitions, and audio tracks programmatically",
+      "Integrate promo-video-generator into an AI agent pipeline for automated video creation"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Render",
+        "estMinutes": 20,
+        "steps": [
+          "Install the toolkit via pip/clone, then verify dependencies (ffmpeg, required codecs) with the built-in doctor/check command",
+          "Run the included example project to render a sample 15-second promo and inspect the output MP4",
+          "Modify one config value (e.g., resolution to 1920x1080) and re-render to confirm your environment is working"
+        ]
+      },
+      {
+        "title": "Composing Scenes Programmatically",
+        "estMinutes": 35,
+        "steps": [
+          "Define a video manifest (JSON or Python dict) with 3 scenes: intro hook, feature highlight, and call-to-action end card",
+          "Add text overlays with custom fonts, colors, and entrance animations to each scene using the overlay API",
+          "Attach a background music track and a voiceover audio file, then set per-scene ducking so narration stays audible"
+        ]
+      },
+      {
+        "title": "Transitions, Branding, and Templates",
+        "estMinutes": 30,
+        "steps": [
+          "Apply crossfade and slide transitions between scenes and adjust their durations in the manifest",
+          "Create a reusable brand template file containing your logo watermark, color palette, and default fonts",
+          "Render two videos from the same script with different templates to verify template overrides work"
+        ]
+      },
+      {
+        "title": "Agent-Driven Automation",
+        "estMinutes": 30,
+        "steps": [
+          "Write a Python script that takes a product description string and auto-generates scene text, then calls the render API",
+          "Wire the script into an agent tool/function-calling schema so an LLM agent can trigger video creation with parameters",
+          "Add error handling: validate output duration, check render exit codes, and retry once on ffmpeg failures"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-video generation",
+      "skill-promo videos",
+      "skill-open source",
+      "skill-ai agents"
+    ],
+    "prerequisites": [
+      "Intermediate Python scripting (functions, dict/JSON data structures)",
+      "Basic command-line usage including installing packages",
+      "ffmpeg installed or willingness to install it",
+      "Familiarity with LLM agent tool-calling concepts (for the final module)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-08T16:31:55.768Z"
   }
 ]

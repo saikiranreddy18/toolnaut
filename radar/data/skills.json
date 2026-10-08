@@ -207,7 +207,8 @@
       "dotpals",
       "flagshiprouter",
       "delegator",
-      "chloe-is-a-typescript-ai-agent"
+      "chloe-is-a-typescript-ai-agent",
+      "llmll"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -412,7 +413,8 @@
       "course-dotpals",
       "course-flagshiprouter",
       "course-delegator",
-      "course-chloe-is-a-typescript-ai-agent"
+      "course-chloe-is-a-typescript-ai-agent",
+      "course-llmll"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -591,7 +593,8 @@
       "embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo",
       "checkout-this-open-source-local-first-bioinformatics-ai-desk",
       "a-new-ai-agent-oriented-programming-language",
-      "short-video-maker"
+      "short-video-maker",
+      "i-put-an-ai-agent-on-a-nokia-110"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -673,7 +676,8 @@
       "course-embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo",
       "course-checkout-this-open-source-local-first-bioinformatics-ai-desk",
       "course-a-new-ai-agent-oriented-programming-language",
-      "course-short-video-maker"
+      "course-short-video-maker",
+      "course-i-put-an-ai-agent-on-a-nokia-110"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1103,7 +1107,10 @@
       "runtime",
       "sheetrelay",
       "a-new-ai-agent-oriented-programming-language",
-      "muselite"
+      "muselite",
+      "opposable",
+      "i-put-an-ai-agent-on-a-nokia-110",
+      "promo-video-generator"
     ],
     "courses": [
       "course-headless-tools",
@@ -1364,7 +1371,10 @@
       "course-runtime",
       "course-sheetrelay",
       "course-a-new-ai-agent-oriented-programming-language",
-      "course-muselite"
+      "course-muselite",
+      "course-opposable",
+      "course-i-put-an-ai-agent-on-a-nokia-110",
+      "course-promo-video-generator"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1560,7 +1570,8 @@
       "vmpal",
       "sulcus",
       "runtime",
-      "sheetrelay"
+      "sheetrelay",
+      "promo-video-generator"
     ],
     "courses": [
       "course-headless-tools",
@@ -1734,7 +1745,8 @@
       "course-vmpal",
       "course-sulcus",
       "course-runtime",
-      "course-sheetrelay"
+      "course-sheetrelay",
+      "course-promo-video-generator"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2721,7 +2733,8 @@
       "pyunto",
       "coreweave-aria-ai-research-and-iteration-agent",
       "openchart",
-      "tofu"
+      "tofu",
+      "i-put-an-ai-agent-on-a-nokia-110"
     ],
     "courses": [
       "course-hermes-agent",
@@ -2733,7 +2746,8 @@
       "course-pyunto",
       "course-coreweave-aria-ai-research-and-iteration-agent",
       "course-openchart",
-      "course-tofu"
+      "course-tofu",
+      "course-i-put-an-ai-agent-on-a-nokia-110"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3554,7 +3568,8 @@
       "artbucket",
       "self-bench",
       "flagshiprouter",
-      "muselite"
+      "muselite",
+      "promo-video-generator"
     ],
     "courses": [
       "course-limitless-library",
@@ -3624,7 +3639,8 @@
       "course-artbucket",
       "course-self-bench",
       "course-flagshiprouter",
-      "course-muselite"
+      "course-muselite",
+      "course-promo-video-generator"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4070,7 +4086,8 @@
       "i-told-my-open-source-ai-agent-it-was-a-prisoner",
       "meta-muse-hits-1-in-apple-app-store",
       "call4me-an-ai-agent-that-handles-phone-calls-for-you",
-      "chloe-is-a-typescript-ai-agent"
+      "chloe-is-a-typescript-ai-agent",
+      "opposable"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -4103,7 +4120,8 @@
       "course-i-told-my-open-source-ai-agent-it-was-a-prisoner",
       "course-meta-muse-hits-1-in-apple-app-store",
       "course-call4me-an-ai-agent-that-handles-phone-calls-for-you",
-      "course-chloe-is-a-typescript-ai-agent"
+      "course-chloe-is-a-typescript-ai-agent",
+      "course-opposable"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5119,14 +5137,16 @@
       "novus",
       "ai-agent-for-google-play-submissions-video",
       "aiope",
-      "pixelboard"
+      "pixelboard",
+      "opposable"
     ],
     "courses": [
       "course-devx",
       "course-novus",
       "course-ai-agent-for-google-play-submissions-video",
       "course-aiope",
-      "course-pixelboard"
+      "course-pixelboard",
+      "course-opposable"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6001,13 +6021,15 @@
       "google-flow",
       "stillmade",
       "endframe",
-      "reelbench-skills"
+      "reelbench-skills",
+      "promo-video-generator"
     ],
     "courses": [
       "course-google-flow",
       "course-stillmade",
       "course-endframe",
-      "course-reelbench-skills"
+      "course-reelbench-skills",
+      "course-promo-video-generator"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -6778,7 +6800,8 @@
       "piqt-ios",
       "vantage",
       "nomacapp",
-      "apple-releases-os-27-updates-with-siri-ai"
+      "apple-releases-os-27-updates-with-siri-ai",
+      "opposable"
     ],
     "courses": [
       "course-trana",
@@ -6786,7 +6809,8 @@
       "course-piqt-ios",
       "course-vantage",
       "course-nomacapp",
-      "course-apple-releases-os-27-updates-with-siri-ai"
+      "course-apple-releases-os-27-updates-with-siri-ai",
+      "course-opposable"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -10963,11 +10987,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "a-context-registry-for-ai-coding-agents",
-      "antflow-ai-spec-driven-agentic-development"
+      "antflow-ai-spec-driven-agentic-development",
+      "llmll"
     ],
     "courses": [
       "course-a-context-registry-for-ai-coding-agents",
-      "course-antflow-ai-spec-driven-agentic-development"
+      "course-antflow-ai-spec-driven-agentic-development",
+      "course-llmll"
     ],
     "updatedAt": "2026-09-03T23:31:51.252Z"
   },
@@ -15263,10 +15289,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "noodle-computer"
+      "noodle-computer",
+      "opposable"
     ],
     "courses": [
-      "course-noodle-computer"
+      "course-noodle-computer",
+      "course-opposable"
     ],
     "updatedAt": "2026-09-11T13:37:11.155Z"
   },
@@ -18468,10 +18496,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "bottle"
+      "bottle",
+      "llmll"
     ],
     "courses": [
-      "course-bottle"
+      "course-bottle",
+      "course-llmll"
     ],
     "updatedAt": "2026-09-17T14:18:56.690Z"
   },
@@ -21629,5 +21659,109 @@
       "course-muselite"
     ],
     "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "skill-mobile automation",
+    "name": "mobile automation",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "opposable"
+    ],
+    "courses": [
+      "course-opposable"
+    ],
+    "updatedAt": "2026-10-08T16:31:55.768Z"
+  },
+  {
+    "id": "skill-smt solver",
+    "name": "smt solver",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "llmll"
+    ],
+    "courses": [
+      "course-llmll"
+    ],
+    "updatedAt": "2026-10-08T16:31:55.768Z"
+  },
+  {
+    "id": "skill-typed holes",
+    "name": "typed holes",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "llmll"
+    ],
+    "courses": [
+      "course-llmll"
+    ],
+    "updatedAt": "2026-10-08T16:31:55.768Z"
+  },
+  {
+    "id": "skill-formal verification",
+    "name": "formal verification",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "llmll"
+    ],
+    "courses": [
+      "course-llmll"
+    ],
+    "updatedAt": "2026-10-08T16:31:55.768Z"
+  },
+  {
+    "id": "skill-feature-phone",
+    "name": "feature phone",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "i-put-an-ai-agent-on-a-nokia-110"
+    ],
+    "courses": [
+      "course-i-put-an-ai-agent-on-a-nokia-110"
+    ],
+    "updatedAt": "2026-10-08T16:31:55.768Z"
+  },
+  {
+    "id": "skill-nokia",
+    "name": "nokia",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "i-put-an-ai-agent-on-a-nokia-110"
+    ],
+    "courses": [
+      "course-i-put-an-ai-agent-on-a-nokia-110"
+    ],
+    "updatedAt": "2026-10-08T16:31:55.768Z"
+  },
+  {
+    "id": "skill-hack",
+    "name": "hack",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "i-put-an-ai-agent-on-a-nokia-110"
+    ],
+    "courses": [
+      "course-i-put-an-ai-agent-on-a-nokia-110"
+    ],
+    "updatedAt": "2026-10-08T16:31:55.768Z"
+  },
+  {
+    "id": "skill-promo videos",
+    "name": "promo videos",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "promo-video-generator"
+    ],
+    "courses": [
+      "course-promo-video-generator"
+    ],
+    "updatedAt": "2026-10-08T16:31:55.768Z"
   }
 ]
