@@ -1009,3 +1009,27 @@ input:focus, textarea:focus, select:focus { border-color: rgba(167, 139, 250, 0.
   .auth-vignette { opacity: 1; }
   .auth-meteor { opacity: 0; }
 }
+
+/* Learning.jsx's roadmap, printed via window.print(). Scoped to this one
+   page's own wrapper — the app is dark-theme-only, so printing it unstyled
+   would waste paper on white-on-transparent text. Nothing here touches any
+   other page. */
+@media print {
+  .print-roadmap,
+  .print-roadmap * {
+    color: #000000 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  .print-roadmap {
+    background: #ffffff !important;
+  }
+  .print-roadmap .sticker,
+  .print-roadmap .tape-label {
+    background: #ffffff !important;
+    border-color: #999999 !important;
+    break-inside: avoid;
+  }
+}

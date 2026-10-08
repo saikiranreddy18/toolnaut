@@ -6,6 +6,7 @@ import { CATEGORY_META } from '../../utils/toolsCatalog'
 import { loadQuiz } from '../../state/quizStore'
 import { QUESTIONS } from '../../utils/quizLogic'
 import { track, EVENTS } from '../../utils/analyticsEvents'
+import { useEntitlement } from '../../hooks/useEntitlement'
 import {
   loadRoadmapProgress,
   toggleStep,
@@ -71,7 +72,7 @@ function LessonStep({ done, step, lesson, onToggle }) {
         {lesson && (
           <button
             onClick={() => { haptic.tap(); setOpen((v) => !v) }}
-            className="press mt-1.5 shrink-0 font-display text-[10px] font-semibold"
+            className="press mt-1.5 shrink-0 font-display text-[10px] font-semibold print:hidden"
             style={{ color: open ? 'var(--hot-pink)' : '#6b6690' }}
             aria-expanded={open}
           >
@@ -132,7 +133,7 @@ function Checkpoint({ quiz, passed, onPass }) {
   }
 
   return (
-    <div className="mt-4 rounded-xl border border-white/10 p-4" style={{ background: 'rgba(212, 212, 216,0.06)' }}>
+    <div className="mt-4 rounded-xl border border-white/10 p-4 print:hidden" style={{ background: 'rgba(212, 212, 216,0.06)' }}>
       <p className="font-display text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--hot-pink)' }}>
         Checkpoint · pass to clear the week
       </p>
@@ -190,6 +191,13 @@ export default function Learning() {
   const [progress, setProgress] = useState(loadRoadmapProgress)
   const [shared, setShared] = useState(false)
   const firedComplete = useRef(false)
+  const ent = useEntitlement()
+  // Free public beta today (no payments configured) ships this for everyone,
+  // same as every other plan-gated feature in this app right now. Once
+  // payments go live, only Pro and up (guru/founder/pandava) keep it — see
+  // planData.js's own tier inheritance.
+  const canExportRoadmap = !ent.paymentsEnabled || !ent.configured ||
+    (ent.active && ['guru', 'founder', 'pandava'].includes(ent.plan))
 
   const milestones = roadmap?.milestones || []
   const totalSteps = milestones.reduce((n, m) => n + m.steps.length, 0)
@@ -270,10 +278,29 @@ export default function Learning() {
     } catch { /* user dismissed */ }
   }
 
+  function exportRoadmap() {
+    haptic.tap()
+    window.print()
+  }
+
   return (
-    <div className="relative z-10 mx-auto max-w-5xl px-5 xl:max-w-6xl py-6 lg:py-10">
+    <div className="print-roadmap relative z-10 mx-auto max-w-5xl px-5 xl:max-w-6xl py-6 lg:py-10">
       <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">Learn</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">Your 4-week<br/>Orbit</h1>
+
+        {canExportRoadmap ? (
+          <button onClick={exportRoadmap} className="nb-btn dark print:hidden mt-4 px-4 py-2 text-xs">
+            🖨️ Export as PDF
+          </button>
+        ) : (
+          <Link
+            to="/pricing"
+            className="press mt-4 inline-block font-display text-xs font-semibold uppercase tracking-wider underline underline-offset-4 print:hidden"
+            style={{ color: '#6b6690' }}
+          >
+            Pro roadmap export →
+          </Link>
+        )}
 
         {/* Next move — the single answer to "what do I do now" */}
         {current && (

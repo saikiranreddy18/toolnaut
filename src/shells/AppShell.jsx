@@ -174,10 +174,10 @@ export default function AppShell() {
     <div className="app-calm relative flex min-h-dvh">
       {/* Skip link is mounted once, globally, in App.jsx — it targets the
           #main-content landmark below on every route, this one included. */}
-      <div className="starfield" aria-hidden="true" />
+      <div className="starfield print:hidden" aria-hidden="true" />
 
       {/* left sidebar — desktop */}
-      <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-white/10 px-4 py-5 lg:flex">
+      <aside className="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-white/10 px-4 py-5 lg:flex print:hidden">
         <Link to="/" aria-label={BRAND}>
           <BrandLogo {...LOGO.chrome} />
         </Link>
@@ -253,7 +253,7 @@ export default function AppShell() {
       {/* main content */}
       <main id="main-content" tabIndex={-1} className="relative z-10 min-w-0 flex-1 pb-24 lg:pb-0">
         {/* mobile top bar — respects the notch */}
-        <div className="sticky top-0 z-30 flex items-center justify-between border-b border-white/10 bg-[#0a0a0f]/85 px-5 py-4 pt-[max(1rem,env(safe-area-inset-top))] backdrop-blur-md lg:hidden">
+        <div className="sticky top-0 z-30 flex items-center justify-between border-b border-white/10 bg-[#0a0a0f]/85 px-5 py-4 pt-[max(1rem,env(safe-area-inset-top))] backdrop-blur-md lg:hidden print:hidden">
           <Link to="/" aria-label={BRAND}>
             <BrandLogo {...LOGO.compact} />
           </Link>
@@ -281,7 +281,7 @@ export default function AppShell() {
         {/* Above the page, inside the same width, so it reads as part of the
             app rather than a floating alert. Renders nothing for guests, for
             paying customers, and when the check failed. */}
-        <div className="px-5 pt-4">
+        <div className="px-5 pt-4 print:hidden">
           <TrialBanner />
         </div>
         <motion.div
@@ -302,7 +302,7 @@ export default function AppShell() {
             animate={{ width: 340, opacity: 1 }}
             exit={{ width: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="sticky top-0 hidden h-dvh shrink-0 overflow-hidden border-l border-white/10 lg:block"
+            className="sticky top-0 hidden h-dvh shrink-0 overflow-hidden border-l border-white/10 lg:block print:hidden"
           >
             <div className="h-full w-[340px]">
               <ChatPanel personaName={persona?.name} onClose={() => toggleChat(false)} idPrefix="chat-desktop" />
@@ -324,7 +324,7 @@ export default function AppShell() {
           onClick={() => toggleChat(true)}
           data-tour="chat"
           aria-label="Open AI assistant"
-          className="nb-btn fixed bottom-24 right-5 z-40 flex h-14 w-14 items-center justify-center !rounded-full !p-0 lg:bottom-6 lg:right-6"
+          className="nb-btn fixed bottom-24 right-5 z-40 flex h-14 w-14 items-center justify-center !rounded-full !p-0 lg:bottom-6 lg:right-6 print:hidden"
         >
           <ChatIcon />
         </button>
@@ -339,7 +339,7 @@ export default function AppShell() {
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
             transition={{ duration: 0.28, ease: 'easeOut' }}
-            className="fixed inset-x-0 bottom-0 z-50 h-[75dvh] rounded-t-2xl border-t border-white/10 bg-[#12121c] lg:hidden"
+            className="fixed inset-x-0 bottom-0 z-50 h-[75dvh] rounded-t-2xl border-t border-white/10 bg-[#12121c] lg:hidden print:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="AI assistant"
@@ -352,7 +352,7 @@ export default function AppShell() {
       {/* bottom nav — arcade (chunky lime border-top, uppercase labels, lime active glow) */}
       <nav
         aria-label="Main"
-        className="fixed inset-x-0 bottom-0 z-40 bg-[#0a0a0f]/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-md lg:hidden"
+        className="fixed inset-x-0 bottom-0 z-40 bg-[#0a0a0f]/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-md lg:hidden print:hidden"
         style={{ borderTop: '2px solid var(--lime)' }}
       >
         <div className="grid grid-cols-6">
