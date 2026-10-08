@@ -853,7 +853,9 @@ a client-side SPA with a static tool catalogue.
     to "Replay the tour", not as a new standalone section.
 
 ### PDF roadmap export (sold on Pro, does not exist)
-- **Status:** OPEN
+- **Status:** SHIPPED 408a2b3 — built exactly as scoped below, at the
+  corrected anchor from the 2026-10-08 15:09 re-verification. See bottom of
+  entry for what the build run actually did.
 - **Seen in:** this isn't a competitor pattern so much as a Toolnaut-only
   false claim — flagged while re-auditing `planData.js` for other unbacked
   rows after the favorites gap (found there is not the only one). Print/
@@ -1053,6 +1055,36 @@ a client-side SPA with a static tool catalogue.
       (1 run in the 26h window, last run/publish 8.9h ago, 9 tools published,
       feed at 492 total) and `CI`/`Release` both green at the latest `master`
       push (`b6389ed`, the 44th pass's JSON-LD research commit).
+  - **Built 2026-10-08 18:04 UTC feature run — sha `408a2b3`.** Exactly the
+    corrected plan above: a `@media print` block scoped to a new
+    `.print-roadmap` wrapper class on `Learning.jsx`'s root div (forces
+    black-on-white, strips box-shadow/backdrop-filter, keeps `.sticker`
+    cards readable with a thin grey border), an "🖨️ Export as PDF" button
+    under the `<h1>` calling `window.print()` directly, and `print:hidden`
+    (Tailwind's built-in print variant, not a new class) on every piece of
+    `AppShell` chrome — `.starfield`, the desktop sidebar, mobile top bar,
+    bottom nav, chat launcher and both chat panels, `TrialBanner`'s wrapper
+    — plus the "How ▾" lesson-disclosure toggle and the unanswered
+    checkpoint-quiz form inside `Learning.jsx` itself, so none of that
+    interactive-only chrome shows up in the printout. Gated through
+    `useEntitlement()` exactly as corrected: `!ent.paymentsEnabled ||
+    !ent.configured` (today's actual free-beta state) renders the button for
+    everyone; a Student on a live-payments deployment would see a "Pro
+    roadmap export →" nudge to `/pricing` instead. `planData.js`'s
+    `'planned'` pills were deliberately left alone — the tier promise they
+    describe is about the paid state, which isn't live yet, same precedent
+    already set for the favorites cap in this file. Verified beyond the
+    smoke test: seeded a `vite preview` session with Playwright (session +
+    completed-quiz localStorage, bypassing the UI flow), confirmed the
+    button renders at the right anchor, then used `page.emulateMedia({
+    media: 'print' })` to confirm the sidebar/bottom-nav/export-button all
+    report `isVisible() === false`, the roadmap heading's computed color is
+    `rgb(0, 0, 0)`, and `.print-roadmap`'s computed background is
+    `rgb(255, 255, 255)` — screenshotted both the normal and print-emulated
+    render to eyeball the result directly, not just trust computed styles.
+    All three checks green (315 tests, build — 1166 tool pages, smoke —
+    25 routes, 0 console errors) before push. Diff: 62 insertions, 11
+    deletions across 3 files.
 ### Per-route page titles, meta descriptions & social preview cards
 - **Status:** SHIPPED, but PARTIALLY REOPENED 2026-09-13 21:20 UTC — the
   `ToolDetail`/`Compare` follow-up this entry closed itself against on

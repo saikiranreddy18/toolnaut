@@ -9,6 +9,83 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-10-08
+
+**Radar health:** `OK` — 2 runs in the 26h window, most recent 1.7h before
+this run (4 tools published that run), feed at 496 tools total in
+`public/tools.json`.
+
+**Researched today:** four research-hour passes (00:04, 09:04, 12:xx, 15:09
+UTC — the 42nd through 45th against the backlog). The 42nd found no new gap
+but flagged a real process gap instead: **the 2026-10-07 18:03 UTC
+feature+digest run never fired** — no `DEVLOG.md` section, no digest issue,
+and no commits on `master` for ~9h that day — outside what a research pass
+can diagnose from inside the repo. The 43rd confirmed "per-tool ratings &
+reviews" (shipped 2026-10-06) is genuinely live on `master`, then re-verified
+the single oldest OPEN entry ("First-session onboarding checklist," found
+2026-08-23) — still accurate, still unbuilt, still the best next pick once
+a bigger slice of a day is available. The 44th logged a genuinely new gap:
+`toolJsonLd()` still emits no `aggregateRating` markup for the 15 slugs that
+now have real seed review data, on both the live `ToolPublic.jsx` page and
+the static `gen-tool-pages.mjs` build step — the ratings data this was
+waiting on shipped three weeks ago and nobody came back to flip it. The 45th
+re-verified **"PDF roadmap export"** fresh (anchor-corrected after a new
+"Learn" eyebrow line shifted `Learning.jsx`'s insertion point by three
+lines) — the freshest, most build-ready OPEN entry on the board, so this run
+picked it up directly.
+
+**Shipped today:** **PDF roadmap export** — `Learning.jsx`'s "Export
+learning roadmaps as PDF" promise (sold on Pro since the pricing rewrite)
+had nothing behind it; grepping `src/` for `print|PDF|jspdf` turned up only
+the two `planData.js` copy lines. Built the dependency-free way every prior
+deepening scoped: a `@media print` block scoped to a new `.print-roadmap`
+wrapper class (forces black-on-white, strips box-shadow/backdrop-filter,
+keeps `.sticker` cards readable with a thin grey border), an "🖨️ Export as
+PDF" button under the page's `<h1>` calling `window.print()` directly, and
+`print:hidden` (Tailwind's built-in print variant) on every piece of
+`AppShell` chrome — the starfield, desktop sidebar, mobile top bar, bottom
+nav, chat launcher and panels, `TrialBanner` — plus the "How ▾" lesson
+toggle and the unanswered checkpoint-quiz form, so none of that
+interactive-only chrome prints. Gated through `useEntitlement()`: ships
+ungated today (no payments configured in this free beta, same behavior as
+every other plan-gated feature right now) and switches to a Pro/Team-only
+button with a Student nudge the moment payments go live — `planData.js`'s
+`'planned'` pills were deliberately left alone since that promise describes
+the future paid state, not today's beta. Verified beyond the smoke test:
+seeded a `vite preview` session with Playwright, confirmed the button
+renders at the right anchor, then used `page.emulateMedia({ media: 'print'
+})` to confirm the sidebar/bottom-nav/export-button all report
+`isVisible() === false`, the heading's computed color is `rgb(0, 0, 0)`,
+and the wrapper's computed background is `rgb(255, 255, 255)` —
+screenshotted both renders to eyeball the result directly. All three checks
+green (315 tests, build — 1166 tool pages, smoke — 25 routes, 0 console
+errors), pushed to `master` — sha
+[`408a2b3`](https://github.com/saikiranreddy18/toolnaut/commit/408a2b3).
+Marked `SHIPPED` in the backlog. **Visible on toolnaut.xyz today** — the
+button renders on `/app/learning` immediately once this deploy lands; no
+other pipeline needs to run first.
+
+**Still stuck:** the `Agent · Research`/`Maintainer`/`Bugfix` GitHub Actions
+workflows are still failing on every scheduled run at the `claude-code-action`
+step (issue #69), the open-bot-PR backlog (issue #67, still ~20+ PRs, oldest
+from 2026-08-22) hasn't shrunk, and two separate orphaned-release-tag issues
+(#74, #52) still block `npm version`-driven release bumps. None of these are
+this routine's job to fix directly — `.github/workflows/` edits and merge
+rights both need a human — but all four are worth attention. Also: the
+2026-10-07 missed feature+digest run (flagged by the 42nd research pass)
+means issue #94 sat open an extra day with no 2026-10-07 section ever
+written for it; closing #94 now as part of this run rather than leaving it
+open indefinitely, and noting the gap plainly rather than fabricating a
+2026-10-07 entry after the fact.
+
+**Queued next:** "First-session onboarding checklist" (found 2026-08-23, the
+single oldest OPEN entry, re-verified clean as of the 43rd pass this
+morning) is next in line. "Tool pages' JSON-LD still says 'no rating'"
+(found this afternoon, build size S) is the freshest small gap if a shorter
+slice of a day is available instead.
+
+---
+
 ## 2026-10-06
 
 **Radar health:** `OK` — 3 runs in the 26h window, most recent 2.1h before
