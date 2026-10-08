@@ -11,6 +11,14 @@ export async function retry(fn, { attempts = 3, baseMs = 400, maxMs = 30000 } = 
       lastErr = e
       const status = e?.status
       if (status >= 400 && status < 500 && status !== 429) throw e
+      // AbortSignal.timeout() rejects with a TimeoutError once the call already
+      // burned its full budget. llm.js sizes that budget with 3.5x headroom over
+      // a measured call, so a timeout there isn't a blip — retrying spends the
+      // same long budget again, and 3 attempts at a 180s LLM timeout can block
+      // one candidate for 9 minutes. In run.js's serial loop that is enough to
+      // blow the radar workflow's 90-minute ceiling and get the whole run
+      // cancelled, which is what happened on 2026-10-08 (STALE, no publish).
+      if (e?.name === 'TimeoutError' || e?.name === 'AbortError') throw e
       if (i < attempts - 1) {
         const backoff = Math.min(baseMs * 2 ** i, maxMs)
         // On a rate limit, the server told us how long to wait — obey it.

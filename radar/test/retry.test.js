@@ -20,6 +20,23 @@ test('fails fast on a 4xx that is not 429, without retrying', async () => {
   assert.equal(calls, 1)
 })
 
+test('fails fast on a timeout/abort, without retrying', async () => {
+  let calls = 0
+  const err = new DOMException('The operation was aborted due to timeout', 'TimeoutError')
+  await assert.rejects(
+    () =>
+      retry(
+        () => {
+          calls++
+          throw err
+        },
+        { attempts: 3, baseMs: 1 }
+      ),
+    err
+  )
+  assert.equal(calls, 1)
+})
+
 test('retries a 429 and obeys the Retry-After hint', async () => {
   let calls = 0
   const start = Date.now()
