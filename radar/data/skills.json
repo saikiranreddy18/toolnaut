@@ -206,7 +206,8 @@
       "vmpal",
       "dotpals",
       "flagshiprouter",
-      "delegator"
+      "delegator",
+      "chloe-is-a-typescript-ai-agent"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -410,7 +411,8 @@
       "course-vmpal",
       "course-dotpals",
       "course-flagshiprouter",
-      "course-delegator"
+      "course-delegator",
+      "course-chloe-is-a-typescript-ai-agent"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -586,7 +588,10 @@
       "openchart",
       "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
       "agy-ppt",
-      "embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
+      "embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo",
+      "checkout-this-open-source-local-first-bioinformatics-ai-desk",
+      "a-new-ai-agent-oriented-programming-language",
+      "short-video-maker"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -665,7 +670,10 @@
       "course-openchart",
       "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
       "course-agy-ppt",
-      "course-embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
+      "course-embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo",
+      "course-checkout-this-open-source-local-first-bioinformatics-ai-desk",
+      "course-a-new-ai-agent-oriented-programming-language",
+      "course-short-video-maker"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -711,7 +719,9 @@
       "logo-design-skill",
       "made-an-open-source-lego-ai-generator",
       "artbucket",
-      "agy-ppt"
+      "agy-ppt",
+      "smart-blur",
+      "short-video-maker"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -750,7 +760,9 @@
       "course-logo-design-skill",
       "course-made-an-open-source-lego-ai-generator",
       "course-artbucket",
-      "course-agy-ppt"
+      "course-agy-ppt",
+      "course-smart-blur",
+      "course-short-video-maker"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1086,7 +1098,12 @@
       "langgraph-harness",
       "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
       "sulcus",
-      "foundrradio"
+      "foundrradio",
+      "chloe-is-a-typescript-ai-agent",
+      "runtime",
+      "sheetrelay",
+      "a-new-ai-agent-oriented-programming-language",
+      "muselite"
     ],
     "courses": [
       "course-headless-tools",
@@ -1342,7 +1359,12 @@
       "course-langgraph-harness",
       "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
       "course-sulcus",
-      "course-foundrradio"
+      "course-foundrradio",
+      "course-chloe-is-a-typescript-ai-agent",
+      "course-runtime",
+      "course-sheetrelay",
+      "course-a-new-ai-agent-oriented-programming-language",
+      "course-muselite"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1536,7 +1558,9 @@
       "ranking-the-most-ai-agent-friendly-tools",
       "the-poteto-frontier-for-ai-agents",
       "vmpal",
-      "sulcus"
+      "sulcus",
+      "runtime",
+      "sheetrelay"
     ],
     "courses": [
       "course-headless-tools",
@@ -1708,7 +1732,9 @@
       "course-ranking-the-most-ai-agent-friendly-tools",
       "course-the-poteto-frontier-for-ai-agents",
       "course-vmpal",
-      "course-sulcus"
+      "course-sulcus",
+      "course-runtime",
+      "course-sheetrelay"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1897,7 +1923,8 @@
       "ai-means-the-end-of-software-as-we-know-it",
       "the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "agenttik",
-      "run-osier-to-track-how-your-ai-coding-agent-does"
+      "run-osier-to-track-how-your-ai-coding-agent-does",
+      "stayleet"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1912,7 +1939,8 @@
       "course-ai-means-the-end-of-software-as-we-know-it",
       "course-the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "course-agenttik",
-      "course-run-osier-to-track-how-your-ai-coding-agent-does"
+      "course-run-osier-to-track-how-your-ai-coding-agent-does",
+      "course-stayleet"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1935,7 +1963,8 @@
       "ai-refuge-contact-a-human",
       "402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
       "ecommerce-ai-tools",
-      "a-stateful-llm-api-that-works-across-providers"
+      "a-stateful-llm-api-that-works-across-providers",
+      "sheetrelay"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1951,7 +1980,8 @@
       "course-ai-refuge-contact-a-human",
       "course-402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
       "course-ecommerce-ai-tools",
-      "course-a-stateful-llm-api-that-works-across-providers"
+      "course-a-stateful-llm-api-that-works-across-providers",
+      "course-sheetrelay"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1989,10 +2019,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "edify"
+      "edify",
+      "short-video-maker"
     ],
     "courses": [
-      "course-edify"
+      "course-edify",
+      "course-short-video-maker"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2299,7 +2331,8 @@
       "swarmauth",
       "squidbrake",
       "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
-      "thyme"
+      "thyme",
+      "smart-blur"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -2340,7 +2373,8 @@
       "course-swarmauth",
       "course-squidbrake",
       "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
-      "course-thyme"
+      "course-thyme",
+      "course-smart-blur"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2971,7 +3005,8 @@
       "sokit",
       "aclif",
       "ufo-core-multiplayer-agentic-environs",
-      "kyno"
+      "kyno",
+      "chloe-is-a-typescript-ai-agent"
     ],
     "courses": [
       "course-mrea",
@@ -2980,7 +3015,8 @@
       "course-sokit",
       "course-aclif",
       "course-ufo-core-multiplayer-agentic-environs",
-      "course-kyno"
+      "course-kyno",
+      "course-chloe-is-a-typescript-ai-agent"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3220,7 +3256,8 @@
       "teacher-planner",
       "gentle-ai-ai-coding-ecosystem",
       "ai-agents-zero-to-hero",
-      "hieraticbench"
+      "hieraticbench",
+      "stayleet"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3274,7 +3311,8 @@
       "course-teacher-planner",
       "course-gentle-ai-ai-coding-ecosystem",
       "course-ai-agents-zero-to-hero",
-      "course-hieraticbench"
+      "course-hieraticbench",
+      "course-stayleet"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3329,7 +3367,9 @@
       "ui-for-answering-agent-questions-async",
       "open-source-instinct",
       "langgraph-harness",
-      "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
+      "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
+      "a-new-ai-agent-oriented-programming-language",
+      "muselite"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3377,7 +3417,9 @@
       "course-ui-for-answering-agent-questions-async",
       "course-open-source-instinct",
       "course-langgraph-harness",
-      "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
+      "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
+      "course-a-new-ai-agent-oriented-programming-language",
+      "course-muselite"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3511,7 +3553,8 @@
       "web2md",
       "artbucket",
       "self-bench",
-      "flagshiprouter"
+      "flagshiprouter",
+      "muselite"
     ],
     "courses": [
       "course-limitless-library",
@@ -3580,7 +3623,8 @@
       "course-web2md",
       "course-artbucket",
       "course-self-bench",
-      "course-flagshiprouter"
+      "course-flagshiprouter",
+      "course-muselite"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3719,7 +3763,8 @@
       "ranking-the-most-ai-agent-friendly-tools",
       "headline-arena",
       "openchart",
-      "embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
+      "embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo",
+      "checkout-this-open-source-local-first-bioinformatics-ai-desk"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3778,7 +3823,8 @@
       "course-ranking-the-most-ai-agent-friendly-tools",
       "course-headline-arena",
       "course-openchart",
-      "course-embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo"
+      "course-embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo",
+      "course-checkout-this-open-source-local-first-bioinformatics-ai-desk"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4023,7 +4069,8 @@
       "robodiag-harness",
       "i-told-my-open-source-ai-agent-it-was-a-prisoner",
       "meta-muse-hits-1-in-apple-app-store",
-      "call4me-an-ai-agent-that-handles-phone-calls-for-you"
+      "call4me-an-ai-agent-that-handles-phone-calls-for-you",
+      "chloe-is-a-typescript-ai-agent"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -4055,7 +4102,8 @@
       "course-robodiag-harness",
       "course-i-told-my-open-source-ai-agent-it-was-a-prisoner",
       "course-meta-muse-hits-1-in-apple-app-store",
-      "course-call4me-an-ai-agent-that-handles-phone-calls-for-you"
+      "course-call4me-an-ai-agent-that-handles-phone-calls-for-you",
+      "course-chloe-is-a-typescript-ai-agent"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4848,7 +4896,8 @@
       "agentica",
       "you-didnt-deploy-the-ai-agent-you-evaluated",
       "unmute",
-      "tofu"
+      "tofu",
+      "runtime"
     ],
     "courses": [
       "course-we-run-stateful-ai-agents-on-a-serverless-infra",
@@ -4857,7 +4906,8 @@
       "course-agentica",
       "course-you-didnt-deploy-the-ai-agent-you-evaluated",
       "course-unmute",
-      "course-tofu"
+      "course-tofu",
+      "course-runtime"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4918,14 +4968,16 @@
       "puppetflow-a-free-browser-automation-platform",
       "ardent-a-code-first-agent-for-non-engineering-work",
       "share-your-ai-setup-learn-from-others",
-      "growthengineer"
+      "growthengineer",
+      "runtime"
     ],
     "courses": [
       "course-agents-should-be-durable-not-long-lived",
       "course-puppetflow-a-free-browser-automation-platform",
       "course-ardent-a-code-first-agent-for-non-engineering-work",
       "course-share-your-ai-setup-learn-from-others",
-      "course-growthengineer"
+      "course-growthengineer",
+      "course-runtime"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5143,14 +5195,16 @@
       "puppetflow-a-free-browser-automation-platform",
       "saccade",
       "chrome-bridge",
-      "lightpanda-session-bridge"
+      "lightpanda-session-bridge",
+      "muselite"
     ],
     "courses": [
       "course-why-ai-agents-need-persistent-browser-identities",
       "course-puppetflow-a-free-browser-automation-platform",
       "course-saccade",
       "course-chrome-bridge",
-      "course-lightpanda-session-bridge"
+      "course-lightpanda-session-bridge",
+      "course-muselite"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6984,7 +7038,8 @@
       "antflow-ai-agentic-ai-framework-for-spec-driven-development",
       "herbarium",
       "leftovers",
-      "tofu"
+      "tofu",
+      "stayleet"
     ],
     "courses": [
       "course-openinstinct",
@@ -7002,7 +7057,8 @@
       "course-antflow-ai-agentic-ai-framework-for-spec-driven-development",
       "course-herbarium",
       "course-leftovers",
-      "course-tofu"
+      "course-tofu",
+      "course-stayleet"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -7264,7 +7320,8 @@
       "forcefield-a-fast-lightweight-local-first-ai-agent-harness",
       "ggg",
       "paperweight",
-      "verzeta-studio"
+      "verzeta-studio",
+      "checkout-this-open-source-local-first-bioinformatics-ai-desk"
     ],
     "courses": [
       "course-datazen",
@@ -7277,7 +7334,8 @@
       "course-forcefield-a-fast-lightweight-local-first-ai-agent-harness",
       "course-ggg",
       "course-paperweight",
-      "course-verzeta-studio"
+      "course-verzeta-studio",
+      "course-checkout-this-open-source-local-first-bioinformatics-ai-desk"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -7935,13 +7993,15 @@
       "claude-skills-starter-kit",
       "ai-coding-agent-skills-for-real-engineers",
       "skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
-      "reelbench-skills"
+      "reelbench-skills",
+      "stayleet"
     ],
     "courses": [
       "course-claude-skills-starter-kit",
       "course-ai-coding-agent-skills-for-real-engineers",
       "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
-      "course-reelbench-skills"
+      "course-reelbench-skills",
+      "course-stayleet"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
   },
@@ -9233,7 +9293,8 @@
       "truescribe",
       "aitoolsuite",
       "agentlytics",
-      "redactpdfai-open-source-ai-based-pdf-redaction-tool"
+      "redactpdfai-open-source-ai-based-pdf-redaction-tool",
+      "smart-blur"
     ],
     "courses": [
       "course-pearpie",
@@ -9253,7 +9314,8 @@
       "course-truescribe",
       "course-aitoolsuite",
       "course-agentlytics",
-      "course-redactpdfai-open-source-ai-based-pdf-redaction-tool"
+      "course-redactpdfai-open-source-ai-based-pdf-redaction-tool",
+      "course-smart-blur"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -10915,10 +10977,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "agentkind-a-place-where-ai-agents-get-a-self"
+      "agentkind-a-place-where-ai-agents-get-a-self",
+      "runtime"
     ],
     "courses": [
-      "course-agentkind-a-place-where-ai-agents-get-a-self"
+      "course-agentkind-a-place-where-ai-agents-get-a-self",
+      "course-runtime"
     ],
     "updatedAt": "2026-09-03T23:31:51.252Z"
   },
@@ -10983,11 +11047,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "openwhispr",
-      "truescribe"
+      "truescribe",
+      "smart-blur"
     ],
     "courses": [
       "course-openwhispr",
-      "course-truescribe"
+      "course-truescribe",
+      "course-smart-blur"
     ],
     "updatedAt": "2026-09-04T13:33:57.801Z"
   },
@@ -11480,10 +11546,12 @@
     "domain": "learning",
     "level": "beginner",
     "toolsTeaching": [
-      "learn-practice-sudoku-strategies-web-app"
+      "learn-practice-sudoku-strategies-web-app",
+      "stayleet"
     ],
     "courses": [
-      "course-learn-practice-sudoku-strategies-web-app"
+      "course-learn-practice-sudoku-strategies-web-app",
+      "course-stayleet"
     ],
     "updatedAt": "2026-09-04T23:20:31.711Z"
   },
@@ -12241,12 +12309,14 @@
     "toolsTeaching": [
       "alternaterealitieslol",
       "vibesafe-builder",
-      "freeform"
+      "freeform",
+      "sheetrelay"
     ],
     "courses": [
       "course-alternaterealitieslol",
       "course-vibesafe-builder",
-      "course-freeform"
+      "course-freeform",
+      "course-sheetrelay"
     ],
     "updatedAt": "2026-09-06T23:10:17.799Z"
   },
@@ -13513,10 +13583,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "built-myself-a-super-youtube-post-prod-studio"
+      "built-myself-a-super-youtube-post-prod-studio",
+      "short-video-maker"
     ],
     "courses": [
-      "course-built-myself-a-super-youtube-post-prod-studio"
+      "course-built-myself-a-super-youtube-post-prod-studio",
+      "course-short-video-maker"
     ],
     "updatedAt": "2026-09-08T23:40:07.345Z"
   },
@@ -13592,11 +13664,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "mastra-agent-factory",
-      "nola"
+      "nola",
+      "chloe-is-a-typescript-ai-agent"
     ],
     "courses": [
       "course-mastra-agent-factory",
-      "course-nola"
+      "course-nola",
+      "course-chloe-is-a-typescript-ai-agent"
     ],
     "updatedAt": "2026-09-08T23:40:07.345Z"
   },
@@ -14973,10 +15047,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "nola"
+      "nola",
+      "a-new-ai-agent-oriented-programming-language"
     ],
     "courses": [
-      "course-nola"
+      "course-nola",
+      "course-a-new-ai-agent-oriented-programming-language"
     ],
     "updatedAt": "2026-09-10T23:24:02.732Z"
   },
@@ -19703,11 +19779,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "appmaker",
-      "rhubarb"
+      "rhubarb",
+      "chloe-is-a-typescript-ai-agent"
     ],
     "courses": [
       "course-appmaker",
-      "course-rhubarb"
+      "course-rhubarb",
+      "course-chloe-is-a-typescript-ai-agent"
     ],
     "updatedAt": "2026-09-29T15:55:26.286Z"
   },
@@ -21395,5 +21473,161 @@
       "course-foundrradio"
     ],
     "updatedAt": "2026-10-07T01:01:17.703Z"
+  },
+  {
+    "id": "skill-pii",
+    "name": "pii",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "smart-blur"
+    ],
+    "courses": [
+      "course-smart-blur"
+    ],
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "skill-image-editing",
+    "name": "image editing",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "smart-blur"
+    ],
+    "courses": [
+      "course-smart-blur"
+    ],
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "skill-bioinformatics",
+    "name": "bioinformatics",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "checkout-this-open-source-local-first-bioinformatics-ai-desk"
+    ],
+    "courses": [
+      "course-checkout-this-open-source-local-first-bioinformatics-ai-desk"
+    ],
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "skill-desktop-app",
+    "name": "desktop app",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "checkout-this-open-source-local-first-bioinformatics-ai-desk"
+    ],
+    "courses": [
+      "course-checkout-this-open-source-local-first-bioinformatics-ai-desk"
+    ],
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "skill-genomics",
+    "name": "genomics",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "checkout-this-open-source-local-first-bioinformatics-ai-desk"
+    ],
+    "courses": [
+      "course-checkout-this-open-source-local-first-bioinformatics-ai-desk"
+    ],
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "skill-google sheets",
+    "name": "google sheets",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "sheetrelay"
+    ],
+    "courses": [
+      "course-sheetrelay"
+    ],
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "skill-backend",
+    "name": "backend",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "sheetrelay"
+    ],
+    "courses": [
+      "course-sheetrelay"
+    ],
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "skill-developer-tool",
+    "name": "developer tool",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "a-new-ai-agent-oriented-programming-language"
+    ],
+    "courses": [
+      "course-a-new-ai-agent-oriented-programming-language"
+    ],
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "skill-short-video",
+    "name": "short video",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "short-video-maker"
+    ],
+    "courses": [
+      "course-short-video-maker"
+    ],
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "skill-clips",
+    "name": "clips",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "short-video-maker"
+    ],
+    "courses": [
+      "course-short-video-maker"
+    ],
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "skill-ai workspace",
+    "name": "ai workspace",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "muselite"
+    ],
+    "courses": [
+      "course-muselite"
+    ],
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "skill-chat",
+    "name": "chat",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "muselite"
+    ],
+    "courses": [
+      "course-muselite"
+    ],
+    "updatedAt": "2026-10-08T06:11:53.861Z"
   }
 ]

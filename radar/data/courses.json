@@ -32098,5 +32098,532 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-07T01:01:17.703Z"
+  },
+  {
+    "id": "course-stayleet",
+    "toolSlug": "stayleet",
+    "title": "Master StayLeet",
+    "objectives": [
+      "Set up a StayLeet practice routine that balances AI-assisted and solo problem-solving",
+      "Use StayLeet's problem modes to strengthen fundamentals without over-relying on AI hints",
+      "Track skill retention over time using StayLeet's progress and spaced-review features"
+    ],
+    "modules": [
+      {
+        "title": "Configure Your Practice Profile",
+        "estMinutes": 15,
+        "steps": [
+          "Create your account and select 2-3 focus areas (e.g., data structures, dynamic programming, system design) in the skill-tracker settings.",
+          "Set your AI-assistance level to 'hints only' so solutions aren't auto-generated before you attempt problems.",
+          "Enable the daily streak goal and pick a realistic target, such as 1 problem per weekday."
+        ]
+      },
+      {
+        "title": "Solo-First Problem Solving Workflow",
+        "estMinutes": 30,
+        "steps": [
+          "Pick a medium-difficulty problem from your focus track and start a timed solo attempt (25 minutes) with AI help disabled.",
+          "After your attempt (pass or fail), request a tiered hint — start with Hint 1 and only escalate if stuck for 10+ more minutes.",
+          "Write a short reflection in the solution notes field: what pattern applied, and where you went wrong."
+        ]
+      },
+      {
+        "title": "AI as a Reviewer, Not a Solver",
+        "estMinutes": 25,
+        "steps": [
+          "Submit a working solution, then use the 'AI code review' feature to get feedback on time/space complexity and style.",
+          "Ask the built-in assistant to generate one follow-up variant of the problem and solve it without assistance.",
+          "Compare your solution against the top community solution and tag a difference worth remembering."
+        ]
+      },
+      {
+        "title": "Spaced Review and Skill Retention",
+        "estMinutes": 20,
+        "steps": [
+          "Open the Review Queue and re-solve 3 previously completed problems flagged as 'decaying' by the retention algorithm.",
+          "Check your skill heatmap to identify your weakest topic and add 2 problems from it to this week's queue.",
+          "Schedule a weekly mock interview session using timed-assessment mode with AI fully disabled."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-coding",
+      "skill-practice",
+      "skill-skills",
+      "skill-developer-tools"
+    ],
+    "prerequisites": [
+      "Comfort solving basic algorithm problems (arrays, hash maps, recursion) in at least one language",
+      "An active StayLeet account (free tier is sufficient)",
+      "Basic familiarity with Big-O notation"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "course-chloe-is-a-typescript-ai-agent",
+    "toolSlug": "chloe-is-a-typescript-ai-agent",
+    "title": "Master Chloe is a TypeScript AI agent",
+    "objectives": [
+      "Understand what Chloe is a TypeScript AI agent is for",
+      "Use Chloe is a TypeScript AI agent on a real task",
+      "Know where Chloe is a TypeScript AI agent fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Chloe is a TypeScript AI agent for your real workflow, not the demo.",
+          "Say what Chloe is a TypeScript AI agent does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Chloe is a TypeScript AI agent.",
+          "Push Chloe is a TypeScript AI agent to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Chloe is a TypeScript AI agent into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-typescript",
+      "skill-ai agent",
+      "skill-framework",
+      "skill-javascript",
+      "skill-automation"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "course-smart-blur",
+    "toolSlug": "smart-blur",
+    "title": "Master Smart Blur",
+    "objectives": [
+      "Upload an image and run automatic PII detection in Smart Blur",
+      "Review detected regions and add or adjust manual blur boxes",
+      "Export a blurred image and verify no PII remains visible"
+    ],
+    "modules": [
+      {
+        "title": "Getting Started with Smart Blur",
+        "estMinutes": 5,
+        "steps": [
+          "Open Smart Blur in your browser (no install or account needed) and confirm the model status shows 'ready' — it runs locally on your device",
+          "Drag an image containing PII (e.g., a screenshot of an email or ID) into the upload area, or click 'Browse' to select one"
+        ]
+      },
+      {
+        "title": "Detecting and Reviewing PII",
+        "estMinutes": 10,
+        "steps": [
+          "Click 'Detect PII' and wait for the on-device model to highlight regions like names, faces, emails, and phone numbers",
+          "Toggle category checkboxes (faces, text, numbers) to include or exclude detection types",
+          "Draw a manual blur box over anything the model missed by clicking and dragging on the image"
+        ]
+      },
+      {
+        "title": "Adjusting and Exporting",
+        "estMinutes": 8,
+        "steps": [
+          "Select a blur region and adjust its strength (light/medium/heavy) or switch style between blur and pixelate",
+          "Use the split before/after preview to zoom in and confirm all PII is unreadable",
+          "Click 'Export' to download the blurred image as PNG, then reopen the downloaded file to double-check for missed PII"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-privacy",
+      "skill-pii",
+      "skill-image-editing",
+      "skill-local-ai",
+      "skill-security"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "course-checkout-this-open-source-local-first-bioinformatics-ai-desk",
+    "toolSlug": "checkout-this-open-source-local-first-bioinformatics-ai-desk",
+    "title": "Master Checkout this open-source, local-first bioinformatics/AI desktop app",
+    "objectives": [
+      "Understand what Checkout this open-source, local-first bioinformatics/AI desktop app is for",
+      "Use Checkout this open-source, local-first bioinformatics/AI desktop app on a real task",
+      "Know where Checkout this open-source, local-first bioinformatics/AI desktop app fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Checkout this open-source, local-first bioinformatics/AI desktop app for your real workflow, not the demo.",
+          "Say what Checkout this open-source, local-first bioinformatics/AI desktop app does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Checkout this open-source, local-first bioinformatics/AI desktop app.",
+          "Push Checkout this open-source, local-first bioinformatics/AI desktop app to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Checkout this open-source, local-first bioinformatics/AI desktop app into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-bioinformatics",
+      "skill-open-source",
+      "skill-local-first",
+      "skill-desktop-app",
+      "skill-genomics"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "course-runtime",
+    "toolSlug": "runtime",
+    "title": "Master Runtime",
+    "objectives": [
+      "Build and configure an AI agent with tools and a system prompt",
+      "Deploy an agent to a live endpoint and test it via API",
+      "Monitor agent runs and debug failures using logs and traces"
+    ],
+    "modules": [
+      {
+        "title": "Creating Your First Agent",
+        "estMinutes": 25,
+        "steps": [
+          "Create a new agent project, name it, and select a model provider (e.g., GPT-4 or Claude) with your API key",
+          "Write a system prompt defining the agent's role, then attach two tools (e.g., web search and a custom function)",
+          "Run the agent in the built-in playground with a sample query and inspect the step-by-step reasoning trace"
+        ]
+      },
+      {
+        "title": "Configuring Tools and Memory",
+        "estMinutes": 30,
+        "steps": [
+          "Define a custom tool with a JSON schema (name, description, parameters) and connect it to a real API endpoint",
+          "Enable conversation memory and set a retention window so the agent recalls prior turns",
+          "Test a multi-turn conversation to verify the agent correctly calls tools and uses stored context"
+        ]
+      },
+      {
+        "title": "Deploying and Versioning",
+        "estMinutes": 25,
+        "steps": [
+          "Deploy the agent to a production endpoint and copy the generated API URL and auth token",
+          "Call the endpoint with curl or a short Python script and confirm a valid response",
+          "Create a new version with an edited prompt, then compare outputs between versions before promoting it"
+        ]
+      },
+      {
+        "title": "Monitoring and Debugging",
+        "estMinutes": 20,
+        "steps": [
+          "Open the run logs dashboard and filter for failed or slow executions",
+          "Drill into a failing trace to identify whether the error came from the model, a tool call, or a timeout",
+          "Set up an alert (e.g., error rate threshold or cost cap) and route it to email or Slack"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-deployment",
+      "skill-agent platform",
+      "skill-workflows"
+    ],
+    "prerequisites": [
+      "Basic understanding of what LLM agents and tools/function calling are",
+      "Comfort calling REST APIs (curl or Python requests)",
+      "An API key for at least one LLM provider"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "course-sheetrelay",
+    "toolSlug": "sheetrelay",
+    "title": "Master SheetRelay",
+    "objectives": [
+      "Expose a Google Sheet as a working REST API endpoint with SheetRelay",
+      "Secure the API with keys, row-level filters, and read/write scopes",
+      "Wire the API into a live website form and an AI agent tool call"
+    ],
+    "modules": [
+      {
+        "title": "Structure Your Sheet for API Use",
+        "estMinutes": 12,
+        "steps": [
+          "Create a Sheet with a strict header row (snake_case names like `email`, `signup_date`) and one test record to avoid null-type inference issues",
+          "Freeze row 1, remove merged cells and blank rows below data, and note the Sheet ID from the URL /d/<id>/edit",
+          "Add a second tab named `_meta` listing column types (string/number/date) so your API docs stay in sync with the sheet"
+        ]
+      },
+      {
+        "title": "Connect SheetRelay and Generate Endpoints",
+        "estMinutes": 15,
+        "steps": [
+          "In SheetRelay, click 'New Data Source', paste the Sheet ID, and authorize the Google OAuth connection",
+          "Enable GET /rows, POST /rows, and PATCH /rows/:id for the source, then test each in the built-in API explorer with a sample payload",
+          "Configure a query filter (e.g., ?status=active) and column whitelist so internal columns like `_notes` are never exposed"
+        ]
+      },
+      {
+        "title": "Auth, Rate Limits, and Scopes",
+        "estMinutes": 10,
+        "steps": [
+          "Create two API keys: a read-only key for the public website and a read/write key for server-side code",
+          "Set a rate limit (e.g., 60 req/min) and a 5-row page size default in SheetRelay's security settings",
+          "Store keys as environment variables (never in frontend JS) and route browser reads through a cache or proxy to protect the write key"
+        ]
+      },
+      {
+        "title": "Integration 1: Website Contact Form",
+        "estMinutes": 15,
+        "steps": [
+          "Build a small serverless function (Netlify/Vercel) that accepts form JSON, validates fields, and POSTs to SheetRelay with the write key",
+          "Point your form's fetch() at that function and confirm new submissions appear as rows in the Sheet within seconds",
+          "Add a duplicate-check GET call (?email=...) before insert and show 'already registered' in the UI when matched"
+        ]
+      },
+      {
+        "title": "Integration 2: Sheet as an AI Agent Tool",
+        "estMinutes": 18,
+        "steps": [
+          "Define a function-call schema for the agent: lookup_rows(query) using GET with filters, and add_row(data) using POST",
+          "Register the two functions with your LLM API, injecting the SheetRelay endpoint and key as constants in the tool executor",
+          "Test end-to-end: prompt the agent 'add a lead: Ana, ana@example.com' and verify the row lands in the Sheet and the agent's lookup call retrieves it"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-google sheets",
+      "skill-api",
+      "skill-backend",
+      "skill-ai agents",
+      "skill-no-code"
+    ],
+    "prerequisites": [
+      "Comfortable making HTTP requests (fetch, curl, or Postman)",
+      "Working Google account with permission to share Sheets"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "course-a-new-ai-agent-oriented-programming-language",
+    "toolSlug": "a-new-ai-agent-oriented-programming-language",
+    "title": "Master A New AI Agent Oriented Programming Language",
+    "objectives": [
+      "Define an agent with typed goals, memory, and tool bindings using the language's core primitives",
+      "Orchestrate multi-agent workflows with message passing, delegation, and supervision",
+      "Handle failure modes: retries, human-in-the-loop escalation, and state rollback"
+    ],
+    "modules": [
+      {
+        "title": "Agent Anatomy: Goals, Memory, Tools",
+        "estMinutes": 40,
+        "steps": [
+          "Install the toolchain and scaffold a project, then write a single agent declaration with a typed goal, a persistent memory block, and two bound tools (e.g., web search and a file writer), and run it against a simple retrieval task.",
+          "Inspect the execution trace: log every reasoning step, tool call, and memory write to a structured format, then modify the agent's goal constraints and observe how the trace changes.",
+          "Implement a custom tool interface by writing a function with input/output contracts and registering it with the agent, verifying contract violations trigger typed errors at compile time."
+        ]
+      },
+      {
+        "title": "Multi-Agent Coordination",
+        "estMinutes": 45,
+        "steps": [
+          "Define three cooperating agents (planner, executor, critic) connected via explicit message channels, and run a task where the planner decomposes work and the critic rejects low-quality outputs for revision.",
+          "Add a supervisor pattern: implement a supervising agent that watches child agents, enforces a token/step budget, and terminates runaway loops, testing it with a deliberately cyclic task.",
+          "Replace direct channel calls with a shared blackboard store so agents coordinate asynchronously, then compare latency and message counts between the two topologies."
+        ]
+      },
+      {
+        "title": "Reliability: Retries, Escalation, Rollback",
+        "estMinutes": 40,
+        "steps": [
+          "Wrap tool calls in the language's retry/timeout constructs with exponential backoff, inject a flaky mock tool, and confirm the agent recovers without re-executing completed steps.",
+          "Implement a checkpoint/rollback mechanism: snapshot agent state before each tool call and write a test that forces a mid-task failure, then resumes from the last checkpoint.",
+          "Add a human-in-the-loop escalation policy that pauses execution and requests approval when confidence drops below a threshold or cost exceeds a budget, and end-to-end test both the approve and reject paths."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-programming-language",
+      "skill-agents",
+      "skill-open-source",
+      "skill-developer-tool"
+    ],
+    "prerequisites": [
+      "Strong proficiency in at least one systems or high-level language (Rust, Go, or Python)",
+      "Familiarity with LLM APIs, function calling, and prompt engineering",
+      "Comfort with async/concurrent programming and message-passing patterns",
+      "Experience writing unit and integration tests"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "course-short-video-maker",
+    "toolSlug": "short-video-maker",
+    "title": "Master short-video-maker",
+    "objectives": [
+      "Install and configure short-video-maker with required API keys (Whisper, TTS, LLM)",
+      "Generate a captioned short from a YouTube URL and tune clip selection",
+      "Add translated subtitles and AI voiceover, then export in vertical format"
+    ],
+    "modules": [
+      {
+        "title": "Setup & Configuration",
+        "estMinutes": 20,
+        "steps": [
+          "Clone the repo and run `docker compose up` (or `npm install && npm start`) after installing ffmpeg locally",
+          "Create a `.env` file with your OpenAI/Whisper key, TTS provider key, and LLM key, then verify with `npm run healthcheck`",
+          "Send a test POST to the `/api/short-videos` endpoint with a short YouTube URL to confirm the pipeline runs end-to-end"
+        ]
+      },
+      {
+        "title": "Generating Your First Short",
+        "estMinutes": 25,
+        "steps": [
+          "Call the API with `videoUrl`, `duration: 60`, and `aspectRatio: '9:16'`, then poll the job ID until rendering completes",
+          "Inspect the auto-selected segment in the output; adjust the LLM prompt config to bias toward hooks, punchlines, or Q&A moments",
+          "Customize subtitle styling (font, highlight color, word-by-word karaoke mode) via the style parameters and re-render"
+        ]
+      },
+      {
+        "title": "Translation & Voiceover",
+        "estMinutes": 20,
+        "steps": [
+          "Set `targetLanguage` (e.g., `es` or `hi`) to generate translated subtitles from the Whisper transcript",
+          "Enable `voiceover: true` with a chosen TTS voice and compare sync quality against the original audio mix",
+          "Download the finished MP4, check caption timing on mobile, and batch-process 3–5 source videos via a small script calling the API in a loop"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-short-video",
+      "skill-open-source",
+      "skill-subtitles",
+      "skill-clips",
+      "skill-youtube"
+    ],
+    "prerequisites": [
+      "Basic familiarity with REST APIs and the command line",
+      "Docker or Node.js installed locally",
+      "API access to an LLM provider and a TTS service"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-08T06:11:53.861Z"
+  },
+  {
+    "id": "course-muselite",
+    "toolSlug": "muselite",
+    "title": "Master MuseLite",
+    "objectives": [
+      "Configure an agent with custom tools and run it against a live task",
+      "Automate a multi-step browser workflow triggered from chat",
+      "Schedule recurring AI tasks with output routed to a workspace"
+    ],
+    "modules": [
+      {
+        "title": "Set Up and Orient the Workspace",
+        "estMinutes": 20,
+        "steps": [
+          "Clone the MuseLite repo, install dependencies, and launch the local server with your API key set in .env",
+          "Create a workspace, connect one data source (e.g., a docs folder), and send a test chat message referencing it with @",
+          "Inspect the logs panel to confirm tool calls and context retrieval appear for your query"
+        ]
+      },
+      {
+        "title": "Build a Custom Agent",
+        "estMinutes": 35,
+        "steps": [
+          "Define a new agent in the Agents tab with a system prompt, one file-search tool, and one shell tool",
+          "Run the agent on a real task (e.g., 'summarize the last 3 changelog entries and open a ticket note') and review each tool call in the trace",
+          "Add a guardrail: restrict the shell tool to a whitelisted directory and re-run to verify it blocks out-of-scope commands"
+        ]
+      },
+      {
+        "title": "Automate a Browser Workflow",
+        "estMinutes": 30,
+        "steps": [
+          "Create a browser task that logs into a test site, fills a form, and saves a screenshot to your workspace",
+          "Parameterize the task with variables (URL, form fields) and invoke it from chat with different inputs",
+          "Debug a failed run using the step-by-step replay viewer and fix a broken selector"
+        ]
+      },
+      {
+        "title": "Schedule and Route Recurring Tasks",
+        "estMinutes": 25,
+        "steps": [
+          "Schedule your browser task to run daily via a cron expression in the Scheduler panel",
+          "Route the output (screenshot + agent summary) to a workspace folder and verify the first run lands correctly",
+          "Add a failure notification (email or webhook) and trigger a deliberate failure to confirm the alert fires"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai workspace",
+      "skill-agents",
+      "skill-browser automation",
+      "skill-open source",
+      "skill-chat"
+    ],
+    "prerequisites": [
+      "Comfortable running local dev servers and editing .env files",
+      "Basic familiarity with LLM prompting and tool/function calling concepts",
+      "Working knowledge of CSS selectors and cron syntax"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-08T06:11:53.861Z"
   }
 ]
