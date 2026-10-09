@@ -7618,15 +7618,17 @@ a client-side SPA with a static tool catalogue.
 - **Gap:** Toolnaut already ships "Share / export your stack"
   (`src/utils/shareStack.js`, `src/pages/SharedStack.jsx` — this backlog's own
   first-ever entry, SHIPPED `42bdc994`) and its landing page,
-  `SharedStack.jsx:21-41`, does call `useHead()` with a real per-stack title
-  and description built from the decoded tool names. But `useHead`
-  (`src/utils/head.js:52-90`) sets those tags with a `useEffect`, which only
-  runs after React mounts and hydrates in a browser — it never touches
-  `og:image`/`twitter:image` at all (grepped `head.js` for both: zero hits;
-  every route, prerendered or not, keeps the one static pair set in
-  `index.html:21,29`), and more fundamentally it never reaches a non-JS
-  crawler in the first place. `scripts/prerender.mjs`'s `ROUTES` array
-  (`prerender.mjs:43-60`) is the only mechanism in this codebase that bakes
+  `SharedStack.jsx:26-44` (drifted from `:21-41` — the page grew to 124 lines
+  with an `adoptAndGo()` helper added below the `useHead` call), does call
+  `useHead()` with a real per-stack title and description built from the
+  decoded tool names. But `useHead` (`src/utils/head.js:54-89`, drifted from
+  `:52-90`) sets those tags with a `useEffect`, which only runs after React
+  mounts and hydrates in a browser — it never touches `og:image`/
+  `twitter:image` at all (grepped `head.js` for both: zero hits; every
+  route, prerendered or not, keeps the one static pair set in
+  `index.html:21,29`, unchanged), and more fundamentally it never reaches a
+  non-JS crawler in the first place. `scripts/prerender.mjs`'s `ROUTES` array
+  (`prerender.mjs:42-60`, drifted from `:43-60`) is the only mechanism in this codebase that bakes
   `useHead()` output into a static file a crawler actually receives, and
   `SharedStack.jsx`'s own top comment (`:20-24`) already says why `/s/:slug`
   isn't on it: the content is keyed off an unbounded `:slugs` param, not one
@@ -7677,6 +7679,26 @@ a client-side SPA with a static tool catalogue.
   needs a manual `curl -A "Slackbot"` check against a preview deploy before
   it can be marked SHIPPED.
 - **Found:** 2026-09-16 03:20 UTC
+- **Re-verified 2026-10-09 12:04 UTC (fifty-first pass, second sweep):** this
+  was the stalest-by-last-check OPEN entry (23 days, by a wide margin over
+  the next entry at 2026-09-16 09:10) once every OPEN entry's actual last
+  dated note — not just its `Found:` line — was recomputed. Core gap holds
+  completely: no `middleware.js` at the repo root, `head.js` still sets only
+  `og:title`/`og:description`/`og:url`/`twitter:title`/`twitter:description`
+  (never `og:image`/`twitter:image`), `vercel.json`'s catch-all rewrite to
+  `/_shell.html` is unchanged, and `prerender.mjs`'s `ROUTES` array still has
+  no entry for `/s/:slug`. Three line-citation drifts fixed inline above;
+  `toolsCatalog.js:763`'s `getTool` citation and `index.html:21,29`'s
+  og/twitter-image citations were both still exact. One technical premise
+  double-checked rather than assumed: that Edge Middleware runs before
+  `vercel.json`'s rewrites, which a fresh search of Vercel's current docs
+  reaffirmed (a Vercel Academy routing-order page lists the sequence as
+  headers → redirects → middleware → rewrites → route handler). Also
+  confirmed Next.js 16's `middleware.ts` → `proxy.ts` rename (surfaced by
+  that same search) doesn't apply here — Toolnaut is a Vite SPA, not
+  Next.js, so a plain Vercel Edge Middleware file at `middleware.js` is
+  still the right shape, not a deprecated API. Still OPEN, still Build
+  size M, nothing in the plan needs to change.
 
 ### The Spend Audit shipped fully working this morning — every page that tells a visitor what Pro buys still says it doesn't exist
 - **Status:** SHIPPED b7f87af — built exactly as scoped below: `capabilityMatrix.js`
@@ -12050,3 +12072,61 @@ was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
 touches build output or runtime behavior. Per the "never invent a gap to
 fill the hour" rule, appended no new gap this run — the hour went to the
 "26 source categories" re-verification instead.
+
+---
+
+### Research check 2026-10-09 12:04 UTC — no new gap found, fifty-first pass; second sweep closes "Sharing a stack link" preview gap, four BUILT-UNMERGED PRs still waiting on human merge
+
+Scheduled run, UTC hour 12 (a research slot). `npm ci` clean. `npm run
+radar:health` → `OK` (2 runs in the 26h window, last run/publish 10.6h ago,
+1 tool published that run, feed at 497 total). `list_workflow_runs` on
+`master`'s `CI` workflow: green at the latest push (`d58a40c`), nothing red
+since. No `agent-fixable` issues open (`list_issues` zero results). Noted in
+passing but out of scope for this run: GitHub Actions' own separate
+`Agent · Research` and `Agent · Bugfix` workflows both show `conclusion:
+failure` for their most recent runs today (11:00 and 09:24 UTC) — those are
+a different automation (`.github/workflows/agent-*.yml`, governed by
+`CLAUDE.md`, triggered by GitHub Actions directly) from this scheduled
+session, and the actual `CI` workflow they'd affect is green, so left alone
+per this run's own "CI red on master" check passing clean.
+
+**Second sweep continued at the next-stalest-by-last-check OPEN entry.**
+Recomputed every OPEN entry's own last dated note (not just its `Found:`
+line) directly from the file rather than trusting the running tally in
+prose, which turned up "Sharing a stack link produces zero personalized
+preview" (found 2026-09-16 03:20, never touched since) as the stalest by a
+wide margin — 23 days, against the next entry's 2026-09-16 09:10. Full
+re-verification and three line-citation drift fixes appended inline on the
+entry itself (above), matching this file's established in-place-deepening
+pattern. Core gap holds completely: still no `middleware.js`, `head.js`
+still never sets `og:image`/`twitter:image`, `prerender.mjs`'s `ROUTES`
+still has no `/s/:slug` entry. Also fresh-checked (not just assumed) the
+plan's one platform-behavior premise — that Vercel Edge Middleware runs
+before `vercel.json` rewrites — against current docs rather than carrying
+it forward unverified; it held, and a Next.js-specific rename the same
+search surfaced (`middleware.ts` → `proxy.ts` in Next.js 16) was confirmed
+not to apply to this Vite SPA.
+
+**Checked the four tracked `BUILT, UNMERGED` entries** (PRs #75, #86, #89,
+#91) via `pull_request_read` — all four still `state: open`, `merged:
+false`, unchanged head SHAs. PR #89 (access-method facet) re-confirmed
+directly: still open, same `9db220e`. These need a human to merge, not more
+agent work, per every prior pass's same conclusion — not re-litigated
+further this run.
+
+**Two fresh WebSearches, neither produced a new gap.** Tried two angles not
+run in recent passes rather than repeating Futurepedia/TAAFT again: AI-tool
+browser extensions/price-comparison tooling (returned generic SEO listicles
+and unrelated shopping-extension results, nothing resembling a directory
+feature Toolnaut lacks) and Toolify.ai/AIToolsDirectory 2026 feature
+launches (no primary-source changelog from either; the one concrete detail
+— Toolify's category/region/revenue tool-ranking — traces straight to the
+already-OPEN "leaderboard" gap, not a new one). Consistent with the pattern
+every recent pass has reported. Nothing genuine to log as a new gap.
+
+Ran `npm test` (315/315) directly against current `master` — clean. This
+was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
+`npm run build`/`npm run smoke` were not re-run; nothing in this commit
+touches build output or runtime behavior. Per the "never invent a gap to
+fill the hour" rule, appended no new gap this run — the hour went to the
+"Sharing a stack link" re-verification instead.
