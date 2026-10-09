@@ -15820,5 +15820,37 @@
     "enrichedBy": "llm",
     "lifecycle": "published",
     "version": 1
+  },
+  {
+    "slug": "layer",
+    "name": "Layer",
+    "category": "data",
+    "sourceCategory": "Data & Analytics",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "One unified API for accessing Polymarket and Kalshi prediction market data.",
+    "audience": "developers and quant traders",
+    "dev": "Layer",
+    "year": 2026,
+    "website": "https://uselayer.sh",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "api",
+      "prediction-markets",
+      "polymarket",
+      "kalshi",
+      "trading"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=50009330",
+    "discoveredAt": "2026-10-09T01:27:30.268Z",
+    "updatedAt": "2026-10-09T01:27:30.268Z",
+    "contentHash": "26d8135532e73dae",
+    "confidence": 0.95,
+    "enrichedBy": "llm",
+    "lifecycle": "published",
+    "version": 1
   }
 ]

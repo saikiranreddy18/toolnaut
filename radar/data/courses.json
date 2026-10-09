@@ -32852,5 +32852,54 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-08T16:31:55.768Z"
+  },
+  {
+    "id": "course-layer",
+    "toolSlug": "layer",
+    "title": "Master Layer",
+    "objectives": [
+      "Understand what Layer is for",
+      "Use Layer on a real task",
+      "Know where Layer fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Layer for your real workflow, not the demo.",
+          "Say what Layer does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Layer.",
+          "Push Layer to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Layer into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-api",
+      "skill-prediction-markets",
+      "skill-polymarket",
+      "skill-kalshi",
+      "skill-trading"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-09T01:27:30.268Z"
   }
 ]

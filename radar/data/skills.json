@@ -1976,7 +1976,8 @@
       "402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
       "ecommerce-ai-tools",
       "a-stateful-llm-api-that-works-across-providers",
-      "sheetrelay"
+      "sheetrelay",
+      "layer"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1993,7 +1994,8 @@
       "course-402cron-pay-per-delivery-cron-scheduling-for-ai-agents",
       "course-ecommerce-ai-tools",
       "course-a-stateful-llm-api-that-works-across-providers",
-      "course-sheetrelay"
+      "course-sheetrelay",
+      "course-layer"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3780,7 +3782,8 @@
       "headline-arena",
       "openchart",
       "embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo",
-      "checkout-this-open-source-local-first-bioinformatics-ai-desk"
+      "checkout-this-open-source-local-first-bioinformatics-ai-desk",
+      "layer"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3840,7 +3843,8 @@
       "course-headline-arena",
       "course-openchart",
       "course-embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo",
-      "course-checkout-this-open-source-local-first-bioinformatics-ai-desk"
+      "course-checkout-this-open-source-local-first-bioinformatics-ai-desk",
+      "course-layer"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -19932,11 +19936,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "investment-bets",
-      "openchart"
+      "openchart",
+      "layer"
     ],
     "courses": [
       "course-investment-bets",
-      "course-openchart"
+      "course-openchart",
+      "course-layer"
     ],
     "updatedAt": "2026-09-29T15:55:26.286Z"
   },
@@ -21763,5 +21769,44 @@
       "course-promo-video-generator"
     ],
     "updatedAt": "2026-10-08T16:31:55.768Z"
+  },
+  {
+    "id": "skill-prediction-markets",
+    "name": "prediction markets",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "layer"
+    ],
+    "courses": [
+      "course-layer"
+    ],
+    "updatedAt": "2026-10-09T01:27:30.268Z"
+  },
+  {
+    "id": "skill-polymarket",
+    "name": "polymarket",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "layer"
+    ],
+    "courses": [
+      "course-layer"
+    ],
+    "updatedAt": "2026-10-09T01:27:30.268Z"
+  },
+  {
+    "id": "skill-kalshi",
+    "name": "kalshi",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "layer"
+    ],
+    "courses": [
+      "course-layer"
+    ],
+    "updatedAt": "2026-10-09T01:27:30.268Z"
   }
 ]
