@@ -4937,33 +4937,43 @@ a client-side SPA with a static tool catalogue.
   search queries with different intent, and a single broad "design" or
   "code" page can only rank for one of them.
 - **Gap:** confirmed by reading the live `CategoryLanding.jsx` (111 lines,
-  read in full) and `toolsCatalog.js:18-45`. Two distinct problems, found
+  read in full; 123 lines as of the 2026-10-09 09:04 UTC re-check, see note
+  below) and `toolsCatalog.js:18-45`. Two distinct problems, found
   together:
   1. **Missing pages.** `CategoryLanding.jsx:26` filters `TOOLS` by
-     `t.category === domain`, i.e. only the 6 `CATEGORY_META` keys
-     (`code`/`design`/`writing`/`data`/`automation`/`learning`) — there is no
-     route, page, or sitemap entry for any of the 26 `SOURCE_CATEGORIES`
-     (`toolsCatalog.js:19-45`, e.g. `"AI Coding & Development"` at 62 tools,
-     `"Image Generation & Editing"` at 60, `"Marketing, SEO & Sales"` at 41).
-     `public/sitemap.xml` lists exactly the 6 domain URLs
-     (`/tools/code` … `/tools/learning`), confirming zero of the 26 are
-     indexable anywhere. `Discover.jsx`'s own filter UI already treats
-     `sourceCategory` as the real, user-facing category (its filter chips are
-     keyed off it, not the 6-domain grouping), so the site's own primary
-     browsing surface already disagrees with what its SEO pages expose.
+     `t.category === domain` (now `:27`, one-line drift), i.e. only the 6
+     `CATEGORY_META` keys (`code`/`design`/`writing`/`data`/`automation`/
+     `learning`) — there is no route, page, or sitemap entry for any of the
+     26 `SOURCE_CATEGORIES` (`toolsCatalog.js:19-45`, e.g.
+     `"AI Coding & Development"` at 62 tools, `"Image Generation & Editing"`
+     at 60, `"Marketing, SEO & Sales"` at 41). `public/sitemap.xml` lists
+     exactly the 6 domain URLs (`/tools/code` … `/tools/learning`),
+     confirming zero of the 26 are indexable anywhere. `Discover.jsx`'s own
+     filter UI already treats `sourceCategory` as the real, user-facing
+     category (its filter chips are keyed off it, not the 6-domain
+     grouping), so the site's own primary browsing surface already
+     disagrees with what its SEO pages expose.
   2. **No pagination on the pages that do exist.** `CategoryLanding.jsx`'s
-     render (`:64-99`) does `tools.map((tool) => …)` over the full filtered
-     array with no cap — unlike `Discover.jsx`, which caps at
-     `PAGE_SIZE = 24` (`Discover.jsx:33`) with a "LOAD 24 MORE" button
-     (`Discover.jsx:131-133,312-315`) specifically to avoid the DOM-explosion
+     render (`:64-99`, now `:93-110` — a new "No tools in this category yet"
+     empty-state branch was added at `:90-92` since this was first found,
+     unrelated to this gap) does `tools.map((tool) => …)` over the full
+     filtered array with no cap — unlike `Discover.jsx`, which caps at
+     `PAGE_SIZE = 24` (`Discover.jsx:33`, now `:37`) with a "LOAD 24 MORE"
+     button (`Discover.jsx:131-133,312-315`, now `:420-423` — `Discover.jsx`
+     grew from under 350 lines to 455 since this entry was found, from
+     unrelated filter/facet work) specifically to avoid the DOM-explosion
      problem `Discover.jsx`'s own code comments name, and unlike
-     `SearchTools.jsx`, which caps at 60 with a "narrow your search" hint for
-     the same reason. Summing `SOURCE_CATEGORIES` counts per domain: `design`
+     `SearchTools.jsx`, which caps at 60 (`RESULT_CAP`, confirmed still at
+     `SearchTools.jsx:8`) with a "narrow your search" hint for the same
+     reason. Summing `SOURCE_CATEGORIES` counts per domain: `design`
      renders 184 unpaginated cards today (60+47+37+21+19), `code` renders 137
      (62+58+12+5), `writing` 135, `automation` 133, `data` 95 — every single
      one of the 6 live domain pages already exceeds both of the app's own
      established pagination thresholds, on a route Google is specifically
-     asked to crawl.
+     asked to crawl. All five domain totals re-summed against current
+     `toolsCatalog.js` on 2026-10-09 — unchanged since this entry was found;
+     the static catalog (not the radar's daily `tools.json` additions) is
+     the source for these pages and has not been regenerated.
 - **Why it matters:** this compounds two costs from one root cause (the v1
   cut stopped at the wrong granularity). On the acquisition side, 26
   high-intent long-tail queries ("AI video generation tools," "best HR and
@@ -4988,7 +4998,9 @@ a client-side SPA with a static tool catalogue.
     page component does one lookup, not a `.find()` inline. Pure functions,
     unit-testable like `shareStack.js`.
   - New route `/tools/:domain/:category` in `App.jsx`, nested directly under
-    the existing `/tools/:domain` line (`App.jsx:107`) — same public,
+    the existing `/tools/:domain` line (`App.jsx:107`, now `:128` — four
+    unrelated routes, `/example`, `/checkout`, `/methodology`, `/vs/:slug`,
+    were added above it since this entry was found) — same public,
     session-free tier. `:category` is the slug from `categorySlug.js`.
   - `CategoryLanding.jsx` (extend, don't fork): when `:category` is present,
     resolve it via `resolveCategory`, filter `TOOLS` by
@@ -5021,6 +5033,18 @@ a client-side SPA with a static tool catalogue.
     subcategory URL added (not all 26 — the existing route-list additions in
     this file's own prior entries only ever add one example path per new
     route shape, e.g. `/s/notion-ai` for the whole `/s/:slugs` family).
+  - **New wrinkle found 2026-10-09** (`scripts/stamp-sitemap.mjs` +
+    `src/utils/freshness.js:47-74`'s `stampSitemap`, both read in full — a
+    precedent that didn't exist when this entry was first found): the
+    post-build step that adds `<lastmod>` to the 6 existing domain URLs keys
+    its date map by `${site}/tools/${t.category}` — the 6-domain field, not
+    `sourceCategory` (`freshness.js:54-61`). The 26 new nested URLs this plan
+    adds would therefore get no `<lastmod>`, same as every other
+    undated URL — degrades cleanly per the file's own "a missing lastmod is
+    neutral" comment, not a build blocker. A fuller version could add a
+    second `sourceCategory`-keyed loop so the subcategory pages carry the
+    same freshness signal the domain pages do, but that is explicitly
+    optional, not required for this entry's scoped build.
   - **What this would NOT include** (kept out to bound the diff): no change
     to the 6-domain grouping itself or `CATEGORY_META`; no new visual design
     — same card/grid/glass styling `CategoryLanding.jsx` already uses; no
@@ -5120,6 +5144,27 @@ a client-side SPA with a static tool catalogue.
   mechanism, and stays a build-time-only cost. No other part of the plan
   changed; still OPEN, still M, ready for a feature run to build from the
   spec above with this one correction folded in.
+- **Re-verified 2026-10-09 09:04 UTC** — the stalest OPEN entry by last-check
+  (14 days since the 09-25 verification above). Corrected three more lines
+  of citation drift inline above (`CategoryLanding.jsx` grew to 123 lines
+  with an unrelated empty-state branch; `Discover.jsx` grew to 455 lines,
+  moving `PAGE_SIZE` from `:35` to `:37` and the LOAD-MORE button to
+  `:420-423`; `App.jsx`'s `/tools/:domain` route confirmed still at `:128`,
+  matching the 09-25 note exactly). All `SOURCE_CATEGORIES` counts re-summed
+  against current `toolsCatalog.js` — unchanged. Found one genuine new
+  wrinkle, logged inline above in the "Smallest useful version" section:
+  `scripts/stamp-sitemap.mjs` + `freshness.js`'s `stampSitemap` (a precedent
+  that didn't exist when this entry was found) keys its `<lastmod>` map by
+  the 6-domain `category` field, not `sourceCategory`, so the 26 new
+  subcategory URLs this plan adds would get no `<lastmod>` unless a second,
+  `sourceCategory`-keyed loop is added — optional, not a blocker, noted for
+  whoever builds this. Two fresh WebSearches (Futurepedia/TAAFT 2026
+  changelogs; AI-directory subcategory-SEO practice) found no new
+  competitor feature — the second actually reaffirms this entry's own
+  thesis (niche long-tail category pages over broad ones is the pattern
+  indie AI-directory builders report working in 2026) rather than
+  surfacing anything new to log. Still OPEN, still Build size M, plan
+  otherwise unchanged.
 
 ### Access-method facet ("Web app" / "API" / "Self-hosted") — Discover has no way to filter out API-only or open-weights tools from a beginner's results
 
@@ -11944,3 +11989,64 @@ was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
 touches build output or runtime behavior. Per the "never invent a gap to
 fill the hour" rule, appended no new gap this run — the hour went to the
 RSS-feed re-verification instead.
+
+---
+
+### Research check 2026-10-09 09:04 UTC — no new gap found, fiftieth pass; second sweep moves to "26 real source categories," corrects the sitemap-stamping precedent's blind spot
+
+Scheduled run, UTC hour 09 (a research slot). `npm ci` clean. Local checkout
+was detached at session start again (the same recurring container-start
+behavior every prior pass has noted) — fetched and fast-forwarded to
+`origin/master` (`733cd25`). `npm run radar:health` → `OK` (2 runs in the
+26h window, last run/publish 7.6h ago, 1 tool published that run, feed at
+497 total). `list_workflow_runs` on `master`'s `CI` workflow: green at the
+latest push (`733cd25`), nothing red since. No `agent-fixable` issues open
+(`list_issues` zero results).
+
+**Second sweep continued at the next-stalest-by-last-check OPEN entry.**
+The 49th pass closed out "RSS feed of newly discovered tools" (last
+touched 09-22, the stalest at the time). Recomputing every OPEN entry's
+own last-check timestamp by actually reading each entry's most recent
+dated note (not just its `Found:` date — several entries carry a later
+`Deepened`/`Verification` note that sits well after when they were first
+found) turned up "26 real source categories exist, only the 6 broad domain
+pages shipped" (found 2026-09-05, last verified 2026-09-25) as the true
+stalest at 14 days — older than it first looked, since a `Verification
+2026-09-25 12:07 UTC` note deep inside the entry had been easy to miss
+against its `Found:` date alone. Re-verified it in full against current
+`master`: the core two-part gap holds completely unchanged — still only 6
+`/tools/:domain` routes exist for 26 real `SOURCE_CATEGORIES`, still no
+pagination cap on any of them, all five domain tool-count sums re-checked
+against current `toolsCatalog.js` and unchanged since the entry was found.
+Corrected three lines of citation drift inline on the entry (`Discover.jsx`
+grew to 455 lines since 09-25, moving `PAGE_SIZE` and the LOAD-MORE button;
+`CategoryLanding.jsx` gained an unrelated empty-state branch). Found one
+genuine new wrinkle worth logging rather than just drift: `scripts/
+stamp-sitemap.mjs` + `freshness.js`'s `stampSitemap` — the same
+sitemap-freshness precedent the 49th pass noted had strengthened the RSS
+entry's plan — keys its `<lastmod>` map by the 6-domain `category` field
+only, so the 26 new subcategory URLs this entry's plan would add get no
+freshness date unless a second `sourceCategory`-keyed loop is added. Noted
+as optional (a missing `<lastmod>` is explicitly neutral per that script's
+own comment), not a blocker. Still OPEN, still Build size M.
+
+Two fresh WebSearches, neither produced a new gap: Futurepedia/"There's An
+AI For That" 2026 changelogs (returned nothing relevant — neither site
+appears to publish an indexed public changelog, consistent with every
+prior pass's experience trying the same two named competitors) and AI
+directory subcategory/long-tail-SEO practice in 2026 (returned indie-
+builder write-ups whose consensus — niche long-tail category pages beat
+broad ones, add them once the directory already has real content, show
+freshness/trust signals — reaffirms this entry's own thesis rather than
+surfacing a new feature to log; also surfaced a general caution that
+mass-generated programmatic pages carry Google spam-policy risk, which
+doesn't apply here since these 26 pages are real curated catalog data, not
+auto-generated thin content, but is worth keeping in mind if this ever
+scales past the real 26 categories).
+
+Ran `npm test` (315/315) directly against current `master` — clean. This
+was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
+`npm run build`/`npm run smoke` were not re-run; nothing in this commit
+touches build output or runtime behavior. Per the "never invent a gap to
+fill the hour" rule, appended no new gap this run — the hour went to the
+"26 source categories" re-verification instead.
