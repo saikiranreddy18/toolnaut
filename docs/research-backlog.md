@@ -12050,3 +12050,61 @@ was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
 touches build output or runtime behavior. Per the "never invent a gap to
 fill the hour" rule, appended no new gap this run — the hour went to the
 "26 source categories" re-verification instead.
+
+### Research check 2026-10-09 15:04 UTC — no new gap found, fifty-first pass (off-cycle fire); second sweep moves to the task-search stemming gap
+
+Scheduled run, UTC hour 15 (a research slot — not the 18:00 feature-run
+hour). `npm ci` clean. `date -u` confirmed hour 15. `list_workflow_runs` on
+`master`: `CI`/`Release` both green at the latest push (`d58a40c`, the
+50th pass's own commit) — nothing red since. `npm run radar:health` →
+`OK` (2 runs in the 26h window, last run/publish 13.6h ago, 1 tool
+published that run, feed at 497 total). No `agent-fixable` issues open
+(`search_issues` zero results).
+
+**Before sweeping, found that PR #96 (`bot/claude/research-backlog-51st-pass`,
+opened 12:13 UTC, still unmerged) already claims the "fifty-first pass"
+ordinal for a different gap** — "Sharing a stack link" (found 09-16 09:10,
+the actual stalest-by-last-check OPEN entry) — via the separate
+`agent-*.yml`/`@claude` PR-based automation this repo also runs (per
+CLAUDE.md's bot-branch convention), not this direct-to-master research
+cadence. Since that work is in flight on an unmerged branch and this pass
+has no way to confirm its content without duplicating it, the sweep moved
+to the next-stalest-by-last-check OPEN entry instead: "The public search
+page's own placeholder promises task search" (found 09-16 21:15 — three
+hours fresher than "Sharing a stack link," so this pass would have reached
+it next regardless). Re-verified in full against current `master`:
+`matchesQuery()` (`src/utils/search.js:9-16`) is unchanged, still a pure
+exact-substring check with no stemming. Ran the entry's own claim live —
+`matchesQuery(tool, 'transcribe meetings')` against the full bundled
+`TOOLS` catalog (`src/utils/toolsCatalog.js`, 704 entries) returns zero
+hits, confirmed with a one-off Node script. All eleven cited tools
+(Otter.ai, Notta, Gladia, Fireflies.ai, Fathom, Circleback, Grain, Granola,
+Avoma, tl;dv, Zoom AI Companion) still exist in the catalog with the exact
+tags/blurbs quoted. `SearchTools.jsx:73`'s placeholder copy is unchanged.
+No drift, no correction needed — entry stands exactly as written, fully
+specced and build-size S, ready for a feature run to pick up.
+
+Two fresh searches were tried first, per the "deepen before you add" rule:
+"AI tool directory 2026 features price tracking deal alerts comparison"
+and "Futurepedia OR 'There's An AI For That' new feature 2026 saved tools
+alerts notifications" (WebSearch, both standard mode). Neither surfaced a
+sourced, dated feature announcement from either named directory — results
+were unrelated consumer price-tracker apps and OS release notes. A follow-
+up check against the codebase for two speculative angles the searches
+didn't resolve — a G2-style visual "quadrant" positioning grid for
+same-category tools, and a stack-wide monthly-cost rollup on
+`Stack.jsx` — found the quadrant grid genuinely absent
+(`grep -rn "quadrant" src/` empty) but not worth logging: G2's Grid relies
+on a volume of reviewer-submitted satisfaction/market-presence scores this
+catalog doesn't collect at any scale (15 slugs have seed reviews at all),
+so the axes would have no real data behind them, the same "no backend"
+reason this file already rejects would apply. The cost rollup turned out
+to already exist (`src/components/app/StackCost.jsx`, referenced inline in
+`Stack.jsx:320`) — not a gap. Nothing genuine to log as a new gap.
+
+Ran `npm test` (315/315) directly against current `master` — clean. This
+was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
+`npm run build`/`npm run smoke` were not re-run; nothing in this commit
+touches build output or runtime behavior. Per the "never invent a gap to
+fill the hour" rule, appended no new gap this run — the hour went to the
+task-search re-verification instead.
