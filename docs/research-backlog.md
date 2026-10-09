@@ -12108,3 +12108,69 @@ was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
 touches build output or runtime behavior. Per the "never invent a gap to
 fill the hour" rule, appended no new gap this run — the hour went to the
 task-search re-verification instead.
+
+### Research check 2026-10-09 21:04 UTC — no new gap found, fifty-second pass; second sweep moves to the educational/how-to-content gap, skipping the two stalest entries already in flight
+
+Scheduled run, UTC hour 21 (a research slot). Container started detached at
+`origin/master` again (same recurring behavior every prior pass has noted);
+checked out `master` and fast-forwarded to `2224310` (the 2026-10-09 feature
+run + digest). `npm ci` clean. `npm run radar:health` → `OK` (2 runs in the
+26h window, last run/publish 4.8h ago, 6 tools published that run, feed at
+503 total). `list_workflow_runs` on `master`: both `CI` and `Release` green
+at the latest push (`2224310`), nothing red since. No `agent-fixable` issues
+open (`list_issues` zero results).
+
+**Before sweeping, recomputed every OPEN entry's true last-check date** (by
+reading each entry's own dated notes, not just its `Found:` line — the 50th
+pass's own fix for this exact miscounting still applies). Two entries tie
+for stalest at 2026-09-16: "Sharing a stack link" and the task-search
+stemming gap. The task-search entry was the 51st pass's own re-verification
+(same day, hours ago) — already fresh. "Sharing a stack link" turned out to
+be in flight on a *different* track: PR #96 (`bot/claude/
+research-backlog-51st-pass`, opened 12:13 UTC today, still unmerged) is a
+separate agent-driven re-verification of exactly that entry — the PR body
+confirms the core gap still holds and fixes three citation drifts, work
+this pass would only duplicate without adding anything, since the PR hasn't
+landed on `master` yet to show up in this file's own history. Skipped both
+and moved to the next-stalest-by-last-check OPEN entry: "No educational/
+how-to content" (found 2026-09-20 03:08 UTC).
+
+**Re-verified in full against current `master`.** Every cited line held
+with zero drift: `scripts/prerender.mjs`'s `ROUTES` array (`:42-62`) is
+still exactly the same 19 product-surface entries the entry quotes (`/`,
+`/about`, `/changelog`, `/pricing`, `/methodology`, `/example`, `/new`,
+`/search`, `/support`, `/privacy`, `/terms`, the 6 `/tools/:domain` grids,
+the 2 `/vs/:slug` pages) — no `/guides` or `/guides/:slug` entry exists.
+`src/App.jsx:26,158` confirms the only "Learning" surface is still
+`app/learning`, lazy-loaded and mounted inside the signed-in `AppShell`
+route tree, not a public, crawlable page. `src/components/sections/
+ContactSection.jsx:43-49`'s "Resources" footer column still links only to
+the same four existing product pages ("How it works," "How we choose,"
+"What's new," "Open the app") — none of them guide content answering a
+task query. `src/content/comparisons.js` still exists as the exact
+precedent the plan calls for reusing (a hand-written array, `COMPARISONS`,
+with the same no-invented-facts discipline), and no `src/content/
+guides.js` or `src/pages/Guide.jsx`/`Guides.jsx` exist yet (`ls src/pages/`
+confirmed). Gap holds completely unchanged — still OPEN, still Build size
+S, ready for a feature run to pick up as-is.
+
+Two fresh WebSearches, neither produced a new gap. "Futurepedia OR
+'There's An AI For That' new feature 2026 guides blog education content
+launch" returned only third-party directory reviews, no primary-source
+announcement — one review did reconfirm the entry's own citation that
+Futurepedia pairs its listings with "an AI education platform featuring
+structured courses and video content," which is exactly the precedent the
+entry's `Seen in` section already cites, not a new feature. "AI tool
+directory 2026 features personalized recommendations saved searches
+comparison SaaS directory best practices" surfaced bookmarking/collections
+and side-by-side comparison-view patterns from TopAI.tools and other
+directories, but both map onto gaps this file already tracks (Favorites,
+Collections, and the already-shipped Compare feature) rather than
+anything new. Nothing genuine to log as a new gap.
+
+Ran `npm test` (315/315) directly against current `master` — clean. This
+was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
+`npm run build`/`npm run smoke` were not re-run; nothing in this commit
+touches build output or runtime behavior. Per the "never invent a gap to
+fill the hour" rule, appended no new gap this run — the hour went to the
+educational/how-to-content re-verification instead.
