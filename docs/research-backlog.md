@@ -4646,6 +4646,49 @@ a client-side SPA with a static tool catalogue.
   `index.html`. No backend, no new dependency, no change to the app's `src/`
   half at all (this is purely a `radar/` + static-file addition).
 - **Found:** 2026-09-02 06:20 UTC
+- **Re-verified 2026-10-09 06:09 UTC:** stalest-by-last-check OPEN entry (17
+  days since its only prior touch, 09-22 — staler than every other OPEN
+  entry's own last-check timestamp as of this pass). `public/feed.xml` still
+  does not exist; `index.html` has no `rel="alternate" type="application/
+  rss+xml"` tag. Three real pieces of drift found, all corrections rather
+  than reversals:
+  - The entry's own "zero hits beyond 'feedback'" grep result no longer
+    holds literally — `radar/sources/rss.js` plus its test file now exist
+    (an *input* discovery source that polls third-party `RSS_FEEDS`, a
+    separate radar-config feature unrelated to this gap's proposed *output*
+    feed). Re-ran the grep scoped to `index.html`, `public/`, and the parts
+    of `radar/` that aren't the pipeline's own source/test code: still zero
+    hits. The actual claim this entry depends on — no outbound syndication
+    feed exists — still holds; only the grep's literal phrasing needed this
+    caveat.
+  - The claim "no script under `scripts/` or `radar/scripts/` generates or
+    touches `sitemap.xml`, so no existing precedent to extend" is now false.
+    `scripts/gen-tool-pages.mjs` (writes `dist/sitemap.xml` entries for all
+    ~1,100 tool pages) and `scripts/stamp-sitemap.mjs` (adds `<lastmod>` via
+    `src/utils/freshness.js`'s `stampSitemap()`) both landed since this entry
+    was found and both generate/rewrite a static XML file from the live tool
+    list as a build step — a closer, better precedent for `gen-feed.js` than
+    `sync-to-app.js` alone, not a reason to doubt the plan. Still points at
+    `radar.yml` as the right place to run it, since `gen-feed.js` needs
+    `radar/data/tools.json` (pre-sync, with `discoveredAt`), not the built
+    `dist/` output those two scripts run against.
+  - The flagged wrinkle — "`<link>` = the same `${SITE}/app/tools/${slug}`
+    pattern `NewTools.jsx`'s own JSON-LD already uses (inheriting that same
+    page's already-flagged wrinkle: it points at a session-gated route, not
+    a public one)" — is stale and should be dropped. Read `NewTools.jsx:38`
+    in full: its JSON-LD now emits `${SITE}/ai-tools/${t.slug}`, the public
+    route, not `/app/tools/${slug}`. No caveat needed — `gen-feed.js`'s
+    `<link>` can point straight at `${SITE}/ai-tools/${slug}` with no
+    gated-route wrinkle to carry forward.
+  - Unchanged: `sync-to-app.js:29-30`'s `lifecycle === 'published'` filter,
+    `prominence.js:70-73`'s `isCatalogNoise()` regexes, `radar.yml`'s "Export
+    published tools into the app" step (now at line 101, running
+    `sync-to-app.js` at line 103), and `public/tools.json`'s per-tool shape
+    (`slug`, `name`, `blurb`, `website`, `discoveredAt` all still present,
+    confirmed by reading a live record) — every field this plan needs is
+    still exactly where the plan expects it. Still Build size S, still the
+    most build-ready entry in its own cohort (alongside the now-reverified
+    "Embeddable badge," 09-22, and "Discover's filter chips," 09-22/10-09).
 - **Deepened:** 2026-09-22 06:20 UTC — re-read every cited file against
   current `src/`/`radar/`/`.github/workflows/`; the gap itself is unchanged
   and still fully unbuilt (confirmed again: no `feed.xml`, no `gen-feed.js`,
@@ -11853,3 +11896,51 @@ was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
 touches build output or runtime behavior. Per the "never invent a gap to
 fill the hour" rule, appended no new gap this run — the hour went to the
 embed-badge re-verification instead.
+
+### Research check 2026-10-09 06:09 UTC — no new gap found, forty-ninth pass; second sweep moves to "RSS feed of newly discovered tools"
+
+Scheduled run, UTC hour 06 (a research slot). `npm ci` clean. Local checkout
+was detached at session start again (same recurring container-start behavior
+every prior pass has noted) — checked out `master` and fast-forwarded 28
+commits from `204f40e` to `519357d` (the 48th pass's own commit plus the
+intervening radar/release automation). `npm run radar:health` → `OK` (3 runs
+in the 26h window, last run/publish 4.6h ago, 1 tool published that run, feed
+at 497 total). `list_workflow_runs` on `master`'s `CI` workflow specifically:
+green at the latest push (`519357d`) — nothing red since. No `agent-fixable`
+issues open (`list_issues` zero results).
+
+**Second sweep continued at the next-stalest-by-last-check OPEN entry.** The
+48th pass closed out "Embeddable 'Featured on Toolnaut' badge" (last touched
+09-22 03:20, the stalest at the time). Checked every OPEN entry's own
+last-check timestamp again: "RSS feed of newly discovered tools" (found
+09-02, deepened once on 09-22 06:20 — three hours fresher than the badge
+entry was, which is exactly why the 48th pass's sweep reached the badge
+first) is now the stalest at 17 days. Re-verified it in full against current
+`master`. The core gap holds completely — `public/feed.xml` does not exist,
+no `<link rel="alternate" type="application/rss+xml">` tag anywhere in
+`index.html`. Three pieces of drift found and corrected inline on the entry
+itself (not repeated here): the entry's own "zero hits" grep claim needed a
+scoping caveat now that `radar/sources/rss.js` exists as an unrelated input
+discovery source; a stronger sitemap-generation precedent
+(`gen-tool-pages.mjs` + `stamp-sitemap.mjs`) has landed since this entry was
+found, strengthening rather than weakening the plan; and the "session-gated
+route" wrinkle the entry flagged on `NewTools.jsx`'s JSON-LD is now stale —
+that page emits the public `/ai-tools/:slug` route today, so the feed's own
+`<link>` needs no such caveat. Still Build size S, still fully unbuilt.
+
+**Two fresh WebSearches, neither produced a new gap.** Searched for 2026
+feature launches from Futurepedia/"There's An AI For That" (comparison,
+integration directory, workflow templates) and from Toolify/
+AIToolsDirectory — both came back with unrelated results (Samsung Galaxy
+AI features, enterprise SaaS release notes, third-party directory-roundup
+pages with the same conflicting unsourced catalog-size figures prior passes
+have already flagged) and no primary-source changelog from any named
+competitor. Consistent with the pattern every recent pass has reported.
+Nothing genuine to log as a new gap.
+
+Ran `npm test` (315/315) directly against current `master` — clean. This
+was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
+`npm run build`/`npm run smoke` were not re-run; nothing in this commit
+touches build output or runtime behavior. Per the "never invent a gap to
+fill the hour" rule, appended no new gap this run — the hour went to the
+RSS-feed re-verification instead.
