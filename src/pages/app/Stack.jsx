@@ -17,6 +17,7 @@ import { generateRoadmap } from '../../utils/roadmapGenerator'
 import { loadRoadmapProgress, milestoneComplete } from '../../state/roadmapStore'
 import { loadProgress, cycleProgress, STATUSES } from '../../state/progressStore'
 import SkillGraph from '../../components/app/SkillGraph'
+import OnboardingChecklist from '../../components/app/OnboardingChecklist'
 import ToolCard from '../../components/app/ToolCard'
 import { useAnalytics } from '../../hooks/useAnalytics'
 import { markStackSeen } from '../../utils/funnel'
@@ -269,6 +270,10 @@ export default function Stack() {
             {copied ? '✓ Copied' : '🔗 Share'}
           </button>
         </div>
+
+        {/* Have you actually done the things that predict you'll come back —
+            self-hides once every step is done or the user dismisses it. */}
+        <OnboardingChecklist />
 
         {/* Day streak — 7 dots M T W T F S S */}
         <div className="mt-6 sticker p-4">

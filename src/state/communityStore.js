@@ -39,6 +39,13 @@ export function loadThreads() {
     .sort((a, b) => b.at - a.at)
 }
 
+// Whether this account has authored a thread — not read anywhere else, but
+// the onboarding checklist needs a "have you posted" signal and user threads
+// otherwise only ever surface merged with the seed THREADS list.
+export function hasPostedThread() {
+  return read(THREADS_KEY, []).length > 0
+}
+
 export function getThread(id) {
   const userThreads = read(THREADS_KEY, [])
   const base = userThreads.find((t) => t.id === id) || THREADS.find((t) => t.id === id)
