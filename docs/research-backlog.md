@@ -2774,6 +2774,33 @@ a client-side SPA with a static tool catalogue.
   facet-shaped. Still fully unbuilt, still Build size S, still the right
   next pick whenever the feature run wants a small, well-scoped, three-times-
   verified slice.
+- **Deepened 2026-10-09 00:04 UTC — second-sweep re-verification, this
+  entry is next-oldest OPEN by found-date after "Pro chat assistant"
+  (skipping entries that shipped in between):** read the current 455-line
+  `Discover.jsx` in full, not just the lines this entry already cites — it
+  grew again (the fresh-tools rail's recency window and the recently-viewed
+  rail both landed since the last check) and every anchor has drifted a
+  fifth time. Corrected locations: `Pill` is now `Discover.jsx:39-49`,
+  still exactly `{ active, onClick, children }` — confirmed no `count` slot
+  by reading the full function body, not just its signature. The filter
+  predicate is inline in the `results` `useMemo` at `:124-142`, with the
+  `.filter()` call specifically at `:126-131` (`matchesQuery(tool, q)` plus
+  the three `cat`/`price`/`level` equality checks — unchanged shape, still
+  not extracted into a shared helper, confirming the 2026-09-01 finding
+  still holds). The category pill row is now its own div at `:294-301`;
+  price, level and Sort still share one wrapper div, now at `:303-322`
+  (price `:304-309`, level `:310-315`, Sort `:316-321`) — the 2026-09-02
+  gating finding (never pass `count` at Sort's `SORTS.map()` call site)
+  is still the right guard and still necessary, that div still hasn't been
+  split. Zero-results block is now `:324-377`. Confirmed again: no
+  `src/utils/facetCounts.js` (`find src -iname '*facet*'` — zero hits) and
+  grepped `Discover.jsx` for `count`/`facet` — same three unrelated
+  pagination hits (`PAGE_SIZE`/`visibleCount`/`remaining`) as every prior
+  check, nothing facet-shaped. Still fully unbuilt, still Build size S,
+  still the right next pick for a feature run — four consecutive
+  verification passes (09-01, 09-02, 09-22, now 10-09) have found this
+  entry's plan correct and unchanged in substance across five rounds of
+  line-number drift.
 
 ### Tool "graveyard" page — deferred by the status-note gap, worth its own build
 - **Status:** OPEN
@@ -11614,6 +11641,64 @@ routes, 0 console errors) directly against current `master` — all three
 clean, no bug found to fix this run. Per the "never invent a gap to fill
 the hour" rule, appended no new gap this run — the hour went to the PDF
 roadmap export re-verification instead.
+
+---
+
+### Research check 2026-10-09 00:04 UTC — no new gap found, forty-seventh pass; second sweep moves to "Discover's filter chips carry no facet counts"
+
+Scheduled run, UTC hour 00 (a research slot). `npm ci` clean. Local checkout
+was detached at session start again (same recurring container-start
+behavior every prior pass has noted) — checked out `master` and confirmed
+already at `origin/master`'s tip (`a234dbf`, no commits to fast-forward).
+`npm run radar:health` → `OK` (2 runs in the 26h window, last run/publish
+7.5h ago, 4 tools published that run, feed at 496 total). `list_workflow_runs`
+on `master`: `CI` and `Release` both green at the latest push (`a234dbf`).
+No `agent-fixable` issues open (`list_issues` zero results).
+
+**Second sweep continued at the next-oldest OPEN entry by found-date.** The
+46th pass deepened "Pro chat assistant & the entire Team tier" (found
+2026-08-25 15:35, still OPEN — correctly unbuildable client-side, not a
+candidate for closing); the next-oldest OPEN entry by found-date, skipping
+everything that shipped in between (tool status-note reasons, command
+palette, category landing pages, weekly digest email), is "Discover's
+filter chips carry no facet counts" (found 2026-08-27 15:07, last deepened
+2026-09-22). Re-verified it in full against current `master` (detail
+appended inline to the entry itself, above, matching this file's own
+established in-place-deepening pattern): read the current 455-line
+`Discover.jsx` top to bottom rather than trust any previously-cited line
+number. Substance holds exactly as every prior check found it — `Pill`
+still takes only `{ active, onClick, children }`, the `cat`/`price`/`level`
+filter predicate is still three inline equality checks never extracted
+into a shared helper, `matchesQuery()` still covers only the free-text
+half, and `find src -iname '*facet*'` still returns zero hits. Only the
+line numbers moved (a fifth drift pass, caused by the fresh-tools recency
+window and recently-viewed rail landing since the last check) — corrected
+in the entry itself. This is now four independent re-verifications (09-01,
+09-02, 09-22, 10-09) that have found this entry's build plan unchanged in
+substance, making it one of the most verification-hardened OPEN entries in
+this file and a strong candidate whenever a feature run wants a small,
+well-scoped slice.
+
+Two fresh searches were tried first, before falling back to the sweep, per
+the "deepen before you add" rule: "AI tool directory 2026 'compare price'
+OR 'price alert' OR 'tool stack sharing' new feature launch" and "There's
+An AI For That OR Futurepedia OR ToolFinder new feature 2026 'AI agent'
+recommendations" (WebSearch, both standard mode). Neither turned up a
+verifiable, sourced competitor feature this file doesn't already cover —
+the first returned only self-reported Product Hunt listings with unconfirmed
+launch dates and no primary-source feature confirmation (closest overlap,
+"AI Tools Mentor," already maps to this file's already-OPEN stack-cost and
+shared-stacks-gallery entries); the second returned mostly unrelated
+consumer-AI/Samsung-event noise and third-party review-blog copy
+(`aiindigo.com` again) with no official changelog or announcement for any
+of the three named directories. Nothing genuine to log as a new gap.
+
+Ran `npm test` (315/315) directly against current `master` — clean. This
+was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
+`npm run build`/`npm run smoke` were not re-run; nothing in this commit
+touches build output or runtime behavior. Per the "never invent a gap to
+fill the hour" rule, appended no new gap this run — the hour went to the
+Discover-filter-chips re-verification instead.
 
 ---
 
