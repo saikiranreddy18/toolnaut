@@ -9,6 +9,74 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-10-09
+
+**Radar health:** `OK` — 2 runs in the last 24h (01:27 and 16:16 UTC), 7
+tools published total (1 + 6), feed at 503 tools in `public/tools.json`.
+No action needed.
+
+**Researched today:** five research-hour passes (00:04, 03:04, 06:09,
+09:04, 15:04 UTC — the 47th through 51st against this backlog). None found
+a genuinely new gap; each did a second-sweep re-verification of a
+stalest-by-last-check OPEN entry instead — Discover's filter-chip facet
+counts, the embeddable "Featured on Toolnaut" badge, the RSS feed gap, the
+26-real-source-categories gap (which also caught a real sitemap-stamping
+blind spot worth noting for whoever builds it), and the task-search
+stemming gap. All five re-confirmed their entries' core claims hold against
+current `master` with no drift worth correcting beyond line-number fixes.
+The 51st pass also caught that PR #96 (open, unmerged) already claims the
+"fifty-first pass" ordinal for a different entry via the separate
+PR-based `agent-*.yml` automation — a reminder that this direct-to-master
+research cadence and that bot-branch one are tracking the same backlog
+file without visibility into each other's in-flight work.
+
+**Shipped today:** **first-session onboarding checklist** — picked because
+it was named "next in line" in yesterday's digest, re-verified clean, and
+fully specced down to exact insertion point and store wiring. Toolnaut's
+quiz does the hard work of getting a visitor to a filled-in persona and
+stack, but nothing after that gave them an explicit, checkable list of
+what else was worth doing — `AppTour` explains where things live once, but
+has no memory of which of its steps a user actually acted on afterward.
+Added `src/utils/onboardingSteps.js` (pure, computes four steps — quiz
+done, a tool added beyond the starter stack, a roadmap step checked, a
+community post — entirely from stores that already exist, no new
+persistence), a one-line `hasPostedThread()` export on
+`communityStore.js`, and `src/components/app/OnboardingChecklist.jsx`: a
+dismissible sticker card matching the streak card's visual language,
+mounted in `Stack.jsx` between the persona header and the streak sticker.
+It self-hides once every step is done, and a manual dismiss persists via a
+scoped localStorage flag (`exus_onboarding_dismissed_v1`), matching
+`AppTour`'s own per-account pattern — a returning, already-activated user
+sees exactly the same page as before this shipped. No rewards/badges, no
+email reminders, no per-role step variation — all deliberately out of
+scope per the backlog entry. Verified beyond the smoke test: ran a
+scripted Playwright session against `vite preview` seeding each
+combination of store state directly — confirmed the card renders at 1/4
+done for a fresh persona, stays visible and accurate at 3/4, hides
+immediately on dismiss and stays hidden after a reload, and self-hides
+once all four steps are genuinely done, with zero console errors across
+every visit. All three checks green (422 tests — 315 app + 107 radar;
+build — 1173 tool pages; smoke — 25 routes, 0 console errors), pushed to
+`master` — sha
+[`5422acb`](https://github.com/saikiranreddy18/toolnaut/commit/5422acb).
+Marked `SHIPPED` in the backlog. **Visible on toolnaut.xyz today** — the
+card renders on `/app/stack` immediately once this deploy lands; no other
+pipeline needs to run first.
+
+**Still stuck:** the `agent-reviewer.yml` review check is still failing at
+the `litellm` proxy step on every PR (issue #69), and the open-bot-PR
+backlog (issue #67) still hasn't shrunk — both still open, neither is this
+routine's job to fix directly.
+
+**Queued next:** "Tool pages' JSON-LD still says 'no rating'" (build size
+S) — the ratings data `toolJsonLd()` was explicitly waiting on shipped
+2026-10-06, nobody has come back to add `aggregateRating`/`review` markup
+since. "First-session onboarding checklist"'s sibling gap, the oldest
+remaining untouched OPEN entry by last-check, is the next pick if a bigger
+slice of a day is available.
+
+---
+
 ## 2026-10-08
 
 **Radar health:** `OK` — 2 runs in the 26h window, most recent 1.7h before

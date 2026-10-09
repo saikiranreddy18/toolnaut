@@ -355,7 +355,7 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-23 00:15 UTC
 
 ### First-session onboarding checklist
-- **Status:** OPEN
+- **Status:** SHIPPED 5422acb
 - **Seen in:** Notion's and Linear's "Getting Started" checklists both convert
   a new signup into an activated user by naming the 3-5 actions that predict
   retention and showing live progress against them, instead of leaving the
