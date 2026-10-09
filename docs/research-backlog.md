@@ -3074,6 +3074,41 @@ a client-side SPA with a static tool catalogue.
     copy, the galaxy zoom readout) — the gap itself is untouched, only its
     citations needed correcting. No change to build size, steps, or the
     explicitly-excluded scope.
+- **Re-verified 2026-10-09 03:04 UTC:** stalest-by-last-check OPEN entry (17
+  days since the 09-22 deepening, the longest gap of any entry's own
+  last-check timestamp as of this run). `embedBadge.js` still does not exist
+  and the same grep still returns nothing relevant — gap itself fully intact.
+  Lines drifted again, and one real wrinkle turned up worth correcting before
+  anyone builds this:
+  - "Visit website" moved again, now `ToolDetail.jsx:234-246` (was `151-163`
+    at the 09-22 check). But a **new element landed directly after it that
+    the plan's "mount directly after Visit website" instruction didn't
+    anticipate**: a plain-text "Something wrong here?" report-issue link
+    (`ToolDetail.jsx:247-256`, deliberately styled as understated text "not
+    another nb-btn... a correction link shouldn't compete with the primary
+    CTAs above it," per its own comment) now sits between "Visit website" and
+    the stack/favorite action row. The embed disclosure is the same kind of
+    secondary, non-competing disclosure — **corrected placement: after the
+    stack/favorite action row (`ToolDetail.jsx:258-276`) and before the "Why
+    it fits" sticker (`:278`)**, rather than wedging it between two links that
+    were deliberately ordered as primary-CTA-then-quiet-text. This keeps the
+    page's existing visual hierarchy (primary action → quiet correction link)
+    intact and adds the badge disclosure as its own clearly-separate block
+    below both, rather than interrupting them.
+  - The `/s/:slugs` route is unchanged in substance, now `App.jsx:123` (was
+    `:120`). `SearchTools.jsx`'s independent call site is unchanged in
+    substance too, still `encodeStackSlugs([tool.slug])` at
+    `SearchTools.jsx:108` — the reuse case is exactly as strong as last check.
+  - Both copy-to-clipboard precedents drifted again: `Stack.jsx`'s handler is
+    now `copyShareLink()` at `Stack.jsx:121-129`, its button label at
+    `Stack.jsx:269` (was `117-128`/`268`); `Learning.jsx`'s is now two
+    separate copy affordances rather than one — a `copied` state at
+    `Learning.jsx:22-28` with a "Copy" button at `:38`, plus a second,
+    unrelated `shared`/`setShared` share-string copy at `:192,277` added
+    since the last check. Either of the two is still a valid precedent to
+    cite; no change to the plan's reasoning.
+  No change to build size, steps, or explicitly-excluded scope — this is a
+  citation-and-placement correction, not a substance change.
 
 ### Per-tool "Alternatives" SEO pages — the single highest-intent directory query has zero pages targeting it
 - **Status:** SHIPPED (discovered already live 2026-10-06 21:04 UTC — commit
@@ -11756,3 +11791,65 @@ was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
 touches build output or runtime behavior. Per the "never invent a gap to
 fill the hour" rule, appended no new gap this run — the hour went to the
 Pro-chat-assistant provider-drift correction instead.
+
+---
+
+### Research check 2026-10-09 03:04 UTC — no new gap found, forty-eighth pass; second sweep moves to "Embeddable Featured on Toolnaut badge," the stalest-by-last-check OPEN entry
+
+Scheduled run, UTC hour 03 (a research slot). `npm ci` clean. Local checkout
+was detached at session start again (same recurring container-start behavior
+every prior pass has noted) — checked out `master` and fast-forwarded one
+commit from `origin/master` (`204f40e` → `60b1132`, a radar publish commit,
+no backlog/src change). `npm run radar:health` → `OK` (3 runs in the 26h
+window, last run/publish 1.6h ago, 1 tool published that run, feed at 497
+total). `list_workflow_runs` on `master`: `CI`/`Release`/`Radar` all green at
+the latest push (`9de7497`, one pass ahead of the fetched `60b1132` tip —
+confirmed via `list_workflow_runs`, not a red run). No `agent-fixable` issues
+open (`list_issues` zero results).
+
+**Second sweep continued at the next-oldest OPEN entry by found-date**, but
+with a twist worth recording: the strict next entry after the 47th pass's
+"Discover's filter chips" (found 08-27 15:07) is "Tool 'graveyard' page"
+(found 08-28 00:15) — however that entry was already independently
+re-verified twice, 09-20 and 10-07, just two days ago, and found fully
+unchanged both times ("the most build-ready entry nobody has touched in
+over two weeks" as of the 10-07 check). Re-running the same check two days
+later would have been pure repetition with nothing left to find, so this
+pass instead applied the sweep's actual intent — surface whichever OPEN
+entry is stalest by *last-check* date, not just next by found-date — and
+re-verified "Embeddable 'Featured on Toolnaut' badge" (found 08-28 03:15,
+last deepened 09-22, 17 days stale, the longest gap of any OPEN entry's own
+last-check timestamp as of this run). Full detail appended inline to the
+entry itself (above), matching this file's established in-place-deepening
+pattern. Substance holds completely: `embedBadge.js` still does not exist,
+`grep -rniE "embed|badge|featured on toolnaut" src/` still returns nothing
+relevant. Lines drifted again (`ToolDetail.jsx`'s "Visit website" anchor
+moved from `151-163` to `234-246`; the `/s/:slugs` route from `App.jsx:120`
+to `:123`; both copy-to-clipboard precedents moved too), and one real
+wrinkle turned up: a new "Something wrong here?" report-issue link now sits
+directly after "Visit website" on `ToolDetail.jsx` (added since the last
+check), which the original plan's "mount directly after Visit website"
+instruction didn't anticipate — corrected to mount the embed disclosure
+after the stack/favorite action row instead, preserving the page's existing
+primary-CTA-then-quiet-link ordering rather than wedging a third thing
+between two deliberately-ordered elements. No change to build size or scope.
+
+Two fresh searches were tried first, before the sweep, per the "deepen
+before you add" rule: "AI tool directory 2026 new feature 'AI readiness' OR
+'team onboarding' OR 'tool migration' launch" and "Futurepedia OR 'There's
+An AI For That' OR Toolify 2026 new feature announcement changelog"
+(WebSearch, both standard mode). Neither surfaced a verifiable, sourced,
+dated feature announcement from any named directory — both came back as
+third-party review-blog summaries (several from `aiindigo.com` again) with
+conflicting, unsourced claims (one source puts Futurepedia's catalog size at
+"150+," another at "2,500+," a third at "12,000+" — not something to cite
+as fact) and no primary-source changelog for any of the three directories
+checked. Consistent with the pattern the last several passes have reported.
+Nothing genuine to log as a new gap.
+
+Ran `npm test` (315/315) directly against current `master` — clean. This
+was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
+`npm run build`/`npm run smoke` were not re-run; nothing in this commit
+touches build output or runtime behavior. Per the "never invent a gap to
+fill the hour" rule, appended no new gap this run — the hour went to the
+embed-badge re-verification instead.
