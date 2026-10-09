@@ -32901,5 +32901,344 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-10-09T01:27:30.268Z"
+  },
+  {
+    "id": "course-senro",
+    "toolSlug": "senro",
+    "title": "Master Senro",
+    "objectives": [
+      "Instrument a WebMCP server with Senro tracing to capture tool-call latency, token usage, and error rates end-to-end",
+      "Build regression eval suites that score agent tool selection and argument correctness against golden datasets",
+      "Set up production alerts and drift detection to catch degradation in agent integrations before users do"
+    ],
+    "modules": [
+      {
+        "title": "Tracing a WebMCP Server End-to-End",
+        "estMinutes": 45,
+        "steps": [
+          "Install @senro/sdk, wrap your MCP server's tool handlers with senro.trace(), and verify spans (tool name, args hash, latency, tokens) appear in the Senro dashboard",
+          "Add session-level grouping by propagating senro.sessionId from the agent client so multi-tool agent runs render as a single trace tree",
+          "Configure sampling rules (100% errors, 10% success) and redact PII fields in tool arguments using the redaction config before shipping to prod"
+        ]
+      },
+      {
+        "title": "Building Eval Suites for Agent Tool Use",
+        "estMinutes": 60,
+        "steps": [
+          "Export 50+ real production traces from Senro as a golden dataset, then label expected tool calls and arguments per user intent",
+          "Write an eval suite using senro.eval() with scorers for tool-selection accuracy, argument-schema validity, and task completion via an LLM judge",
+          "Wire the suite into CI with senro run --baseline main so PRs that change prompts or tool schemas fail on >2% regression"
+        ]
+      },
+      {
+        "title": "Production Observability, Alerts & Drift Detection",
+        "estMinutes": 50,
+        "steps": [
+          "Create dashboards for p95 tool latency, per-tool error rate, and cost per agent session, segmented by model version and MCP server release",
+          "Configure alert rules: page on tool error rate >5% over 15 min, Slack-notify on eval score drift >3% vs 7-day baseline",
+          "Set up a canary workflow: route 5% of agent traffic to the new prompt/tool version, compare Senro eval scores live, and auto-rollback on regression"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-mcp",
+      "skill-evals",
+      "skill-observability",
+      "skill-llmops",
+      "skill-agents"
+    ],
+    "prerequisites": [
+      "Running WebMCP server (or MCP-compatible tool server) in Node.js or Python",
+      "Experience building or integrating LLM agents that call external tools",
+      "Familiarity with CI/CD pipelines and basic observability concepts (traces, p95 latency)"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "id": "course-llm-skill-to-generate-editable-3d-house-designs",
+    "toolSlug": "llm-skill-to-generate-editable-3d-house-designs",
+    "title": "Master LLM skill to generate editable 3D house designs",
+    "objectives": [
+      "Write effective prompts that produce accurate 3D house layouts",
+      "Generate a complete house model with rooms, walls, doors, and windows",
+      "Edit the generated model by adjusting dimensions and materials"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Prompt",
+        "estMinutes": 15,
+        "steps": [
+          "Install the LLM-powered 3D design skill and open the prompt interface",
+          "Write a simple prompt like 'single-story 2-bedroom house, open kitchen' and generate the model",
+          "Inspect the result: orbit, zoom, and identify rooms, walls, and openings"
+        ]
+      },
+      {
+        "title": "Prompting for Layout Control",
+        "estMinutes": 20,
+        "steps": [
+          "Add dimensions to your prompt (e.g., '8m x 10m footprint, 2.7m ceilings') and regenerate",
+          "Specify room placement ('bedroom on the east side, garage attached north') and compare layouts",
+          "Refine iteratively: change one detail per prompt and note how the model responds"
+        ]
+      },
+      {
+        "title": "Editing the Generated Model",
+        "estMinutes": 20,
+        "steps": [
+          "Select a wall or room in the editor and move or resize it manually",
+          "Use an edit prompt like 'make the living room 20% larger' and verify the change",
+          "Add doors and windows, then export the final model as an OBJ or project file"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-3d design",
+      "skill-architecture",
+      "skill-llm",
+      "skill-home design",
+      "skill-generative"
+    ],
+    "prerequisites": [
+      "Basic computer skills (installing software, navigating a 3D view)",
+      "A computer meeting the tool's minimum system requirements"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "id": "course-spectromood-speech-emotion-detection-with-a-decision-model",
+    "toolSlug": "spectromood-speech-emotion-detection-with-a-decision-model",
+    "title": "Master SpectroMood, speech emotion detection with a decision model",
+    "objectives": [
+      "Install SpectroMood and run inference on a sample audio file using the CLI",
+      "Fine-tune the pretrained emotion classifier on a labeled dataset such as RAVDESS",
+      "Evaluate model accuracy per emotion class and interpret the decision model's confidence scores"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Inference",
+        "estMinutes": 25,
+        "steps": [
+          "Clone the SpectroMood repo, create a Python 3.10 virtualenv, and run `pip install -r requirements.txt` plus `spectromood download-weights`",
+          "Run `spectromood predict samples/demo.wav` and inspect the printed emotion label and per-class probabilities",
+          "Record a 5-second WAV clip (16kHz, mono) of your own voice, save it as test.wav, and run prediction on it"
+        ]
+      },
+      {
+        "title": "Understanding the Pipeline",
+        "estMinutes": 30,
+        "steps": [
+          "Open configs/model.yaml and change the input feature from mel-spectrogram to MFCC, then rerun prediction and compare output probabilities",
+          "Enable verbose mode with `--verbose` to inspect detected pitch, energy, and tempo features feeding the decision model",
+          "Read the decision model's threshold settings in configs/model.yaml and lower the neutral-class threshold to see how predictions shift"
+        ]
+      },
+      {
+        "title": "Batch Inference and Evaluation",
+        "estMinutes": 35,
+        "steps": [
+          "Place 20 labeled WAV files in test_data/ with a labels.csv, then run `spectromood eval --data test_data --labels labels.csv`",
+          "Open the generated confusion matrix in eval_report.html and identify which two emotions are most confused",
+          "Export per-file confidence scores to CSV with `--export scores.csv` and flag all predictions under 0.6 confidence for manual review"
+        ]
+      },
+      {
+        "title": "Fine-Tuning on Custom Data",
+        "estMinutes": 45,
+        "steps": [
+          "Download the RAVDESS dataset, run `spectromood prepare --input ravdess/ --output train_split/` to resample and split audio into train/val folders",
+          "Launch fine-tuning with `spectromood train --config configs/finetune.yaml --epochs 10 --base pretrained` and watch validation loss in the terminal log",
+          "Run `spectromood eval` using your new checkpoint, compare per-class F1 scores against the base model, and save the best checkpoint with `--save-best`"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-emotion detection",
+      "skill-speech analysis",
+      "skill-audio ml",
+      "skill-open source",
+      "skill-classification"
+    ],
+    "prerequisites": [
+      "Basic Python and command-line familiarity",
+      "Understanding of audio fundamentals (sampling rate, WAV format)",
+      "A machine with 8GB+ RAM; GPU optional but speeds up fine-tuning"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "id": "course-agent-swarm-oss-multiplayer-ai-for-your-company",
+    "toolSlug": "agent-swarm-oss-multiplayer-ai-for-your-company",
+    "title": "Master Agent Swarm: OSS multiplayer AI for your company",
+    "objectives": [
+      "Deploy a self-hosted Agent Swarm instance and connect it to your LLM providers",
+      "Define and configure multiple specialized agents with tools, roles, and permissions",
+      "Orchestrate cross-team workflows with shared task queues, approvals, and observability"
+    ],
+    "modules": [
+      {
+        "title": "Deploy and Connect a Self-Hosted Swarm",
+        "estMinutes": 45,
+        "steps": [
+          "Clone the Agent Swarm repo and bring up the stack with docker-compose; verify the control plane health endpoint and web UI load locally",
+          "Configure API keys for at least one remote LLM provider (e.g., OpenAI/Anthropic) plus one local model via Ollama, and set per-model rate limits and budget caps in the config file",
+          "Run the bundled smoke test that spawns two agents to confirm message passing and LLM calls work end to end"
+        ]
+      },
+      {
+        "title": "Design a Multi-Agent Team",
+        "estMinutes": 60,
+        "steps": [
+          "Define three role-specific agents (e.g., researcher, coder, reviewer) with distinct system prompts and allowed tool sets such as web search, repo access, and ticket creation",
+          "Attach tools and credentials via scoped service accounts, restricting each agent's permissions to only what its role requires",
+          "Test pairwise handoffs: have the researcher pass structured findings to the coder, and validate the output schema is enforced"
+        ]
+      },
+      {
+        "title": "Orchestrate Multiplayer Workflows at Company Scale",
+        "estMinutes": 60,
+        "steps": [
+          "Create a shared task queue where human teammates post goals and the swarm decomposes them into subtasks routed to the right agents",
+          "Insert a human approval gate before high-impact actions (e.g., merging a PR or sending an email) and rehearse approving and rejecting one of each",
+          "Enable tracing/audit logs, set up token-cost dashboards per agent, and run a full simulated cross-team project while monitoring for runaway loops"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-multi-agent",
+      "skill-open-source",
+      "skill-orchestration",
+      "skill-enterprise"
+    ],
+    "prerequisites": [
+      "Comfortable with Docker, docker-compose, and Linux CLI basics",
+      "Experience configuring APIs and LLM providers (API keys, model selection)",
+      "Familiarity with prompt engineering and basic multi-agent or automation concepts"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "id": "course-vendiq",
+    "toolSlug": "vendiq",
+    "title": "Master VendIQ",
+    "objectives": [
+      "Configure an AI follow-up agent with escalation rules for non-responsive vendors",
+      "Connect VendIQ to your email/ERP to automate routine ops workflows",
+      "Build a monitoring dashboard to audit agent activity and adjust thresholds"
+    ],
+    "modules": [
+      {
+        "title": "Set Up Your First Vendor Follow-Up Agent",
+        "estMinutes": 25,
+        "steps": [
+          "Create a new agent, select the 'Vendor Follow-Up' template, and link the Gmail/Outlook inbox where vendor threads live",
+          "Define trigger conditions (e.g., PO sent with no reply after 3 business days) and write a follow-up message template with merge fields for PO number and due date",
+          "Set escalation rules: after 2 unanswered follow-ups, escalate to a human owner with a Slack or email alert, then test against a sandbox vendor thread"
+        ]
+      },
+      {
+        "title": "Integrating Data Sources and Operations Workflows",
+        "estMinutes": 30,
+        "steps": [
+          "Connect your ERP or procurement system (e.g., NetSuite, SAP, or CSV import) so the agent can read PO status, delivery dates, and vendor contact records",
+          "Build a routine ops workflow: auto-generate a weekly vendor status report by scheduling the agent to pull late-shipment data and email a summary to stakeholders",
+          "Map field mismatches between systems using the integration field-mapper, and run a dry-run sync to confirm no duplicate vendors are created"
+        ]
+      },
+      {
+        "title": "Guardrails, Monitoring, and Tuning",
+        "estMinutes": 20,
+        "steps": [
+          "Enable approval mode so outbound messages above a defined risk level (e.g., mentioning penalties or contract terms) require human sign-off before sending",
+          "Review the activity log and response-rate analytics for the past week; flag any messages the agent sent with incorrect context and add correction labels",
+          "Adjust follow-up cadence and tone settings per vendor tier (strategic vs. transactional) and document the configuration for your team"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-vendor management",
+      "skill-follow-ups",
+      "skill-ops automation",
+      "skill-ai agent",
+      "skill-workflow"
+    ],
+    "prerequisites": [
+      "Admin access to your shared vendor inbox (Gmail or Outlook)",
+      "Basic familiarity with your ERP/procurement system's PO and vendor records",
+      "A list of 5-10 active vendors suitable for piloting automation"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "id": "course-multitool-office-next",
+    "toolSlug": "multitool-office-next",
+    "title": "Master MultiTool-Office-Next",
+    "objectives": [
+      "Master local search operators to find files in seconds",
+      "Use the AI assistant and OCR to extract and summarize document content",
+      "Automate repetitive office tasks with translation and to-do workflows"
+    ],
+    "modules": [
+      {
+        "title": "Precision Local Search & Smart Folders",
+        "estMinutes": 20,
+        "steps": [
+          "Run a filtered search using type:, size:>, and modified:lastweek operators, then save the query as a Smart Folder",
+          "Index a project folder via Settings > Indexing, then benchmark a full-text search inside 50+ documents",
+          "Tag 10 files with custom labels and retrieve them using the tag: filter combined with a keyword"
+        ]
+      },
+      {
+        "title": "AI Assistant + OCR Pipeline",
+        "estMinutes": 25,
+        "steps": [
+          "Open a scanned PDF, run OCR from the workbench panel, and export the recognized text to .txt",
+          "Select OCR output and prompt the AI assistant with 'Summarize in 5 bullets and extract action items'",
+          "Build a reusable AI command: select any file, right-click > AI > 'Explain this document', then save it as a custom quick action"
+        ]
+      },
+      {
+        "title": "Translation & To-Dos: Daily Workflow",
+        "estMinutes": 20,
+        "steps": [
+          "Translate a document from the preview pane, compare side-by-side view, and export the bilingual result",
+          "Convert AI-extracted action items into to-dos with due dates, then group them by project using lists",
+          "Set up a morning routine: pin a Smart Folder, open today's to-do list, and trigger your saved AI quick action on one file"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-file-management",
+      "skill-ocr",
+      "skill-translation",
+      "skill-ai-assistant",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-09T16:16:05.152Z"
   }
 ]

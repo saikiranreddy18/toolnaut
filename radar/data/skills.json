@@ -208,7 +208,8 @@
       "flagshiprouter",
       "delegator",
       "chloe-is-a-typescript-ai-agent",
-      "llmll"
+      "llmll",
+      "senro"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -414,7 +415,8 @@
       "course-flagshiprouter",
       "course-delegator",
       "course-chloe-is-a-typescript-ai-agent",
-      "course-llmll"
+      "course-llmll",
+      "course-senro"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -594,7 +596,9 @@
       "checkout-this-open-source-local-first-bioinformatics-ai-desk",
       "a-new-ai-agent-oriented-programming-language",
       "short-video-maker",
-      "i-put-an-ai-agent-on-a-nokia-110"
+      "i-put-an-ai-agent-on-a-nokia-110",
+      "agent-swarm-oss-multiplayer-ai-for-your-company",
+      "multitool-office-next"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -677,7 +681,9 @@
       "course-checkout-this-open-source-local-first-bioinformatics-ai-desk",
       "course-a-new-ai-agent-oriented-programming-language",
       "course-short-video-maker",
-      "course-i-put-an-ai-agent-on-a-nokia-110"
+      "course-i-put-an-ai-agent-on-a-nokia-110",
+      "course-agent-swarm-oss-multiplayer-ai-for-your-company",
+      "course-multitool-office-next"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -725,7 +731,8 @@
       "artbucket",
       "agy-ppt",
       "smart-blur",
-      "short-video-maker"
+      "short-video-maker",
+      "llm-skill-to-generate-editable-3d-house-designs"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -766,7 +773,8 @@
       "course-artbucket",
       "course-agy-ppt",
       "course-smart-blur",
-      "course-short-video-maker"
+      "course-short-video-maker",
+      "course-llm-skill-to-generate-editable-3d-house-designs"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1110,7 +1118,10 @@
       "muselite",
       "opposable",
       "i-put-an-ai-agent-on-a-nokia-110",
-      "promo-video-generator"
+      "promo-video-generator",
+      "agent-swarm-oss-multiplayer-ai-for-your-company",
+      "vendiq",
+      "multitool-office-next"
     ],
     "courses": [
       "course-headless-tools",
@@ -1374,7 +1385,10 @@
       "course-muselite",
       "course-opposable",
       "course-i-put-an-ai-agent-on-a-nokia-110",
-      "course-promo-video-generator"
+      "course-promo-video-generator",
+      "course-agent-swarm-oss-multiplayer-ai-for-your-company",
+      "course-vendiq",
+      "course-multitool-office-next"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1848,7 +1862,8 @@
       "tinyaiarena-watch-ai-agents-battle-it-out",
       "prompt-anonymization-and-deanonymization",
       "whirl",
-      "self-bench"
+      "self-bench",
+      "llm-skill-to-generate-editable-3d-house-designs"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1900,7 +1915,8 @@
       "course-tinyaiarena-watch-ai-agents-battle-it-out",
       "course-prompt-anonymization-and-deanonymization",
       "course-whirl",
-      "course-self-bench"
+      "course-self-bench",
+      "course-llm-skill-to-generate-editable-3d-house-designs"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2567,7 +2583,8 @@
       "web2md",
       "google-maps-scraper-mcp",
       "devboard",
-      "dotpals"
+      "dotpals",
+      "senro"
     ],
     "courses": [
       "course-coolplugz",
@@ -2605,7 +2622,8 @@
       "course-web2md",
       "course-google-maps-scraper-mcp",
       "course-devboard",
-      "course-dotpals"
+      "course-dotpals",
+      "course-senro"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2989,7 +3007,8 @@
       "natively",
       "coletivo",
       "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
-      "delegator"
+      "delegator",
+      "agent-swarm-oss-multiplayer-ai-for-your-company"
     ],
     "courses": [
       "course-mrea",
@@ -3005,7 +3024,8 @@
       "course-natively",
       "course-coletivo",
       "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
-      "course-delegator"
+      "course-delegator",
+      "course-agent-swarm-oss-multiplayer-ai-for-your-company"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3385,7 +3405,8 @@
       "langgraph-harness",
       "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
       "a-new-ai-agent-oriented-programming-language",
-      "muselite"
+      "muselite",
+      "senro"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3435,7 +3456,8 @@
       "course-langgraph-harness",
       "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
       "course-a-new-ai-agent-oriented-programming-language",
-      "course-muselite"
+      "course-muselite",
+      "course-senro"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3571,7 +3593,8 @@
       "self-bench",
       "flagshiprouter",
       "muselite",
-      "promo-video-generator"
+      "promo-video-generator",
+      "spectromood-speech-emotion-detection-with-a-decision-model"
     ],
     "courses": [
       "course-limitless-library",
@@ -3642,7 +3665,8 @@
       "course-self-bench",
       "course-flagshiprouter",
       "course-muselite",
-      "course-promo-video-generator"
+      "course-promo-video-generator",
+      "course-spectromood-speech-emotion-detection-with-a-decision-model"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3783,7 +3807,8 @@
       "openchart",
       "embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo",
       "checkout-this-open-source-local-first-bioinformatics-ai-desk",
-      "layer"
+      "layer",
+      "spectromood-speech-emotion-detection-with-a-decision-model"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3844,7 +3869,8 @@
       "course-openchart",
       "course-embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo",
       "course-checkout-this-open-source-local-first-bioinformatics-ai-desk",
-      "course-layer"
+      "course-layer",
+      "course-spectromood-speech-emotion-detection-with-a-decision-model"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4029,13 +4055,15 @@
       "aristra-your-life-os",
       "astah-pro-mcp",
       "anyhropic-launches-google-docs-alternative-claude-docs",
-      "now"
+      "now",
+      "multitool-office-next"
     ],
     "courses": [
       "course-aristra-your-life-os",
       "course-astah-pro-mcp",
       "course-anyhropic-launches-google-docs-alternative-claude-docs",
-      "course-now"
+      "course-now",
+      "course-multitool-office-next"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4091,7 +4119,8 @@
       "meta-muse-hits-1-in-apple-app-store",
       "call4me-an-ai-agent-that-handles-phone-calls-for-you",
       "chloe-is-a-typescript-ai-agent",
-      "opposable"
+      "opposable",
+      "vendiq"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -4125,7 +4154,8 @@
       "course-meta-muse-hits-1-in-apple-app-store",
       "course-call4me-an-ai-agent-that-handles-phone-calls-for-you",
       "course-chloe-is-a-typescript-ai-agent",
-      "course-opposable"
+      "course-opposable",
+      "course-vendiq"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4350,7 +4380,8 @@
       "agentcap",
       "spens-sandboxed-observable-coding-agents",
       "ai-agent-gateway",
-      "sulcus"
+      "sulcus",
+      "senro"
     ],
     "courses": [
       "course-agenttrail",
@@ -4362,7 +4393,8 @@
       "course-agentcap",
       "course-spens-sandboxed-observable-coding-agents",
       "course-ai-agent-gateway",
-      "course-sulcus"
+      "course-sulcus",
+      "course-senro"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4955,13 +4987,15 @@
       "agents-should-be-durable-not-long-lived",
       "cogram-studio",
       "experiments-with-ai",
-      "viaduct"
+      "viaduct",
+      "llm-skill-to-generate-editable-3d-house-designs"
     ],
     "courses": [
       "course-agents-should-be-durable-not-long-lived",
       "course-cogram-studio",
       "course-experiments-with-ai",
-      "course-viaduct"
+      "course-viaduct",
+      "course-llm-skill-to-generate-editable-3d-house-designs"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5805,12 +5839,14 @@
     "toolsTeaching": [
       "ta",
       "squint",
-      "hieraticbench"
+      "hieraticbench",
+      "multitool-office-next"
     ],
     "courses": [
       "course-ta",
       "course-squint",
-      "course-hieraticbench"
+      "course-hieraticbench",
+      "course-multitool-office-next"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5835,12 +5871,14 @@
     "toolsTeaching": [
       "ta",
       "i-built-a-real-time-translator-for-google-meet",
-      "what-other-languages-call-ai-agents"
+      "what-other-languages-call-ai-agents",
+      "multitool-office-next"
     ],
     "courses": [
       "course-ta",
       "course-i-built-a-real-time-translator-for-google-meet",
-      "course-what-other-languages-call-ai-agents"
+      "course-what-other-languages-call-ai-agents",
+      "course-multitool-office-next"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6331,7 +6369,8 @@
       "fault-tolerance-in-low-bandwidth-model-parallelism",
       "agentmeasure",
       "tracelanedev",
-      "openappa-deterministic-guardrails-that-dont-break-agents"
+      "openappa-deterministic-guardrails-that-dont-break-agents",
+      "senro"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -6344,7 +6383,8 @@
       "course-fault-tolerance-in-low-bandwidth-model-parallelism",
       "course-agentmeasure",
       "course-tracelanedev",
-      "course-openappa-deterministic-guardrails-that-dont-break-agents"
+      "course-openappa-deterministic-guardrails-that-dont-break-agents",
+      "course-senro"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -6438,11 +6478,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "ai-engineer-notebooks",
-      "how-to-build-effective-evals-for-ai-agents"
+      "how-to-build-effective-evals-for-ai-agents",
+      "senro"
     ],
     "courses": [
       "course-ai-engineer-notebooks",
-      "course-how-to-build-effective-evals-for-ai-agents"
+      "course-how-to-build-effective-evals-for-ai-agents",
+      "course-senro"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -7163,7 +7205,8 @@
       "kingfy",
       "starkomand",
       "kyno",
-      "delegator"
+      "delegator",
+      "agent-swarm-oss-multiplayer-ai-for-your-company"
     ],
     "courses": [
       "course-coordination-layer-for-coding-agents",
@@ -7171,7 +7214,8 @@
       "course-kingfy",
       "course-starkomand",
       "course-kyno",
-      "course-delegator"
+      "course-delegator",
+      "course-agent-swarm-oss-multiplayer-ai-for-your-company"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -10459,10 +10503,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "scaling-agentic-ai-pilots-across-the-enterprise"
+      "scaling-agentic-ai-pilots-across-the-enterprise",
+      "agent-swarm-oss-multiplayer-ai-for-your-company"
     ],
     "courses": [
-      "course-scaling-agentic-ai-pilots-across-the-enterprise"
+      "course-scaling-agentic-ai-pilots-across-the-enterprise",
+      "course-agent-swarm-oss-multiplayer-ai-for-your-company"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -13448,13 +13494,15 @@
       "logitech-launches-mx-keypad-for-developers",
       "radio",
       "drama-song-ad",
-      "ui-for-answering-agent-questions-async"
+      "ui-for-answering-agent-questions-async",
+      "vendiq"
     ],
     "courses": [
       "course-logitech-launches-mx-keypad-for-developers",
       "course-radio",
       "course-drama-song-ad",
-      "course-ui-for-answering-agent-questions-async"
+      "course-ui-for-answering-agent-questions-async",
+      "course-vendiq"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -19095,10 +19143,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "vscode-mcp-api"
+      "vscode-mcp-api",
+      "multitool-office-next"
     ],
     "courses": [
-      "course-vscode-mcp-api"
+      "course-vscode-mcp-api",
+      "course-multitool-office-next"
     ],
     "updatedAt": "2026-09-18T13:38:05.296Z"
   },
@@ -20632,10 +20682,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "made-an-open-source-lego-ai-generator"
+      "made-an-open-source-lego-ai-generator",
+      "llm-skill-to-generate-editable-3d-house-designs"
     ],
     "courses": [
-      "course-made-an-open-source-lego-ai-generator"
+      "course-made-an-open-source-lego-ai-generator",
+      "course-llm-skill-to-generate-editable-3d-house-designs"
     ],
     "updatedAt": "2026-10-03T00:44:32.304Z"
   },
@@ -21808,5 +21860,122 @@
       "course-layer"
     ],
     "updatedAt": "2026-10-09T01:27:30.268Z"
+  },
+  {
+    "id": "skill-3d design",
+    "name": "3d design",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "llm-skill-to-generate-editable-3d-house-designs"
+    ],
+    "courses": [
+      "course-llm-skill-to-generate-editable-3d-house-designs"
+    ],
+    "updatedAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "id": "skill-home design",
+    "name": "home design",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "llm-skill-to-generate-editable-3d-house-designs"
+    ],
+    "courses": [
+      "course-llm-skill-to-generate-editable-3d-house-designs"
+    ],
+    "updatedAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "id": "skill-emotion detection",
+    "name": "emotion detection",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "spectromood-speech-emotion-detection-with-a-decision-model"
+    ],
+    "courses": [
+      "course-spectromood-speech-emotion-detection-with-a-decision-model"
+    ],
+    "updatedAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "id": "skill-speech analysis",
+    "name": "speech analysis",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "spectromood-speech-emotion-detection-with-a-decision-model"
+    ],
+    "courses": [
+      "course-spectromood-speech-emotion-detection-with-a-decision-model"
+    ],
+    "updatedAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "id": "skill-audio ml",
+    "name": "audio ml",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "spectromood-speech-emotion-detection-with-a-decision-model"
+    ],
+    "courses": [
+      "course-spectromood-speech-emotion-detection-with-a-decision-model"
+    ],
+    "updatedAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "id": "skill-classification",
+    "name": "classification",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "spectromood-speech-emotion-detection-with-a-decision-model"
+    ],
+    "courses": [
+      "course-spectromood-speech-emotion-detection-with-a-decision-model"
+    ],
+    "updatedAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "id": "skill-vendor management",
+    "name": "vendor management",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "vendiq"
+    ],
+    "courses": [
+      "course-vendiq"
+    ],
+    "updatedAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "id": "skill-follow-ups",
+    "name": "follow ups",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "vendiq"
+    ],
+    "courses": [
+      "course-vendiq"
+    ],
+    "updatedAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "id": "skill-ops automation",
+    "name": "ops automation",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "vendiq"
+    ],
+    "courses": [
+      "course-vendiq"
+    ],
+    "updatedAt": "2026-10-09T16:16:05.152Z"
   }
 ]
