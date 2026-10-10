@@ -12020,5 +12020,148 @@
       "open-source"
     ],
     "discoveredAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "slug": "lacuna",
+    "name": "Lacuna",
+    "category": "writing",
+    "sourceCategory": "Writing & Editing",
+    "price": "free",
+    "pricing": "free (open-source)",
+    "level": "beginner",
+    "blurb": "Open-source Mac app offering inline AI writing suggestions as you type.",
+    "audience": "Mac users and writers",
+    "dev": "Jack Damon",
+    "year": 2026,
+    "website": "https://jackdamon.org/blog/lacuna/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "writing",
+      "suggestions",
+      "open-source",
+      "mac",
+      "ai-assistant"
+    ],
+    "discoveredAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "slug": "memdebug",
+    "name": "Memdebug",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Open source",
+    "level": "advanced",
+    "blurb": "Visualize, diff, and roll back changes in your AI agent's memory.",
+    "audience": "AI agent developers",
+    "dev": "Juraj Jumic",
+    "year": 2026,
+    "website": "https://github.com/juraj-jumic/memdebug",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "memory",
+      "debugging",
+      "developer tools",
+      "open source"
+    ],
+    "discoveredAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "slug": "agent-history-cli",
+    "name": "Agent-history CLI",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Free / open source",
+    "level": "intermediate",
+    "blurb": "Fast shell command to jump between recent AI coding sessions from Oh My Zsh or Bash.",
+    "audience": "Developers using AI coding assistants",
+    "dev": "Aaron Bronow",
+    "year": 2026,
+    "website": "https://github.com/aaronbronow/agent-history",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "cli",
+      "bash",
+      "oh-my-zsh",
+      "ai-coding",
+      "productivity"
+    ],
+    "discoveredAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "slug": "ai-agent-shouldnt-read-that-file-yet",
+    "name": "AI Agent Shouldn't Read That File Yet",
+    "category": "code",
+    "sourceCategory": "Security",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Controls which files AI coding agents can read, blocking sensitive file access.",
+    "audience": "developers using AI agents",
+    "dev": "Claix",
+    "year": 2026,
+    "website": "https://www.claix.dev",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "security",
+      "access control",
+      "code safety"
+    ],
+    "discoveredAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "slug": "virgil",
+    "name": "Virgil",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Coding agent that cuts repeated-work API calls by up to 78%.",
+    "audience": "Developers using AI coding agents",
+    "dev": "Virgil",
+    "year": 2026,
+    "website": "https://virgil-ai.cloud/try",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "coding agent",
+      "api optimization",
+      "developer tools",
+      "automation",
+      "efficiency"
+    ],
+    "discoveredAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "slug": "higherlevel",
+    "name": "Higherlevel",
+    "category": "code",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free (Show HN launch)",
+    "level": "advanced",
+    "blurb": "Define specifications and review what AI coding agents build against them.",
+    "audience": "Developers using AI coding agents",
+    "dev": "",
+    "year": 2026,
+    "website": "https://higherlevel.to/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "code review",
+      "specifications",
+      "developer tools",
+      "verification"
+    ],
+    "discoveredAt": "2026-10-10T01:16:03.607Z"
   }
 ]

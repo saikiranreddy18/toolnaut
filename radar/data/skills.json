@@ -209,7 +209,12 @@
       "delegator",
       "chloe-is-a-typescript-ai-agent",
       "llmll",
-      "senro"
+      "senro",
+      "memdebug",
+      "agent-history-cli",
+      "ai-agent-shouldnt-read-that-file-yet",
+      "virgil",
+      "higherlevel"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -416,7 +421,12 @@
       "course-delegator",
       "course-chloe-is-a-typescript-ai-agent",
       "course-llmll",
-      "course-senro"
+      "course-senro",
+      "course-memdebug",
+      "course-agent-history-cli",
+      "course-ai-agent-shouldnt-read-that-file-yet",
+      "course-virgil",
+      "course-higherlevel"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -598,7 +608,8 @@
       "short-video-maker",
       "i-put-an-ai-agent-on-a-nokia-110",
       "agent-swarm-oss-multiplayer-ai-for-your-company",
-      "multitool-office-next"
+      "multitool-office-next",
+      "lacuna"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -683,7 +694,8 @@
       "course-short-video-maker",
       "course-i-put-an-ai-agent-on-a-nokia-110",
       "course-agent-swarm-oss-multiplayer-ai-for-your-company",
-      "course-multitool-office-next"
+      "course-multitool-office-next",
+      "course-lacuna"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1121,7 +1133,8 @@
       "promo-video-generator",
       "agent-swarm-oss-multiplayer-ai-for-your-company",
       "vendiq",
-      "multitool-office-next"
+      "multitool-office-next",
+      "virgil"
     ],
     "courses": [
       "course-headless-tools",
@@ -1388,7 +1401,8 @@
       "course-promo-video-generator",
       "course-agent-swarm-oss-multiplayer-ai-for-your-company",
       "course-vendiq",
-      "course-multitool-office-next"
+      "course-multitool-office-next",
+      "course-virgil"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1585,7 +1599,10 @@
       "sulcus",
       "runtime",
       "sheetrelay",
-      "promo-video-generator"
+      "promo-video-generator",
+      "memdebug",
+      "ai-agent-shouldnt-read-that-file-yet",
+      "higherlevel"
     ],
     "courses": [
       "course-headless-tools",
@@ -1760,7 +1777,10 @@
       "course-sulcus",
       "course-runtime",
       "course-sheetrelay",
-      "course-promo-video-generator"
+      "course-promo-video-generator",
+      "course-memdebug",
+      "course-ai-agent-shouldnt-read-that-file-yet",
+      "course-higherlevel"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2362,7 +2382,8 @@
       "squidbrake",
       "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
       "thyme",
-      "smart-blur"
+      "smart-blur",
+      "ai-agent-shouldnt-read-that-file-yet"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -2404,7 +2425,8 @@
       "course-squidbrake",
       "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
       "course-thyme",
-      "course-smart-blur"
+      "course-smart-blur",
+      "course-ai-agent-shouldnt-read-that-file-yet"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2841,7 +2863,8 @@
       "anthropic-is-planning-to-launch-its-ipo-in-november",
       "free-ai-slop-checker-find-the-signs-of-ai-writing",
       "pyunto",
-      "whirl"
+      "whirl",
+      "lacuna"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -2871,7 +2894,8 @@
       "course-anthropic-is-planning-to-launch-its-ipo-in-november",
       "course-free-ai-slop-checker-find-the-signs-of-ai-writing",
       "course-pyunto",
-      "course-whirl"
+      "course-whirl",
+      "course-lacuna"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3069,7 +3093,8 @@
       "felan",
       "autocode",
       "a-coding-agent-from-scratch",
-      "i-forked-jetbrains-new-agent-ide-to-host-claude-code"
+      "i-forked-jetbrains-new-agent-ide-to-host-claude-code",
+      "virgil"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -3079,7 +3104,8 @@
       "course-felan",
       "course-autocode",
       "course-a-coding-agent-from-scratch",
-      "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code"
+      "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code",
+      "course-virgil"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3164,7 +3190,10 @@
       "gentle-ai-ai-coding-ecosystem",
       "ranking-the-most-ai-agent-friendly-tools",
       "orbtile",
-      "delegator"
+      "delegator",
+      "memdebug",
+      "virgil",
+      "higherlevel"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -3216,7 +3245,10 @@
       "course-gentle-ai-ai-coding-ecosystem",
       "course-ranking-the-most-ai-agent-friendly-tools",
       "course-orbtile",
-      "course-delegator"
+      "course-delegator",
+      "course-memdebug",
+      "course-virgil",
+      "course-higherlevel"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3594,7 +3626,8 @@
       "flagshiprouter",
       "muselite",
       "promo-video-generator",
-      "spectromood-speech-emotion-detection-with-a-decision-model"
+      "spectromood-speech-emotion-detection-with-a-decision-model",
+      "memdebug"
     ],
     "courses": [
       "course-limitless-library",
@@ -3666,7 +3699,8 @@
       "course-flagshiprouter",
       "course-muselite",
       "course-promo-video-generator",
-      "course-spectromood-speech-emotion-detection-with-a-decision-model"
+      "course-spectromood-speech-emotion-detection-with-a-decision-model",
+      "course-memdebug"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3982,7 +4016,8 @@
       "turnpanel-is-a-local-first-ai-workspace",
       "app-launch-grabthat-nlp-launcher-for-windows",
       "squint",
-      "qlcodepreview-syntax-highlighting-in-finders-quick-look"
+      "qlcodepreview-syntax-highlighting-in-finders-quick-look",
+      "agent-history-cli"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -4008,7 +4043,8 @@
       "course-turnpanel-is-a-local-first-ai-workspace",
       "course-app-launch-grabthat-nlp-launcher-for-windows",
       "course-squint",
-      "course-qlcodepreview-syntax-highlighting-in-finders-quick-look"
+      "course-qlcodepreview-syntax-highlighting-in-finders-quick-look",
+      "course-agent-history-cli"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4056,14 +4092,16 @@
       "astah-pro-mcp",
       "anyhropic-launches-google-docs-alternative-claude-docs",
       "now",
-      "multitool-office-next"
+      "multitool-office-next",
+      "lacuna"
     ],
     "courses": [
       "course-aristra-your-life-os",
       "course-astah-pro-mcp",
       "course-anyhropic-launches-google-docs-alternative-claude-docs",
       "course-now",
-      "course-multitool-office-next"
+      "course-multitool-office-next",
+      "course-lacuna"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5215,7 +5253,8 @@
       "semrush-ai-tool",
       "bananasplit-cli",
       "now",
-      "run-osier-to-track-how-your-ai-coding-agent-does"
+      "run-osier-to-track-how-your-ai-coding-agent-does",
+      "agent-history-cli"
     ],
     "courses": [
       "course-devx",
@@ -5239,7 +5278,8 @@
       "course-semrush-ai-tool",
       "course-bananasplit-cli",
       "course-now",
-      "course-run-osier-to-track-how-your-ai-coding-agent-does"
+      "course-run-osier-to-track-how-your-ai-coding-agent-does",
+      "course-agent-history-cli"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -7052,10 +7092,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "grith-is-live"
+      "grith-is-live",
+      "ai-agent-shouldnt-read-that-file-yet"
     ],
     "courses": [
-      "course-grith-is-live"
+      "course-grith-is-live",
+      "course-ai-agent-shouldnt-read-that-file-yet"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -7066,11 +7108,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "openinstinct",
-      "agentbridge"
+      "agentbridge",
+      "agent-history-cli"
     ],
     "courses": [
       "course-openinstinct",
-      "course-agentbridge"
+      "course-agentbridge",
+      "course-agent-history-cli"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -7524,7 +7568,8 @@
       "friday",
       "yourchar",
       "whirl",
-      "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
+      "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
+      "memdebug"
     ],
     "courses": [
       "course-itsuki",
@@ -7543,7 +7588,8 @@
       "course-friday",
       "course-yourchar",
       "course-whirl",
-      "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour"
+      "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
+      "course-memdebug"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -9024,7 +9070,8 @@
       "your-ai-agent-has-a-cache-invalidation-problem",
       "ai-agent-vercel-eve-web-interface-amazing",
       "robodiag-harness",
-      "sulcus"
+      "sulcus",
+      "memdebug"
     ],
     "courses": [
       "course-selfshipai",
@@ -9032,7 +9079,8 @@
       "course-your-ai-agent-has-a-cache-invalidation-problem",
       "course-ai-agent-vercel-eve-web-interface-amazing",
       "course-robodiag-harness",
-      "course-sulcus"
+      "course-sulcus",
+      "course-memdebug"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -9535,13 +9583,15 @@
       "mc-dc-coverage-so-coding-agents-could-work-overnight",
       "reverify",
       "trustnotch",
-      "promptsign"
+      "promptsign",
+      "higherlevel"
     ],
     "courses": [
       "course-mc-dc-coverage-so-coding-agents-could-work-overnight",
       "course-reverify",
       "course-trustnotch",
-      "course-promptsign"
+      "course-promptsign",
+      "course-higherlevel"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -9954,14 +10004,16 @@
       "crt",
       "termaxa",
       "perspica",
-      "borehole"
+      "borehole",
+      "higherlevel"
     ],
     "courses": [
       "course-memcode-launches-github-code-review",
       "course-crt",
       "course-termaxa",
       "course-perspica",
-      "course-borehole"
+      "course-borehole",
+      "course-higherlevel"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -11676,10 +11728,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "sageling"
+      "sageling",
+      "lacuna"
     ],
     "courses": [
-      "course-sageling"
+      "course-sageling",
+      "course-lacuna"
     ],
     "updatedAt": "2026-09-04T23:20:31.711Z"
   },
@@ -13648,10 +13702,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "felan"
+      "felan",
+      "virgil"
     ],
     "courses": [
-      "course-felan"
+      "course-felan",
+      "course-virgil"
     ],
     "updatedAt": "2026-09-08T23:40:07.345Z"
   },
@@ -17135,10 +17191,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "productspec"
+      "productspec",
+      "higherlevel"
     ],
     "courses": [
-      "course-productspec"
+      "course-productspec",
+      "course-higherlevel"
     ],
     "updatedAt": "2026-09-15T14:21:00.449Z"
   },
@@ -21977,5 +22035,70 @@
       "course-vendiq"
     ],
     "updatedAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "id": "skill-suggestions",
+    "name": "suggestions",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "lacuna"
+    ],
+    "courses": [
+      "course-lacuna"
+    ],
+    "updatedAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "id": "skill-bash",
+    "name": "bash",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agent-history-cli"
+    ],
+    "courses": [
+      "course-agent-history-cli"
+    ],
+    "updatedAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "id": "skill-oh-my-zsh",
+    "name": "oh my zsh",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agent-history-cli"
+    ],
+    "courses": [
+      "course-agent-history-cli"
+    ],
+    "updatedAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "id": "skill-code safety",
+    "name": "code safety",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agent-shouldnt-read-that-file-yet"
+    ],
+    "courses": [
+      "course-ai-agent-shouldnt-read-that-file-yet"
+    ],
+    "updatedAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "id": "skill-api optimization",
+    "name": "api optimization",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "virgil"
+    ],
+    "courses": [
+      "course-virgil"
+    ],
+    "updatedAt": "2026-10-10T01:16:03.607Z"
   }
 ]

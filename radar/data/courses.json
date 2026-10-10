@@ -33240,5 +33240,321 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-09T16:16:05.152Z"
+  },
+  {
+    "id": "course-lacuna",
+    "toolSlug": "lacuna",
+    "title": "Master Lacuna",
+    "objectives": [
+      "Install Lacuna on macOS and connect an AI model provider",
+      "Trigger and accept inline writing suggestions while typing",
+      "Adjust settings to control suggestion frequency and tone"
+    ],
+    "modules": [
+      {
+        "title": "Install and Set Up Lacuna",
+        "estMinutes": 10,
+        "steps": [
+          "Download Lacuna from its GitHub releases page, drag it to Applications, and launch it",
+          "Grant Accessibility permissions when macOS prompts you so Lacuna can read text fields",
+          "Open Lacuna's settings and add your API key (e.g., OpenAI or a local Ollama model), then save"
+        ]
+      },
+      {
+        "title": "Get Your First Inline Suggestion",
+        "estMinutes": 8,
+        "steps": [
+          "Open any text editor (TextEdit works) and start typing a few sentences of an email draft",
+          "Pause mid-sentence and wait for Lacuna's gray ghost-text suggestion to appear inline",
+          "Press Tab to accept the full suggestion or keep typing to dismiss it; try both 3 times"
+        ]
+      },
+      {
+        "title": "Tune Suggestions to Your Style",
+        "estMinutes": 7,
+        "steps": [
+          "In settings, adjust the suggestion trigger delay (e.g., from 0.5s to 1.5s) and test the difference in TextEdit",
+          "Edit the prompt/context field to specify your writing tone, such as 'concise professional email style'",
+          "Toggle Lacuna off for specific apps via the menu bar icon to avoid suggestions where you don't want them"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-suggestions",
+      "skill-open-source",
+      "skill-mac",
+      "skill-ai-assistant"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "id": "course-memdebug",
+    "toolSlug": "memdebug",
+    "title": "Master Memdebug",
+    "objectives": [
+      "Navigate Memdebug's timeline view to inspect your agent's memory state at any point in a session",
+      "Use side-by-side diffing to pinpoint exactly which memory entries an agent action created, modified, or deleted",
+      "Perform targeted and full rollbacks of agent memory without corrupting dependent downstream state"
+    ],
+    "modules": [
+      {
+        "title": "Reading the Memory Timeline",
+        "estMinutes": 25,
+        "steps": [
+          "Run `memdebug attach <agent-session-id>` to open the live timeline, then scrub between two checkpoints and note how entry counts change in the stats panel",
+          "Filter the timeline by memory type (`--type episodic`) to isolate a single conversation turn's writes",
+          "Tag the current checkpoint with `memdebug tag pre-risky-op` so you have a named restore point before the next module"
+        ]
+      },
+      {
+        "title": "Diffing Memory States",
+        "estMinutes": 30,
+        "steps": [
+          "Execute `memdebug diff pre-risky-op HEAD` and read the three-column output (added / modified / deleted) for a session where the agent summarized and compressed old memories",
+          "Open the semantic diff view (`--semantic` flag) on a modified entry to see how an embedding-level change differs from a raw text change",
+          "Write a diff assertion in `memdebug.config.yml` that fails CI if a single turn deletes more than 10 episodic entries, then trigger it intentionally to confirm it fires"
+        ]
+      },
+      {
+        "title": "Safe Rollbacks and Partial Reverts",
+        "estMinutes": 35,
+        "steps": [
+          "Corrupt a test memory store deliberately (e.g., let the agent overwrite a user preference), then run `memdebug rollback pre-risky-op` and verify restoration with a fresh diff",
+          "Perform a surgical revert with `memdebug revert --entries id-341,id-342 --from HEAD~2` and confirm unrelated newer memories survive intact",
+          "Handle a dependency conflict: roll back an entry that a later summary references, read Memdebug's dangling-reference warning, and resolve it using `--cascade` versus `--orphan` modes, documenting which you chose and why"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-memory",
+      "skill-debugging",
+      "skill-developer tools",
+      "skill-open source"
+    ],
+    "prerequisites": [
+      "Working knowledge of how AI agents structure memory (episodic, semantic, working)",
+      "Comfort with CLI tooling and git-style checkpoint/diff mental models",
+      "A running agent framework with Memdebug-compatible memory instrumentation"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "id": "course-agent-history-cli",
+    "toolSlug": "agent-history-cli",
+    "title": "Master Agent-history CLI",
+    "objectives": [
+      "Install and configure the Agent-history CLI in Bash or Oh My Zsh",
+      "Jump directly into any recent AI coding session by ID or fuzzy match",
+      "Filter, search, and prune session history for a clean workflow"
+    ],
+    "modules": [
+      {
+        "title": "Install & First Run",
+        "estMinutes": 10,
+        "steps": [
+          "Install the CLI via npm/brew/curl (e.g., `npm i -g agent-history`) and verify with `agent-history --version`",
+          "Add the shell hook to ~/.zshrc or ~/.bashrc so sessions are recorded: `eval \"$(agent-history init zsh)\"`",
+          "Reload your shell with `source ~/.zshrc`, then run `agent-history list` to confirm it detects existing AI session logs"
+        ]
+      },
+      {
+        "title": "Jumping Between Sessions",
+        "estMinutes": 15,
+        "steps": [
+          "Run `agent-history` with no args to open the interactive picker, and use arrow keys + Enter to resume a session",
+          "Resume a specific session directly: `agent-history resume 3a9f` (or `ah 3a9f` if you aliased it)",
+          "Filter by project directory: `agent-history --dir ~/projects/api` then resume the top hit from a second terminal"
+        ]
+      },
+      {
+        "title": "Search, Filter & Cleanup",
+        "estMinutes": 15,
+        "steps": [
+          "Search session contents with `agent-history search \"refactor auth\"` to find past conversations by keyword",
+          "Combine filters, e.g. `agent-history list --since 7d --tool claude`, to narrow large histories",
+          "Prune stale entries safely: preview with `agent-history prune --dry-run --older 30d`, then run without `--dry-run`"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-cli",
+      "skill-bash",
+      "skill-oh-my-zsh",
+      "skill-ai-coding",
+      "skill-productivity"
+    ],
+    "prerequisites": [
+      "Comfortable editing shell config files (~/.zshrc or ~/.bashrc)",
+      "Bash or Oh My Zsh shell environment",
+      "At least one existing AI coding tool that stores session logs locally"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "id": "course-ai-agent-shouldnt-read-that-file-yet",
+    "toolSlug": "ai-agent-shouldnt-read-that-file-yet",
+    "title": "Master AI Agent Shouldn't Read That File Yet",
+    "objectives": [
+      "Understand what AI Agent Shouldn't Read That File Yet is for",
+      "Use AI Agent Shouldn't Read That File Yet on a real task",
+      "Know where AI Agent Shouldn't Read That File Yet fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure AI Agent Shouldn't Read That File Yet for your real workflow, not the demo.",
+          "Say what AI Agent Shouldn't Read That File Yet does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through AI Agent Shouldn't Read That File Yet.",
+          "Push AI Agent Shouldn't Read That File Yet to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold AI Agent Shouldn't Read That File Yet into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-security",
+      "skill-access control",
+      "skill-code safety"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "id": "course-virgil",
+    "toolSlug": "virgil",
+    "title": "Master Virgil",
+    "objectives": [
+      "Configure Virgil to intercept and deduplicate repeated API calls in an agent loop",
+      "Use Virgil's cache policies to safely reuse responses without stale data",
+      "Measure token and cost savings with Virgil's built-in analytics"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Intercepted Agent",
+        "estMinutes": 25,
+        "steps": [
+          "Install Virgil (pip install virgil) and wrap an existing coding-agent client with virgil.wrap(client, api_key=...)",
+          "Run a baseline agent task (e.g., refactor a file) and open the Virgil dashboard to view raw API call counts",
+          "Enable dedup mode with virgil.config(dedup=True) and rerun the same task to compare call counts"
+        ]
+      },
+      {
+        "title": "Cache Policies and Freshness Control",
+        "estMinutes": 35,
+        "steps": [
+          "Define per-endpoint TTL rules in virgil.toml, e.g. file-read responses cache for 60s while lint results cache for the session",
+          "Mark non-cacheable calls (git push, test runs) with the @virgil.no_cache decorator and verify they always execute",
+          "Trigger a cache-invalidation hook on file writes via virgil.invalidate(on='fs_change', paths=['src/']) and confirm no stale reads"
+        ]
+      },
+      {
+        "title": "Multi-Step Workflows and Savings Analytics",
+        "estMinutes": 30,
+        "steps": [
+          "Run a 5-step agent workflow (scan, plan, edit, test, summarize) with batching enabled: virgil.config(batch_window_ms=250)",
+          "Export the session report with virgil report --format csv and identify the top 3 deduplicated call patterns",
+          "Tune similarity_threshold from 0.95 to 0.85, rerun, and document the tradeoff between savings and correctness"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding agent",
+      "skill-api optimization",
+      "skill-developer tools",
+      "skill-automation",
+      "skill-efficiency"
+    ],
+    "prerequisites": [
+      "Experience building or running an LLM-based coding agent (e.g., with OpenAI or Anthropic SDKs)",
+      "Comfort with Python decorators and TOML config files",
+      "An existing agent project with at least one multi-step task to benchmark"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "id": "course-higherlevel",
+    "toolSlug": "higherlevel",
+    "title": "Master Higherlevel",
+    "objectives": [
+      "Understand what Higherlevel is for",
+      "Use Higherlevel on a real task",
+      "Know where Higherlevel fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Higherlevel for your real workflow, not the demo.",
+          "Say what Higherlevel does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Higherlevel.",
+          "Push Higherlevel to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Higherlevel into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-code review",
+      "skill-specifications",
+      "skill-developer tools",
+      "skill-verification"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-10T01:16:03.607Z"
   }
 ]
