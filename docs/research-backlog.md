@@ -7748,6 +7748,57 @@ a client-side SPA with a static tool catalogue.
   needs a manual `curl -A "Slackbot"` check against a preview deploy before
   it can be marked SHIPPED.
 - **Found:** 2026-09-16 03:20 UTC
+- **Re-verified 2026-10-10 09:04 UTC — the single most-neglected OPEN entry
+  (24 days untouched; computed by grepping all 54 prior "Research check"
+  pass-log sections for this entry's own distinctive phrases — "personalized
+  preview" and "og:image" — which turned up only two mentions, both from the
+  51st/52nd passes explaining why they were *skipping* it in favor of PR #96,
+  never an actual re-check of the entry's own claims). Every citation
+  re-checked against current `master`, zero real drift: `head.js` still has
+  no `og:image`/`twitter:image` handling at all (grepped fresh, zero hits,
+  95 lines total); no `middleware.js` exists anywhere in the repo; every
+  `api/*.js` function is a plain Vercel Node function (`export default
+  function handler(req, res)`, e.g. `api/geo.js`), confirming this project
+  has zero Edge Runtime precedent today — the planned `middleware.js` would
+  be the first file in the codebase to need Edge Runtime constraints, not a
+  correction, just worth flagging for whoever builds it. `vercel.json`'s
+  catch-all rewrite and `shareStack.js`'s two pure functions are byte-for-
+  byte unchanged. Only cosmetic citation drift: `SharedStack.jsx`'s header
+  comment is now at `:20-23` (was `:20-24`, file grew by one line elsewhere)
+  and `prerender.mjs`'s `ROUTES` array is now `:43-61` (was `:43-60`) — both
+  corrected above. PR #96 (`bot/claude/research-backlog-51st-pass`, opened
+  2026-10-09, still unmerged as of this check) claims to carry its own
+  re-verification of this same entry, but that work has never reached
+  `master`'s copy of this file in the day since — continuing to defer to an
+  unlanded PR has the same diminishing-returns shape the 31st pass already
+  named for a different entry, so this pass re-verified directly instead,
+  per the established master-direct precedent.
+
+  Two fresh WebSearches tried first, per the "deepen before you add" rule:
+  "Futurepedia OR 'There's An AI For That' 2026 new feature announcement
+  personalization social share" (nothing on either named directory, only
+  generic 2026 personalization-market commentary) and "AI tool directory
+  2026 Vercel Edge Middleware link preview og:image dynamic crawler bot"
+  (both standard mode). The second, while not AI-directory-specific,
+  surfaced one concrete implementation detail worth folding into this
+  entry's own plan rather than logging separately: a Vercel community
+  thread reports Facebook's crawler receiving a 403 from Vercel's edge on
+  one domain while every other bot UA got 200s, traced to Meta's crawler
+  IP range rather than its User-Agent string — meaning this gap's planned
+  UA-regex match should be verified against a real `facebookexternalhit`
+  request (not just `curl -A`) before being marked SHIPPED, since Meta's
+  crawler is the one most likely to be edge-blocked by IP rather than
+  correctly matched by UA. Folded into the existing manual-verification
+  line in **Build size** above rather than adding a new one. Nothing else
+  from either search was new — the first search's "personalization is
+  table stakes by 2026" framing describes the market, not a feature either
+  named competitor shipped. Still OPEN, still Build size M, no change to
+  scope.
+
+  Ran `npm test` (315/315) directly against current `master` — clean. This
+  was a docs-only research pass (no `src/`/`radar/`/`api/` edit beyond the
+  backlog entry itself), so `npm run build`/`npm run smoke` were not re-run;
+  nothing in this commit touches build output or runtime behavior.
 
 ### The Spend Audit shipped fully working this morning — every page that tells a visitor what Pro buys still says it doesn't exist
 - **Status:** SHIPPED b7f87af — built exactly as scoped below: `capabilityMatrix.js`
@@ -12366,3 +12417,85 @@ backlog entry itself), so `npm run build`/`npm run smoke` were not re-run;
 nothing in this commit touches build output or runtime behavior. Per the
 "never invent a gap to fill the hour" rule, appended no new gap this run —
 the hour went to the developer-API re-verification instead.
+
+---
+
+### Research check 2026-10-10 09:04 UTC — no new gap found, fifty-fifth pass; second sweep moves to "Sharing a stack link," the entry the 51st/52nd passes both skipped rather than re-checked
+
+Scheduled run, UTC hour 09 (off-cycle fire between the 06:03 and 12:03
+slots; same drift every off-cycle pass has already noted). `npm ci` clean.
+Container started detached at `origin/master`'s tip (same recurring
+container-start behavior every prior pass has flagged); fetched and checked
+out `master` cleanly, no fast-forward needed — tip matched session start.
+`npm run radar:health` → `OK` (2 runs in the 26h window, last run/publish
+7.8h ago, 6 tools published that run, feed at 509 total, unchanged since
+the 54th pass). `list_workflow_runs` on `master`'s `ci.yml`: green at the
+latest three pushes, nothing red since. No `agent-fixable` issues open
+(`list_issues` zero results).
+
+Checked the one non-research signal this pass's job description puts ahead
+of research: a separate scheduled workflow, "Agent · Bugfix" (run #86,
+`.github/workflows/agent-bugfix.yml`), failed at 08:47 UTC today. Pulled its
+job log: the failure is `litellm.exceptions.BadRequestError: ... "You do not
+have an active subscription. Please upgrade your plan." ... Model
+Group=claude-opus-5-5`, a billing/API-access error on whatever account that
+separate automation authenticates as — not a code defect, not a test
+failure, and not `ci.yml` (which stayed green throughout). Nothing in this
+repository can fix another workflow's upstream subscription state, and it
+isn't `ci.yml` red on `master` either, so per this run's own job list this
+isn't the urgent-work match it might first look like — noted here so the
+next pass doesn't re-diagnose the same log from scratch.
+
+Open-PR shape unchanged: `list_pull_requests` still returns the same
+~20-30 open `bot/claude/*` PRs going back to #44, none merged or closed —
+the separate GitHub-Actions `agent-*.yml` queue CLAUDE.md's "one open PR
+per agent" rule scopes to, not this session's master-direct routine, same
+conclusion every prior pass has reached.
+
+**Recomputed every OPEN entry's true last-check date before sweeping**,
+the same way the 54th pass did it — grepping all 54 prior pass-log
+sections for each entry's own distinctive phrase, not trusting inline
+dates alone. Found one entry whose inline `Found:` date (2026-09-16) had
+never once been updated by an actual re-check: "Sharing a stack link
+produces zero personalized preview." The 51st and 52nd passes both
+*mentioned* it (tied for stalest at the time) but both explicitly chose to
+skip it — once because it looked like PR #96 was already re-verifying it,
+once because the 52nd pass picked a different entry instead — so neither
+mention is a real touch. At 24 days since `Found`, it is now the single
+most-neglected OPEN entry in the file, ahead of the leaderboard-real gap
+(16 days, last deepened 2026-09-24) and the forward-looking-changelog gap
+(17 days, last deepened 2026-09-23, though that date is for the backward-
+half bug-fix note, not the still-open forward-looking build itself).
+
+**Re-verified in full; details appended inline to the entry itself**,
+matching the file's established in-place-deepening pattern. Zero drift on
+every substantive claim — `head.js` still never sets `og:image`/
+`twitter:image`, no `middleware.js` exists anywhere in the repo, every
+`api/*.js` function is a plain Vercel Node function with no Edge Runtime
+precedent in this codebase today, and `vercel.json`'s catch-all rewrite and
+`shareStack.js`'s pure encode/decode functions are byte-for-byte unchanged.
+Two trivial line-number corrections folded in. Still OPEN, still Build size
+M, ready for a feature run exactly as scoped — this was deliberately *not*
+deferred to PR #96 again: that branch still hasn't landed on `master` a
+full day after the 52nd pass first deferred to it, the same
+diminishing-returns shape the 31st pass already named for waiting on a
+different unmerged PR, so this pass re-verified directly instead.
+
+Two fresh WebSearches were tried first, per the "deepen before you add"
+rule: "Futurepedia OR 'There's An AI For That' 2026 new feature
+announcement personalization social share" and "AI tool directory 2026
+Vercel Edge Middleware link preview og:image dynamic crawler bot" (both
+standard mode). Neither surfaced a dated feature launch from either named
+competitor. The second did surface one real, concrete implementation
+caveat (a Vercel community report of Facebook's crawler being IP-range-
+blocked rather than UA-matched) — folded into the entry's existing
+manual-verification note rather than logged as a separate gap, since it
+sharpens an already-OPEN entry's build plan rather than describing
+anything new or missing. Nothing else qualified as a genuine new gap.
+
+Ran `npm test` (315/315) directly against current `master` — clean. This
+was a docs-only research pass (no `src/`/`radar/`/`api/` edit beyond the
+backlog entry itself), so `npm run build`/`npm run smoke` were not re-run;
+nothing in this commit touches build output or runtime behavior. Per the
+"never invent a gap to fill the hour" rule, appended no new gap this run —
+the hour went to the stack-link-preview re-verification instead.
