@@ -33556,5 +33556,644 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "id": "course-an-mcp-server-for-searching-ai-engineering-jobs",
+    "toolSlug": "an-mcp-server-for-searching-ai-engineering-jobs",
+    "title": "Master An MCP server for searching AI engineering jobs",
+    "objectives": [
+      "Install and configure the AI jobs MCP server with an MCP-compatible client (e.g., Claude Desktop)",
+      "Query AI engineering job listings using the server's search tools with filters like role, location, and salary",
+      "Combine search results into practical workflows such as daily digests and tailored job shortlists"
+    ],
+    "modules": [
+      {
+        "title": "Setup & First Query",
+        "estMinutes": 25,
+        "steps": [
+          "Clone the MCP server repo, install dependencies, and set required env vars (e.g., API key for the jobs data source)",
+          "Register the server in your MCP client config (claude_desktop_config.json) with the correct command and args, then restart the client",
+          "Verify the connection by listing available tools in the client and running a basic search: 'Find AI engineering jobs in remote US'"
+        ]
+      },
+      {
+        "title": "Filtering & Refining Searches",
+        "estMinutes": 30,
+        "steps": [
+          "Test each filter parameter exposed by the server (keywords, location, seniority, salary range, company size) and note which combinations return the best matches",
+          "Build 3 saved prompt templates in your client for recurring searches, e.g., 'senior LLM engineer, remote, $180k+, posted this week'",
+          "Compare result quality across query phrasings and document what the server handles well vs. poorly"
+        ]
+      },
+      {
+        "title": "Building a Job-Search Workflow",
+        "estMinutes": 35,
+        "steps": [
+          "Chain two tool calls: search listings, then have the assistant score each result against your resume or a pasted skills summary",
+          "Produce a formatted shortlist output (Markdown table with title, company, salary, fit score, apply link) you can reuse daily",
+          "Set up error handling habits: check result freshness, dedupe listings, and confirm apply links resolve before acting on them"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-mcp",
+      "skill-jobs",
+      "skill-recruiting",
+      "skill-search",
+      "skill-ai-engineering"
+    ],
+    "prerequisites": [
+      "Basic familiarity with MCP concepts (servers, tools, client config files)",
+      "Node.js or Python installed (depending on the server implementation)",
+      "An MCP-compatible client such as Claude Desktop or Cursor",
+      "Comfort editing JSON config files and setting environment variables"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "course-openwants",
+    "toolSlug": "openwants",
+    "title": "Master OpenWants",
+    "objectives": [
+      "Configure resident need profiles and decay rates for a simulated district",
+      "Assign and tune AI agents to autonomously satisfy food, rest, and social needs",
+      "Diagnose cascading failures when competing agents contend for shared resources"
+    ],
+    "modules": [
+      {
+        "title": "Setting Up Residents and Need Profiles",
+        "estMinutes": 25,
+        "steps": [
+          "Create a district with 20 residents using `openwants district create --name midtown --population 20`, then inspect one resident's need vector with `openwants resident inspect <id>`.",
+          "Edit `profiles/midtown.yaml` to raise hunger decay to 1.4x and define a night-shift schedule for 30% of residents, then run `openwants sim tick --steps 60` and watch needs drift in the dashboard.",
+          "Export a needs-timeseries report (`openwants report needs --format csv`) and identify which need crosses the crisis threshold first."
+        ]
+      },
+      {
+        "title": "Deploying Autonomous Agents",
+        "estMinutes": 30,
+        "steps": [
+          "Spawn a feeding agent bound to midtown's kitchens: `openwants agent deploy --role feeder --capacity 8`, and observe its task queue fill as hunger thresholds trip.",
+          "Add a social agent and set a priority policy in `policies/midtown.json` so hunger > rest > social when queues conflict; re-run the sim and compare unmet-need counts against the baseline module-1 run.",
+          "Intentionally starve a zone by setting `--capacity 1` and log how the agent's behavior changes under overload."
+        ]
+      },
+      {
+        "title": "Debugging Cascading Failure Scenarios",
+        "estMinutes": 30,
+        "steps": [
+          "Trigger a compound event with `openwants event inject blackout --zone 3 --duration 12` and watch the event timeline (`openwants events tail`) for downstream need spikes.",
+          "Use the contention view (`openwants viz contention`) to find where feeder and rest agents block each other, then add a resource reservation rule to serialize access.",
+          "Write a stability scorecard comparing pre-fix and post-fix runs, and adjust agent capacity or decay rates until zero residents remain in crisis state for 100 ticks."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-simulation",
+      "skill-virtual city",
+      "skill-autonomous",
+      "skill-demo"
+    ],
+    "prerequisites": [
+      "Completed the OpenWants beginner course (installing the runtime, launching a basic sim)",
+      "Comfort reading and editing YAML/JSON configuration files",
+      "Basic familiarity with queueing or scheduling concepts"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "course-open-components",
+    "toolSlug": "open-components",
+    "title": "Master Open Components",
+    "objectives": [
+      "Explain the Open Components standard and how it exposes UI components to people, developers, and AI agents",
+      "Build and publish a component that conforms to the Open Components spec",
+      "Consume a published Open Component in a host application, including agent-driven integration"
+    ],
+    "modules": [
+      {
+        "title": "Anatomy of an Open Component",
+        "estMinutes": 20,
+        "steps": [
+          "Read the Open Components spec and identify the required manifest fields (name, version, props schema, events, rendering contract)",
+          "Inspect an existing registered component's manifest and trace how a consumer (or AI agent) would discover its props and capabilities",
+          "Diagram the request flow: host app -> component registry -> rendered component"
+        ]
+      },
+      {
+        "title": "Building and Publishing a Component",
+        "estMinutes": 35,
+        "steps": [
+          "Scaffold a component project and implement a simple UI element (e.g., a pricing card) with typed props",
+          "Write the manifest by hand: declare props with JSON Schema, define events, and add human- and machine-readable descriptions for agent consumers",
+          "Run validation/linting against the spec, then publish to a local or public registry and verify it is discoverable"
+        ]
+      },
+      {
+        "title": "Consuming Components in Humans-vs-Agents Flows",
+        "estMinutes": 30,
+        "steps": [
+          "Embed your published component in a host page using the standard loader and pass props dynamically",
+          "Wire an AI agent (or a simulated LLM tool call) to query the registry, read the manifest, and render the component with agent-chosen props",
+          "Handle failure cases: version mismatches, invalid props from the agent, and fallback rendering"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ui components",
+      "skill-open standard",
+      "skill-frontend",
+      "skill-ai agents",
+      "skill-developer tools"
+    ],
+    "prerequisites": [
+      "Intermediate JavaScript/TypeScript and component-based UI development (e.g., React)",
+      "Comfort with JSON Schema and REST/HTTP basics",
+      "Familiarity with npm/package publishing workflows"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "course-check-how-readable-your-docs-are-to-ai-agents",
+    "toolSlug": "check-how-readable-your-docs-are-to-ai-agents",
+    "title": "Master Check how readable your docs are to AI agents",
+    "objectives": [
+      "Identify the structural features that make documentation machine-readable for AI agents",
+      "Run an AI agent against your docs and diagnose where it fails or hallucinates",
+      "Refactor docs so agents can reliably extract setup steps, API details, and constraints"
+    ],
+    "modules": [
+      {
+        "title": "Baseline test: let an agent read your docs",
+        "estMinutes": 25,
+        "steps": [
+          "Pick one real doc (e.g., your README or quickstart) and paste it into an LLM with a task like 'write a working integration from this doc only'",
+          "Log every failure mode: missing prerequisites, ambiguous steps, broken code samples, outdated version numbers",
+          "Repeat with a second agent/model to see which failures are doc problems vs. model problems"
+        ]
+      },
+      {
+        "title": "Structure docs for machine parsing",
+        "estMinutes": 30,
+        "steps": [
+          "Add an explicit 'Prerequisites' section and a numbered, imperative setup sequence — no prose paragraphs hiding commands",
+          "Convert all code examples to fenced blocks with language tags, and make every example complete and runnable (imports, auth placeholder format, expected output)",
+          "Add a concise reference table (endpoints, params, types, defaults) instead of burying details in narrative text"
+        ]
+      },
+      {
+        "title": "Add machine-consumable entry points",
+        "estMinutes": 20,
+        "steps": [
+          "Create or update an llms.txt file at your docs root listing key pages with one-line descriptions",
+          "Add a short 'For AI agents' section with a canonical quickstart prompt/context block agents can copy directly",
+          "Given the same task again, have the agent diff its new output against your earlier baseline and record remaining gaps"
+        ]
+      },
+      {
+        "title": "Set up regression checks",
+        "estMinutes": 15,
+        "steps": [
+          "Write a small script or CI step that runs a fixed agent task against your docs weekly and flags when success criteria stop passing",
+          "Track two metrics over time: task success rate and number of clarifying questions the agent had to ask"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-documentation",
+      "skill-ai-agents",
+      "skill-readability",
+      "skill-dev-tools",
+      "skill-analysis"
+    ],
+    "prerequisites": [
+      "Existing documentation for a project, API, or internal tool",
+      "Access to at least one LLM/agent (e.g., ChatGPT, Claude, or a coding agent) for testing",
+      "Basic Markdown familiarity"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "course-tessary",
+    "toolSlug": "tessary",
+    "title": "Master Tessary",
+    "objectives": [
+      "Configure Tessary's adversarial sampling to surface rare agent failures that random sampling misses",
+      "Triage and root-cause low-frequency failure clusters using trace replay",
+      "Wire Tessary failure signals into a CI regression gate"
+    ],
+    "modules": [
+      {
+        "title": "Beyond Random Sampling: Coverage-Aware Eval Setup",
+        "estMinutes": 25,
+        "steps": [
+          "Replace your uniformly-sampled eval harness with a Tessary project: point it at your agent's trace/log stream and define the failure predicates (e.g., tool-call errors, silent wrong answers, policy violations).",
+          "Enable stratified and boundary-seeking probes: configure Tessary to upweight rare input regions (long contexts, unusual tool sequences, edge locales) instead of sampling proportionally to production traffic.",
+          "Run a baseline sweep on 500 historical traces and compare detected failure count vs. your existing sampled eval to quantify the gap."
+        ]
+      },
+      {
+        "title": "Triaging Rare Failure Clusters",
+        "estMinutes": 30,
+        "steps": [
+          "Open the failure-cluster view and group surfaced failures by Tessary's auto-attributed root-cause signatures (tool timeout, retrieval miss, reasoning loop).",
+          "Use trace replay with seed pinning to reproduce one cluster deterministically; annotate whether it's a model issue, prompt issue, or environment issue.",
+          "Export the top cluster as a minimal regression test case (input + expected invariant) rather than a full trace."
+        ]
+      },
+      {
+        "title": "Closing the Loop: Failure Signals in CI",
+        "estMinutes": 20,
+        "steps": [
+          "Register exported rare-failure cases as a Tessary 'known-failures suite' so every new model or prompt version is checked against them first.",
+          "Add a Tessary CI step that fails the build if any known-failure case regresses or if new-clusters-per-run exceeds a threshold you set.",
+          "Set a weekly schedule that re-runs adversarial probes against staging so newly rare failure modes are caught before production sampling would ever see them."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-agent evaluation",
+      "skill-llm testing",
+      "skill-observability",
+      "skill-failure detection"
+    ],
+    "prerequisites": [
+      "An AI agent in production or staging producing structured traces/logs",
+      "Experience with an existing eval or testing harness (e.g., sampled offline evals)",
+      "Familiarity with CI/CD pipelines and assertion-based testing"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "course-ariodb",
+    "toolSlug": "ariodb",
+    "title": "Master Ariodb",
+    "objectives": [
+      "Deploy Ariodb as a transparent proxy between an AI agent and a live PostgreSQL database",
+      "Configure change interception policies to monitor, log, and gate agent-issued mutations",
+      "Execute and verify point-in-time rollbacks of unsafe agent transactions"
+    ],
+    "modules": [
+      {
+        "title": "Setting Up the Ariodb Proxy Layer",
+        "estMinutes": 30,
+        "steps": [
+          "Install the Ariodb daemon and point it at your PostgreSQL instance via `ariodb init --target postgres://user@db:5432/app`",
+          "Rewire your AI agent's connection string to the Ariodb listener port (default 6432) so all queries route through the proxy",
+          "Verify interception is active by running a test INSERT from the agent and confirming it appears in `ariodb log tail`"
+        ]
+      },
+      {
+        "title": "Monitoring and Gating Agent Transactions",
+        "estMinutes": 40,
+        "steps": [
+          "Define a policy file gating destructive statements: require approval for DELETE/DROP affecting more than N rows via `policies.yaml`",
+          "Enable shadow execution mode so Ariodb dry-runs agent migrations against a snapshot before applying them",
+          "Stream the audit feed to your observability stack using `ariodb export --format jsonl --dest s3://bucket/audit/`"
+        ]
+      },
+      {
+        "title": "Rollback and Recovery Workflows",
+        "estMinutes": 45,
+        "steps": [
+          "Trigger a rollback of a bad agent session with `ariodb rollback --session <id> --to-checkpoint auto` and inspect the generated inverse-migration plan",
+          "Test partial rollbacks by scoping to specific tables with `--scope public.orders` while leaving unrelated agent writes intact",
+          "Automate recovery by wiring Ariodb webhook alerts (e.g., row-count anomaly) to a runbook that pauses the agent and rolls back the offending transaction group"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-database",
+      "skill-ai-agents",
+      "skill-proxy",
+      "skill-rollback",
+      "skill-safety"
+    ],
+    "prerequisites": [
+      "Strong SQL and PostgreSQL administration experience",
+      "Familiarity with database proxies, connection pooling, and WAL-based replication",
+      "Experience deploying or orchestrating AI agents with direct database access",
+      "Comfort with Docker and YAML-based configuration"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "course-talorys",
+    "toolSlug": "talorys",
+    "title": "Master Talorys",
+    "objectives": [
+      "Deploy a Talorys agent to Cloudflare Workers with persistent state via Durable Objects",
+      "Wire Talorys to an LLM provider API key secured with Workers Secrets",
+      "Configure scheduled autonomous tasks and external webhooks while staying within free-tier limits"
+    ],
+    "modules": [
+      {
+        "title": "Local Setup and Cloudflare Deployment",
+        "estMinutes": 35,
+        "steps": [
+          "Clone the Talorys repo, run `npm install`, then `npx wrangler login` to authenticate Wrangler against your Cloudflare account",
+          "Fill in `wrangler.toml` with your account ID, Workers KV namespace, and D1 database binding, then run the included D1 schema migration with `wrangler d1 execute`",
+          "Deploy with `npx wrangler deploy` and verify the agent responds at your `*.workers.dev` URL via a curl POST to the `/chat` endpoint"
+        ]
+      },
+      {
+        "title": "LLM Provider and Secret Management",
+        "estMinutes": 25,
+        "steps": [
+          "Add your provider key with `npx wrangler secret put ANTHROPIC_API_KEY` (or OpenAI equivalent) — never commit keys to wrangler.toml",
+          "Edit the agent config to set model, max_tokens, and a system prompt defining the agent's persona and tool permissions",
+          "Test a tool-calling loop locally with `wrangler dev`, confirming the agent can execute its built-in tools before pushing to production"
+        ]
+      },
+      {
+        "title": "Persistence, Memory, and Durable Objects",
+        "estMinutes": 40,
+        "steps": [
+          "Declare the Durable Object class in wrangler.toml and migrate with `wrangler deploy` so conversation memory persists across requests",
+          "Modify the memory module to summarize and store long-term facts in D1 after every N turns to avoid blowing past Durable Object storage limits",
+          "Verify persistence by restarting the worker dev session and confirming the agent recalls facts from prior conversations"
+        ]
+      },
+      {
+        "title": "Autonomy: Cron Triggers and Webhooks",
+        "estMinutes": 30,
+        "steps": [
+          "Add a `[triggers]` cron schedule (e.g., `0 8 * * *`) in wrangler.toml and implement the exported `scheduled()` handler to run a daily agent routine",
+          "Expose a signed webhook endpoint using a secret token header so external services (GitHub, RSS, email) can dispatch tasks to the agent",
+          "Check Workers analytics and set a billing alert to confirm cron frequency and subrequest counts stay inside the free tier (100k requests/day)"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-self-hosted",
+      "skill-cloudflare",
+      "skill-open source"
+    ],
+    "prerequisites": [
+      "Comfort with TypeScript and async/await",
+      "A Cloudflare account with Wrangler CLI installed",
+      "Basic familiarity with HTTP APIs and environment variable secret handling",
+      "An API key from an LLM provider (Anthropic, OpenAI, or similar)"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "course-ufcagent",
+    "toolSlug": "ufcagent",
+    "title": "Master UFCagent",
+    "objectives": [
+      "Query UFCagent for sourced fighter records and rankings in English or Spanish",
+      "Interpret and explain the tool's matchup scores and their underlying factors",
+      "Run and evaluate backtests to gauge the predictor's historical accuracy"
+    ],
+    "modules": [
+      {
+        "title": "Bilingual Queries and Sourced Data",
+        "estMinutes": 20,
+        "steps": [
+          "Ask UFCagent for a ranked fighter's record (e.g., 'Dame el récord de Ilia Topuria') and confirm the answer switches to Spanish with cited sources",
+          "Request the current top 5 of a division in English and verify each entry includes ranking source and date",
+          "Spot-check one stat against an external source (e.g., UFCStats.com) to understand the citation format"
+        ]
+      },
+      {
+        "title": "Reading Explainable Matchup Scores",
+        "estMinutes": 25,
+        "steps": [
+          "Request a matchup prediction for two upcoming fighters and note the numeric score plus the factor breakdown (striking, grappling, reach, recent form)",
+          "Ask 'why' (or '¿por qué?') for the score and map each explanation bullet to actual fight statistics cited",
+          "Compare two matchup scores and identify which factor drove the score difference"
+        ]
+      },
+      {
+        "title": "Backtesting the Predictor",
+        "estMinutes": 25,
+        "steps": [
+          "Run a backtest over a past UFC event card, asking UFCagent to score fights as if pre-event",
+          "Compare predictions against actual results and compute hit rate manually for a small sample (10–20 fights)",
+          "Identify one systematic blind spot (e.g., grappling-heavy upsets) and write a short note on when to distrust the score"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ufc",
+      "skill-sports",
+      "skill-chatbot",
+      "skill-agent",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "course-shellshock",
+    "toolSlug": "shellshock",
+    "title": "Master ShellShock",
+    "objectives": [
+      "Install ShellShock and run your first one-command AI model setup",
+      "Configure a free AI model inside Codex or VS Code and verify it responds",
+      "Troubleshoot common config, API-key, and model-availability issues"
+    ],
+    "modules": [
+      {
+        "title": "Install ShellShock and Run Your First Setup",
+        "estMinutes": 15,
+        "steps": [
+          "Install ShellShock via npm (`npm install -g shellshock`) or the install script from its README, then confirm with `shellshock --version`.",
+          "Run `shellshock setup codex` (or `shellshock setup vscode`) to apply the default free model config in one command.",
+          "Inspect the changes it made: run `shellshock show` or open the generated config file to see the model endpoint and settings."
+        ]
+      },
+      {
+        "title": "Pick and Configure a Free Model",
+        "estMinutes": 20,
+        "steps": [
+          "List available free models with `shellshock models --free` and note the provider and model ID you want to use.",
+          "Run `shellshock setup codex --model <model-id>` to wire that model into your coding tool's config.",
+          "Open Codex/VS Code, send a test prompt like 'explain this function', and confirm responses come from the configured free model."
+        ]
+      },
+      {
+        "title": "Verify, Switch, and Troubleshoot",
+        "estMinutes": 15,
+        "steps": [
+          "Use `shellshock test` to validate the connection and API key; check exit codes and error messages if it fails.",
+          "Practice switching models non-destructively: save the current config with `shellshock export > backup.json`, switch via `shellshock setup --model <other>`, then restore with `shellshock import backup.json`.",
+          "Diagnose a common failure (rate limit or invalid key): set the key via environment variable or `shellshock config set key <value>`, then re-run `shellshock test` until it passes."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-cli",
+      "skill-vscode",
+      "skill-codex",
+      "skill-free-models",
+      "skill-setup"
+    ],
+    "prerequisites": [
+      "Comfortable running CLI commands and editing environment variables",
+      "Codex CLI or VS Code already installed",
+      "Basic familiarity with AI model API keys and endpoints"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "course-pi-forge",
+    "toolSlug": "pi-forge",
+    "title": "Master pi-forge",
+    "objectives": [
+      "Generate a custom AI agent with pi-forge from a declarative spec",
+      "Define and register custom tools and skills for the agent",
+      "Build and wire a simple UI view that exposes the agent's capabilities"
+    ],
+    "modules": [
+      {
+        "title": "Bootstrapping Your First Agent",
+        "estMinutes": 25,
+        "steps": [
+          "Install pi-forge and run `pi-forge init my-agent` to scaffold a project",
+          "Edit the generated `agent.yaml` to set the agent's name, base model, and system prompt",
+          "Run `pi-forge dev` and send a test message in the local console to verify the agent responds"
+        ]
+      },
+      {
+        "title": "Adding Tools and Skills",
+        "estMinutes": 35,
+        "steps": [
+          "Create a new tool in `tools/` with a typed input schema, a description, and a Python handler function",
+          "Register the tool in `agent.yaml` and restart the dev server to confirm the agent calls it when prompted",
+          "Group related tools into a skill file and use `pi-forge skills list` to verify it loads"
+        ]
+      },
+      {
+        "title": "Ship the Agent with a Custom View",
+        "estMinutes": 40,
+        "steps": [
+          "Generate a UI view with `pi-forge view add chat-panel` and customize its layout and theme",
+          "Bind the view to specific tools so results render as structured cards instead of raw text",
+          "Run `pi-forge build` and deploy the bundle, then test the full flow end-to-end in the browser"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-agent-builder",
+      "skill-open-source",
+      "skill-automation",
+      "skill-devtools",
+      "skill-framework"
+    ],
+    "prerequisites": [
+      "Comfortable writing Python functions and reading YAML",
+      "Basic understanding of how LLM tool/function calling works",
+      "Node.js 18+ and Python 3.10+ installed"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "course-moodle-tool-human2human",
+    "toolSlug": "moodle-tool-human2human",
+    "title": "Master moodle-tool_human2human",
+    "objectives": [
+      "Install and configure the Human2Human plugin in a Moodle course",
+      "Create an AI-facilitated oral exam activity with a custom rubric",
+      "Review and grade AI-transcribed student responses"
+    ],
+    "modules": [
+      {
+        "title": "Setup & Configuration",
+        "estMinutes": 20,
+        "steps": [
+          "Install the moodle-tool_human2human plugin via Site administration > Plugins > Install plugins, then run the upgrade",
+          "In Site administration > Plugins > Human2Human, enter your AI provider API key and set the default speech/language model",
+          "Create a test course, turn editing on, and confirm 'Human2Human activity' appears in the activity chooser"
+        ]
+      },
+      {
+        "title": "Building Your First Oral Exam",
+        "estMinutes": 35,
+        "steps": [
+          "Add a Human2Human activity, choose 'Oral exam' mode, and write 3–5 open-ended questions plus a time limit per answer",
+          "Paste your grading rubric into the AI instructions field so the facilitator probes and scores consistently",
+          "Enroll a test student account, complete the exam yourself with a microphone, and verify transcription accuracy"
+        ]
+      },
+      {
+        "title": "Role Plays, Debates & Reflections",
+        "estMinutes": 30,
+        "steps": [
+          "Create a second activity in 'Role play' mode, define the AI persona (e.g., 'skeptical client') and the student's goal",
+          "Add a 'Debate' activity with a motion statement, assign sides, and set turn-taking rules in the facilitator prompt",
+          "Add a 'Reflection' activity referencing a prior assignment so the AI prompts students to connect past work to new learning"
+        ]
+      },
+      {
+        "title": "Grading & Feedback Review",
+        "estMinutes": 25,
+        "steps": [
+          "Open the activity's results page and read the AI transcripts and suggested scores for each student",
+          "Override at least one AI score with written feedback to confirm manual grading takes precedence",
+          "Check the Moodle gradebook to verify scores sync correctly and adjust the activity's grade category"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-moodle",
+      "skill-oral-exams",
+      "skill-role-play",
+      "skill-ai-tutoring",
+      "skill-education"
+    ],
+    "prerequisites": [
+      "Teacher or admin access to a Moodle 4.x site",
+      "Ability to install plugins (or an admin who can)",
+      "An API key for a supported AI provider"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-10T15:24:25.498Z"
   }
 ]

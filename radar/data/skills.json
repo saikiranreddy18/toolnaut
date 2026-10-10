@@ -214,7 +214,12 @@
       "agent-history-cli",
       "ai-agent-shouldnt-read-that-file-yet",
       "virgil",
-      "higherlevel"
+      "higherlevel",
+      "open-components",
+      "check-how-readable-your-docs-are-to-ai-agents",
+      "ariodb",
+      "shellshock",
+      "pi-forge"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -426,7 +431,12 @@
       "course-agent-history-cli",
       "course-ai-agent-shouldnt-read-that-file-yet",
       "course-virgil",
-      "course-higherlevel"
+      "course-higherlevel",
+      "course-open-components",
+      "course-check-how-readable-your-docs-are-to-ai-agents",
+      "course-ariodb",
+      "course-shellshock",
+      "course-pi-forge"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -609,7 +619,9 @@
       "i-put-an-ai-agent-on-a-nokia-110",
       "agent-swarm-oss-multiplayer-ai-for-your-company",
       "multitool-office-next",
-      "lacuna"
+      "lacuna",
+      "ufcagent",
+      "pi-forge"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -695,7 +707,9 @@
       "course-i-put-an-ai-agent-on-a-nokia-110",
       "course-agent-swarm-oss-multiplayer-ai-for-your-company",
       "course-multitool-office-next",
-      "course-lacuna"
+      "course-lacuna",
+      "course-ufcagent",
+      "course-pi-forge"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1134,7 +1148,12 @@
       "agent-swarm-oss-multiplayer-ai-for-your-company",
       "vendiq",
       "multitool-office-next",
-      "virgil"
+      "virgil",
+      "an-mcp-server-for-searching-ai-engineering-jobs",
+      "openwants",
+      "talorys",
+      "ufcagent",
+      "pi-forge"
     ],
     "courses": [
       "course-headless-tools",
@@ -1402,7 +1421,12 @@
       "course-agent-swarm-oss-multiplayer-ai-for-your-company",
       "course-vendiq",
       "course-multitool-office-next",
-      "course-virgil"
+      "course-virgil",
+      "course-an-mcp-server-for-searching-ai-engineering-jobs",
+      "course-openwants",
+      "course-talorys",
+      "course-ufcagent",
+      "course-pi-forge"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1602,7 +1626,9 @@
       "promo-video-generator",
       "memdebug",
       "ai-agent-shouldnt-read-that-file-yet",
-      "higherlevel"
+      "higherlevel",
+      "openwants",
+      "open-components"
     ],
     "courses": [
       "course-headless-tools",
@@ -1780,7 +1806,9 @@
       "course-promo-video-generator",
       "course-memdebug",
       "course-ai-agent-shouldnt-read-that-file-yet",
-      "course-higherlevel"
+      "course-higherlevel",
+      "course-openwants",
+      "course-open-components"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2606,7 +2634,8 @@
       "google-maps-scraper-mcp",
       "devboard",
       "dotpals",
-      "senro"
+      "senro",
+      "an-mcp-server-for-searching-ai-engineering-jobs"
     ],
     "courses": [
       "course-coolplugz",
@@ -2645,7 +2674,8 @@
       "course-google-maps-scraper-mcp",
       "course-devboard",
       "course-dotpals",
-      "course-senro"
+      "course-senro",
+      "course-an-mcp-server-for-searching-ai-engineering-jobs"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2811,7 +2841,8 @@
       "yourchar",
       "ggg",
       "squidbrake",
-      "langgraph-harness"
+      "langgraph-harness",
+      "talorys"
     ],
     "courses": [
       "course-hermes-agent",
@@ -2826,7 +2857,8 @@
       "course-yourchar",
       "course-ggg",
       "course-squidbrake",
-      "course-langgraph-harness"
+      "course-langgraph-harness",
+      "course-talorys"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3066,7 +3098,8 @@
       "aclif",
       "ufo-core-multiplayer-agentic-environs",
       "kyno",
-      "chloe-is-a-typescript-ai-agent"
+      "chloe-is-a-typescript-ai-agent",
+      "pi-forge"
     ],
     "courses": [
       "course-mrea",
@@ -3076,7 +3109,8 @@
       "course-aclif",
       "course-ufo-core-multiplayer-agentic-environs",
       "course-kyno",
-      "course-chloe-is-a-typescript-ai-agent"
+      "course-chloe-is-a-typescript-ai-agent",
+      "course-pi-forge"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3193,7 +3227,8 @@
       "delegator",
       "memdebug",
       "virgil",
-      "higherlevel"
+      "higherlevel",
+      "open-components"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -3248,7 +3283,8 @@
       "course-delegator",
       "course-memdebug",
       "course-virgil",
-      "course-higherlevel"
+      "course-higherlevel",
+      "course-open-components"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3325,7 +3361,8 @@
       "gentle-ai-ai-coding-ecosystem",
       "ai-agents-zero-to-hero",
       "hieraticbench",
-      "stayleet"
+      "stayleet",
+      "moodle-tool-human2human"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3380,7 +3417,8 @@
       "course-gentle-ai-ai-coding-ecosystem",
       "course-ai-agents-zero-to-hero",
       "course-hieraticbench",
-      "course-stayleet"
+      "course-stayleet",
+      "course-moodle-tool-human2human"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3627,7 +3665,8 @@
       "muselite",
       "promo-video-generator",
       "spectromood-speech-emotion-detection-with-a-decision-model",
-      "memdebug"
+      "memdebug",
+      "talorys"
     ],
     "courses": [
       "course-limitless-library",
@@ -3700,7 +3739,8 @@
       "course-muselite",
       "course-promo-video-generator",
       "course-spectromood-speech-emotion-detection-with-a-decision-model",
-      "course-memdebug"
+      "course-memdebug",
+      "course-talorys"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3842,7 +3882,8 @@
       "embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo",
       "checkout-this-open-source-local-first-bioinformatics-ai-desk",
       "layer",
-      "spectromood-speech-emotion-detection-with-a-decision-model"
+      "spectromood-speech-emotion-detection-with-a-decision-model",
+      "tessary"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3904,7 +3945,8 @@
       "course-embeddinggemma-2-an-open-lightweight-multimodal-embedding-mo",
       "course-checkout-this-open-source-local-first-bioinformatics-ai-desk",
       "course-layer",
-      "course-spectromood-speech-emotion-detection-with-a-decision-model"
+      "course-spectromood-speech-emotion-detection-with-a-decision-model",
+      "course-tessary"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3946,7 +3988,8 @@
       "open-source-simulation-testing-infra-for-voice-agents",
       "simtower-decompiled-rewritten-and-in-the-browser",
       "tinyaiarena-watch-ai-agents-battle-it-out",
-      "emulate-ai"
+      "emulate-ai",
+      "openwants"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3955,7 +3998,8 @@
       "course-open-source-simulation-testing-infra-for-voice-agents",
       "course-simtower-decompiled-rewritten-and-in-the-browser",
       "course-tinyaiarena-watch-ai-agents-battle-it-out",
-      "course-emulate-ai"
+      "course-emulate-ai",
+      "course-openwants"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4158,7 +4202,8 @@
       "call4me-an-ai-agent-that-handles-phone-calls-for-you",
       "chloe-is-a-typescript-ai-agent",
       "opposable",
-      "vendiq"
+      "vendiq",
+      "talorys"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -4193,7 +4238,8 @@
       "course-call4me-an-ai-agent-that-handles-phone-calls-for-you",
       "course-chloe-is-a-typescript-ai-agent",
       "course-opposable",
-      "course-vendiq"
+      "course-vendiq",
+      "course-talorys"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4244,12 +4290,14 @@
     "toolsTeaching": [
       "ai-resume-screening",
       "parlel",
-      "swiftcruit"
+      "swiftcruit",
+      "an-mcp-server-for-searching-ai-engineering-jobs"
     ],
     "courses": [
       "course-ai-resume-screening",
       "course-parlel",
-      "course-swiftcruit"
+      "course-swiftcruit",
+      "course-an-mcp-server-for-searching-ai-engineering-jobs"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4380,13 +4428,15 @@
       "aifi-on-aws",
       "mu",
       "datalume",
-      "meshdrive-and-local-ai-agent-for-fs"
+      "meshdrive-and-local-ai-agent-for-fs",
+      "ufcagent"
     ],
     "courses": [
       "course-aifi-on-aws",
       "course-mu",
       "course-datalume",
-      "course-meshdrive-and-local-ai-agent-for-fs"
+      "course-meshdrive-and-local-ai-agent-for-fs",
+      "course-ufcagent"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4419,7 +4469,8 @@
       "spens-sandboxed-observable-coding-agents",
       "ai-agent-gateway",
       "sulcus",
-      "senro"
+      "senro",
+      "tessary"
     ],
     "courses": [
       "course-agenttrail",
@@ -4432,7 +4483,8 @@
       "course-spens-sandboxed-observable-coding-agents",
       "course-ai-agent-gateway",
       "course-sulcus",
-      "course-senro"
+      "course-senro",
+      "course-tessary"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4629,11 +4681,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "build-your-own-theme-park",
-      "knowledge-platform-powered-by-agents-demonstration"
+      "knowledge-platform-powered-by-agents-demonstration",
+      "openwants"
     ],
     "courses": [
       "course-build-your-own-theme-park",
-      "course-knowledge-platform-powered-by-agents-demonstration"
+      "course-knowledge-platform-powered-by-agents-demonstration",
+      "course-openwants"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4820,7 +4874,9 @@
       "leftovers",
       "agentledger",
       "ai-agents-zero-to-hero",
-      "headline-arena"
+      "headline-arena",
+      "check-how-readable-your-docs-are-to-ai-agents",
+      "ariodb"
     ],
     "courses": [
       "course-placeroot",
@@ -4860,7 +4916,9 @@
       "course-leftovers",
       "course-agentledger",
       "course-ai-agents-zero-to-hero",
-      "course-headline-arena"
+      "course-headline-arena",
+      "course-check-how-readable-your-docs-are-to-ai-agents",
+      "course-ariodb"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5181,12 +5239,14 @@
     "toolsTeaching": [
       "devx",
       "ai-agents-started-emailing-philosophers-and-researchers",
-      "andon-labs-puts-ai-agents-in-charge-of-real-businesses"
+      "andon-labs-puts-ai-agents-in-charge-of-real-businesses",
+      "openwants"
     ],
     "courses": [
       "course-devx",
       "course-ai-agents-started-emailing-philosophers-and-researchers",
-      "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses"
+      "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses",
+      "course-openwants"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5254,7 +5314,8 @@
       "bananasplit-cli",
       "now",
       "run-osier-to-track-how-your-ai-coding-agent-does",
-      "agent-history-cli"
+      "agent-history-cli",
+      "shellshock"
     ],
     "courses": [
       "course-devx",
@@ -5279,7 +5340,8 @@
       "course-bananasplit-cli",
       "course-now",
       "course-run-osier-to-track-how-your-ai-coding-agent-does",
-      "course-agent-history-cli"
+      "course-agent-history-cli",
+      "course-shellshock"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6724,13 +6786,15 @@
       "dipstick-alerts",
       "z-local-first-search-layer-for-humans-and-agents",
       "kaflow-search",
-      "search2o"
+      "search2o",
+      "an-mcp-server-for-searching-ai-engineering-jobs"
     ],
     "courses": [
       "course-dipstick-alerts",
       "course-z-local-first-search-layer-for-humans-and-agents",
       "course-kaflow-search",
-      "course-search2o"
+      "course-search2o",
+      "course-an-mcp-server-for-searching-ai-engineering-jobs"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -6746,7 +6810,8 @@
       "vigilator",
       "termaxa",
       "openappa-deterministic-guardrails-that-dont-break-agents",
-      "nvidia-debuted-the-open-agent-safety-platform"
+      "nvidia-debuted-the-open-agent-safety-platform",
+      "ariodb"
     ],
     "courses": [
       "course-dipstick-alerts",
@@ -6755,7 +6820,8 @@
       "course-vigilator",
       "course-termaxa",
       "course-openappa-deterministic-guardrails-that-dont-break-agents",
-      "course-nvidia-debuted-the-open-agent-safety-platform"
+      "course-nvidia-debuted-the-open-agent-safety-platform",
+      "course-ariodb"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -7064,12 +7130,14 @@
     "toolsTeaching": [
       "grith-is-live",
       "claude2api",
-      "ggg"
+      "ggg",
+      "ariodb"
     ],
     "courses": [
       "course-grith-is-live",
       "course-claude2api",
-      "course-ggg"
+      "course-ggg",
+      "course-ariodb"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -7396,12 +7464,14 @@
     "toolsTeaching": [
       "datazen",
       "drawdb-pro",
-      "fraise-a-memory-database-for-ai-agents"
+      "fraise-a-memory-database-for-ai-agents",
+      "ariodb"
     ],
     "courses": [
       "course-datazen",
       "course-drawdb-pro",
-      "course-fraise-a-memory-database-for-ai-agents"
+      "course-fraise-a-memory-database-for-ai-agents",
+      "course-ariodb"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -7889,13 +7959,15 @@
       "documentationaimd",
       "kiso",
       "compilrdev-studio",
-      "where-every-ai-coding-tool-keeps-its-config"
+      "where-every-ai-coding-tool-keeps-its-config",
+      "check-how-readable-your-docs-are-to-ai-agents"
     ],
     "courses": [
       "course-documentationaimd",
       "course-kiso",
       "course-compilrdev-studio",
-      "course-where-every-ai-coding-tool-keeps-its-config"
+      "course-where-every-ai-coding-tool-keeps-its-config",
+      "course-check-how-readable-your-docs-are-to-ai-agents"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -8244,13 +8316,15 @@
       "what-agent-skills-are-made-of-programming-languages",
       "the-thinking-wattage-of-ai-agents-vs-the-human-brain",
       "who-bankrolls-the-ai-agent-swarm",
-      "bootloops-a-toolkit-for-exact-quantitative-science"
+      "bootloops-a-toolkit-for-exact-quantitative-science",
+      "check-how-readable-your-docs-are-to-ai-agents"
     ],
     "courses": [
       "course-what-agent-skills-are-made-of-programming-languages",
       "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain",
       "course-who-bankrolls-the-ai-agent-swarm",
-      "course-bootloops-a-toolkit-for-exact-quantitative-science"
+      "course-bootloops-a-toolkit-for-exact-quantitative-science",
+      "course-check-how-readable-your-docs-are-to-ai-agents"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
   },
@@ -8821,7 +8895,8 @@
       "ai-agents-built-a-secret-society-inside-the-lab-video",
       "eliza-the-ai-that-fooled-the-world",
       "is-ai-solving-math-too-fast",
-      "teacher-planner"
+      "teacher-planner",
+      "moodle-tool-human2human"
     ],
     "courses": [
       "course-aicademy",
@@ -8830,7 +8905,8 @@
       "course-ai-agents-built-a-secret-society-inside-the-lab-video",
       "course-eliza-the-ai-that-fooled-the-world",
       "course-is-ai-solving-math-too-fast",
-      "course-teacher-planner"
+      "course-teacher-planner",
+      "course-moodle-tool-human2human"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -8988,7 +9064,8 @@
       "nimvarya",
       "static-hosting-a-coding-agent-can-drive-end-to-end",
       "symphony",
-      "crafting-express"
+      "crafting-express",
+      "pi-forge"
     ],
     "courses": [
       "course-compilrdev-studio",
@@ -8996,7 +9073,8 @@
       "course-nimvarya",
       "course-static-hosting-a-coding-agent-can-drive-end-to-end",
       "course-symphony",
-      "course-crafting-express"
+      "course-crafting-express",
+      "course-pi-forge"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -9779,7 +9857,8 @@
       "meta-launches-subscriptions-with-enhanced-ai-features",
       "anthropic-is-planning-to-launch-its-ipo-in-november",
       "crypllm-ai-chat-agent-for-cryptool-2",
-      "whirl"
+      "whirl",
+      "ufcagent"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
@@ -9794,7 +9873,8 @@
       "course-meta-launches-subscriptions-with-enhanced-ai-features",
       "course-anthropic-is-planning-to-launch-its-ipo-in-november",
       "course-crypllm-ai-chat-agent-for-cryptool-2",
-      "course-whirl"
+      "course-whirl",
+      "course-ufcagent"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -12641,11 +12721,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "quiz-ui",
-      "kobra"
+      "kobra",
+      "open-components"
     ],
     "courses": [
       "course-quiz-ui",
-      "course-kobra"
+      "course-kobra",
+      "course-open-components"
     ],
     "updatedAt": "2026-09-06T23:10:17.799Z"
   },
@@ -16389,12 +16471,14 @@
     "toolsTeaching": [
       "awesome-ui-design",
       "transitionsdev-ui-transitions-for-ai-agents",
-      "kobra"
+      "kobra",
+      "open-components"
     ],
     "courses": [
       "course-awesome-ui-design",
       "course-transitionsdev-ui-transitions-for-ai-agents",
-      "course-kobra"
+      "course-kobra",
+      "course-open-components"
     ],
     "updatedAt": "2026-09-12T23:23:08.913Z"
   },
@@ -17178,10 +17262,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "productspec"
+      "productspec",
+      "open-components"
     ],
     "courses": [
-      "course-productspec"
+      "course-productspec",
+      "course-open-components"
     ],
     "updatedAt": "2026-09-15T14:21:00.449Z"
   },
@@ -18911,10 +18997,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "mcpjam"
+      "mcpjam",
+      "check-how-readable-your-docs-are-to-ai-agents"
     ],
     "courses": [
-      "course-mcpjam"
+      "course-mcpjam",
+      "course-check-how-readable-your-docs-are-to-ai-agents"
     ],
     "updatedAt": "2026-09-17T23:41:16.935Z"
   },
@@ -18963,10 +19051,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "respawn"
+      "respawn",
+      "ariodb"
     ],
     "courses": [
-      "course-respawn"
+      "course-respawn",
+      "course-ariodb"
     ],
     "updatedAt": "2026-09-17T23:41:16.935Z"
   },
@@ -19188,10 +19278,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "vscode-mcp-api"
+      "vscode-mcp-api",
+      "shellshock"
     ],
     "courses": [
-      "course-vscode-mcp-api"
+      "course-vscode-mcp-api",
+      "course-shellshock"
     ],
     "updatedAt": "2026-09-18T13:38:05.296Z"
   },
@@ -22100,5 +22192,239 @@
       "course-virgil"
     ],
     "updatedAt": "2026-10-10T01:16:03.607Z"
+  },
+  {
+    "id": "skill-jobs",
+    "name": "jobs",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "an-mcp-server-for-searching-ai-engineering-jobs"
+    ],
+    "courses": [
+      "course-an-mcp-server-for-searching-ai-engineering-jobs"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-ai-engineering",
+    "name": "ai engineering",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "an-mcp-server-for-searching-ai-engineering-jobs"
+    ],
+    "courses": [
+      "course-an-mcp-server-for-searching-ai-engineering-jobs"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-virtual city",
+    "name": "virtual city",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "openwants"
+    ],
+    "courses": [
+      "course-openwants"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-readability",
+    "name": "readability",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "check-how-readable-your-docs-are-to-ai-agents"
+    ],
+    "courses": [
+      "course-check-how-readable-your-docs-are-to-ai-agents"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-agent evaluation",
+    "name": "agent evaluation",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "tessary"
+    ],
+    "courses": [
+      "course-tessary"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-llm testing",
+    "name": "llm testing",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "tessary"
+    ],
+    "courses": [
+      "course-tessary"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-failure detection",
+    "name": "failure detection",
+    "domain": "data",
+    "level": "advanced",
+    "toolsTeaching": [
+      "tessary"
+    ],
+    "courses": [
+      "course-tessary"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-cloudflare",
+    "name": "cloudflare",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "talorys"
+    ],
+    "courses": [
+      "course-talorys"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-ufc",
+    "name": "ufc",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ufcagent"
+    ],
+    "courses": [
+      "course-ufcagent"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-sports",
+    "name": "sports",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ufcagent"
+    ],
+    "courses": [
+      "course-ufcagent"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-codex",
+    "name": "codex",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "shellshock"
+    ],
+    "courses": [
+      "course-shellshock"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-free-models",
+    "name": "free models",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "shellshock"
+    ],
+    "courses": [
+      "course-shellshock"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-setup",
+    "name": "setup",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "shellshock"
+    ],
+    "courses": [
+      "course-shellshock"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-agent-builder",
+    "name": "agent builder",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "pi-forge"
+    ],
+    "courses": [
+      "course-pi-forge"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-moodle",
+    "name": "moodle",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "moodle-tool-human2human"
+    ],
+    "courses": [
+      "course-moodle-tool-human2human"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-oral-exams",
+    "name": "oral exams",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "moodle-tool-human2human"
+    ],
+    "courses": [
+      "course-moodle-tool-human2human"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-role-play",
+    "name": "role play",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "moodle-tool-human2human"
+    ],
+    "courses": [
+      "course-moodle-tool-human2human"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-ai-tutoring",
+    "name": "ai tutoring",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "moodle-tool-human2human"
+    ],
+    "courses": [
+      "course-moodle-tool-human2human"
+    ],
+    "updatedAt": "2026-10-10T15:24:25.498Z"
   }
 ]
