@@ -4335,6 +4335,49 @@ a client-side SPA with a static tool catalogue.
   only corrects line numbers, widens the confirmed-affected-surface count by
   two, and — the one substantive change — downgrades "never verify locally
   again" to "re-check the sandbox each time, it isn't consistently one way."
+- **Re-verified 2026-10-10 03:04 UTC:** this was the single stalest OPEN
+  entry by its own last-check date (18 days since the 09-22 deepening,
+  staler than every other OPEN entry's last-touch timestamp checked against
+  it this run — "Tool graveyard page" and "No public developer API" are the
+  next-closest at 13-17 days). **Re-ran the entry's own throwaway sandbox
+  check again, per its 09-22 instruction to re-check each time rather than
+  trust either prior conclusion** — a third distinct result this time, not
+  matching either previous run: `page.goto` to the Google favicon URL
+  resolved cleanly in 1.1s (no hang, no `ERR_CERT_AUTHORITY_INVALID`), and a
+  closer-to-real check — injecting the same URL as an `<img>` into a live
+  page via `page.evaluate` — reached `networkidle` in 1.3s with zero
+  console errors. That's three different outcomes on three different days
+  (2026-09-13 hang-to-8s-timeout, 2026-09-14 and 2026-09-22 fast
+  `ERR_CERT_AUTHORITY_INVALID` rejects, today a clean success with the
+  image actually loading) from the identical check against the identical
+  URL — confirms the 09-22 note's suspicion that the agent-proxy's own
+  state varies day to day rather than being one consistently-broken
+  property of this sandbox. Practical read for whoever builds this:
+  **the 8-second throwaway check is not optional, it is the only way to
+  know which of the three regimes a given day is in** — today, a feature
+  run attempting this gap could trust a local `npm run smoke` result
+  outright.
+  **Re-verified the gap itself still holds, zero drift found:** `grep -rn
+  "<img"` across `ToolCard.jsx` (`src/components/app/ToolCard.jsx`),
+  `ToolDetail.jsx` (`src/pages/app/ToolDetail.jsx`), `CategoryLanding.jsx`,
+  `SharedStack.jsx`, `Compare.jsx`, `CompareCompetitor.jsx` and
+  `PublicCompare.jsx` is still zero hits on every one. `ToolCard.jsx`'s
+  `<h3>` is still at line 81 exactly as the 09-22 note left it; the
+  category-color dot (now sourced via `isNewTool` import at the top of the
+  file rather than inline) is unchanged in effect. `ToolDetail.jsx`'s
+  `<h1>` is now at line 216 (was 133) and "Visit website" at line 241 (was
+  151) — both drifted further, same field and behavior, confirming ratings/
+  trust-panel growth continues to push this file's line numbers down over
+  time, not a reason to doubt the plan. The `website`-field count is
+  unchanged at the digit: 704 total, 42 empty. One small path correction
+  for whoever picks this up next: this entry's "would not include" rollout
+  list calls the fourth clone page `NewTools.jsx` — it actually lives at
+  `src/pages/NewTools.jsx`, not `src/pages/app/NewTools.jsx` as a casual
+  read of this entry might suggest; doesn't change scope, v1 never touches
+  that file anyway. `faviconUrl.js` still does not exist. No change to the
+  core spec — still Build size S, still the most build-ready "every
+  competitor has it, we don't" entry in this file, still unbuilt six weeks
+  after it was found.
 
 ### Discover has filters but no sort control — the 700+ result grid has exactly one fixed order
 
@@ -12174,3 +12217,63 @@ was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
 touches build output or runtime behavior. Per the "never invent a gap to
 fill the hour" rule, appended no new gap this run — the hour went to the
 educational/how-to-content re-verification instead.
+
+---
+
+### Research check 2026-10-10 03:04 UTC — no new gap found, fifty-third pass; second sweep re-verifies "No tool has a visual identity," the single stalest OPEN entry
+
+Scheduled run, UTC hour 03 (a research slot — the schedule's three non-feature
+fires land at 00/06/12 UTC nominally, but this one fired at 03:04, same
+off-cycle pattern several earlier passes have already noted). Container
+started detached at a commit matching `origin/master`'s tip at session start
+(`649d219`, the 2026-10-09 radar publish) — `git fetch origin master` found
+no further movement, checked out `master` cleanly from it, no fast-forward
+needed this time. `npm ci` clean. `npm run radar:health` → `OK` (3 runs in
+the 26h window, last run/publish 1.8h ago, 6 tools published that run, feed
+at 509 total, growing). `list_workflow_runs` on `master` (`ci.yml`): green
+at the latest three pushes, nothing red. No `agent-fixable` issues open
+(`list_issues` zero results). The open `bot/claude/*` PR queue
+(`list_pull_requests`, 29 open) is the same long-stale backlog every prior
+pass has tracked, unchanged, outside what a research-hour pass acts on —
+confirmed none of them target a file this pass touches.
+
+**Recomputed every OPEN entry's true last-check date from its own dated
+notes before sweeping**, per the standing correction every pass since the
+48th has applied. "No tool has a visual identity" (found 2026-08-31,
+deepened once on 2026-09-22) was the single stalest by last-touch — 18 days,
+ahead of "Tool graveyard page" (last touched 2026-10-07, 3 days) and "No
+public developer API" (2026-09-23, 17 days). Picked it over the latter
+because it's strictly older and because its own 09-22 note explicitly asked
+for a day-by-day re-check of the sandbox network behavior rather than a
+one-time verdict — exactly the kind of thing a fresh pass should actually
+redo, not just re-read.
+
+**Re-verified in full; details appended inline to the entry itself** (above,
+matching this entry's own established in-place-deepening pattern rather than
+a separate note here). Headline finding: the sandbox's favicon-fetch check
+produced a *third* distinct outcome today — clean success in ~1.3s, image
+and all — after a hang-to-timeout on 2026-09-13 and a fast cert-reject on
+both 2026-09-14 and 2026-09-22. Confirms the entry's own suspicion that the
+agent-proxy's state varies by day rather than being one fixed sandbox
+property. The gap's core claim (zero `<img>` tags on any tool-card surface)
+re-checked clean with no drift; two line-number corrections and one file-path
+correction folded into the entry. Build plan unchanged — still Build size S,
+still the most build-ready "universal competitor pattern, missing here"
+entry in the file.
+
+Two fresh WebSearches were tried first, before falling back to the sweep,
+per the "deepen before you add" rule: "AI directory 2026 onboarding tour
+product walkthrough feature" and "AI tool discovery 2026 personalization
+recommendation engine new launch" (both standard mode). Neither produced a
+genuine new gap — the first surfaced only generic SaaS-onboarding listicles
+with no concrete feature tied to an AI-directory competitor, and the second
+returned recommendation-engine write-ups describing exactly the
+role/goal-matching this app's own quiz and persona system already do
+(`personaGenerator.js`), not something new. Nothing to log.
+
+Ran `npm test` (315/315) directly against current `master` — clean. This
+was a docs-only research pass (no `src/`/`radar/`/`api/` edit beyond the
+backlog entry itself), so `npm run build`/`npm run smoke` were not re-run;
+nothing in this commit touches build output or runtime behavior. Per the
+"never invent a gap to fill the hour" rule, appended no new gap this run —
+the hour went to the visual-identity re-verification instead.
