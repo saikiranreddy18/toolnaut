@@ -6152,6 +6152,45 @@ a client-side SPA with a static tool catalogue.
   voice and newest-first order the file already uses, no shas or file paths
   added. This does not touch this gap's own remaining scope — the page still
   has no forward-looking section, that build is unaffected and still OPEN.
+- **Re-verified 2026-10-10 12:07 UTC — the still-open forward-looking build
+  itself, not re-checked since the 09-23 note above (that note's own body
+  was about the backward-half staleness bug, not a re-read of the core
+  claim):** stalest OPEN entry in the file at this run, ahead of "The
+  leaderboard's own precondition" (deepened 2026-09-24, 16 days) by about
+  18 hours — see the 56th pass's own log entry below for the full staleness
+  computation across all OPEN entries. Re-read `Changelog.jsx` in full
+  (now 95 lines): still renders only the `CHANGELOG.map(...)` block plus a
+  CTA, no forward/roadmap section exists, core gap unchanged. The heading
+  is now split across two lines (`Shipping,<br />almost every day`,
+  `Changelog.jsx:45`) but reads identically; still a false claim of
+  freshness if the backward half goes stale, same risk as before.
+  `changelogData.js`'s header comment (lines 1-7) is still byte-identical
+  to what this entry quotes. Re-ran the `roadmap|coming soon|up next|
+  planned|in progress` grep across `src/`: far more hits now than when
+  this entry was written, almost all of them `capabilityMatrix.js`/
+  `planData.js`'s `planned` tier-feature flags (Pro/Team features not yet
+  built) and the personal learning-roadmap feature (`roadmapStore.js`,
+  `roadmapGenerator.js`, `Learning.jsx`) — neither is a visitor-facing
+  product roadmap, both already excluded by this entry's own reasoning, so
+  the grep's growth doesn't change the finding. `DEVLOG.md` still writes a
+  `**Queued next:**` line per entry (10 confirmed instances, newest at
+  line 71) — the translation source this entry's build plan depends on is
+  still there, unchanged. One stale citation corrected: "Why it matters"
+  cited `About.jsx:38` for the "Built solo by an indie builder... shipping
+  fast" line; it is now `About.jsx:33` (quote itself unchanged, just
+  shifted up five lines by an unrelated earlier edit). Separately, the
+  backward-half staleness bug this note fixed on 09-23 has recurred and
+  been re-fixed three more times since (20th pass 10-04, 35th pass 10-06,
+  39th pass 10-07, per this file's own pass log) — as of this run
+  `changelogData.js`'s newest entry is dated 2026-10-06 (4 days stale),
+  within normal shipping cadence, not currently broken. Two WebSearches
+  ("Futurepedia OR 'There's An AI For That' 2026 public roadmap page
+  planned features"; "AI tool directory changelog 'what's next' roadmap
+  page 2026 indie SaaS") found no primary-source roadmap/changelog-forward
+  page from either named competitor or any other directory — both returned
+  unrelated 2026-AI-trend roundups and indie-directory launch posts with no
+  company-run roadmap page cited. Build plan, sizing (S) and scope
+  unchanged; still fully unbuilt.
 
 ---
 
@@ -12499,3 +12538,78 @@ backlog entry itself), so `npm run build`/`npm run smoke` were not re-run;
 nothing in this commit touches build output or runtime behavior. Per the
 "never invent a gap to fill the hour" rule, appended no new gap this run —
 the hour went to the stack-link-preview re-verification instead.
+
+---
+
+### Research check 2026-10-10 12:07 UTC — no new gap found, fifty-sixth pass; second sweep moves to "Changelog only looks backward," the forward-looking build itself, not the backward-half bug-fix note
+
+`npm ci` clean (201 packages, no changes). `date -u` → 2026-10-10 12:07
+UTC. `npm run radar:health` → `OK` (2 runs in the 26h window, last run/
+publish 10.9h ago, 6 tools published that run, feed at 509 total —
+unchanged since the 55th pass). CI green and no open `agent-fixable`
+issues already confirmed by the orchestrating session this run; not
+re-checked independently. `git status` clean, `git log -1` at `49cb33d`
+(the 55th pass's own commit) — on `master`'s tip, no fast-forward needed.
+
+**Recomputed every OPEN entry's true last-check date from scratch**, the
+same method the 54th/55th passes used: grepped all 55 prior pass-log
+sections for each of the ~23 currently-OPEN entries' own distinctive
+phrases (not trusting inline `Found:`/`Deepened:` dates alone, since
+several entries' header-line Status field is known to lag a later
+in-body `Deepened` note — found exactly that on "Curated tool bundles
+('Collections')," whose Status line still reads `DEEPENED 2026-09-12
+03:20 UTC` but whose body carries a later, unflagged `Deepened 2026-09-27
+12:20 UTC` paragraph). Full ranking of last-real-check age at this run:
+"Changelog only looks backward" (2026-09-23 06:11, ~17.25 days — but see
+below) and "The leaderboard's own precondition" (2026-09-24 00:06, ~16.5
+days) are the two stalest, both well ahead of "Collections" and "Weekly
+trending tools" (2026-09-27 12:20/15:20, ~13 days each), which are well
+ahead of everything else (no_testimonial, no_lookup_surface, popularity-
+signal, claim-listing: 4-5 days; gallery-of-shared-stacks, graveyard,
+track-progress, email-capture: 2-3.5 days; the 47th-55th passes' own
+entries: 0-2 days). The 55th pass's own framing — leaderboard 16d,
+changelog 17d "though that date is for the backward-half bug-fix note,
+not the still-open forward-looking build itself" — holds up under direct
+re-verification: reading the 09-23 06:11 note in full confirms it
+re-checked `Changelog.jsx`/`changelogData.js` as a side effect of fixing
+the staleness bug, which does count as a real touch of the core claim,
+making it 17.25 days stale rather than untouched-since-found — still the
+single stalest OPEN entry in the file by about 18 hours over the
+leaderboard gap.
+
+**Re-verified "Changelog only looks backward" in full against current
+`master`; corrections folded in place on the entry itself** (not repeated
+here): core gap confirmed unchanged (`Changelog.jsx` still renders only
+`CHANGELOG.map(...)` plus a CTA, no forward section, now 95 lines vs. the
+entry's unremembered line count); one stale citation fixed
+(`About.jsx:38` → `:33` for the "Built solo by an indie builder" quote,
+shifted by an unrelated earlier edit, text itself unchanged);
+`changelogData.js`'s header comment re-confirmed byte-identical; the
+`roadmap|coming soon|up next|planned|in progress` grep across `src/` now
+returns far more hits than when this entry was written (capabilityMatrix.js/
+planData.js's tier-`planned` flags proliferated since), but all of them
+fall into the two categories this entry's own reasoning already excludes
+(paid-tier feature flags, personal learning roadmap) — finding unchanged.
+Also noted, for context rather than as drift: the backward-half staleness
+bug the 09-23 note fixed has recurred and been re-fixed three more times
+since (10-04, 10-06, 10-07 passes); as of this run `changelogData.js`'s
+newest entry is dated 2026-10-06 (4 days stale), normal cadence, not
+currently broken.
+
+**Two fresh WebSearches (standard mode), neither surfaced anything new:**
+"Futurepedia OR 'There's An AI For That' 2026 public roadmap page planned
+features" and "AI tool directory changelog 'what's next' roadmap page
+2026 indie SaaS." Both came back with unrelated 2026-AI-trend roundups,
+indie-directory launch/marketing posts (IndieHackers, TrustMRR, Fast.io)
+and generic "AI roadmap 2026" content from unrelated industries (Drupal,
+enterprise SaaS) — no primary-source roadmap or "what's next" page from
+Futurepedia, TAAFT, or any other named AI-tool directory. Consistent with
+every prior pass's searches on this entry's domain. Nothing genuine to
+add as a new gap.
+
+Ran `npm test` (315/315) directly against current `master` — clean. This
+was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
+`npm run build`/`npm run smoke` were not re-run; nothing in this commit
+touches build output or runtime behavior. Per the "never invent a gap to
+fill the hour" rule, appended no new gap this run — the hour went to the
+changelog-forward re-verification instead.
