@@ -5937,6 +5937,34 @@ a client-side SPA with a static tool catalogue.
   feature run: zero risk to load-bearing files (`vite.config.js`, `sw.js`
   stamping, the service-worker fetch handler), touches only `vercel.json`
   headers, one new static page, one footer link, one prerender route.
+- **Re-verified 2026-10-10 06:04 UTC:** research run (UTC hour 06). This was
+  the single stalest OPEN entry by true last-check date — 17 days since the
+  09-23 deepening and, unlike every other OPEN entry, never once mentioned in
+  any of the 52 "Research check" pass-logs since (confirmed by grepping every
+  pass-log section in this file for the entry's own distinctive phrases
+  before picking it, the same cross-check the 53rd pass used to rank
+  visual-identity over this one — this run resolves that exact gap now that
+  visual-identity has had its own re-check).
+  Every claim re-confirmed, zero drift: `vercel.json`'s `/tools.json` header
+  block is still at the exact cited lines (`:89-97`, a six-key JSON object —
+  one `source`, one `headers` array holding one `Cache-Control` entry), still
+  missing `Access-Control-Allow-Origin`, so the cross-origin-fetch defect is
+  still live. `src/App.jsx` now carries 37 `<Route>` elements (up from ~29 at
+  the 09-23 check, normal growth from feature-run shipping since), grepped in
+  full for `developers|Developers` — zero matches, no `/developers` route
+  exists. `ContactSection.jsx`'s `Resources` column is unchanged: the same
+  four links (`How it works`, `How we choose` → `/methodology`, `What's new`
+  → `/changelog`, `Open the app`), same order, same slot for a fifth. Pulled
+  a live record from `public/tools.json` and diffed its keys against the
+  entry's field list: `slug, name, category, sourceCategory, price, pricing,
+  level, blurb, audience, dev, year, website, status, note, tags,
+  discoveredAt` — exact match, zero drift, confirming `tools.json`'s shape is
+  still exactly what the planned `/developers` page would document.
+  `public/llms.txt` still exists (3.4KB) as the prose AI-crawler counterpart
+  to cross-link, unchanged in kind. Still fully unbuilt, still Build size S,
+  still the single most build-ready, lowest-risk entry in this file — a
+  two-line header change, one new page mirroring an existing shell, one
+  footer link, one prerender route, zero backend or schema work.
 
 ---
 
@@ -12277,3 +12305,64 @@ backlog entry itself), so `npm run build`/`npm run smoke` were not re-run;
 nothing in this commit touches build output or runtime behavior. Per the
 "never invent a gap to fill the hour" rule, appended no new gap this run —
 the hour went to the visual-identity re-verification instead.
+
+---
+
+### Research check 2026-10-10 06:04 UTC — no new gap found, fifty-fourth pass; re-verifies "No public developer API," the one OPEN entry never once touched since it was logged
+
+Scheduled run, UTC hour 06 (a research slot). `npm ci` clean. `npm run
+radar:health` → `OK` (2 runs in the 26h window, last run/publish 4.8h ago,
+6 tools published that run, feed at 509 total). `list_workflow_runs` on
+`master` (`ci.yml`): green at the latest five pushes, nothing red since.
+No `agent-fixable` issues open (`list_issues` zero results). The open
+`bot/claude/*` PR queue (30 open, `list_pull_requests`) is the same
+long-stale backlog every prior pass has tracked, unchanged, outside what a
+research-hour pass acts on.
+
+**Recomputed every OPEN entry's true last-check date before sweeping**, per
+the standing correction every pass since the 48th has applied — but this
+time by grepping every one of the 53 prior "Research check" pass-log
+sections for each OPEN entry's distinctive phrase, not just scanning each
+entry's own inline dated notes (inline dates alone miscount: the 51st pass's
+"no drift" re-verification of the task-search stemming gap and the 52nd
+pass's "no drift" re-verification of the educational-content gap neither
+touched their entries' own text, so a pure inline-date scan would wrongly
+still show them as 2026-09-16/2026-09-20 stale). Every other OPEN entry
+turned up in at least one pass-log mention after its own inline date except
+one: "No public developer API" (found 2026-09-10, deepened once on
+2026-09-23) — zero mentions in any of the 53 pass logs since that deepening,
+making it the single OPEN entry never re-verified at all, let alone
+recently. This is the same entry the 53rd pass ranked just below
+visual-identity (17 days vs. 18) and deferred — now the clear pick.
+
+**Re-verified in full; details appended inline to the entry itself**, matching
+the file's established in-place-deepening pattern. Every claim held with
+zero drift: `vercel.json:89-97`'s `/tools.json` block still has only
+`Cache-Control`, still no `Access-Control-Allow-Origin` (the cross-origin
+defect is still live), `App.jsx`'s now-37 routes still include no
+`/developers`, `ContactSection.jsx`'s `Resources` column is unchanged with
+the same open fifth slot, and a live `tools.json` record's keys still match
+the entry's documented field list exactly. Build plan unchanged — still
+Build size S, still zero risk to any load-bearing file, still the most
+build-ready entry in the file now that both of the file's two
+longest-untouched entries (visual-identity, developer-API) have current
+re-verifications on record.
+
+Two fresh WebSearches were tried first, per the "deepen before you add"
+rule: "AI tool directory 2026 new feature API widget embed launch
+Futurepedia TAAFT" and "AI tool discovery platform 2026 personalized
+dashboard saved tools feature announcement" (both standard mode). Neither
+surfaced an official feature launch from a named competitor — results were
+small independent projects (a third-party embeddable-widget directory, a
+Chrome extension called AIDock with shareable "stacks" and a "coming soon"
+social-discovery feature, a couple of pre-launch Product Hunt listings).
+AIDock's shareable-stacks-with-planned-social-discovery pattern maps onto
+gaps this file already tracks (stack sharing, the shared-stacks-gallery
+entry) rather than anything new. Nothing genuine to log as a new gap.
+
+Ran `npm test` (315/315) directly against current `master` — clean. This
+was a docs-only research pass (no `src/`/`radar/`/`api/` edit beyond the
+backlog entry itself), so `npm run build`/`npm run smoke` were not re-run;
+nothing in this commit touches build output or runtime behavior. Per the
+"never invent a gap to fill the hour" rule, appended no new gap this run —
+the hour went to the developer-API re-verification instead.
