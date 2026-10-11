@@ -12426,5 +12426,123 @@
       "education"
     ],
     "discoveredAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "slug": "korosta",
+    "name": "Korosta",
+    "category": "automation",
+    "sourceCategory": "HR, Recruiting & Careers",
+    "price": "free",
+    "pricing": "Free Chrome extension",
+    "level": "beginner",
+    "blurb": "Chrome extension that remembers and highlights job postings you've already viewed.",
+    "audience": "Job seekers browsing many listings",
+    "dev": "",
+    "year": 2026,
+    "website": "https://chromewebstore.google.com/detail/korosta/dhpnogbefakbfmbihmjkgicbelndidif",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "job search",
+      "chrome extension",
+      "tracking",
+      "productivity"
+    ],
+    "discoveredAt": "2026-10-11T15:44:45.634Z"
+  },
+  {
+    "slug": "tune-up",
+    "name": "Tune-Up",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "beginner",
+    "blurb": "A Grok bot that reviews and fixes your other Grok bots automatically.",
+    "audience": "Grok chatbot builders",
+    "dev": "Tune-Up",
+    "year": 2026,
+    "website": "https://agenttuneup.ai/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "grok",
+      "chatbot",
+      "bot-review",
+      "optimization",
+      "x.ai"
+    ],
+    "discoveredAt": "2026-10-11T15:44:45.634Z"
+  },
+  {
+    "slug": "my-radio-station-calls-its-listeners",
+    "name": "My radio station calls its listeners",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "free",
+    "level": "beginner",
+    "blurb": "An AI-powered radio station that initiates calls to interact with its listeners.",
+    "audience": "radio operators and curious users",
+    "dev": "",
+    "year": 2026,
+    "website": "https://canarics.com/radio",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "voice-ai",
+      "phone-calls",
+      "radio",
+      "ai-agents"
+    ],
+    "discoveredAt": "2026-10-11T15:44:45.634Z"
+  },
+  {
+    "slug": "ai-agents-in-a-stand-up-call",
+    "name": "AI agents in a stand-up call",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free",
+    "level": "intermediate",
+    "blurb": "Demo of AI agents collaborating in a simulated stand-up meeting call.",
+    "audience": "developers and team leads",
+    "dev": "",
+    "year": 2026,
+    "website": "https://atoll92.github.io/agent-standup/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "stand-up",
+      "meetings",
+      "collaboration",
+      "demo"
+    ],
+    "discoveredAt": "2026-10-11T15:44:45.634Z"
+  },
+  {
+    "slug": "gatool",
+    "name": "gatool",
+    "category": "code",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free open source",
+    "level": "advanced",
+    "blurb": "Spring Boot starters that turn GraphQL operations into MCP tools and Spring AI tools.",
+    "audience": "Java/Spring developers building AI agents",
+    "dev": "api-agent-bridge",
+    "year": 2026,
+    "website": "https://github.com/api-agent-bridge/gatool",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "spring boot",
+      "graphql",
+      "mcp",
+      "spring ai",
+      "agents"
+    ],
+    "discoveredAt": "2026-10-11T15:44:45.634Z"
   }
 ]

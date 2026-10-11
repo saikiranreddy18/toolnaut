@@ -34195,5 +34195,271 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "course-korosta",
+    "toolSlug": "korosta",
+    "title": "Master Korosta",
+    "objectives": [
+      "Install Korosta from the Chrome Web Store and pin it to the toolbar",
+      "Browse a job board and confirm viewed postings get highlighted automatically",
+      "Clear or manage the extension's history of viewed postings"
+    ],
+    "modules": [
+      {
+        "title": "Install and Set Up Korosta",
+        "estMinutes": 5,
+        "steps": [
+          "Open the Chrome Web Store, search for 'Korosta', and click 'Add to Chrome'",
+          "Click the puzzle-piece icon in the toolbar and pin Korosta so it's always visible",
+          "Click the Korosta icon to open its settings and confirm highlighting is enabled"
+        ]
+      },
+      {
+        "title": "See Highlighting in Action",
+        "estMinutes": 7,
+        "steps": [
+          "Go to a job board (e.g., LinkedIn Jobs or Indeed) and open two or three postings",
+          "Return to the search results page and notice the viewed postings are now visibly highlighted by Korosta",
+          "Refresh the page to confirm the highlights persist across sessions"
+        ]
+      },
+      {
+        "title": "Manage Your Viewing History",
+        "estMinutes": 5,
+        "steps": [
+          "Open the Korosta popup and review the list or count of remembered postings",
+          "Remove a single posting from history (if supported) or use the 'Clear history' option to reset all highlights",
+          "Adjust the highlight color or style in settings so it's easy to spot on your favorite job boards"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-job search",
+      "skill-chrome extension",
+      "skill-tracking",
+      "skill-productivity"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-11T15:44:45.634Z"
+  },
+  {
+    "id": "course-tune-up",
+    "toolSlug": "tune-up",
+    "title": "Master Tune-Up",
+    "objectives": [
+      "Connect your existing Grok bots to Tune-Up for automated review",
+      "Read Tune-Up's audit reports and understand flagged issues",
+      "Apply or reject Tune-Up's suggested fixes with confidence"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Scan",
+        "estMinutes": 15,
+        "steps": [
+          "Open Tune-Up in Grok and paste the link or ID of one of your existing bots to register it",
+          "Run your first scan with the command 'review my bot' and wait for the audit report",
+          "Locate the summary score at the top of the report showing prompt quality, safety, and response consistency"
+        ]
+      },
+      {
+        "title": "Understanding the Audit Report",
+        "estMinutes": 20,
+        "steps": [
+          "Read through each flagged issue, noting Tune-Up's severity labels (critical, warning, suggestion)",
+          "Click any flagged item to see the exact line of your bot's prompt or config that caused it",
+          "Ask Tune-Up 'why is this a problem?' on one flagged item to see its reasoning and an example failure case"
+        ]
+      },
+      {
+        "title": "Applying Fixes Safely",
+        "estMinutes": 20,
+        "steps": [
+          "Use 'fix all warnings' to auto-apply low-risk fixes, then review the diff before confirming",
+          "For critical issues, apply fixes one at a time with 'fix issue #1' so you can test each change",
+          "Re-run the scan after fixing to confirm a clean report, then schedule weekly auto-reviews for your bot"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-grok",
+      "skill-chatbot",
+      "skill-bot-review",
+      "skill-optimization",
+      "skill-x.ai"
+    ],
+    "prerequisites": [
+      "A Grok account with at least one existing custom bot",
+      "Basic familiarity with how your bot's prompt/instructions are written"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-11T15:44:45.634Z"
+  },
+  {
+    "id": "course-my-radio-station-calls-its-listeners",
+    "toolSlug": "my-radio-station-calls-its-listeners",
+    "title": "Master My radio station calls its listeners",
+    "objectives": [
+      "Understand what My radio station calls its listeners is for",
+      "Use My radio station calls its listeners on a real task",
+      "Know where My radio station calls its listeners fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Create an account and finish the official getting-started flow for My radio station calls its listeners.",
+          "Say what My radio station calls its listeners does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through My radio station calls its listeners.",
+          "Find one feature or shortcut that makes it click."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold My radio station calls its listeners into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-voice-ai",
+      "skill-phone-calls",
+      "skill-radio",
+      "skill-ai-agents"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-11T15:44:45.634Z"
+  },
+  {
+    "id": "course-ai-agents-in-a-stand-up-call",
+    "toolSlug": "ai-agents-in-a-stand-up-call",
+    "title": "Master AI agents in a stand-up call",
+    "objectives": [
+      "Configure multiple AI agents with distinct stand-up roles (developer, PM, scrum master)",
+      "Run a simulated stand-up call where agents report status, blockers, and plans",
+      "Orchestrate agent turn-taking and produce a structured stand-up summary"
+    ],
+    "modules": [
+      {
+        "title": "Define Agent Personas and Backlog Context",
+        "estMinutes": 25,
+        "steps": [
+          "Create 3-4 agent profiles in your agent framework (e.g., CrewAI, AutoGen) with names, roles, and communication styles (e.g., 'Priya – backend dev, terse, flags blockers early')",
+          "Write a shared context document: current sprint goal, 5 tickets with statuses, and one known blocker, then inject it into each agent's system prompt",
+          "Assign the scrum master agent a facilitation prompt describing stand-up format (yesterday / today / blockers, 60 seconds each)"
+        ]
+      },
+      {
+        "title": "Build the Turn-Taking Conversation Loop",
+        "estMinutes": 35,
+        "steps": [
+          "Implement the call loop: scrum master opens, then prompts each agent in a fixed order, passing prior turns in the message history",
+          "Add follow-up logic so the scrum master agent asks exactly one clarifying question when a blocker is mentioned",
+          "Run the simulation end-to-end once; log the full transcript to a file and check that each agent spoke once in order"
+        ]
+      },
+      {
+        "title": "Generate and Validate the Stand-up Summary",
+        "estMinutes": 20,
+        "steps": [
+          "Add a final step where the scrum master agent summarizes the transcript into: updates, blockers, action items, and who is paired to unblock what",
+          "Write 3 validation checks: every agent appears in updates, the seeded blocker appears in blockers, and action items have an owner",
+          "Rerun with a new backlog seed and confirm the summary reflects the change without editing any prompt"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-stand-up",
+      "skill-meetings",
+      "skill-collaboration",
+      "skill-demo"
+    ],
+    "prerequisites": [
+      "Basic Python scripting and API key setup for an LLM provider",
+      "Familiarity with prompt engineering concepts (system prompts, persona design)",
+      "Intro-level experience with a multi-agent framework or building conversational loops manually"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-11T15:44:45.634Z"
+  },
+  {
+    "id": "course-gatool",
+    "toolSlug": "gatool",
+    "title": "Master gatool",
+    "objectives": [
+      "Add the gatool starter to a Spring Boot app and expose existing GraphQL operations as MCP tools",
+      "Configure operation selection, tool naming, and descriptions for LLM consumption",
+      "Secure, test, and debug the generated tools with Spring AI and an MCP client"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Tool Exposure",
+        "estMinutes": 20,
+        "steps": [
+          "Add the gatool Spring Boot starter dependency to your pom.xml or build.gradle alongside spring-boot-starter-graphql",
+          "Annotate a @QueryMapping or @MutationMapping method (or point gatool at a .graphqls operation file) so it registers as a tool",
+          "Start the app and confirm the tool appears in the MCP endpoint listing (e.g., /mcp/tools) with the correct input schema"
+        ]
+      },
+      {
+        "title": "Configuring Tool Metadata and Operation Mapping",
+        "estMinutes": 25,
+        "steps": [
+          "Set gatool properties (gatool.include-operations, gatool.tool-name-prefix) in application.yml to control which operations become tools",
+          "Write clear descriptions and argument docs on each exposed operation so LLM tool-calling selects them correctly",
+          "Map complex GraphQL input types to flat tool arguments and verify the generated JSON schema matches expectations"
+        ]
+      },
+      {
+        "title": "Security, Testing, and Integration",
+        "estMinutes": 25,
+        "steps": [
+          "Apply Spring Security rules to the MCP endpoint and verify unauthorized calls to mutation-backed tools are rejected",
+          "Write an integration test with Spring AI's ChatClient that invokes a generated tool and asserts the GraphQL response is returned",
+          "Connect an MCP client (e.g., Claude Desktop or an MCP inspector) to the server and dry-run each tool, checking error messages for invalid arguments"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-spring boot",
+      "skill-graphql",
+      "skill-mcp",
+      "skill-spring ai",
+      "skill-agents"
+    ],
+    "prerequisites": [
+      "Working Spring Boot 3 application with Spring for GraphQL",
+      "Familiarity with GraphQL schema definitions and @QueryMapping/@MutationMapping",
+      "Basic understanding of Spring AI tool calling and the MCP protocol"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-11T15:44:45.634Z"
   }
 ]

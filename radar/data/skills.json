@@ -219,7 +219,8 @@
       "check-how-readable-your-docs-are-to-ai-agents",
       "ariodb",
       "shellshock",
-      "pi-forge"
+      "pi-forge",
+      "gatool"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -436,7 +437,8 @@
       "course-check-how-readable-your-docs-are-to-ai-agents",
       "course-ariodb",
       "course-shellshock",
-      "course-pi-forge"
+      "course-pi-forge",
+      "course-gatool"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -496,7 +498,8 @@
       "provetogether-moltbook-but-for-math",
       "radio",
       "anyhropic-launches-google-docs-alternative-claude-docs",
-      "devboard"
+      "devboard",
+      "ai-agents-in-a-stand-up-call"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -511,7 +514,8 @@
       "course-provetogether-moltbook-but-for-math",
       "course-radio",
       "course-anyhropic-launches-google-docs-alternative-claude-docs",
-      "course-devboard"
+      "course-devboard",
+      "course-ai-agents-in-a-stand-up-call"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1153,7 +1157,11 @@
       "openwants",
       "talorys",
       "ufcagent",
-      "pi-forge"
+      "pi-forge",
+      "korosta",
+      "tune-up",
+      "my-radio-station-calls-its-listeners",
+      "ai-agents-in-a-stand-up-call"
     ],
     "courses": [
       "course-headless-tools",
@@ -1426,7 +1434,11 @@
       "course-openwants",
       "course-talorys",
       "course-ufcagent",
-      "course-pi-forge"
+      "course-pi-forge",
+      "course-korosta",
+      "course-tune-up",
+      "course-my-radio-station-calls-its-listeners",
+      "course-ai-agents-in-a-stand-up-call"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1628,7 +1640,8 @@
       "ai-agent-shouldnt-read-that-file-yet",
       "higherlevel",
       "openwants",
-      "open-components"
+      "open-components",
+      "ai-agents-in-a-stand-up-call"
     ],
     "courses": [
       "course-headless-tools",
@@ -1808,7 +1821,8 @@
       "course-ai-agent-shouldnt-read-that-file-yet",
       "course-higherlevel",
       "course-openwants",
-      "course-open-components"
+      "course-open-components",
+      "course-ai-agents-in-a-stand-up-call"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2635,7 +2649,8 @@
       "devboard",
       "dotpals",
       "senro",
-      "an-mcp-server-for-searching-ai-engineering-jobs"
+      "an-mcp-server-for-searching-ai-engineering-jobs",
+      "gatool"
     ],
     "courses": [
       "course-coolplugz",
@@ -2675,7 +2690,8 @@
       "course-devboard",
       "course-dotpals",
       "course-senro",
-      "course-an-mcp-server-for-searching-ai-engineering-jobs"
+      "course-an-mcp-server-for-searching-ai-engineering-jobs",
+      "course-gatool"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3476,7 +3492,8 @@
       "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
       "a-new-ai-agent-oriented-programming-language",
       "muselite",
-      "senro"
+      "senro",
+      "gatool"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3527,7 +3544,8 @@
       "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
       "course-a-new-ai-agent-oriented-programming-language",
       "course-muselite",
-      "course-senro"
+      "course-senro",
+      "course-gatool"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4061,7 +4079,8 @@
       "app-launch-grabthat-nlp-launcher-for-windows",
       "squint",
       "qlcodepreview-syntax-highlighting-in-finders-quick-look",
-      "agent-history-cli"
+      "agent-history-cli",
+      "korosta"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -4088,7 +4107,8 @@
       "course-app-launch-grabthat-nlp-launcher-for-windows",
       "course-squint",
       "course-qlcodepreview-syntax-highlighting-in-finders-quick-look",
-      "course-agent-history-cli"
+      "course-agent-history-cli",
+      "course-korosta"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4682,12 +4702,14 @@
     "toolsTeaching": [
       "build-your-own-theme-park",
       "knowledge-platform-powered-by-agents-demonstration",
-      "openwants"
+      "openwants",
+      "ai-agents-in-a-stand-up-call"
     ],
     "courses": [
       "course-build-your-own-theme-park",
       "course-knowledge-platform-powered-by-agents-demonstration",
-      "course-openwants"
+      "course-openwants",
+      "course-ai-agents-in-a-stand-up-call"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -4876,7 +4898,8 @@
       "ai-agents-zero-to-hero",
       "headline-arena",
       "check-how-readable-your-docs-are-to-ai-agents",
-      "ariodb"
+      "ariodb",
+      "my-radio-station-calls-its-listeners"
     ],
     "courses": [
       "course-placeroot",
@@ -4918,7 +4941,8 @@
       "course-ai-agents-zero-to-hero",
       "course-headline-arena",
       "course-check-how-readable-your-docs-are-to-ai-agents",
-      "course-ariodb"
+      "course-ariodb",
+      "course-my-radio-station-calls-its-listeners"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -8349,10 +8373,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals"
+      "inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
+      "my-radio-station-calls-its-listeners"
     ],
     "courses": [
-      "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals"
+      "course-inworld-tts-open-evaluation-toolkit-reproducible-tts-evals",
+      "course-my-radio-station-calls-its-listeners"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -8696,11 +8722,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "i-built-a-real-time-translator-for-google-meet",
-      "jamb-ai"
+      "jamb-ai",
+      "ai-agents-in-a-stand-up-call"
     ],
     "courses": [
       "course-i-built-a-real-time-translator-for-google-meet",
-      "course-jamb-ai"
+      "course-jamb-ai",
+      "course-ai-agents-in-a-stand-up-call"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -9858,7 +9886,8 @@
       "anthropic-is-planning-to-launch-its-ipo-in-november",
       "crypllm-ai-chat-agent-for-cryptool-2",
       "whirl",
-      "ufcagent"
+      "ufcagent",
+      "tune-up"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
@@ -9874,7 +9903,8 @@
       "course-anthropic-is-planning-to-launch-its-ipo-in-november",
       "course-crypllm-ai-chat-agent-for-cryptool-2",
       "course-whirl",
-      "course-ufcagent"
+      "course-ufcagent",
+      "course-tune-up"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -9981,10 +10011,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "mcp-is-the-graphql-of-ai-and-thats-fine"
+      "mcp-is-the-graphql-of-ai-and-thats-fine",
+      "gatool"
     ],
     "courses": [
-      "course-mcp-is-the-graphql-of-ai-and-thats-fine"
+      "course-mcp-is-the-graphql-of-ai-and-thats-fine",
+      "course-gatool"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -10803,10 +10835,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "hermes-agent-demo"
+      "hermes-agent-demo",
+      "gatool"
     ],
     "courses": [
-      "course-hermes-agent-demo"
+      "course-hermes-agent-demo",
+      "course-gatool"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -11339,11 +11373,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "designing-grok-bot-for-a-world-of-persistent-agents",
-      "uncle-bob-martins-uml-tool-to-manage-grok-ai-agents"
+      "uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
+      "tune-up"
     ],
     "courses": [
       "course-designing-grok-bot-for-a-world-of-persistent-agents",
-      "course-uncle-bob-martins-uml-tool-to-manage-grok-ai-agents"
+      "course-uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
+      "course-tune-up"
     ],
     "updatedAt": "2026-09-04T13:33:57.801Z"
   },
@@ -12834,10 +12870,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "automatically-save-60-on-amazon"
+      "automatically-save-60-on-amazon",
+      "korosta"
     ],
     "courses": [
-      "course-automatically-save-60-on-amazon"
+      "course-automatically-save-60-on-amazon",
+      "course-korosta"
     ],
     "updatedAt": "2026-09-06T23:10:17.799Z"
   },
@@ -20096,10 +20134,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "talktome"
+      "talktome",
+      "my-radio-station-calls-its-listeners"
     ],
     "courses": [
-      "course-talktome"
+      "course-talktome",
+      "course-my-radio-station-calls-its-listeners"
     ],
     "updatedAt": "2026-09-29T15:55:26.286Z"
   },
@@ -21107,10 +21147,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "run-osier-to-track-how-your-ai-coding-agent-does"
+      "run-osier-to-track-how-your-ai-coding-agent-does",
+      "korosta"
     ],
     "courses": [
-      "course-run-osier-to-track-how-your-ai-coding-agent-does"
+      "course-run-osier-to-track-how-your-ai-coding-agent-does",
+      "course-korosta"
     ],
     "updatedAt": "2026-10-04T14:48:35.350Z"
   },
@@ -21679,10 +21721,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "foundrradio"
+      "foundrradio",
+      "my-radio-station-calls-its-listeners"
     ],
     "courses": [
-      "course-foundrradio"
+      "course-foundrradio",
+      "course-my-radio-station-calls-its-listeners"
     ],
     "updatedAt": "2026-10-07T01:01:17.703Z"
   },
@@ -22426,5 +22470,83 @@
       "course-moodle-tool-human2human"
     ],
     "updatedAt": "2026-10-10T15:24:25.498Z"
+  },
+  {
+    "id": "skill-job search",
+    "name": "job search",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "korosta"
+    ],
+    "courses": [
+      "course-korosta"
+    ],
+    "updatedAt": "2026-10-11T15:44:45.634Z"
+  },
+  {
+    "id": "skill-bot-review",
+    "name": "bot review",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "tune-up"
+    ],
+    "courses": [
+      "course-tune-up"
+    ],
+    "updatedAt": "2026-10-11T15:44:45.634Z"
+  },
+  {
+    "id": "skill-optimization",
+    "name": "optimization",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "tune-up"
+    ],
+    "courses": [
+      "course-tune-up"
+    ],
+    "updatedAt": "2026-10-11T15:44:45.634Z"
+  },
+  {
+    "id": "skill-x.ai",
+    "name": "x.ai",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "tune-up"
+    ],
+    "courses": [
+      "course-tune-up"
+    ],
+    "updatedAt": "2026-10-11T15:44:45.634Z"
+  },
+  {
+    "id": "skill-stand-up",
+    "name": "stand up",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-agents-in-a-stand-up-call"
+    ],
+    "courses": [
+      "course-ai-agents-in-a-stand-up-call"
+    ],
+    "updatedAt": "2026-10-11T15:44:45.634Z"
+  },
+  {
+    "id": "skill-spring boot",
+    "name": "spring boot",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "gatool"
+    ],
+    "courses": [
+      "course-gatool"
+    ],
+    "updatedAt": "2026-10-11T15:44:45.634Z"
   }
 ]
