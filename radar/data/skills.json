@@ -221,7 +221,10 @@
       "shellshock",
       "pi-forge",
       "gatool",
-      "laya-guard"
+      "laya-guard",
+      "boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b",
+      "enso-method",
+      "e2e"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -440,7 +443,10 @@
       "course-shellshock",
       "course-pi-forge",
       "course-gatool",
-      "course-laya-guard"
+      "course-laya-guard",
+      "course-boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b",
+      "course-enso-method",
+      "course-e2e"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -629,7 +635,14 @@
       "ufcagent",
       "pi-forge",
       "guilds",
-      "laya-guard"
+      "laya-guard",
+      "a-youtube-transcript-cli-built-for-humans-and-ai-agents",
+      "ihmt",
+      "weekend-hack",
+      "e2e",
+      "new-term-radar",
+      "discord-server-raider",
+      "awesome-iran-mcp"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -719,7 +732,14 @@
       "course-ufcagent",
       "course-pi-forge",
       "course-guilds",
-      "course-laya-guard"
+      "course-laya-guard",
+      "course-a-youtube-transcript-cli-built-for-humans-and-ai-agents",
+      "course-ihmt",
+      "course-weekend-hack",
+      "course-e2e",
+      "course-new-term-radar",
+      "course-discord-server-raider",
+      "course-awesome-iran-mcp"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1170,7 +1190,16 @@
       "ai-agents-in-a-stand-up-call",
       "botmail-a-mailbox-for-every-ai-agent",
       "flights-for-agents",
-      "guilds"
+      "guilds",
+      "organ",
+      "search-123-ai-labs-jobs-from-your-own-agent-no-signup",
+      "a-youtube-transcript-cli-built-for-humans-and-ai-agents",
+      "ihmt",
+      "weekend-hack",
+      "e2e",
+      "beeuni",
+      "discord-server-raider",
+      "awesome-iran-mcp"
     ],
     "courses": [
       "course-headless-tools",
@@ -1450,7 +1479,16 @@
       "course-ai-agents-in-a-stand-up-call",
       "course-botmail-a-mailbox-for-every-ai-agent",
       "course-flights-for-agents",
-      "course-guilds"
+      "course-guilds",
+      "course-organ",
+      "course-search-123-ai-labs-jobs-from-your-own-agent-no-signup",
+      "course-a-youtube-transcript-cli-built-for-humans-and-ai-agents",
+      "course-ihmt",
+      "course-weekend-hack",
+      "course-e2e",
+      "course-beeuni",
+      "course-discord-server-raider",
+      "course-awesome-iran-mcp"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1656,7 +1694,9 @@
       "ai-agents-in-a-stand-up-call",
       "seodatadev-11-free-search-data-for-ai-agents",
       "botmail-a-mailbox-for-every-ai-agent",
-      "flights-for-agents"
+      "flights-for-agents",
+      "organ",
+      "beeuni"
     ],
     "courses": [
       "course-headless-tools",
@@ -1840,7 +1880,9 @@
       "course-ai-agents-in-a-stand-up-call",
       "course-seodatadev-11-free-search-data-for-ai-agents",
       "course-botmail-a-mailbox-for-every-ai-agent",
-      "course-flights-for-agents"
+      "course-flights-for-agents",
+      "course-organ",
+      "course-beeuni"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1944,7 +1986,9 @@
       "whirl",
       "self-bench",
       "llm-skill-to-generate-editable-3d-house-designs",
-      "guilds"
+      "guilds",
+      "boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b",
+      "ihmt"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -1998,7 +2042,9 @@
       "course-whirl",
       "course-self-bench",
       "course-llm-skill-to-generate-editable-3d-house-designs",
-      "course-guilds"
+      "course-guilds",
+      "course-boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b",
+      "course-ihmt"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2676,7 +2722,8 @@
       "dotpals",
       "senro",
       "an-mcp-server-for-searching-ai-engineering-jobs",
-      "gatool"
+      "gatool",
+      "awesome-iran-mcp"
     ],
     "courses": [
       "course-coolplugz",
@@ -2717,7 +2764,8 @@
       "course-dotpals",
       "course-senro",
       "course-an-mcp-server-for-searching-ai-engineering-jobs",
-      "course-gatool"
+      "course-gatool",
+      "course-awesome-iran-mcp"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2938,7 +2986,8 @@
       "free-ai-slop-checker-find-the-signs-of-ai-writing",
       "pyunto",
       "whirl",
-      "lacuna"
+      "lacuna",
+      "authrot"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -2969,7 +3018,8 @@
       "course-free-ai-slop-checker-find-the-signs-of-ai-writing",
       "course-pyunto",
       "course-whirl",
-      "course-lacuna"
+      "course-lacuna",
+      "course-authrot"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3037,7 +3087,8 @@
       "how-to-build-effective-evals-for-ai-agents",
       "mcpjam",
       "emulate-ai",
-      "plushcrew"
+      "plushcrew",
+      "e2e"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -3055,7 +3106,8 @@
       "course-how-to-build-effective-evals-for-ai-agents",
       "course-mcpjam",
       "course-emulate-ai",
-      "course-plushcrew"
+      "course-plushcrew",
+      "course-e2e"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3523,7 +3575,10 @@
       "a-new-ai-agent-oriented-programming-language",
       "muselite",
       "senro",
-      "gatool"
+      "gatool",
+      "a-youtube-transcript-cli-built-for-humans-and-ai-agents",
+      "ihmt",
+      "beeuni"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3575,7 +3630,10 @@
       "course-a-new-ai-agent-oriented-programming-language",
       "course-muselite",
       "course-senro",
-      "course-gatool"
+      "course-gatool",
+      "course-a-youtube-transcript-cli-built-for-humans-and-ai-agents",
+      "course-ihmt",
+      "course-beeuni"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3932,7 +3990,8 @@
       "layer",
       "spectromood-speech-emotion-detection-with-a-decision-model",
       "tessary",
-      "seodatadev-11-free-search-data-for-ai-agents"
+      "seodatadev-11-free-search-data-for-ai-agents",
+      "new-term-radar"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -3996,7 +4055,8 @@
       "course-layer",
       "course-spectromood-speech-emotion-detection-with-a-decision-model",
       "course-tessary",
-      "course-seodatadev-11-free-search-data-for-ai-agents"
+      "course-seodatadev-11-free-search-data-for-ai-agents",
+      "course-new-term-radar"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4481,14 +4541,16 @@
       "mu",
       "datalume",
       "meshdrive-and-local-ai-agent-for-fs",
-      "ufcagent"
+      "ufcagent",
+      "search-123-ai-labs-jobs-from-your-own-agent-no-signup"
     ],
     "courses": [
       "course-aifi-on-aws",
       "course-mu",
       "course-datalume",
       "course-meshdrive-and-local-ai-agent-for-fs",
-      "course-ufcagent"
+      "course-ufcagent",
+      "course-search-123-ai-labs-jobs-from-your-own-agent-no-signup"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4560,7 +4622,8 @@
       "agentcap",
       "glance",
       "dotpals",
-      "sulcus"
+      "sulcus",
+      "new-term-radar"
     ],
     "courses": [
       "course-agenttrail",
@@ -4577,7 +4640,8 @@
       "course-agentcap",
       "course-glance",
       "course-dotpals",
-      "course-sulcus"
+      "course-sulcus",
+      "course-new-term-radar"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4932,7 +4996,8 @@
       "check-how-readable-your-docs-are-to-ai-agents",
       "ariodb",
       "my-radio-station-calls-its-listeners",
-      "laya-guard"
+      "laya-guard",
+      "awesome-iran-mcp"
     ],
     "courses": [
       "course-placeroot",
@@ -4976,7 +5041,8 @@
       "course-check-how-readable-your-docs-are-to-ai-agents",
       "course-ariodb",
       "course-my-radio-station-calls-its-listeners",
-      "course-laya-guard"
+      "course-laya-guard",
+      "course-awesome-iran-mcp"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5302,13 +5368,15 @@
       "devx",
       "ai-agents-started-emailing-philosophers-and-researchers",
       "andon-labs-puts-ai-agents-in-charge-of-real-businesses",
-      "openwants"
+      "openwants",
+      "organ"
     ],
     "courses": [
       "course-devx",
       "course-ai-agents-started-emailing-philosophers-and-researchers",
       "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses",
-      "course-openwants"
+      "course-openwants",
+      "course-organ"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5377,7 +5445,8 @@
       "now",
       "run-osier-to-track-how-your-ai-coding-agent-does",
       "agent-history-cli",
-      "shellshock"
+      "shellshock",
+      "a-youtube-transcript-cli-built-for-humans-and-ai-agents"
     ],
     "courses": [
       "course-devx",
@@ -5403,7 +5472,8 @@
       "course-now",
       "course-run-osier-to-track-how-your-ai-coding-agent-does",
       "course-agent-history-cli",
-      "course-shellshock"
+      "course-shellshock",
+      "course-a-youtube-transcript-cli-built-for-humans-and-ai-agents"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6449,13 +6519,15 @@
       "ai-game-playtester",
       "argus-open-source-ai-agents-for-testing-web-apps",
       "designing-tests-for-agentic-ai-tools",
-      "clientcoded"
+      "clientcoded",
+      "e2e"
     ],
     "courses": [
       "course-ai-game-playtester",
       "course-argus-open-source-ai-agents-for-testing-web-apps",
       "course-designing-tests-for-agentic-ai-tools",
-      "course-clientcoded"
+      "course-clientcoded",
+      "course-e2e"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -6724,7 +6796,8 @@
       "ai-coding-agents-forget-the-codebase-between-sessions",
       "nimvarya",
       "static-hosting-a-coding-agent-can-drive-end-to-end",
-      "stateful-linux-microvms-for-coding-agents"
+      "stateful-linux-microvms-for-coding-agents",
+      "enso-method"
     ],
     "courses": [
       "course-agentseed-mcp",
@@ -6733,7 +6806,8 @@
       "course-ai-coding-agents-forget-the-codebase-between-sessions",
       "course-nimvarya",
       "course-static-hosting-a-coding-agent-can-drive-end-to-end",
-      "course-stateful-linux-microvms-for-coding-agents"
+      "course-stateful-linux-microvms-for-coding-agents",
+      "course-enso-method"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -7705,7 +7779,8 @@
       "yourchar",
       "whirl",
       "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
-      "memdebug"
+      "memdebug",
+      "ihmt"
     ],
     "courses": [
       "course-itsuki",
@@ -7725,7 +7800,8 @@
       "course-yourchar",
       "course-whirl",
       "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
-      "course-memdebug"
+      "course-memdebug",
+      "course-ihmt"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -7874,14 +7950,16 @@
       "compilrdev-studio",
       "ai-memory-20",
       "ai-coding-agents-forget-the-codebase-between-sessions",
-      "remarc"
+      "remarc",
+      "ihmt"
     ],
     "courses": [
       "course-opencontext",
       "course-compilrdev-studio",
       "course-ai-memory-20",
       "course-ai-coding-agents-forget-the-codebase-between-sessions",
-      "course-remarc"
+      "course-remarc",
+      "course-ihmt"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -13390,10 +13468,12 @@
     "domain": "writing",
     "level": "beginner",
     "toolsTeaching": [
-      "gen-ai-tools-are-now-being-used-to-push-slop-jihad"
+      "gen-ai-tools-are-now-being-used-to-push-slop-jihad",
+      "discord-server-raider"
     ],
     "courses": [
-      "course-gen-ai-tools-are-now-being-used-to-push-slop-jihad"
+      "course-gen-ai-tools-are-now-being-used-to-push-slop-jihad",
+      "course-discord-server-raider"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -13715,14 +13795,16 @@
       "radio",
       "drama-song-ad",
       "ui-for-answering-agent-questions-async",
-      "vendiq"
+      "vendiq",
+      "enso-method"
     ],
     "courses": [
       "course-logitech-launches-mx-keypad-for-developers",
       "course-radio",
       "course-drama-song-ad",
       "course-ui-for-answering-agent-questions-async",
-      "course-vendiq"
+      "course-vendiq",
+      "course-enso-method"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -13869,11 +13951,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "felan",
-      "virgil"
+      "virgil",
+      "boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b"
     ],
     "courses": [
       "course-felan",
-      "course-virgil"
+      "course-virgil",
+      "course-boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b"
     ],
     "updatedAt": "2026-09-08T23:40:07.345Z"
   },
@@ -13884,11 +13968,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "built-myself-a-super-youtube-post-prod-studio",
-      "short-video-maker"
+      "short-video-maker",
+      "a-youtube-transcript-cli-built-for-humans-and-ai-agents"
     ],
     "courses": [
       "course-built-myself-a-super-youtube-post-prod-studio",
-      "course-short-video-maker"
+      "course-short-video-maker",
+      "course-a-youtube-transcript-cli-built-for-humans-and-ai-agents"
     ],
     "updatedAt": "2026-09-08T23:40:07.345Z"
   },
@@ -16095,12 +16181,14 @@
     "toolsTeaching": [
       "spitewareai",
       "ranking-the-most-ai-agent-friendly-tools",
-      "the-poteto-frontier-for-ai-agents"
+      "the-poteto-frontier-for-ai-agents",
+      "new-term-radar"
     ],
     "courses": [
       "course-spitewareai",
       "course-ranking-the-most-ai-agent-friendly-tools",
-      "course-the-poteto-frontier-for-ai-agents"
+      "course-the-poteto-frontier-for-ai-agents",
+      "course-new-term-radar"
     ],
     "updatedAt": "2026-09-12T12:53:23.830Z"
   },
@@ -16416,11 +16504,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "scaling-classical-music-concert-crawlers-with-ai-agents",
-      "google-maps-scraper-mcp"
+      "google-maps-scraper-mcp",
+      "weekend-hack"
     ],
     "courses": [
       "course-scaling-classical-music-concert-crawlers-with-ai-agents",
-      "course-google-maps-scraper-mcp"
+      "course-google-maps-scraper-mcp",
+      "course-weekend-hack"
     ],
     "updatedAt": "2026-09-12T23:23:08.913Z"
   },
@@ -22386,10 +22476,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "talorys"
+      "talorys",
+      "weekend-hack"
     ],
     "courses": [
-      "course-talorys"
+      "course-talorys",
+      "course-weekend-hack"
     ],
     "updatedAt": "2026-10-10T15:24:25.498Z"
   },
@@ -22529,10 +22621,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "korosta"
+      "korosta",
+      "search-123-ai-labs-jobs-from-your-own-agent-no-signup"
     ],
     "courses": [
-      "course-korosta"
+      "course-korosta",
+      "course-search-123-ai-labs-jobs-from-your-own-agent-no-signup"
     ],
     "updatedAt": "2026-10-11T15:44:45.634Z"
   },
@@ -22639,5 +22733,343 @@
       "course-flights-for-agents"
     ],
     "updatedAt": "2026-10-12T00:43:56.627Z"
+  },
+  {
+    "id": "skill-story analysis",
+    "name": "story analysis",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "authrot"
+    ],
+    "courses": [
+      "course-authrot"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-graphing",
+    "name": "graphing",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "authrot"
+    ],
+    "courses": [
+      "course-authrot"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-fiction",
+    "name": "fiction",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "authrot"
+    ],
+    "courses": [
+      "course-authrot"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-narrative",
+    "name": "narrative",
+    "domain": "writing",
+    "level": "beginner",
+    "toolsTeaching": [
+      "authrot"
+    ],
+    "courses": [
+      "course-authrot"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-quantization",
+    "name": "quantization",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b"
+    ],
+    "courses": [
+      "course-boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-1-bit",
+    "name": "1 bit",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b"
+    ],
+    "courses": [
+      "course-boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-open-weights",
+    "name": "open weights",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b"
+    ],
+    "courses": [
+      "course-boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-business operations",
+    "name": "business operations",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "organ"
+    ],
+    "courses": [
+      "course-organ"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-executive",
+    "name": "executive",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "organ"
+    ],
+    "courses": [
+      "course-organ"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-agent-skills",
+    "name": "agent skills",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "enso-method"
+    ],
+    "courses": [
+      "course-enso-method"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-methodology",
+    "name": "methodology",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "enso-method"
+    ],
+    "courses": [
+      "course-enso-method"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-software-development",
+    "name": "software development",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "enso-method"
+    ],
+    "courses": [
+      "course-enso-method"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-ai labs",
+    "name": "ai labs",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "search-123-ai-labs-jobs-from-your-own-agent-no-signup"
+    ],
+    "courses": [
+      "course-search-123-ai-labs-jobs-from-your-own-agent-no-signup"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-careers",
+    "name": "careers",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "search-123-ai-labs-jobs-from-your-own-agent-no-signup"
+    ],
+    "courses": [
+      "course-search-123-ai-labs-jobs-from-your-own-agent-no-signup"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-recruitment",
+    "name": "recruitment",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "search-123-ai-labs-jobs-from-your-own-agent-no-signup"
+    ],
+    "courses": [
+      "course-search-123-ai-labs-jobs-from-your-own-agent-no-signup"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-transcript",
+    "name": "transcript",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "a-youtube-transcript-cli-built-for-humans-and-ai-agents"
+    ],
+    "courses": [
+      "course-a-youtube-transcript-cli-built-for-humans-and-ai-agents"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-captcha",
+    "name": "captcha",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "weekend-hack"
+    ],
+    "courses": [
+      "course-weekend-hack"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-agentic",
+    "name": "agentic",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "e2e"
+    ],
+    "courses": [
+      "course-e2e"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-developer platform",
+    "name": "developer platform",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "beeuni"
+    ],
+    "courses": [
+      "course-beeuni"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-ai computer",
+    "name": "ai computer",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "beeuni"
+    ],
+    "courses": [
+      "course-beeuni"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-trend-tracking",
+    "name": "trend tracking",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "new-term-radar"
+    ],
+    "courses": [
+      "course-new-term-radar"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-ai-models",
+    "name": "ai models",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "new-term-radar"
+    ],
+    "courses": [
+      "course-new-term-radar"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-discord",
+    "name": "discord",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "discord-server-raider"
+    ],
+    "courses": [
+      "course-discord-server-raider"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-bot",
+    "name": "bot",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "discord-server-raider"
+    ],
+    "courses": [
+      "course-discord-server-raider"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-iran",
+    "name": "iran",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "awesome-iran-mcp"
+    ],
+    "courses": [
+      "course-awesome-iran-mcp"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-integrations",
+    "name": "integrations",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "awesome-iran-mcp"
+    ],
+    "courses": [
+      "course-awesome-iran-mcp"
+    ],
+    "updatedAt": "2026-10-12T19:05:40.043Z"
   }
 ]

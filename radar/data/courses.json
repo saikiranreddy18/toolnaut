@@ -34745,5 +34745,718 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-12T00:43:56.627Z"
+  },
+  {
+    "id": "course-authrot",
+    "toolSlug": "authrot",
+    "title": "Master Authrot",
+    "objectives": [
+      "Upload a chapter and extract its characters, plot points, and story elements",
+      "Read and navigate the automatically generated story graph",
+      "Manually add, edit, and link story elements to correct extraction gaps"
+    ],
+    "modules": [
+      {
+        "title": "First Scan: Import a Chapter",
+        "estMinutes": 15,
+        "steps": [
+          "Create a new project, name it, and set the genre so Authrot tunes its extraction model",
+          "Use Import > Chapter to upload a .txt or .docx file (or paste text directly), then click 'Extract Elements'",
+          "Run 'Preview Extraction' to see the raw list of detected characters, plot points, and settings before confirming"
+        ]
+      },
+      {
+        "title": "Exploring the Story Graph",
+        "estMinutes": 20,
+        "steps": [
+          "Open the Graph view and identify node types: circles for characters, squares for plot points, diamonds for settings",
+          "Click a character node to open its detail panel and review all extracted mentions and relationships",
+          "Use filters to isolate one character's connections and zoom/drag to trace how plot points link across the chapter"
+        ]
+      },
+      {
+        "title": "Fixing and Extending the Graph",
+        "estMinutes": 20,
+        "steps": [
+          "Right-click anywhere on the graph to manually add a missed character or plot point, then drag edges to link it to existing nodes",
+          "Merge duplicate nodes Authrot created for the same character (e.g., 'Sarah' vs. 'Dr. Chen') using Edit > Merge Nodes",
+          "Import a second chapter, enable 'Link to Existing Elements,' and verify recurring characters attach to their original nodes instead of duplicating"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-story analysis",
+      "skill-graphing",
+      "skill-fiction",
+      "skill-narrative"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "course-boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b",
+    "toolSlug": "boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b",
+    "title": "Master Boole-1.7B, a 1-bit LLM that outperforms Bonsai-1.7B",
+    "objectives": [
+      "Deploy Boole-1.7B locally using bitnet.cpp and verify 1-bit inference works end-to-end",
+      "Benchmark Boole-1.7B against Bonsai-1.7B on latency, memory, and task accuracy",
+      "Integrate Boole-1.7B into an application with appropriate decoding and prompt settings for a 1-bit model"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Inference with 1-Bit Weights",
+        "estMinutes": 30,
+        "steps": [
+          "Clone the official Boole/b1.58-capable runtime (bitnet.cpp or the model's provided fork), build with `cmake -B build && cmake --build build --config Release`",
+          "Download the Boole-1.7B quantized ternary weights and tokenizer files into your models directory",
+          "Run a test generation (e.g. `python run_inference.py -m Boole-1.7B-ggml -p 'Explain ternary quantization' -n 128`) and confirm tokens/sec and peak RAM are logged"
+        ]
+      },
+      {
+        "title": "Benchmarking Boole-1.7B vs Bonsai-1.7B",
+        "estMinutes": 40,
+        "steps": [
+          "Measure both models on identical hardware: tokens/sec at 512-token generation, RSS memory during load, and model size on disk",
+          "Run a fixed eval suite (e.g. 200 prompts from ARC-C, HellaSwag subsets, and 20 domain-specific QA pairs) through both models with identical decoding configs",
+          "Tabulate results in a CSV comparing throughput, memory footprint, and accuracy deltas; identify where the 1-bit model regresses (e.g. math, long-form coherence)"
+        ]
+      },
+      {
+        "title": "Production Deployment of a 1-Bit Model",
+        "estMinutes": 35,
+        "steps": [
+          "Wrap the model behind a lightweight server (llama.cpp-compatible endpoint or FastAPI) with streaming token output",
+          "Tune decoding for ternary weights: lower temperature (0.3–0.7), moderate top-p, and repetition penalty to counter quality degradation typical of extreme quantization",
+          "Add guardrails — system prompts, output length caps, and a fallback path to a full-precision model for low-confidence or failed-format outputs"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-llm",
+      "skill-quantization",
+      "skill-1-bit",
+      "skill-open-weights",
+      "skill-efficiency"
+    ],
+    "prerequisites": [
+      "Experience deploying open-weight LLMs locally (llama.cpp or similar runtimes)",
+      "Understanding of quantization concepts (INT8, INT4) and their quality/size tradeoffs",
+      "Comfort with Python, C/C++ build toolchains, and command-line benchmarking"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "course-organ",
+    "toolSlug": "organ",
+    "title": "Master Organ",
+    "objectives": [
+      "Provision an AI executive in Organ with a defined business model and budget",
+      "Configure autonomy boundaries: spend limits, approval gates, and escalation rules",
+      "Monitor a live AI-run operation and intervene using Organ's override controls"
+    ],
+    "modules": [
+      {
+        "title": "Setting Up Your First AI Executive",
+        "estMinutes": 25,
+        "steps": [
+          "Create a workspace in Organ and generate an executive using the 'New Executive' wizard, selecting a business domain (e.g., e-commerce, SaaS, content agency)",
+          "Write the executive's charter: define the revenue goal, allowed tools (Stripe, email, hosting), and operating budget in the charter.yaml config",
+          "Run the executive in dry-run mode for one simulated week and review the generated decision log before enabling live mode"
+        ]
+      },
+      {
+        "title": "Autonomy Boundaries and Approval Gates",
+        "estMinutes": 20,
+        "steps": [
+          "Set spending thresholds in the governance panel (e.g., auto-approve <$50, require human sign-off above $500) and test with a sample purchase request",
+          "Define escalation triggers: configure rules for when the executive must pause and notify you (legal agreements, refunds over limit, brand-sensitive communications)",
+          "Review the executive's first three real decisions and either approve, reject, or edit them via the approval queue in the dashboard"
+        ]
+      },
+      {
+        "title": "Monitoring, Auditing, and Course-Correcting",
+        "estMinutes": 30,
+        "steps": [
+          "Read the executive's daily decision journal and trace one customer-facing action end-to-end from trigger to outcome",
+          "Use Organ's replay feature to inspect a failed decision and annotate it with corrective feedback the executive will learn from",
+          "Trigger a manual override mid-operation, adjust the charter constraints, and redeploy the executive with a versioned config"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-autonomous",
+      "skill-business operations",
+      "skill-executive"
+    ],
+    "prerequisites": [
+      "Basic familiarity with YAML configuration files",
+      "Understanding of unit economics (CAC, margins, budget limits)",
+      "An Organ account with live-mode access enabled"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "course-enso-method",
+    "toolSlug": "enso-method",
+    "title": "Master Enso Method",
+    "objectives": [
+      "Configure an AI coding agent with Enso skills to act on behalf of a client stakeholder",
+      "Structure Enso method contracts (requirements, acceptance criteria, constraints) before delegating code generation",
+      "Run review-and-handoff loops so agent output matches client intent, not just literal instructions"
+    ],
+    "modules": [
+      {
+        "title": "Enso Method Foundations: Acting for Someone Else",
+        "estMinutes": 35,
+        "steps": [
+          "Install the Enso method package and scaffold a new agent workspace with `enso init --for client` to create the client-intent directory structure",
+          "Write a stakeholder brief in `intent/brief.md` capturing who the software is for, their goals, and non-negotiables, then load it into the agent context",
+          "Run `enso brief validate` to check the brief for ambiguity flags and resolve each flagged item before any code task is issued"
+        ]
+      },
+      {
+        "title": "Delegating Work via Skills and Contracts",
+        "estMinutes": 45,
+        "steps": [
+          "Define a method contract for one feature: inputs, acceptance criteria, out-of-scope items, and client constraints (stack, licensing, style)",
+          "Attach two Enso skills to the agent (e.g., `implement-from-contract` and `self-review-against-brief`) and run the feature task end to end",
+          "Inspect the agent's contract-compliance report and tighten any criterion that was interpreted too loosely"
+        ]
+      },
+      {
+        "title": "Review Loops and Client-Ready Handoff",
+        "estMinutes": 40,
+        "steps": [
+          "Trigger the Enso review loop with `enso review --rounds 3`, letting the agent critique its own diff against the brief and contract each round",
+          "Generate the handoff package (`enso handoff`) containing decision log, trade-off notes, and open questions written for the client, not the agent",
+          "Simulate a client change request, update the brief, and rerun the affected contract to verify the agent revises instead of rewrites from scratch"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-agent-skills",
+      "skill-coding-agents",
+      "skill-methodology",
+      "skill-software-development",
+      "skill-workflow"
+    ],
+    "prerequisites": [
+      "Experience directing AI coding agents (prompting, tool use, context management)",
+      "Familiarity with writing acceptance criteria and scoping software work for clients",
+      "Comfort reading diffs and evaluating generated code critically"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "course-search-123-ai-labs-jobs-from-your-own-agent-no-signup",
+    "toolSlug": "search-123-ai-labs-jobs-from-your-own-agent-no-signup",
+    "title": "Master Search 123 AI labs' jobs from your own agent, no signup",
+    "objectives": [
+      "Set up your AI agent to browse job pages without creating any accounts",
+      "Query 123+ AI labs' public career pages from a single prompt",
+      "Filter and shortlist relevant openings into a tracking file"
+    ],
+    "modules": [
+      {
+        "title": "Give Your Agent Browsing Ability",
+        "estMinutes": 15,
+        "steps": [
+          "Install an agent with web access (e.g., Claude with MCP fetch/server tool, or ChatGPT with browsing enabled) — no signup at the labs' sites needed",
+          "Test it: ask the agent 'Fetch the careers page at openai.com/careers and list 3 open roles'",
+          "If direct fetch fails, enable the agent's web-search tool and retry with 'site: openai.com careers engineer'"
+        ]
+      },
+      {
+        "title": "Build Your AI-Lab Search Prompt",
+        "estMinutes": 20,
+        "steps": [
+          "Paste a list of target labs (Anthropic, OpenAI, DeepMind, xAI, Mistral, Cohere, Scale, Hugging Face, etc.) into a reusable prompt template",
+          "Ask the agent: 'Search careers pages and public job boards (Greenhouse, Lever, Ashby) for [role] at these labs, return title, location, and URL'",
+          "Refine results with constraints: remote/location, seniority, team (research vs. applied), and date posted"
+        ]
+      },
+      {
+        "title": "Automate and Track Openings",
+        "estMinutes": 15,
+        "steps": [
+          "Save your best-performing prompt as a reusable skill/template file in your agent",
+          "Have the agent write results to a CSV or markdown tracker with columns: lab, role, URL, date found, status",
+          "Rerun the search weekly by re-invoking the saved prompt and ask the agent to diff against last week's tracker and flag new postings"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-job search",
+      "skill-ai labs",
+      "skill-agent",
+      "skill-careers",
+      "skill-recruitment"
+    ],
+    "prerequisites": [
+      "An AI agent with web browsing or search capability",
+      "A rough target role and location preference"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "course-a-youtube-transcript-cli-built-for-humans-and-ai-agents",
+    "toolSlug": "a-youtube-transcript-cli-built-for-humans-and-ai-agents",
+    "title": "Master A YouTube Transcript CLI Built for Humans and AI Agents",
+    "objectives": [
+      "Install and configure the transcript CLI for both interactive and scripted use",
+      "Fetch, filter, and format YouTube transcripts from the command line",
+      "Integrate transcript output into agent pipelines and automation workflows"
+    ],
+    "modules": [
+      {
+        "title": "Install and First Fetch",
+        "estMinutes": 10,
+        "steps": [
+          "Install the CLI via npm/pip (e.g., `npm i -g yt-transcript-cli`) and verify with `--help`",
+          "Run a first fetch: `yt-transcript https://youtube.com/watch?v=VIDEO_ID` and confirm plain-text output to stdout",
+          "Explore output flags (`--format json|srt|text`) and pick a default via config or env var"
+        ]
+      },
+      {
+        "title": "Filtering, Languages, and Timestamps",
+        "estMinutes": 12,
+        "steps": [
+          "List available caption tracks with `--list-langs` and fetch a specific language with `--lang es`",
+          "Toggle timestamps with `--timestamps` and control segment merging with `--merge` for cleaner text",
+          "Practice batch mode: pass a file of video URLs with `--batch urls.txt --outdir ./transcripts`"
+        ]
+      },
+      {
+        "title": "Using the CLI in Agent Workflows",
+        "estMinutes": 13,
+        "steps": [
+          "Use `--format json` and pipe output to `jq` to extract fields an LLM agent needs (text, lang, duration)",
+          "Write a small shell script that fetches a transcript, handles missing-captions errors via exit codes, and saves output",
+          "Wire the CLI into an agent tool definition (e.g., an MCP or function-calling wrapper) with timeout and output-size limits"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-youtube",
+      "skill-transcript",
+      "skill-cli",
+      "skill-open-source",
+      "skill-agents"
+    ],
+    "prerequisites": [
+      "Comfort with basic command-line usage (pipes, redirects, exit codes)",
+      "Node.js or Python installed depending on the CLI's runtime",
+      "A few YouTube video URLs with captions enabled for testing"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "course-ihmt",
+    "toolSlug": "ihmt",
+    "title": "Master IHMT",
+    "objectives": [
+      "Design a hierarchical memory schema with scoped namespaces and eviction policies for an AI agent",
+      "Implement tree traversal and retrieval logic combining semantic search with structural context",
+      "Deploy IHMT in production with persistence, concurrency control, and memory pruning pipelines"
+    ],
+    "modules": [
+      {
+        "title": "Memory Tree Architecture & Schema Design",
+        "estMinutes": 45,
+        "steps": [
+          "Define a 4-level hierarchy (root/domain/episode/fact) with node types: summary nodes at upper levels, raw memory leaves below, and annotate each node with timestamps, access counts, and decay weights",
+          "Implement scoped namespaces (e.g., user:123/preferences vs session:abc/context) so retrieval queries can target specific subtrees without scanning the full tree",
+          "Write a compaction rule: when a domain node exceeds 50 leaf facts, trigger an LLM summarization pass that merges leaves into the parent summary and archives originals"
+        ]
+      },
+      {
+        "title": "Hybrid Retrieval: Semantics + Tree Structure",
+        "estMinutes": 50,
+        "steps": [
+          "Embed each leaf node and store vectors alongside tree position; implement retrieval that runs vector similarity first, then walks up 2 ancestor levels to pull in parent summaries as structural context",
+          "Build a two-stage query pipeline: route the query to the top-3 relevant domain subtrees via summary embeddings, then rank leaves within those subtrees using a weighted score (0.6 similarity + 0.25 recency + 0.15 access frequency)",
+          "Add a context-assembly function that formats retrieved nodes into the agent prompt as indented hierarchy (domain > episode > facts) and enforces a token budget via bottom-up truncation"
+        ]
+      },
+      {
+        "title": "Production Operations: Persistence, Concurrency, Pruning",
+        "estMinutes": 40,
+        "steps": [
+          "Persist the tree in a dual store: graph/relational DB for structure plus vector DB for embeddings, with write-ahead logging so a crash mid-summarization never corrupts parent-child links",
+          "Handle concurrent agent writes with node-level optimistic locking and a merge queue that serializes compaction jobs per subtree to prevent race conditions during summarization",
+          "Schedule a nightly pruning job that applies decay scoring, evicts leaves below threshold after 30 days of no access, and emits metrics (tree depth, node count, retrieval hit rate) to your observability stack"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-memory",
+      "skill-agents",
+      "skill-llm",
+      "skill-open-source",
+      "skill-context"
+    ],
+    "prerequisites": [
+      "Experience building LLM agents with tool-use or RAG pipelines",
+      "Working knowledge of vector databases and embedding-based retrieval",
+      "Familiarity with tree/graph data structures and basic database transactions"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "course-weekend-hack",
+    "toolSlug": "weekend-hack",
+    "title": "Master Weekend hack",
+    "objectives": [
+      "Understand what Weekend hack is for",
+      "Use Weekend hack on a real task",
+      "Know where Weekend hack fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Weekend hack for your real workflow, not the demo.",
+          "Say what Weekend hack does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Weekend hack.",
+          "Push Weekend hack to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Weekend hack into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-captcha",
+      "skill-cloudflare",
+      "skill-scraping",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "course-e2e",
+    "toolSlug": "e2e",
+    "title": "Master E2E",
+    "objectives": [
+      "Deploy and orchestrate E2E agents to autonomously test web, iOS, and Android apps",
+      "Build resilient test suites combining intent-based prompts with deterministic assertions",
+      "Integrate E2E into CI/CD pipelines with artifact capture and failure triage"
+    ],
+    "modules": [
+      {
+        "title": "Architecture and Agent Setup",
+        "estMinutes": 45,
+        "steps": [
+          "Install the E2E CLI, authenticate with your API key, and run `e2e init` to scaffold a project with web and mobile targets",
+          "Configure environment profiles (staging vs. prod) with base URLs, device farms, and credentials in `e2e.config.yaml`",
+          "Run your first agentic test by describing intent in natural language (e.g., 'log in and verify dashboard loads') and inspect the agent's step-by-step action trace"
+        ]
+      },
+      {
+        "title": "Writing Resilient Intent-Based Tests",
+        "estMinutes": 60,
+        "steps": [
+          "Author a multi-goal test suite where agents navigate via semantic intent rather than brittle selectors, then add hard assertions for critical checkpoints",
+          "Handle authentication flows, MFA, and dynamic content by defining reusable setup blocks and secrets injection",
+          "Stress-test flakiness: run the suite 20x in parallel, review the flakiness report, and tighten ambiguous prompts that cause divergent agent paths"
+        ]
+      },
+      {
+        "title": "Mobile Testing on iOS and Android",
+        "estMinutes": 50,
+        "steps": [
+          "Point E2E at a debuggable iOS simulator and Android emulator build, granting the agent accessibility-tree access for element discovery",
+          "Write cross-platform tests covering gestures (swipe, long-press), deep links, and push-notification handling, parameterizing per-platform differences"
+        ]
+      },
+      {
+        "title": "CI/CD Integration and Failure Triage",
+        "estMinutes": 40,
+        "steps": [
+          "Add an E2E job to your GitHub Actions/GitLab pipeline that runs the suite on pull requests with sharding and retry policies",
+          "Pipe results to your reporting stack (JUnit XML, Slack webhooks) and configure video/DOM-snapshot artifacts captured on failure",
+          "Practice triage: take a deliberately broken build, read the agent trace plus screenshots, and determine whether the failure is a product bug, prompt ambiguity, or environment issue"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-testing",
+      "skill-agentic",
+      "skill-open-source",
+      "skill-automation",
+      "skill-qa"
+    ],
+    "prerequisites": [
+      "Strong experience with a traditional E2E tool (Playwright, Cypress, or Appium)",
+      "Familiarity with CI/CD pipelines (GitHub Actions or GitLab CI)",
+      "Access to web app staging environment and iOS/Android debug builds"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "course-beeuni",
+    "toolSlug": "beeuni",
+    "title": "Master Beeuni",
+    "objectives": [
+      "Configure and deploy autonomous agents in a Beeuni environment",
+      "Orchestrate multi-agent workflows with shared state and tool access",
+      "Monitor, debug, and optimize agent execution at production scale"
+    ],
+    "modules": [
+      {
+        "title": "Environment Setup & Agent Deployment",
+        "estMinutes": 35,
+        "steps": [
+          "Initialize a Beeuni workspace via CLI with `beeuni init` and configure compute quotas, regions, and API credentials",
+          "Define an agent manifest (model, system prompt, tool permissions, resource limits) and deploy it with a single command",
+          "Verify the agent's runtime by sending a test task and inspecting its execution trace in the Beeuni console"
+        ]
+      },
+      {
+        "title": "Multi-Agent Orchestration",
+        "estMinutes": 45,
+        "steps": [
+          "Create an orchestration graph connecting specialized agents (planner, executor, reviewer) with defined message-passing contracts",
+          "Configure shared memory/state stores so agents can read and write intermediate results without race conditions",
+          "Implement retry, timeout, and fallback policies per agent node and stress-test the graph with a failing subtask"
+        ]
+      },
+      {
+        "title": "Observability, Security & Cost Optimization",
+        "estMinutes": 40,
+        "steps": [
+          "Enable tracing and structured logging, then build a dashboard tracking token usage, latency, and task success rate per agent",
+          "Apply sandboxing and least-privilege tool scopes (filesystem, network, secrets) to limit agent blast radius",
+          "Profile a long-running agent workload, then tune model routing, caching, and parallelism to cut compute cost by a target percentage"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-developer platform",
+      "skill-agents",
+      "skill-ai computer"
+    ],
+    "prerequisites": [
+      "Experience building or prompting LLM-based agents",
+      "Comfort with CLI tooling and YAML/JSON configuration",
+      "Familiarity with distributed systems concepts (queues, state stores, retries)"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "course-new-term-radar",
+    "toolSlug": "new-term-radar",
+    "title": "Master new-term-radar",
+    "objectives": [
+      "Configure radar sources (X, Hugging Face, GitHub, sitemaps) for your niche",
+      "Interpret daily digests and filter signal from noise",
+      "Automate actions on high-value findings (alerts, bookmarks, repo tracking)"
+    ],
+    "modules": [
+      {
+        "title": "Source Setup and Scoping",
+        "estMinutes": 20,
+        "steps": [
+          "Connect GitHub and Hugging Face tokens, then set topic filters (e.g., 'llm-agents', stars>500) to cut digest volume",
+          "Add 5-10 X accounts or lists of model labs/researchers you actually care about instead of broad keyword tracking",
+          "Run a test scan and prune any source contributing more than ~30% low-relevance items"
+        ]
+      },
+      {
+        "title": "Reading the Daily Radar",
+        "estMinutes": 15,
+        "steps": [
+          "Skim the digest top-down: new models first, then trending repos, then product launches, spending under 5 minutes",
+          "Flag 2-3 items per day and open their original links to verify claims against the radar summary",
+          "Adjust the ranking/sorting weights after 3 days based on which flagged items proved useful"
+        ]
+      },
+      {
+        "title": "Triage and Automation",
+        "estMinutes": 25,
+        "steps": [
+          "Set threshold alerts (e.g., repos gaining >1000 stars/day or models beating a benchmark you track) routed to Slack or email",
+          "Star interesting GitHub repos directly from the radar and add a weekly review pass to delete stale stars",
+          "Create a saved-view filter for your exact stack (e.g., 'vision models + Apache-2.0') so Monday digests are pre-filtered"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-trend-tracking",
+      "skill-ai-models",
+      "skill-monitoring",
+      "skill-discovery",
+      "skill-open-source"
+    ],
+    "prerequisites": [
+      "GitHub and Hugging Face accounts with API tokens",
+      "Familiarity with AI model benchmarking basics",
+      "An active X account"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "course-discord-server-raider",
+    "toolSlug": "discord-server-raider",
+    "title": "Master Discord-Server-Raider",
+    "objectives": [
+      "Understand what Discord-Server-Raider is for",
+      "Use Discord-Server-Raider on a real task",
+      "Know where Discord-Server-Raider fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Discord-Server-Raider for your real workflow, not the demo.",
+          "Say what Discord-Server-Raider does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Discord-Server-Raider.",
+          "Push Discord-Server-Raider to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Discord-Server-Raider into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-discord",
+      "skill-moderation",
+      "skill-bot",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "course-awesome-iran-mcp",
+    "toolSlug": "awesome-iran-mcp",
+    "title": "Master awesome-iran-mcp",
+    "objectives": [
+      "Install and connect awesome-iran-mcp servers to an MCP-compatible agent",
+      "Query Iranian services like Digikala and Snappfood through MCP tools",
+      "Configure API keys, endpoints, and troubleshoot common connection errors"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Connection",
+        "estMinutes": 20,
+        "steps": [
+          "Clone the awesome-iran-mcp repo from GitHub and install dependencies with npm or pip as listed in the README",
+          "Add one server (e.g., the Digikala MCP) to your Claude Desktop or Cursor mcpServers config with the correct command and args",
+          "Restart your agent client and confirm the server appears in the available tools list"
+        ]
+      },
+      {
+        "title": "Querying Iranian Services",
+        "estMinutes": 30,
+        "steps": [
+          "Run a product search on Digikala via the exposed MCP tool, e.g., 'find the price of Galaxy A54 on Digikala'",
+          "Query Snappfood for restaurant listings in a specific Tehran neighborhood and inspect the returned JSON",
+          "Chain two calls: fetch product details, then have the agent summarize and compare results in Persian or English"
+        ]
+      },
+      {
+        "title": "Configuration and Troubleshooting",
+        "estMinutes": 25,
+        "steps": [
+          "Add required API tokens or proxy settings to the server env config for services that block non-Iran IPs",
+          "Diagnose a failed tool call by reading the MCP server stderr logs in your client's log panel",
+          "Enable a second and third server from the collection and verify they don't conflict on ports or tool names"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-mcp",
+      "skill-ai-agents",
+      "skill-iran",
+      "skill-open-source",
+      "skill-integrations"
+    ],
+    "prerequisites": [
+      "Node.js or Python installed locally",
+      "An MCP-compatible client (Claude Desktop, Cursor, or similar)",
+      "Basic familiarity with JSON config files",
+      "Access to Iranian services (some may require an Iranian IP or account)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T19:05:40.043Z"
   }
 ]
