@@ -34461,5 +34461,289 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-11T15:44:45.634Z"
+  },
+  {
+    "id": "course-seodatadev-11-free-search-data-for-ai-agents",
+    "toolSlug": "seodatadev-11-free-search-data-for-ai-agents",
+    "title": "Master Seodata.dev (1.1) Free search data for AI agents",
+    "objectives": [
+      "Authenticate and make your first search data request to the Seodata.dev API",
+      "Parse and filter SERP results for use in an AI agent workflow",
+      "Integrate search data retrieval into a simple automated pipeline with error handling"
+    ],
+    "modules": [
+      {
+        "title": "Setup & First Query",
+        "estMinutes": 20,
+        "steps": [
+          "Register at seodata.dev, generate an API key from the dashboard, and store it in a .env file",
+          "Send a GET request with curl or Python requests to the /search endpoint with params q, location, and num results",
+          "Inspect the JSON response and identify the organic results, rank positions, and snippet fields"
+        ]
+      },
+      {
+        "title": "Parsing SERP Data for Agents",
+        "estMinutes": 25,
+        "steps": [
+          "Write a Python function that extracts title, URL, and snippet from the top 10 organic results into a list of dicts",
+          "Filter the results by domain or keyword match to build a targeted context block for an LLM prompt",
+          "Feed the formatted results into an LLM call (e.g., OpenAI or local model) so the agent can answer questions grounded in live search data"
+        ]
+      },
+      {
+        "title": "Building a Reliable Integration",
+        "estMinutes": 30,
+        "steps": [
+          "Add retry logic with exponential backoff (3 attempts) and handle 429 rate-limit and 5xx responses",
+          "Cache responses for a query+location key for 1 hour to avoid redundant API calls",
+          "Build a small CLI or FastAPI endpoint that accepts a query, returns cleaned search data, and logs request latency"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-search data",
+      "skill-api",
+      "skill-ai agents",
+      "skill-seo",
+      "skill-free"
+    ],
+    "prerequisites": [
+      "Basic Python and REST API experience",
+      "Familiarity with JSON and environment variables",
+      "Optional: an OpenAI or other LLM API key for the agent module"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T00:43:56.627Z"
+  },
+  {
+    "id": "course-botmail-a-mailbox-for-every-ai-agent",
+    "toolSlug": "botmail-a-mailbox-for-every-ai-agent",
+    "title": "Master Botmail: A mailbox for every AI agent",
+    "objectives": [
+      "Provision a dedicated mailbox for an AI agent and verify sending/receiving programmatically",
+      "Wire inbound email to an agent reply loop with webhooks or polling",
+      "Apply scoping, rate limits, and audit logging so agents handle email safely"
+    ],
+    "modules": [
+      {
+        "title": "Create and Configure an Agent Mailbox",
+        "estMinutes": 20,
+        "steps": [
+          "Sign up for Botmail, create a project, and generate an API key with mailbox:read and mailbox:send scopes",
+          "Provision a mailbox (e.g., support-bot@<yourdomain>.botmail.io) and set its display name and signature block",
+          "Send a test message via the REST API (POST /v1/messages with from/to/subject/body) and confirm delivery in the dashboard"
+        ]
+      },
+      {
+        "title": "Receive and Route Inbound Email",
+        "estMinutes": 30,
+        "steps": [
+          "Register a webhook endpoint (POST /v1/webhooks) subscribed to message.received events for your mailbox",
+          "Parse the webhook payload to extract sender, subject, body, and thread_id, and verify the webhook signature header",
+          "Pass extracted email content to your LLM agent and log each message with its mailbox ID and timestamp"
+        ]
+      },
+      {
+        "title": "Reply Loop and Thread Management",
+        "estMinutes": 35,
+        "steps": [
+          "Generate an agent reply and send it back preserving threading by including the original message's thread_id and In-Reply-To header",
+          "Implement a guardrail: only auto-reply if the sender domain is allowlisted and the message doesn't contain an unsubscribe or legal keyword",
+          "Test the full loop: email in → webhook → agent → reply, then inspect the thread view to confirm correct ordering"
+        ]
+      },
+      {
+        "title": "Safety, Rate Limits, and Monitoring",
+        "estMinutes": 20,
+        "steps": [
+          "Configure per-mailbox rate limits (e.g., 50 sends/hour) and set an approval-required flag for outbound mail to new recipients",
+          "Enable audit logging and add a redact filter for API keys or credentials appearing in outbound agent text",
+          "Set up an alert (webhook on send.failed and bounce.received) and run a load test with 20 simulated inbound emails"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-email",
+      "skill-ai agents",
+      "skill-infrastructure",
+      "skill-messaging"
+    ],
+    "prerequisites": [
+      "Basic REST API and webhook experience",
+      "An existing LLM agent or script that can receive a text prompt and return a reply"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T00:43:56.627Z"
+  },
+  {
+    "id": "course-flights-for-agents",
+    "toolSlug": "flights-for-agents",
+    "title": "Master Flights for Agents",
+    "objectives": [
+      "Authenticate against Skye's partner API and configure an agent to search and book flights",
+      "Implement a complete search-to-booking flow with fare offers and error handling",
+      "Handle ancillary operations like retrieving bookings, cancellations, and disruptions"
+    ],
+    "modules": [
+      {
+        "title": "API Setup and Authentication",
+        "estMinutes": 25,
+        "steps": [
+          "Register on Skye's partner portal to obtain API credentials and set up an agent identity",
+          "Make an authenticated search request with origin, destination, dates, and passenger count"
+        ]
+      },
+      {
+        "title": "Search and Offer Insights",
+        "estMinutes": 35,
+        "steps": [
+          "Query flight searches and filter results by price, duration, and carrier options",
+          "Retrieve offer details including security class, layovers, and loyalty/redemption rates"
+        ]
+      },
+      {
+        "title": "Booking and Transaction Flow",
+        "estMinutes": 40,
+        "steps": [
+          "Select an offer and submit passenger details for booking",
+          "Handle confirmation response and check booking status webhooks"
+        ]
+      },
+      {
+        "title": "Advanced State Handling",
+        "estMinutes": 30,
+        "steps": [
+          "Retrieve a booking by ID and trigger a cancellation or disruption workflow",
+          "Process agents for refunds and reissuances including revenue events and retry logic"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-flights",
+      "skill-ai agents",
+      "skill-travel",
+      "skill-api",
+      "skill-booking"
+    ],
+    "prerequisites": [
+      "Experience building API integrations in Python/Node or REST calls",
+      "Familiarity with JSON payloads",
+      "Skye partner account credentials"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T00:43:56.627Z"
+  },
+  {
+    "id": "course-guilds",
+    "toolSlug": "guilds",
+    "title": "Master Guilds",
+    "objectives": [
+      "Install Guilds and scaffold a minimal two-agent collaboration project",
+      "Implement agent roles with typed message contracts and a shared context store",
+      "Add inspection tooling: trace runs, replay conversations, and audit agent decisions"
+    ],
+    "modules": [
+      {
+        "title": "Setup & First Multi-Agent Run",
+        "estMinutes": 35,
+        "steps": [
+          "Install the Guilds CLI (pip install guilds or cargo install guilds) and scaffold a project with `guilds init demo --agents 2`, then explore the generated project tree (agents/, workflows/, guild.toml).",
+          "Configure two agents in guild.toml — a 'planner' and an 'executor' — each bound to an LLM provider with explicit model and temperature settings.",
+          "Run `guilds run workflows/default.yaml --trace` and confirm both agents produce output recorded in runs/<id>/trace.jsonl."
+        ]
+      },
+      {
+        "title": "Contracts, Context & Coordination",
+        "estMinutes": 50,
+        "steps": [
+          "Define a typed message schema in contracts/plan.schema.json (fields: task, rationale, next_agent) and enforce it by setting `strict_contracts = true` in guild.toml.",
+          "Add a shared context store (SQLite backend) and grant the planner write access and the executor read-only access using capability scoping in the agent definitions.",
+          "Introduce a coordinator policy in workflows/default.yaml limiting the executor to 3 retries before escalating to a human-in-the-loop breakpoint."
+        ]
+      },
+      {
+        "title": "Inspection, Replay & Debugging",
+        "estMinutes": 45,
+        "steps": [
+          "Launch the inspector UI with `guilds inspect runs/<id>` and step through the message graph to view token usage, latency, and contract-validation failures per turn.",
+          "Replay a failing run deterministically with `guilds replay runs/<id> --mock-llm responses.json` to reproduce agent decisions without live API calls.",
+          "Add an audit hook (on_contract_violation) that logs violations to a structured audit log and auto-labels the offending message in the trace."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-multi-agent",
+      "skill-framework",
+      "skill-open-source",
+      "skill-orchestration",
+      "skill-llm"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T00:43:56.627Z"
+  },
+  {
+    "id": "course-laya-guard",
+    "toolSlug": "laya-guard",
+    "title": "Master laya-guard",
+    "objectives": [
+      "Install laya-guard and hook it into an AI coding agent's tool-call pipeline",
+      "Write policy rules that allow, review, or block specific tool calls",
+      "Audit the guardrail decision log and tune rules to cut false positives"
+    ],
+    "modules": [
+      {
+        "title": "Install and Wire Up the Local Guard",
+        "estMinutes": 20,
+        "steps": [
+          "Install with `npm i -g laya-guard` (or `brew install laya-guard`) and run `laya-guard init` to generate `~/.laya-guard/config.yaml` and a default policy file",
+          "Point your coding agent at the guard by setting the proxy hook, e.g. `laya-guard attach --agent claude-code` (or export `LAYA_GUARD_URL=http://127.0.0.1:8787` for generic agents)",
+          "Run a test call like `laya-guard test --tool shell --cmd 'rm -rf /tmp/x'` and confirm the CLI prints a block/review/allow verdict"
+        ]
+      },
+      {
+        "title": "Write allow / review / block Policies",
+        "estMinutes": 35,
+        "steps": [
+          "Edit `~/.laya-guard/policy.yaml`: add a `block` rule for destructive patterns (e.g. match `shell` calls with cmd regex `rm -rf /|mkfs|:(){` ), a `review` rule for `git push` and `curl` to unknown hosts, and an `allow` rule for read-only tools like `file_read` inside your project dir",
+          "Use path scoping: restrict `file_write` to `~/projects/**` with an exception blocking `**/.env` and `**/id_rsa`, then reload with `laya-guard reload`",
+          "Trigger each rule from your agent (attempt an `rm -rf` on a scratch dir, a `git push`, and a normal file edit) and verify the three verdict types behave differently — block stops the call, review pauses for your approval in `laya-guard approve <id>`"
+        ]
+      },
+      {
+        "title": "Inspect Logs and Tune False Positives",
+        "estMinutes": 25,
+        "steps": [
+          "Run `laya-guard log --today --verdict blocked` to review decisions with the full tool-call payload, and export with `--json` for grepping",
+          "Identify noisy rules (e.g. a review rule firing on every `npm test`), then narrow the regex or add an `allow` exception above it since first-match wins",
+          "Enable strict mode for unattended runs with `laya-guard config set mode strict` so un-matched calls default to review instead of allow, and re-run your agent on a sample task to confirm coverage"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-guardrails",
+      "skill-ai-agents",
+      "skill-security",
+      "skill-local",
+      "skill-open-source"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-12T00:43:56.627Z"
   }
 ]
