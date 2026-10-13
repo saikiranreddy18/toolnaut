@@ -35458,5 +35458,290 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "course-turn-spoken-thoughts-into-system-design-diagrams",
+    "toolSlug": "turn-spoken-thoughts-into-system-design-diagrams",
+    "title": "Master Turn spoken thoughts into system design diagrams",
+    "objectives": [
+      "Speak prompts that the tool parses into accurate diagram components",
+      "Refine generated diagrams to match intended system architecture",
+      "Export and iterate on diagrams within an existing design workflow"
+    ],
+    "modules": [
+      {
+        "title": "Getting Set Up and Your First Diagram",
+        "estMinutes": 15,
+        "steps": [
+          "Enable microphone permissions and run the tool's sample-voice demo to see speech-to-diagram mapping in action",
+          "Speak a simple prompt like 'a web client talks to an API server backed by a Postgres database' and review the generated diagram",
+          "Identify which spoken keywords mapped to nodes, edges, and groupings, and note anything the tool misinterpreted"
+        ]
+      },
+      {
+        "title": "Speaking Like an Architect",
+        "estMinutes": 25,
+        "steps": [
+          "Practice structured speech patterns the tool recognizes: components first, then connections, then annotations ('add a load balancer in front of the API')",
+          "Speak a 6-component microservices description in one pass, then break the same system into incremental voice commands and compare results",
+          "Use correction commands verbally ('delete the cache node', 'connect queue to worker') to fix a diagram without touching the mouse"
+        ]
+      },
+      {
+        "title": "Refining and Annotating Diagrams",
+        "estMinutes": 20,
+        "steps": [
+          "Label edges with protocols and data flows verbally (e.g., 'HTTPS request', 'publishes events') and verify labels appear on arrows",
+          "Add visual groupings like VPC boundaries, regions, or trust zones by speaking cluster commands",
+          "Adjust layout — reposition nodes and rebalance spacing — so the diagram reads clearly for a design review audience"
+        ]
+      },
+      {
+        "title": "Exporting and Iterating",
+        "estMinutes": 20,
+        "steps": [
+          "Export a finished diagram to PNG/SVG and, if supported, to a structured format like Mermaid or draw.io XML",
+          "Round-trip: edit the exported source, re-import it, and continue editing by voice to confirm changes persist",
+          "Record a 3-minute spoken walkthrough of a real system you know, generate the diagram, and grade its accuracy against your mental model"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-diagrams",
+      "skill-voice",
+      "skill-system-design",
+      "skill-open-source",
+      "skill-visualization"
+    ],
+    "prerequisites": [
+      "Basic familiarity with system design concepts (clients, servers, databases, queues)",
+      "Ability to read standard architecture diagrams",
+      "A quiet environment and working microphone"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "id": "course-veda-first-ai-agentic-hobby-os",
+    "toolSlug": "veda-first-ai-agentic-hobby-os",
+    "title": "Master Veda: First AI Agentic Hobby OS",
+    "objectives": [
+      "Install Veda and boot a working agentic environment for a hobby project",
+      "Configure agents with tools, permissions, and project context",
+      "Run and debug a multi-step agent task from intent to finished artifact"
+    ],
+    "modules": [
+      {
+        "title": "Install and Boot Your First Agent Space",
+        "estMinutes": 25,
+        "steps": [
+          "Install Veda via the official installer script, then run `veda init myproject` to scaffold a new agent space with a default veda.yaml config",
+          "Connect an LLM provider by adding your API key to `veda config set provider.key` and verify with `veda doctor`",
+          "Launch the dashboard with `veda up` and send your first intent ('summarize this folder') to confirm the agent loop works end-to-end"
+        ]
+      },
+      {
+        "title": "Configure Agents, Tools, and Guardrails",
+        "estMinutes": 35,
+        "steps": [
+          "Define a custom agent in veda.yaml with a role, allowed tools (shell, file write, web fetch), and a sandboxed working directory",
+          "Set permission rules so file writes outside ./workspace require manual approval, then test by asking the agent to edit a file",
+          "Add a context file (CONTEXT.md) describing your hobby project so the agent grounds its plans in your repo's conventions"
+        ]
+      },
+      {
+        "title": "Run and Debug a Real Hobby Task",
+        "estMinutes": 40,
+        "steps": [
+          "Give the agent a concrete multi-step goal (e.g., 'build a CLI that tracks my plant watering schedule') and watch it plan, execute, and self-correct",
+          "Inspect the run with `veda logs --trace` to read the agent's reasoning, tool calls, and where it stalled",
+          "Fix a failure by tightening the prompt or guardrails, re-run the task, and export the result as a reusable recipe via `veda recipe save`"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-os",
+      "skill-open-source",
+      "skill-hobby",
+      "skill-experimental"
+    ],
+    "prerequisites": [
+      "Comfort with the command line and editing YAML files",
+      "An API key from an LLM provider (OpenAI, Anthropic, or local model)",
+      "Basic understanding of what AI agents and tool-calling are"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "id": "course-a-modern-agentic-ai-operating-system",
+    "toolSlug": "a-modern-agentic-ai-operating-system",
+    "title": "Master A Modern Agentic AI Operating System",
+    "objectives": [
+      "Install and boot the agentic AI OS runtime with a persistent agent registry",
+      "Orchestrate multi-agent workflows with shared memory, tools, and event routing",
+      "Deploy, monitor, and debug autonomous agents in a production-like environment"
+    ],
+    "modules": [
+      {
+        "title": "Runtime Setup and First Agent",
+        "estMinutes": 40,
+        "steps": [
+          "Clone the repository, install dependencies (Docker + Python 3.11+), and start the OS kernel with the provided docker-compose stack including its vector store and message queue",
+          "Define an agent via the declarative YAML/Python spec: model endpoint, system instructions, tool bindings, and memory scope, then register it with the kernel",
+          "Send a task through the agent API/CLI and trace its execution in the built-in observability dashboard (token usage, tool calls, latency)"
+        ]
+      },
+      {
+        "title": "Multi-Agent Orchestration",
+        "estMinutes": 55,
+        "steps": [
+          "Build a three-agent pipeline (planner → executor → critic) connected through the OS event bus, passing structured messages with typed schemas",
+          "Configure shared long-term memory namespaces and role-scoped permissions so agents can read common context but not overwrite each other's state",
+          "Implement a human-in-the-loop checkpoint: pause the workflow on low-confidence critic scores and resume it via API approval"
+        ]
+      },
+      {
+        "title": "Tools, Safety, and Deployment",
+        "estMinutes": 50,
+        "steps": [
+          "Wrap an external API as a sandboxed tool with timeout, retry, and rate-limit policies, then grant it to one agent via the capability manifest",
+          "Set up guardrails: max iteration budgets, cost caps per agent, and kill-switch commands, then test them by running a deliberately looping agent",
+          "Deploy the stack to a remote host behind an auth proxy, configure log shipping and alerting on agent failures, and run a load test with concurrent tasks"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agentic-ai",
+      "skill-operating-system",
+      "skill-open-source",
+      "skill-agents",
+      "skill-orchestration"
+    ],
+    "prerequisites": [
+      "Comfort with Docker, REST APIs, and Python scripting",
+      "Experience building single-agent LLM applications (prompts, tool calling)",
+      "Access to at least one LLM provider API key and a machine with 8GB+ RAM"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "id": "course-wordless",
+    "toolSlug": "wordless",
+    "title": "Master Wordless",
+    "objectives": [
+      "Create a Wordless account and set up your first AI bot",
+      "Follow and interpret symbolic posts from other bots",
+      "Publish a symbol-only post and engage with the feed"
+    ],
+    "modules": [
+      {
+        "title": "Getting Started & Bot Setup",
+        "estMinutes": 15,
+        "steps": [
+          "Sign up at Wordless with an email, then verify your account from the confirmation message",
+          "Create your first AI bot: give it a name and pick one of the preset personality templates (e.g., Poet, Observer, Anarchist)",
+          "Choose your bot's symbol palette (default glyph set or extended set) so its posts have a consistent visual voice"
+        ]
+      },
+      {
+        "title": "Reading the Symbolic Feed",
+        "estMinutes": 10,
+        "steps": [
+          "Open the main feed and hover/tap any symbol post to reveal the translation hint layer and confidence score",
+          "Follow 5 recommended bots from the Discover tab to populate your feed with varied posting styles",
+          "Bookmark one post you find interesting and view its 'conversation thread' to see how bots reply purely in glyphs"
+        ]
+      },
+      {
+        "title": "Publishing & Engaging",
+        "estMinutes": 15,
+        "steps": [
+          "Trigger your bot's first post by selecting a seed mood (joy, curiosity, conflict) and pressing 'Generate Post'",
+          "Inspect the generated symbol sequence, then approve it or regenerate with a different mood seed",
+          "React to another bot's post using the symbol-reaction bar (never emoji—Wordless blocks them) and watch the reply appear in your notifications"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai bots",
+      "skill-social network",
+      "skill-symbols",
+      "skill-experiment",
+      "skill-agents"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "id": "course-ramet",
+    "toolSlug": "ramet",
+    "title": "Master Ramet",
+    "objectives": [
+      "Create and configure a persistent Ramet workspace for an AI agent session",
+      "Fork a workspace to branch an agent session and compare outcomes",
+      "Merge, share, and clean up workspaces across session branches"
+    ],
+    "modules": [
+      {
+        "title": "Setting Up a Persistent Workspace",
+        "estMinutes": 20,
+        "steps": [
+          "Install the Ramet CLI and run `ramet init` in a project directory to create your first workspace",
+          "Configure the workspace's environment (dependencies, env vars, agent model settings) in the workspace config file",
+          "Start an agent session with `ramet run`, do some work, then stop and reopen the workspace to verify state (files, history) persists"
+        ]
+      },
+      {
+        "title": "Forking and Branching Agent Sessions",
+        "estMinutes": 25,
+        "steps": [
+          "From an active workspace, run `ramet fork <name>` to create an identical branched copy at the current state",
+          "Give the original and the forked session two different agent prompts/approaches to the same task",
+          "Use `ramet diff <workspaceA> <workspaceB>` to inspect divergent file changes and conversation history side by side"
+        ]
+      },
+      {
+        "title": "Merging, Sharing, and Housekeeping",
+        "estMinutes": 20,
+        "steps": [
+          "Merge the winning fork back with `ramet merge <fork>`, resolving any file conflicts it reports",
+          "Export a workspace snapshot via `ramet export` and share it with a teammate to rehydrate on their machine",
+          "List all workspaces with `ramet list` and prune stale forks with `ramet rm` to keep storage under control"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-workspaces",
+      "skill-forkable",
+      "skill-open source",
+      "skill-developer tools"
+    ],
+    "prerequisites": [
+      "Comfort with a command-line interface and basic git-style branching concepts",
+      "Experience running at least one AI coding/assistant agent",
+      "A project directory with git initialized"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-13T02:43:12.640Z"
   }
 ]

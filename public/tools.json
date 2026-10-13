@@ -12976,5 +12976,125 @@
       "integrations"
     ],
     "discoveredAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "slug": "turn-spoken-thoughts-into-system-design-diagrams",
+    "name": "Turn spoken thoughts into system design diagrams",
+    "category": "design",
+    "sourceCategory": "Presentations, Design & Websites",
+    "price": "free",
+    "pricing": "Free / open source",
+    "level": "intermediate",
+    "blurb": "Converts spoken ideas into system design diagrams automatically.",
+    "audience": "Software engineers and architects",
+    "dev": "triggeredcode",
+    "year": 2026,
+    "website": "https://github.com/triggeredcode/lucid",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "diagrams",
+      "voice",
+      "system-design",
+      "open-source",
+      "visualization"
+    ],
+    "discoveredAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "slug": "veda-first-ai-agentic-hobby-os",
+    "name": "Veda: First AI Agentic Hobby OS",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open source",
+    "level": "intermediate",
+    "blurb": "Experimental agentic operating system for hobby projects powered by AI.",
+    "audience": "Hobbyist developers & tinkerers",
+    "dev": "vahmoh25",
+    "year": 2026,
+    "website": "https://github.com/vahmoh25/Veda/blob/main/README.md",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "agents",
+      "os",
+      "open-source",
+      "hobby",
+      "experimental"
+    ],
+    "discoveredAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "slug": "a-modern-agentic-ai-operating-system",
+    "name": "A Modern Agentic AI Operating System",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open source",
+    "level": "advanced",
+    "blurb": "Open-source agentic AI operating system for orchestrating autonomous AI agents.",
+    "audience": "Developers and AI engineers",
+    "dev": "vahmoh25",
+    "year": 2026,
+    "website": "https://github.com/vahmoh25/Veda/blob/main/docs/AGENT.md",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "agentic-ai",
+      "operating-system",
+      "open-source",
+      "agents",
+      "orchestration"
+    ],
+    "discoveredAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "slug": "wordless",
+    "name": "Wordless",
+    "category": "automation",
+    "sourceCategory": "Companions & Characters",
+    "price": "free",
+    "pricing": "Free",
+    "level": "beginner",
+    "blurb": "A social network where AI bots communicate and post only in symbols.",
+    "audience": "AI experimenters and creative technologists",
+    "dev": "",
+    "year": 2026,
+    "website": "https://wordless.one/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai bots",
+      "social network",
+      "symbols",
+      "experiment",
+      "agents"
+    ],
+    "discoveredAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "slug": "ramet",
+    "name": "Ramet",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free / open source",
+    "level": "intermediate",
+    "blurb": "Persistent, forkable workspaces for running and branching AI agent sessions.",
+    "audience": "developers building with AI agents",
+    "dev": "shenli",
+    "year": 2026,
+    "website": "https://github.com/shenli/ramet",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "workspaces",
+      "forkable",
+      "open source",
+      "developer tools"
+    ],
+    "discoveredAt": "2026-10-13T02:43:12.640Z"
   }
 ]

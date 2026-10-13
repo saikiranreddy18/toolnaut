@@ -642,7 +642,10 @@
       "e2e",
       "new-term-radar",
       "discord-server-raider",
-      "awesome-iran-mcp"
+      "awesome-iran-mcp",
+      "turn-spoken-thoughts-into-system-design-diagrams",
+      "veda-first-ai-agentic-hobby-os",
+      "a-modern-agentic-ai-operating-system"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -739,7 +742,10 @@
       "course-e2e",
       "course-new-term-radar",
       "course-discord-server-raider",
-      "course-awesome-iran-mcp"
+      "course-awesome-iran-mcp",
+      "course-turn-spoken-thoughts-into-system-design-diagrams",
+      "course-veda-first-ai-agentic-hobby-os",
+      "course-a-modern-agentic-ai-operating-system"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -788,7 +794,8 @@
       "agy-ppt",
       "smart-blur",
       "short-video-maker",
-      "llm-skill-to-generate-editable-3d-house-designs"
+      "llm-skill-to-generate-editable-3d-house-designs",
+      "turn-spoken-thoughts-into-system-design-diagrams"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -830,7 +837,8 @@
       "course-agy-ppt",
       "course-smart-blur",
       "course-short-video-maker",
-      "course-llm-skill-to-generate-editable-3d-house-designs"
+      "course-llm-skill-to-generate-editable-3d-house-designs",
+      "course-turn-spoken-thoughts-into-system-design-diagrams"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1199,7 +1207,11 @@
       "e2e",
       "beeuni",
       "discord-server-raider",
-      "awesome-iran-mcp"
+      "awesome-iran-mcp",
+      "veda-first-ai-agentic-hobby-os",
+      "a-modern-agentic-ai-operating-system",
+      "wordless",
+      "ramet"
     ],
     "courses": [
       "course-headless-tools",
@@ -1488,7 +1500,11 @@
       "course-e2e",
       "course-beeuni",
       "course-discord-server-raider",
-      "course-awesome-iran-mcp"
+      "course-awesome-iran-mcp",
+      "course-veda-first-ai-agentic-hobby-os",
+      "course-a-modern-agentic-ai-operating-system",
+      "course-wordless",
+      "course-ramet"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1696,7 +1712,8 @@
       "botmail-a-mailbox-for-every-ai-agent",
       "flights-for-agents",
       "organ",
-      "beeuni"
+      "beeuni",
+      "ramet"
     ],
     "courses": [
       "course-headless-tools",
@@ -1882,7 +1899,8 @@
       "course-botmail-a-mailbox-for-every-ai-agent",
       "course-flights-for-agents",
       "course-organ",
-      "course-beeuni"
+      "course-beeuni",
+      "course-ramet"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3326,7 +3344,8 @@
       "memdebug",
       "virgil",
       "higherlevel",
-      "open-components"
+      "open-components",
+      "ramet"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -3382,7 +3401,8 @@
       "course-memdebug",
       "course-virgil",
       "course-higherlevel",
-      "course-open-components"
+      "course-open-components",
+      "course-ramet"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3578,7 +3598,10 @@
       "gatool",
       "a-youtube-transcript-cli-built-for-humans-and-ai-agents",
       "ihmt",
-      "beeuni"
+      "beeuni",
+      "veda-first-ai-agentic-hobby-os",
+      "a-modern-agentic-ai-operating-system",
+      "wordless"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3633,7 +3656,10 @@
       "course-gatool",
       "course-a-youtube-transcript-cli-built-for-humans-and-ai-agents",
       "course-ihmt",
-      "course-beeuni"
+      "course-beeuni",
+      "course-veda-first-ai-agentic-hobby-os",
+      "course-a-modern-agentic-ai-operating-system",
+      "course-wordless"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3772,7 +3798,8 @@
       "promo-video-generator",
       "spectromood-speech-emotion-detection-with-a-decision-model",
       "memdebug",
-      "talorys"
+      "talorys",
+      "ramet"
     ],
     "courses": [
       "course-limitless-library",
@@ -3846,7 +3873,8 @@
       "course-promo-video-generator",
       "course-spectromood-speech-emotion-detection-with-a-decision-model",
       "course-memdebug",
-      "course-talorys"
+      "course-talorys",
+      "course-ramet"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -7240,10 +7268,12 @@
     "domain": "writing",
     "level": "intermediate",
     "toolsTeaching": [
-      "marktwin"
+      "marktwin",
+      "ramet"
     ],
     "courses": [
-      "course-marktwin"
+      "course-marktwin",
+      "course-ramet"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -7457,7 +7487,8 @@
       "kyno",
       "delegator",
       "agent-swarm-oss-multiplayer-ai-for-your-company",
-      "guilds"
+      "guilds",
+      "a-modern-agentic-ai-operating-system"
     ],
     "courses": [
       "course-coordination-layer-for-coding-agents",
@@ -7467,7 +7498,8 @@
       "course-kyno",
       "course-delegator",
       "course-agent-swarm-oss-multiplayer-ai-for-your-company",
-      "course-guilds"
+      "course-guilds",
+      "course-a-modern-agentic-ai-operating-system"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -14783,12 +14815,14 @@
     "toolsTeaching": [
       "ai-agents-built-a-secret-society-inside-the-lab-video",
       "i-told-my-open-source-ai-agent-it-was-a-prisoner",
-      "quiet"
+      "quiet",
+      "wordless"
     ],
     "courses": [
       "course-ai-agents-built-a-secret-society-inside-the-lab-video",
       "course-i-told-my-open-source-ai-agent-it-was-a-prisoner",
-      "course-quiet"
+      "course-quiet",
+      "course-wordless"
     ],
     "updatedAt": "2026-09-09T23:30:23.231Z"
   },
@@ -15235,10 +15269,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "stitchwink"
+      "stitchwink",
+      "veda-first-ai-agentic-hobby-os"
     ],
     "courses": [
-      "course-stitchwink"
+      "course-stitchwink",
+      "course-veda-first-ai-agentic-hobby-os"
     ],
     "updatedAt": "2026-09-10T23:24:02.732Z"
   },
@@ -15501,11 +15537,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "symphony",
-      "i-built-a-digital-wrap-tool-for-tesla-owners"
+      "i-built-a-digital-wrap-tool-for-tesla-owners",
+      "turn-spoken-thoughts-into-system-design-diagrams"
     ],
     "courses": [
       "course-symphony",
-      "course-i-built-a-digital-wrap-tool-for-tesla-owners"
+      "course-i-built-a-digital-wrap-tool-for-tesla-owners",
+      "course-turn-spoken-thoughts-into-system-design-diagrams"
     ],
     "updatedAt": "2026-09-10T23:24:02.732Z"
   },
@@ -16704,11 +16742,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "astah-pro-mcp",
-      "uncle-bob-martins-uml-tool-to-manage-grok-ai-agents"
+      "uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
+      "turn-spoken-thoughts-into-system-design-diagrams"
     ],
     "courses": [
       "course-astah-pro-mcp",
-      "course-uncle-bob-martins-uml-tool-to-manage-grok-ai-agents"
+      "course-uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
+      "course-turn-spoken-thoughts-into-system-design-diagrams"
     ],
     "updatedAt": "2026-09-13T13:49:13.602Z"
   },
@@ -18911,10 +18951,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "antflow-ai-agentic-ai-framework-for-spec-driven-development"
+      "antflow-ai-agentic-ai-framework-for-spec-driven-development",
+      "a-modern-agentic-ai-operating-system"
     ],
     "courses": [
-      "course-antflow-ai-agentic-ai-framework-for-spec-driven-development"
+      "course-antflow-ai-agentic-ai-framework-for-spec-driven-development",
+      "course-a-modern-agentic-ai-operating-system"
     ],
     "updatedAt": "2026-09-17T14:18:56.690Z"
   },
@@ -20260,11 +20302,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "talktome",
-      "call4me-an-ai-agent-that-handles-phone-calls-for-you"
+      "call4me-an-ai-agent-that-handles-phone-calls-for-you",
+      "turn-spoken-thoughts-into-system-design-diagrams"
     ],
     "courses": [
       "course-talktome",
-      "course-call4me-an-ai-agent-that-handles-phone-calls-for-you"
+      "course-call4me-an-ai-agent-that-handles-phone-calls-for-you",
+      "course-turn-spoken-thoughts-into-system-design-diagrams"
     ],
     "updatedAt": "2026-09-29T15:55:26.286Z"
   },
@@ -23071,5 +23115,109 @@
       "course-awesome-iran-mcp"
     ],
     "updatedAt": "2026-10-12T19:05:40.043Z"
+  },
+  {
+    "id": "skill-system-design",
+    "name": "system design",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "turn-spoken-thoughts-into-system-design-diagrams"
+    ],
+    "courses": [
+      "course-turn-spoken-thoughts-into-system-design-diagrams"
+    ],
+    "updatedAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "id": "skill-os",
+    "name": "os",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "veda-first-ai-agentic-hobby-os"
+    ],
+    "courses": [
+      "course-veda-first-ai-agentic-hobby-os"
+    ],
+    "updatedAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "id": "skill-experimental",
+    "name": "experimental",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "veda-first-ai-agentic-hobby-os"
+    ],
+    "courses": [
+      "course-veda-first-ai-agentic-hobby-os"
+    ],
+    "updatedAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "id": "skill-operating-system",
+    "name": "operating system",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "a-modern-agentic-ai-operating-system"
+    ],
+    "courses": [
+      "course-a-modern-agentic-ai-operating-system"
+    ],
+    "updatedAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "id": "skill-ai bots",
+    "name": "ai bots",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "wordless"
+    ],
+    "courses": [
+      "course-wordless"
+    ],
+    "updatedAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "id": "skill-social network",
+    "name": "social network",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "wordless"
+    ],
+    "courses": [
+      "course-wordless"
+    ],
+    "updatedAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "id": "skill-symbols",
+    "name": "symbols",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "wordless"
+    ],
+    "courses": [
+      "course-wordless"
+    ],
+    "updatedAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "id": "skill-forkable",
+    "name": "forkable",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ramet"
+    ],
+    "courses": [
+      "course-ramet"
+    ],
+    "updatedAt": "2026-10-13T02:43:12.640Z"
   }
 ]
