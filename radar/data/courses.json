@@ -35743,5 +35743,477 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "id": "course-gemini-4-argon-is-now-available-for-developers",
+    "toolSlug": "gemini-4-argon-is-now-available-for-developers",
+    "title": "Master Gemini 4 Argon is now available for developers",
+    "objectives": [
+      "Authenticate and make your first Gemini 4 Argon API request",
+      "Structure prompts, parameters, and tool calls for reliable Argon outputs",
+      "Handle streaming, errors, rate limits, and costs in production code"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Call",
+        "estMinutes": 20,
+        "steps": [
+          "Create a Google AI Studio / Vertex project, generate an API key, and store it in a .env file",
+          "Install the google-genai SDK and send a basic text prompt to the gemini-4-argon model, printing the response",
+          "Switch the same script to a system instruction plus user message format and compare outputs"
+        ]
+      },
+      {
+        "title": "Prompting, Parameters, and Structured Output",
+        "estMinutes": 30,
+        "steps": [
+          "Tune temperature, top_p, and max_output_tokens on the same prompt and log how outputs differ",
+          "Define a JSON schema in the request config and force Argon to return structured, parseable data",
+          "Add a function/tool definition, let the model emit a tool call, and execute the matching function locally"
+        ]
+      },
+      {
+        "title": "Streaming, Files, and Multimodal Input",
+        "estMinutes": 25,
+        "steps": [
+          "Enable streaming and print tokens incrementally instead of waiting for the full response",
+          "Upload a PDF or image via the Files API and ask Argon to extract specific fields from it",
+          "Send a multi-turn chat using a session/history object and verify context persists across turns"
+        ]
+      },
+      {
+        "title": "Production Hardening",
+        "estMinutes": 25,
+        "steps": [
+          "Wrap calls in retry logic with exponential backoff for 429 and 5xx errors",
+          "Log prompt/completion token counts from the response metadata and estimate per-request cost",
+          "Add a timeout and a fallback: degrade to a cheaper model or cached response when Argon fails"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-llm",
+      "skill-gemini",
+      "skill-api",
+      "skill-google",
+      "skill-foundation-model"
+    ],
+    "prerequisites": [
+      "Comfortable writing Python or JavaScript and calling REST APIs",
+      "Familiar with JSON, environment variables, and async/await patterns",
+      "A Google account able to enable the Gemini API"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "course-syncopate",
+    "toolSlug": "syncopate",
+    "title": "Master Syncopate",
+    "objectives": [
+      "Set up a free Syncopate account and connect a keyboard or microphone",
+      "Play a beginner piece using interactive sheet music with scroll-along notation",
+      "Use real-time pitch and timing feedback to correct mistakes and improve accuracy"
+    ],
+    "modules": [
+      {
+        "title": "Getting Set Up",
+        "estMinutes": 10,
+        "steps": [
+          "Create a free Syncopate account and complete the skill-level questionnaire (select 'beginner')",
+          "Connect your keyboard via USB/MIDI, or enable microphone access for an acoustic piano",
+          "Run the built-in sound check by playing three notes to confirm Syncopate hears your instrument"
+        ]
+      },
+      {
+        "title": "Your First Play-Along Piece",
+        "estMinutes": 15,
+        "steps": [
+          "Open the Beginner library and select a one-hand piece (e.g., 'Ode to Joy' right hand)",
+          "Enable 'Wait Mode' so the cursor pauses until you play the correct note, then play the piece start to finish",
+          "Turn on the metronome at 60 BPM and replay the piece without Wait Mode"
+        ]
+      },
+      {
+        "title": "Reading Your Feedback",
+        "estMinutes": 15,
+        "steps": [
+          "After a play-through, open the feedback panel and review the note-accuracy percentage and timing graph",
+          "Identify your two weakest measures and loop-practice them using the measure-repeat tool at slow tempo",
+          "Replay the full piece and compare your new accuracy score to your first attempt"
+        ]
+      },
+      {
+        "title": "Building a Practice Routine",
+        "estMinutes": 10,
+        "steps": [
+          "Add two new beginner pieces to your practice list and set a daily goal in the streak tracker",
+          "Practice one piece hands-separately, then hands-together using the hand-isolation toggle",
+          "Record a final hands-together run and save it to your progress history"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-sheet music",
+      "skill-piano",
+      "skill-play-along",
+      "skill-music learning",
+      "skill-practice"
+    ],
+    "prerequisites": [
+      "A piano, keyboard, or device microphone",
+      "Ability to recognize notes on the treble staff (or willingness to use on-screen note labels)"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "course-shadowclone-skills-learned-from-your-coding-agent-correction",
+    "toolSlug": "shadowclone-skills-learned-from-your-coding-agent-correction",
+    "title": "Master shadowclone, skills learned from your coding agent corrections",
+    "objectives": [
+      "Configure shadowclone to capture and tag corrections made during coding agent sessions",
+      "Review, edit, and promote captured corrections into reusable skills",
+      "Apply learned skills in new sessions and measure whether correction rates drop"
+    ],
+    "modules": [
+      {
+        "title": "Set Up Correction Capture",
+        "estMinutes": 15,
+        "steps": [
+          "Install shadowclone and run `shadowclone init` in your project to create the .shadowclone/ skills directory",
+          "Start a session with `shadowclone watch --agent <your-agent>` so every edit you make to agent output is logged as a correction diff",
+          "Deliberately fix one agent mistake (e.g., rename a misused utility) and confirm the correction appears in `shadowclone log --recent`"
+        ]
+      },
+      {
+        "title": "Curate Corrections into Skills",
+        "estMinutes": 20,
+        "steps": [
+          "Run `shadowclone review` to open the corrections queue and inspect the captured diffs with surrounding code context",
+          "Tag recurring patterns (e.g., `--tag error-handling`) and merge duplicate corrections with `shadowclone merge <id1> <id2>`",
+          "Promote a correction to a skill with `shadowclone promote <id>`, then edit the generated skill file to write a clear rule and one minimal code example"
+        ]
+      },
+      {
+        "title": "Apply and Validate Skills",
+        "estMinutes": 15,
+        "steps": [
+          "Enable skills in a new session with `shadowclone attach` so learned rules are injected into the agent's context",
+          "Run a task that previously triggered the corrected mistake and verify the agent now follows the skill without intervention",
+          "Check `shadowclone stats` to compare correction frequency before and after, and retire noisy skills with `shadowclone disable <skill>`"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding agents",
+      "skill-claude code",
+      "skill-skills",
+      "skill-learning",
+      "skill-open source"
+    ],
+    "prerequisites": [
+      "Regular use of an AI coding agent (e.g., Copilot, Cursor, Claude Code) in a local project",
+      "Comfort with basic CLI commands and editing text config files",
+      "Git initialized in the project you use for the exercises"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "course-lightweight-self-hosted-web-analytics-app",
+    "toolSlug": "lightweight-self-hosted-web-analytics-app",
+    "title": "Master Lightweight, self-hosted, web analytics app",
+    "objectives": [
+      "Deploy the analytics app with Docker and a reverse proxy",
+      "Install and verify the tracking snippet on a target site",
+      "Configure goals, custom events, and data-retention rules"
+    ],
+    "modules": [
+      {
+        "title": "Deploy with Docker and HTTPS",
+        "estMinutes": 30,
+        "steps": [
+          "Clone the app's docker-compose setup, set DB credentials and a random admin secret in .env, then run 'docker compose up -d'",
+          "Point a subdomain (e.g., analytics.example.com) at your server and proxy traffic with Caddy or nginx, enabling automatic TLS",
+          "Log into the admin UI, create your first site entry, and change the default admin password"
+        ]
+      },
+      {
+        "title": "Install and Verify Tracking",
+        "estMinutes": 20,
+        "steps": [
+          "Copy the generated <script> snippet into your site's <head> (or tag manager) and deploy the change",
+          "Visit the site in a private window and confirm the pageview appears in the real-time dashboard within seconds",
+          "Test ad-blocker resilience by loading the page with uBlock Origin enabled, and if blocked, proxy the script through your own domain"
+        ]
+      },
+      {
+        "title": "Goals, Events, and Maintenance",
+        "estMinutes": 25,
+        "steps": [
+          "Define a custom event (e.g., 'Signup Click') by adding the app's data-attribute or JS call to a button, then trigger and verify it in the dashboard",
+          "Create a conversion goal from that event and check it registers under the goals/conversions report",
+          "Set automated backups of the analytics database (cron + pg_dump or sqlite copy) and configure a data-retention window matching your privacy policy"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-web analytics",
+      "skill-self-hosted",
+      "skill-privacy",
+      "skill-open source",
+      "skill-traffic"
+    ],
+    "prerequisites": [
+      "A VPS or server with Docker and Docker Compose installed",
+      "A domain name and ability to edit DNS records",
+      "Basic familiarity with SSH and editing HTML"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "course-proofsource-find-where-ai-leaves-you-out-and-fix-it",
+    "toolSlug": "proofsource-find-where-ai-leaves-you-out-and-fix-it",
+    "title": "Master Proofsource. Find where AI leaves you out. And Fix it",
+    "objectives": [
+      "Run a baseline audit to identify queries where AI answers omit your brand",
+      "Diagnose why competitors appear instead of you using citation and gap analysis",
+      "Apply Proofsource's fix recommendations and measure visibility improvements over time"
+    ],
+    "modules": [
+      {
+        "title": "Set Up Your Brand Profile and Baseline Audit",
+        "estMinutes": 25,
+        "steps": [
+          "Add your brand name, domain, and up to 10 key topics or product categories in the Brand Profile settings",
+          "Launch a baseline audit on 20-30 target queries your buyers actually ask AI (e.g. 'best tools for X')",
+          "Tag each result as Mentioned, Omitted, or Cited Incorrectly, and save it as your Benchmark report"
+        ]
+      },
+      {
+        "title": "Analyze Omission Patterns",
+        "estMinutes": 35,
+        "steps": [
+          "Open the Omission Report and filter for queries where competitors are cited but you are not",
+          "Inspect the 'Why Omitted' panel for each query to see missing evidence: no third-party citations, weak schema, or absent comparison content",
+          "Group omissions into 3 buckets: content gaps, source authority gaps, and structural/technical gaps"
+        ]
+      },
+      {
+        "title": "Apply Fixes and Track Visibility Gains",
+        "estMinutes": 30,
+        "steps": [
+          "Convert top omissions into Fix Tasks in Proofsource: publish the suggested comparison pages, FAQ sections, or citation-worthy data",
+          "Mark each fix as Done and use the Re-Check button to rescan affected queries after changes go live",
+          "Set up a weekly Visibility Score digest and compare mention rate against your saved Benchmark after 30 days"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-ai visibility",
+      "skill-geo",
+      "skill-seo",
+      "skill-brand monitoring",
+      "skill-analytics"
+    ],
+    "prerequisites": [
+      "A live website you can edit or brief a content team on",
+      "Basic familiarity with SEO concepts like citations and structured data",
+      "A list of 20-30 queries your target customers ask AI assistants"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "course-agor-multiplayer-ai",
+    "toolSlug": "agor-multiplayer-ai",
+    "title": "Master Agor, multiplayer AI",
+    "objectives": [
+      "Install Agor and get the local server plus UI running",
+      "Create and run a shared AI agent worktree session",
+      "Collaborate in real time by joining a teammate's session and steering an agent"
+    ],
+    "modules": [
+      {
+        "title": "Install and launch Agor",
+        "estMinutes": 15,
+        "steps": [
+          "Clone the Agor repo from GitHub and install dependencies per the README (Node/daemon plus the web UI)",
+          "Run `agor init` (or the setup script) to configure the daemon, then start it and open the UI on localhost",
+          "Connect an AI provider/API key (e.g., Anthropic key for Claude Code-backed agents) in the settings and confirm it saves"
+        ]
+      },
+      {
+        "title": "Create your first agent session",
+        "estMinutes": 20,
+        "steps": [
+          "Add a git repo to Agor and create a new session against a branch, letting Agor spin up an isolated git worktree",
+          "Send a prompt to the agent (e.g., 'add input validation to the login form') and watch the streamed responses and tool calls in the session board",
+          "Review the resulting diff in the worktree, approve or reject changes, and merge or discard the branch"
+        ]
+      },
+      {
+        "title": "Multiplayer collaboration",
+        "estMinutes": 20,
+        "steps": [
+          "Expose your Agor instance to a teammate (shared host or tunnel) and have them join your session from the UI",
+          "Have the teammate send their own prompts/messages to steer the same agent while you observe changes live on the shared board",
+          "Use session cards to organize multiple concurrent agents, then compare outputs and hand off a session between teammates"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-multiplayer",
+      "skill-collaboration",
+      "skill-open source",
+      "skill-orchestration"
+    ],
+    "prerequisites": [
+      "Comfortable with git (branches, worktrees, diffs)",
+      "Node.js/npm installed locally",
+      "An API key for a supported AI provider (e.g., Anthropic)",
+      "Familiarity with running a coding agent like Claude Code"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "course-recall",
+    "toolSlug": "recall",
+    "title": "Master Recall",
+    "objectives": [
+      "Design a fact-change detection pipeline using Recall's memory versioning",
+      "Configure Recall to flag stale or contradicted agent memories automatically",
+      "Integrate Recall with an LLM agent to reconcile conflicting facts before retrieval"
+    ],
+    "modules": [
+      {
+        "title": "Why Fact Drift Breaks Agents",
+        "estMinutes": 12,
+        "steps": [
+          "Instrument a running agent to log every memory it reads over 50 turns and manually mark which facts have silently gone stale (e.g., user preferences, account states).",
+          "Reproduce a concrete failure: seed a memory 'user budget is $500', inject a change to $200, and capture the agent acting on the outdated value."
+        ]
+      },
+      {
+        "title": "Setting Up Change Detection in Recall",
+        "estMinutes": 15,
+        "steps": [
+          "Write three memory entries with explicit confidence scores and timestamps, then call Recall's update/upsert API so each fact has a versioned history rather than a silent overwrite.",
+          "Enable Recall's change-detection hooks so that when a new fact contradicts an existing key, a conflict event is emitted instead of a blind replacement."
+        ]
+      },
+      {
+        "title": "Conflict Resolution Strategies",
+        "estMinutes": 14,
+        "steps": [
+          "Implement a resolution policy for conflict events: newest-wins, majority-vote across sources, and source-trust-weighted; test each against 5 synthetic contradiction cases.",
+          "Wire conflicts above a severity threshold into a clarifying-question loop where the agent asks the user to confirm before committing the new fact."
+        ]
+      },
+      {
+        "title": "Wiring Recall Into the Agent Loop",
+        "estMinutes": 12,
+        "steps": [
+          "Add a pre-retrieval step in your agent that queries Recall for 'facts changed since last session' and injects a diff summary into the system prompt.",
+          "Add a post-response step that parses the agent's output for factual assertions and writes them back through Recall so future runs detect drift."
+        ]
+      },
+      {
+        "title": "Evaluation and Drift Benchmarking",
+        "estMinutes": 10,
+        "steps": [
+          "Build a 30-fact test set, mutate 10 facts over simulated sessions, and measure recall/precision of detected changes.",
+          "Tune the contradiction-sensitivity threshold until false positives (flagged but unchanged) drop below 10% without missing real changes."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-memory",
+      "skill-open source",
+      "skill-llm",
+      "skill-developer tools"
+    ],
+    "prerequisites": [
+      "Basic Recall setup (memory store created, write/read API calls working)",
+      "Experience building an LLM agent with a retrieval or memory step",
+      "Python or TypeScript scripting for API integration"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "course-cheatcode",
+    "toolSlug": "cheatcode",
+    "title": "Master Cheatcode_",
+    "objectives": [
+      "Understand what Cheatcode_ is for",
+      "Use Cheatcode_ on a real task",
+      "Know where Cheatcode_ fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Cheatcode_ for your real workflow, not the demo.",
+          "Say what Cheatcode_ does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Cheatcode_.",
+          "Push Cheatcode_ to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Cheatcode_ into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai apps",
+      "skill-open source",
+      "skill-skills",
+      "skill-installer",
+      "skill-devtools"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-13T16:58:18.132Z"
   }
 ]

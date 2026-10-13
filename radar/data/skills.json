@@ -224,7 +224,10 @@
       "laya-guard",
       "boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b",
       "enso-method",
-      "e2e"
+      "e2e",
+      "gemini-4-argon-is-now-available-for-developers",
+      "shadowclone-skills-learned-from-your-coding-agent-correction",
+      "cheatcode"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -446,7 +449,10 @@
       "course-laya-guard",
       "course-boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b",
       "course-enso-method",
-      "course-e2e"
+      "course-e2e",
+      "course-gemini-4-argon-is-now-available-for-developers",
+      "course-shadowclone-skills-learned-from-your-coding-agent-correction",
+      "course-cheatcode"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -459,13 +465,15 @@
       "ablo-make-your-ai-app-multiplayer",
       "crew",
       "radio",
-      "ufo-core-multiplayer-agentic-environs"
+      "ufo-core-multiplayer-agentic-environs",
+      "agor-multiplayer-ai"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
       "course-crew",
       "course-radio",
-      "course-ufo-core-multiplayer-agentic-environs"
+      "course-ufo-core-multiplayer-agentic-environs",
+      "course-agor-multiplayer-ai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -507,7 +515,8 @@
       "radio",
       "anyhropic-launches-google-docs-alternative-claude-docs",
       "devboard",
-      "ai-agents-in-a-stand-up-call"
+      "ai-agents-in-a-stand-up-call",
+      "agor-multiplayer-ai"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -523,7 +532,8 @@
       "course-radio",
       "course-anyhropic-launches-google-docs-alternative-claude-docs",
       "course-devboard",
-      "course-ai-agents-in-a-stand-up-call"
+      "course-ai-agents-in-a-stand-up-call",
+      "course-agor-multiplayer-ai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1211,7 +1221,9 @@
       "veda-first-ai-agentic-hobby-os",
       "a-modern-agentic-ai-operating-system",
       "wordless",
-      "ramet"
+      "ramet",
+      "agor-multiplayer-ai",
+      "recall"
     ],
     "courses": [
       "course-headless-tools",
@@ -1504,7 +1516,9 @@
       "course-veda-first-ai-agentic-hobby-os",
       "course-a-modern-agentic-ai-operating-system",
       "course-wordless",
-      "course-ramet"
+      "course-ramet",
+      "course-agor-multiplayer-ai",
+      "course-recall"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1713,7 +1727,9 @@
       "flights-for-agents",
       "organ",
       "beeuni",
-      "ramet"
+      "ramet",
+      "agor-multiplayer-ai",
+      "recall"
     ],
     "courses": [
       "course-headless-tools",
@@ -1900,7 +1916,9 @@
       "course-flights-for-agents",
       "course-organ",
       "course-beeuni",
-      "course-ramet"
+      "course-ramet",
+      "course-agor-multiplayer-ai",
+      "course-recall"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2006,7 +2024,9 @@
       "llm-skill-to-generate-editable-3d-house-designs",
       "guilds",
       "boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b",
-      "ihmt"
+      "ihmt",
+      "gemini-4-argon-is-now-available-for-developers",
+      "recall"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2062,7 +2082,9 @@
       "course-llm-skill-to-generate-editable-3d-house-designs",
       "course-guilds",
       "course-boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b",
-      "course-ihmt"
+      "course-ihmt",
+      "course-gemini-4-argon-is-now-available-for-developers",
+      "course-recall"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2141,7 +2163,8 @@
       "sheetrelay",
       "layer",
       "seodatadev-11-free-search-data-for-ai-agents",
-      "flights-for-agents"
+      "flights-for-agents",
+      "gemini-4-argon-is-now-available-for-developers"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2161,7 +2184,8 @@
       "course-sheetrelay",
       "course-layer",
       "course-seodatadev-11-free-search-data-for-ai-agents",
-      "course-flights-for-agents"
+      "course-flights-for-agents",
+      "course-gemini-4-argon-is-now-available-for-developers"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2950,7 +2974,8 @@
       "ggg",
       "squidbrake",
       "langgraph-harness",
-      "talorys"
+      "talorys",
+      "lightweight-self-hosted-web-analytics-app"
     ],
     "courses": [
       "course-hermes-agent",
@@ -2966,7 +2991,8 @@
       "course-ggg",
       "course-squidbrake",
       "course-langgraph-harness",
-      "course-talorys"
+      "course-talorys",
+      "course-lightweight-self-hosted-web-analytics-app"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3345,7 +3371,8 @@
       "virgil",
       "higherlevel",
       "open-components",
-      "ramet"
+      "ramet",
+      "recall"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
@@ -3402,7 +3429,8 @@
       "course-virgil",
       "course-higherlevel",
       "course-open-components",
-      "course-ramet"
+      "course-ramet",
+      "course-recall"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3480,7 +3508,9 @@
       "ai-agents-zero-to-hero",
       "hieraticbench",
       "stayleet",
-      "moodle-tool-human2human"
+      "moodle-tool-human2human",
+      "syncopate",
+      "shadowclone-skills-learned-from-your-coding-agent-correction"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3536,7 +3566,9 @@
       "course-ai-agents-zero-to-hero",
       "course-hieraticbench",
       "course-stayleet",
-      "course-moodle-tool-human2human"
+      "course-moodle-tool-human2human",
+      "course-syncopate",
+      "course-shadowclone-skills-learned-from-your-coding-agent-correction"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3799,7 +3831,12 @@
       "spectromood-speech-emotion-detection-with-a-decision-model",
       "memdebug",
       "talorys",
-      "ramet"
+      "ramet",
+      "shadowclone-skills-learned-from-your-coding-agent-correction",
+      "lightweight-self-hosted-web-analytics-app",
+      "agor-multiplayer-ai",
+      "recall",
+      "cheatcode"
     ],
     "courses": [
       "course-limitless-library",
@@ -3874,7 +3911,12 @@
       "course-spectromood-speech-emotion-detection-with-a-decision-model",
       "course-memdebug",
       "course-talorys",
-      "course-ramet"
+      "course-ramet",
+      "course-shadowclone-skills-learned-from-your-coding-agent-correction",
+      "course-lightweight-self-hosted-web-analytics-app",
+      "course-agor-multiplayer-ai",
+      "course-recall",
+      "course-cheatcode"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4019,7 +4061,9 @@
       "spectromood-speech-emotion-detection-with-a-decision-model",
       "tessary",
       "seodatadev-11-free-search-data-for-ai-agents",
-      "new-term-radar"
+      "new-term-radar",
+      "lightweight-self-hosted-web-analytics-app",
+      "proofsource-find-where-ai-leaves-you-out-and-fix-it"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -4084,7 +4128,9 @@
       "course-spectromood-speech-emotion-detection-with-a-decision-model",
       "course-tessary",
       "course-seodatadev-11-free-search-data-for-ai-agents",
-      "course-new-term-radar"
+      "course-new-term-radar",
+      "course-lightweight-self-hosted-web-analytics-app",
+      "course-proofsource-find-where-ai-leaves-you-out-and-fix-it"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4911,7 +4957,8 @@
       "hosted-mcp-server-for-google-search-console",
       "pbi-guard",
       "usejunction",
-      "agentlytics"
+      "agentlytics",
+      "proofsource-find-where-ai-leaves-you-out-and-fix-it"
     ],
     "courses": [
       "course-launch-hn-risklytics-yc-s26",
@@ -4926,7 +4973,8 @@
       "course-hosted-mcp-server-for-google-search-console",
       "course-pbi-guard",
       "course-usejunction",
-      "course-agentlytics"
+      "course-agentlytics",
+      "course-proofsource-find-where-ai-leaves-you-out-and-fix-it"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5953,7 +6001,8 @@
       "self-bench",
       "orbtile",
       "dotpals",
-      "delegator"
+      "delegator",
+      "shadowclone-skills-learned-from-your-coding-agent-correction"
     ],
     "courses": [
       "course-ai-tools-list",
@@ -5971,7 +6020,8 @@
       "course-self-bench",
       "course-orbtile",
       "course-dotpals",
-      "course-delegator"
+      "course-delegator",
+      "course-shadowclone-skills-learned-from-your-coding-agent-correction"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6441,12 +6491,14 @@
     "toolsTeaching": [
       "gemini-omni-11-flash",
       "gemini-agentic-video-understanding",
-      "pixelboard"
+      "pixelboard",
+      "gemini-4-argon-is-now-available-for-developers"
     ],
     "courses": [
       "course-gemini-omni-11-flash",
       "course-gemini-agentic-video-understanding",
-      "course-pixelboard"
+      "course-pixelboard",
+      "course-gemini-4-argon-is-now-available-for-developers"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -6475,12 +6527,14 @@
     "toolsTeaching": [
       "gemini-omni-11-flash",
       "google-seo-mcp",
-      "cc-is-an-ai-agent-for-families-and-groups"
+      "cc-is-an-ai-agent-for-families-and-groups",
+      "gemini-4-argon-is-now-available-for-developers"
     ],
     "courses": [
       "course-gemini-omni-11-flash",
       "course-google-seo-mcp",
-      "course-cc-is-an-ai-agent-for-families-and-groups"
+      "course-cc-is-an-ai-agent-for-families-and-groups",
+      "course-gemini-4-argon-is-now-available-for-developers"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -7488,7 +7542,8 @@
       "delegator",
       "agent-swarm-oss-multiplayer-ai-for-your-company",
       "guilds",
-      "a-modern-agentic-ai-operating-system"
+      "a-modern-agentic-ai-operating-system",
+      "agor-multiplayer-ai"
     ],
     "courses": [
       "course-coordination-layer-for-coding-agents",
@@ -7499,7 +7554,8 @@
       "course-delegator",
       "course-agent-swarm-oss-multiplayer-ai-for-your-company",
       "course-guilds",
-      "course-a-modern-agentic-ai-operating-system"
+      "course-a-modern-agentic-ai-operating-system",
+      "course-agor-multiplayer-ai"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -7812,7 +7868,8 @@
       "whirl",
       "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
       "memdebug",
-      "ihmt"
+      "ihmt",
+      "recall"
     ],
     "courses": [
       "course-itsuki",
@@ -7833,7 +7890,8 @@
       "course-whirl",
       "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
       "course-memdebug",
-      "course-ihmt"
+      "course-ihmt",
+      "course-recall"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -7923,13 +7981,15 @@
       "my-free-code",
       "moshi",
       "i-forked-jetbrains-new-agent-ide-to-host-claude-code",
-      "dotpals"
+      "dotpals",
+      "shadowclone-skills-learned-from-your-coding-agent-correction"
     ],
     "courses": [
       "course-my-free-code",
       "course-moshi",
       "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code",
-      "course-dotpals"
+      "course-dotpals",
+      "course-shadowclone-skills-learned-from-your-coding-agent-correction"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -8360,14 +8420,18 @@
       "ai-coding-agent-skills-for-real-engineers",
       "skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
       "reelbench-skills",
-      "stayleet"
+      "stayleet",
+      "shadowclone-skills-learned-from-your-coding-agent-correction",
+      "cheatcode"
     ],
     "courses": [
       "course-claude-skills-starter-kit",
       "course-ai-coding-agent-skills-for-real-engineers",
       "course-skills-vs-mcp-tools-for-ai-agents-when-to-use-which",
       "course-reelbench-skills",
-      "course-stayleet"
+      "course-stayleet",
+      "course-shadowclone-skills-learned-from-your-coding-agent-correction",
+      "course-cheatcode"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
   },
@@ -9247,7 +9311,8 @@
       "static-hosting-a-coding-agent-can-drive-end-to-end",
       "symphony",
       "crafting-express",
-      "pi-forge"
+      "pi-forge",
+      "cheatcode"
     ],
     "courses": [
       "course-compilrdev-studio",
@@ -9256,7 +9321,8 @@
       "course-static-hosting-a-coding-agent-can-drive-end-to-end",
       "course-symphony",
       "course-crafting-express",
-      "course-pi-forge"
+      "course-pi-forge",
+      "course-cheatcode"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -9629,11 +9695,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "anthropic-launches-fable-51-and-mythos-51",
-      "k2-horizon"
+      "k2-horizon",
+      "gemini-4-argon-is-now-available-for-developers"
     ],
     "courses": [
       "course-anthropic-launches-fable-51-and-mythos-51",
-      "course-k2-horizon"
+      "course-k2-horizon",
+      "course-gemini-4-argon-is-now-available-for-developers"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -9674,7 +9742,8 @@
       "aitoolsuite",
       "agentlytics",
       "redactpdfai-open-source-ai-based-pdf-redaction-tool",
-      "smart-blur"
+      "smart-blur",
+      "lightweight-self-hosted-web-analytics-app"
     ],
     "courses": [
       "course-pearpie",
@@ -9695,7 +9764,8 @@
       "course-aitoolsuite",
       "course-agentlytics",
       "course-redactpdfai-open-source-ai-based-pdf-redaction-tool",
-      "course-smart-blur"
+      "course-smart-blur",
+      "course-lightweight-self-hosted-web-analytics-app"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -11945,11 +12015,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "learn-practice-sudoku-strategies-web-app",
-      "stayleet"
+      "stayleet",
+      "syncopate"
     ],
     "courses": [
       "course-learn-practice-sudoku-strategies-web-app",
-      "course-stayleet"
+      "course-stayleet",
+      "course-syncopate"
     ],
     "updatedAt": "2026-09-04T23:20:31.711Z"
   },
@@ -13180,11 +13252,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "awesome-geo-tools",
-      "google-seo-mcp"
+      "google-seo-mcp",
+      "proofsource-find-where-ai-leaves-you-out-and-fix-it"
     ],
     "courses": [
       "course-awesome-geo-tools",
-      "course-google-seo-mcp"
+      "course-google-seo-mcp",
+      "course-proofsource-find-where-ai-leaves-you-out-and-fix-it"
     ],
     "updatedAt": "2026-09-07T15:05:03.707Z"
   },
@@ -13212,7 +13286,8 @@
       "ecommerce-ai-tools",
       "semrush-ai-tool",
       "hosted-mcp-server-for-google-search-console",
-      "seodatadev-11-free-search-data-for-ai-agents"
+      "seodatadev-11-free-search-data-for-ai-agents",
+      "proofsource-find-where-ai-leaves-you-out-and-fix-it"
     ],
     "courses": [
       "course-awesome-geo-tools",
@@ -13220,7 +13295,8 @@
       "course-ecommerce-ai-tools",
       "course-semrush-ai-tool",
       "course-hosted-mcp-server-for-google-search-console",
-      "course-seodatadev-11-free-search-data-for-ai-agents"
+      "course-seodatadev-11-free-search-data-for-ai-agents",
+      "course-proofsource-find-where-ai-leaves-you-out-and-fix-it"
     ],
     "updatedAt": "2026-09-07T15:05:03.707Z"
   },
@@ -17628,11 +17704,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "vibesafe-builder",
-      "freeform"
+      "freeform",
+      "cheatcode"
     ],
     "courses": [
       "course-vibesafe-builder",
-      "course-freeform"
+      "course-freeform",
+      "course-cheatcode"
     ],
     "updatedAt": "2026-09-15T14:21:00.449Z"
   },
@@ -23219,5 +23297,122 @@
       "course-ramet"
     ],
     "updatedAt": "2026-10-13T02:43:12.640Z"
+  },
+  {
+    "id": "skill-sheet music",
+    "name": "sheet music",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "syncopate"
+    ],
+    "courses": [
+      "course-syncopate"
+    ],
+    "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "skill-piano",
+    "name": "piano",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "syncopate"
+    ],
+    "courses": [
+      "course-syncopate"
+    ],
+    "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "skill-play-along",
+    "name": "play along",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "syncopate"
+    ],
+    "courses": [
+      "course-syncopate"
+    ],
+    "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "skill-music learning",
+    "name": "music learning",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "syncopate"
+    ],
+    "courses": [
+      "course-syncopate"
+    ],
+    "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "skill-web analytics",
+    "name": "web analytics",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "lightweight-self-hosted-web-analytics-app"
+    ],
+    "courses": [
+      "course-lightweight-self-hosted-web-analytics-app"
+    ],
+    "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "skill-traffic",
+    "name": "traffic",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "lightweight-self-hosted-web-analytics-app"
+    ],
+    "courses": [
+      "course-lightweight-self-hosted-web-analytics-app"
+    ],
+    "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "skill-ai visibility",
+    "name": "ai visibility",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "proofsource-find-where-ai-leaves-you-out-and-fix-it"
+    ],
+    "courses": [
+      "course-proofsource-find-where-ai-leaves-you-out-and-fix-it"
+    ],
+    "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "skill-brand monitoring",
+    "name": "brand monitoring",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "proofsource-find-where-ai-leaves-you-out-and-fix-it"
+    ],
+    "courses": [
+      "course-proofsource-find-where-ai-leaves-you-out-and-fix-it"
+    ],
+    "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "skill-installer",
+    "name": "installer",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "cheatcode"
+    ],
+    "courses": [
+      "course-cheatcode"
+    ],
+    "updatedAt": "2026-10-13T16:58:18.132Z"
   }
 ]
