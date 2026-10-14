@@ -13288,5 +13288,101 @@
       "devtools"
     ],
     "discoveredAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "slug": "sugabots",
+    "name": "Sugabots",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Group chats where teams and AI agents collaborate together in one workspace.",
+    "audience": "Teams using AI agents",
+    "dev": "",
+    "year": 2026,
+    "website": "https://sugabots.ai/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "group chat",
+      "collaboration",
+      "teamwork",
+      "automation"
+    ],
+    "discoveredAt": "2026-10-14T00:37:10.775Z"
+  },
+  {
+    "slug": "benchmark-coding-agents-on-deploying-apps",
+    "name": "Benchmark coding agents on deploying apps",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Open source",
+    "level": "advanced",
+    "blurb": "Open-source benchmark for evaluating coding agents on real app deployment tasks.",
+    "audience": "AI researchers and developers",
+    "dev": "cloudishai",
+    "year": 2026,
+    "website": "https://github.com/cloudishai/ai-deploy-bench",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "benchmark",
+      "coding agents",
+      "deployment",
+      "evaluation",
+      "devops"
+    ],
+    "discoveredAt": "2026-10-14T00:37:10.775Z"
+  },
+  {
+    "slug": "jevcrawl",
+    "name": "Jevcrawl",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open source",
+    "level": "intermediate",
+    "blurb": "Web crawler built for AI agents that crawls without an LLM in the loop.",
+    "audience": "AI agent developers",
+    "dev": "Rayen Mlayeh",
+    "year": 2026,
+    "website": "https://github.com/RayenMlayeh/jevcrawl",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "web crawler",
+      "ai agents",
+      "scraping",
+      "open source",
+      "automation"
+    ],
+    "discoveredAt": "2026-10-14T00:37:10.775Z"
+  },
+  {
+    "slug": "marketing-agent-for-founders",
+    "name": "Marketing Agent for Founders",
+    "category": "automation",
+    "sourceCategory": "Marketing, SEO & Sales",
+    "price": "paid",
+    "pricing": "paid subscription",
+    "level": "beginner",
+    "blurb": "AI marketing agent that runs growth campaigns autonomously for startup founders.",
+    "audience": "startup founders",
+    "dev": "",
+    "year": 2026,
+    "website": "https://heybono.ai",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "marketing",
+      "ai agent",
+      "automation",
+      "growth",
+      "startups"
+    ],
+    "discoveredAt": "2026-10-14T00:37:10.775Z"
   }
 ]

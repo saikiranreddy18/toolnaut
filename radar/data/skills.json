@@ -227,7 +227,8 @@
       "e2e",
       "gemini-4-argon-is-now-available-for-developers",
       "shadowclone-skills-learned-from-your-coding-agent-correction",
-      "cheatcode"
+      "cheatcode",
+      "benchmark-coding-agents-on-deploying-apps"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -452,7 +453,8 @@
       "course-e2e",
       "course-gemini-4-argon-is-now-available-for-developers",
       "course-shadowclone-skills-learned-from-your-coding-agent-correction",
-      "course-cheatcode"
+      "course-cheatcode",
+      "course-benchmark-coding-agents-on-deploying-apps"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -516,7 +518,8 @@
       "anyhropic-launches-google-docs-alternative-claude-docs",
       "devboard",
       "ai-agents-in-a-stand-up-call",
-      "agor-multiplayer-ai"
+      "agor-multiplayer-ai",
+      "sugabots"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -533,7 +536,8 @@
       "course-anyhropic-launches-google-docs-alternative-claude-docs",
       "course-devboard",
       "course-ai-agents-in-a-stand-up-call",
-      "course-agor-multiplayer-ai"
+      "course-agor-multiplayer-ai",
+      "course-sugabots"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1223,7 +1227,10 @@
       "wordless",
       "ramet",
       "agor-multiplayer-ai",
-      "recall"
+      "recall",
+      "sugabots",
+      "jevcrawl",
+      "marketing-agent-for-founders"
     ],
     "courses": [
       "course-headless-tools",
@@ -1518,7 +1525,10 @@
       "course-wordless",
       "course-ramet",
       "course-agor-multiplayer-ai",
-      "course-recall"
+      "course-recall",
+      "course-sugabots",
+      "course-jevcrawl",
+      "course-marketing-agent-for-founders"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1729,7 +1739,9 @@
       "beeuni",
       "ramet",
       "agor-multiplayer-ai",
-      "recall"
+      "recall",
+      "sugabots",
+      "jevcrawl"
     ],
     "courses": [
       "course-headless-tools",
@@ -1918,7 +1930,9 @@
       "course-beeuni",
       "course-ramet",
       "course-agor-multiplayer-ai",
-      "course-recall"
+      "course-recall",
+      "course-sugabots",
+      "course-jevcrawl"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3836,7 +3850,8 @@
       "lightweight-self-hosted-web-analytics-app",
       "agor-multiplayer-ai",
       "recall",
-      "cheatcode"
+      "cheatcode",
+      "jevcrawl"
     ],
     "courses": [
       "course-limitless-library",
@@ -3916,7 +3931,8 @@
       "course-lightweight-self-hosted-web-analytics-app",
       "course-agor-multiplayer-ai",
       "course-recall",
-      "course-cheatcode"
+      "course-cheatcode",
+      "course-jevcrawl"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4389,7 +4405,8 @@
       "chloe-is-a-typescript-ai-agent",
       "opposable",
       "vendiq",
-      "talorys"
+      "talorys",
+      "marketing-agent-for-founders"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -4425,7 +4442,8 @@
       "course-chloe-is-a-typescript-ai-agent",
       "course-opposable",
       "course-vendiq",
-      "course-talorys"
+      "course-talorys",
+      "course-marketing-agent-for-founders"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4931,11 +4949,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "launch-hn-risklytics-yc-s26",
-      "startups-next-teammate-might-be-an-ai-agent"
+      "startups-next-teammate-might-be-an-ai-agent",
+      "marketing-agent-for-founders"
     ],
     "courses": [
       "course-launch-hn-risklytics-yc-s26",
-      "course-startups-next-teammate-might-be-an-ai-agent"
+      "course-startups-next-teammate-might-be-an-ai-agent",
+      "course-marketing-agent-for-founders"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5251,7 +5271,8 @@
       "you-didnt-deploy-the-ai-agent-you-evaluated",
       "unmute",
       "tofu",
-      "runtime"
+      "runtime",
+      "benchmark-coding-agents-on-deploying-apps"
     ],
     "courses": [
       "course-we-run-stateful-ai-agents-on-a-serverless-infra",
@@ -5261,7 +5282,8 @@
       "course-you-didnt-deploy-the-ai-agent-you-evaluated",
       "course-unmute",
       "course-tofu",
-      "course-runtime"
+      "course-runtime",
+      "course-benchmark-coding-agents-on-deploying-apps"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5353,7 +5375,8 @@
       "can-ai-build-a-toilet-yet",
       "an-open-add-search-evaluation-framework-for-agent-memory",
       "headline-arena",
-      "hieraticbench"
+      "hieraticbench",
+      "benchmark-coding-agents-on-deploying-apps"
     ],
     "courses": [
       "course-a-benchmark-for-safely-measuring-container-breakout-capabili",
@@ -5366,7 +5389,8 @@
       "course-can-ai-build-a-toilet-yet",
       "course-an-open-add-search-evaluation-framework-for-agent-memory",
       "course-headline-arena",
-      "course-hieraticbench"
+      "course-hieraticbench",
+      "course-benchmark-coding-agents-on-deploying-apps"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5845,14 +5869,16 @@
       "cut-your-ai-bill-by-a-third-same-tools-same-output",
       "the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "humble-bundle",
-      "charter"
+      "charter",
+      "benchmark-coding-agents-on-deploying-apps"
     ],
     "courses": [
       "course-propose-and-dual-control-for-dns-changes",
       "course-cut-your-ai-bill-by-a-third-same-tools-same-output",
       "course-the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "course-humble-bundle",
-      "course-charter"
+      "course-charter",
+      "course-benchmark-coding-agents-on-deploying-apps"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6002,7 +6028,8 @@
       "orbtile",
       "dotpals",
       "delegator",
-      "shadowclone-skills-learned-from-your-coding-agent-correction"
+      "shadowclone-skills-learned-from-your-coding-agent-correction",
+      "benchmark-coding-agents-on-deploying-apps"
     ],
     "courses": [
       "course-ai-tools-list",
@@ -6021,7 +6048,8 @@
       "course-orbtile",
       "course-dotpals",
       "course-delegator",
-      "course-shadowclone-skills-learned-from-your-coding-agent-correction"
+      "course-shadowclone-skills-learned-from-your-coding-agent-correction",
+      "course-benchmark-coding-agents-on-deploying-apps"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6649,7 +6677,8 @@
       "an-open-add-search-evaluation-framework-for-agent-memory",
       "glance",
       "self-bench",
-      "hieraticbench"
+      "hieraticbench",
+      "benchmark-coding-agents-on-deploying-apps"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -6669,7 +6698,8 @@
       "course-an-open-add-search-evaluation-framework-for-agent-memory",
       "course-glance",
       "course-self-bench",
-      "course-hieraticbench"
+      "course-hieraticbench",
+      "course-benchmark-coding-agents-on-deploying-apps"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -9821,7 +9851,8 @@
       "listpro",
       "openai-expands-chatgpt-ads-with-sponsored-agents",
       "open-source-skills-for-end-to-end-video-ad-campaigns",
-      "growthengineer"
+      "growthengineer",
+      "marketing-agent-for-founders"
     ],
     "courses": [
       "course-octoloops",
@@ -9831,7 +9862,8 @@
       "course-listpro",
       "course-openai-expands-chatgpt-ads-with-sponsored-agents",
       "course-open-source-skills-for-end-to-end-video-ad-campaigns",
-      "course-growthengineer"
+      "course-growthengineer",
+      "course-marketing-agent-for-founders"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -9843,12 +9875,14 @@
     "toolsTeaching": [
       "octoloops",
       "revliu",
-      "growthengineer"
+      "growthengineer",
+      "marketing-agent-for-founders"
     ],
     "courses": [
       "course-octoloops",
       "course-revliu",
-      "course-growthengineer"
+      "course-growthengineer",
+      "course-marketing-agent-for-founders"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -16619,12 +16653,14 @@
     "toolsTeaching": [
       "scaling-classical-music-concert-crawlers-with-ai-agents",
       "google-maps-scraper-mcp",
-      "weekend-hack"
+      "weekend-hack",
+      "jevcrawl"
     ],
     "courses": [
       "course-scaling-classical-music-concert-crawlers-with-ai-agents",
       "course-google-maps-scraper-mcp",
-      "course-weekend-hack"
+      "course-weekend-hack",
+      "course-jevcrawl"
     ],
     "updatedAt": "2026-09-12T23:23:08.913Z"
   },
@@ -23414,5 +23450,44 @@
       "course-cheatcode"
     ],
     "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "skill-group chat",
+    "name": "group chat",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "sugabots"
+    ],
+    "courses": [
+      "course-sugabots"
+    ],
+    "updatedAt": "2026-10-14T00:37:10.775Z"
+  },
+  {
+    "id": "skill-teamwork",
+    "name": "teamwork",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "sugabots"
+    ],
+    "courses": [
+      "course-sugabots"
+    ],
+    "updatedAt": "2026-10-14T00:37:10.775Z"
+  },
+  {
+    "id": "skill-web crawler",
+    "name": "web crawler",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "jevcrawl"
+    ],
+    "courses": [
+      "course-jevcrawl"
+    ],
+    "updatedAt": "2026-10-14T00:37:10.775Z"
   }
 ]

@@ -36215,5 +36215,243 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-10-13T16:58:18.132Z"
+  },
+  {
+    "id": "course-sugabots",
+    "toolSlug": "sugabots",
+    "title": "Master Sugabots",
+    "objectives": [
+      "Set up a team workspace with shared group chats",
+      "Add and configure AI agents inside a conversation",
+      "Coordinate human-agent handoffs with mentions and task assignment"
+    ],
+    "modules": [
+      {
+        "title": "Workspace & Group Chat Setup",
+        "estMinutes": 15,
+        "steps": [
+          "Create a new workspace, invite 2+ teammates, and set their roles (admin vs. member)",
+          "Create a named group chat (e.g., '#launch-plan') and pin a message describing the chat's purpose",
+          "Configure notification preferences per channel so only @mentions trigger alerts"
+        ]
+      },
+      {
+        "title": "Adding & Directing AI Agents",
+        "estMinutes": 20,
+        "steps": [
+          "Add a built-in AI agent to your group chat and review its capability description",
+          "Give the agent a persistent instruction (system-style prompt) defining its role, tone, and scope",
+          "Test the agent with a real task: '@agent summarize this thread and list open action items'"
+        ]
+      },
+      {
+        "title": "Human-Agent Collaboration Flows",
+        "estMinutes": 20,
+        "steps": [
+          "Run a workflow where the agent drafts output and a teammate approves or edits it in-thread",
+          "Use thread replies to keep agent tasks scoped, and correct the agent's context when it drifts",
+          "Convert an agent response into an assigned task for a teammate with a due date"
+        ]
+      },
+      {
+        "title": "Multi-Agent & Admin Controls",
+        "estMinutes": 15,
+        "steps": [
+          "Add a second agent with a different specialty and route requests by mentioning the right one",
+          "Review workspace settings: manage agent permissions, message history access, and data retention",
+          "Export or summarize a week's worth of agent-assisted decisions for a team retro"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-group chat",
+      "skill-collaboration",
+      "skill-teamwork"
+    ],
+    "prerequisites": [
+      "Active Sugabots account with workspace creation rights",
+      "Basic familiarity with team chat tools (threads, @mentions, channels)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-14T00:37:10.775Z"
+  },
+  {
+    "id": "course-benchmark-coding-agents-on-deploying-apps",
+    "toolSlug": "benchmark-coding-agents-on-deploying-apps",
+    "title": "Master Benchmark coding agents on deploying apps",
+    "objectives": [
+      "Set up the benchmark harness and run an agent against a deployment task",
+      "Score agent runs against deployment success criteria and interpret results",
+      "Add a custom real-world deployment task to the benchmark suite"
+    ],
+    "modules": [
+      {
+        "title": "Install and run your first benchmark",
+        "estMinutes": 30,
+        "steps": [
+          "Clone the benchmark repo, install dependencies (Python/Docker), and configure your LLM API keys via environment variables",
+          "Run a single sample task (e.g., 'deploy a Flask app to a container') with one agent using the CLI run command",
+          "Inspect the generated trajectory logs and task artifacts in the runs/ output directory"
+        ]
+      },
+      {
+        "title": "Evaluate and compare agents",
+        "estMinutes": 40,
+        "steps": [
+          "Run the same task set against two agents (e.g., two models or two scaffolding configs) and capture their result JSON files",
+          "Use the scoring/grader command to compute pass rates based on deployment checks (service reachable, health endpoint 200, tests passing)",
+          "Build a comparison table of success rate, token cost, and wall-clock time per task"
+        ]
+      },
+      {
+        "title": "Author a custom deployment task",
+        "estMinutes": 60,
+        "steps": [
+          "Create a new task directory with a task spec (prompt, Dockerfile/environment, and verification script that checks the deployed app)",
+          "Write deterministic verification (e.g., curl the health endpoint, assert DB migrations ran) and test it locally against a known-good solution",
+          "Register the task in the suite config, run an agent against it, and confirm the grader scores a passing and a failing solution correctly"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-benchmark",
+      "skill-coding agents",
+      "skill-deployment",
+      "skill-evaluation",
+      "skill-devops"
+    ],
+    "prerequisites": [
+      "Familiarity with Docker and container-based deployments",
+      "Experience running coding agents or LLM APIs (function calling, tool use)",
+      "Comfort reading Python and writing shell verification scripts"
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-14T00:37:10.775Z"
+  },
+  {
+    "id": "course-jevcrawl",
+    "toolSlug": "jevcrawl",
+    "title": "Master Jevcrawl",
+    "objectives": [
+      "Install and configure Jevcrawl for a real crawl target",
+      "Run structured crawls and control depth, scope, and rate limits",
+      "Export crawl output in agent-ready formats (JSON/Markdown)"
+    ],
+    "modules": [
+      {
+        "title": "Setup and First Crawl",
+        "estMinutes": 20,
+        "steps": [
+          "Install Jevcrawl via its package manager command and verify with jevcrawl --version",
+          "Run a basic crawl of a small site (e.g., jevcrawl crawl https://example.com) and inspect the default output directory",
+          "Set a max page count and crawl depth flag, then re-run and compare results"
+        ]
+      },
+      {
+        "title": "Scoping and Politeness Controls",
+        "estMinutes": 25,
+        "steps": [
+          "Restrict the crawl to a URL prefix/subdomain using include/exclude patterns and confirm off-scope URLs are skipped",
+          "Configure rate limiting and concurrency settings, then observe request timing in logs",
+          "Add sitemap-based seeding and enable robots.txt respect, verifying disallowed paths are not fetched"
+        ]
+      },
+      {
+        "title": "Agent-Ready Output and Automation",
+        "estMinutes": 25,
+        "steps": [
+          "Export crawled pages as clean Markdown/JSON and examine the per-page metadata schema (URL, title, content, links)",
+          "Write a small script that feeds Jevcrawl output into an agent indexing pipeline (e.g., chunked text files)",
+          "Schedule an incremental re-crawl and confirm only changed pages are re-fetched"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-web crawler",
+      "skill-ai agents",
+      "skill-scraping",
+      "skill-open source"
+    ],
+    "prerequisites": [
+      "Comfortable using a command line",
+      "Basic understanding of HTTP, URLs, and robots.txt",
+      "Familiarity with reading JSON data in scripts"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-14T00:37:10.775Z"
+  },
+  {
+    "id": "course-marketing-agent-for-founders",
+    "toolSlug": "marketing-agent-for-founders",
+    "title": "Master Marketing Agent for Founders",
+    "objectives": [
+      "Connect your startup's website, analytics, and ad accounts to the agent",
+      "Launch your first autonomous growth campaign with a defined budget and goal",
+      "Review the agent's campaign decisions and adjust its guardrails confidently"
+    ],
+    "modules": [
+      {
+        "title": "Set Up Your Marketing Agent Workspace",
+        "estMinutes": 25,
+        "steps": [
+          "Create an account and enter your startup's URL so the agent can crawl your site and generate a brand/product brief — edit the brief to fix any wrong messaging",
+          "Connect Google Analytics and your ad accounts (Google Ads, Meta) via OAuth so the agent can read performance data",
+          "Set your monthly budget ceiling and target customer profile (ICP) in the agent's settings"
+        ]
+      },
+      {
+        "title": "Define Your First Campaign Goal",
+        "estMinutes": 20,
+        "steps": [
+          "Pick one measurable goal from the agent's templates (e.g., 'increase trial signups by 20%') rather than a vague one — don't run multiple goals yet",
+          "Review the agent's proposed channel mix and budget split, then approve or manually rebalance it",
+          "Set a daily spend cap and a kill-switch threshold (e.g., pause if cost per signup exceeds $50)"
+        ]
+      },
+      {
+        "title": "Launch and Monitor the Campaign",
+        "estMinutes": 30,
+        "steps": [
+          "Approve the agent's generated ad copy and landing page suggestions — edit at least one headline yourself to learn the approval workflow",
+          "Launch the campaign and check the live dashboard after 24 hours for spend, clicks, and conversions",
+          "Read the agent's decision log to see why it shifted budget between ads or channels"
+        ]
+      },
+      {
+        "title": "Review Results and Tighten Guardrails",
+        "estMinutes": 25,
+        "steps": [
+          "Open the weekly performance report and compare actual cost per acquisition against your target",
+          "Approve or reject the agent's proposed next iterations (new audiences, new creatives) one by one",
+          "Adjust guardrails based on results: raise the budget if CPA is on target, or narrow the audience and lower spend if it's not"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-marketing",
+      "skill-ai agent",
+      "skill-growth",
+      "skill-startups"
+    ],
+    "prerequisites": [
+      "A live website or landing page for your startup",
+      "Admin access to at least one ad account (Google Ads or Meta)",
+      "Basic analytics set up (e.g., Google Analytics) so conversions can be tracked"
+    ],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-14T00:37:10.775Z"
   }
 ]
