@@ -36453,5 +36453,157 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-10-14T00:37:10.775Z"
+  },
+  {
+    "id": "course-ai-investment-agreement-review-for-startup-founders",
+    "toolSlug": "ai-investment-agreement-review-for-startup-founders",
+    "title": "Master AI investment agreement review for startup founders",
+    "objectives": [
+      "Upload a term sheet or SAFE and run a first-pass risk scan for founder-unfriendly terms",
+      "Interpret AI flags on dilution, liquidation preferences, board control, and vesting clauses",
+      "Build a prioritized red-flag list for your lawyer instead of a vague 'please review'"
+    ],
+    "modules": [
+      {
+        "title": "Set Up and Ingest Your Document Safely",
+        "estMinutes": 20,
+        "steps": [
+          "Redact or confirm the tool's confidentiality/data-retention policy before uploading; check whether docs are used for model training",
+          "Upload one document (term sheet, SAFE, or SPA) plus, if supported, a 'cap table context' note: current ownership %, round size, and investor type",
+          "Tag the document type and your goal (e.g., 'Seed round, founder-friendly check') so the AI applies the right clause benchmarks"
+        ]
+      },
+      {
+        "title": "Run the Review and Read the Risk Flags",
+        "estMinutes": 30,
+        "steps": [
+          "Trigger a full clause-by-clause scan, then focus first on the four highest-impact categories: liquidation preference (flag anything over 1x non-participating), anti-dilution (full ratchet = red), board composition, and protective provisions",
+          "For each flag, open the cited clause text and the AI's market-standard comparison; mark flags as 'accept', 'negotiate', or 'needs lawyer' using your own judgment",
+          "Ask follow-up questions in plain language (e.g., 'What does a 2x participating preference cost me at a $10M exit?') and request a simple payout-worked example"
+        ]
+      },
+      {
+        "title": "Cross-Check, Verify, and Brief Your Lawyer",
+        "estMinutes": 25,
+        "steps": [
+          "Spot-verify 3-5 AI flags against the actual contract text yourself — never forward AI output you haven't confirmed, since clause citations can be wrong",
+          "Run a second targeted prompt for interacting risks: 'Do the anti-dilution and pro-rata rights combine to threaten founder control in a down round?'",
+          "Export the flagged-clause summary into a one-page brief with your accept/negotiate calls and specific questions, then send it to legal counsel as the review agenda"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-legal",
+      "skill-investment",
+      "skill-contracts",
+      "skill-startups",
+      "skill-review"
+    ],
+    "prerequisites": [
+      "Basic familiarity with term sheets, SAFEs, and equity round mechanics",
+      "An actual investment document (or realistic sample) under review",
+      "Understanding that AI review supplements, not replaces, legal counsel"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-14T14:32:18.161Z"
+  },
+  {
+    "id": "course-veduta",
+    "toolSlug": "veduta",
+    "title": "Master Veduta",
+    "objectives": [
+      "Understand what Veduta is for",
+      "Use Veduta on a real task",
+      "Know where Veduta fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Veduta for your real workflow, not the demo.",
+          "Say what Veduta does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Veduta.",
+          "Push Veduta to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Veduta into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-generative ui",
+      "skill-open source",
+      "skill-personal assistant"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-14T14:32:18.161Z"
+  },
+  {
+    "id": "course-kryzz-ai",
+    "toolSlug": "kryzz-ai",
+    "title": "Master Kryzz AI",
+    "objectives": [
+      "Understand what Kryzz AI is for",
+      "Use Kryzz AI on a real task",
+      "Know where Kryzz AI fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Kryzz AI for your real workflow, not the demo.",
+          "Say what Kryzz AI does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Kryzz AI.",
+          "Push Kryzz AI to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Kryzz AI into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-android",
+      "skill-ai agents",
+      "skill-local-first",
+      "skill-open source"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-14T14:32:18.161Z"
   }
 ]

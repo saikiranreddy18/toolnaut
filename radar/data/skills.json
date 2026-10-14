@@ -1230,7 +1230,10 @@
       "recall",
       "sugabots",
       "jevcrawl",
-      "marketing-agent-for-founders"
+      "marketing-agent-for-founders",
+      "ai-investment-agreement-review-for-startup-founders",
+      "veduta",
+      "kryzz-ai"
     ],
     "courses": [
       "course-headless-tools",
@@ -1528,7 +1531,10 @@
       "course-recall",
       "course-sugabots",
       "course-jevcrawl",
-      "course-marketing-agent-for-founders"
+      "course-marketing-agent-for-founders",
+      "course-ai-investment-agreement-review-for-startup-founders",
+      "course-veduta",
+      "course-kryzz-ai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1741,7 +1747,8 @@
       "agor-multiplayer-ai",
       "recall",
       "sugabots",
-      "jevcrawl"
+      "jevcrawl",
+      "kryzz-ai"
     ],
     "courses": [
       "course-headless-tools",
@@ -1932,7 +1939,8 @@
       "course-agor-multiplayer-ai",
       "course-recall",
       "course-sugabots",
-      "course-jevcrawl"
+      "course-jevcrawl",
+      "course-kryzz-ai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3851,7 +3859,9 @@
       "agor-multiplayer-ai",
       "recall",
       "cheatcode",
-      "jevcrawl"
+      "jevcrawl",
+      "veduta",
+      "kryzz-ai"
     ],
     "courses": [
       "course-limitless-library",
@@ -3932,7 +3942,9 @@
       "course-agor-multiplayer-ai",
       "course-recall",
       "course-cheatcode",
-      "course-jevcrawl"
+      "course-jevcrawl",
+      "course-veduta",
+      "course-kryzz-ai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4406,7 +4418,8 @@
       "opposable",
       "vendiq",
       "talorys",
-      "marketing-agent-for-founders"
+      "marketing-agent-for-founders",
+      "veduta"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -4443,7 +4456,8 @@
       "course-opposable",
       "course-vendiq",
       "course-talorys",
-      "course-marketing-agent-for-founders"
+      "course-marketing-agent-for-founders",
+      "course-veduta"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4950,12 +4964,14 @@
     "toolsTeaching": [
       "launch-hn-risklytics-yc-s26",
       "startups-next-teammate-might-be-an-ai-agent",
-      "marketing-agent-for-founders"
+      "marketing-agent-for-founders",
+      "ai-investment-agreement-review-for-startup-founders"
     ],
     "courses": [
       "course-launch-hn-risklytics-yc-s26",
       "course-startups-next-teammate-might-be-an-ai-agent",
-      "course-marketing-agent-for-founders"
+      "course-marketing-agent-for-founders",
+      "course-ai-investment-agreement-review-for-startup-founders"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5504,7 +5520,8 @@
       "ai-agent-for-google-play-submissions-video",
       "aiope",
       "pixelboard",
-      "opposable"
+      "opposable",
+      "kryzz-ai"
     ],
     "courses": [
       "course-devx",
@@ -5512,7 +5529,8 @@
       "course-ai-agent-for-google-play-submissions-video",
       "course-aiope",
       "course-pixelboard",
-      "course-opposable"
+      "course-opposable",
+      "course-kryzz-ai"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -7765,7 +7783,8 @@
       "ggg",
       "paperweight",
       "verzeta-studio",
-      "checkout-this-open-source-local-first-bioinformatics-ai-desk"
+      "checkout-this-open-source-local-first-bioinformatics-ai-desk",
+      "kryzz-ai"
     ],
     "courses": [
       "course-datazen",
@@ -7779,7 +7798,8 @@
       "course-ggg",
       "course-paperweight",
       "course-verzeta-studio",
-      "course-checkout-this-open-source-local-first-bioinformatics-ai-desk"
+      "course-checkout-this-open-source-local-first-bioinformatics-ai-desk",
+      "course-kryzz-ai"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -14238,14 +14258,16 @@
       "muse-your-personal-ai-agent-from-meta",
       "muse-your-personal-ai-agent",
       "meta-launches-muse-a-personal-ai-agent",
-      "meta-muse-hits-1-in-apple-app-store"
+      "meta-muse-hits-1-in-apple-app-store",
+      "veduta"
     ],
     "courses": [
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
       "course-muse-your-personal-ai-agent-from-meta",
       "course-muse-your-personal-ai-agent",
       "course-meta-launches-muse-a-personal-ai-agent",
-      "course-meta-muse-hits-1-in-apple-app-store"
+      "course-meta-muse-hits-1-in-apple-app-store",
+      "course-veduta"
     ],
     "updatedAt": "2026-09-08T23:40:07.345Z"
   },
@@ -17979,10 +18001,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "i-tested-ai-agents-for-everyday-work"
+      "i-tested-ai-agents-for-everyday-work",
+      "ai-investment-agreement-review-for-startup-founders"
     ],
     "courses": [
-      "course-i-tested-ai-agents-for-everyday-work"
+      "course-i-tested-ai-agents-for-everyday-work",
+      "course-ai-investment-agreement-review-for-startup-founders"
     ],
     "updatedAt": "2026-09-15T23:42:46.820Z"
   },
@@ -21012,10 +21036,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "mutually-beneficial-agentic-common-law"
+      "mutually-beneficial-agentic-common-law",
+      "ai-investment-agreement-review-for-startup-founders"
     ],
     "courses": [
-      "course-mutually-beneficial-agentic-common-law"
+      "course-mutually-beneficial-agentic-common-law",
+      "course-ai-investment-agreement-review-for-startup-founders"
     ],
     "updatedAt": "2026-10-02T01:04:56.387Z"
   },
@@ -23489,5 +23515,44 @@
       "course-jevcrawl"
     ],
     "updatedAt": "2026-10-14T00:37:10.775Z"
+  },
+  {
+    "id": "skill-investment",
+    "name": "investment",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-investment-agreement-review-for-startup-founders"
+    ],
+    "courses": [
+      "course-ai-investment-agreement-review-for-startup-founders"
+    ],
+    "updatedAt": "2026-10-14T14:32:18.161Z"
+  },
+  {
+    "id": "skill-contracts",
+    "name": "contracts",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-investment-agreement-review-for-startup-founders"
+    ],
+    "courses": [
+      "course-ai-investment-agreement-review-for-startup-founders"
+    ],
+    "updatedAt": "2026-10-14T14:32:18.161Z"
+  },
+  {
+    "id": "skill-generative ui",
+    "name": "generative ui",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "veduta"
+    ],
+    "courses": [
+      "course-veduta"
+    ],
+    "updatedAt": "2026-10-14T14:32:18.161Z"
   }
 ]
