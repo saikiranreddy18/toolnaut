@@ -13456,5 +13456,77 @@
       "automation"
     ],
     "discoveredAt": "2026-10-14T14:32:18.161Z"
+  },
+  {
+    "slug": "fantastic-canvas",
+    "name": "Fantastic Canvas",
+    "category": "design",
+    "sourceCategory": "Presentations, Design & Websites",
+    "price": "free",
+    "pricing": "Free / open source",
+    "level": "intermediate",
+    "blurb": "Open-source infinite canvas for AI-assisted creative and generative workflows.",
+    "audience": "developers and creatives building AI canvas apps",
+    "dev": "aisixteen",
+    "year": 2026,
+    "website": "https://github.com/aisixteen/fantastic",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "canvas",
+      "open-source",
+      "generative",
+      "ui",
+      "github"
+    ],
+    "discoveredAt": "2026-10-15T00:06:40.597Z"
+  },
+  {
+    "slug": "eevo",
+    "name": "Eevo",
+    "category": "data",
+    "sourceCategory": "Data & Analytics",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "AI-powered decision modeling tool for analyzing consequential choices and outcomes.",
+    "audience": "analysts and decision-makers",
+    "dev": "Upright Project",
+    "year": 2026,
+    "website": "https://www.uprightproject.com/eevo/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "decision-making",
+      "modeling",
+      "analysis",
+      "forecasting",
+      "strategy"
+    ],
+    "discoveredAt": "2026-10-15T00:06:40.597Z"
+  },
+  {
+    "slug": "mellum21",
+    "name": "Mellum2.1",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Open source",
+    "level": "intermediate",
+    "blurb": "Fast open-weight coding model by JetBrains, built to power coding agents.",
+    "audience": "Developers building or using AI coding agents",
+    "dev": "JetBrains",
+    "year": 2026,
+    "website": "https://blog.jetbrains.com/ai/2026/10/mellum2-1-gets-to-work-a-fast-open-model-for-coding-agents/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "llm",
+      "coding",
+      "open-source",
+      "agent",
+      "jetbrains"
+    ],
+    "discoveredAt": "2026-10-15T00:06:40.597Z"
   }
 ]

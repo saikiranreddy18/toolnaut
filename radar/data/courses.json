@@ -36605,5 +36605,159 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-10-14T14:32:18.161Z"
+  },
+  {
+    "id": "course-fantastic-canvas",
+    "toolSlug": "fantastic-canvas",
+    "title": "Master Fantastic Canvas",
+    "objectives": [
+      "Understand what Fantastic Canvas is for",
+      "Use Fantastic Canvas on a real task",
+      "Know where Fantastic Canvas fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Fantastic Canvas for your real workflow, not the demo.",
+          "Say what Fantastic Canvas does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Fantastic Canvas.",
+          "Push Fantastic Canvas to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Fantastic Canvas into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-canvas",
+      "skill-open-source",
+      "skill-generative",
+      "skill-ui",
+      "skill-github"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-15T00:06:40.597Z"
+  },
+  {
+    "id": "course-eevo",
+    "toolSlug": "eevo",
+    "title": "Master Eevo",
+    "objectives": [
+      "Build a multi-branch decision model with weighted outcomes in Eevo",
+      "Run sensitivity analysis to identify which assumptions drive the final recommendation",
+      "Share a versioned decision workspace with stakeholders for structured review"
+    ],
+    "modules": [
+      {
+        "title": "Structuring Your First Decision Model",
+        "estMinutes": 25,
+        "steps": [
+          "Create a new project and define a consequential choice (e.g., 'migrate to cloud provider A vs B') using the Decision Canvas, adding exactly one root decision node",
+          "Add 3-4 outcome branches per option, tagging each with probability estimates and impact scores using Eevo's built-in elicitation sliders",
+          "Attach evidence notes to each branch so assumptions are traceable to sources"
+        ]
+      },
+      {
+        "title": "Weights, Uncertainty, and Sensitivity Analysis",
+        "estMinutes": 30,
+        "steps": [
+          "Apply criteria weights (cost, risk, speed, reversibility) in the Criteria panel and let Eevo recompute branch rankings",
+          "Convert point estimates into ranges using uncertainty distributions on at least two key variables",
+          "Open the Sensitivity View, identify the top 2 swing variables, and adjust them to see where the recommendation flips"
+        ]
+      },
+      {
+        "title": "Collaboration, Scenarios, and Export",
+        "estMinutes": 20,
+        "steps": [
+          "Duplicate your model into a 'pessimistic' scenario variant and compare it side-by-side in Scenario Compare",
+          "Invite a teammate with comment-only access and resolve their inline challenges on probability estimates",
+          "Export the decision record PDF, including the assumptions log and sensitivity chart, for a stakeholder sign-off"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-decision-making",
+      "skill-modeling",
+      "skill-analysis",
+      "skill-forecasting",
+      "skill-strategy"
+    ],
+    "prerequisites": [
+      "Basic familiarity with probability and expected value concepts",
+      "An Eevo account with project creation permissions",
+      "A real, current decision to model (not a toy example)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-10-15T00:06:40.597Z"
+  },
+  {
+    "id": "course-mellum21",
+    "toolSlug": "mellum21",
+    "title": "Master Mellum2.1",
+    "objectives": [
+      "Understand what Mellum2.1 is for",
+      "Use Mellum2.1 on a real task",
+      "Know where Mellum2.1 fits — and its limits"
+    ],
+    "modules": [
+      {
+        "title": "Set up",
+        "estMinutes": 20,
+        "steps": [
+          "Configure Mellum2.1 for your real workflow, not the demo.",
+          "Say what Mellum2.1 does in one line you could tell a colleague."
+        ]
+      },
+      {
+        "title": "Use it for real",
+        "estMinutes": 40,
+        "steps": [
+          "Run one small, real task through Mellum2.1.",
+          "Push Mellum2.1 to an edge case and learn where it breaks."
+        ]
+      },
+      {
+        "title": "Make it stick",
+        "estMinutes": 30,
+        "steps": [
+          "Fold Mellum2.1 into a task you repeat weekly.",
+          "Write down when to reach for it — and when not to."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-llm",
+      "skill-coding",
+      "skill-open-source",
+      "skill-agent",
+      "skill-jetbrains"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "fallback:template",
+    "version": 1,
+    "updatedAt": "2026-10-15T00:06:40.597Z"
   }
 ]

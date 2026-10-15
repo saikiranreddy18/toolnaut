@@ -228,7 +228,8 @@
       "gemini-4-argon-is-now-available-for-developers",
       "shadowclone-skills-learned-from-your-coding-agent-correction",
       "cheatcode",
-      "benchmark-coding-agents-on-deploying-apps"
+      "benchmark-coding-agents-on-deploying-apps",
+      "mellum21"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -454,7 +455,8 @@
       "course-gemini-4-argon-is-now-available-for-developers",
       "course-shadowclone-skills-learned-from-your-coding-agent-correction",
       "course-cheatcode",
-      "course-benchmark-coding-agents-on-deploying-apps"
+      "course-benchmark-coding-agents-on-deploying-apps",
+      "course-mellum21"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -659,7 +661,9 @@
       "awesome-iran-mcp",
       "turn-spoken-thoughts-into-system-design-diagrams",
       "veda-first-ai-agentic-hobby-os",
-      "a-modern-agentic-ai-operating-system"
+      "a-modern-agentic-ai-operating-system",
+      "fantastic-canvas",
+      "mellum21"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -759,7 +763,9 @@
       "course-awesome-iran-mcp",
       "course-turn-spoken-thoughts-into-system-design-diagrams",
       "course-veda-first-ai-agentic-hobby-os",
-      "course-a-modern-agentic-ai-operating-system"
+      "course-a-modern-agentic-ai-operating-system",
+      "course-fantastic-canvas",
+      "course-mellum21"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -809,7 +815,8 @@
       "smart-blur",
       "short-video-maker",
       "llm-skill-to-generate-editable-3d-house-designs",
-      "turn-spoken-thoughts-into-system-design-diagrams"
+      "turn-spoken-thoughts-into-system-design-diagrams",
+      "fantastic-canvas"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -852,7 +859,8 @@
       "course-smart-blur",
       "course-short-video-maker",
       "course-llm-skill-to-generate-editable-3d-house-designs",
-      "course-turn-spoken-thoughts-into-system-design-diagrams"
+      "course-turn-spoken-thoughts-into-system-design-diagrams",
+      "course-fantastic-canvas"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2048,7 +2056,8 @@
       "boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b",
       "ihmt",
       "gemini-4-argon-is-now-available-for-developers",
-      "recall"
+      "recall",
+      "mellum21"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2106,7 +2115,8 @@
       "course-boole-17b-a-1-bit-llm-that-outperforms-bonsai-17b",
       "course-ihmt",
       "course-gemini-4-argon-is-now-available-for-developers",
-      "course-recall"
+      "course-recall",
+      "course-mellum21"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2142,7 +2152,8 @@
       "the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "agenttik",
       "run-osier-to-track-how-your-ai-coding-agent-does",
-      "stayleet"
+      "stayleet",
+      "mellum21"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2158,7 +2169,8 @@
       "course-the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "course-agenttik",
       "course-run-osier-to-track-how-your-ai-coding-agent-does",
-      "course-stayleet"
+      "course-stayleet",
+      "course-mellum21"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2435,11 +2447,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "canvasformusic",
-      "starkomand"
+      "starkomand",
+      "fantastic-canvas"
     ],
     "courses": [
       "course-canvasformusic",
-      "course-starkomand"
+      "course-starkomand",
+      "course-fantastic-canvas"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3463,11 +3477,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "thinkrail-jetbrains-incubator",
-      "i-forked-jetbrains-new-agent-ide-to-host-claude-code"
+      "i-forked-jetbrains-new-agent-ide-to-host-claude-code",
+      "mellum21"
     ],
     "courses": [
       "course-thinkrail-jetbrains-incubator",
-      "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code"
+      "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code",
+      "course-mellum21"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4091,7 +4107,8 @@
       "seodatadev-11-free-search-data-for-ai-agents",
       "new-term-radar",
       "lightweight-self-hosted-web-analytics-app",
-      "proofsource-find-where-ai-leaves-you-out-and-fix-it"
+      "proofsource-find-where-ai-leaves-you-out-and-fix-it",
+      "eevo"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -4158,7 +4175,8 @@
       "course-seodatadev-11-free-search-data-for-ai-agents",
       "course-new-term-radar",
       "course-lightweight-self-hosted-web-analytics-app",
-      "course-proofsource-find-where-ai-leaves-you-out-and-fix-it"
+      "course-proofsource-find-where-ai-leaves-you-out-and-fix-it",
+      "course-eevo"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4648,7 +4666,8 @@
       "datalume",
       "meshdrive-and-local-ai-agent-for-fs",
       "ufcagent",
-      "search-123-ai-labs-jobs-from-your-own-agent-no-signup"
+      "search-123-ai-labs-jobs-from-your-own-agent-no-signup",
+      "mellum21"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -4656,7 +4675,8 @@
       "course-datalume",
       "course-meshdrive-and-local-ai-agent-for-fs",
       "course-ufcagent",
-      "course-search-123-ai-labs-jobs-from-your-own-agent-no-signup"
+      "course-search-123-ai-labs-jobs-from-your-own-agent-no-signup",
+      "course-mellum21"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -8607,14 +8627,16 @@
       "the-thinking-wattage-of-ai-agents-vs-the-human-brain",
       "who-bankrolls-the-ai-agent-swarm",
       "bootloops-a-toolkit-for-exact-quantitative-science",
-      "check-how-readable-your-docs-are-to-ai-agents"
+      "check-how-readable-your-docs-are-to-ai-agents",
+      "eevo"
     ],
     "courses": [
       "course-what-agent-skills-are-made-of-programming-languages",
       "course-the-thinking-wattage-of-ai-agents-vs-the-human-brain",
       "course-who-bankrolls-the-ai-agent-swarm",
       "course-bootloops-a-toolkit-for-exact-quantitative-science",
-      "course-check-how-readable-your-docs-are-to-ai-agents"
+      "course-check-how-readable-your-docs-are-to-ai-agents",
+      "course-eevo"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
   },
@@ -8820,13 +8842,15 @@
       "open-source-thinking-orb-animations-for-ai-agents",
       "vocabdesign",
       "transitionsdev-ui-transitions-for-ai-agents",
-      "ui-for-answering-agent-questions-async"
+      "ui-for-answering-agent-questions-async",
+      "fantastic-canvas"
     ],
     "courses": [
       "course-open-source-thinking-orb-animations-for-ai-agents",
       "course-vocabdesign",
       "course-transitionsdev-ui-transitions-for-ai-agents",
-      "course-ui-for-answering-agent-questions-async"
+      "course-ui-for-answering-agent-questions-async",
+      "course-fantastic-canvas"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -10415,12 +10439,14 @@
     "toolsTeaching": [
       "memcode-launches-github-code-review",
       "open-source-instinct",
-      "ai-agents-zero-to-hero"
+      "ai-agents-zero-to-hero",
+      "fantastic-canvas"
     ],
     "courses": [
       "course-memcode-launches-github-code-review",
       "course-open-source-instinct",
-      "course-ai-agents-zero-to-hero"
+      "course-ai-agents-zero-to-hero",
+      "course-fantastic-canvas"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -11636,11 +11662,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "ai-tools-and-transformation",
-      "learn-practice-sudoku-strategies-web-app"
+      "learn-practice-sudoku-strategies-web-app",
+      "eevo"
     ],
     "courses": [
       "course-ai-tools-and-transformation",
-      "course-learn-practice-sudoku-strategies-web-app"
+      "course-learn-practice-sudoku-strategies-web-app",
+      "course-eevo"
     ],
     "updatedAt": "2026-09-04T13:33:57.801Z"
   },
@@ -16862,10 +16890,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "astah-pro-mcp"
+      "astah-pro-mcp",
+      "eevo"
     ],
     "courses": [
-      "course-astah-pro-mcp"
+      "course-astah-pro-mcp",
+      "course-eevo"
     ],
     "updatedAt": "2026-09-13T13:49:13.602Z"
   },
@@ -21197,11 +21227,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "made-an-open-source-lego-ai-generator",
-      "llm-skill-to-generate-editable-3d-house-designs"
+      "llm-skill-to-generate-editable-3d-house-designs",
+      "fantastic-canvas"
     ],
     "courses": [
       "course-made-an-open-source-lego-ai-generator",
-      "course-llm-skill-to-generate-editable-3d-house-designs"
+      "course-llm-skill-to-generate-editable-3d-house-designs",
+      "course-fantastic-canvas"
     ],
     "updatedAt": "2026-10-03T00:44:32.304Z"
   },
@@ -21759,10 +21791,12 @@
     "domain": "data",
     "level": "intermediate",
     "toolsTeaching": [
-      "headline-arena"
+      "headline-arena",
+      "eevo"
     ],
     "courses": [
-      "course-headline-arena"
+      "course-headline-arena",
+      "course-eevo"
     ],
     "updatedAt": "2026-10-06T01:54:20.176Z"
   },
@@ -23554,5 +23588,18 @@
       "course-veduta"
     ],
     "updatedAt": "2026-10-14T14:32:18.161Z"
+  },
+  {
+    "id": "skill-decision-making",
+    "name": "decision making",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "eevo"
+    ],
+    "courses": [
+      "course-eevo"
+    ],
+    "updatedAt": "2026-10-15T00:06:40.597Z"
   }
 ]
