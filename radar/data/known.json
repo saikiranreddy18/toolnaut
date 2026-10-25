@@ -1347,5 +1347,14 @@
   "s:close-the-ui-building-ai-agent-loop-with-protoshot",
   "s:onememory",
   "s:openidea",
-  "s:free-deepseek"
+  "s:free-deepseek",
+  "s:hycli",
+  "s:sqlite-on-object-storage-using-gcs-appendable-objects",
+  "s:agenttrust",
+  "s:plan-and-code-review-for-your-agents",
+  "s:reclaim-disk-space-with-an-ai-agent",
+  "s:optio",
+  "s:open-accountant",
+  "s:junior",
+  "s:rewriting-excel-powerpoint-and-word-for-agents"
 ]
