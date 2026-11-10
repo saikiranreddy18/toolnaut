@@ -1974,5 +1974,18 @@
       "rejected": 0,
       "courses": 0
     }
+  },
+  {
+    "at": "2026-11-10T17:04:50.602Z",
+    "counts": {
+      "candidates": 80,
+      "filtered": 11,
+      "new": 17,
+      "skipped": 8,
+      "published": 0,
+      "review": 16,
+      "rejected": 1,
+      "courses": 0
+    }
   }
 ]
