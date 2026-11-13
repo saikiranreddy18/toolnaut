@@ -44,16 +44,34 @@ const FEATHERLESS_MIN_TOKENS = 1024
 const DEFAULT_TIMEOUT_MS = 30000
 const FEATHERLESS_TIMEOUT_MS = Number(process.env.FEATHERLESS_TIMEOUT_MS) || 180000
 
+// Each configured provider is tried in priority order; one being down (an
+// account-level 404, a revoked key) no longer silently starves enrichment —
+// this is the same failure shape as the kimi-k3 EOL incident, just one layer
+// up: NVIDIA/moonshotai/kimi-k2.6 returns "Function ... Not found for
+// account" (a NIM entitlement issue on NVIDIA's side, not ours) on every
+// call, and with only a first-match dispatch that silently dropped every
+// candidate to the rules classifier even though Featherless was configured
+// and working right behind it.
 export async function callLLM(system, user, { json = false, maxTokens = 512 } = {}) {
   const { featherless, anthropic, nvidia, openai, openrouter } = config.llm
-  if (nvidia)
-    return chatCompletions(NVIDIA_URL, nvidia, system, user, json, Math.max(maxTokens, NVIDIA_MIN_TOKENS), false, NVIDIA_TIMEOUT_MS)
-  if (featherless)
-    return chatCompletions(FEATHERLESS_URL, featherless, system, user, json, Math.max(maxTokens, FEATHERLESS_MIN_TOKENS), true, FEATHERLESS_TIMEOUT_MS)
-  if (anthropic) return anthropicCall(anthropic, system, user, json, maxTokens)
-  if (openai) return chatCompletions('https://api.openai.com/v1/chat/completions', openai, system, user, json, maxTokens)
-  if (openrouter) return chatCompletions('https://openrouter.ai/api/v1/chat/completions', openrouter, system, user, json, maxTokens)
-  throw new NoLLMError('No LLM provider configured')
+  const providers = [
+    nvidia && (() => chatCompletions(NVIDIA_URL, nvidia, system, user, json, Math.max(maxTokens, NVIDIA_MIN_TOKENS), false, NVIDIA_TIMEOUT_MS)),
+    featherless && (() => chatCompletions(FEATHERLESS_URL, featherless, system, user, json, Math.max(maxTokens, FEATHERLESS_MIN_TOKENS), true, FEATHERLESS_TIMEOUT_MS)),
+    anthropic && (() => anthropicCall(anthropic, system, user, json, maxTokens)),
+    openai && (() => chatCompletions('https://api.openai.com/v1/chat/completions', openai, system, user, json, maxTokens)),
+    openrouter && (() => chatCompletions('https://openrouter.ai/api/v1/chat/completions', openrouter, system, user, json, maxTokens)),
+  ].filter(Boolean)
+  if (!providers.length) throw new NoLLMError('No LLM provider configured')
+
+  let lastErr
+  for (const call of providers) {
+    try {
+      return await call()
+    } catch (e) {
+      lastErr = e
+    }
+  }
+  throw lastErr
 }
 
 async function anthropicCall(cfg, system, user, json, maxTokens) {

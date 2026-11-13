@@ -160,6 +160,37 @@ test('an empty completion throws with the finish reason instead of returning ""'
   )
 })
 
+test('a failing provider falls through to the next configured provider instead of throwing', async () => {
+  let calledUrls = []
+  await withLLMConfig(
+    { nvidia: { key: 'n', model: 'm' }, featherless: { key: 'f', model: 'm' } },
+    () =>
+      withFetch(
+        async (url) => {
+          calledUrls.push(String(url))
+          if (/nvidia/.test(String(url)))
+            return { ok: false, status: 404, headers: new Headers(), text: async () => 'Function not found for account' }
+          return { ok: true, status: 200, headers: new Headers(), json: async () => ({ choices: [{ message: { content: 'from featherless' } }] }) }
+        },
+        async () => assert.equal(await callLLM('sys', 'user'), 'from featherless'),
+      ),
+  )
+  assert.equal(calledUrls.length, 2)
+  assert.match(calledUrls[0], /integrate\.api\.nvidia\.com/)
+  assert.match(calledUrls[1], /featherless\.ai/)
+})
+
+test('when every configured provider fails, the last error is thrown', async () => {
+  await withLLMConfig(
+    { nvidia: { key: 'n', model: 'm' }, featherless: { key: 'f', model: 'm' } },
+    () =>
+      withFetch(
+        async () => ({ ok: false, status: 404, headers: new Headers(), text: async () => 'nope' }),
+        () => assert.rejects(() => callLLM('sys', 'user'), /LLM 404/),
+      ),
+  )
+})
+
 test('a clean stop with the answer only in reasoning_content returns that answer', async () => {
   await withLLMConfig({ nvidia: { key: 'n', model: 'm' } }, () =>
     withFetch(
