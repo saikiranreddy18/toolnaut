@@ -37,7 +37,7 @@ export const config = {
     // provider-agnostic; the first configured one (in this order) is used, and
     // enrich/course-gen fall back to deterministic rules if none is set.
     nvidia: cleanKey(process.env.NVIDIA_API_KEY)
-      ? { key: cleanKey(process.env.NVIDIA_API_KEY), model: process.env.NVIDIA_MODEL || 'moonshotai/kimi-k3' }
+      ? { key: cleanKey(process.env.NVIDIA_API_KEY), model: process.env.NVIDIA_MODEL || 'nvidia/llama-3.1-nemotron-70b-instruct' }
       : null,
     featherless: process.env.FEATHERLESS_API_KEY
       ? { key: process.env.FEATHERLESS_API_KEY, model: process.env.FEATHERLESS_MODEL || 'moonshotai/Kimi-K3' }

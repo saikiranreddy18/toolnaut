@@ -12,9 +12,13 @@ export class NoLLMError extends Error {}
 // `response_format: json_object` param, so we skip it there and lean on the
 // prompt's "return only JSON" instruction instead.
 //
-// It is the primary provider now, serving the same Kimi-K3 Featherless did, so
-// it gets the same reasoning-model treatment: a token floor and a long timeout
-// (see the Featherless notes below for why both are needed).
+// It is the primary provider now. build.nvidia.com retires catalog entries
+// without warning (NVIDIA_MODEL's old default, moonshotai/kimi-k3, went
+// end-of-life 2026-10-15 and every call started returning HTTP 410 — the
+// pipeline fell back to the rules classifier for a month before anyone
+// noticed). Keep the generous token floor and timeout below regardless of
+// which model is configured: a reasoning model needs both, and a plain
+// instruct model just ignores the headroom.
 const NVIDIA_URL = 'https://integrate.api.nvidia.com/v1/chat/completions'
 // 1024 was not enough on NVIDIA: a longer tool's reasoning pass used the whole
 // budget and returned empty content ("Unexpected end of JSON input"). It is a
