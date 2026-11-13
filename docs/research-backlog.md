@@ -11791,7 +11791,16 @@ re-verification sweep at the oldest OPEN entry instead.
 ---
 
 ### Tool pages' JSON-LD still says "no rating ... the catalogue does not hold" — the ratings data it was waiting on shipped three weeks ago
-- **Status:** OPEN
+- **Status:** SHIPPED 3e9ce64 — built exactly as scoped below: `toolJsonLd()`
+  now adds `aggregateRating` from `getAverageRating`/`getReviews` filtered to
+  `r.seed`, for both runtimes (`ToolPublic.jsx` and `gen-tool-pages.mjs`).
+  Verified in the built `dist/ai-tools/<slug>/index.html`: `claude` and
+  `chatgpt` (seed reviews) carry a real `aggregateRating`; `canva-magic-studio`
+  (no seed reviews) carries none. Also had to add the `.js` extension to
+  `toolReviewsStore.js`'s two relative imports — plain Node ESM in
+  `gen-tool-pages.mjs` (no Vite-style loader) can't resolve an extensionless
+  specifier, and this was the first time `toolSeo.js` pulled that module into
+  the Node build path. All three checks green before push.
 - **Seen in:** not a new competitor citation — this is the "Structured data
   (JSON-LD)" entry above (`docs/research-backlog.md:3226`, SHIPPED
   2026-08-29) catching up with its own explicitly-deferred follow-up, the
@@ -12613,3 +12622,60 @@ was a docs-only research pass (no `src/`/`radar/`/`api/` edit), so
 touches build output or runtime behavior. Per the "never invent a gap to
 fill the hour" rule, appended no new gap this run — the hour went to the
 changelog-forward re-verification instead.
+
+---
+
+### Research check 2026-11-13 15:04 UTC — shipped the aggregateRating gap; flags a month-long gap in this routine itself
+
+Scheduled run, UTC hour 15 (a research slot). `npm ci` clean. Local checkout
+was detached at session start (same recurring container-start behavior every
+prior pass has noted) — checked out `master`, already up to date with
+`origin/master` at `b4f7c00`.
+
+**Urgent-work checklist first, per standing instructions:**
+- `CI` on `master`: green at the latest push (`actions_list`/`list_workflow_runs`).
+- `npm run radar:health` → **NO-PUBLISH** (exit 1): last publish 711h ago
+  (2026-10-15, the `moonshotai/kimi-k3` EOL date), 38 candidates in the
+  review queue over the last 3 runs. But the root cause was already fixed
+  directly on `master` *this morning* at 12:08 UTC (`2dde991`, a different
+  session) by switching the NVIDIA default model to `moonshotai/kimi-k2.6` —
+  re-verified against NVIDIA's live, unauthenticated `/v1/models` listing
+  that this model id is real and currently served. No radar run has happened
+  since that fix landed (last run 02:08 UTC, before the fix), so NO-PUBLISH
+  is stale evidence, not an unfixed problem — it'll clear on the next
+  scheduled `radar.yml` run. No further code change made here. Also closed
+  PR #98 (open, unmerged, from a separate `agent-bugfix.yml` run): it
+  proposed swapping the *same* line to `nvidia/llama-3.1-nemotron-70b-instruct`
+  instead — merging it after `2dde991` would have silently reverted the
+  already-verified fix back to an unverified one.
+- No issues labelled `agent-fixable` open.
+
+**Bigger finding, worth recording even though it's outside this run's job
+list:** this file's own newest entry before today was dated 2026-10-10
+12:07 UTC (the "fifty-sixth pass"), and `DEVLOG.md`'s newest day was
+2026-10-09. `git log --follow -- docs/research-backlog.md` and the same for
+`DEVLOG.md` each show exactly one commit touching the file in this repo's
+(squashed, 2026-10-20) history — meaning neither file has been touched by
+*any* commit since. The GitHub issue list confirms it from the other side:
+the newest "Dev digest" issue is `#97`, dated 2026-10-09, still open (nothing
+closed it, because no later digest run ever fired to close it). Meanwhile
+`radar.yml` — a fully separate GitHub Action, not this routine — kept
+publishing on its own schedule the entire time (one or two
+`chore(radar): publish newly discovered tools` commits almost every day from
+2026-10-20 through today). So for roughly five weeks, this scheduled
+research/feature/digest routine produced no commits and no digest issues at
+all, while the independent radar pipeline kept running. `CronList` (this
+session's own scheduler) reports no jobs, which only confirms this routine's
+trigger lives outside this session's visibility (a platform-level scheduled
+task) — there's no way to tell from inside the repo whether it stopped
+firing, fired but errored before any write, or was paused. Flagged to the
+user directly; not something fixable from here.
+
+**This run's work:** rather than add a tenth-plus thin one-liner to an
+already-deep backlog (20 OPEN entries, several fully spec'd and never
+picked up because of the gap above), shipped the one OPEN gap that was
+already spec'd down to the exact code change: JSON-LD `aggregateRating`
+(see entry above, now `SHIPPED 3e9ce64`). `npm test` (316/316, including a
+new assertion for this change), `npm run build`, and `npm run smoke` all
+green before pushing. No new gap invented this run — the hour went to
+shipping a ready one and writing up the finding above instead.
