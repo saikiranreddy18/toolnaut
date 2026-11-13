@@ -21,6 +21,15 @@ test('structured data never invents a price for a tool that is not free', () => 
   assert.equal(JSON.stringify(toolJsonLd(A)).includes('aggregateRating'), false)
 })
 
+test('structured data carries a real aggregateRating for a tool with seed reviews, nothing invented for one without', () => {
+  const [claudeApp] = toolJsonLd(B) // slug 'claude' has seed reviews in toolReviewsData.js
+  assert.equal(claudeApp.aggregateRating['@type'], 'AggregateRating')
+  assert.ok(claudeApp.aggregateRating.ratingValue > 0)
+  assert.ok(claudeApp.aggregateRating.reviewCount > 0)
+  const [alphaApp] = toolJsonLd(A) // slug 'alpha' has none
+  assert.equal(alphaApp.aggregateRating, undefined)
+})
+
 test('alternatives prefer recognisable tools and drop headline-shaped entries', () => {
   const rel = relatedTools(A, [A, B, NEWS, OTHER])
   assert.equal(rel[0].slug, 'claude')

@@ -1,5 +1,5 @@
-import { REVIEWS } from '../utils/toolReviewsData'
-import { read as scopedRead, write as scopedWrite } from './scopedStorage'
+import { REVIEWS } from '../utils/toolReviewsData.js'
+import { read as scopedRead, write as scopedWrite } from './scopedStorage.js'
 
 // User-submitted per-tool reviews, layered over the seed set. localStorage
 // (scoped per-account via scopedStorage.js) until the backend owns it.

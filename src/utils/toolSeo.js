@@ -14,12 +14,14 @@
 // were computed in two places, they would drift, and Google treats a page whose
 // head changes after load as a weaker, less trustworthy document.
 //
-// NO INVENTED FACTS. Everything here is read from the catalogue entry. There is
-// no rating, no review count and no price figure the catalogue does not hold —
+// NO INVENTED FACTS. Everything here is read from the catalogue entry (or, for
+// aggregateRating, from the seed reviews in toolReviewsData.js). No rating,
+// review count or price figure is ever emitted that the data does not hold —
 // the site's first rule is no fake data, and review markup Google cannot verify
 // is penalised anyway.
 
 import { FLAGSHIP, isCatalogNoise } from './prominence.js'
+import { getAverageRating, getReviews } from '../state/toolReviewsStore.js'
 
 export const SITE = 'https://toolnaut.xyz'
 
@@ -80,6 +82,12 @@ export function relatedTools(t, catalog, limit = 6) {
 
 export function toolJsonLd(t, related = []) {
   const url = `${SITE}${toolPath(t.slug)}`
+  // Seed reviews only — identical in every browser and in this Node build
+  // step, unlike a visitor's own freshly added review (scopedStorage, that
+  // browser only). Counting those would make the indexed static page and the
+  // live page disagree about the same tool's rating the moment someone
+  // submits one.
+  const seedCount = getReviews(t.slug).filter((r) => r.seed).length
   const app = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -95,6 +103,9 @@ export function toolJsonLd(t, related = []) {
     // freemium and paid tools the real figure is not in the data, and a guessed
     // number would be exactly the fake data this project refuses.
     ...(t.price === 'free' ? { offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } } : {}),
+    ...(seedCount > 0
+      ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: getAverageRating(t.slug), reviewCount: seedCount } }
+      : {}),
   }
   const crumbs = {
     '@context': 'https://schema.org',
