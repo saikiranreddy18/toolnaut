@@ -12679,3 +12679,64 @@ already spec'd down to the exact code change: JSON-LD `aggregateRating`
 new assertion for this change), `npm run build`, and `npm run smoke` all
 green before pushing. No new gap invented this run — the hour went to
 shipping a ready one and writing up the finding above instead.
+
+---
+
+### Research check 2026-11-13 21:09 UTC — radar NO-PUBLISH already fixed earlier today; re-verified the stalest OPEN entry instead of adding a new one
+
+**Radar health:** `npm run radar:health` reports `NO-PUBLISH`, but the
+evidence is stale by exactly one run. The job logs for the last radar run
+(17:14 UTC, job 132041797817) show every one of 13 new candidates hitting
+`LLM 404: Function ... Not found for account` on NVIDIA/kimi-k2.6 and
+silently falling back to the rules classifier (`published: 0, review: 12`)
+— the same symptom this file's own `llm.js` header comment already
+documents (NVIDIA NIM entitlement issue, confirmed on NVIDIA's own
+developer forum, not fixable from here). That run was at 17:14 UTC; commit
+`5225957` (pushed 18:08 UTC, *after* that run) made `callLLM` try every
+configured provider in order instead of stopping at the first one, so the
+already-configured `FEATHERLESS_API_KEY` in `radar.yml` is now reached
+when NVIDIA 404s. CI is green on that commit. No radar run has fired since
+the fix — the next one is the regular 21:42 UTC cron, 33 minutes out at
+the time of this check — so there is nothing left to fix, only to wait and
+confirm at the next run. Not re-fixing an already-shipped fix.
+
+**No new gap logged this pass.** Surveyed all 21 OPEN entries in this file
+(sizes 77–1500+ lines, every one already carrying a "Smallest useful
+version" and a "What this would NOT include" section) plus the 30 open,
+unmerged `bot/claude/*` PRs on this repo going back to 2026-08-30 — a
+separate, pre-existing problem (this routine pushes straight to master per
+its own task instructions; those 30 PRs come from the other, PR-based
+`agent-*.yml` automation CLAUDE.md governs, flagged already as issue #67 per
+2026-10-09's DEVLOG entry, not reopened here). Checked for genuinely new
+angles not already covered: AI-crawler discoverability (`llms.txt` already
+shipped, covered under the public-API gap at line 5810), tool-level
+upvoting (already exists as community-thread upvotes, and the GitHub-
+stars/HN-points version is the already-OPEN "Popularity signal discarded"
+gap at line 2378), browser extension / bookmarklet (logged as a duplicate
+by the 2026-10-04 pass). Nothing survived as a new, non-duplicate finding.
+
+**Re-verified instead: "Changelog only looks backward"** (line 6052,
+`Found:` inferred ~2026-09-11, last re-verified 2026-10-10 — the single
+stalest OPEN entry in the file by over a month, versus the next-stalest at
+roughly two weeks). Re-read `Changelog.jsx` and `src/utils/changelogData.js`
+in full: still renders only the backward `CHANGELOG.map(...)` list, still no
+forward-looking section, core gap unchanged. The backward half's newest
+entry is still dated 2026-10-06 — the same date the 2026-10-10 check found,
+i.e. **39 days stale now, not merely 4** as it was at the last check. Ran
+`git log --oneline --since=2026-10-06 --until=2026-11-14 master -- src` to
+find what should have been backfilled: the answer is nothing. The only
+`src/` commit in that entire 5-week window is `76ecdf5` (`chore(radar):
+publish newly discovered tools`, a data-only commit), plus one small SEO
+fix today (`3e9ce64`, the `aggregateRating` entry above — arguably
+changelog-worthy, arguably too technical for a "what's new" reader; left
+out of `changelogData.js` on the same judgment call the file already makes
+for schema/JSON-LD-only changes). So unlike the 09-23 and 10-04/10-06/10-07
+recurrences this entry's own history logs, **this is not a backfill miss**
+— the changelog is accurately reporting that nothing shippable happened,
+because the feature-run half of this routine went dark for the same five
+weeks the dormancy note above already found and flagged to the user. The
+forward-looking build itself is unaffected: still fully unbuilt, still
+sized S, still the most build-ready unpicked entry in this file (exact
+file/line plan, no backend, no new dependency). Recommending it as the next
+feature run's pick given its size and the fact the backlog has had no
+feature ship in 5+ weeks to drain against it.
