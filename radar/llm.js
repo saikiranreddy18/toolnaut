@@ -55,23 +55,29 @@ const FEATHERLESS_TIMEOUT_MS = Number(process.env.FEATHERLESS_TIMEOUT_MS) || 180
 export async function callLLM(system, user, { json = false, maxTokens = 512 } = {}) {
   const { featherless, anthropic, nvidia, openai, openrouter } = config.llm
   const providers = [
-    nvidia && (() => chatCompletions(NVIDIA_URL, nvidia, system, user, json, Math.max(maxTokens, NVIDIA_MIN_TOKENS), false, NVIDIA_TIMEOUT_MS)),
-    featherless && (() => chatCompletions(FEATHERLESS_URL, featherless, system, user, json, Math.max(maxTokens, FEATHERLESS_MIN_TOKENS), true, FEATHERLESS_TIMEOUT_MS)),
-    anthropic && (() => anthropicCall(anthropic, system, user, json, maxTokens)),
-    openai && (() => chatCompletions('https://api.openai.com/v1/chat/completions', openai, system, user, json, maxTokens)),
-    openrouter && (() => chatCompletions('https://openrouter.ai/api/v1/chat/completions', openrouter, system, user, json, maxTokens)),
+    nvidia && { name: 'nvidia', call: () => chatCompletions(NVIDIA_URL, nvidia, system, user, json, Math.max(maxTokens, NVIDIA_MIN_TOKENS), false, NVIDIA_TIMEOUT_MS) },
+    featherless && { name: 'featherless', call: () => chatCompletions(FEATHERLESS_URL, featherless, system, user, json, Math.max(maxTokens, FEATHERLESS_MIN_TOKENS), true, FEATHERLESS_TIMEOUT_MS) },
+    anthropic && { name: 'anthropic', call: () => anthropicCall(anthropic, system, user, json, maxTokens) },
+    openai && { name: 'openai', call: () => chatCompletions('https://api.openai.com/v1/chat/completions', openai, system, user, json, maxTokens) },
+    openrouter && { name: 'openrouter', call: () => chatCompletions('https://openrouter.ai/api/v1/chat/completions', openrouter, system, user, json, maxTokens) },
   ].filter(Boolean)
   if (!providers.length) throw new NoLLMError('No LLM provider configured')
 
-  let lastErr
-  for (const call of providers) {
+  // Every provider's failure message shares the same "LLM <status>: ..." shape
+  // (chatCompletions is reused for nvidia/featherless/openai/openrouter), so a
+  // bare "throw lastErr" names only the last one tried and hides whether the
+  // ones before it failed the same way or differently — exactly the ambiguity
+  // that cost a diagnosis cycle on 2026-11-14 (NVIDIA's 404 entitlement issue
+  // vs. a new Featherless 403, indistinguishable from the log alone).
+  const failures = []
+  for (const { name, call } of providers) {
     try {
       return await call()
     } catch (e) {
-      lastErr = e
+      failures.push(`${name}: ${e.message}`)
     }
   }
-  throw lastErr
+  throw new Error(failures.join(' | '))
 }
 
 async function anthropicCall(cfg, system, user, json, maxTokens) {

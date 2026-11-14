@@ -12,6 +12,7 @@ const dryRun = process.argv.includes('--dry-run')
 async function main() {
   log.info(`starting — LLM: ${hasLLM() ? 'on' : 'off (deterministic fallback)'}, dryRun: ${dryRun}`)
   if (config.llm.nvidia) log.info(`NVIDIA key: ${describeKey(process.env.NVIDIA_API_KEY)}, model ${config.llm.nvidia.model}`)
+  if (config.llm.featherless) log.info(`Featherless key: ${describeKey(process.env.FEATHERLESS_API_KEY)}, model ${config.llm.featherless.model}`)
   const store = createStore()
   log.info(`store has ${store.countTools()} published tools before run`)
   const report = await runPipeline({ store, dryRun })

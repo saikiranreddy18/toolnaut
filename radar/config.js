@@ -43,17 +43,17 @@ export const config = {
     nvidia: cleanKey(process.env.NVIDIA_API_KEY)
       ? { key: cleanKey(process.env.NVIDIA_API_KEY), model: process.env.NVIDIA_MODEL || 'moonshotai/kimi-k2.6' }
       : null,
-    featherless: process.env.FEATHERLESS_API_KEY
-      ? { key: process.env.FEATHERLESS_API_KEY, model: process.env.FEATHERLESS_MODEL || 'moonshotai/Kimi-K3' }
+    featherless: cleanKey(process.env.FEATHERLESS_API_KEY)
+      ? { key: cleanKey(process.env.FEATHERLESS_API_KEY), model: process.env.FEATHERLESS_MODEL || 'moonshotai/Kimi-K3' }
       : null,
-    anthropic: process.env.ANTHROPIC_API_KEY
-      ? { key: process.env.ANTHROPIC_API_KEY, model: process.env.ANTHROPIC_MODEL || 'claude-opus-4-8' }
+    anthropic: cleanKey(process.env.ANTHROPIC_API_KEY)
+      ? { key: cleanKey(process.env.ANTHROPIC_API_KEY), model: process.env.ANTHROPIC_MODEL || 'claude-opus-4-8' }
       : null,
-    openai: process.env.OPENAI_API_KEY
-      ? { key: process.env.OPENAI_API_KEY, model: process.env.OPENAI_MODEL || 'gpt-4o' }
+    openai: cleanKey(process.env.OPENAI_API_KEY)
+      ? { key: cleanKey(process.env.OPENAI_API_KEY), model: process.env.OPENAI_MODEL || 'gpt-4o' }
       : null,
-    openrouter: process.env.OPENROUTER_API_KEY
-      ? { key: process.env.OPENROUTER_API_KEY, model: process.env.OPENROUTER_MODEL || 'anthropic/claude-3.5-sonnet' }
+    openrouter: cleanKey(process.env.OPENROUTER_API_KEY)
+      ? { key: cleanKey(process.env.OPENROUTER_API_KEY), model: process.env.OPENROUTER_MODEL || 'anthropic/claude-3.5-sonnet' }
       : null,
   },
 }
