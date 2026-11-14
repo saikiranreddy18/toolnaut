@@ -12740,3 +12740,104 @@ sized S, still the most build-ready unpicked entry in this file (exact
 file/line plan, no backend, no new dependency). Recommending it as the next
 feature run's pick given its size and the fact the backlog has had no
 feature ship in 5+ weeks to drain against it.
+
+---
+
+### A published catalog entry is never re-checked after the day it was discovered — the product's own copy already names this as a weakness
+- **Status:** OPEN
+- **Seen in:** fresh competitor research this run into AI-directory
+  verification practices (tooldirectory.ai's published methodology,
+  Verified-Tools.ai, Toolhalla's "source verified" tier) turned up periodic
+  re-verification as an emerging differentiator specifically in this
+  category for 2026: one directory re-opens every active listing on a fixed
+  cycle to confirm the tool still exists, the pricing still matches what the
+  vendor currently charges, and screenshots reflect the current UI; a
+  separate guide warns that "a directory listing can be stale within weeks
+  when a vendor changes plans or removes a free tier" — the exact failure
+  mode a one-time listing can't catch. This isn't a hypothetical competitor
+  feature; Toolnaut's own `TrustPanel.jsx:111-114` ("Last checked" row)
+  already tells every visitor, in-product, that it doesn't do this:
+  *"Details come from the vendor and are not re-verified on a schedule."*
+- **Gap:** confirmed end-to-end this run that the disclosure is accurate, not
+  just cautious copy. `radar/dedup.js:6`'s own comment is explicit:
+  `classify()` skips any slug `store.isKnown()` already has — "nothing gets
+  re-enriched day after day... refreshing an existing tool's data is a
+  separate dedicated job" — and that job was never built. The closest
+  existing code, `radar/review-bot.js`'s `checkWebsite()` (a HEAD-request
+  reachability check, already written and already wired into a decision
+  path) only ever runs inside `runDailyReview()`
+  (`radar/review-bot.js:187-194`), which filters to
+  `tool.lifecycle === 'staged' || 'review'` — the moment a tool's lifecycle
+  flips to `'published'` it is permanently excluded from every check this
+  function runs, forever. `radar/daily-review.js`, the CLI entry point built
+  to run this on a cron (its own header comment: "Or scheduled via cron:
+  `0 2 * * *`"), is not referenced by any `.github/workflows/*.yml` or any
+  `package.json` script — grepped both, zero hits — so even the pre-publish
+  half of this machinery never fires automatically today. Confirmed the
+  `TrustPanel.jsx` "Last checked" date itself can't reflect a recheck even if
+  one happened: it reads `tool.discoveredAt` (`TrustPanel.jsx:66`), a
+  write-once field, and `updatedAt` — the schema's actual "was this touched
+  again" field (`schema.js:61`) — is in neither `radar/scripts/sync-to-app
+  .js`'s nor `src/utils/liveCatalog.js`'s `FIELDS` export list, so it would
+  be stripped before reaching the app even if something started writing it.
+- **Why it matters:** this is a disclosed limitation sitting on top of a
+  genuinely fixable gap, not a hidden one — which makes it cheaper to close
+  than most entries in this file, because the honesty work (the "not
+  re-verified" line) is already done and the reachability-check code already
+  exists and is already tested against real HTTP responses in spirit (it
+  runs in the live pipeline today, just on the wrong lifecycle filter). At
+  700+ catalog entries added largely by automated discovery with no human
+  review loop, link rot and shutdown tools are a certainty, not an edge
+  case — the already-OPEN "Tool graveyard" gap in this file proves the
+  catalog already has 52 tools in exactly this state, all caught by manual
+  status-setting rather than any automated check. Flipping "not re-verified
+  on a schedule" to "last verified 3 days ago" is the kind of trust signal
+  this file's own stats-strip precedent (real counts or nothing shown) says
+  Toolnaut should want.
+- **Smallest useful version (what to actually build):** a new scheduled
+  radar script, not a change to the daily discovery run (`run.js` already
+  has a measured per-candidate LLM budget and a 90-minute workflow ceiling
+  `retry.js:17-20` documents hitting once before — adding 700+ sequential
+  HEAD requests to that run risks the same STALE failure this file has
+  already recorded):
+  - Export `checkWebsite()` from `radar/review-bot.js` (currently
+    module-private) and reuse it as-is — no new reachability-check logic.
+  - `radar/scripts/reverify-catalog.mjs`: reads `store.allTools()`, filters
+    to `lifecycle === 'published'`, sorts by `updatedAt ?? discoveredAt`
+    ascending (oldest-checked first) and takes a bounded slice (e.g. 50 —
+    small enough to run in a couple minutes, large enough to cycle the full
+    704-tool catalog roughly every two weeks at a daily cadence). For each:
+    `checkWebsite(tool.website)`; on failure, set `status: 'Unreachable'`
+    and `note` to the HTTP status/error reason (the exact fields
+    `ToolDetail.jsx`'s existing pink status badge and `TrustPanel.jsx`'s
+    `limitationOf()` already render — zero new UI), on success leave
+    `status`/`note` untouched; either way set `updatedAt` to now and
+    `store.upsertTool(tool)`, so a clean result still proves the check ran.
+  - Add `'updatedAt'` to the `FIELDS` arrays in both
+    `radar/scripts/sync-to-app.js` and `src/utils/liveCatalog.js` (the same
+    one-line-each shape the shipped `discoveredAt` fix used) so it reaches
+    the app, then change `TrustPanel.jsx:66`'s `verified` to prefer
+    `tool.updatedAt` over `tool.discoveredAt` when present, and drop "not
+    re-verified on a schedule" from the copy once a real date can render
+    instead.
+  - Add a cheap new step to `.github/workflows/radar.yml` (or a separate
+    lightweight scheduled workflow) running this script — this is the one
+    file this routine is explicitly permitted to edit.
+- **What this would NOT include** (kept out to bound the diff): no content
+  re-enrichment (no second LLM pass re-checking price/category/blurb text —
+  reachability is the cheapest signal with code already behind it; a full
+  content recheck is a materially larger, separately-shippable feature); no
+  real-time or on-demand checking (a bounded daily rotation, not every tool
+  on every run, and not triggered by a page visit); no change to
+  `daily-review.js`'s existing staged/review scope, which stays exactly as
+  designed for pre-publish review; no new status-badge UI (`'Unreachable'`
+  renders through the same `tool.status !== 'Active'` conditional
+  `ToolDetail.jsx:123-130` already has, same as every other non-`'Active'`
+  status value today).
+- **Build size:** M — one new radar script reusing existing, already-wired
+  reachability-check logic, one export change, two one-line `FIELDS`
+  additions, one small `TrustPanel.jsx` copy/data-source change, one
+  workflow step, plus test coverage (no existing test file covers
+  `review-bot.js` at all today — grepped `radar/test/`, zero hits — so this
+  would be the first).
+- **Found:** 2026-11-14 00:17 UTC
