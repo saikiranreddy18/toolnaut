@@ -12841,3 +12841,70 @@ feature ship in 5+ weeks to drain against it.
   `review-bot.js` at all today — grepped `radar/test/`, zero hits — so this
   would be the first).
 - **Found:** 2026-11-14 00:17 UTC
+
+---
+
+### "Alternatives to X" never flags the free one — a validated, separate high-intent query from generic "alternatives"
+- **Status:** OPEN
+- **Seen in:** two real products built entirely around this sub-intent —
+  Open Source Alternative Finder (osalfinder.com), an AI-researched,
+  daily-updated directory specifically for replacing paid SaaS/AI tools with
+  free/open-source ones, framed around cost savings; and eliteai.tools's
+  "Open Source Alternatives" directory, which curates open-source tools
+  designed to replace paid software and surfaces license/stars/language
+  alongside the paid tool each one replaces. Both treat "free/open-source
+  alternative to X" as a distinct search intent from a plain "alternatives to
+  X" list — worth its own callout, not just another item in an
+  undifferentiated grid.
+- **Gap:** Toolnaut already ships exactly the generic version of this —
+  `/ai-tools/:slug` has an "Alternatives to {tool.name}" section
+  (`src/pages/ToolPublic.jsx:121-144`) built on `relatedTools()`
+  (`src/utils/toolSeo.js:64-79`), already SHIPPED and already this file's own
+  "highest-intent directory query" finding (see the earlier "Per-tool
+  Alternatives SEO pages" entry). But `relatedTools()`'s `score()` weighs
+  flagship status, matching `sourceCategory`/`category`, `Active` status and
+  curated-vs-radar origin — `price` never enters the scoring. So when the
+  viewed tool is paid, a free alternative in the same category has no better
+  chance of landing in the top-6 list than another paid competitor, and
+  nothing on the page distinguishes one: each card already renders a price
+  chip (`PRICE_LABELS[o.price] || o.pricing`, `ToolPublic.jsx:129-131`), but
+  it's inline text with the same visual weight as "Paid" — no sentence, no
+  sort priority, nothing that says "by the way, this one's free."
+- **Why it matters:** a visitor who searches "[paid tool] alternative" is
+  disproportionately cost-motivated — that's the entire premise the two
+  competitors above are built on. Toolnaut already has the SEO asset (a
+  crawled, indexed page) and already has the data (`price: 'free'` on every
+  catalog entry); it just never connects the two. Surfacing the free option
+  first on a paid tool's own alternatives section turns an existing page into
+  a stronger landing spot for exactly the reader most primed to then try
+  "Find your stack" (free, personalised) rather than bouncing to a generic
+  listicle.
+- **Smallest useful version (what to actually build):** in `relatedTools()`
+  (`src/utils/toolSeo.js`), when the viewed tool `t.price !== 'free'`, add a
+  small score bonus (e.g. `+2`, enough to outrank same-category paid tools
+  without overriding the flagship bonus) for any candidate `o.price ===
+  'free'` — no new field, reuses data every tool already has. In
+  `ToolPublic.jsx`, when the viewed tool is paid and the top-ranked
+  `related[0]` is free, render one short sentence above the grid ("Looking
+  for a free way to do this? **{related[0].name}** is free.") linking to
+  that card, using `PRICE_LABELS` already imported in scope. Extend
+  `test/tool-seo.test.mjs` (already covers `relatedTools` — line 34) with a
+  case asserting a free same-category tool outranks an equally-matched paid
+  one when the viewed tool is paid.
+- **What this would NOT include** (kept out to bound the diff): no new
+  "open-source" boolean/tag — the catalogue's existing `price: 'free'`
+  already covers "costs nothing," and distinguishing "free" from
+  "open-source" (license type, self-hostable) would need new, currently
+  uncollected radar data, a materially bigger and separately-shippable gap;
+  no change to `scripts/gen-tool-pages.mjs`'s static build step beyond
+  whatever it already inherits by calling the same `relatedTools()`/
+  `toolSeo.js` functions `ToolPublic.jsx` does; no savings calculator or
+  dollar figure — same reasoning the already-shipped `StackCost.jsx` gives
+  for why Toolnaut counts price tiers instead of inventing currency totals
+  from free-text `pricing`; no change to the Compare page or to how
+  already-free tools' own alternatives render (the bonus only fires when the
+  viewed tool itself is paid).
+- **Build size:** S — one small, already-tested scoring tweak to a pure
+  function, one conditional sentence in one existing page component, zero
+  new catalogue fields, zero backend.
+- **Found:** 2026-11-14 03:19 UTC
