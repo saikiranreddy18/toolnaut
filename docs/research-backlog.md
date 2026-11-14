@@ -12908,3 +12908,60 @@ feature ship in 5+ weeks to drain against it.
   function, one conditional sentence in one existing page component, zero
   new catalogue fields, zero backend.
 - **Found:** 2026-11-14 03:19 UTC
+
+---
+
+### Research check 2026-11-14 06:03 UTC — Featherless is now ALSO down, not just NVIDIA; no new gap survived a fresh competitor check
+
+Scheduled run, UTC hour 06 (a research slot). `npm ci` clean, CI/Release/Radar
+all green on `master` at the latest pushes (`list_workflow_runs`). No issue
+labelled `agent-fixable` open.
+
+**Radar health — new evidence, not a new problem:** `npm run radar:health`
+reports `NO-PUBLISH` (0 published across the last 3 runs, 9 to review). Pulled
+the latest Radar run's job logs directly (01:48 UTC, job 132286669883) rather
+than trust the health script's one-line summary, and found something the
+21:09 UTC entry above didn't know yet: **Featherless is now failing too**,
+not just NVIDIA. Every one of the 8 new candidates hit `nvidia: LLM 404:
+Function '23d4f03a...': Not found for account` (the already-documented NIM
+entitlement issue, unchanged) *and* `featherless: LLM 403: {"message":"You do
+not have an active subscription. Please upgrade your plan."}` — both
+providers in the fallback chain `llm.js` already tries in order. The
+multi-provider fallback code shipped today (`5225957`, `1781fab`) is working
+exactly as designed and reports both failures clearly in one line per
+candidate; this is not a code bug. `ANTHROPIC_API_KEY`, `OPENAI_API_KEY` and
+`OPENROUTER_API_KEY` are all unset in `radar.yml`'s env (confirmed from the
+same job log), so there is no further configured fallback — every candidate
+is dropping to the deterministic rules classifier and landing below
+`RADAR_PUBLISH_THRESHOLD` in the review queue. **Both of the two configured
+LLM providers are now failing for account/billing reasons on the provider's
+side** (an NVIDIA NIM entitlement the previous entry already flagged as
+unfixable from here, plus a newly-lapsed Featherless subscription that
+needs the human owner to re-upgrade the plan). Not re-fixing an
+already-correct fallback chain; flagging the Featherless billing lapse
+explicitly since it's new information the 21:09 entry didn't have — the
+radar will keep landing everything in the review queue until one of
+NVIDIA's entitlement or Featherless's subscription is restored, or a third
+provider key (Anthropic/OpenAI/OpenRouter) is added to `radar.yml`'s env.
+
+**No new gap logged this pass.** All 25 OPEN entries already carry a full
+"Smallest useful version" and "What this would NOT include" section, and
+cross-referencing confirms essentially every one has already been through
+at least one re-verification sweep (RSS feed and 26-source-categories at the
+49th/second-sweep passes, testimonials/lookup-surface/email-capture/
+browsable-gallery each individually re-verified, the two freshest entries
+from earlier today — re-verification job, free-alternative ranking — are
+new and fully spec'd, not thin). Ran one fresh competitor search
+("AI tool directory website new feature 2026 discovery platform launch")
+looking specifically for anything not already cited in this file (71 hits
+for Futurepedia alone, AlternativeTo/SaaSHub/Toolify/AIXploria/RankmyAI/
+PoweredByAI/ToolJunction/OpenFuture AI all already logged). The one
+candidate it surfaced — aidirectory.com's nav includes a "News" column
+alongside the already-logged Categories/Tags/Compare/Docs/Discounts — was
+checked and not logged: an AI-industry news feed needs ongoing human-written
+editorial content, the same shape already REJECTED for the email-digest and
+vendor-deal-codes ideas above (no staff to write it, and radar's own
+HN/GitHub/PH candidate feed already surfaces "new tools," not "AI news," via
+the already-OPEN RSS-feed and already-shipped "new this week" rail — a
+rebrand of covered ground, not a new gap). Nothing survived as genuinely new;
+appending this check instead of inventing one.
