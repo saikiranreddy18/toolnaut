@@ -8012,6 +8012,24 @@ a client-side SPA with a static tool catalogue.
 - **Build size:** S — one function in `src/utils/search.js`, no new route, no
   new component, no dependency, one new or extended test file.
 - **Found:** 2026-09-16 09:10 UTC
+- **Re-verified 2026-11-14 21:06 UTC:** stalest-by-last-check OPEN entry (59
+  days since found, the longest gap of any entry's own last-check timestamp
+  as of this run — confirmed by scanning every OPEN entry's dated markers).
+  Re-ran the exact repro live against current `master`: `matchesQuery()` is
+  still unchanged at `src/utils/search.js:9-16`, `SearchTools.jsx:58/73`
+  still carry the identical placeholder and intro copy at the same line
+  numbers, and `TOOLS.filter(t => matchesQuery(t, 'transcribe meetings'))`
+  still returns **zero** results. The catalog has grown since this was
+  found (704 tools now, up from whatever supported the original 11-tool
+  count) and the pool of correct answers the matcher is still missing grew
+  with it — a tags/blurb scan now finds **17** meeting/transcription tools
+  (`Descript`, `Gladia`, `Avoma`, `Circleback`, `Fathom`, `Fellow`,
+  `Fireflies.ai`, `Grain`, `Granola`, `Notta`, `Otter.ai`, `Read AI`,
+  `Reclaim`, `Supernormal`, `tl;dv`, plus 2 more), none surfaced. Gap fully
+  intact, no drift in the fix plan, no line-number corrections needed —
+  this is the freshest-evidence, most build-ready pick on the board for the
+  next feature run if the hero-reasoning gap (found later, 12:09 UTC) is
+  taken first.
 
 ### No way to flag a wrong listing — the catalog has a "suggest a new tool" gap already logged, but no "this one is wrong" path at all
 - **Status:** SHIPPED 3a7a173 — built together with "Suggest a tool" above,
@@ -13082,3 +13100,51 @@ if they want it, not forced into this file as a separate line.
 No small code fix made this pass — the finding above is specific enough to
 build directly in the next feature run rather than half-fixing it here
 without the smoke/build verification a page-component change deserves.
+
+---
+
+### Research check 2026-11-14 21:03 UTC — the 18:03 UTC feature+digest run never fired today; re-verified the stalest OPEN entry instead of adding a new one
+
+Scheduled run, UTC hour 21 (a research slot). `npm ci` clean. CI, Release
+and Radar are all green on `master` at the latest pushes
+(`list_workflow_runs`), so no urgent CI-red work. No issue labelled
+`agent-fixable` open among the 8 currently-open issues.
+
+**Radar health — same already-filed account-side problem, nothing new:**
+`npm run radar:health` reports `NO-PUBLISH` (0 published across the last 3
+runs, 4 to review in the latest). Pulled the 15:50 UTC run's job logs
+directly rather than trust the one-line summary: every candidate still hits
+`nvidia: LLM 404 ... Not Found for account` *and* `featherless: LLM 403 ...
+You do not have an active subscription`, both account-side, both already
+diagnosed and filed today as issue #99 (opened 03:07 UTC). Confirmed
+`FEATHERLESS_TIMEOUT_MS` is already `180000` in the live env — this is not
+the already-fixed kimi-k3-timeout failure mode, it's exactly the
+two-providers-down state #99 already names. Not re-logging it.
+
+**Process gap worth flagging, not fixable from a research pass:** `git log
+--since="2026-11-14 00:00"` shows no commit at or after 18:03 UTC today
+other than the scheduled radar run at 15:51 UTC, and `docs/research-backlog.md`
+has no `SHIPPED` marker and `DEVLOG.md` has no 2026-11-14 section — today's
+18:03 UTC FEATURE RUN + DAILY DIGEST did not fire. This is the same failure
+mode the 2026-10-08 digest entry flagged for 2026-10-07: "outside what a
+research pass can diagnose from inside the repo." Noting it here rather than
+attempting the feature run myself — this invocation's assigned job for UTC
+hour 21 is research, not feature+digest, and the backlog already holds two
+fully-scoped, build-size-S, freshly-re-verified candidates
+("transcribe meetings" task-search stemming, re-verified below, and the
+hero-reasoning gap found at 12:09 UTC) ready for whichever run next lands in
+the 18:03 UTC slot.
+
+**Re-verified instead of adding a new gap:** scanned every OPEN entry's own
+dated markers (`Found`/`Re-verified`) to find the stalest-by-last-check one.
+`"The public search page's own placeholder promises task search"` (found
+2026-09-16, line ~7934) had never been re-checked since — 59 days, the
+longest of any OPEN entry. Re-ran its exact repro live against current
+`master` (see the `Re-verified 2026-11-14 21:06 UTC` note added directly to
+that entry): `matchesQuery()`, the `SearchTools.jsx` copy and line numbers
+are all unchanged, "transcribe meetings" still returns zero results, and the
+catalog's growth to 704 tools only widened the gap — 17 meeting/
+transcription-tagged tools now go unsurfaced, up from 11 when this was
+found. Gap fully intact, no code fix attempted here (search behavior change
+deserves the full three-check verification a feature run gives it, not a
+half-tested tweak in a research pass).
