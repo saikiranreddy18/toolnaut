@@ -12965,3 +12965,120 @@ HN/GitHub/PH candidate feed already surfaces "new tools," not "AI news," via
 the already-OPEN RSS-feed and already-shipped "new this week" rail — a
 rebrand of covered ground, not a new gap). Nothing survived as genuinely new;
 appending this check instead of inventing one.
+
+---
+
+### The hero's "ranked picks with the reasoning shown" promise is false on the one page that matters most — the real quiz result shows a rank number and nothing else
+
+- **Status:** OPEN
+- **Seen in:** this repo's own code, in two places that disagree with each
+  other. `HeroSection.jsx:101-104` promises every visitor: "Get a tailored AI
+  stack, **ranked picks with the reasoning shown**, and a 4-week learning plan
+  you can start today." Separately, `ExampleStack.jsx:175-176` — the
+  signed-out "See an example stack" page the hero's own second CTA links to —
+  states the product's actual design principle out loud: "Every pick shows
+  why it is here — **recommendations without stated reasoning read as
+  advertising**." That page then lives up to it (`ExampleStack.jsx:180-181`,
+  calling `matchReasonShort(t, EXAMPLE_ANSWERS)` per card). The real result
+  page does not.
+- **Gap:** `matchReasonShort()` and `matchReasons()` already exist in
+  `src/utils/matchScore.js:184-202` and `:152-177` — pure functions, no new
+  data, already wired into `ToolDetail.jsx`, `Discover.jsx`, `Stack.jsx`,
+  `Favorites.jsx`, `Compare.jsx`, `TrustPanel.jsx` and, as above,
+  `ExampleStack.jsx`. The one place that imports neither is
+  `QuizResult.jsx` — the actual persona-reveal page a real visitor lands on
+  immediately after answering the real quiz, which is also, per this file's
+  own `AudienceSection`/`HeroSection` entries, "the emotional peak of the
+  funnel." Its stack loop (`QuizResult.jsx:190-216`) renders `t.name`, a
+  `#{i+1}` rank badge, and `t.blurb` — confirmed by reading
+  `toolsCatalog.js` that `blurb` is the tool's static catalogue description
+  (e.g. Claude's is "AI assistant for writing, analysis, coding and long
+  documents" for every visitor, every persona, unconditionally), not
+  anything derived from `quiz.answers`. Grepped `reason|rationale|why` across
+  `QuizResult.jsx` and `personaGenerator.js`: zero hits. So "ranked" is true
+  (the `#1/#2/#3` badges are real, ordered by `starterScore` in
+  `personaGenerator.js:102`) but "the reasoning shown" is not — a real
+  visitor gets a number and a generic blurb; only the fake example visitor,
+  who never answered anything, gets told why each pick is theirs. The
+  "Recommendation quality" panel directly below the cards
+  (`QuizResult.jsx:262-278`) makes this worse by implication: its own code
+  comment says it "grades what went into them" (the input signals), not the
+  picks — so a visitor reading both blocks together is told how confident the
+  engine is but never *why* any specific tool was chosen for them,
+  anywhere on the page that is supposed to show exactly that.
+- **Why it matters:** this is not a cosmetic gap, it is the hero's own
+  conversion argument failing to land at the one moment it is tested. The
+  entire pitch against "just search for it" is personalisation the visitor
+  can inspect — a blurb that reads identically for a beginner on a free
+  budget and a senior engineer on a company budget proves nothing about
+  that. `quiz.answers` is already in scope in `QuizResult.jsx` (used
+  elsewhere on the same page, e.g. `quiz.answers?.experience` at line 78) —
+  the exact input `matchReasonShort` needs is sitting unused two lines from
+  where it would be called.
+- **Smallest useful version (what to actually build):** add
+  `import { matchReasonShort } from '../utils/matchScore'` to
+  `QuizResult.jsx`. Inside the `persona.stack.map((t, i) => ...)` block
+  (line 190), compute `const reason = matchReasonShort(t, quiz.answers)` and
+  render it as one short line under the existing `t.blurb` paragraph (line
+  212) — same visual slot `ExampleStack.jsx:181-200` already uses for the
+  identical call, so there is a working pattern to copy exactly, including
+  its `reason &&` guard for the null case (unanswered domain, which cannot
+  actually happen here since `QuizResult` only renders after
+  `quiz.completed`, but matching the guard costs nothing and keeps the two
+  pages' logic identical). No test file currently covers `QuizResult.jsx`
+  rendering (it's a page component, not a pure util); `matchReasonShort`
+  itself has no dedicated unit test either — `test/match-score.test.mjs`
+  does not exist (grepped `test/` for `match-score|matchScore`, zero hits),
+  which is a smaller, separate, worth-flagging-but-not-blocking gap in its
+  own right.
+- **What this would NOT include** (kept out to bound the diff): no change to
+  `matchScore.js` itself — `matchReasonShort` already returns exactly the
+  right shape and already handles the "no reason" case by returning `null`;
+  no change to the "Recommendation quality" panel's own wording (it is
+  honest about what it measures, it just sits next to a gap it doesn't
+  claim to close); no new unit test suite for `matchScore.js` added as part
+  of this fix — flagged above as its own smaller gap, not bundled in here to
+  keep this one a single, reviewable, one-file change; no changes to
+  `ExampleStack.jsx`, which is already correct and is the reference
+  implementation.
+- **Build size:** S — one import line, one computed value, one conditional
+  paragraph, in one existing page component, copying an already-proven
+  pattern from a sibling page verbatim.
+- **Found:** 2026-11-14 12:09 UTC
+
+---
+
+### Research check 2026-11-14 12:04 UTC — studied the hero-vs-real-result gap instead of re-sweeping already-deep OPEN entries; logged one new, fully-scoped finding
+
+Scheduled run, UTC hour 12 (a research slot). `npm ci` clean, CI and Radar
+workflows green on `master` at the latest pushes. No issue labelled
+`agent-fixable` open. Radar health re-confirmed `NO-PUBLISH` from the same
+01:48 UTC run the 06:03 UTC entry above already fully diagnosed (NVIDIA 404
+entitlement + Featherless 403 subscription, both account-side, not a code
+bug) — nothing new on that front, not re-logging it.
+
+Skipped a shallow re-verification pass: the 06:03 UTC entry already
+confirmed all 25 (then) OPEN entries carry a full "Smallest useful version"
+and "What this would NOT include" section after a fresh competitor search.
+Instead read `src/components/sections/HeroSection.jsx`,
+`AudienceSection.jsx` and `FounderOffer.jsx` end to end looking specifically
+for a promise the real product doesn't keep — the category this file's own
+rules call "the best kind of find." `AudienceSection.jsx` and
+`FounderOffer.jsx` held up (the founder countdown is a fixed date, the price
+and explorer count are both real-or-nothing, matching their own code
+comments). `HeroSection.jsx`'s "ranked picks with the reasoning shown"
+did not: traced the reasoning machinery (`matchReasonShort`/`matchReasons`
+in `matchScore.js`) through every page that uses it and found `QuizResult.jsx`
+— the actual quiz-result page, not the hero — is the one place in the app
+that imports neither, despite `ExampleStack.jsx` (a fake, signed-out stand-in
+for the same page) already using it correctly and stating the underlying
+design principle in its own copy. Logged above as a single-file,
+build-size-S fix with a working pattern to copy line-for-line. Also noted
+in passing, not logged as its own entry: `matchScore.js`'s exported
+functions have no dedicated test file under `test/` — smaller than a gap,
+closer to a coverage note, left for whoever builds the fix above to pick up
+if they want it, not forced into this file as a separate line.
+
+No small code fix made this pass — the finding above is specific enough to
+build directly in the next feature run rather than half-fixing it here
+without the smoke/build verification a page-component change deserves.
