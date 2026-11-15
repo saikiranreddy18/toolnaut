@@ -13205,3 +13205,81 @@ Ran `npm test` (radar suite, clean), confirmed `npm run build` and
 redundantly for a change that touches no shipped code. No bug spotted to
 fix this pass. Appending this check and the backend-shaped G2 finding
 rather than inventing a new gap.
+
+---
+
+### Research check 2026-11-15 03:03 UTC — sixtieth+ pass; "alternatives pages" competitor pattern checked against the live code and found already shipped; re-verified the "Weekly trending tools" aggregate-count gap at 49 days untouched, no drift
+
+Scheduled research run (UTC hour 03). `npm ci` clean, no new vulnerabilities.
+No issue labelled `agent-fixable` open (`list_issues`, 0 results). CI, Release
+and Radar workflows all green on `master` at the latest push (`44a855e`,
+`list_workflow_runs`), so no urgent CI-red work.
+
+**Radar health — same already-filed account-side problem, nothing new:**
+`npm run radar:health` reports `NO-PUBLISH` (0 published across the last 3
+runs, 16 to review in the latest 01:19 UTC run). Pulled that run's job logs
+directly (`get_job_logs`, run 174, job 132654728009) rather than trust the
+one-line summary: every one of the 7 candidates still hits the identical pair
+of errors already diagnosed and filed as issue #99 — `nvidia: LLM 404 ...
+Not Found for account 'OwuZ1E0...'` and `featherless: LLM 403 ... You do not
+have an active subscription`, both account-side, `FEATHERLESS_TIMEOUT_MS`
+confirmed still `180000` in the run's own env dump (not the already-fixed
+kimi-k3-timeout failure mode). Issue #99 is still open, still names the three
+human-side fixes (NVIDIA entitlement, Featherless billing, or any one of
+`ANTHROPIC_API_KEY`/`OPENAI_API_KEY`/`OPENROUTER_API_KEY` as a repo secret).
+Not re-logging it.
+
+**New competitor angle checked, found to be a false alarm — Toolnaut already
+ships it:** a WebSearch for how AI-tool directories implement stack
+sharing/comparison in 2026 surfaced a pattern repeated across Toolchase
+(770+ "alternatives" pages, 2,000+ side-by-side comparisons), The Stack Map
+(231 comparisons across 19 categories), PeerPush and Toolradar (per-tool
+"Alternatives to X" pages) — a static, SEO-indexable "alternatives to this
+tool" page per catalog entry. Before logging it as a gap, read the actual
+code per this file's own rule and found it already built, end to end:
+`src/utils/toolSeo.js:64` exports `relatedTools()`, `:126` names the JSON-LD
+list `Alternatives to ${t.name}`, and `:162` renders an
+`<h2>Alternatives to ${t.name}</h2><ul>...</ul>` block inside
+`toolStaticHtml()`. Both consumers of that function use it exactly this way:
+`scripts/gen-tool-pages.mjs:73-74` calls `relatedTools(t, tools, 6)` and
+bakes the result into every one of the ~1,100 static `dist/ai-tools/<slug>/
+index.html` pages (the same per-tool SEO pages the sitemap step right below
+it registers), and `src/pages/ToolPublic.jsx:21` calls the same function for
+the live React route, rendering the identical heading at `ToolPublic.jsx:122`.
+So every tool page on the site already has a real, populated "Alternatives
+to X" section, both in the crawlable static HTML and the hydrated app — not
+a thin stub, a shipped, line-for-line-matching implementation. Logging this
+here so a future pass doesn't re-spend a WebSearch rediscovering the same
+"alternatives pages" shape; it is not an OPEN gap.
+
+**Re-verified the "Weekly trending tools" gap** (found 2026-09-11, line
+~6438; deepened once already on 2026-09-27 — the pricing-page false-claim
+framing it was originally logged under had already been fixed by someone
+else's edit, leaving it OPEN as a lower-urgency feature-value idea with a
+corrected migration number). Re-checked every cited fact against current
+`master` rather than trust the 49-day-old deepening note: `ls
+supabase/migrations/` still ends at `0010_saved_limit.sql` — no `0011` has
+been taken, so the deepening's corrected "next free number is 0011" is still
+accurate. `grep -i trending src/` is still zero hits anywhere in the app, and
+`planData.js`'s Pro-tier block (`:115-118`) is unchanged — still
+`live('Unlimited favorite tools')`, `planned('AI-powered chat assistant
+...')`, `planned('Priority email support')`, `planned('Export learning
+roadmaps as PDF')` — so there is still no "trending" promise anywhere on the
+pricing page for this gap to correct, confirming the deepening's downgrade to
+"feature-value idea, not a marketing-honesty fix" still holds. The cited
+`sync.js` line numbers also still match exactly: `tool_refs` delete at
+`sync.js:96`, the stack-only insert block at `:103-106`, the saved-with-cap
+insert block at `:107-119` — unchanged since the 09-27 deepening. No drift
+found anywhere in this entry; it stands exactly as scoped (new
+`0011_tool_stack_counts.sql` migration, `src/utils/trending.js`, one sticker
+on `ToolDetail.jsx`), ready to pick up whenever a feature run wants a
+Supabase-migration-sized slot instead of a pure-`src/`-diff one.
+
+Ran `npm test` (radar suite, clean); did not run `npm run build`/`npm run
+smoke` since this is a docs-only change touching no shipped code. No bug
+spotted to fix this pass. Appending this check rather than inventing a new
+gap — the two most-promising untouched leads this run's grep sweep surfaced
+(price/deal-alert tracking, re-checked and still blocked on the catalog
+having no numeric price field; a browser-extension lookup surface, found
+2026-09-27, already fully scoped at build-size M) both already have a
+complete, unchanged entry elsewhere in this file.
