@@ -37,7 +37,7 @@ fully-scoped OPEN gaps (research kept producing material even while feature
 runs weren't landing), so this run picked from that queue rather than
 researching first.
 
-**Shipped today:** **`3fdfe09`** — the quiz result page now shows *why*
+**Shipped today:** **`ca56d69`** — the quiz result page now shows *why*
 each pick was chosen, matching a promise the hero makes but the real result
 never kept. `HeroSection.jsx` tells every visitor they'll get "ranked picks
 with the reasoning shown"; the real persona-reveal page
