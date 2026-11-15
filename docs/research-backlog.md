@@ -13342,3 +13342,50 @@ research checks than about research being short on material.
 No small bug spotted to fix this pass. Ran `npm test` (radar suite, clean);
 did not run `npm run build`/`npm run smoke` for a docs-only change. Appending
 this check rather than inventing a 25th entry.
+
+---
+
+### Research check 2026-11-15 15:03 UTC — sixty-second+ pass; two fresh competitor leads checked, neither survives verification
+
+Scheduled run, UTC hour 15 (a research slot; hour 18 is feature+digest).
+`npm ci` clean. `list_workflow_runs` on `master` confirms `CI` and `Release`
+green at the latest push (`8ffa705`). `list_issues` for `agent-fixable`:
+zero open. `npm run radar:health` (checked the real exit code this time, not
+a piped `$?`) → `NO-PUBLISH`, exit 1 — same evidence as every pass since
+2026-11-14: `nvidia` 404 (account entitlement) and `featherless` 403 (no
+active subscription), already filed as issue #99 with the three human-side
+fixes named. Not re-logging it; no code change, this is account-side.
+
+**Backlog state:** the 09:07 UTC pass this same day already audited all 24
+OPEN entries end-to-end and confirmed every one carries a real
+Smallest-useful-version plan, not a stub — not repeating that sweep six
+hours later with no new master commits in between to re-check against.
+
+**Two fresh leads this pass, neither logged:**
+- *There's An AI For That "v2.0"* — a WebSearch surfaced an unsourced claim
+  that TAAFT replaced its card grid with a dense row layout (price/task/
+  release-date/country/views at a glance) plus company-level filters
+  (Profitable/Unicorns/AI Native). Tried to verify against the primary
+  source directly (`WebFetch` on `theresanaiforthat.com`) — the site
+  returns HTTP 403 to the fetch tool, and a second, more targeted search for
+  the same redesign found nothing corroborating it. Per this file's own
+  bar (a lead needs primary-source verification before it's loggable, same
+  reasoning as the thirty-fourth pass's rejected enterprise-compliance-badge
+  lead), this stays unlogged — unconfirmed, not ruled out.
+- *Vendor-side domain-verification claiming* — a second search (AIDIRECTORY's
+  own docs) described the industry-standard pattern: a verification email to
+  an address at the product's own domain gets instant approval, anything
+  else goes to manual review. This is already the exact pattern the
+  "Vendor/maker claim-listing path" OPEN entry (line ~9843) specced in its
+  2026-10-06 deepening, right down to the domain-vs-manual split — confirmed
+  by re-reading that entry rather than re-logging a duplicate.
+
+**Small-bug check:** grepped `src/**/*.jsx` for `<img` tags missing `alt` —
+five hits (`AIRobot.jsx` ×3, `SpiralMark.jsx`, `Mascot.jsx`), all false
+positives once read in full: every one carries `alt=` a few lines below the
+opening tag (multi-line JSX attributes), nothing to fix.
+
+Ran `npm test` (radar suite, clean). Did not run `npm run build`/`npm run
+smoke` — docs-only change, no shipping this pass. Appending this check
+rather than inventing a 25th OPEN entry or re-verifying one that was just
+swept six hours ago.
