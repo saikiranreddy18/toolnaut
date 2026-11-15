@@ -13283,3 +13283,62 @@ gap — the two most-promising untouched leads this run's grep sweep surfaced
 having no numeric price field; a browser-extension lookup surface, found
 2026-09-27, already fully scoped at build-size M) both already have a
 complete, unchanged entry elsewhere in this file.
+
+---
+
+### Research check 2026-11-15 09:07 UTC — sixty-first+ pass; every OPEN entry audited and confirmed deep, not thin; two fresh angles checked, neither survived
+
+Scheduled research run (UTC hour 09). `npm ci` clean. `list_workflow_runs`
+shows CI, Release and Radar all green on `master` at the latest push
+(`a0ba0e4`). No issue labelled `agent-fixable` open (`list_issues`, 0
+results).
+
+**Radar health — same already-filed account-side problem, nothing new:**
+`npm run radar:health` reports `NO-PUBLISH` (0 published across the last 3
+runs). Pulled run 174's job logs directly (`get_job_logs`, job
+132654728009) rather than trust the summary line: all 7 candidates still
+hit the identical pair already diagnosed and filed as issue #99 —
+`nvidia: LLM 404 ... Not Found for account` and `featherless: LLM 403 ...
+You do not have an active subscription`. `FEATHERLESS_TIMEOUT_MS` confirmed
+still `180000` in the run's own env dump. Issue #99 is still open and still
+names the three human-side fixes. Not re-logging it.
+
+**Full audit of every OPEN entry, not just a spot check:** grepped every
+`### ` header that isn't a `Research check` log line (54 total) and pulled
+each one's `**Status:**` line. 24 are genuinely OPEN today (the rest are
+`SHIPPED`, `FIXED`, `REJECTED`, or `BUILT, UNMERGED`). Checked all 24 for a
+`Build size:` line as a proxy for "has a real Smallest-useful-version plan,
+not a stub" — all 24 have one. This file's own 06:03 UTC (2026-09-29) entry
+already established this for the then-25 OPEN entries; re-confirming it
+here for today's 24 closes out any doubt that a thin one is hiding among
+them. There is nothing to deepen this pass — every OPEN gap already has a
+scoped build plan, a "what this would NOT include" boundary, and a size
+estimate. The backlog is well past this file's own "two or three
+well-developed gaps" target (24 deep, unbuilt entries), which says more
+about the missed/irregular 18:03 UTC feature runs flagged in the last two
+research checks than about research being short on material.
+
+**Two fresh angles checked, neither logged:**
+- *Multiple named stacks* (save more than one list, e.g. "work" vs "side
+  project," switch between them) — not a pattern already covered under
+  "Collections" (that entry is curated public bundles, not personal
+  multi-list storage). Read `src/state/stackStore.js` end to end: it is a
+  single flat slug array under one `exus_stack_v1` key, no concept of named
+  or multiple stacks. Technically buildable client-side (restructure the
+  key to `{ stacks: [{id, name, slugs}] }`, migrate the existing array to a
+  default stack). Set aside without logging: nothing in Toolnaut's own copy
+  promises this (not a broken-promise gap, this file's best category), two
+  WebSearches for "AI tool directory saved lists / collections /
+  personalization 2026" and for recent Futurepedia/TAAFT/Toolify feature
+  news found no competitor in this specific niche shipping named multi-list
+  stacks as a validated pattern, and it would rank below several of the 24
+  already-OPEN entries on this file's own impact-over-build-size test.
+- *PWA / install-to-home-screen* — checked as a possible gap before
+  researching it further, and it is already fully shipped: `index.html:34`
+  links `/manifest.webmanifest`, `public/sw.js:10` lists it in the cached
+  shell, `apple-touch-icon.png` is wired at `index.html:33`, theme-color is
+  set. Not a gap; ruling it out took one grep, not a WebSearch.
+
+No small bug spotted to fix this pass. Ran `npm test` (radar suite, clean);
+did not run `npm run build`/`npm run smoke` for a docs-only change. Appending
+this check rather than inventing a 25th entry.
