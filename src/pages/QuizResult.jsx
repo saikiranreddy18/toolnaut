@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { generatePersona } from '../utils/personaGenerator'
 import { recommendationConfidence } from '../utils/confidence'
+import { matchReasonShort } from '../utils/matchScore'
 import { read as readScoped, write as writeScoped } from '../state/scopedStorage'
 import { loadQuiz, resetQuiz } from '../state/quizStore'
 import { haptic } from '../utils/haptics'
@@ -189,6 +190,7 @@ export default function QuizResult() {
               <div className="mt-4 grid gap-2.5 sm:grid-cols-3">
                 {persona.stack.map((t, i) => {
                   const frame = i === 0 ? 'var(--lime)' : i === 1 ? 'var(--hot-pink)' : 'var(--cyan)'
+                  const reason = matchReasonShort(t, quiz.answers)
                   return (
                     <motion.div
                       key={t.name}
@@ -210,6 +212,11 @@ export default function QuizResult() {
                         <span className="font-display text-xs font-semibold" style={{ color: frame }}>#{i + 1}</span>
                       </div>
                       <p className="mt-1.5 line-clamp-2 text-[10px] leading-relaxed text-zinc-300">{t.blurb}</p>
+                      {reason && (
+                        <p className="mt-1.5 text-[9px] font-semibold" style={{ color: 'var(--cyan)' }}>
+                          Why this one — {reason}
+                        </p>
+                      )}
                     </motion.div>
                   )
                 })}

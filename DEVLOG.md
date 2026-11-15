@@ -9,6 +9,67 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-11-15
+
+**Radar health:** `NO-PUBLISH` — 0 tools published in the last 24h. Both
+configured LLM providers are down on their own end (NVIDIA NIM entitlement
+404, Featherless subscription 403), confirmed account-side and unchanged
+since filed as issue #99 on 2026-11-14; nothing fixable from code. Feed
+holds 566 published tools; 19 candidates are sitting in the review queue
+instead of publishing until a human renews/fixes one of the providers or
+adds another LLM API key as a repo secret.
+
+**Catching up first — this routine went quiet for five weeks.** Research
+passes already found and flagged this (first noted 2026-11-13 15:04 UTC):
+`DEVLOG.md`'s last section before today was 2026-10-09, and in the roughly
+five weeks since, exactly one feature actually shipped to `src/` —
+`3e9ce64` (aggregateRating in tool JSON-LD, built opportunistically during a
+2026-11-13 research pass once the backlog had a fully-scoped gap ready) —
+and it never got written up here. The radar pipeline itself never stopped;
+only this research/feature/digest routine's scheduled runs did, for reasons
+outside what any of these sessions could see or fix (platform-level
+scheduling, not a repo bug). Noting the gap honestly rather than
+backfilling five weeks of digests after the fact.
+
+**Researched today:** none — today's run landed on the 18:03 UTC
+feature+digest slot directly. The backlog going into today held 24 deep,
+fully-scoped OPEN gaps (research kept producing material even while feature
+runs weren't landing), so this run picked from that queue rather than
+researching first.
+
+**Shipped today:** **`3fdfe09`** — the quiz result page now shows *why*
+each pick was chosen, matching a promise the hero makes but the real result
+never kept. `HeroSection.jsx` tells every visitor they'll get "ranked picks
+with the reasoning shown"; the real persona-reveal page
+(`QuizResult.jsx`) only ever rendered a `#1/#2/#3` badge and the tool's
+static catalogue blurb — the exact same text every visitor sees regardless
+of their answers. The signed-out example-stack page already did this
+correctly by calling `matchReasonShort()`, a pure function that already
+existed in `src/utils/matchScore.js` and was already wired into six other
+pages; `QuizResult.jsx` was the one page that imports neither. Added the
+same import, computed `matchReasonShort(t, quiz.answers)` per stack card,
+and rendered it under the blurb in the same `Why this one — …` shape the
+example page uses. One file, ~8 lines. Verified live in a headless browser
+against a completed-quiz fixture before pushing: all three starter-kit
+cards render their reasoning line, zero console errors, screenshot checked
+against the existing ticket design. **This is visible on toolnaut.xyz
+today** — every real visitor who finishes the quiz sees it immediately,
+no other pipeline needs to run first.
+
+**Verification:** `npm test` (316/316), `npm run build`, and `npm run
+smoke` (25/25 routes, 0 console errors) all green before pushing straight
+to `master`.
+
+**Queued next:** the backlog's other build-ready picks, roughly in order —
+"Changelog only looks backward" (the single stalest OPEN entry, 39+ days,
+fully scoped, no backend needed), the task-search stemming fix ("transcribe
+meetings" returns zero results despite 17 matching tools), and the
+catalog-re-verification job (`checkWebsite()` already exists, just never
+gets called against published tools on a schedule). Issue #99 (radar
+NO-PUBLISH) stays open until a human acts on one of its three listed fixes.
+
+---
+
 ## 2026-10-09
 
 **Radar health:** `OK` — 2 runs in the last 24h (01:27 and 16:16 UTC), 7

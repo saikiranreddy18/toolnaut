@@ -12988,7 +12988,15 @@ appending this check instead of inventing one.
 
 ### The hero's "ranked picks with the reasoning shown" promise is false on the one page that matters most — the real quiz result shows a rank number and nothing else
 
-- **Status:** OPEN
+- **Status:** SHIPPED (this run, sha in DEVLOG) — built exactly as scoped
+  below: `QuizResult.jsx` now imports `matchReasonShort` from
+  `../utils/matchScore`, computes `matchReasonShort(t, quiz.answers)` per
+  stack card, and renders it under the blurb guarded by `reason &&`, in the
+  same `Why this one — …` shape `ExampleStack.jsx` already uses. Verified in
+  a headless browser against a completed-quiz localStorage fixture: all three
+  starter-kit cards render their reasoning line, zero console errors. No
+  change to `matchScore.js`, the confidence panel, or `ExampleStack.jsx` — all
+  out of scope as originally noted below.
 - **Seen in:** this repo's own code, in two places that disagree with each
   other. `HeroSection.jsx:101-104` promises every visitor: "Get a tailored AI
   stack, **ranked picks with the reasoning shown**, and a 4-week learning plan
