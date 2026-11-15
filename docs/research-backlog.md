@@ -13397,3 +13397,80 @@ Ran `npm test` (radar suite, clean). Did not run `npm run build`/`npm run
 smoke` — docs-only change, no shipping this pass. Appending this check
 rather than inventing a 25th OPEN entry or re-verifying one that was just
 swept six hours ago.
+
+---
+
+### Research check 2026-11-15 21:03 UTC — sixty-third+ pass; the 18:03 UTC run landed today (ca56d69 shipped, DEVLOG updated); FutureTools.io re-fetched fresh, dark-mode and i18n checked and both set aside
+
+Scheduled research run (UTC hour 21). `npm ci` clean. `list_workflow_runs`
+shows `CI` green on `master` at the latest push (`fae4e46`). `list_issues`
+for `agent-fixable`: zero open.
+
+**Good news first — the missing-18:03-run process gap flagged by the last
+three research checks has resolved itself:** `DEVLOG.md`'s top section is
+dated 2026-11-15 and records the feature+digest run landing on schedule
+today, shipping `ca56d69` (the hero-reasoning fix logged below at line
+~12989, now marked `SHIPPED` in this file). Not re-flagging the gap; it was
+specific to 2026-11-14 and earlier, and today's run is the evidence it
+closed.
+
+**Radar health — same already-filed account-side problem, fresher evidence
+than the last entry:** `npm run radar:health` → `NO-PUBLISH`, exit 1. Pulled
+the actual latest run's logs (`get_job_logs`, run 175 / job 132876200134,
+2026-11-15T16:23 UTC — newer than the 15:03 UTC entry's cited run 174) rather
+than trust the summary: all 10 of this run's fallback candidates hit the
+identical pair already diagnosed and filed as issue #99 — `nvidia: LLM 404
+... Not Found for account 'OwuZ1E0...'` and `featherless: LLM 403 ... You do
+not have an active subscription`. `FEATHERLESS_TIMEOUT_MS` confirmed still
+`180000` in this run's own env dump. Issue #99 is still open and still names
+the three human-side fixes (NVIDIA entitlement, Featherless billing, or
+adding `ANTHROPIC_API_KEY`/`OPENAI_API_KEY`/`OPENROUTER_API_KEY` as a repo
+secret). Not re-logging it.
+
+**Two fresh angles checked this pass, neither logged:**
+- *Dark/light theme toggle* — grepped `src/` for `prefers-color-scheme` and
+  found exactly one hit, a comment at `src/index.css:296`: the existing
+  `[data-moon='day']` variant is a decorative sky-brightness theme for the
+  galaxy background, explicitly scoped by its own comment to stop short of a
+  readable light mode ("a true light mode is a different change, one that
+  has to restyle the text"). Not a broken promise — nothing in the app's copy
+  claims a light mode exists — and restyling every surface's text for a true
+  light theme is a sitewide effort, not a bounded slice. Set aside: this file
+  only logs gaps between a stated promise and reality, or a validated
+  competitor pattern with a scoped build; this is neither.
+- *Multi-language / i18n* — grepped for `i18n|locale|translat` across `src/`:
+  the only hits are component/prop names that happen to contain "Loc" or
+  similar substrings, no actual translation infrastructure. WebSearched for
+  competitor precedent in this specific niche (AI-tool directories, not
+  general SaaS) and found exactly one weak lead — an undated DEV Community
+  post claiming "Best of AI" (bestofai.io) added a Spanish translation, no
+  primary-source date, no second corroborating source. Per this file's own
+  bar (unconfirmed stays unlogged, same reasoning the TAAFT "v2.0" lead was
+  held to at 15:03 UTC), this does not clear verification. Even if it did,
+  translating 700+ catalog entries plus all UI copy is an L-or-larger,
+  open-ended content cost with no scoped "smallest useful version" — a poor
+  fit for this file's impact-over-build-size test. Not logged.
+
+**Competitor re-check, nothing new:** re-fetched FutureTools.io fresh
+(`WebFetch`, live page) rather than trust the earlier characterization cited
+at lines 2815/4385/8893/8942/8978. Confirmed unchanged: the "Top 20 AI Tools"
+ranked list is described as upvote-driven but has no visible vote control on
+the page itself, "Community Picks" vs "Matt's Picks" are editorial curation
+on their side, and the homepage's AI News feed and Glossary are editorial/
+content-ops features already covered by this file's existing "No
+educational/how-to content" OPEN entry (line ~8291), not a distinct new
+pattern. The "Free Subscriber Bonus" lead-gen database is a newsletter-growth
+mechanic, same family as the already-OPEN "No public email capture" entry
+(line ~11344). Nothing here survives as new.
+
+**Small-bug check:** read `StatsSection.jsx` end to end plus the two data
+sources it calls (`explorerCount.js`, `subscriberCount.js`) — the
+counted-vs-null discipline this file has cited repeatedly holds exactly as
+described (every failure path resolves to `null`, never `0` or a cached
+failure), no bug found.
+
+Ran `npm test` (radar suite, clean). Did not run `npm run build`/`npm run
+smoke` — docs-only change, no shipping this pass. Appending this check
+rather than inventing a gap that doesn't clear this file's own bar; the
+backlog's 20 OPEN entries (one freshly SHIPPED since the last full count)
+are still the ready queue for the next feature run.
