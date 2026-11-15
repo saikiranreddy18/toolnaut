@@ -13148,3 +13148,60 @@ transcription-tagged tools now go unsurfaced, up from 11 when this was
 found. Gap fully intact, no code fix attempted here (search behavior change
 deserves the full three-check verification a feature run gives it, not a
 half-tested tweak in a research pass).
+
+---
+
+### Research check 2026-11-15 00:03 UTC — fifty-ninth+ pass; G2's "AI Verified" reviewer badge checked and set aside as backend-shaped; re-verified the educational/how-to-content gap
+
+Scheduled research run (UTC hour 00). `npm ci` clean. `list_workflow_runs`
+shows CI, Release and Radar all green on `master` at the latest push
+(`836214f`). No issue labelled `agent-fixable` open. `npm run radar:health`
+reports `NO-PUBLISH`, same account-side cause already filed as issue #99
+(open) — both configured LLM providers (NVIDIA NIM entitlement 404,
+Featherless subscription 403) still failing on the provider side, nothing
+new to add, not re-logged.
+
+**New competitor angle checked, set aside as not boundable:** WebSearch
+turned up G2's "AI Verified" / "AI Users Trust" badge program (launched in
+beta this year) — a product earns the badge once at least 10 independent
+reviewers confirm, in their own reviews, that they actually used the AI
+features a vendor claims. It's a genuinely different trust mechanism from
+anything already in this file: it validates *feature claims* against real
+cross-user confirmation, not just "the site is reachable" (the already-OPEN
+catalog-re-check entry above) or "here's a star rating" (the already-shipped
+per-tool reviews). Checked whether Toolnaut could do a lightweight version
+of this and it can't, for the same reason the Pro-chat-assistant and
+weekly-digest entries above were already ruled out: `src/state/
+toolReviewsStore.js:4-6` stores reviews in `scopedStorage` —
+**per-browser localStorage**, not a shared backend. A review one visitor
+writes is invisible to every other visitor's browser; there is no way to
+count "10 independent reviewers" when reviews never leave the device that
+wrote them. The 15 tools with non-empty rating counts today
+(`toolReviewsData.js`) are hand-seeded editorial data, not aggregated user
+submissions. Building real cross-user confirmation needs the same backend
+this file has already named as the blocker for four other entries — not
+logging it as a new OPEN gap, since it isn't boundable client-side today,
+but noting it here so a future pass with backend context doesn't re-spend
+research time rediscovering the same blocker.
+
+**Re-verified the "No educational/how-to content" gap** (found 2026-09-20,
+line ~8291 — one of the longer-untouched OPEN entries, no inline
+Deepened/Re-verified note since it was logged). Checked every cited claim
+against current `master`: `src/App.jsx` still has no `/guides` route or
+lazy import; `src/content/` still holds only `comparisons.js`, no
+`guides.js`; `scripts/prerender.mjs:42-61`'s `ROUTES` array is unchanged —
+still the same 19 product-surface routes, no guide pages; and
+`ContactSection.jsx`'s "Resources" footer column still links only to
+"How it works," "How we choose," "What's new," and "Open the app" — now at
+`ContactSection.jsx:43-49` (the column itself shifted from the cited `:44`
+to `:43` since it was found, a one-line drift, corrected here; the four
+links and their targets are byte-for-byte the same). Core claim and the
+"Smallest useful version" build plan both still hold exactly as scoped —
+still a clean S-sized, backend-free pick whenever a feature run wants a
+content/SEO slot instead of a UI slot.
+
+Ran `npm test` (radar suite, clean), confirmed `npm run build` and
+`npm run smoke` are unaffected by a docs-only change, and did not run them
+redundantly for a change that touches no shipped code. No bug spotted to
+fix this pass. Appending this check and the backend-shaped G2 finding
+rather than inventing a new gap.
