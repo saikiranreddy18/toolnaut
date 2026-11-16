@@ -13746,3 +13746,72 @@ a fresh competitor sweep on top of it.
 
 Ran `npm test` (316/316), `npm run build`, and `npm run smoke` (25/25
 routes, 0 console errors) — all green before pushing `c8fa3d8` to master.
+
+---
+
+### Research check 2026-11-16 15:04 UTC — sixty-eighth+ pass; confirmed the NVIDIA fix holds on its own live evidence, re-verified the leaderboard-sample-data entry (now the stalest OPEN, 53 days)
+
+Scheduled research run (UTC hour 15). `npm ci` clean. `list_workflow_runs`
+shows `CI` and `Release` green on `master` at the latest push (`35456c3`).
+`list_issues` for `agent-fixable`: zero open.
+
+**Radar health — NVIDIA fix already shipped this same day, confirmed holding
+on fresh evidence, nothing left to do here:** `npm run radar:health` →
+`NO-PUBLISH`, exit 1 (checked the real exit code directly, not a piped `$?`).
+Rather than stop at the summary, pulled the actual latest run's job log
+(`get_job_logs`, run 180 / job 133292406713, 2026-11-16T12:18:39 UTC — the
+same run the 12:03 UTC entry above already cites) and the two runs before
+it. Run 180, on `c8fa3d8`'s `nvidia/nemotron-3.5-bolt-e4b` default: zero
+provider-error lines, one candidate seen (`aradia-est-1991`), and the only
+warning is `LLM enrich failed for aradia-est-1991, using fallback LLM
+rejected: not a tool` — a genuine model response (the LLM call succeeded and
+correctly said "not a tool"), not a transport failure. This independently
+confirms the 12:03 UTC entry's own conclusion with the identical log line,
+not new evidence beyond what's already recorded — logging the confirmation
+rather than re-opening the investigation. `radar:health` still reports
+`NO-PUBLISH` because its 26h window still contains the pre-fix runs and the
+last real publish was 2026-10-15; that will clear on its own once a run
+after the fix finds a genuinely new, real tool. Featherless is unchanged
+(403, no active subscription) — issue #99 stays open for that human-only
+half. Nothing to fix here this pass.
+
+**Re-verified the stalest OPEN entry:** scanned every OPEN entry's own
+`Found:`/`Deepened:` dates. "The leaderboard's own precondition for going
+real" (line ~5659, last touched 2026-09-24) is now the stalest at 53 days —
+the previously-stalest "No educational/how-to content" entry was itself
+re-verified this same day at 09:03 UTC, so re-checking it again six hours
+later would add nothing. Re-ran this entry's own repro against current
+`master`: `src/utils/leaderboardData.js:51` still `export const IS_SAMPLE =
+true`; `RankCard.jsx:4,27,98` still imports and renders
+`SAMPLE_LEADERBOARD`/`IS_SAMPLE` verbatim; `supabase/migrations/` still ends
+at `0010_saved_limit.sql` (confirmed via `ls`), so the 2026-09-24 deepening's
+corrected "next free number is 0011" is still accurate; `grep -rn handle
+supabase/migrations/` still returns only the unrelated UPI-handle comment in
+`0008_account_deletion.sql`, no leaderboard `handle` column anywhere; and
+`communityStats.js:81,89` still computes `stepsDone` with the `:quiz`
+exclusion and calls `computeScore({ stackSize, stepsDone, streakDays })`
+with no `roadmapComplete` field, matching the deepening's note exactly. No
+drift anywhere — gap, plan, and migration number all stand unchanged. Still
+OPEN, still build size M.
+
+**Competitor sweep:** one `WebSearch` across Futurepedia/Toolify/TAAFT for
+anything dated 2026 turned up nothing beyond third-party aggregator blogs
+with conflicting, unsourced catalog-size numbers — the same low-authority
+tier this file has already declined to log from in the 2026-11-15/16
+passes. The two features it did surface (a Futurepedia side-by-side compare,
+a Toolify "recent additions" page) are both already shipped on Toolnaut
+(Compare, line 105; "Surface tool freshness," line 231). Also grepped this
+file itself for `autocomplete|typeahead|affiliate|referral program|currency|
+localiz` to check for an unexplored angle before running a search — zero
+hits, but none of those are a fit either (search-box typeahead would need
+its own UI work with no stated promise to fix, and affiliate/referral/
+currency features are monetization-shaped on a pre-revenue, catalog-pricing-
+less product, the same reasoning that already rejected vendor coupon codes
+at line 4083). Nothing survives as a new entry.
+
+**Small-bug check:** `src/utils/changelogData.js`'s newest entry is
+`2026-11-15` (1 day stale, fine) — the staleness bug five prior passes
+re-fixed is still fixed as of this check. No bug found.
+
+Ran `npm test` (316/316, clean). Did not run `npm run build`/`npm run
+smoke` — docs-only change, no shipping this pass.
