@@ -1818,5 +1818,12 @@
   "s:sandboxes-for-ai-agents",
   "s:attest",
   "s:local-ai-video-agent",
-  "s:gitseed"
+  "s:gitseed",
+  "s:ironsurf",
+  "s:can-you-trust-ai-cybersecurity-tools",
+  "s:sasy-agent-policies-in-declarative-logic",
+  "s:opentelemetry-and-ai-agents-observability",
+  "s:trustgraph",
+  "s:a-local-first-agent-for-private-knowledge-work",
+  "s:agentic-ai-designs-an-analog-synthesizer"
 ]
