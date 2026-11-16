@@ -7,6 +7,7 @@ import { getNewTools } from '../../utils/newTools'
 import { loadRecentlyViewed } from '../../state/recentlyViewedStore'
 import { loadStreak, daysSinceLastVisit } from '../../state/streakStore'
 import { matchesQuery } from '../../utils/search'
+import { getFacetCounts } from '../../utils/facetCounts'
 import { compareByNewest, compareByName } from '../../utils/sortResults'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
@@ -36,14 +37,15 @@ const SORTS = [
 // they search or filter. So render a screenful and let the rest be asked for.
 const PAGE_SIZE = 24
 
-function Pill({ active, onClick, children }) {
+function Pill({ active, onClick, children, count }) {
   return (
     <button
       onClick={onClick}
       aria-pressed={active}
-      className={`arcade-chip press min-h-9 shrink-0 cursor-pointer ${active ? 'on' : ''}`}
+      className={`arcade-chip press min-h-9 shrink-0 cursor-pointer ${active ? 'on' : ''} ${count === 0 ? 'opacity-50' : ''}`}
     >
       {children}
+      {count != null && <span className="ml-1 opacity-60">{count}</span>}
     </button>
   )
 }
@@ -140,6 +142,12 @@ export default function Discover() {
     // breaks the genuine ties.
     return scored.sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || tieBreak(a, b))
   }, [q, cat, price, level, sort, answersKey, tieBreak])
+
+  // Lets every filter pill show how many results it leads to before it's
+  // clicked, instead of a blind guess-and-check loop against the grid below.
+  const facetCounts = useMemo(() => getFacetCounts(TOOLS, { q, cat, price, level }), [q, cat, price, level])
+  // "All" shows the query-only count (facets cleared), matching what clicking it does.
+  const allCount = useMemo(() => TOOLS.filter((t) => matchesQuery(t, q)).length, [q])
 
   const hasFilters = !!(q || cat || price || level)
 
@@ -292,9 +300,9 @@ export default function Discover() {
 
       {/* filter rows swipe horizontally on mobile, wrap on wide screens */}
       <div className="no-scrollbar -mx-5 mt-4 flex gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
-        <Pill active={!cat} onClick={() => setParam('cat', '')}>All</Pill>
+        <Pill active={!cat} onClick={() => setParam('cat', '')} count={allCount}>All</Pill>
         {Object.entries(CATEGORY_META).map(([id, meta]) => (
-          <Pill key={id} active={cat === id} onClick={() => setParam('cat', cat === id ? '' : id)}>
+          <Pill key={id} active={cat === id} onClick={() => setParam('cat', cat === id ? '' : id)} count={facetCounts.categories[id] || 0}>
             {meta.name}
           </Pill>
         ))}
@@ -303,13 +311,13 @@ export default function Discover() {
       <div className="no-scrollbar -mx-5 mt-3 flex items-center gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
         <span className="shrink-0 text-xs uppercase tracking-widest text-zinc-600">Price</span>
         {PRICES.map((p) => (
-          <Pill key={p} active={price === p} onClick={() => setParam('price', price === p ? '' : p)}>
+          <Pill key={p} active={price === p} onClick={() => setParam('price', price === p ? '' : p)} count={facetCounts.prices[p] || 0}>
             {PRICE_LABELS[p]}
           </Pill>
         ))}
         <span className="ml-3 shrink-0 text-xs uppercase tracking-widest text-zinc-600">Level</span>
         {LEVELS.map((l) => (
-          <Pill key={l} active={level === l} onClick={() => setParam('level', level === l ? '' : l)}>
+          <Pill key={l} active={level === l} onClick={() => setParam('level', level === l ? '' : l)} count={facetCounts.levels[l] || 0}>
             {LEVEL_LABELS[l]}
           </Pill>
         ))}
