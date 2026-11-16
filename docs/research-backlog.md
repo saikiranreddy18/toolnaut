@@ -5668,6 +5668,28 @@ a client-side SPA with a static tool catalogue.
   - **No change** to the build size, the data shape, or any of the "what
     this would NOT include" exclusions — this deepening only corrects three
     stale line citations and one file-existence claim.
+- **Re-verified 2026-11-16 21:03 UTC:** full scan of every OPEN entry's
+  last-touch date (Found, or latest Deepened/Re-verified, whichever is
+  later) shows this entry at 2026-09-27 — now the single stalest OPEN
+  entry (50 days), one day staler than "Popularity signal discarded"
+  (2026-09-28) and past the leaderboard entry above, which the 15:04 UTC
+  pass today re-verified back to zero days stale. Re-ran every citation
+  against current `master`: `grep -rniE "collection|bundle|curated.{0,15}
+  (stack|list)" src/pages src/components` still returns only the unrelated
+  `BUNDLED_COUNT`/`CollectionPage` schema hits, confirming the feature is
+  still entirely unbuilt. All four line citations the 09-27 deepening
+  corrected are still exactly where it left them — zero drift this time:
+  `App.jsx:128` is still `/tools/:domain`, with `/s/:slugs`, `/compare/:slugs`
+  and `/vs/:slug` immediately above it and `/ai-tools/:slug` below, exactly
+  as cited; `CategoryLanding.jsx:95` is still
+  `<div key={tool.slug} className="glass rounded-2xl p-5">`, its
+  `CollectionPage` JSON-LD still at `:47`; `NewTools.jsx`'s own
+  `CollectionPage` JSON-LD still at `:26`; `capabilityMatrix.js:62-66`'s
+  `'Workflow templates'` row is byte-for-byte unchanged (free/pro/team all
+  still `status: 'planned'`, free copy still `'A few samples'`);
+  `SharedStack.jsx`'s `adoptAndGo` is still at line 48, `getTool` import
+  still at line 3. Still OPEN, still build size S/M, plan still exactly
+  right.
 
 ---
 
@@ -13830,3 +13852,82 @@ re-fixed is still fixed as of this check. No bug found.
 
 Ran `npm test` (316/316, clean). Did not run `npm run build`/`npm run
 smoke` — docs-only change, no shipping this pass.
+
+---
+
+### Research check 2026-11-16 21:03 UTC — sixty-ninth+ pass; re-verified the true stalest OPEN entry (the 15:04 pass's pick had just been re-touched), fixed the changelog-staleness bug a sixth time, one competitor lead folded into an existing gap
+
+Scheduled research run (UTC hour 21). `npm ci` clean. `list_workflow_runs`
+confirmed `CI` and `Release` green on `master` at the latest real commit
+(`d2ca4bb`, the "ship Discover facet counts" devlog commit) and the radar
+auto-publish commit on top of it (`0de318e`) didn't need either workflow to
+re-run. `list_issues` for `agent-fixable`: zero open. `npm run
+radar:health`: `STATUS: OK` — 8 tools published 1.4h ago, 574 in the feed —
+no urgent radar work this pass, a genuinely healthy result for once instead
+of the NO-PUBLISH streak the last several passes were digging out of.
+
+**Found the real stalest OPEN entry, not the one the 15:04 UTC pass already
+re-touched today:** that pass correctly identified "The leaderboard's own
+precondition for going real" as stalest at the time (53 days, last touched
+2026-09-24) and re-verified it — which means as of this run it's freshly
+touched (zero days stale), not still the one to pick. Re-scanned every OPEN
+entry's own Found/Deepened/Re-verified dates by reading the file directly
+rather than trusting memory of a prior pass's count, and found "Curated tool
+bundles ('Collections')" (line ~5519) last touched 2026-09-27 — one day
+staler than "Popularity signal discarded before it reaches a record"
+(2026-09-28) and now the genuine oldest-untouched OPEN entry at 50 days.
+Re-verified it in full (see the new note on the entry itself): every line
+citation from its 09-27 deepening still matches current `master` exactly,
+zero drift, `grep -rniE "collection|bundle|curated.{0,15}(stack|list)"
+src/pages src/components` still confirms the feature is entirely unbuilt.
+Still OPEN, still build size S/M, nothing to correct.
+
+**Fixed a real bug — the changelog-staleness pattern recurred a sixth
+time, this one caused directly by today's own feature run:**
+`src/utils/changelogData.js`'s own header comment says to add an entry
+"whenever the daily feature run marks a backlog gap SHIPPED." Today's
+18:03 UTC run shipped `aa9a5ae` ("Discover's filter chips carry no facet
+counts," confirmed live in the backlog entry and in `DEVLOG.md`'s
+2026-11-16 section) but never added the changelog entry for it — the
+newest entry was still `2026-11-15` three hours after a new feature went
+live. Added the missing `2026-11-16` entry in the same hand-written,
+customer-facing style every other entry uses ("See how many results a
+filter leads to before you click it"), pulled from the real shipped
+behaviour, not invented. No test file covers `changelogData.js`'s contents
+directly (grepped `test/` for `changelog`, zero hits), so this bug has no
+guard today — flagging that as a smaller, separate, not-worth-blocking-on
+gap rather than adding test coverage in a research-run pass (CLAUDE.md's
+own radar guidance, "more tests are no longer the best use of a run,"
+applies by extension here too).
+
+**Competitor sweep:** one `WebSearch` for 2026-dated AI-directory features
+around price-change alerts, deprecation tracking and review verification.
+Three real, named products turned up — Nesyona's "AI Tool Pricing Tracker"
+(emails a summary the moment a listed tool's pricing changes), ToolChase
+(re-verifies every active listing monthly against the vendor's own site),
+and Verdict (tracks a tool's life-status — alive, price-hiked, degrading,
+sunset-announced, dead — with a date and source per status change). All
+three are narrower restatements of ground this file's own, already-OPEN
+"A published catalog entry is never re-checked after the day it was
+discovered" entry (line ~12829, Found 2026-11-14) already covers and
+explicitly scopes: that entry's own "what this would NOT include" names
+"no content re-enrichment (no second LLM pass re-checking price/category/
+blurb text... a full content recheck is a materially larger, separately-
+shippable feature" as the deliberate next step once its reachability-only
+v1 ships — which is exactly what price-change alerts and life-status
+tracking both are. Logging a second top-level entry for the same forward
+path the existing entry already names would duplicate it rather than add
+new ground, so this folds into that entry rather than becoming its own —
+consistent with how this file has folded similar near-duplicate
+competitor leads into existing gaps many times before (e.g. the
+2026-10-09 09:04 UTC pass folding a pricing-model-filter idea into the
+access-method gap). "LLM Status" (provider-model deprecation dates) is
+closer to infrastructure Toolnaut's own `radar/` pipeline consumes
+(`FEATHERLESS_DEFAULT_MODEL` churn, the exact pattern that caused today's
+NVIDIA fix) than a catalog-facing feature, and doesn't fit any OPEN entry
+or justify a new one on its own.
+
+Ran `npm test` (322/322, clean), `npm run build` (clean, three.js chunk
+assertion held), and `npm run smoke` (26/26 routes, 0 console errors) —
+all three required this pass because of the `changelogData.js` code change
+alongside the docs update. Committed and pushed straight to master.
