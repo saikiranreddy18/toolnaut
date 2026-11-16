@@ -36759,5 +36759,423 @@
     "generatedBy": "fallback:template",
     "version": 1,
     "updatedAt": "2026-10-15T00:06:40.597Z"
+  },
+  {
+    "id": "course-emelyn-your-ai-social-media-manager",
+    "toolSlug": "emelyn-your-ai-social-media-manager",
+    "title": "Master Emelyn, Your AI Social Media Manager",
+    "objectives": [
+      "Automate cross-platform content scheduling in Emelyn.",
+      "Analyze Emelyn's AI performance report for audience engagement.",
+      "Refine AI tone/voice prompts based on platform best practices."
+    ],
+    "modules": [
+      {
+        "title": "Batch Scheduling Across Platforms",
+        "estMinutes": 15,
+        "steps": [
+          "Connect Instagram and LinkedIn within the Emelyn dashboard.",
+          "Use the 'Batch Post' feature to schedule five pre-written updates.",
+          "Verify time zone settings in the scheduling configuration panel."
+        ]
+      },
+      {
+        "title": "Interpreting AI Performance Metrics",
+        "estMinutes": 10,
+        "steps": [
+          "Navigate to the 'Analytics' tab and select the last 7-day summary.",
+          "Identify the top-performing content type (e.g., Carousel vs. Short Video).",
+          "Note the average engagement rate variance between Facebook and X."
+        ]
+      },
+      {
+        "title": "Prompt Tuning for Brand Voice",
+        "estMinutes": 15,
+        "steps": [
+          "Access the 'AI Tone Settings' in the profile editor.",
+          "Update the directive from 'Informative' to 'Witty & Authoritative'.",
+          "Test the change by generating one sample post for Twitter and review the output."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-social media",
+      "skill-ai",
+      "skill-marketing"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-16T19:38:33.618Z"
+  },
+  {
+    "id": "course-jevmem",
+    "toolSlug": "jevmem",
+    "title": "Master Jevmem",
+    "objectives": [
+      "Integrate Jevmem with your existing project repository.",
+      "Configure specific rule sets for Claude and Codex within Jevmem.",
+      "Review and action an automated rule violation report from Jevmem."
+    ],
+    "modules": [
+      {
+        "title": "Initial Repository Setup",
+        "estMinutes": 10,
+        "steps": [
+          "Clone the target project repository locally.",
+          "Run `jevmem init --repo <repo-url>` in the project root.",
+          "Verify the `.jevmem` configuration file is created."
+        ]
+      },
+      {
+        "title": "Tool-Specific Rule Configuration",
+        "estMinutes": 15,
+        "steps": [
+          "Edit `.jevmem.yml` to add `claude_rules: { ... }` section.",
+          "Add a specific linting rule (e.g., 'no_hardcoded_secrets') under `codex_rules`.",
+          "Execute `jevmem config validate` to check syntax."
+        ]
+      },
+      {
+        "title": "Monitoring and Remediation",
+        "estMinutes": 10,
+        "steps": [
+          "Commit a file that intentionally violates a configured rule.",
+          "Run `jevmem scan` and observe the output log.",
+          "Use `jevmem report --fix-suggest` to generate remediation steps for the violation."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-claude",
+      "skill-codex",
+      "skill-cursor",
+      "skill-project rules"
+    ],
+    "prerequisites": [
+      "Familiarity with Git/CLI",
+      "Intermediate understanding of YAML configuration files"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-16T19:38:33.618Z"
+  },
+  {
+    "id": "course-coral",
+    "toolSlug": "coral",
+    "title": "Master Coral",
+    "objectives": [
+      "Integrate a custom local Python function as a callable tool within Coral.",
+      "Configure Coral to dynamically register and use a tool defined via a self-referential agent loop.",
+      "Implement secure tool access control using Coral's policy engine for external agent calls."
+    ],
+    "modules": [
+      {
+        "title": "Local Tool Registration via Gateway API",
+        "estMinutes": 15,
+        "steps": [
+          "Define a simple Python function (e.g., 'get_system_time') and package it.",
+          "Use the Coral CLI to push this function's metadata and endpoints to the running gateway.",
+          "Verify the tool appears in the gateway's introspection endpoint."
+        ]
+      },
+      {
+        "title": "Self-Tooling Agent Configuration",
+        "estMinutes": 25,
+        "steps": [
+          "Configure an agent prompt instructing it to use the 'register_tool' endpoint internally.",
+          "Set up a loop where the agent writes a tool definition and immediately calls the gateway to register it.",
+          "Test the agent's ability to call its *own* newly written tool in a subsequent turn."
+        ]
+      },
+      {
+        "title": "Policy Enforcement for Tool Execution",
+        "estMinutes": 20,
+        "steps": [
+          "Define a JWT/RBAC policy restricting execution of sensitive tools (e.g., 'delete_data').",
+          "Apply this policy directly to the tool definition within the Coral configuration file.",
+          "Test an external, unauthorized agent attempting to invoke the restricted tool to confirm rejection."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-tools",
+      "skill-open-source",
+      "skill-gateway"
+    ],
+    "prerequisites": [
+      "Familiarity with OpenAI function/tool calling schemas (OpenAPI/JSON Schema).",
+      "Working knowledge of Python and REST API interaction (cURL/requests).",
+      "Basic understanding of microservice security concepts (RBAC/JWT)."
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-16T19:38:33.618Z"
+  },
+  {
+    "id": "course-claktor",
+    "toolSlug": "claktor",
+    "title": "Master Claktor",
+    "objectives": [
+      "Integrate Claktor into a local agent workflow",
+      "Execute targeted refactoring commands on specified code paths",
+      "Review and verify automated structural changes generated by Claktor"
+    ],
+    "modules": [
+      {
+        "title": "Basic Setup and Initialization",
+        "estMinutes": 10,
+        "steps": [
+          "Install Claktor via npm/pip as required by your environment.",
+          "Run `claktor init --project <path>` to generate the configuration file.",
+          "Verify the generated `claktor.config.yaml` points to your target repository."
+        ]
+      },
+      {
+        "title": "Targeted Refactoring Execution",
+        "estMinutes": 15,
+        "steps": [
+          "Identify a specific class or function needing refactoring (e.g., `UserService.calculateData`).",
+          "Execute `claktor refactor --target <path> --strategy <strategy_name>` (e.g., `--strategy extractMethod`).",
+          "Observe the CLI output confirming the refactoring application."
+        ]
+      },
+      {
+        "title": "Validation and Workflow Integration",
+        "estMinutes": 10,
+        "steps": [
+          "Run standard unit tests against the refactored code to ensure correctness.",
+          "Use `claktor diff` to generate a patch/diff file for review before committing.",
+          "Integrate the `claktor refactor` command into your CI/CD pipeline or agent script."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-cli",
+      "skill-refactoring",
+      "skill-coding",
+      "skill-agents"
+    ],
+    "prerequisites": [
+      "Familiarity with CLI tools (npm/pip)",
+      "Basic understanding of code refactoring principles",
+      "An existing codebase suitable for automated tooling"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-16T19:38:33.618Z"
+  },
+  {
+    "id": "course-prettywhaleai",
+    "toolSlug": "prettywhaleai",
+    "title": "Master Prettywhale.ai",
+    "objectives": [
+      "Ingest structured CSV data into Prettywhale.ai",
+      "Define a basic ETL pipeline using UI prompts",
+      "Export the generated pipeline configuration as runnable code"
+    ],
+    "modules": [
+      {
+        "title": "Sample Data Ingestion",
+        "estMinutes": 10,
+        "steps": [
+          "Upload a 10-row sample CSV file via the 'Data Source' panel.",
+          "Verify column types (e.g., Integer, String) are correctly inferred by Prettywhale."
+        ]
+      },
+      {
+        "title": "Pipeline Generation & Refinement",
+        "estMinutes": 15,
+        "steps": [
+          "Input the target schema definition (e.g., 'Cleaned_Records' table) into the prompt.",
+          "Review the automatically generated transformation steps (e.g., 'Filter_Nulls', 'Type_Cast') in the visualization."
+        ]
+      },
+      {
+        "title": "Code Export and Validation",
+        "estMinutes": 10,
+        "steps": [
+          "Select 'Export Pipeline' and choose the target language (e.g., Python/Pandas).",
+          "Run the exported script against a validation dataset to confirm data integrity."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-datapipeline",
+      "skill-data",
+      "skill-vscode"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-16T19:38:33.618Z"
+  },
+  {
+    "id": "course-solipsist",
+    "toolSlug": "solipsist",
+    "title": "Master Solipsist",
+    "objectives": [
+      "Define a Pi agent using Solipsist Markdown syntax",
+      "Execute a multi-step workflow involving two agents",
+      "Inspect the output artifact generated by the Pi agents"
+    ],
+    "modules": [
+      {
+        "title": "Basic Agent Definition",
+        "estMinutes": 10,
+        "steps": [
+          "Create a new Solipsist file named 'data_extractor.md'",
+          "Define an agent block specifying role and instructions for data extraction",
+          "Run the file locally via the Solipsist CLI to test definition"
+        ]
+      },
+      {
+        "title": "Chaining Agents",
+        "estMinutes": 15,
+        "steps": [
+          "Add a second agent definition (e.g., 'summarizer') to the same Markdown file",
+          "Use the `@` syntax within the first agent's instructions to call the second agent",
+          "Execute the file, ensuring the execution order reflects the intended workflow"
+        ]
+      },
+      {
+        "title": "Artifact Review",
+        "estMinutes": 10,
+        "steps": [
+          "Examine the standard output for the final returned artifact key",
+          "Use the `--output-format json` flag during execution",
+          "Parse the resulting JSON file to verify the summarizer's input from the extractor"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-markdown",
+      "skill-pi"
+    ],
+    "prerequisites": [
+      "Familiarity with Markdown syntax",
+      "Basic command-line proficiency",
+      "Solipsist CLI installed and configured"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-16T19:38:33.618Z"
+  },
+  {
+    "id": "course-muse-charm",
+    "toolSlug": "muse-charm",
+    "title": "Master Muse Charm",
+    "objectives": [
+      "Set up a custom persona for Muse Charm",
+      "Integrate a specific data source (e.g., Notion) for context",
+      "Configure a multi-step workflow for task automation"
+    ],
+    "modules": [
+      {
+        "title": "Persona Customization",
+        "estMinutes": 15,
+        "steps": [
+          "Access the 'Persona Settings' within Muse Charm.",
+          "Define a role (e.g., 'Executive Assistant') and set tone parameters (e.g., 'Concise and Proactive').",
+          "Input 3 key professional constraints for the agent to adhere to."
+        ]
+      },
+      {
+        "title": "Data Source Linking",
+        "estMinutes": 20,
+        "steps": [
+          "Navigate to the 'Integrations' tab and select Notion.",
+          "Authorize the connection using an API key generated from your Notion workspace.",
+          "Map a specific database (e.g., 'Weekly Goals') to be accessible by the agent."
+        ]
+      },
+      {
+        "title": "Workflow Automation",
+        "estMinutes": 25,
+        "steps": [
+          "Create a new 'Chain' workflow, triggering on a scheduled time (e.g., Monday 9 AM).",
+          "Define the sequence: [Query Notion] -> [Summarize Findings] -> [Draft Action Plan].",
+          "Test the chain by executing a manual run and reviewing the output structure."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai",
+      "skill-agent",
+      "skill-personal",
+      "skill-meta"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-16T19:38:33.618Z"
+  },
+  {
+    "id": "course-coderbaba",
+    "toolSlug": "coderbaba",
+    "title": "Master CoderBaba",
+    "objectives": [
+      "Integrate CoderBaba into a local IDE environment.",
+      "Execute a code generation task with integrated security checks.",
+      "Interpret and remediate a high-severity vulnerability flagged by CoderBaba."
+    ],
+    "modules": [
+      {
+        "title": "Environment Setup and Initialization",
+        "estMinutes": 15,
+        "steps": [
+          "Clone the CoderBaba repository to your workspace.",
+          "Run `docker-compose up -d` to initialize the required AI and scanning services."
+        ]
+      },
+      {
+        "title": "Task Execution with Scanning",
+        "estMinutes": 20,
+        "steps": [
+          "Define a simple feature request (e.g., 'Implement OAuth login in Python Flask').",
+          "Trigger CoderBaba using the CLI or IDE plugin, ensuring security scanning is enabled in the prompt configuration."
+        ]
+      },
+      {
+        "title": "Vulnerability Remediation Workflow",
+        "estMinutes": 25,
+        "steps": [
+          "Examine the generated report, focusing on flagged CVEs or linting errors from the scanner.",
+          "Instruct CoderBaba via follow-up prompts to refactor the vulnerable code segment to meet secure coding standards (e.g., use parameterized queries)."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding",
+      "skill-agent",
+      "skill-security",
+      "skill-open-source"
+    ],
+    "prerequisites": [
+      "Familiarity with Docker and Docker Compose.",
+      "Intermediate proficiency in a language supported by CoderBaba (e.g., Python, JavaScript).",
+      "Basic understanding of common security vulnerabilities (e.g., SQL Injection, XSS)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-16T19:38:33.618Z"
   }
 ]

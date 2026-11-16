@@ -229,7 +229,10 @@
       "shadowclone-skills-learned-from-your-coding-agent-correction",
       "cheatcode",
       "benchmark-coding-agents-on-deploying-apps",
-      "mellum21"
+      "mellum21",
+      "jevmem",
+      "claktor",
+      "coderbaba"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -456,7 +459,10 @@
       "course-shadowclone-skills-learned-from-your-coding-agent-correction",
       "course-cheatcode",
       "course-benchmark-coding-agents-on-deploying-apps",
-      "course-mellum21"
+      "course-mellum21",
+      "course-jevmem",
+      "course-claktor",
+      "course-coderbaba"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -663,7 +669,9 @@
       "veda-first-ai-agentic-hobby-os",
       "a-modern-agentic-ai-operating-system",
       "fantastic-canvas",
-      "mellum21"
+      "mellum21",
+      "coral",
+      "coderbaba"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -765,7 +773,9 @@
       "course-veda-first-ai-agentic-hobby-os",
       "course-a-modern-agentic-ai-operating-system",
       "course-fantastic-canvas",
-      "course-mellum21"
+      "course-mellum21",
+      "course-coral",
+      "course-coderbaba"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1241,7 +1251,12 @@
       "marketing-agent-for-founders",
       "ai-investment-agreement-review-for-startup-founders",
       "veduta",
-      "kryzz-ai"
+      "kryzz-ai",
+      "emelyn-your-ai-social-media-manager",
+      "coral",
+      "prettywhaleai",
+      "solipsist",
+      "muse-charm"
     ],
     "courses": [
       "course-headless-tools",
@@ -1542,7 +1557,12 @@
       "course-marketing-agent-for-founders",
       "course-ai-investment-agreement-review-for-startup-founders",
       "course-veduta",
-      "course-kryzz-ai"
+      "course-kryzz-ai",
+      "course-emelyn-your-ai-social-media-manager",
+      "course-coral",
+      "course-prettywhaleai",
+      "course-solipsist",
+      "course-muse-charm"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2153,7 +2173,9 @@
       "agenttik",
       "run-osier-to-track-how-your-ai-coding-agent-does",
       "stayleet",
-      "mellum21"
+      "mellum21",
+      "claktor",
+      "coderbaba"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2170,7 +2192,9 @@
       "course-agenttik",
       "course-run-osier-to-track-how-your-ai-coding-agent-does",
       "course-stayleet",
-      "course-mellum21"
+      "course-mellum21",
+      "course-claktor",
+      "course-coderbaba"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2574,7 +2598,8 @@
       "thyme",
       "smart-blur",
       "ai-agent-shouldnt-read-that-file-yet",
-      "laya-guard"
+      "laya-guard",
+      "coderbaba"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -2618,7 +2643,8 @@
       "course-thyme",
       "course-smart-blur",
       "course-ai-agent-shouldnt-read-that-file-yet",
-      "course-laya-guard"
+      "course-laya-guard",
+      "course-coderbaba"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2743,7 +2769,8 @@
       "mdmanagerai",
       "a-c-compiler-written-with-help-of-claude",
       "never-again",
-      "anthropic-is-planning-to-launch-its-ipo-in-november"
+      "anthropic-is-planning-to-launch-its-ipo-in-november",
+      "jevmem"
     ],
     "courses": [
       "course-coolplugz",
@@ -2752,7 +2779,8 @@
       "course-mdmanagerai",
       "course-a-c-compiler-written-with-help-of-claude",
       "course-never-again",
-      "course-anthropic-is-planning-to-launch-its-ipo-in-november"
+      "course-anthropic-is-planning-to-launch-its-ipo-in-november",
+      "course-jevmem"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3671,7 +3699,10 @@
       "beeuni",
       "veda-first-ai-agentic-hobby-os",
       "a-modern-agentic-ai-operating-system",
-      "wordless"
+      "wordless",
+      "coral",
+      "claktor",
+      "solipsist"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3729,7 +3760,10 @@
       "course-beeuni",
       "course-veda-first-ai-agentic-hobby-os",
       "course-a-modern-agentic-ai-operating-system",
-      "course-wordless"
+      "course-wordless",
+      "course-coral",
+      "course-claktor",
+      "course-solipsist"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4108,7 +4142,8 @@
       "new-term-radar",
       "lightweight-self-hosted-web-analytics-app",
       "proofsource-find-where-ai-leaves-you-out-and-fix-it",
-      "eevo"
+      "eevo",
+      "prettywhaleai"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -4176,7 +4211,8 @@
       "course-new-term-radar",
       "course-lightweight-self-hosted-web-analytics-app",
       "course-proofsource-find-where-ai-leaves-you-out-and-fix-it",
-      "course-eevo"
+      "course-eevo",
+      "course-prettywhaleai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4581,7 +4617,9 @@
       "is-ai-solving-math-too-fast",
       "can-ai-build-a-toilet-yet",
       "mutually-beneficial-agentic-common-law",
-      "thyme"
+      "thyme",
+      "emelyn-your-ai-social-media-manager",
+      "muse-charm"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4594,7 +4632,9 @@
       "course-is-ai-solving-math-too-fast",
       "course-can-ai-build-a-toilet-yet",
       "course-mutually-beneficial-agentic-common-law",
-      "course-thyme"
+      "course-thyme",
+      "course-emelyn-your-ai-social-media-manager",
+      "course-muse-charm"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4667,7 +4707,9 @@
       "meshdrive-and-local-ai-agent-for-fs",
       "ufcagent",
       "search-123-ai-labs-jobs-from-your-own-agent-no-signup",
-      "mellum21"
+      "mellum21",
+      "muse-charm",
+      "coderbaba"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -4676,7 +4718,9 @@
       "course-meshdrive-and-local-ai-agent-for-fs",
       "course-ufcagent",
       "course-search-123-ai-labs-jobs-from-your-own-agent-no-signup",
-      "course-mellum21"
+      "course-mellum21",
+      "course-muse-charm",
+      "course-coderbaba"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5584,7 +5628,8 @@
       "run-osier-to-track-how-your-ai-coding-agent-does",
       "agent-history-cli",
       "shellshock",
-      "a-youtube-transcript-cli-built-for-humans-and-ai-agents"
+      "a-youtube-transcript-cli-built-for-humans-and-ai-agents",
+      "claktor"
     ],
     "courses": [
       "course-devx",
@@ -5611,7 +5656,8 @@
       "course-run-osier-to-track-how-your-ai-coding-agent-does",
       "course-agent-history-cli",
       "course-shellshock",
-      "course-a-youtube-transcript-cli-built-for-humans-and-ai-agents"
+      "course-a-youtube-transcript-cli-built-for-humans-and-ai-agents",
+      "course-claktor"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5697,7 +5743,8 @@
       "quire",
       "mymarkdown",
       "texposit",
-      "web2md"
+      "web2md",
+      "solipsist"
     ],
     "courses": [
       "course-serve-markdown-to-ai-agents-with-accept-headers",
@@ -5706,7 +5753,8 @@
       "course-quire",
       "course-mymarkdown",
       "course-texposit",
-      "course-web2md"
+      "course-web2md",
+      "course-solipsist"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -9896,7 +9944,8 @@
       "openai-expands-chatgpt-ads-with-sponsored-agents",
       "open-source-skills-for-end-to-end-video-ad-campaigns",
       "growthengineer",
-      "marketing-agent-for-founders"
+      "marketing-agent-for-founders",
+      "emelyn-your-ai-social-media-manager"
     ],
     "courses": [
       "course-octoloops",
@@ -9907,7 +9956,8 @@
       "course-openai-expands-chatgpt-ads-with-sponsored-agents",
       "course-open-source-skills-for-end-to-end-video-ad-campaigns",
       "course-growthengineer",
-      "course-marketing-agent-for-founders"
+      "course-marketing-agent-for-founders",
+      "course-emelyn-your-ai-social-media-manager"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -10563,11 +10613,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "ai-agents-and-the-refactoring-that-never-happens",
-      "ai-native-dependency-upgrades-through-codemods"
+      "ai-native-dependency-upgrades-through-codemods",
+      "claktor"
     ],
     "courses": [
       "course-ai-agents-and-the-refactoring-that-never-happens",
-      "course-ai-native-dependency-upgrades-through-codemods"
+      "course-ai-native-dependency-upgrades-through-codemods",
+      "course-claktor"
     ],
     "updatedAt": "2026-09-02T23:33:29.474Z"
   },
@@ -10795,12 +10847,14 @@
     "toolsTeaching": [
       "openvurp",
       "i-built-a-router-for-agent-tools",
-      "moching"
+      "moching",
+      "coral"
     ],
     "courses": [
       "course-openvurp",
       "course-i-built-a-router-for-agent-tools",
-      "course-moching"
+      "course-moching",
+      "course-coral"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -14310,7 +14364,8 @@
       "meta-launches-muse-a-personal-ai-agent",
       "meta-deployed-agents-and-fired-8000-employees",
       "meta-launches-subscription-bundles",
-      "meta-muse-hits-1-in-apple-app-store"
+      "meta-muse-hits-1-in-apple-app-store",
+      "muse-charm"
     ],
     "courses": [
       "course-muse-metas-personal-ai-agent-features-and-capabilities",
@@ -14318,7 +14373,8 @@
       "course-meta-launches-muse-a-personal-ai-agent",
       "course-meta-deployed-agents-and-fired-8000-employees",
       "course-meta-launches-subscription-bundles",
-      "course-meta-muse-hits-1-in-apple-app-store"
+      "course-meta-muse-hits-1-in-apple-app-store",
+      "course-muse-charm"
     ],
     "updatedAt": "2026-09-08T23:40:07.345Z"
   },
@@ -19667,11 +19723,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "vscode-mcp-api",
-      "shellshock"
+      "shellshock",
+      "prettywhaleai"
     ],
     "courses": [
       "course-vscode-mcp-api",
-      "course-shellshock"
+      "course-shellshock",
+      "course-prettywhaleai"
     ],
     "updatedAt": "2026-09-18T13:38:05.296Z"
   },
@@ -21148,10 +21206,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "ai-agent-gateway"
+      "ai-agent-gateway",
+      "coral"
     ],
     "courses": [
-      "course-ai-agent-gateway"
+      "course-ai-agent-gateway",
+      "course-coral"
     ],
     "updatedAt": "2026-10-02T15:51:16.985Z"
   },
@@ -21399,10 +21459,12 @@
     "domain": "data",
     "level": "beginner",
     "toolsTeaching": [
-      "revline"
+      "revline",
+      "emelyn-your-ai-social-media-manager"
     ],
     "courses": [
-      "course-revline"
+      "course-revline",
+      "course-emelyn-your-ai-social-media-manager"
     ],
     "updatedAt": "2026-10-04T00:02:58.648Z"
   },
@@ -22735,10 +22797,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "shellshock"
+      "shellshock",
+      "jevmem"
     ],
     "courses": [
-      "course-shellshock"
+      "course-shellshock",
+      "course-jevmem"
     ],
     "updatedAt": "2026-10-10T15:24:25.498Z"
   },
@@ -23601,5 +23665,70 @@
       "course-eevo"
     ],
     "updatedAt": "2026-10-15T00:06:40.597Z"
+  },
+  {
+    "id": "skill-cursor",
+    "name": "cursor",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "jevmem"
+    ],
+    "courses": [
+      "course-jevmem"
+    ],
+    "updatedAt": "2026-11-16T19:38:33.618Z"
+  },
+  {
+    "id": "skill-project rules",
+    "name": "project rules",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "jevmem"
+    ],
+    "courses": [
+      "course-jevmem"
+    ],
+    "updatedAt": "2026-11-16T19:38:33.618Z"
+  },
+  {
+    "id": "skill-datapipeline",
+    "name": "datapipeline",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "prettywhaleai"
+    ],
+    "courses": [
+      "course-prettywhaleai"
+    ],
+    "updatedAt": "2026-11-16T19:38:33.618Z"
+  },
+  {
+    "id": "skill-pi",
+    "name": "pi",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "solipsist"
+    ],
+    "courses": [
+      "course-solipsist"
+    ],
+    "updatedAt": "2026-11-16T19:38:33.618Z"
+  },
+  {
+    "id": "skill-personal",
+    "name": "personal",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "muse-charm"
+    ],
+    "courses": [
+      "course-muse-charm"
+    ],
+    "updatedAt": "2026-11-16T19:38:33.618Z"
   }
 ]
