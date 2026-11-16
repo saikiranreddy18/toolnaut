@@ -13690,3 +13690,59 @@ cleared this file's bar.
 No new gap, no small bug spotted this pass. Ran `npm test` (316/316,
 clean). Did not run `npm run build`/`npm run smoke` — docs-only change, no
 shipping this pass.
+
+---
+
+### Research check 2026-11-16 12:03 UTC — sixty-seventh+ pass; radar NO-PUBLISH was a code bug after all, found and fixed (`c8fa3d8`)
+
+Scheduled research run (UTC hour 12). `npm ci` clean. `list_workflow_runs`
+shows `CI` and `Release` green on `master` at the latest push (`599d243`).
+`list_issues` for `agent-fixable`: zero open.
+
+**Radar health — this pass actually got fresh evidence, and it wasn't the
+account-side issue after all:** `npm run radar:health` → `NO-PUBLISH`, exit
+1, same stale evidence every pass since 09:03 UTC has cited (last real run
+predates the `efee99e` NVIDIA-default fix). Rather than re-note that and
+move on again, dispatched the workflow directly (`workflow_dispatch`,
+`run_workflow`) to get a live read. The result: `efee99e`'s own fix was
+itself broken. Its new default, `meta/llama-3.3-70b-instruct`, had been
+assumed stable ("a standard (non-trial) catalog model with no announced
+retirement") but was actually `410 Gone` the whole time — NVIDIA retired it
+2026-08-26, months before it was picked, and nobody had checked the live
+API before trusting that reasoning. This is the third NVIDIA default to go
+stale in five weeks (kimi-k3 10-15, kimi-k2.6 11-15, now this one found
+already dead on arrival).
+
+**Fixed in `c8fa3d8`:** switched the NVIDIA default to
+`nvidia/nemotron-3.5-bolt-e4b` — NVIDIA's own first-party model (not a
+rotating third-party mirror like the Kimi line), released 2026-10-23,
+positioned for fast conversational-agent use. Tried to validate on a
+throwaway `probe/nvidia-model` branch before pushing to master, but that
+dispatch sat queued 10+ minutes with no job assigned (an Actions-side
+delay, not a concurrency conflict — nothing else was `in_progress` in the
+`radar` group). Pushed to master on the strength of the primary-source
+NVIDIA model-page evidence instead of blocking further, then validated
+live against master itself (which dispatches promptly, unlike the probe
+branch): a `dry_run` pass showed zero `using fallback`/provider-error
+lines, and a real pass showed the model actually classifying content
+(`LLM enrich failed for aradia-est-1991, using fallback LLM rejected: not
+a tool` — a genuine model response, not a transport error). Commented on
+issue #99 with the evidence; left it open since Featherless's 403 ("no
+active subscription") is unchanged and still needs a human.
+
+`npm run radar:health` still reports `NO-PUBLISH` after this fix, and will
+keep doing so until a run both uses the fixed model *and* finds a fresh
+candidate that clears the 0.75 publish threshold — the two manual runs
+this pass mostly re-hit already-known candidates from earlier testing
+(`new: 0` and `new: 1`, the latter correctly LLM-rejected as not a tool).
+The code bug is confirmed fixed; whether tonight's 21:42 UTC cron actually
+publishes something depends on what's newly discoverable by then, not on
+anything left to fix here.
+
+**No separate competitor research this pass** — the radar fix plus its
+live validation was the hour's work; per this file's own precedent
+("fixing it is tonight's job, ahead of any research"), not also attempting
+a fresh competitor sweep on top of it.
+
+Ran `npm test` (316/316), `npm run build`, and `npm run smoke` (25/25
+routes, 0 console errors) — all green before pushing `c8fa3d8` to master.
