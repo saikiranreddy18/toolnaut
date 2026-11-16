@@ -12,9 +12,10 @@ export class NoLLMError extends Error {}
 // `response_format: json_object` param, so we skip it there and lean on the
 // prompt's "return only JSON" instruction instead.
 //
-// It is the primary provider now, serving the same Kimi-K3 Featherless did, so
-// it gets the same reasoning-model treatment: a token floor and a long timeout
-// (see the Featherless notes below for why both are needed).
+// It is the primary provider now. The token floor and long timeout below were
+// tuned for Kimi-K3's reasoning pass; the default model has since moved to
+// meta/llama-3.3-70b-instruct (config.js), which doesn't need either, but the
+// generous budget is harmless so it stays rather than retuning untested.
 const NVIDIA_URL = 'https://integrate.api.nvidia.com/v1/chat/completions'
 // 1024 was not enough on NVIDIA: a longer tool's reasoning pass used the whole
 // budget and returned empty content ("Unexpected end of JSON input"). It is a
@@ -45,13 +46,10 @@ const DEFAULT_TIMEOUT_MS = 30000
 const FEATHERLESS_TIMEOUT_MS = Number(process.env.FEATHERLESS_TIMEOUT_MS) || 180000
 
 // Each configured provider is tried in priority order; one being down (an
-// account-level 404, a revoked key) no longer silently starves enrichment —
-// this is the same failure shape as the kimi-k3 EOL incident, just one layer
-// up: NVIDIA/moonshotai/kimi-k2.6 returns "Function ... Not found for
-// account" (a NIM entitlement issue on NVIDIA's side, not ours) on every
-// call, and with only a first-match dispatch that silently dropped every
-// candidate to the rules classifier even though Featherless was configured
-// and working right behind it.
+// account-level 404, a model EOL 410, a revoked key) no longer silently
+// starves enrichment — with only a first-match dispatch, any one provider's
+// failure used to drop every candidate to the rules classifier even though
+// another configured provider was working right behind it.
 export async function callLLM(system, user, { json = false, maxTokens = 512 } = {}) {
   const { featherless, anthropic, nvidia, openai, openrouter } = config.llm
   const providers = [

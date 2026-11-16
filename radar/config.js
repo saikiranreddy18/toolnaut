@@ -37,11 +37,16 @@ export const config = {
     // provider-agnostic; the first configured one (in this order) is used, and
     // enrich/course-gen fall back to deterministic rules if none is set.
     // moonshotai/kimi-k3 reached end of life on build.nvidia.com on 2026-10-15
-    // (API returns 410 Gone), which silently dropped every enrichment call to
-    // the rules-classifier fallback and starved the publish threshold for a
-    // month. kimi-k2.6 is the catalog's current moonshotai model.
+    // (API returns 410 Gone); its replacement, kimi-k2.6, reached its own EOL
+    // a month later on 2026-11-15 (410 Gone again). Moonshot's whole K2/K3
+    // line is served on build.nvidia.com as a short-lived "API Trial" with
+    // NVIDIA's own forums full of accounts hitting 404/410 as each one is
+    // rotated out — not a model worth hardcoding as the default again.
+    // meta/llama-3.3-70b-instruct is a standard (non-trial) NIM catalog
+    // model with no announced retirement; override with NVIDIA_MODEL if it
+    // ever needs to change.
     nvidia: cleanKey(process.env.NVIDIA_API_KEY)
-      ? { key: cleanKey(process.env.NVIDIA_API_KEY), model: process.env.NVIDIA_MODEL || 'moonshotai/kimi-k2.6' }
+      ? { key: cleanKey(process.env.NVIDIA_API_KEY), model: process.env.NVIDIA_MODEL || 'meta/llama-3.3-70b-instruct' }
       : null,
     featherless: cleanKey(process.env.FEATHERLESS_API_KEY)
       ? { key: cleanKey(process.env.FEATHERLESS_API_KEY), model: process.env.FEATHERLESS_MODEL || 'moonshotai/Kimi-K3' }
