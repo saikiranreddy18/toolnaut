@@ -13474,3 +13474,63 @@ smoke` — docs-only change, no shipping this pass. Appending this check
 rather than inventing a gap that doesn't clear this file's own bar; the
 backlog's 20 OPEN entries (one freshly SHIPPED since the last full count)
 are still the ready queue for the next feature run.
+
+---
+
+### Research check 2026-11-16 00:03 UTC — sixty-fourth+ pass; changelog staleness recurred a fifth time, fixed again; two fresh competitor leads checked, neither survives verification
+
+Scheduled research run (UTC hour 00). `npm ci` clean. `list_workflow_runs`
+shows `CI` green on `master` at the latest push (`bfb34f4`). `list_issues` for
+`agent-fixable`: zero open.
+
+**Radar health — same already-filed account-side problem, fresher evidence:**
+`npm run radar:health` → `NO-PUBLISH`, exit 1 (checked the real exit code).
+19 candidates across the last 3 runs still fall back to the rules classifier
+for the identical pair already diagnosed and filed as issue #99 — `nvidia`
+404 (account entitlement) and `featherless` 403 (no active subscription).
+Issue #99 is still open and still names the three human-side fixes. Not
+re-logging it; no code change, this is account-side.
+
+**Small bug found and fixed instead of a new gap:** the changelog staleness
+bug (first found and fixed 2026-09-23, already recurred and been re-fixed
+four times since — 2026-10-04, 2026-10-06, 2026-10-07, and presumably again
+after) had recurred a fifth time, and worse than before: `src/utils/
+changelogData.js`'s newest entry was still dated 2026-10-06 ("Rate and review
+tools"), 41 days stale. Checked `DEVLOG.md` and `git log` against it directly
+rather than trust the file's own claim — three real shipped-to-`src/`
+features were missing: the 2026-10-09 onboarding checklist (`DEVLOG.md`'s own
+entry, sha predates this shallow clone's history), `3e9ce64` (2026-11-13,
+aggregateRating in tool JSON-LD), and `ca56d69` (2026-11-15, quiz result
+match-reasoning). Added all three as newest-first entries in the same
+plain-language style as the existing ones (no shas, no jargon), per the
+file's own header comment ("Add one entry here whenever the daily feature run
+marks a backlog gap SHIPPED"). This is the same class of fix four prior
+passes already made — logging it plainly rather than re-describing the
+general bug as if it were new.
+
+**Two fresh competitor leads checked this pass, neither logged:**
+- *There's An AI For That "custom filtering"* — `WebFetch` on
+  `theresanaiforthat.com/s/custom+filtering/` returned HTTP 403, same
+  block hit by the 15:03 UTC pass on a different TAAFT URL. No corroborating
+  secondary source described what "custom filtering" actually is (saved
+  filter presets vs. just its existing tag/pricing filters relabeled). Per
+  this file's own bar, stays unverified and unlogged.
+- *SimilarLabs (similarlabs.com)* — not previously named in this file.
+  `WebSearch` only, no primary fetch (not attempted directly this pass,
+  budget went to the changelog fix) — third-party listings (G2, SaaSHub,
+  comparison-site clones) describe a multilingual directory with trend
+  rankings and "infrastructure analysis"/"traffic pattern visualizations,"
+  but every detail comes from unsourced third parties that disagree with
+  each other, not the site itself. Does not clear this file's
+  primary-source bar; flagging as a candidate for a future pass to fetch
+  directly rather than ruling it out or logging it now.
+
+**Other checks:** re-read every `src/state/*.js` localStorage call site
+against CLAUDE.md's "every read must tolerate the API throwing" rule
+(prompted by `authStore.js`'s multi-line `write()`/`loadSession()` braces
+initially looking unguarded in a quick grep) — false alarm, both are wrapped
+in `try/catch` exactly as required; every store checked is compliant.
+
+Ran `npm test` (316/316), `npm run build`, and `npm run smoke` (25/25 routes,
+0 console errors) — all green before pushing the changelog fix straight to
+`master`.

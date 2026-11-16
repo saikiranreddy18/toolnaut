@@ -7,6 +7,21 @@
 // SHIPPED — pulled from that day's real commit, not invented.
 export const CHANGELOG = [
   {
+    date: '2026-11-15',
+    title: 'Your quiz result now explains why',
+    body: 'The quiz result page shows why each pick made your stack, not just its rank — the same reasoning Discover, Compare and Favorites already show.',
+  },
+  {
+    date: '2026-11-13',
+    title: 'Your ratings and reviews now show up in search results',
+    body: 'Tool pages now feed star ratings and reviews into the data search engines read, so they can surface right in the search result, not just on the page.',
+  },
+  {
+    date: '2026-10-09',
+    title: 'A checklist for getting started',
+    body: 'Your Stack page now shows a short checklist of what is left after the quiz — add a tool, check off a roadmap step, post in the community — and hides itself once you are done.',
+  },
+  {
     date: '2026-10-06',
     title: 'Rate and review tools',
     body: 'Every tool page now shows a star rating and lets you leave your own review, right alongside our match score and trust notes.',
