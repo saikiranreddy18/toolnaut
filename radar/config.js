@@ -46,7 +46,7 @@ export const config = {
     // model with no announced retirement; override with NVIDIA_MODEL if it
     // ever needs to change.
     nvidia: cleanKey(process.env.NVIDIA_API_KEY)
-      ? { key: cleanKey(process.env.NVIDIA_API_KEY), model: process.env.NVIDIA_MODEL || 'meta/llama-3.3-70b-instruct' }
+      ? { key: cleanKey(process.env.NVIDIA_API_KEY), model: process.env.NVIDIA_MODEL || 'nvidia/nemotron-3.5-bolt-e4b' }
       : null,
     featherless: cleanKey(process.env.FEATHERLESS_API_KEY)
       ? { key: cleanKey(process.env.FEATHERLESS_API_KEY), model: process.env.FEATHERLESS_MODEL || 'moonshotai/Kimi-K3' }
