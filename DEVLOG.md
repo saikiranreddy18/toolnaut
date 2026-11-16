@@ -9,6 +9,62 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-11-16
+
+**Radar health:** `NO-PUBLISH` — 0 tools published in the last 24h, feed
+holds 566 published tools. Progress since yesterday though: an earlier
+session today fixed and live-validated the NVIDIA half of issue #99
+(`c8fa3d8`, new default `nvidia/nemotron-3.5-bolt-e4b` — the third NVIDIA
+default to go stale in five weeks, this one confirmed live rather than
+just reasoned about). Featherless is still `403 "no active subscription"`
+and unchanged — that's the half still blocking real publishes, and it
+needs a human (renew the subscription, fix the NVIDIA entitlement if it
+recurs, or add an `ANTHROPIC_API_KEY`/`OPENAI_API_KEY`/`OPENROUTER_API_KEY`
+repo secret, all three already wired with no code change needed). Issue
+#99 stays open for that. CI on master was green the whole day; no
+`agent-fixable` issues were open.
+
+**Researched today:** none — today's run landed on the 18:03 UTC
+feature+digest slot. The backlog already held 25 deep, fully-scoped OPEN
+gaps, so this run picked from that queue instead of adding to it.
+
+**Shipped today:** **`aa9a5ae`** — Discover's category/price/level filter
+pills now show a live result count next to every value, so a visitor can
+see "Code 331" or "Paid 58" before clicking instead of guessing and
+checking against the grid. This was the "Discover's filter chips carry no
+facet counts" backlog entry — faceted-search counts are the baseline
+expectation in this UX pattern (Amazon, G2, Capterra, Algolia's own docs
+all treat it as standard), and Discover is the single highest-traffic page
+in the app. New pure util `src/utils/facetCounts.js` computes each group's
+count with every *other* active filter applied but that group's own filter
+cleared, reusing the existing `matchesQuery()` predicate so the text-search
+half can't drift from two implementations. Zero-count pills stay clickable
+at reduced opacity, never disabled. Pure client-side, no backend, no new
+dependency — build size S as scoped. Verified live in a headless browser
+before pushing (unfiltered counts matched the full 1,268-tool catalog;
+selecting "Code" correctly narrowed and the price/level counts summed back
+to 331). **This is visible on toolnaut.xyz today** — no other pipeline
+needs to run first.
+
+**Verification:** `npm test` (109 radar + 322 app, all green — including
+6 new cases for `getFacetCounts`), `npm run build`, and `npm run smoke`
+(25/25 routes, 0 console errors) all green before pushing straight to
+`master`.
+
+**Queued next:** the backlog's other build-ready picks, roughly in order —
+"Changelog only looks backward" (stalest OPEN entry, fully scoped, no
+backend needed), the task-search stemming fix, the catalog
+re-verification job (`checkWebsite()` already exists, never scheduled
+against published tools), and the public developer-API docs page
+(`/tools.json` is already public, just undocumented and missing a CORS
+header). The leaderboard real-data gap is also build-ready (size M) but
+needs a Supabase migration applied and staging-verified first, so it's
+a better fit for a run with that extra verification step budgeted in.
+Issue #99 (radar NO-PUBLISH, Featherless half) stays open until a human
+acts on one of its three listed fixes.
+
+---
+
 ## 2026-11-15
 
 **Radar health:** `NO-PUBLISH` — 0 tools published in the last 24h. Both

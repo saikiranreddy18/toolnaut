@@ -2555,7 +2555,22 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-08-27 09:35 UTC
 
 ### Discover's filter chips carry no facet counts
-- **Status:** OPEN
+- **Status:** SHIPPED aa9a5ae — built exactly as scoped below: new pure util
+  `src/utils/facetCounts.js` exporting `getFacetCounts(tools, { q, cat, price,
+  level })`, reusing `matchesQuery()` for the text-search half rather than a
+  second implementation. `Pill` in `Discover.jsx` takes an optional `count`
+  prop rendered as a trailing muted number; all three filter rows (category,
+  price, level) and the "All" pill now show a live count, computed via one
+  `useMemo` keyed the same as the existing `results` memo. Zero-count pills
+  stay clickable at reduced opacity, never disabled. Live-verified in a
+  headless browser before pushing: unfiltered counts matched the full
+  1,268-tool catalog (All 1268, Code 331, Design 220, ...), and selecting
+  "Code" correctly narrowed price/level counts to sum back to 331 (Beginner 9
+  + Intermediate 212 + Advanced 110). New `test/facet-counts.test.mjs` (6
+  cases) plus the full suite (109 radar + 322 app, all green), `npm run
+  build`, and `npm run smoke` (25/25 routes, 0 console errors) all passed
+  before pushing straight to master. **Visible on toolnaut.xyz today** — no
+  other pipeline needs to run first.
 - **Seen in:** faceted-search result counts next to every filter value are
   standard across directory/e-commerce UX — Amazon's left-rail filters show
   `(1,204)` next to each brand/category, G2 and Capterra's filter sidebars do
