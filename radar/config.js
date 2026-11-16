@@ -38,15 +38,21 @@ export const config = {
     // enrich/course-gen fall back to deterministic rules if none is set.
     // moonshotai/kimi-k3 reached end of life on build.nvidia.com on 2026-10-15
     // (API returns 410 Gone); its replacement, kimi-k2.6, reached its own EOL
-    // a month later on 2026-11-15 (410 Gone again). Moonshot's whole K2/K3
-    // line is served on build.nvidia.com as a short-lived "API Trial" with
-    // NVIDIA's own forums full of accounts hitting 404/410 as each one is
-    // rotated out — not a model worth hardcoding as the default again.
-    // meta/llama-3.3-70b-instruct is a standard (non-trial) NIM catalog
-    // model with no announced retirement; override with NVIDIA_MODEL if it
-    // ever needs to change.
+    // a month later on 2026-11-15 (410 Gone again). The next default picked,
+    // meta/llama-3.3-70b-instruct, turned out to *already* be 410 Gone (EOL
+    // 2026-08-26) the whole time — it was never actually live, just assumed
+    // stable without checking. build.nvidia.com's hosted catalog is a free/
+    // trial surface by nature (NVIDIA API Trial ToS, 1000 signup credits),
+    // so no model id on it is durable; whatever is hardcoded here WILL go
+    // stale again eventually. nvidia/nemotron-3.5-bolt-e4b is NVIDIA's own
+    // first-party model (not a third-party mirror like Kimi/Llama), released
+    // 2026-10-23 and positioned for fast conversational-agent use, which
+    // fits this pipeline's quick classification calls better than a 400B+
+    // reasoning model. Override with NVIDIA_MODEL if it ever needs to
+    // change — and check radar:health after any NVIDIA catalog incident
+    // before assuming a new default actually works.
     nvidia: cleanKey(process.env.NVIDIA_API_KEY)
-      ? { key: cleanKey(process.env.NVIDIA_API_KEY), model: process.env.NVIDIA_MODEL || 'meta/llama-3.3-70b-instruct' }
+      ? { key: cleanKey(process.env.NVIDIA_API_KEY), model: process.env.NVIDIA_MODEL || 'nvidia/nemotron-3.5-bolt-e4b' }
       : null,
     featherless: cleanKey(process.env.FEATHERLESS_API_KEY)
       ? { key: cleanKey(process.env.FEATHERLESS_API_KEY), model: process.env.FEATHERLESS_MODEL || 'moonshotai/Kimi-K3' }
