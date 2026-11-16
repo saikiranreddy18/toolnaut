@@ -13640,3 +13640,53 @@ precedence first every run).
 
 Ran `npm test` (316/316, clean). Did not run `npm run build`/`npm run
 smoke` — docs-only change, no shipping this pass.
+
+---
+
+### Research check 2026-11-16 09:03 UTC — sixty-sixth+ pass; re-verified the stalest-by-last-check OPEN entry, closed out the TAAFT lead the 00:03 pass left open
+
+Scheduled research run (UTC hour 09). `npm ci` clean. `list_workflow_runs`
+shows `CI` green on `master` at the latest push (`d812468`). `list_issues`
+for `agent-fixable`: zero open.
+
+**Radar health — NVIDIA fix still unverified in production, nothing new to
+do:** `npm run radar:health` → `NO-PUBLISH`, exit 1 — same evidence as the
+06:03 UTC pass (run 176, 01:23 UTC, predates `efee99e`). `radar.yml`'s cron
+(`18 9 * * *` / `42 21 * * *`) means the next run fires at 09:18 UTC, which
+had not happened as of this check. Whether `meta/llama-3.3-70b-instruct`
+actually clears the publish threshold stays unconfirmed until that run
+lands; not re-diagnosing or re-logging issue #99, which still correctly
+names Featherless's 403 as the remaining human-side half.
+
+**Re-verified the stalest-by-last-check OPEN entry:** scanned every OPEN
+entry's own dated markers (`Found:`/`Re-verified:`/`DEEPENED`) — "No
+educational/how-to content" (line ~8341) was last touched 2026-09-20, 57
+days ago, the single stalest of the 24 OPEN entries (the next-stalest,
+"The leaderboard's own precondition," was last touched 2026-09-24). Re-ran
+the entry's own repro against current `master`: `scripts/prerender.mjs`'s
+`ROUTES` array (`:42-61`, still the same 19 entries the entry already
+counted) still has zero `/guides` entry; `src/App.jsx` still lazy-loads only
+`Learning` under `app/learning` (sign-in-gated, not indexable) with no
+public guide route; `ContactSection.jsx`'s "Resources" footer column
+(now at `:43-48`, drifted a line or two from the entry's cited `:44-49`)
+still
+links only "How it works," "How we choose," "What's new," and "Open the
+app" — the same four product-page relabels, nothing guide-shaped. Gap
+fully intact, build plan unchanged, only the footer's own line number
+needed a one-line correction in this entry.
+
+**Closed out a loose end instead of opening a new one:** the 00:03 UTC
+pass left There's An AI For That's "custom filtering" claim unverified
+after a `WebFetch` 403. Re-tried the same URL
+(`theresanaiforthat.com/s/custom+filtering/`) directly this pass — still
+403. Two independent attempts against the same primary source, six hours
+apart, both blocked; treating this lead as closed (not worth a third try)
+rather than carrying it forward again. Also ran a fresh `WebSearch` for AI
+directory personalization/trending-feature patterns generally — every
+result was a low-authority, self-promotional directory page or an opinion
+blog with no primary-sourced, verifiable feature description; nothing
+cleared this file's bar.
+
+No new gap, no small bug spotted this pass. Ran `npm test` (316/316,
+clean). Did not run `npm run build`/`npm run smoke` — docs-only change, no
+shipping this pass.
