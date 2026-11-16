@@ -5965,6 +5965,56 @@ a client-side SPA with a static tool catalogue.
   still the single most build-ready, lowest-risk entry in this file — a
   two-line header change, one new page mirroring an existing shell, one
   footer link, one prerender route, zero backend or schema work.
+- **Deepened 2026-11-16 06:03 UTC:** research run (UTC hour 06). CI green on
+  master at the latest push, no agent-fixable issues, radar health
+  NO-PUBLISH (issue #99, both configured LLM providers down on their own
+  account-side errors — the prior session's push minutes before this run
+  already fixed the NVIDIA-model half of it, Featherless still needs a
+  human; not re-reported here). Re-confirmed this entry is still fully
+  unbuilt before adding to it: `vercel.json`'s `/tools.json` block (now
+  `:89-97`) still has only one `Cache-Control` key, no `Access-Control-
+  Allow-Origin`; `src/App.jsx` (41 `<Route>` elements now) still has no
+  `/developers`; `ContactSection.jsx`'s `Resources` column
+  (`ContactSection.jsx:43-51`) still has the same four links with the same
+  open fifth slot; `scripts/prerender.mjs`'s `ROUTES` array (`:42-61`, now
+  19 entries, two `/vs/*` comparison pages added since the last check) still
+  has no `/developers`; a live `tools.json` record's keys still diff
+  identical to this entry's field list, byte for byte. Still Build size S,
+  still unpicked by any feature run since 2026-09-10.
+
+  New finding worth folding in, not a reason to start a new entry: fetched
+  `similarlabs.com` live (`WebFetch`, primary source, following up on the
+  00:03 UTC pass's unverified SimilarLabs lead) — it's a real, multilingual
+  AI-tool directory (categories, launch listings, language switcher), and
+  separately from the directory itself it runs an **MCP server** at
+  `similarlabs.com/api/mcp` (confirmed by fetching `similarlabs.com/mcp`
+  directly): a remote Streamable-HTTP MCP endpoint exposing `search_products`,
+  `list_categories`, and `list_tags` as public, no-auth tools any MCP client
+  (Claude Code, Cursor, Codex, VS Code) can call directly, plus a second,
+  OAuth-gated tool set (`list_my_products`, `create_my_product`,
+  `submit_product_for_review`, etc.) scoped to a signed-in user's own
+  listings. This is the same underlying idea this entry already names — a
+  directory's catalog exposed as a second growth channel for people building
+  on top of it — but aimed at AI agents as the consumer instead of human
+  developers reading docs and writing `fetch()` calls, and it's a
+  meaningfully live 2026 pattern given how many of Toolnaut's own likely
+  "developer" visitors (the exact audience this entry's `/developers` page
+  targets) now reach for an MCP client before a REST client.
+  Deliberately **not** folding an MCP server into this entry's "smallest
+  useful version": unlike the static-file CORS fix and docs page, implementing
+  the MCP protocol (session/transport handling, tool-call routing, schema
+  validation) is real new backend surface on a repo whose own `src/` half is
+  explicitly "no backend" per `CLAUDE.md`, and whatever the right vehicle for
+  it is (a Vercel serverless function alongside the existing `/api/*`
+  handlers, most likely), it is not a few-line addition the way the
+  CORS+docs-page slice is — it would roughly double or triple this entry's
+  build size and introduce a genuinely new dependency and attack surface
+  (even a read-only tool set needs input validation and rate-limit thought a
+  static JSON file never did). Recording it here as the natural v2 once the
+  `/developers` page ships and shows any real external usage, explicitly
+  **not** part of this entry's Build size S scope today — the same
+  bounded-slice discipline this file applies to every other entry's "what
+  this would NOT include" list.
 
 ---
 
@@ -13534,3 +13584,59 @@ in `try/catch` exactly as required; every store checked is compliant.
 Ran `npm test` (316/316), `npm run build`, and `npm run smoke` (25/25 routes,
 0 console errors) — all green before pushing the changelog fix straight to
 `master`.
+
+---
+
+### Research check 2026-11-16 06:03 UTC — sixty-fifth+ pass; deepened the public-developer-API gap with a primary-sourced MCP-server competitor finding, no new entry logged
+
+Scheduled research run (UTC hour 06). `npm ci` clean. `list_workflow_runs`
+shows `CI` green on `master` at the latest push (`efee99e`). `list_issues`
+for `agent-fixable`: zero open.
+
+**Radar health — already fixed as far as code can fix it this cycle, not
+re-diagnosed:** `npm run radar:health` → `NO-PUBLISH`, exit 1, but the
+underlying evidence predates a fix already on `master`. The prior session
+(push `efee99e`, 03:08 UTC, before this run started) found and fixed the
+NVIDIA half of issue #99 — the hardcoded `moonshotai/Kimi-K2.6` default had
+itself gone EOL (410 Gone) a month after its predecessor, so it defaulted to
+`meta/llama-3.3-70b-instruct`, a non-trial catalog model, instead. Confirmed
+via `get_me`/`list_workflow_runs` that this was already live on `master`
+before this session's first tool call, not something to redo. Featherless
+stays down on its own account-side 403 ("no active subscription") — still
+needs a human, still exactly what issue #99 already says. The next scheduled
+Radar run (09:18 UTC) hasn't fired yet, so whether the NVIDIA fix actually
+clears the publish threshold is unverified until then; nothing more to do on
+this from a research run.
+
+**Deepened the stalest-by-substance OPEN entry rather than add a new one:**
+re-read every OPEN entry's last-touch date before picking one (a staleness
+script had an off-by-one bug that initially misflagged the facet-counts gap
+as untouched since 09-02 — it was actually last reconfirmed 2026-10-09, six
+rounds of verification deep, still correct). The "No public developer API"
+gap (line ~5810) was genuinely the better pick: last touched 2026-10-10, 37
+days ago, still fully unbuilt on re-check (`vercel.json`'s `/tools.json`
+block still missing `Access-Control-Allow-Origin`, no `/developers` route in
+`App.jsx`'s 41 routes, `ContactSection.jsx`'s `Resources` column unchanged,
+`prerender.mjs`'s `ROUTES` array still missing it). Followed up on the prior
+pass's own flagged next step — the unverified SimilarLabs lead — by fetching
+`similarlabs.com` and `similarlabs.com/mcp` directly (`WebFetch`, primary
+source, not third-party listings this time): confirmed it's a real
+multilingual AI-tool directory that also runs a public MCP server
+(`similarlabs.com/api/mcp`, Streamable HTTP, `search_products`/
+`list_categories`/`list_tags` tools with no auth, plus an OAuth-gated tool
+set for a signed-in user's own listings). Folded this in as a competitor
+data point strengthening the existing gap's "developer access as a growth
+channel" thesis, aimed at AI agents specifically rather than human
+developers — and explicitly kept it out of the entry's Build size S scope,
+since an actual MCP server is new backend surface (session/transport
+handling, tool routing, input validation) on a repo whose `src/` half is
+deliberately backend-free, not a few-line addition like the CORS header and
+docs page already specced. Logged as the natural v2 to consider once the
+docs page ships and shows real usage, not something to build today.
+
+**Other checks:** confirmed no new agent-fixable issues and CI green before
+starting research (per this file's own habit of checking urgent-work
+precedence first every run).
+
+Ran `npm test` (316/316, clean). Did not run `npm run build`/`npm run
+smoke` — docs-only change, no shipping this pass.
