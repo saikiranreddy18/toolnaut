@@ -13988,3 +13988,68 @@ all consistent with master). Ran `npm test` (322/322, clean); docs-only
 change, so `npm run build`/`npm run smoke` not required this pass per this
 file's own established practice. Appending this check rather than inventing
 a 25th entry.
+
+---
+
+### Research check 2026-11-17 06:03 UTC — seventy-first+ pass; three fresh leads checked, none survive — referral program and feature-voting both re-confirmed as already-settled dead ends, bulk tool-import found to lack any validated precedent
+
+Scheduled research run (UTC hour 06). `npm ci` clean. `list_workflow_runs`
+shows CI green on `master` at the latest push (`2312c76`, the 00:06 UTC
+research check). `npm run radar:health` → `STATUS: OK` (4 runs in the 26h
+window, last run 1.9h ago published 3, feed at 577 tools) — nothing to fix.
+`list_issues` for `agent-fixable`: zero open. No urgent work.
+
+**Stalest OPEN entry — not re-touched, on purpose:** "No educational/how-to
+content" (line 8378, Found 2026-09-20) was re-verified six hours ago at
+00:06 UTC and confirmed zero drift, build-ready, waiting for a feature run.
+Re-running the identical check now would add nothing new, so this pass went
+straight to fresh leads instead, per the practice the 15:04/21:03 UTC passes
+on 2026-11-16 already established for an entry that was "just re-touched."
+
+**Three fresh leads checked, none survive:**
+- *User referral / invite-a-friend program.* Worth a second look because a
+  live Supabase backend now genuinely exists behind signed-in sync
+  (confirmed via the FIXED "Settings page hardcodes 'no server copy'" entry,
+  line 4802, and the OPEN "browsable gallery of shared stacks" entry, line
+  8201, which both cite real tables/RPCs) — so "needs a backend" no longer
+  flatly rules this out the way it does for vendor coupon codes. But
+  `grep -rn "referral\|affiliate" src/` still turns up only
+  `TrustPanel.jsx:118` and `Methodology.jsx:132-136`, both making an
+  explicit, dated "no affiliate link, no referral code" trust claim as a
+  stated differentiator. This exact angle was already checked three times
+  before (lines 10491, 10767, 10846, 11715) and rejected each time for the
+  same reason: a referral/invite mechanic would contradict a promise the
+  product already makes publicly, not just be hard to build. Nothing has
+  changed since the last check — re-confirmed, not re-logged.
+- *Feature-voting / public roadmap board.* The already-OPEN "Changelog only
+  looks backward" entry (line 6139) scopes its own smallest-useful-version
+  to a hand-authored, non-interactive `ROADMAP` list and explicitly states
+  under "what this would NOT include": "no voting or upvoting on roadmap
+  items... on a different job, on user posts, not on this list." A
+  crowd-voted board was therefore already considered and deliberately
+  excluded by design, not overlooked — logging it separately would just
+  re-open a decision this file already made with reasoning. Not logged.
+- *Bulk "paste your current tools" import, matched against the catalog.*
+  A plausible-sounding complement to the already-shipped share/export
+  feature, so searched for a validated precedent before writing anything
+  (`WebSearch`, "paste your tools" bulk import AI directory 2026). Found
+  none — every result was either a plain "Suggest a Tool" submission form
+  or a guided quiz-based stack builder, not an existing-stack import. This
+  file's own bar requires a real competitor or pattern citation ("Seen in:
+  <competitor, with URL>"); without one this is speculation, the same
+  reason llms.txt and GEO were set aside on 2026-11-17 00:06 UTC. Not
+  logged.
+
+**Two quick code-level sanity checks, both already fine:** confirmed
+`index.html:34` still links `/manifest.webmanifest` (PWA installability
+already shipped, not a gap) and `Compare.jsx`/`PublicCompare.jsx` render
+however many tools are passed in — `tools.length`, no hardcoded 2-tool cap
+— so "compare 3+ tools" is not a gap either.
+
+**Small-bug check:** `changelogData.js`'s newest entry is `2026-11-16` (1
+day stale, fine — the staleness bug six prior passes fixed is still fixed).
+No bug found.
+
+Ran `npm test` (322/322, clean). Did not run `npm run build`/`npm run
+smoke` — docs-only change, no shipping this pass. Appending this check
+rather than inventing a 25th entry.
