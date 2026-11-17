@@ -14197,3 +14197,83 @@ other bug spotted.
 Ran `npm test` (322/322, clean). Did not run `npm run build`/`npm run
 smoke` — docs-only change, no shipping this pass. Appending this check
 rather than inventing a 25th entry.
+
+---
+
+### Research check 2026-11-17 21:04 UTC — seventy-fourth+ pass; changelog staleness recurred a seventh time after today's dev-API ship, fixed; two fresh leads checked, neither survives
+
+Off-schedule research run (UTC hour 21, not one of the usual :03 slots —
+still a research hour under the hour-18-is-feature rule). `npm ci` clean
+(201 packages). `list_workflow_runs` on `master`: `CI` and `Release` both
+green at the latest pushes — `b8f25d4` (today's 18:03 UTC feature run,
+"add public developer API docs page") and the devlog/backlog follow-up
+`8d2e34b`, with the Radar workflow publishing 5 more tools on top of both at
+`4d6cace`. `npm run radar:health` → `STATUS: OK` (3 runs in the 26h window,
+last run 2.5h ago published 5, feed at 582 tools) — nothing to fix.
+`list_issues` for `agent-fixable`: zero open. No urgent work. Local `master`
+was already in sync with `origin/master` (no detached-HEAD drift this time).
+
+**Small-bug check — changelog staleness recurred, fixed (seventh time):**
+today's feature run shipped the "No public developer API" gap
+(`git show --stat b8f25d4` confirms `vercel.json`, `src/pages/Developers.jsx`,
+`src/App.jsx`, `scripts/prerender.mjs`, `scripts/smoke.mjs`, and
+`ContactSection.jsx` all changed) but, same as the six prior recurrences of
+this exact bug, never touched `src/utils/changelogData.js` — its newest
+entry was still `2026-11-16` after a real feature had shipped under
+`2026-11-17`. `changelogData.js`'s own file-header comment says to add an
+entry "whenever the daily feature run marks a backlog gap SHIPPED — pulled
+from that day's real commit, not invented," so added one dated `2026-11-17`
+describing the actual shipped scope (CORS-open `/tools.json`, the new
+`/developers` page, no key/signup) rather than generic marketing copy. Ran
+all three checks before touching anything further: `npm test` (322/322),
+`npm run build` (prerender renders `/developers` at 11KB/2433 chars, no
+new skipped routes), `npm run smoke` (`/developers rootBytes=8105 errors=0`,
+26/26 routes clean) — all green, committed and pushed as its own small fix
+ahead of the research entry below (keeps the fix bisectable, same practice
+the six earlier staleness fixes used).
+
+**Re-verified the next-oldest untouched OPEN entry:** "No testimonial or
+social-proof quote" (line 8538, Found 2026-09-27 00:12 UTC) was last
+substantively re-checked around the 29th pass (cross-referenced at lines
+10890-10928) — the longest real gap since a substantive touch of any OPEN
+entry once "No educational/how-to content" and "No lookup surface" are
+excluded as already re-verified multiple times today/this week. Re-ran its
+core claims against current `master`: `grep -rniE
+"testimonial|review quote|case stud|social proof|trustpilot" src/` → zero
+hits, still nothing; `StackSurvey.jsx` still has no `<input>`/`<textarea>`,
+only `<button type="button">` fixed-choice chips, and its own comment about
+GA4 never receiving typed text is unchanged; `StatsSection.jsx`'s "a number
+on a landing page is a claim, and an unavailable one is not a licence to
+make one up" line is unchanged, confirming the show-nothing-if-no-real-data
+discipline this entry's plan extends to quotes is still the house rule, not
+superseded by anything since. Zero drift — the entry's Supabase-table +
+opt-in-consent plan is unchanged and still build-ready, not thin.
+
+**Two fresh leads checked, neither survives:**
+- *A B2B "featured listing / sponsored placement" page for AI tool vendors*,
+  seen as a pattern in one competitor's changelog during a general directory
+  search this pass. Checked it against Toolnaut's own stated trust position
+  before writing anything down: `TrustPanel.jsx:118` and
+  `Methodology.jsx:132-136` both make an explicit, dated "no affiliate link,
+  no sponsored placement" claim as a stated differentiator — exactly the
+  same conflict that has already ruled out a referral program three times
+  in this file (lines 10491, 10767, 10846, 11715, 14028-14037). Logging a
+  sponsored-placement page would mean reopening a decision this file has
+  already made with reasoning, not finding something new. Not logged.
+- *Mobile app-store (Apple App Store / Google Play) listings as a radar
+  discovery source*, from the same general search ("another directory added
+  App Store research pipelines"). Tried to find a primary source with
+  specifics before logging it — the search result was an unsourced
+  paraphrase inside a roundup, not a named competitor with a checkable URL,
+  and this file's own bar ("Seen in: <competitor, with URL>") has already
+  set aside equally plausible-sounding leads (the embeddable-widget lead at
+  line 14112, llms.txt, GEO) for the same reason. Also, unlike the other
+  OPEN gaps in this file, this one is radar/pipeline-shaped, not a
+  marketing-promise-vs-behavior gap in `src/` — radar's own 102+ tests and
+  `radar/sources/` structure already cover the existing source set, and
+  CLAUDE.md's hard rules treat radar reliability as the priority, not scope
+  growth. Not logged without a citable source.
+
+Ran `npm test` (322/322, clean) after the changelog fix above; no further
+build/smoke needed for this docs-only backlog append. Appending this check
+rather than inventing a 25th entry.
