@@ -14126,3 +14126,60 @@ drift — the entry's full "Smallest useful version" (Manifest V3 popup-only
 Ran `npm test` (322/322, clean). Did not run `npm run build`/`npm run
 smoke` — docs-only change, no shipping this pass. Appending this check
 rather than inventing a 25th entry.
+
+### Research check 2026-11-17 15:03 UTC — seventy-third+ pass; four fresh angles checked, all trace back to ground this file already holds
+
+Off-schedule research run (UTC hour 15, not one of the usual :03 slots —
+still a research hour under the hour-18-is-feature rule). `npm ci` clean
+(201 packages). `list_workflow_runs` on `master`: `CI` and `Release` both
+green at the latest push (`1d23094`, the 12:03 UTC research check).
+`npm run radar:health` → `STATUS: OK` (2 runs in the 26h window, last run
+10.9h ago published 3, feed at 577 tools) — nothing to fix. `list_issues`
+for `agent-fixable`: zero open. No urgent work. (Noted but out of scope for
+a research run: `list_pull_requests` shows 30 open PRs on this repo, most
+from the pre-direct-push era [Aug–Oct 2026, e.g. #36, #57/#70, #75, #86,
+#91] already surfaced inside their respective OPEN backlog entries as
+"BUILT, UNMERGED" — stale bot branches, not a new finding, and reconciling
+them isn't a research-run or small-bug-fix task.)
+
+**Stalest OPEN entry not re-touched, on purpose:** "No educational/how-to
+content" (line 8378, Found 2026-09-20) was already re-verified with zero
+drift at 00:03 UTC today and is build-ready, waiting for a feature run. A
+fourth identical check today adds nothing, so this pass went straight to
+fresh angles per the practice this file already established for an entry
+"just re-touched."
+
+**Four fresh angles checked, none survive:**
+- *Toolify.ai's estimated-traffic/revenue data per tool* (a 2026 roundup
+  called this out as Toolify's headline differentiator). Already covered:
+  grepped this file for `Toolify` and found it cited 15+ times, including
+  the 44th pass's explicit fold of "traffic/velocity dashboards" into the
+  already-detailed leaderboard-goes-real entry (line ~9266). Not a new
+  angle, just the same competitor resurfacing in a different search.
+- *AIGearBase's "Find-your-stack quiz"* (a 2026 directory review described
+  a 7-question quiz returning ranked recommendations with pricing
+  trade-offs). This is the exact shape of Toolnaut's own quiz
+  (`src/pages/Quiz.jsx` → `QuizResult.jsx`, already live, already the
+  product's core loop) — not a gap, a confirmation competitors converge on
+  the same pattern Toolnaut already ships.
+- *Dark mode, i18n/localization, and native mobile app* — re-grepped `src/`
+  (`dark mode|prefers-color-scheme`, `i18n|locale|translat`) to make sure
+  none had landed since the last check. All three were already explicitly
+  considered and set aside as deliberate scope exclusions across at least
+  three prior passes (lines 9221, 10193, 10705-10716, 10846-10847,
+  13490-13528) — re-confirmed unchanged, not re-logged.
+- *Conversational/freeform "describe what you need" AI concierge* (distinct
+  from Toolnaut's fixed-question quiz). This is the same ground the already
+  -OPEN "task search" gap (line 8021, There's An AI For That's task-first
+  discovery) and the shipped quiz itself already cover — a chat-style front
+  end over the same matching problem, not a new product capability. Not
+  logged separately.
+
+**Small-bug check:** `src/utils/changelogData.js`'s newest entry is
+`2026-11-16` (1 day stale — correct; no feature has shipped yet today,
+today's 18:03 UTC feature run hasn't run). No staleness bug this time, no
+other bug spotted.
+
+Ran `npm test` (322/322, clean). Did not run `npm run build`/`npm run
+smoke` — docs-only change, no shipping this pass. Appending this check
+rather than inventing a 25th entry.
