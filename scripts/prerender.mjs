@@ -43,6 +43,7 @@ const ROUTES = [
   '/',
   '/about',
   '/changelog',
+  '/developers',
   '/pricing',
   '/methodology',
   '/example',
