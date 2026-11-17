@@ -13931,3 +13931,60 @@ Ran `npm test` (322/322, clean), `npm run build` (clean, three.js chunk
 assertion held), and `npm run smoke` (26/26 routes, 0 console errors) —
 all three required this pass because of the `changelogData.js` code change
 alongside the docs update. Committed and pushed straight to master.
+
+---
+
+### Research check 2026-11-17 00:03 UTC — seventieth+ pass; re-verified the true stalest OPEN entry, two fresh leads checked, neither survives
+
+Scheduled research run (UTC hour 00). `npm ci` clean. `list_workflow_runs`
+shows CI and Release both green at the latest push to `master`
+(`ccd830b`, the 21:03 UTC changelog-staleness fix). `npm run radar:health`
+reports `STATUS: OK` — 4 runs in the 26h window, last run 4.4h ago published
+8 tools, feed at 574 entries; nothing to fix. No issue labelled
+`agent-fixable` open (`list_issues`, 0 results). No urgent work.
+
+**Re-verified the stalest untouched OPEN entry:** re-ran the staleness sort
+across every `### ` header that isn't a `Research check` log line by its
+latest in-body date. "No educational/how-to content" (line 8378, Found:
+2026-09-20) is the genuine stalest at 58 days, ahead of the leaderboard
+(2026-09-24) and weekly-trending/testimonial/lookup-surface entries
+(2026-09-27). Re-checked its claims against current code: `grep -n "guides\|Guide"
+src/App.jsx` — no match, no `/guides` route exists; `ls src/content` shows
+only `comparisons.js`, no guide content file; `ContactSection.jsx:43-48`'s
+footer "Resources" column still links only to `/#how-it-works`,
+`/methodology`, `/changelog`, `/app/stack` — existing product pages
+relabeled, exactly as the entry describes; `scripts/prerender.mjs`'s
+`ROUTES` (`:42-62`) still has no `/guides` entries. Zero drift. This entry
+already has a complete Smallest-useful-version plan (new `guides.js`
+content array, `Guide.jsx`/`Guides.jsx` pages, prerender + sitemap wiring,
+footer link fix) sized S, same class as the already-shipped vs-competitor
+gap — it is build-ready, not thin, so there is nothing to deepen here; it
+is simply waiting for a feature run to pick it.
+
+**Two fresh leads checked, neither survives:**
+- *GEO (generative-engine optimization) — getting toolnaut.xyz cited by
+  ChatGPT/Perplexity/Gemini answers.* Searched current 2026 reporting on
+  what actually gets cited. The signal that recurs across independent
+  sources: official product sites get cited far more than directories (one
+  test found official sites cited in 10/10 queries, Perplexity always
+  linking the real product site), and when a directory-shaped page does get
+  referenced it's a comparison article with concrete pricing, use cases and
+  a clear structure — which is exactly what this file's own (shipped)
+  vs-competitor pages and the still-OPEN guides gap above already are. GEO
+  isn't a distinct feature a competitor ships that Toolnaut lacks; it's a
+  framing that resolves to gaps already logged. Not logged separately.
+- *`llms.txt` (the proposed AI-crawler-manifest convention).* Checked
+  whether this is a validated pattern worth a quick add. It isn't: an Ahrefs
+  server-log study of 137k domains found 97% of `llms.txt` files got zero
+  AI-crawler requests in May 2026, Google states it doesn't use the file,
+  and no major AI provider has confirmed using it in production as of this
+  year — adoption is rising but reads are not. Low-cost-bet framing from
+  SEO vendors conflicts with the primary server-log data, which gets more
+  weight here. Not a genuine gap by this file's own bar; set aside.
+
+No new small bug spotted this pass (scanned `ContactSection.jsx`,
+`prerender.mjs`, `changelogData.js` while re-verifying the guides entry —
+all consistent with master). Ran `npm test` (322/322, clean); docs-only
+change, so `npm run build`/`npm run smoke` not required this pass per this
+file's own established practice. Appending this check rather than inventing
+a 25th entry.
