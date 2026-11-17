@@ -7,6 +7,11 @@
 // SHIPPED — pulled from that day's real commit, not invented.
 export const CHANGELOG = [
   {
+    date: '2026-11-17',
+    title: 'A public API for the catalog',
+    body: "/tools.json is now open to cross-origin fetches, and a new /developers page documents its fields with a live example record — no key, no signup.",
+  },
+  {
     date: '2026-11-16',
     title: 'See how many results a filter leads to before you click it',
     body: "Discover's category, price and level filters now show a live count next to each option, so you can tell \"Code 331\" or \"Paid 58\" apart from a dead end before you commit to a click.",
