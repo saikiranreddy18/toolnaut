@@ -1256,7 +1256,10 @@
       "coral",
       "prettywhaleai",
       "solipsist",
-      "muse-charm"
+      "muse-charm",
+      "listodo",
+      "we-got-ai-to-wombo-combo",
+      "standard-support"
     ],
     "courses": [
       "course-headless-tools",
@@ -1562,7 +1565,10 @@
       "course-coral",
       "course-prettywhaleai",
       "course-solipsist",
-      "course-muse-charm"
+      "course-muse-charm",
+      "course-listodo",
+      "course-we-got-ai-to-wombo-combo",
+      "course-standard-support"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3702,7 +3708,9 @@
       "wordless",
       "coral",
       "claktor",
-      "solipsist"
+      "solipsist",
+      "we-got-ai-to-wombo-combo",
+      "standard-support"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3763,7 +3771,9 @@
       "course-wordless",
       "course-coral",
       "course-claktor",
-      "course-solipsist"
+      "course-solipsist",
+      "course-we-got-ai-to-wombo-combo",
+      "course-standard-support"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4328,7 +4338,8 @@
       "squint",
       "qlcodepreview-syntax-highlighting-in-finders-quick-look",
       "agent-history-cli",
-      "korosta"
+      "korosta",
+      "listodo"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -4356,7 +4367,8 @@
       "course-squint",
       "course-qlcodepreview-syntax-highlighting-in-finders-quick-look",
       "course-agent-history-cli",
-      "course-korosta"
+      "course-korosta",
+      "course-listodo"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4619,7 +4631,10 @@
       "mutually-beneficial-agentic-common-law",
       "thyme",
       "emelyn-your-ai-social-media-manager",
-      "muse-charm"
+      "muse-charm",
+      "listodo",
+      "we-got-ai-to-wombo-combo",
+      "standard-support"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4634,7 +4649,10 @@
       "course-mutually-beneficial-agentic-common-law",
       "course-thyme",
       "course-emelyn-your-ai-social-media-manager",
-      "course-muse-charm"
+      "course-muse-charm",
+      "course-listodo",
+      "course-we-got-ai-to-wombo-combo",
+      "course-standard-support"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4709,7 +4727,8 @@
       "search-123-ai-labs-jobs-from-your-own-agent-no-signup",
       "mellum21",
       "muse-charm",
-      "coderbaba"
+      "coderbaba",
+      "listodo"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -4720,7 +4739,8 @@
       "course-search-123-ai-labs-jobs-from-your-own-agent-no-signup",
       "course-mellum21",
       "course-muse-charm",
-      "course-coderbaba"
+      "course-coderbaba",
+      "course-listodo"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -12457,10 +12477,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "cs2-aim-toolkit"
+      "cs2-aim-toolkit",
+      "we-got-ai-to-wombo-combo"
     ],
     "courses": [
-      "course-cs2-aim-toolkit"
+      "course-cs2-aim-toolkit",
+      "course-we-got-ai-to-wombo-combo"
     ],
     "updatedAt": "2026-09-05T12:45:39.833Z"
   },
@@ -23730,5 +23752,44 @@
       "course-muse-charm"
     ],
     "updatedAt": "2026-11-16T19:38:33.618Z"
+  },
+  {
+    "id": "skill-todo",
+    "name": "todo",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "listodo"
+    ],
+    "courses": [
+      "course-listodo"
+    ],
+    "updatedAt": "2026-11-17T04:11:30.510Z"
+  },
+  {
+    "id": "skill-melee",
+    "name": "melee",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "we-got-ai-to-wombo-combo"
+    ],
+    "courses": [
+      "course-we-got-ai-to-wombo-combo"
+    ],
+    "updatedAt": "2026-11-17T04:11:30.510Z"
+  },
+  {
+    "id": "skill-support",
+    "name": "support",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "standard-support"
+    ],
+    "courses": [
+      "course-standard-support"
+    ],
+    "updatedAt": "2026-11-17T04:11:30.510Z"
   }
 ]

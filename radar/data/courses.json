@@ -37177,5 +37177,160 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-16T19:38:33.618Z"
+  },
+  {
+    "id": "course-listodo",
+    "toolSlug": "listodo",
+    "title": "Master Listodo",
+    "objectives": [
+      "Automate task creation using natural language commands.",
+      "Configure the AI agent for routine follow-ups and reminders.",
+      "Integrate Listodo with a connected calendar for scheduling."
+    ],
+    "modules": [
+      {
+        "title": "Natural Language Task Ingestion",
+        "estMinutes": 10,
+        "steps": [
+          "Type a complex task like 'Schedule project review for next Tuesday at 2 PM and set a reminder 1 hour prior'.",
+          "Verify Listodo's interpretation of the date/time and associated reminders.",
+          "Edit the resulting task description to refine the AI's understanding."
+        ]
+      },
+      {
+        "title": "Agent Workflow Setup",
+        "estMinutes": 15,
+        "steps": [
+          "Navigate to the AI Agent settings and select 'Recurring Check-in' as the default action.",
+          "Define a trigger phrase (e.g., 'Check status') that activates the agent's reporting feature.",
+          "Test the agent by triggering the defined workflow and reviewing the output."
+        ]
+      },
+      {
+        "title": "Calendar Sync Implementation",
+        "estMinutes": 12,
+        "steps": [
+          "Go to Integrations and connect your primary Google or Outlook calendar account.",
+          "Enable 'Two-way sync' for tasks marked with a specific date/time tag.",
+          "Create a new time-bound task and confirm it appears correctly in your external calendar."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-todo",
+      "skill-ai",
+      "skill-agent",
+      "skill-productivity"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-17T04:11:30.510Z"
+  },
+  {
+    "id": "course-we-got-ai-to-wombo-combo",
+    "toolSlug": "we-got-ai-to-wombo-combo",
+    "title": "Master We got AI to Wombo Combo",
+    "objectives": [
+      "Set up a basic AI agent team for a chosen melee game.",
+      "Configure agent roles (e.g., Tank, DPS) within the combo structure.",
+      "Run and analyze a multi-agent melee simulation for tactical insights."
+    ],
+    "modules": [
+      {
+        "title": "Initializing the Combo Environment",
+        "estMinutes": 15,
+        "steps": [
+          "Launch the AI to Wombo Combo client.",
+          "Select 'Street Fighter' (or preferred melee game) as the simulation base.",
+          "Instantiate a minimum of two distinct AI agents."
+        ]
+      },
+      {
+        "title": "Defining Agent Tactics and Roles",
+        "estMinutes": 20,
+        "steps": [
+          "Assign Agent 1 the 'Aggressive DPS' profile using the role editor.",
+          "Assign Agent 2 the 'Defensive Tank' profile, prioritizing block/guard actions.",
+          "Set the initial agent interaction rule: 'DPS must follow Tank within 2 seconds of being engaged'."
+        ]
+      },
+      {
+        "title": "Running and Interpreting Simulation Data",
+        "estMinutes": 15,
+        "steps": [
+          "Execute the 5-minute 'Combo Test Run' in the simulation interface.",
+          "Export the 'Damage Output vs. Survivability' CSV log.",
+          "Filter the log to confirm the Tank successfully absorbed at least 60% of initial damage."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-melee",
+      "skill-agents",
+      "skill-ai",
+      "skill-gaming"
+    ],
+    "prerequisites": [
+      "Familiarity with standard melee game mechanics (e.g., combo structure, zoning).",
+      "Basic navigation of a dedicated AI simulation platform."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-17T04:11:30.510Z"
+  },
+  {
+    "id": "course-standard-support",
+    "toolSlug": "standard-support",
+    "title": "Master Standard Support",
+    "objectives": [
+      "Accurately format a Standard Support ticket payload.",
+      "Identify mandatory fields required by the Standard Support convention.",
+      "Submit a ticket using the correct structured format."
+    ],
+    "modules": [
+      {
+        "title": "Structuring the Core Ticket",
+        "estMinutes": 10,
+        "steps": [
+          "Define 'issue_type' as one of: [bug, feature_request, clarification].",
+          "Ensure 'summary' is under 10 words and actionable."
+        ]
+      },
+      {
+        "title": "Detailing Context and Reproduction",
+        "estMinutes": 15,
+        "steps": [
+          "Provide step-by-step 'reproduction_steps' (numbered list).",
+          "Include environment details in the 'context' field (OS, Agent Version)."
+        ]
+      },
+      {
+        "title": "Submission Verification",
+        "estMinutes": 5,
+        "steps": [
+          "Validate the final JSON against the Standard Support schema.",
+          "Execute the submission call against the designated endpoint."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai",
+      "skill-agents",
+      "skill-support"
+    ],
+    "prerequisites": [
+      "Familiarity with JSON structure.",
+      "Knowledge of the specific support endpoint URL."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-17T04:11:30.510Z"
   }
 ]

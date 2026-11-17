@@ -13712,5 +13712,74 @@
       "open-source"
     ],
     "discoveredAt": "2026-11-16T19:38:33.618Z"
+  },
+  {
+    "slug": "listodo",
+    "name": "Listodo",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "An AI-powered to-do list with an AI agent capable of handling various tasks.",
+    "audience": "Productivity seekers",
+    "dev": "debarshibasak",
+    "year": 2026,
+    "website": "https://github.com/debarshibasak/listodo",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "todo",
+      "ai",
+      "agent",
+      "productivity"
+    ],
+    "discoveredAt": "2026-11-17T04:11:30.510Z"
+  },
+  {
+    "slug": "we-got-ai-to-wombo-combo",
+    "name": "We got AI to Wombo Combo",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free/Paid tiers",
+    "level": "intermediate",
+    "blurb": "Collaborative AI agents for Melee games.",
+    "audience": "Gamers & Developers",
+    "dev": "frisson-labs",
+    "year": 2026,
+    "website": "https://www.frisson-labs.com/reyn",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "melee",
+      "agents",
+      "ai",
+      "gaming"
+    ],
+    "discoveredAt": "2026-11-17T04:11:30.510Z"
+  },
+  {
+    "slug": "standard-support",
+    "name": "Standard Support",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free to use",
+    "level": "intermediate",
+    "blurb": "A convention for AI agents to file support tickets.",
+    "audience": "AI Developers",
+    "dev": "standardsupport.dev",
+    "year": 2026,
+    "website": "https://standardsupport.dev/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai",
+      "agents",
+      "support",
+      "automation"
+    ],
+    "discoveredAt": "2026-11-17T04:11:30.510Z"
   }
 ]
