@@ -14053,3 +14053,76 @@ No bug found.
 Ran `npm test` (322/322, clean). Did not run `npm run build`/`npm run
 smoke` — docs-only change, no shipping this pass. Appending this check
 rather than inventing a 25th entry.
+
+---
+
+### Research check 2026-11-17 12:03 UTC — seventy-second+ pass; re-verified the next-stalest OPEN entry, two fresh leads checked, neither survives
+
+`npm ci` clean (201 packages). `date -u` → UTC hour 12 (a research slot).
+Local branch was in detached HEAD at a stale commit (`e9fb308`, missing the
+06:03 UTC push); re-pointed `master` at `origin/master` (`git checkout -B
+master origin/master`, a read-only ref update, no history rewritten) before
+doing anything else. `list_workflow_runs` on `master` shows CI and Release
+both green at the latest push (`3b6a9da`, the 06:03 UTC research check).
+`npm run radar:health` → `STATUS: OK` (4 runs in the 26h window, last run
+7.9h ago published 3, feed at 577 tools) — nothing to fix. `list_issues` for
+`agent-fixable`: zero open. No urgent work.
+
+**"No educational/how-to content" not re-touched, on purpose:** still the
+single stalest OPEN entry by `Found:` date (2026-09-20), but it was already
+re-verified in full six hours ago at 06:03 UTC and confirmed build-ready
+with zero drift at 00:03 UTC before that — a third identical check today
+would add nothing. Per the practice this file already established on
+2026-11-16/2026-11-17 for an entry "just re-touched," moved to the next
+genuinely stale entry instead.
+
+**Re-verified the next-stalest untouched OPEN entry:** "No lookup surface
+outside toolnaut.xyz" (line 8606, Found 2026-09-27 21:20 UTC) was last
+substantively re-checked at the 32nd pass (2026-10-06 03:04 UTC) — 42 days
+ago, longer than any other OPEN entry's real last-touch (confirmed by
+grepping every later pass for "lookup surface": lines 11030/11321/13056/
+13378/13950 only *reference* it as already-covered ground inside other
+entries' discussions, none re-verify its own claims). Re-ran its core
+checks against current `master`: `find . -iname "manifest.json" -not -path
+"*/node_modules/*"` → zero hits, `ls extension` → no such directory,
+`grep -rniE "manifest_version|chrome\.runtime"` across the repo → zero
+hits — still no extension artifact of any kind. `vercel.json` still has no
+`Access-Control-Allow-Origin` header (the CORS gap the entry correctly
+treats as unneeded for this plan, since an extension's `host_permissions`
+sidestep it). `src/utils/search.js` still exports `matchesQuery(tool, q)`
+unchanged, the function the plan calls out to vendor into the popup. Zero
+drift — the entry's full "Smallest useful version" (Manifest V3 popup-only
+`extension/` directory) is unchanged and remains build-ready, not thin.
+
+**Two fresh leads checked, neither survives:**
+- *Embeddable AI-tool "finder" or recommendation widget for partner
+  websites* (distinct from the already-OPEN static backlink badge, line
+  2978 — this would be a live, data-backed widget a third-party site
+  embeds). `WebSearch` surfaced one candidate with a real URL,
+  `ai-directory.kokasexton.com/embed`, described in the search summary as a
+  free iframe widget showing curated tools from a chosen category on
+  WordPress/Webflow/Ghost/Framer/Squarespace. Tried to verify the specifics
+  directly with `WebFetch` before writing anything down, since this file's
+  bar needs a primary source, not a search snippet — the page is
+  client-rendered and `WebFetch` returned only its `<title>` tag ("AI Tools
+  Directory for Marketers | Discover 100+ Marketing AI Tools"), none of the
+  claimed embed mechanics, pricing, or configuration options. Can't confirm
+  the pattern actually works as described from a source this file can cite
+  with specifics; not logged without that confirmation, unlike the
+  already-logged browser-extension gap which cited a readable, verifiable
+  dev.to writeup.
+- *Team/shared-workspace with multiple seats*, by analogy to the multi-LLM
+  chat platforms (TeamAI, ChatGPT Business, Okara) `WebSearch` returned for
+  2026. All of them are AI-chat/collaboration products — teams share prompts
+  and conversations inside *one* AI tool — not discovery directories; none
+  reference a tool-discovery competitor shipping multi-seat accounts for
+  browsing a catalog. The pattern doesn't transfer: Toolnaut's product is
+  finding and tracking tools, not using one collaboratively, so a "seats"
+  gap would be inventing a problem the product doesn't have. Not logged.
+
+**Small-bug check:** `changelogData.js`'s newest entry is still `2026-11-16`
+(now 1.5 days stale, fine, same cadence as six hours ago). No bug found.
+
+Ran `npm test` (322/322, clean). Did not run `npm run build`/`npm run
+smoke` — docs-only change, no shipping this pass. Appending this check
+rather than inventing a 25th entry.
