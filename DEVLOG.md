@@ -9,6 +9,57 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-11-17
+
+**Radar health:** `OK` — 11 tools published in the last 24h across two runs
+(8 then 3), confirming yesterday's NVIDIA default-model fix (`efee99e`,
+`c8fa3d8`) actually resolved the NO-PUBLISH incident rather than just
+patching around it. Feed holds 577 published tools. Featherless is still
+403 "no active subscription" (issue #99, unchanged) but it's no longer
+radar-blocking — NVIDIA alone is carrying enrichment now. CI on master was
+green all day; no `agent-fixable` issues were open.
+
+**Researched today:** none — today's run landed on the 18:03 UTC
+feature+digest slot, so it drained the backlog's queue instead of adding to
+it.
+
+**Shipped today:** **`b8f25d4`** — the "No public developer API" gap.
+`public/tools.json` has been a committed, publicly-served static file for
+months — 700+ structured tool records, the exact same file the app itself
+fetches — but nothing ever told anyone it existed, and it had no CORS
+header, so a browser script on another site couldn't actually `fetch()` it
+cross-origin even if someone found the URL. Added
+`Access-Control-Allow-Origin: *` to `vercel.json`'s existing `/tools.json`
+header block (a read-only, no-auth, non-sensitive static file — no privacy
+exposure), and a new `/developers` page reusing `Changelog.jsx`'s shell:
+the endpoint, the field list (read straight off `sync-to-app.js`'s own
+`FIELDS` array so it can't drift), a `fetch()` snippet, and a real example
+record pulled live from the catalog at render time rather than hand-typed.
+Linked from the footer's `Resources` column and added to `prerender.mjs`'s
+and `smoke.mjs`'s route lists. This was the single most-reverified,
+build-ready entry in the backlog — Build size S, re-confirmed fully unbuilt
+across four separate deepening passes since 2026-09-10, and it touched zero
+load-bearing files (no `vite.config.js`, no `sw.js` stamping, no service
+worker fetch handler). **This is visible on toolnaut.xyz today** — no other
+pipeline needs to run first.
+
+**Verification:** `npm test` (109 radar + 322 app = 431, all green),
+`npm run build` (`/developers` prerendered with 2.4KB of real text), and
+`npm run smoke` (26/26 routes including the new one, 0 console errors) all
+green before pushing straight to `master`.
+
+**Queued next:** the backlog's other build-ready picks — the task-search
+stemming fix, the catalog re-verification job (`checkWebsite()` already
+exists, never scheduled against published tools), and the public developer
+API's natural v2 (an MCP server at the same URL, deliberately left out of
+today's scope as new backend surface). The leaderboard real-data gap is
+build-ready too (size M) but needs a Supabase migration staged and
+staging-verified first. Issue #99 (Featherless 403) stays open for a human
+to act on; it no longer blocks publishing since NVIDIA alone keeps the
+pipeline healthy.
+
+---
+
 ## 2026-11-16
 
 **Radar health:** `NO-PUBLISH` — 0 tools published in the last 24h, feed

@@ -5845,7 +5845,21 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### No public developer API — the structured catalog data already exists and is already public, nobody was ever told
-- **Status:** OPEN
+- **Status:** SHIPPED b8f25d4 — built exactly as scoped below: `vercel.json`'s
+  `/tools.json` header block now also carries `Access-Control-Allow-Origin: *`
+  alongside the existing `Cache-Control` key; new `src/pages/Developers.jsx`
+  at `/developers`, reusing `Changelog.jsx`'s shell, documenting the endpoint,
+  the field list (read straight off `sync-to-app.js`'s own `FIELDS` array),
+  a `fetch()` snippet, and a real example record pulled live from `TOOLS` at
+  render time rather than hand-typed, so it can't drift. Linked from
+  `ContactSection.jsx`'s `Resources` column (fifth link, same slot this entry
+  always planned) and added to `prerender.mjs`'s `ROUTES` and `smoke.mjs`'s
+  route list so it's crawlable and covered by the console-error check going
+  forward. No API key, no new endpoint, no rate-limiting infra, no `radar/`
+  change — exactly the bounded scope this entry's "what this would NOT
+  include" list called for. `npm test` (431 total), `npm run build`
+  (`/developers` prerendered, 2.4KB of real text), and `npm run smoke` (26/26
+  routes including the new one, 0 console errors) all green before pushing.
 - **Seen in:** There's An AI For That (TAAFT), the largest AI-tool directory
   by listing count (47,400+ tools as of April 2026 per its own reporting) —
   one of its named strengths alongside raw listing volume is "structured data
