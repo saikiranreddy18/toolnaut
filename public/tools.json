@@ -13781,5 +13781,121 @@
       "automation"
     ],
     "discoveredAt": "2026-11-17T04:11:30.510Z"
+  },
+  {
+    "slug": "revix-ai",
+    "name": "Revix AI",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "freemium",
+    "pricing": "Free to start",
+    "level": "intermediate",
+    "blurb": "AI tool for PR review against repository standards.",
+    "audience": "Developers",
+    "dev": "Revix",
+    "year": 2026,
+    "website": "https://www.revix.ai",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "pr_review",
+      "code_quality",
+      "ai_coding",
+      "github"
+    ],
+    "discoveredAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "slug": "drawmode-for-ai-agents",
+    "name": "Drawmode for AI Agents",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free to start",
+    "level": "intermediate",
+    "blurb": "Drawmode facilitates visual interaction and creation within AI agent workflows.",
+    "audience": "AI developers",
+    "dev": "drawmode",
+    "year": 2026,
+    "website": "https://drawmode.ai/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "visual programming",
+      "workflow automation",
+      "llm tools"
+    ],
+    "discoveredAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "slug": "atlas",
+    "name": "Atlas",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free tier available",
+    "level": "intermediate",
+    "blurb": "Provides better web context for AI agents using Atlas compiler.",
+    "audience": "AI Developers",
+    "dev": "atlas-compiler.com",
+    "year": 2026,
+    "website": "https://atlas-compiler.com/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agent",
+      "web context",
+      "compiler",
+      "llm"
+    ],
+    "discoveredAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "slug": "trnrt",
+    "name": "TrnRT",
+    "category": "code",
+    "sourceCategory": "ML Infrastructure & LLMOps",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "advanced",
+    "blurb": "Open-source LLM inference engine optimized for AWS Trainium.",
+    "audience": "ML Engineers",
+    "dev": "RunanywhereAI",
+    "year": 2026,
+    "website": "https://github.com/RunanywhereAI/trnrt",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "llm",
+      "inference",
+      "aws",
+      "trainium",
+      "open-source"
+    ],
+    "discoveredAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "slug": "ai-spar",
+    "name": "AI Spar",
+    "category": "writing",
+    "sourceCategory": "LLMs & Chatbots",
+    "price": "freemium",
+    "pricing": "Free tier available",
+    "level": "intermediate",
+    "blurb": "Structured debate tool for conflicting AI answers.",
+    "audience": "AI users needing clarity",
+    "dev": "AI Spar",
+    "year": 2026,
+    "website": "https://aispar.app",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai",
+      "debate",
+      "llm",
+      "verification"
+    ],
+    "discoveredAt": "2026-11-17T18:36:36.510Z"
   }
 ]

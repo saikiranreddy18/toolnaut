@@ -232,7 +232,9 @@
       "mellum21",
       "jevmem",
       "claktor",
-      "coderbaba"
+      "coderbaba",
+      "revix-ai",
+      "trnrt"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -462,7 +464,9 @@
       "course-mellum21",
       "course-jevmem",
       "course-claktor",
-      "course-coderbaba"
+      "course-coderbaba",
+      "course-revix-ai",
+      "course-trnrt"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -671,7 +675,8 @@
       "fantastic-canvas",
       "mellum21",
       "coral",
-      "coderbaba"
+      "coderbaba",
+      "trnrt"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -775,7 +780,8 @@
       "course-fantastic-canvas",
       "course-mellum21",
       "course-coral",
-      "course-coderbaba"
+      "course-coderbaba",
+      "course-trnrt"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1259,7 +1265,9 @@
       "muse-charm",
       "listodo",
       "we-got-ai-to-wombo-combo",
-      "standard-support"
+      "standard-support",
+      "drawmode-for-ai-agents",
+      "atlas"
     ],
     "courses": [
       "course-headless-tools",
@@ -1568,7 +1576,9 @@
       "course-muse-charm",
       "course-listodo",
       "course-we-got-ai-to-wombo-combo",
-      "course-standard-support"
+      "course-standard-support",
+      "course-drawmode-for-ai-agents",
+      "course-atlas"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1782,7 +1792,8 @@
       "recall",
       "sugabots",
       "jevcrawl",
-      "kryzz-ai"
+      "kryzz-ai",
+      "drawmode-for-ai-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -1974,7 +1985,8 @@
       "course-recall",
       "course-sugabots",
       "course-jevcrawl",
-      "course-kryzz-ai"
+      "course-kryzz-ai",
+      "course-drawmode-for-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2083,7 +2095,10 @@
       "ihmt",
       "gemini-4-argon-is-now-available-for-developers",
       "recall",
-      "mellum21"
+      "mellum21",
+      "atlas",
+      "trnrt",
+      "ai-spar"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2142,7 +2157,10 @@
       "course-ihmt",
       "course-gemini-4-argon-is-now-available-for-developers",
       "course-recall",
-      "course-mellum21"
+      "course-mellum21",
+      "course-atlas",
+      "course-trnrt",
+      "course-ai-spar"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3101,7 +3119,8 @@
       "pyunto",
       "whirl",
       "lacuna",
-      "authrot"
+      "authrot",
+      "ai-spar"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -3133,7 +3152,8 @@
       "course-pyunto",
       "course-whirl",
       "course-lacuna",
-      "course-authrot"
+      "course-authrot",
+      "course-ai-spar"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4485,7 +4505,8 @@
       "vendiq",
       "talorys",
       "marketing-agent-for-founders",
-      "veduta"
+      "veduta",
+      "atlas"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -4523,7 +4544,8 @@
       "course-vendiq",
       "course-talorys",
       "course-marketing-agent-for-founders",
-      "course-veduta"
+      "course-veduta",
+      "course-atlas"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4634,7 +4656,8 @@
       "muse-charm",
       "listodo",
       "we-got-ai-to-wombo-combo",
-      "standard-support"
+      "standard-support",
+      "ai-spar"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4652,7 +4675,8 @@
       "course-muse-charm",
       "course-listodo",
       "course-we-got-ai-to-wombo-combo",
-      "course-standard-support"
+      "course-standard-support",
+      "course-ai-spar"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4675,10 +4699,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "aifi-on-aws"
+      "aifi-on-aws",
+      "trnrt"
     ],
     "courses": [
-      "course-aifi-on-aws"
+      "course-aifi-on-aws",
+      "course-trnrt"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -10062,14 +10088,16 @@
       "reverify",
       "trustnotch",
       "promptsign",
-      "higherlevel"
+      "higherlevel",
+      "ai-spar"
     ],
     "courses": [
       "course-mc-dc-coverage-so-coding-agents-could-work-overnight",
       "course-reverify",
       "course-trustnotch",
       "course-promptsign",
-      "course-higherlevel"
+      "course-higherlevel",
+      "course-ai-spar"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -10510,13 +10538,15 @@
       "memcode-launches-github-code-review",
       "open-source-instinct",
       "ai-agents-zero-to-hero",
-      "fantastic-canvas"
+      "fantastic-canvas",
+      "revix-ai"
     ],
     "courses": [
       "course-memcode-launches-github-code-review",
       "course-open-source-instinct",
       "course-ai-agents-zero-to-hero",
-      "course-fantastic-canvas"
+      "course-fantastic-canvas",
+      "course-revix-ai"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -11370,10 +11400,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "mcp-tool-definition-quality-score-tdqs-spec"
+      "mcp-tool-definition-quality-score-tdqs-spec",
+      "drawmode-for-ai-agents"
     ],
     "courses": [
-      "course-mcp-tool-definition-quality-score-tdqs-spec"
+      "course-mcp-tool-definition-quality-score-tdqs-spec",
+      "course-drawmode-for-ai-agents"
     ],
     "updatedAt": "2026-09-03T23:31:51.252Z"
   },
@@ -16621,10 +16653,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "a-c-compiler-written-with-help-of-claude"
+      "a-c-compiler-written-with-help-of-claude",
+      "atlas"
     ],
     "courses": [
-      "course-a-c-compiler-written-with-help-of-claude"
+      "course-a-c-compiler-written-with-help-of-claude",
+      "course-atlas"
     ],
     "updatedAt": "2026-09-12T23:23:08.913Z"
   },
@@ -18243,10 +18277,12 @@
     "domain": "data",
     "level": "advanced",
     "toolsTeaching": [
-      "axelera-ai-launches-europa"
+      "axelera-ai-launches-europa",
+      "trnrt"
     ],
     "courses": [
-      "course-axelera-ai-launches-europa"
+      "course-axelera-ai-launches-europa",
+      "course-trnrt"
     ],
     "updatedAt": "2026-09-15T23:42:46.820Z"
   },
@@ -23791,5 +23827,109 @@
       "course-standard-support"
     ],
     "updatedAt": "2026-11-17T04:11:30.510Z"
+  },
+  {
+    "id": "skill-pr_review",
+    "name": "pr_review",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "revix-ai"
+    ],
+    "courses": [
+      "course-revix-ai"
+    ],
+    "updatedAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "id": "skill-code_quality",
+    "name": "code_quality",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "revix-ai"
+    ],
+    "courses": [
+      "course-revix-ai"
+    ],
+    "updatedAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "id": "skill-ai_coding",
+    "name": "ai_coding",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "revix-ai"
+    ],
+    "courses": [
+      "course-revix-ai"
+    ],
+    "updatedAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "id": "skill-visual programming",
+    "name": "visual programming",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "drawmode-for-ai-agents"
+    ],
+    "courses": [
+      "course-drawmode-for-ai-agents"
+    ],
+    "updatedAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "id": "skill-workflow automation",
+    "name": "workflow automation",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "drawmode-for-ai-agents"
+    ],
+    "courses": [
+      "course-drawmode-for-ai-agents"
+    ],
+    "updatedAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "id": "skill-web context",
+    "name": "web context",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "atlas"
+    ],
+    "courses": [
+      "course-atlas"
+    ],
+    "updatedAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "id": "skill-trainium",
+    "name": "trainium",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "trnrt"
+    ],
+    "courses": [
+      "course-trnrt"
+    ],
+    "updatedAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "id": "skill-debate",
+    "name": "debate",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-spar"
+    ],
+    "courses": [
+      "course-ai-spar"
+    ],
+    "updatedAt": "2026-11-17T18:36:36.510Z"
   }
 ]

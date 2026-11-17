@@ -37332,5 +37332,270 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-17T04:11:30.510Z"
+  },
+  {
+    "id": "course-revix-ai",
+    "toolSlug": "revix-ai",
+    "title": "Master Revix AI",
+    "objectives": [
+      "Configure Revix AI with specific repository style guides",
+      "Run a targeted PR review against defined standards",
+      "Interpret and remediate AI-generated compliance suggestions"
+    ],
+    "modules": [
+      {
+        "title": "Setting Up Style Guides",
+        "estMinutes": 15,
+        "steps": [
+          "Navigate to the 'Standards' tab in Revix AI.",
+          "Upload or link your existing `.eslintrc` or repository policy document.",
+          "Validate the configuration to ensure successful parsing."
+        ]
+      },
+      {
+        "title": "Executing a Targeted PR Scan",
+        "estMinutes": 10,
+        "steps": [
+          "Select the relevant Pull Request from the integrated dashboard.",
+          "Initiate the review scan, selecting only 'Style & Standards' checks.",
+          "Wait for the AI completion indicator to turn green/yellow."
+        ]
+      },
+      {
+        "title": "Addressing AI Feedback",
+        "estMinutes": 20,
+        "steps": [
+          "Review flagged lines in the PR diff pane, focusing on Revix comments.",
+          "Apply the suggested code fix directly in the PR branch.",
+          "Rerun the scan on the modified commit to confirm compliance."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-pr_review",
+      "skill-code_quality",
+      "skill-ai_coding",
+      "skill-github"
+    ],
+    "prerequisites": [
+      "Basic familiarity with Git/GitHub workflow",
+      "Access and setup of Revix AI integration within the repository"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "id": "course-drawmode-for-ai-agents",
+    "toolSlug": "drawmode-for-ai-agents",
+    "title": "Master Drawmode for AI Agents",
+    "objectives": [
+      "Integrate a Drawmode canvas into an existing AI agent workflow.",
+      "Use agent prompts to trigger specific visual drawing actions (e.g., flowchart, diagram).",
+      "Extract structured data (e.g., SVG, JSON) from a finished Drawmode artifact."
+    ],
+    "modules": [
+      {
+        "title": "Canvas Integration Setup",
+        "estMinutes": 15,
+        "steps": [
+          "Initialize the Drawmode object within your agent's execution context.",
+          "Pass the canvas ID to the agent's state management system."
+        ]
+      },
+      {
+        "title": "Prompt-Driven Visualization",
+        "estMinutes": 20,
+        "steps": [
+          "Define a structured prompt instructing the agent to 'Draw a UML sequence diagram for X'.",
+          "Monitor the Drawmode output log for successful element rendering."
+        ]
+      },
+      {
+        "title": "Artifact Extraction and Parsing",
+        "estMinutes": 15,
+        "steps": [
+          "Call the Drawmode export function, requesting SVG format.",
+          "Use a dedicated parser (e.g., Python SVG library) to convert the output to a structured JSON object for downstream processing."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-visual programming",
+      "skill-workflow automation",
+      "skill-llm tools"
+    ],
+    "prerequisites": [
+      "Basic proficiency in the agent framework hosting the workflow (e.g., LangChain, AutoGen).",
+      "Familiarity with structured prompting techniques."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "id": "course-atlas",
+    "toolSlug": "atlas",
+    "title": "Master Atlas",
+    "objectives": [
+      "Integrate Atlas compiler into a sample agent workflow.",
+      "Analyze generated web context for improved AI decision-making.",
+      "Troubleshoot basic Atlas compilation errors."
+    ],
+    "modules": [
+      {
+        "title": "Setting up Atlas Integration",
+        "estMinutes": 15,
+        "steps": [
+          "Install the Atlas SDK via pip in your Python environment.",
+          "Configure your agent script to call `atlas.compile(url)` on a target website."
+        ]
+      },
+      {
+        "title": "Interpreting Context Output",
+        "estMinutes": 20,
+        "steps": [
+          "Run the compilation on a complex, modern webpage (e.g., a SPA).",
+          "Examine the resulting JSON context payload provided by Atlas.",
+          "Map the extracted structural data to your agent's prompt variables."
+        ]
+      },
+      {
+        "title": "Error Handling & Refinement",
+        "estMinutes": 10,
+        "steps": [
+          "Test compilation on a page with JavaScript blocking or dynamic loading issues.",
+          "Use the `--verbose` flag during compilation to identify specific DOM access failures.",
+          "Adjust your agent's initial targeting to simplify the required web scope."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-web context",
+      "skill-compiler",
+      "skill-llm"
+    ],
+    "prerequisites": [
+      "Familiarity with Python environments (virtual environments).",
+      "Basic understanding of how AI agents interact with external APIs."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "id": "course-trnrt",
+    "toolSlug": "trnrt",
+    "title": "Master TrnRT",
+    "objectives": [
+      "Benchmark TrnRT inference throughput on Trainium instances.",
+      "Configure custom quantization profiles for specific LLM models within TrnRT.",
+      "Integrate TrnRT serving endpoint with SageMaker endpoints for production deployment."
+    ],
+    "modules": [
+      {
+        "title": "Baseline Throughput Measurement",
+        "estMinutes": 35,
+        "steps": [
+          "Deploy a standard Llama-2 model using TrnRT on a Trainium instance.",
+          "Execute the built-in TrnRT benchmark utility with a fixed batch size (e.g., 16).",
+          "Log latency and throughput metrics using CloudWatch integration."
+        ]
+      },
+      {
+        "title": "Quantization Profile Tuning",
+        "estMinutes": 50,
+        "steps": [
+          "Modify the model configuration YAML to enable AWQ/GPTQ quantization targeting INT8.",
+          "Re-compile the model artifacts using the TrnRT build pipeline.",
+          "Verify quantized model performance against baseline metrics to assess trade-off."
+        ]
+      },
+      {
+        "title": "SageMaker Endpoint Integration",
+        "estMinutes": 45,
+        "steps": [
+          "Package the optimized TrnRT server artifact for SageMaker deployment.",
+          "Configure the SageMaker endpoint configuration referencing the custom serving script.",
+          "Test endpoint latency via SageMaker SDK/Boto3 with expected low-latency P99 targets."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-llm",
+      "skill-inference",
+      "skill-aws",
+      "skill-trainium",
+      "skill-open-source"
+    ],
+    "prerequisites": [
+      "Familiarity with AWS Trainium/SageMaker ecosystem.",
+      "Proficiency in Python and shell scripting.",
+      "Basic understanding of LLM inference optimization techniques (e.g., quantization)."
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "id": "course-ai-spar",
+    "toolSlug": "ai-spar",
+    "title": "Master AI Spar",
+    "objectives": [
+      "Structure a debate prompt in AI Spar.",
+      "Analyze conflicting AI responses within the tool.",
+      "Synthesize a final, balanced conclusion from the debate."
+    ],
+    "modules": [
+      {
+        "title": "Setting up a Conflict Prompt",
+        "estMinutes": 10,
+        "steps": [
+          "Open AI Spar and select 'Structured Debate'.",
+          "Input a specific, debatable query (e.g., 'Is remote work always better than office work?').",
+          "Assign two distinct AI personas (e.g., 'Pro-Remote Advocate' and 'In-Office Specialist')."
+        ]
+      },
+      {
+        "title": "Reviewing and Evaluating Outputs",
+        "estMinutes": 15,
+        "steps": [
+          "Examine the generated arguments from both personas side-by-side.",
+          "Use the tool's annotation feature to flag logical gaps or unsupported claims in each side.",
+          "Note the core assumptions underpinning each AI's stance."
+        ]
+      },
+      {
+        "title": "Generating a Synthesis",
+        "estMinutes": 10,
+        "steps": [
+          "Initiate the 'Synthesis' function within the debate thread.",
+          "Instruct the tool to find common ground or identify necessary conditions for either view to be valid.",
+          "Export the final, weighted conclusion rather than selecting a winner."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-ai",
+      "skill-debate",
+      "skill-llm",
+      "skill-verification"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-17T18:36:36.510Z"
   }
 ]
