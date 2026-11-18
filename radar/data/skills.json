@@ -234,7 +234,9 @@
       "claktor",
       "coderbaba",
       "revix-ai",
-      "trnrt"
+      "trnrt",
+      "sikemux",
+      "launch-hn-starsling-yc-p25"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -466,7 +468,9 @@
       "course-claktor",
       "course-coderbaba",
       "course-revix-ai",
-      "course-trnrt"
+      "course-trnrt",
+      "course-sikemux",
+      "course-launch-hn-starsling-yc-p25"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1267,7 +1271,13 @@
       "we-got-ai-to-wombo-combo",
       "standard-support",
       "drawmode-for-ai-agents",
-      "atlas"
+      "atlas",
+      "launch-hn-starsling-yc-p25",
+      "system-1-agents",
+      "r3",
+      "free-ai-agent-lab",
+      "video-agent-with-version-control",
+      "shamus-osint-ai-agent"
     ],
     "courses": [
       "course-headless-tools",
@@ -1578,7 +1588,13 @@
       "course-we-got-ai-to-wombo-combo",
       "course-standard-support",
       "course-drawmode-for-ai-agents",
-      "course-atlas"
+      "course-atlas",
+      "course-launch-hn-starsling-yc-p25",
+      "course-system-1-agents",
+      "course-r3",
+      "course-free-ai-agent-lab",
+      "course-video-agent-with-version-control",
+      "course-shamus-osint-ai-agent"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1793,7 +1809,8 @@
       "sugabots",
       "jevcrawl",
       "kryzz-ai",
-      "drawmode-for-ai-agents"
+      "drawmode-for-ai-agents",
+      "launch-hn-starsling-yc-p25"
     ],
     "courses": [
       "course-headless-tools",
@@ -1986,7 +2003,8 @@
       "course-sugabots",
       "course-jevcrawl",
       "course-kryzz-ai",
-      "course-drawmode-for-ai-agents"
+      "course-drawmode-for-ai-agents",
+      "course-launch-hn-starsling-yc-p25"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2199,7 +2217,8 @@
       "stayleet",
       "mellum21",
       "claktor",
-      "coderbaba"
+      "coderbaba",
+      "sikemux"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2218,7 +2237,8 @@
       "course-stayleet",
       "course-mellum21",
       "course-claktor",
-      "course-coderbaba"
+      "course-coderbaba",
+      "course-sikemux"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2519,7 +2539,8 @@
       "ai-agents-built-a-secret-society-inside-the-lab-video",
       "ai-agent-for-animation",
       "capcut-pro-cracked",
-      "hnwatch"
+      "hnwatch",
+      "video-agent-with-version-control"
     ],
     "courses": [
       "course-canvasformusic",
@@ -2530,7 +2551,8 @@
       "course-ai-agents-built-a-secret-society-inside-the-lab-video",
       "course-ai-agent-for-animation",
       "course-capcut-pro-cracked",
-      "course-hnwatch"
+      "course-hnwatch",
+      "course-video-agent-with-version-control"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3730,7 +3752,8 @@
       "claktor",
       "solipsist",
       "we-got-ai-to-wombo-combo",
-      "standard-support"
+      "standard-support",
+      "system-1-agents"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3793,7 +3816,8 @@
       "course-claktor",
       "course-solipsist",
       "course-we-got-ai-to-wombo-combo",
-      "course-standard-support"
+      "course-standard-support",
+      "course-system-1-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4506,7 +4530,8 @@
       "talorys",
       "marketing-agent-for-founders",
       "veduta",
-      "atlas"
+      "atlas",
+      "r3"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -4545,7 +4570,8 @@
       "course-talorys",
       "course-marketing-agent-for-founders",
       "course-veduta",
-      "course-atlas"
+      "course-atlas",
+      "course-r3"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4657,7 +4683,10 @@
       "listodo",
       "we-got-ai-to-wombo-combo",
       "standard-support",
-      "ai-spar"
+      "ai-spar",
+      "sikemux",
+      "system-1-agents",
+      "free-ai-agent-lab"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4676,7 +4705,10 @@
       "course-listodo",
       "course-we-got-ai-to-wombo-combo",
       "course-standard-support",
-      "course-ai-spar"
+      "course-ai-spar",
+      "course-sikemux",
+      "course-system-1-agents",
+      "course-free-ai-agent-lab"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4754,7 +4786,10 @@
       "mellum21",
       "muse-charm",
       "coderbaba",
-      "listodo"
+      "listodo",
+      "free-ai-agent-lab",
+      "video-agent-with-version-control",
+      "shamus-osint-ai-agent"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -4766,7 +4801,10 @@
       "course-mellum21",
       "course-muse-charm",
       "course-coderbaba",
-      "course-listodo"
+      "course-listodo",
+      "course-free-ai-agent-lab",
+      "course-video-agent-with-version-control",
+      "course-shamus-osint-ai-agent"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5675,7 +5713,8 @@
       "agent-history-cli",
       "shellshock",
       "a-youtube-transcript-cli-built-for-humans-and-ai-agents",
-      "claktor"
+      "claktor",
+      "shamus-osint-ai-agent"
     ],
     "courses": [
       "course-devx",
@@ -5703,7 +5742,8 @@
       "course-agent-history-cli",
       "course-shellshock",
       "course-a-youtube-transcript-cli-built-for-humans-and-ai-agents",
-      "course-claktor"
+      "course-claktor",
+      "course-shamus-osint-ai-agent"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6002,7 +6042,8 @@
       "the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "humble-bundle",
       "charter",
-      "benchmark-coding-agents-on-deploying-apps"
+      "benchmark-coding-agents-on-deploying-apps",
+      "r3"
     ],
     "courses": [
       "course-propose-and-dual-control-for-dns-changes",
@@ -6010,7 +6051,8 @@
       "course-the-anatomy-of-harness-engineering-for-ai-coding-agents",
       "course-humble-bundle",
       "course-charter",
-      "course-benchmark-coding-agents-on-deploying-apps"
+      "course-benchmark-coding-agents-on-deploying-apps",
+      "course-r3"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -8304,10 +8346,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "ai-agents-for-osint-sigint"
+      "ai-agents-for-osint-sigint",
+      "shamus-osint-ai-agent"
     ],
     "courses": [
-      "course-ai-agents-for-osint-sigint"
+      "course-ai-agents-for-osint-sigint",
+      "course-shamus-osint-ai-agent"
     ],
     "updatedAt": "2026-08-29T23:35:59.438Z"
   },
@@ -10443,14 +10487,16 @@
       "awesome-rust-migrations",
       "respawn",
       "moching",
-      "tracelanedev"
+      "tracelanedev",
+      "sikemux"
     ],
     "courses": [
       "course-soulauth",
       "course-awesome-rust-migrations",
       "course-respawn",
       "course-moching",
-      "course-tracelanedev"
+      "course-tracelanedev",
+      "course-sikemux"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -15370,10 +15416,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "botbinio"
+      "botbinio",
+      "r3"
     ],
     "courses": [
-      "course-botbinio"
+      "course-botbinio",
+      "course-r3"
     ],
     "updatedAt": "2026-09-10T13:38:44.077Z"
   },
@@ -17086,10 +17134,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "agentsdock-an-ide-designed-for-agentic-ai-research"
+      "agentsdock-an-ide-designed-for-agentic-ai-research",
+      "sikemux"
     ],
     "courses": [
-      "course-agentsdock-an-ide-designed-for-agentic-ai-research"
+      "course-agentsdock-an-ide-designed-for-agentic-ai-research",
+      "course-sikemux"
     ],
     "updatedAt": "2026-09-13T13:49:13.602Z"
   },
@@ -19981,10 +20031,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "agentgit"
+      "agentgit",
+      "video-agent-with-version-control"
     ],
     "courses": [
-      "course-agentgit"
+      "course-agentgit",
+      "course-video-agent-with-version-control"
     ],
     "updatedAt": "2026-09-18T23:34:59.552Z"
   },
@@ -22122,11 +22174,15 @@
     "level": "intermediate",
     "toolsTeaching": [
       "flagshiprouter",
-      "laya-guard"
+      "laya-guard",
+      "system-1-agents",
+      "r3"
     ],
     "courses": [
       "course-flagshiprouter",
-      "course-laya-guard"
+      "course-laya-guard",
+      "course-system-1-agents",
+      "course-r3"
     ],
     "updatedAt": "2026-10-06T15:59:06.042Z"
   },
@@ -23925,11 +23981,26 @@
     "domain": "writing",
     "level": "intermediate",
     "toolsTeaching": [
-      "ai-spar"
+      "ai-spar",
+      "free-ai-agent-lab"
     ],
     "courses": [
-      "course-ai-spar"
+      "course-ai-spar",
+      "course-free-ai-agent-lab"
     ],
     "updatedAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "id": "skill-ci",
+    "name": "ci",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "launch-hn-starsling-yc-p25"
+    ],
+    "courses": [
+      "course-launch-hn-starsling-yc-p25"
+    ],
+    "updatedAt": "2026-11-18T03:08:06.384Z"
   }
 ]

@@ -37597,5 +37597,376 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "id": "course-sikemux",
+    "toolSlug": "sikemux",
+    "title": "Master Sikemux",
+    "objectives": [
+      "Integrate an existing Rust microservice into a Sikemux session.",
+      "Direct an AI coder to perform a specific refactoring task using natural language.",
+      "Monitor and debug AI-generated Rust code within the unified Sikemux environment."
+    ],
+    "modules": [
+      {
+        "title": "Loading a Rust Project",
+        "estMinutes": 10,
+        "steps": [
+          "Open Sikemux and select the 'Rust Project Import' option.",
+          "Navigate to your existing Cargo workspace directory and confirm the import.",
+          "Verify the main function compiles successfully within the embedded IDE view."
+        ]
+      },
+      {
+        "title": "Guided Refactoring with AI",
+        "estMinutes": 15,
+        "steps": [
+          "Select the specific module/function needing change in the editor.",
+          "Prompt the active AI coder: 'Refactor this function to use the `async-std` runtime instead of the blocking sleep.'",
+          "Review the proposed diff in the Sikemux changes panel before accepting the modification."
+        ]
+      },
+      {
+        "title": "Debugging AI Output",
+        "estMinutes": 20,
+        "steps": [
+          "Introduce a deliberate bug (e.g., off-by-one error) into an AI-generated snippet.",
+          "Use the integrated Sikemux debugger to set a breakpoint at the error location.",
+          "Ask the AI coder: 'Why is this breakpoint failing? Analyze the stack trace output in the console tab.' to diagnose the issue."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-rust",
+      "skill-coding",
+      "skill-ai",
+      "skill-development"
+    ],
+    "prerequisites": [
+      "Familiarity with Rust syntax and Cargo.",
+      "Basic experience with IDE-based debugging (e.g., VS Code/Rust Analyzer).",
+      "A working Rust microservice repository."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T03:08:06.384Z"
+  },
+  {
+    "id": "course-launch-hn-starsling-yc-p25",
+    "toolSlug": "launch-hn-starsling-yc-p25",
+    "title": "Master Launch HN: StarSling (YC P25)",
+    "objectives": [
+      "Configure a new StarSling workflow for an existing agent repository.",
+      "Analyze generated self-improvement metrics within the StarSling dashboard.",
+      "Trigger a targeted code refactoring based on AI-suggested optimizations."
+    ],
+    "modules": [
+      {
+        "title": "Initial Workflow Setup",
+        "estMinutes": 15,
+        "steps": [
+          "Authenticate the StarSling CLI with your Git provider via `star-cli auth --provider github`.",
+          "Run `star-cli init --repo <repo-url>` to generate the baseline workflow YAML."
+        ]
+      },
+      {
+        "title": "Monitoring and Analysis",
+        "estMinutes": 20,
+        "steps": [
+          "Push the initialized workflow and observe the first CI run in the repository.",
+          "Navigate to the StarSling UI and check the 'Efficiency Delta' against the previous commit baseline."
+        ]
+      },
+      {
+        "title": "Optimization Execution",
+        "estMinutes": 10,
+        "steps": [
+          "Identify a high-priority suggestion (e.g., redundant function removal) in the StarSling report.",
+          "Execute the suggested change via `star-cli apply --suggestion-id <ID>` and review the resulting PR."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ci",
+      "skill-ai agents",
+      "skill-code"
+    ],
+    "prerequisites": [
+      "Familiarity with agent-volume code repositories (e.g., Python/JS agents).",
+      "Basic proficiency in YAML configuration.",
+      "Access to a GitHub/GitLab repository."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T03:08:06.384Z"
+  },
+  {
+    "id": "course-system-1-agents",
+    "toolSlug": "system-1-agents",
+    "title": "Master System 1 Agents",
+    "objectives": [
+      "Initialize a local System 1 Agent environment.",
+      "Configure a specific retrieval mechanism (e.g., local vector store).",
+      "Execute a multi-step task using the agent's planning loop."
+    ],
+    "modules": [
+      {
+        "title": "Environment Setup and Initialization",
+        "estMinutes": 15,
+        "steps": [
+          "Install the System 1 CLI/SDK dependency for your OS.",
+          "Run `s1 init --config /path/to/local.yaml` to create the workspace.",
+          "Verify environment readiness with `s1 status`."
+        ]
+      },
+      {
+        "title": "Local Knowledge Integration",
+        "estMinutes": 20,
+        "steps": [
+          "Index a local document set using `s1 ingest --source ./docs --type knowledge`.",
+          "Test retrieval capability with `s1 query --kb-id knowledge --prompt 'X'`. ",
+          "Confirm retrieval latency is below 50ms locally."
+        ]
+      },
+      {
+        "title": "Task Execution and Validation",
+        "estMinutes": 25,
+        "steps": [
+          "Define a complex workflow file: `s1 run --task-def task_research.json`.",
+          "Monitor execution using `s1 log --task-id XYZ` to track planning steps.",
+          "Validate output structure using `s1 output --task-id XYZ --validate schema.json`."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-local",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Familiarity with local containerization (e.g., Docker/Podman).",
+      "Basic proficiency in YAML/JSON configuration files.",
+      "Intermediate understanding of basic LLM agent concepts (e.g., ReAct)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T03:08:06.384Z"
+  },
+  {
+    "id": "course-r3",
+    "toolSlug": "r3",
+    "title": "Master R3",
+    "objectives": [
+      "Locate and load a saved AI agent artifact within R3.",
+      "Execute a targeted local review command on the loaded artifact.",
+      "Export specific analysis metrics from the R3 session."
+    ],
+    "modules": [
+      {
+        "title": "Loading an Artifact",
+        "estMinutes": 10,
+        "steps": [
+          "Open R3 and navigate to File > Import Artifact.",
+          "Select a `.r3a` file from your local project directory.",
+          "Verify the artifact structure appears in the R3 sidebar."
+        ]
+      },
+      {
+        "title": "Running a Local Review",
+        "estMinutes": 15,
+        "steps": [
+          "Select the 'Code_Trace' tab within the loaded artifact.",
+          "Execute the command: `r3 review --trace <agent_name>` in the terminal.",
+          "Observe the real-time dependency graph visualization in the main pane."
+        ]
+      },
+      {
+        "title": "Exporting Metrics",
+        "estMinutes": 10,
+        "steps": [
+          "Open the 'Summary' view for the artifact.",
+          "Click the 'Export Metrics' button in the toolbar.",
+          "Save the resulting `review_summary.json` to a designated output folder."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-local",
+      "skill-artifacts",
+      "skill-devops"
+    ],
+    "prerequisites": [
+      "Basic familiarity with command-line operations.",
+      "An existing, saved AI agent artifact (e.g., a `.r3a` file)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T03:08:06.384Z"
+  },
+  {
+    "id": "course-free-ai-agent-lab",
+    "toolSlug": "free-ai-agent-lab",
+    "title": "Master Free AI Agent Lab",
+    "objectives": [
+      "Set up two distinct persona profiles in the lab.",
+      "Configure a specific debate prompt and debate rules.",
+      "Analyze the output transcript for argumentative strengths."
+    ],
+    "modules": [
+      {
+        "title": "Persona Definition and Setup",
+        "estMinutes": 10,
+        "steps": [
+          "Access the Free AI Agent Lab interface and locate the 'Agent Profile' editor.",
+          "Define Agent A with a 'Skeptical Economist' persona and Agent B with a 'Progressive Futurist' persona.",
+          "Save both profiles under unique names (e.g., 'Eco_Skeptic', 'Futurist_Pro')."
+        ]
+      },
+      {
+        "title": "Debate Configuration",
+        "estMinutes": 8,
+        "steps": [
+          "Select 'Start Debate' and input the prompt: 'Should all global energy transition solely to nuclear power by 2040?'",
+          "Set the debate length to 5 rounds and enable 'Rebuttal Mode'.",
+          "Initiate the simulation and confirm the running status on the dashboard."
+        ]
+      },
+      {
+        "title": "Output Analysis",
+        "estMinutes": 7,
+        "steps": [
+          "Access the generated transcript and scroll to the final exchange.",
+          "Identify the strongest supporting data point from Agent B's final argument.",
+          "Export the transcript as a TXT file for offline comparison against initial persona definitions."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai",
+      "skill-agent",
+      "skill-debate"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T03:08:06.384Z"
+  },
+  {
+    "id": "course-video-agent-with-version-control",
+    "toolSlug": "video-agent-with-version-control",
+    "title": "Master Video Agent with Version Control",
+    "objectives": [
+      "Integrate Git hooks into the video agent workflow.",
+      "Implement staged version commits for rendered video outputs.",
+      "Use branching to test agent configurations without affecting main production builds."
+    ],
+    "modules": [
+      {
+        "title": "Configuring Pre-Render Hooks",
+        "estMinutes": 15,
+        "steps": [
+          "Locate the agent's configuration file (e.g., 'agent.yaml').",
+          "Define a pre-commit hook script that verifies output directories exist.",
+          "Register the script within the agent's environment settings."
+        ]
+      },
+      {
+        "title": "Staging and Committing Video Assets",
+        "estMinutes": 20,
+        "steps": [
+          "Run the agent, targeting a specific output run ID.",
+          "Execute 'git add <output_directory>/run_ID_*.mp4' immediately post-render.",
+          "Commit using a template message: 'V-AGENT: Stable render for Run <ID>'."
+        ]
+      },
+      {
+        "title": "Branching for Agent Experimentation",
+        "estMinutes": 15,
+        "steps": [
+          "Create a feature branch: 'git checkout -b agent-test-new-model'.",
+          "Configure the agent environment variables specific to this branch.",
+          "Merge back to 'main' only after successful validation in the test branch."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-video",
+      "skill-agent",
+      "skill-version control"
+    ],
+    "prerequisites": [
+      "Familiarity with Git commands (add, commit, branch).",
+      "Basic understanding of the Video Agent's execution lifecycle."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T03:08:06.384Z"
+  },
+  {
+    "id": "course-shamus-osint-ai-agent",
+    "toolSlug": "shamus-osint-ai-agent",
+    "title": "Master shamus-osint-ai-agent",
+    "objectives": [
+      "Automate OSINT workflow using Shamus AI Agent.",
+      "Parse initial input to trigger correct tool selection.",
+      "Structure case files automatically for future analysis."
+    ],
+    "modules": [
+      {
+        "title": "Initial Case Setup and Input Parsing",
+        "estMinutes": 15,
+        "steps": [
+          "Run `shamus agent init --target <target_identifier>`.",
+          "Verify the agent's parsed intent against the required OSINT domain (e.g., social media, public records).",
+          "Confirm automatic case file directory creation."
+        ]
+      },
+      {
+        "title": "Tool Selection and Execution",
+        "estMinutes": 20,
+        "steps": [
+          "Execute the agent with a query: `shamus agent run --query \"[specific data point]\"`.",
+          "Inspect the output to confirm the agent selected the appropriate underlying tool (e.g., maltego integration, WHOIS lookup).",
+          "Review the intermediate log file for tool execution success/failure."
+        ]
+      },
+      {
+        "title": "Case File Structuring and Review",
+        "estMinutes": 15,
+        "steps": [
+          "Run `shamus agent finalize --case <case_id>`.",
+          "Examine the generated case folder structure (e.g., reports/, artifacts/, summary.md).",
+          "Use `shamus agent report --case <case_id>` to generate the final structured summary."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-osint",
+      "skill-cli",
+      "skill-agent"
+    ],
+    "prerequisites": [
+      "Basic proficiency in Linux/CLI.",
+      "Installation and basic configuration of `shamus-osint-ai-agent`.",
+      "Familiarity with the specific OSINT data sources the agent integrates (e.g., Google Dorking principles)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T03:08:06.384Z"
   }
 ]

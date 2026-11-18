@@ -13897,5 +13897,166 @@
       "verification"
     ],
     "discoveredAt": "2026-11-17T18:36:36.510Z"
+  },
+  {
+    "slug": "sikemux",
+    "name": "Sikemux",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "freemium",
+    "pricing": "Free tier available",
+    "level": "intermediate",
+    "blurb": "Sikemux provides a team of AI coders in a single window using Rust.",
+    "audience": "Developers",
+    "dev": "MIT",
+    "year": 2026,
+    "website": "https://sikemux.com/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "rust",
+      "coding",
+      "ai",
+      "development"
+    ],
+    "discoveredAt": "2026-11-18T03:08:06.384Z"
+  },
+  {
+    "slug": "launch-hn-starsling-yc-p25",
+    "name": "Launch HN: StarSling (YC P25)",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free to start",
+    "level": "intermediate",
+    "blurb": "Self-improving CI for agent-volume code repositories.",
+    "audience": "Developers using AI agents",
+    "dev": "StarSling",
+    "year": 2026,
+    "website": "https://starsling.dev",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ci",
+      "ai agents",
+      "code",
+      "automation"
+    ],
+    "discoveredAt": "2026-11-18T03:08:06.384Z"
+  },
+  {
+    "slug": "system-1-agents",
+    "name": "System 1 Agents",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "A method for local, reliable, and fast agentic AI implementation.",
+    "audience": "Developers",
+    "dev": "eltzanis",
+    "year": 2026,
+    "website": "https://github.com/eltzanis/SystemOneAgents",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "agents",
+      "local",
+      "ai",
+      "automation"
+    ],
+    "discoveredAt": "2026-11-18T03:08:06.384Z"
+  },
+  {
+    "slug": "r3",
+    "name": "R3",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free to use",
+    "level": "intermediate",
+    "blurb": "Review AI agent artifacts locally with R3.",
+    "audience": "AI developers",
+    "dev": "hyperlogue",
+    "year": 2026,
+    "website": "https://r3.hyperlogue.tech/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agent",
+      "local",
+      "artifacts",
+      "devops"
+    ],
+    "discoveredAt": "2026-11-18T03:08:06.384Z"
+  },
+  {
+    "slug": "free-ai-agent-lab",
+    "name": "Free AI Agent Lab",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Free to use",
+    "level": "intermediate",
+    "blurb": "Create and run debates between two AI agents in a free lab environment.",
+    "audience": "AI enthusiasts and developers",
+    "dev": "sinapsdata",
+    "year": 2026,
+    "website": "https://studio.sinapsdata.com.br",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai",
+      "agent",
+      "debate",
+      "automation"
+    ],
+    "discoveredAt": "2026-11-18T03:08:06.384Z"
+  },
+  {
+    "slug": "video-agent-with-version-control",
+    "name": "Video Agent with Version Control",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free tier available",
+    "level": "intermediate",
+    "blurb": "A video agent solution that integrates version control for enhanced workflow management.",
+    "audience": "Content creators and video production teams",
+    "dev": "adalagent.ai",
+    "year": 2026,
+    "website": "https://adalagent.ai",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "video",
+      "agent",
+      "version control",
+      "automation"
+    ],
+    "discoveredAt": "2026-11-18T03:08:06.384Z"
+  },
+  {
+    "slug": "shamus-osint-ai-agent",
+    "name": "shamus-osint-ai-agent",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "CLI AI agent for OSINT that automates tool selection and case file creation.",
+    "audience": "OSINT investigators",
+    "dev": "shamus",
+    "year": 2026,
+    "website": "https://awesomeosint.tools/shamus/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "osint",
+      "cli",
+      "agent",
+      "automation"
+    ],
+    "discoveredAt": "2026-11-18T03:08:06.384Z"
   }
 ]
