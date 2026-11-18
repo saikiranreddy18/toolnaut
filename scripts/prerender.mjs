@@ -58,6 +58,7 @@ const ROUTES = [
   '/tools/data',
   '/tools/automation',
   '/tools/learning',
+  '/mcp-servers',
   '/vs/theres-an-ai-for-that',
   '/vs/futurepedia',
 ]

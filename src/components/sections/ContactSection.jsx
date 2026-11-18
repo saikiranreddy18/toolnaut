@@ -46,6 +46,7 @@ const COLUMNS = [
       { label: 'How we choose', to: '/methodology' },
       { label: "What's new", to: '/changelog' },
       { label: 'Developer API', to: '/developers' },
+      { label: 'MCP servers', to: '/mcp-servers' },
       { label: 'Open the app', to: '/app/stack' },
     ],
   },
