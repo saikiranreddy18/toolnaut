@@ -14351,3 +14351,96 @@ feature-run commit.
 No new OPEN entry logged this pass — a real bug fixed is this run's output
 instead, per the routine's own "you may also make one small real
 improvement" allowance.
+
+---
+
+### Research check 2026-11-18 03:03 UTC — seventy-sixth+ pass; filed a recurrence of the already-tracked Release-workflow orphaned-tag bug on issue #74; re-verified the stalest OPEN entry; three fresh angles checked, all already shipped
+
+Off-schedule research run (UTC hour 03, not one of the usual :03 slots —
+still a research hour under the hour-18-is-feature rule). `npm ci` clean
+(201 packages, same 13 pre-existing audit warnings as every prior pass).
+`npm run radar:health` → `STATUS: OK` (2 runs in the 26h window, last run
+8.5h ago published 5, feed at 582 tools) — nothing to fix. `list_issues`
+for `agent-fixable`: zero open.
+
+**CI red on master, but not the kind this file's checklist means — filed,
+not fixed:** `list_workflow_runs` showed `ci.yml` green at HEAD (`0919533`,
+today's 00:12 UTC FAQ-schema fix), but `release.yml` had failed twice in a
+row (runs 44205860322 and 44177037960) with `npm error fatal: tag
+'v0.72.37' already exists`. Pulled the failing job's logs directly
+(`get_job_logs`) rather than trust the one-line conclusion: `package.json`
+on `master` is still `0.72.36`, and `v0.72.37`'s commit (`f5ac6cd`, dated
+2026-11-14) is confirmed not an ancestor of `origin/master`
+(`git merge-base --is-ancestor`) with no GitHub Release attached (404 on
+`get_release_by_tag`) — the exact orphaned-tag shape issues #52 and #74
+already named for `v0.72.6` and `v0.73.0`. This will fail identically on
+every future push until the stale ref is cleared; attempted
+`git push origin --delete v0.72.37` myself and it was correctly blocked by
+this session's destructive-git-operation classifier (deleting a pushed tag
+needs a human, exactly as issue #74 already documented for the `v0.73.0`
+case). Commented the new evidence onto #74 rather than filing a third
+duplicate issue. CLAUDE.md's own `npm test`/`npm run build`/`npm run smoke`
+gate is unaffected — this is `release.yml`, not `ci.yml` — so no urgent
+CI-red work for this pass under the routine's actual definition of green.
+
+**Re-verified the stalest genuinely-untouched OPEN entry:** "Popularity
+signal discarded before it reaches a record" (line 2378, Found implicitly
+2026-09-28 per the 2026-11-16 21:03 UTC pass's own staleness sort) had no
+`Re-verified`/`DEEPENED` marker anywhere in the file — the single
+longest-untouched-since-creation OPEN entry once "Curated tool bundles"
+(re-verified 2026-11-16) and every 2026-11-14+ entry are excluded. Re-ran
+every cited claim against current `master`: `radar/sources/github.js:9`
+still `sort=stars&order=desc`, `:25` still stores `stargazers_count` into
+`raw.stars`; `radar/sources/hackernews.js:27` still stores `hit.points`
+into `raw.points`; `radar/enrich.js` still reads only `candidate.raw?.owner`
+in both builders, no `stars`/`points` anywhere in `enrich.js`, `filter.js`,
+`dedup.js`, or `schema.js`; `schema.js:49,52`'s `HASHED_FIELDS`/
+`REQUIRED_TOOL_FIELDS` arrays are unchanged and still have no `popularity`
+entry; `sync-to-app.js:12-16`'s 16-name `FIELDS` allowlist is byte-for-byte
+the same, still no `popularity`; `sortResults.js` still exports only
+`compareByNewest`/`compareByName`, and `Discover.jsx`'s three sort pills
+(`:29-31`) are still `match`/`newest`/`name`. Zero drift anywhere — the
+entry's full plan (one schema field, one `enrich.js` line, one allowlist
+entry, one new comparator, one Discover pill, build size S) stands exactly
+as scoped, still waiting for a feature run.
+
+**Three fresh angles checked, all three already shipped — confirmed by
+reading code, not assumed:**
+- *Command palette / Cmd+K quick search*, a pattern common across modern
+  SaaS and a couple of newer AI directories. `grep` found
+  `src/components/app/CommandPalette.jsx`, wired into `AppShell.jsx:25,318`
+  with a visible `⌘K` hint at `:216`, and its own ship is already recorded
+  in `changelogData.js:72`. Already live, not a gap.
+- *Breadcrumb structured data on tool pages*, prompted by a general SEO
+  pattern check rather than a specific competitor. `src/utils/toolSeo.js:112`
+  already emits a `BreadcrumbList` JSON-LD block, and `ToolPublic.jsx:58`
+  renders a matching `<nav aria-label="Breadcrumb">`. Already live.
+- *A stack cost calculator* (totals a user's tool list into a real monthly
+  spend figure) — a `WebSearch` for 2026 AI-tool-cost features surfaced
+  several low-authority lead-magnet pages (theaimap.pages.dev, aiagentrank.io)
+  doing this as a pre-sales-audit hook, none at a tier this file would
+  normally cite, so checked Toolnaut's own code before dismissing it rather
+  than after: `src/utils/stackCost.js` and `src/components/app/StackCost.jsx`
+  already exist, with `test/stack-cost.test.mjs` covering exactly the
+  per-price-type counting and "nothing to pay for"/"says so rather than
+  implying it is free" cases a calculator like this needs. This is distinct
+  from the already-shipped `stackValue.js` (time-saved-in-dollars, a
+  different number) — both halves of "what does my stack cost and what is
+  it worth" are already built. Not a gap.
+
+**Small-bug check:** `src/utils/changelogData.js`'s newest entry is still
+`2026-11-17` (the developer-API ship) — correctly unstale, since today's
+only shipped change so far (the FAQ-schema fix, `0919533`) is a bug fix to
+existing copy, not a new backlog-gap SHIPPED, and the file's own header
+comment scopes entries to the latter. No staleness bug this pass. Also
+re-checked `public/robots.txt`/`public/llms.txt` against the still-unlogged
+GEO/llms.txt lead the 2026-11-17 00:03 UTC pass already set aside —
+confirms Toolnaut already explicitly allows `GPTBot`/`ClaudeBot`/
+`PerplexityBot`/etc. and already serves `/llms.txt`, consistent with that
+pass's conclusion, not new ground.
+
+Ran `npm test` (322/322, clean). Did not run `npm run build`/`npm run
+smoke` — docs-only change, no shipping this pass (the Release-workflow
+issue comment and the urgent-work check above touched no files under
+`src/` or `radar/`). Appending this check rather than inventing a 25th
+entry.
