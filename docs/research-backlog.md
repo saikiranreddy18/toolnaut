@@ -14498,3 +14498,120 @@ URL>" bar for a primary source. Not logged.
 Not re-verifying an OPEN entry this pass — the hour went to the structural
 fix above instead, which is worth more than another re-confirmation of
 already-deep ground.
+
+---
+
+### MCP servers are a distinct, fast-growing 2026 tool category with zero surface on Toolnaut, though the catalog data for one already exists
+
+- **Status:** OPEN
+- **Seen in:** studied fresh this run (new problem area — grepped this whole
+  file case-insensitively for `MCP server|mcp.so|glama|pulsemcp|smithery`
+  before starting; zero prior entries on the topic). `tooldirectory.ai` — an
+  already-studied direct competitor in this file (its FAQPage/JSON-LD
+  practices and its own public API are both cited in other entries above) —
+  ships a dedicated category page at `tooldirectory.ai/top-ai-categories/
+  mcp-servers`, sitting in its normal "AI categories" nav alongside its other
+  categories, confirmed via a fresh fetch of its own 2026 blog post
+  announcing it ("state of MCP servers 2026"). The wider MCP-directory
+  ecosystem (PulseMCP, Glama, mcp.so, Smithery, the official MCP Registry —
+  all 2026-vintage per fresh search) treats MCP servers as a first-class,
+  separately browsable thing, not a tag buried inside a general tool list.
+  This is the closest, most comparable case in this file: a general AI-tool
+  directory in Toolnaut's own competitive set adding one dedicated category
+  for this, not a specialist-only MCP marketplace Toolnaut has no reason to
+  mimic wholesale.
+- **Gap:** confirmed Toolnaut's radar has been silently collecting MCP
+  servers for a while — `radar/data/known.json` has dozens of `s:*-mcp*`
+  slugs — but nothing in the product ever surfaces them as a group. Pulled
+  the live `public/tools.json` and checked every tool's `tags` array
+  directly: 39 of 589 published tools already carry an `mcp`/`mcp server`
+  tag (e.g. `CoolPlugz`, `AgentSeed`, `Rafter`, `OpenContext`, `Skillfed`),
+  scattered across `code` (`AI Coding & Development`) and `automation`
+  (`AI Agents & Automation`) — two different domains and `sourceCategory`
+  values, confirming this is a cross-cutting attribute, not something either
+  the existing 6-domain `CATEGORY_META` or the 26-entry `SOURCE_CATEGORIES`
+  list (`src/utils/toolsCatalog.js:9-45`) was ever meant to express; "MCP" is
+  not one of the 26 ids there, so the already-OPEN "26 real source
+  categories" gap above would not surface this even once fully built. The
+  data already reaches the client and is already searchable — `src/utils/
+  search.js`'s `matchesQuery()` joins `tool.tags` into its haystack
+  (`search.js:11-13`), so typing "mcp" into `Discover.jsx`'s or
+  `SearchTools.jsx`'s search box already returns all 39 today — but nothing
+  else exists: no filter chip (`Discover.jsx`'s chips are `cat`/`price`/
+  `level` only, `Discover.jsx:63-66`, no `tag` param anywhere), no public
+  landing page, no sitemap entry, no mention in `CATEGORY_META`,
+  `SOURCE_CATEGORIES`, `ContactSection.jsx`'s footer columns, or
+  `scripts/prerender.mjs`'s `ROUTES` (`:42-63`, confirmed no `mcp` string
+  anywhere in that array). A visitor who doesn't already know Toolnaut has
+  MCP-tagged tools, or doesn't know to type that exact acronym, has no way to
+  discover this slice of the catalog exists, and Google has nothing to crawl
+  for "AI tools with MCP support" / "best MCP servers" queries at all.
+- **Why it matters:** MCP (Anthropic's Model Context Protocol) went from a
+  niche spec to the thing every coding-agent and LLMOps tool in 2026 either
+  ships a server for or integrates against — it is now the single most
+  tag-concentrated cross-cutting attribute in the catalog after price/level,
+  and a validated, high-intent long-tail query ("MCP server directory,"
+  "best MCP servers 2026") with dedicated competitor pages already ranking
+  for it. Toolnaut is uniquely positioned to do this better than a
+  single-purpose MCP directory: it already role-aware-contextualizes a tool
+  ("this MCP server is for a developer automating code review," not just
+  "here is an MCP server"), which none of PulseMCP/Glama/mcp.so's generic
+  listings do. This is free-to-claim SEO real estate the catalog is already
+  sitting on, the same "data exists, nobody was ever told" shape as the
+  already-shipped developer-API gap (`b8f25d4`) above, not a new-data
+  problem.
+- **Smallest useful version (what to actually build):**
+  - New pure predicate in `src/utils/toolsCatalog.js` (or a small new
+    `src/utils/mcpTools.js`, matching `shareStack.js`'s precedent of a tiny
+    dedicated util over growing an existing file): `isMcpTool(tool)` —
+    `tool.tags.some(t => /\bmcp\b/i.test(t))` — reusing the exact tag data
+    radar already writes, zero radar/enrichment changes, zero schema change.
+  - New public, session-free page `src/pages/McpServers.jsx` at route
+    `/mcp-servers` (flat, not nested under `/tools/:domain` — MCP tools span
+    multiple domains, so forcing this under the domain-page hierarchy would
+    either duplicate cards or misrepresent the grouping). Reuses
+    `CategoryLanding.jsx`'s exact shell/card/`useHead()` pattern
+    (`CategoryLanding.jsx:1-40` as the template), filtering `TOOLS` with
+    `isMcpTool` instead of `t.category === domain`, titled "AI tools with
+    MCP servers (39 compared) — Toolnaut," one honest explainer line on what
+    MCP is for a reader who has never heard the term (matching this file's
+    own no-invented-facts, no-jargon-without-explanation discipline).
+    Capped/paginated with `Discover.jsx`'s existing `PAGE_SIZE = 24` +
+    "LOAD MORE" pattern from the start, not retrofitted later — the "26
+    categories" gap above already documents the cost of shipping a
+    landing page without pagination on day one.
+  - One link into it: a new "MCP servers" entry in `ContactSection.jsx`'s
+    `Resources` column (`ContactSection.jsx:43-50`, next to the already-
+    shipped `Developer API` link at the same slot pattern) and, if a
+    `CATEGORY_META`/`SOURCE_CATEGORIES`-adjacent nav exists on `Discover.jsx`
+    or `CategoryLanding.jsx`, a cross-link from the `code` and `automation`
+    domain pages (the two domains the 39 tools actually live in) pointing at
+    `/mcp-servers`, the same "hub" pattern the "26 categories" entry above
+    proposes for its own subcategory chips.
+  - Add `/mcp-servers` to `public/sitemap.xml` (one line, same
+    `changefreq`/`priority` as the existing `/tools/*` entries) and to
+    `scripts/prerender.mjs`'s `ROUTES` array (`:42-63`) so it's actually
+    crawlable, not a client-only shell — and one entry in `scripts/smoke.mjs`'s
+    `routes` array (`smoke.mjs:32`) for the console-error check.
+  - **What this would NOT include** (kept out to bound the diff): no new
+    `SOURCE_CATEGORIES`/`CATEGORY_META` entry and no radar/enrichment change
+    — MCP stays a tag-derived, cross-cutting view, not a new taxonomy level,
+    since the 39 tools already have real domains that would become
+    ambiguous if MCP became a seventh "domain"; no filter chip added to
+    `Discover.jsx`'s in-app filter bar in v1 — the signed-in app already
+    reaches these tools via the existing search box (`matchesQuery()` already
+    covers tags), so the public SEO landing page is the actual missing piece,
+    not in-app filtering; no MCP-specific badge on `ToolCard`/`ToolDetail`
+    (a visual-identity change, separately scoped if ever wanted); no attempt
+    to track which of the 39 are MCP *clients* vs. *servers* vs. tools that
+    merely mention MCP in passing — the existing tag data doesn't distinguish
+    these and inventing that distinction without real data would violate
+    this file's own no-invented-facts rule; no submission to any third-party
+    MCP registry/directory (that's an account/listing task for a human, same
+    exclusion the browser-extension gap above already used for the Chrome
+    Web Store).
+- **Build size:** S — one small pure util reusing existing tag data, one new
+  page closely mirroring an existing page's shell, one sitemap line, one
+  prerender route, one smoke route, one footer link. No backend, no radar
+  change, no schema change, no new dependency.
+- **Found:** 2026-11-18 12:03 UTC
