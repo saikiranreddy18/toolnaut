@@ -14444,3 +14444,57 @@ smoke` — docs-only change, no shipping this pass (the Release-workflow
 issue comment and the urgent-work check above touched no files under
 `src/` or `radar/`). Appending this check rather than inventing a 25th
 entry.
+
+---
+
+### Research check 2026-11-18 09:03 UTC — seventy-seventh+ pass; closed the changelog-staleness bug at the root instead of fixing the eighth recurrence by hand
+
+`npm ci` clean (201 packages). `list_workflow_runs` on `master`: `CI` and
+`Release` both `success` at the latest push (`53f954b`, the 03:03 UTC
+research check). `npm run radar:health` → `STATUS: OK` (2 runs in the 26h
+window, last run 5.9h ago published 7, feed at 589 tools). `list_issues`
+for `agent-fixable`: zero open. No urgent work. (`list_pull_requests` still
+shows ~30 open `bot/claude/*` PRs dating back to August — the same stuck
+queue issue #67 already tracks; this routine ships straight to `master`
+per its own protocol, so that queue is dead weight from an earlier
+PR-based phase, not something this pass touched.)
+
+**Structural fix, not another hand patch:** `changelogData.js`'s own
+header comment has said since it was written to add an entry "whenever
+the daily feature run marks a backlog gap SHIPPED," and seven separate
+research passes (21:04 UTC 2026-09-05 through 21:04 UTC 2026-11-17, most
+recently last night) have each independently caught the feature run
+forgetting it and patched the missing entry by hand. That is a process
+hole a comment cannot close — nothing actually checks it before `npm test`
+goes green. Wrote `test/changelog-freshness.test.mjs`: it reads the newest
+`## YYYY-MM-DD` section of `DEVLOG.md`, and if that section cites a real
+shipped commit (a backtick-wrapped hex sha — verified empirically true for
+30 of the repo's 31 DEVLOG days, the one exception being the one explicit
+"nothing new landed" day, 2026-09-26), asserts `changelogData.js` has a
+`date:` entry matching that same day. Deliberately scoped to only the
+*newest* DEVLOG day, not full history — 11 older DEVLOG ship-days predate
+any changelog entry at all (bulk-backfilling plausible-sounding copy for
+old commits would violate the file's own "pulled from that day's real
+commit, not invented" rule) — so the test passes cleanly today and starts
+protecting only from this point forward, exactly the gap the 18:03 UTC
+feature run needs covered before it ships tonight. Confirmed today's
+`changelogData.js` is still correctly dated `2026-11-17` (last night's
+fix held), so the new test is green, not merely silent.
+
+Verified with all three gates: `npm test` (323/323 — 322 prior + this one),
+`npm run build` clean, `npm run smoke` (26/26 routes, 0 console errors) —
+pushed straight to `master`.
+
+**One fresh competitor lead checked, doesn't survive:** searched for
+recent There's An AI For That / Futurepedia feature announcements. TAAFT's
+only concrete 2026 item found was a blockchain-app-building feature in a
+*different* product (Biela) it covers, not a directory feature of its own.
+Futurepedia's newsletter archive names an "announcement" with no visible
+content, and the only specifics ("near-instant indexing," "dedicated
+categories for new AI types") come from an unaffiliated SEO-review site,
+not Futurepedia's own blog — below this file's "Seen in: <competitor, with
+URL>" bar for a primary source. Not logged.
+
+Not re-verifying an OPEN entry this pass — the hour went to the structural
+fix above instead, which is worth more than another re-confirmation of
+already-deep ground.
