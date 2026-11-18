@@ -10028,6 +10028,24 @@ entry's accuracy rather than adding ground.
   depends on already exist — this is the single cheapest OPEN entry in the
   file to ship next.
 - **Found:** 2026-10-03 21:11 UTC
+- **Re-verified 2026-11-18 15:03 UTC:** stalest-by-last-check OPEN entry in
+  the file (43 days since the 10-06 deepening — staler than every other
+  OPEN entry's own last-check timestamp, checked against all of them this
+  run). `src/utils/suggestTool.js` still exports only `buildSuggestToolUrl`
+  and `buildReportIssueUrl` — no third `buildClaimListingUrl` export, gap
+  still fully unbuilt. `ToolPublic.jsx:92-99`'s "Something wrong here?" link
+  is byte-for-byte unchanged at the same lines. One drift: the sibling link
+  lives at `src/pages/app/ToolDetail.jsx` (always under `app/`, not a bare
+  `src/pages/ToolDetail.jsx`) — this entry's own `:167-174` line reference
+  has drifted further since, now `:250-256` (the file grew ~83 lines in the
+  interim), same link markup, same classes, same `target`/`rel`, substance
+  of the plan unchanged. Re-grepped `claim` across `src/` and `radar/`:
+  still only `FounderRibbon.jsx`/`FounderOffer.jsx`'s unrelated "Claim
+  founder price" copy and `toolResources.js`'s `tool_claims` table
+  (vendor-sourced integration facts, not identity) — no maker-facing claim
+  path exists anywhere yet. Nothing drifted in substance — still Build size
+  S, still the cheapest unbuilt entry in this file, still waiting for a
+  feature run.
 
 ---
 
@@ -14615,3 +14633,47 @@ already-deep ground.
   prerender route, one smoke route, one footer link. No backend, no radar
   change, no schema change, no new dependency.
 - **Found:** 2026-11-18 12:03 UTC
+
+---
+
+### Research check 2026-11-18 15:03 UTC — seventy-ninth+ pass; re-verified the stalest OPEN entry (vendor-claim path, now 43 days), one fresh lead checked, doesn't survive
+
+`npm ci` clean (201 packages). `list_workflow_runs` on `master`: `Daily
+report`, `Release` and `CI` all `success` at the latest push (`7f3ac6f`, the
+12:03 UTC MCP-servers gap). `npm run radar:health` → `STATUS: OK` (2 runs in
+the 26h window, last run 11.9h ago published 7, feed at 589 tools).
+`list_issues` for `agent-fixable`: zero open. No urgent work.
+
+**Re-verified the stalest-by-last-check OPEN entry:** scanned every OPEN
+entry's own dated markers (`Found:`/`Re-verified:`/`DEEPENED`) across the
+file. "Vendor/maker claim-listing path" (line 9944, DEEPENED 2026-10-06
+00:10 UTC) was the single stalest at 43 days — ahead of "Tool graveyard"
+(10-07, 42 days), "No public email capture" (10-07, 42 days, never
+touched since its own `Found:`) and "Weekly aggregate benchmark" (10-07,
+42 days); every 2026-10-09-and-later entry and every 2026-11-14+ entry are
+fresher and excluded. Re-verified it in full against current `master` (see
+the new note added directly to the entry): `suggestTool.js` still has no
+third export, `ToolPublic.jsx`'s correction link is byte-identical, and the
+one real drift found — the sibling link's actual home is
+`src/pages/app/ToolDetail.jsx`, now at `:250-256` instead of the entry's
+stale `:167-174` — doesn't change the plan, only its line pointer. Still
+Build size S, still unbuilt, still the cheapest OPEN entry in the file.
+
+**One fresh lead checked, doesn't survive:** `WebSearch` for 2026
+AI-directory features around comparison/export/API access. Every result
+was a directory's own self-description (a GraphQL API here, a CSV export
+of a curated list there, one claiming automatic SOC2/GDPR/ISO-badge
+detection), none from an independent report — the search itself flagged
+this as marketing claims, not verified industry reporting, below this
+file's own "Seen in: <competitor, with URL>, primary source" bar used to
+reject thin leads throughout (most recently the TAAFT/Futurepedia check at
+09:03 UTC today). Checked the one piece worth confirming against our own
+code regardless: Toolnaut's already-shipped "Download my data" export
+(`c4a24deb`) is JSON, not CSV — a CSV variant is a real, buildable
+difference from what we have, but resting an entire new backlog entry on
+unverifiable marketing copy would violate this file's no-invented-facts
+discipline. Not logged.
+
+`npm test` not re-run beyond the implicit `npm ci` install check — docs-only
+change (one re-verify note on an existing entry, this section), no `src/`
+or `radar/` files touched, nothing to ship this pass.
