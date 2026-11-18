@@ -14277,3 +14277,77 @@ opt-in-consent plan is unchanged and still build-ready, not thin.
 Ran `npm test` (322/322, clean) after the changelog fix above; no further
 build/smoke needed for this docs-only backlog append. Appending this check
 rather than inventing a 25th entry.
+
+---
+
+### Research check 2026-11-18 00:04 UTC — seventy-fifth+ pass; found and fixed a real FAQPage schema bug instead of logging a new OPEN entry
+
+`npm ci` clean (201 packages). `date -u` → hour 00, research run. CI green at
+`master` HEAD (`402a19d`), both `CI` and `Release` workflows succeeded on the
+last two pushes. `npm run radar:health` → `STATUS: OK` (2 runs in the 26h
+window, last run 5.5h ago published 5, feed at 582 tools). `list_issues` for
+`agent-fixable`: zero open. No urgent work.
+
+**Fresh competitor leads checked, neither survives this file's citation
+bar:** (1) price-drop/price-change alerts for favorited tools — searched
+specifically for a named AI-tool directory shipping this; every result was
+either a generic third-party page-change monitor (VisualPing, Google
+Alerts) or an unrelated "AI price tracker" product, not a directory with a
+checkable, primary-sourced feature page. (2) a general "personalization is
+the 2026 trend" search returned only affiliate listicles and vendor
+self-description (Trendhunter's "Personal AI Navigator," "saved favorites
+support ongoing evaluation") with nothing concrete enough to cite — same bar
+that has already ruled out comparably vague leads (app-store sources,
+llms.txt, GEO at line 14270). Not logged.
+
+**Sampled several existing OPEN entries for thinness instead of re-verifying
+the same one again** (12865 "catalog entry never re-checked," 12966
+"Alternatives to X never flags the free one," 8620 "no lookup surface
+outside toolnaut.xyz") — all three already carry a concrete Build size,
+file:line references, and an explicit "what this would NOT include" section;
+none are thin enough to deepen further. They are build-ready, waiting for a
+feature run, same conclusion the 74th pass reached for the testimonial
+entry.
+
+**Real bug found and fixed instead:** delegated a fresh read of
+`src/components/sections/*.jsx` plus `Pricing.jsx`/`Changelog.jsx` against
+actual behavior, specifically looking for the flag-consistency bug class
+this file has already caught repeatedly (changelog staleness ×7, the
+2026-09 `paymentsOn` fix at lines 4907-4980 that added the same guard to
+`Pricing.jsx`'s title/description/tape-label, `Methodology.jsx`, and
+`CapabilityMatrix.jsx`). Found one: `Pricing.jsx`'s `FAQPage` JSON-LD block
+(lines 29-72, pre-fix) was a static literal with real checkout/refund terms
+("one-time 30-day pass starts at Rs 299," "refunded within 7 days," exact
+per-tier Rupee amounts) and **no reference to `paymentsOn` at all**, even
+though every other claim on the same page — the tape-label
+(`'✦ paid plans are live ✦'` vs `'✦ beta is free — plans open at launch ✦'`),
+the `useHead` title/description, and 9 other files across `src/` — already
+branch on that exact flag. Confirmed `VITE_PAYMENTS_ENABLED` is off in this
+build (`grep` found no value set in any committed `.env*`/`vercel.json`, and
+CLAUDE.md's own project description says "Free public beta, pre-revenue");
+the prerendered `/pricing` page's visible tape-label already says beta is
+free, while the FAQ schema search engines quote verbatim was asserting live
+paid pricing and a refund policy as fact — the exact "schema that
+over-promises is worse than none" failure this file's own comment at line
+27 (now 29) already named as the thing to avoid, just missed in this one
+block when the rest of the page was fixed.
+
+Fixed by branching `mainEntity` on `paymentsOn`, same pattern as the rest of
+the page: the existing four paid-plan questions stay, unchanged, under
+`paymentsOn === true`; a new two-question beta-honest branch ("Is Toolnaut
+free?" / "Will Toolnaut have paid plans?") renders when it's `false`,
+matching `Methodology.jsx:144`'s established off-state phrasing ("Toolnaut
+is in free public beta and does not currently take payment of any kind")
+rather than inventing new tone. Verified the fix actually reached the
+output, not just the source: `grep` on `dist/pricing/index.html` after
+`npm run build` shows the beta-honest two-question FAQ rendering today, not
+the old four-question paid copy. All three checks green: `npm test`
+(322/322), `npm run build` (prerender renders `/pricing` at 27KB/2666 chars,
+no new skipped routes), `npm run smoke` (`/pricing rootBytes=24133 errors=0`,
+26/26 routes clean). Committed and pushed as a standalone fix, same practice
+the repeated changelog-staleness fixes use — bisectable, not bundled into a
+feature-run commit.
+
+No new OPEN entry logged this pass — a real bug fixed is this run's output
+instead, per the routine's own "you may also make one small real
+improvement" allowance.
