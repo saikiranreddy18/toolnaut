@@ -9,6 +9,54 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-11-18
+
+**Radar health:** `OK` — 22 tools published across the last 3 runs in the
+24h window (5, then 7, then 10), feed now at 599 published tools. No
+NO-PUBLISH or NO-SOURCE symptoms; CI on master was green all day and no
+`agent-fixable` issues were open.
+
+**Researched today:** none — this run landed on the 18:03 UTC feature+digest
+slot, so it drained the backlog's queue instead of adding to it. The 15:03
+research pass immediately before this run re-verified the stalest OPEN
+entry and found no new gap.
+
+**Shipped today:** **`643740c`** — the "MCP servers have zero surface"
+gap, logged fresh just three hours earlier. 39 of the catalog's 599
+published tools already carry an `mcp`/`mcp server` tag — the radar has
+been collecting them for a while — but nothing in the product ever grouped
+them: no filter chip, no landing page, no sitemap entry, no footer link.
+Competitor directories (tooldirectory.ai, PulseMCP, Glama, mcp.so) already
+treat MCP as a first-class, browsable category. Added a pure `isMcpTool()`
+predicate over the existing tag data (zero radar or schema change), a new
+public `/mcp-servers` page mirroring `NewTools.jsx`'s shell with its own
+LOAD MORE pagination (38 tools survive the catalog-noise filter), a footer
+link next to the existing Developer API link, and entries in the sitemap,
+`prerender.mjs` and `smoke.mjs` route lists so the page is actually
+crawlable rather than a client-only shell. Scope was held to the backlog
+entry's own "what this would NOT include" list: no 7th taxonomy domain, no
+`Discover.jsx` filter chip, no per-tool badge. **This is visible on
+toolnaut.xyz today** — no other pipeline needs to run first; the prerendered
+page already shows all 38 tools (29KB, 3733 chars of real text, confirmed
+during the build).
+
+**Verification:** `npm test` (323 tests, all green), `npm run build`
+(`/mcp-servers` prerendered with real content), and `npm run smoke` (27/27
+routes including the new one, 0 console errors) all green. The repo
+advanced mid-run (a radar publish landed on master between the first and
+second check pass) — rebased onto it, re-ran all three checks clean, then
+pushed straight to `master`.
+
+**Queued next:** the backlog's other build-ready picks — the task-search
+stemming fix, the hero-vs-real-result reasoning gap (logged 2026-11-14,
+fully scoped), and the public developer API's natural v2 (an MCP *server*
+at the same URL — distinct from today's ship, which only surfaces MCP
+servers *in* the catalog, and deliberately left out as new backend
+surface). The vendor-claim path remains the stalest untouched OPEN entry
+(43+ days) for the next research pass to re-verify or deepen.
+
+---
+
 ## 2026-11-17
 
 **Radar health:** `OK` — 11 tools published in the last 24h across two runs

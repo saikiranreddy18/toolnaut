@@ -14521,7 +14521,10 @@ already-deep ground.
 
 ### MCP servers are a distinct, fast-growing 2026 tool category with zero surface on Toolnaut, though the catalog data for one already exists
 
-- **Status:** OPEN
+- **Status:** SHIPPED 643740c — `/mcp-servers` landing page, `isMcpTool()`
+  predicate, footer link, sitemap/prerender/smoke entries. Scope held to the
+  "what this would NOT include" list below: no `SOURCE_CATEGORIES` entry, no
+  `Discover.jsx` filter chip, no per-tool badge.
 - **Seen in:** studied fresh this run (new problem area — grepped this whole
   file case-insensitively for `MCP server|mcp.so|glama|pulsemcp|smithery`
   before starting; zero prior entries on the topic). `tooldirectory.ai` — an

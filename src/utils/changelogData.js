@@ -7,6 +7,11 @@
 // SHIPPED — pulled from that day's real commit, not invented.
 export const CHANGELOG = [
   {
+    date: '2026-11-18',
+    title: 'A directory of MCP-ready tools',
+    body: "Toolnaut's catalog has quietly tracked MCP (Model Context Protocol) support for a while — now there's a dedicated page for it, listing every tool that ships an MCP server.",
+  },
+  {
     date: '2026-11-17',
     title: 'A public API for the catalog',
     body: "/tools.json is now open to cross-origin fetches, and a new /developers page documents its fields with a live example record — no key, no signup.",
