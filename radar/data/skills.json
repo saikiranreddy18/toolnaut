@@ -236,7 +236,10 @@
       "revix-ai",
       "trnrt",
       "sikemux",
-      "launch-hn-starsling-yc-p25"
+      "launch-hn-starsling-yc-p25",
+      "reflektor",
+      "webcraft-pro",
+      "mozilla-ai-launches-otari-one-api-key-for-every-model"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -470,7 +473,10 @@
       "course-revix-ai",
       "course-trnrt",
       "course-sikemux",
-      "course-launch-hn-starsling-yc-p25"
+      "course-launch-hn-starsling-yc-p25",
+      "course-reflektor",
+      "course-webcraft-pro",
+      "course-mozilla-ai-launches-otari-one-api-key-for-every-model"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -680,7 +686,8 @@
       "mellum21",
       "coral",
       "coderbaba",
-      "trnrt"
+      "trnrt",
+      "redcat-an-open-source-ai-agent-for-your-desktop"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -785,7 +792,8 @@
       "course-mellum21",
       "course-coral",
       "course-coderbaba",
-      "course-trnrt"
+      "course-trnrt",
+      "course-redcat-an-open-source-ai-agent-for-your-desktop"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -836,7 +844,9 @@
       "short-video-maker",
       "llm-skill-to-generate-editable-3d-house-designs",
       "turn-spoken-thoughts-into-system-design-diagrams",
-      "fantastic-canvas"
+      "fantastic-canvas",
+      "klistra",
+      "dez"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -880,7 +890,9 @@
       "course-short-video-maker",
       "course-llm-skill-to-generate-editable-3d-house-designs",
       "course-turn-spoken-thoughts-into-system-design-diagrams",
-      "course-fantastic-canvas"
+      "course-fantastic-canvas",
+      "course-klistra",
+      "course-dez"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1277,7 +1289,12 @@
       "r3",
       "free-ai-agent-lab",
       "video-agent-with-version-control",
-      "shamus-osint-ai-agent"
+      "shamus-osint-ai-agent",
+      "kradlebench-multi-agent-ai-evals-in-minecraft",
+      "lalabase",
+      "cloudish",
+      "redcat-an-open-source-ai-agent-for-your-desktop",
+      "nexus"
     ],
     "courses": [
       "course-headless-tools",
@@ -1594,7 +1611,12 @@
       "course-r3",
       "course-free-ai-agent-lab",
       "course-video-agent-with-version-control",
-      "course-shamus-osint-ai-agent"
+      "course-shamus-osint-ai-agent",
+      "course-kradlebench-multi-agent-ai-evals-in-minecraft",
+      "course-lalabase",
+      "course-cloudish",
+      "course-redcat-an-open-source-ai-agent-for-your-desktop",
+      "course-nexus"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2116,7 +2138,8 @@
       "mellum21",
       "atlas",
       "trnrt",
-      "ai-spar"
+      "ai-spar",
+      "mozilla-ai-launches-otari-one-api-key-for-every-model"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2178,7 +2201,8 @@
       "course-mellum21",
       "course-atlas",
       "course-trnrt",
-      "course-ai-spar"
+      "course-ai-spar",
+      "course-mozilla-ai-launches-otari-one-api-key-for-every-model"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2218,7 +2242,8 @@
       "mellum21",
       "claktor",
       "coderbaba",
-      "sikemux"
+      "sikemux",
+      "webcraft-pro"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2238,7 +2263,8 @@
       "course-mellum21",
       "course-claktor",
       "course-coderbaba",
-      "course-sikemux"
+      "course-sikemux",
+      "course-webcraft-pro"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2266,7 +2292,8 @@
       "layer",
       "seodatadev-11-free-search-data-for-ai-agents",
       "flights-for-agents",
-      "gemini-4-argon-is-now-available-for-developers"
+      "gemini-4-argon-is-now-available-for-developers",
+      "mozilla-ai-launches-otari-one-api-key-for-every-model"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2287,7 +2314,8 @@
       "course-layer",
       "course-seodatadev-11-free-search-data-for-ai-agents",
       "course-flights-for-agents",
-      "course-gemini-4-argon-is-now-available-for-developers"
+      "course-gemini-4-argon-is-now-available-for-developers",
+      "course-mozilla-ai-launches-otari-one-api-key-for-every-model"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2540,7 +2568,8 @@
       "ai-agent-for-animation",
       "capcut-pro-cracked",
       "hnwatch",
-      "video-agent-with-version-control"
+      "video-agent-with-version-control",
+      "klistra"
     ],
     "courses": [
       "course-canvasformusic",
@@ -2552,7 +2581,8 @@
       "course-ai-agent-for-animation",
       "course-capcut-pro-cracked",
       "course-hnwatch",
-      "course-video-agent-with-version-control"
+      "course-video-agent-with-version-control",
+      "course-klistra"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3315,7 +3345,8 @@
       "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
       "delegator",
       "agent-swarm-oss-multiplayer-ai-for-your-company",
-      "guilds"
+      "guilds",
+      "kradlebench-multi-agent-ai-evals-in-minecraft"
     ],
     "courses": [
       "course-mrea",
@@ -3333,7 +3364,8 @@
       "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
       "course-delegator",
       "course-agent-swarm-oss-multiplayer-ai-for-your-company",
-      "course-guilds"
+      "course-guilds",
+      "course-kradlebench-multi-agent-ai-evals-in-minecraft"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3753,7 +3785,9 @@
       "solipsist",
       "we-got-ai-to-wombo-combo",
       "standard-support",
-      "system-1-agents"
+      "system-1-agents",
+      "webcraft-pro",
+      "cloudish"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3817,7 +3851,9 @@
       "course-solipsist",
       "course-we-got-ai-to-wombo-combo",
       "course-standard-support",
-      "course-system-1-agents"
+      "course-system-1-agents",
+      "course-webcraft-pro",
+      "course-cloudish"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4531,7 +4567,8 @@
       "marketing-agent-for-founders",
       "veduta",
       "atlas",
-      "r3"
+      "r3",
+      "redcat-an-open-source-ai-agent-for-your-desktop"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -4571,7 +4608,8 @@
       "course-marketing-agent-for-founders",
       "course-veduta",
       "course-atlas",
-      "course-r3"
+      "course-r3",
+      "course-redcat-an-open-source-ai-agent-for-your-desktop"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4686,7 +4724,13 @@
       "ai-spar",
       "sikemux",
       "system-1-agents",
-      "free-ai-agent-lab"
+      "free-ai-agent-lab",
+      "kradlebench-multi-agent-ai-evals-in-minecraft",
+      "klistra",
+      "dez",
+      "reflektor",
+      "webcraft-pro",
+      "nexus"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4708,7 +4752,13 @@
       "course-ai-spar",
       "course-sikemux",
       "course-system-1-agents",
-      "course-free-ai-agent-lab"
+      "course-free-ai-agent-lab",
+      "course-kradlebench-multi-agent-ai-evals-in-minecraft",
+      "course-klistra",
+      "course-dez",
+      "course-reflektor",
+      "course-webcraft-pro",
+      "course-nexus"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5436,7 +5486,8 @@
       "unmute",
       "tofu",
       "runtime",
-      "benchmark-coding-agents-on-deploying-apps"
+      "benchmark-coding-agents-on-deploying-apps",
+      "cloudish"
     ],
     "courses": [
       "course-we-run-stateful-ai-agents-on-a-serverless-infra",
@@ -5447,7 +5498,8 @@
       "course-unmute",
       "course-tofu",
       "course-runtime",
-      "course-benchmark-coding-agents-on-deploying-apps"
+      "course-benchmark-coding-agents-on-deploying-apps",
+      "course-cloudish"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6852,7 +6904,8 @@
       "glance",
       "self-bench",
       "hieraticbench",
-      "benchmark-coding-agents-on-deploying-apps"
+      "benchmark-coding-agents-on-deploying-apps",
+      "kradlebench-multi-agent-ai-evals-in-minecraft"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -6873,7 +6926,8 @@
       "course-glance",
       "course-self-bench",
       "course-hieraticbench",
-      "course-benchmark-coding-agents-on-deploying-apps"
+      "course-benchmark-coding-agents-on-deploying-apps",
+      "course-kradlebench-multi-agent-ai-evals-in-minecraft"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -8075,7 +8129,8 @@
       "tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
       "memdebug",
       "ihmt",
-      "recall"
+      "recall",
+      "lalabase"
     ],
     "courses": [
       "course-itsuki",
@@ -8097,7 +8152,8 @@
       "course-tinyhat-per-specialist-memory-for-multi-agent-muse-open-sour",
       "course-memdebug",
       "course-ihmt",
-      "course-recall"
+      "course-recall",
+      "course-lalabase"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -9565,7 +9621,8 @@
       "neurogrid-terminal-coding-agent",
       "vim-like-hyper-efficient-llm-power-tool",
       "termaxa",
-      "now"
+      "now",
+      "nexus"
     ],
     "courses": [
       "course-tenux",
@@ -9576,7 +9633,8 @@
       "course-neurogrid-terminal-coding-agent",
       "course-vim-like-hyper-efficient-llm-power-tool",
       "course-termaxa",
-      "course-now"
+      "course-now",
+      "course-nexus"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -9710,10 +9768,12 @@
     "domain": "learning",
     "level": "beginner",
     "toolsTeaching": [
-      "high-agency-is-high-variance"
+      "high-agency-is-high-variance",
+      "lalabase"
     ],
     "courses": [
-      "course-high-agency-is-high-variance"
+      "course-high-agency-is-high-variance",
+      "course-lalabase"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -9814,10 +9874,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "dev-sandbox"
+      "dev-sandbox",
+      "cloudish"
     ],
     "courses": [
-      "course-dev-sandbox"
+      "course-dev-sandbox",
+      "course-cloudish"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -10563,7 +10625,8 @@
       "termaxa",
       "perspica",
       "borehole",
-      "higherlevel"
+      "higherlevel",
+      "reflektor"
     ],
     "courses": [
       "course-memcode-launches-github-code-review",
@@ -10571,7 +10634,8 @@
       "course-termaxa",
       "course-perspica",
       "course-borehole",
-      "course-higherlevel"
+      "course-higherlevel",
+      "course-reflektor"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -10585,14 +10649,16 @@
       "open-source-instinct",
       "ai-agents-zero-to-hero",
       "fantastic-canvas",
-      "revix-ai"
+      "revix-ai",
+      "reflektor"
     ],
     "courses": [
       "course-memcode-launches-github-code-review",
       "course-open-source-instinct",
       "course-ai-agents-zero-to-hero",
       "course-fantastic-canvas",
-      "course-revix-ai"
+      "course-revix-ai",
+      "course-reflektor"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -15320,11 +15386,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "humble-bundle",
-      "coreweave-aria-ai-research-and-iteration-agent"
+      "coreweave-aria-ai-research-and-iteration-agent",
+      "cloudish"
     ],
     "courses": [
       "course-humble-bundle",
-      "course-coreweave-aria-ai-research-and-iteration-agent"
+      "course-coreweave-aria-ai-research-and-iteration-agent",
+      "course-cloudish"
     ],
     "updatedAt": "2026-09-10T13:38:44.077Z"
   },
@@ -18463,10 +18531,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "kaflow-search"
+      "kaflow-search",
+      "redcat-an-open-source-ai-agent-for-your-desktop"
     ],
     "courses": [
-      "course-kaflow-search"
+      "course-kaflow-search",
+      "course-redcat-an-open-source-ai-agent-for-your-desktop"
     ],
     "updatedAt": "2026-09-16T14:13:20.724Z"
   },
@@ -22176,13 +22246,17 @@
       "flagshiprouter",
       "laya-guard",
       "system-1-agents",
-      "r3"
+      "r3",
+      "redcat-an-open-source-ai-agent-for-your-desktop",
+      "nexus"
     ],
     "courses": [
       "course-flagshiprouter",
       "course-laya-guard",
       "course-system-1-agents",
-      "course-r3"
+      "course-r3",
+      "course-redcat-an-open-source-ai-agent-for-your-desktop",
+      "course-nexus"
     ],
     "updatedAt": "2026-10-06T15:59:06.042Z"
   },
@@ -23996,11 +24070,143 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "launch-hn-starsling-yc-p25"
+      "launch-hn-starsling-yc-p25",
+      "webcraft-pro"
     ],
     "courses": [
-      "course-launch-hn-starsling-yc-p25"
+      "course-launch-hn-starsling-yc-p25",
+      "course-webcraft-pro"
     ],
     "updatedAt": "2026-11-18T03:08:06.384Z"
+  },
+  {
+    "id": "skill-minecraft",
+    "name": "minecraft",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "kradlebench-multi-agent-ai-evals-in-minecraft"
+    ],
+    "courses": [
+      "course-kradlebench-multi-agent-ai-evals-in-minecraft"
+    ],
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "skill-motion",
+    "name": "motion",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "klistra"
+    ],
+    "courses": [
+      "course-klistra"
+    ],
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "skill-multimedia",
+    "name": "multimedia",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "dez"
+    ],
+    "courses": [
+      "course-dez"
+    ],
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "skill-plaintext",
+    "name": "plaintext",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "dez"
+    ],
+    "courses": [
+      "course-dez"
+    ],
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "skill-studio",
+    "name": "studio",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "dez"
+    ],
+    "courses": [
+      "course-dez"
+    ],
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "skill-pr",
+    "name": "pr",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "reflektor"
+    ],
+    "courses": [
+      "course-reflektor"
+    ],
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "skill-selfhosted",
+    "name": "selfhosted",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "lalabase"
+    ],
+    "courses": [
+      "course-lalabase"
+    ],
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "skill-project",
+    "name": "project",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "lalabase"
+    ],
+    "courses": [
+      "course-lalabase"
+    ],
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "skill-model-access",
+    "name": "model access",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "mozilla-ai-launches-otari-one-api-key-for-every-model"
+    ],
+    "courses": [
+      "course-mozilla-ai-launches-otari-one-api-key-for-every-model"
+    ],
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "skill-unified",
+    "name": "unified",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "mozilla-ai-launches-otari-one-api-key-for-every-model"
+    ],
+    "courses": [
+      "course-mozilla-ai-launches-otari-one-api-key-for-every-model"
+    ],
+    "updatedAt": "2026-11-18T18:07:47.847Z"
   }
 ]

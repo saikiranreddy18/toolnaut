@@ -37968,5 +37968,534 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-18T03:08:06.384Z"
+  },
+  {
+    "id": "course-kradlebench-multi-agent-ai-evals-in-minecraft",
+    "toolSlug": "kradlebench-multi-agent-ai-evals-in-minecraft",
+    "title": "Master KradleBench: Multi-agent AI evals in Minecraft",
+    "objectives": [
+      "Set up a custom Minecraft world configuration for KradleBench.",
+      "Deploy and manage heterogeneous agent configurations.",
+      "Analyze multi-agent interaction logs using KradleBench reporting features."
+    ],
+    "modules": [
+      {
+        "title": "World & Environment Configuration",
+        "estMinutes": 30,
+        "steps": [
+          "Clone the KradleBench repository and identify the world config YAML.",
+          "Modify the `world_settings.yaml` to specify biome and initial resource distributions.",
+          "Execute the world bootstrapping script (`./setup_world.sh`) using the modified config."
+        ]
+      },
+      {
+        "title": "Agent Deployment and Orchestration",
+        "estMinutes": 45,
+        "steps": [
+          "Define two agent profiles (e.g., Builder, Explorer) in `agent_configs.json` with differing goal weights.",
+          "Run the evaluation loop using `kradlebench run --agents [config_file] --steps 100`.",
+          "Monitor the real-time interaction log stream via `tail -f evaluation.log`."
+        ]
+      },
+      {
+        "title": "Advanced Log Analysis",
+        "estMinutes": 25,
+        "steps": [
+          "Generate a summarized evaluation report: `kradlebench report --output summary.html`.",
+          "Use the built-in metric parser on `summary.html` to extract the mean success rate across all agents.",
+          "Filter the raw log for specific cross-agent communication events (e.g., `/tell`) using `grep`."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-minecraft",
+      "skill-multi-agent",
+      "skill-evaluation",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Familiarity with Java/Python environments (required by KradleBench).",
+      "Intermediate knowledge of Minecraft server mechanics (e.g., world generation, commands).",
+      "Proficiency with YAML and JSON configuration file editing."
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "course-klistra",
+    "toolSlug": "klistra",
+    "title": "Master Klistra",
+    "objectives": [
+      "Integrate Klistra with a source video for motion tracking.",
+      "Apply spec-driven AI animation parameters to key elements.",
+      "Export a final, motion-designed video clip meeting specified output formats."
+    ],
+    "modules": [
+      {
+        "title": "Import & Track Footage",
+        "estMinutes": 10,
+        "steps": [
+          "Upload a 10-second video clip to the Klistra project workspace.",
+          "Select the motion tracking tool and map a key subject across the footage."
+        ]
+      },
+      {
+        "title": "AI Spec Application",
+        "estMinutes": 15,
+        "steps": [
+          "Define an animation goal (e.g., 'Energetic Pop-In') via the AI prompt input.",
+          "Adjust the intensity slider (0-100%) linked to the tracked element's transformation."
+        ]
+      },
+      {
+        "title": "Rendering & Export",
+        "estMinutes": 5,
+        "steps": [
+          "Set the output codec to H.264 and resolution to 1920x1080 in the render panel.",
+          "Execute the final render job and download the resulting video file."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-motion",
+      "skill-video",
+      "skill-ai"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "course-dez",
+    "toolSlug": "dez",
+    "title": "Master Dez",
+    "objectives": [
+      "Integrate local audio/image assets into a Dez project",
+      "Apply basic text-to-media prompts using Dez's interface",
+      "Export a finished creative output in a standard format"
+    ],
+    "modules": [
+      {
+        "title": "Asset Import & Project Setup",
+        "estMinutes": 10,
+        "steps": [
+          "Open Dez and create a new plaintext project.",
+          "Drag and drop a local .wav and .png file into the project canvas.",
+          "Verify asset paths are correctly linked within the project metadata."
+        ]
+      },
+      {
+        "title": "Prompting for Multimedia Generation",
+        "estMinutes": 15,
+        "steps": [
+          "Locate the primary prompt input field for the selected asset.",
+          "Enter a descriptive prompt (e.g., 'Cyberpunk neon rain over Tokyo').",
+          "Execute the generation command and monitor the output preview window."
+        ]
+      },
+      {
+        "title": "Final Output & Export",
+        "estMinutes": 8,
+        "steps": [
+          "Review the generated media within the timeline/sequence view.",
+          "Select 'Export Sequence' from the top menu bar.",
+          "Choose MP4 or PNG sequence and save the final file to your desired local directory."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-multimedia",
+      "skill-plaintext",
+      "skill-ai",
+      "skill-studio"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "course-reflektor",
+    "toolSlug": "reflektor",
+    "title": "Master Reflektor",
+    "objectives": [
+      "Integrate Reflektor with your Git hosting platform.",
+      "Configure AI model parameters for specific repository types.",
+      "Use Reflektor to validate and format complex AI PRs for reviewers."
+    ],
+    "modules": [
+      {
+        "title": "Initial Reflektor Setup & Hooking",
+        "estMinutes": 15,
+        "steps": [
+          "Install the Reflektor CLI tool via npm/pip.",
+          "Configure the repository integration by running `reflektor init --platform [GitHub/GitLab]`.",
+          "Verify the webhook trigger is correctly set in your repository settings."
+        ]
+      },
+      {
+        "title": "Tuning AI Output for Clarity",
+        "estMinutes": 20,
+        "steps": [
+          "Edit `.reflektorrc` to set `review_style: human_centric`.",
+          "Define custom constraints in the config, e.g., `max_line_change: 40`.",
+          "Run `reflektor lint --profile [project_type]` on a sample PR to see output adjustments."
+        ]
+      },
+      {
+        "title": "Reviewer Workflow Integration",
+        "estMinutes": 15,
+        "steps": [
+          "Test a generated PR and confirm the description contains structured review prompts.",
+          "Check the generated artifact file location (e.g., attached comment/summary).",
+          "Validate that automated CI checks pass *after* Reflektor formatting completes."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai",
+      "skill-pr",
+      "skill-code review",
+      "skill-github"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "course-lalabase",
+    "toolSlug": "lalabase",
+    "title": "Master Lalabase",
+    "objectives": [
+      "Integrate an existing project structure into Lalabase.",
+      "Configure role-based access for agency and client users.",
+      "Automate status updates using built-in triggers."
+    ],
+    "modules": [
+      {
+        "title": "Importing Existing Projects",
+        "estMinutes": 15,
+        "steps": [
+          "Export project data from Jira/Asana as CSV.",
+          "Navigate to 'Data Import' in Lalabase and map CSV columns to project fields.",
+          "Run the import validation and confirm project creation."
+        ]
+      },
+      {
+        "title": "Setting Up Client Permissions",
+        "estMinutes": 20,
+        "steps": [
+          "Define 'Client Viewer' and 'Client Contributor' roles in the Admin panel.",
+          "Assign specific client users to projects, restricting them to designated views.",
+          "Test access by logging in as a limited client role."
+        ]
+      },
+      {
+        "title": "Configuring Status Automation",
+        "estMinutes": 25,
+        "steps": [
+          "Create a new trigger: 'Task Moved to Review' (Source: Project Board).",
+          "Set the action to 'Notify Client Lead via Slack Hook' (Target: Client Team Channel).",
+          "Activate the trigger and verify notification delivery in a test project."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-memory",
+      "skill-selfhosted",
+      "skill-agency",
+      "skill-project"
+    ],
+    "prerequisites": [
+      "Basic understanding of project lifecycle management.",
+      "Admin access to the self-hosted Lalabase instance.",
+      "Access keys (e.g., Slack webhook) for integrations."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "course-webcraft-pro",
+    "toolSlug": "webcraft-pro",
+    "title": "Master WebCraft Pro",
+    "objectives": [
+      "Apply mandatory linting rules via WebCraft Pro integration.",
+      "Configure AI agent workflows to meet CI standards.",
+      "Troubleshoot failed builds using WebCraft Pro reporting."
+    ],
+    "modules": [
+      {
+        "title": "Enforcing Pre-Commit Standards",
+        "estMinutes": 15,
+        "steps": [
+          "Navigate to 'Standards Profile' in WebCraft Pro.",
+          "Select the 'Strict-AI-V2' profile and activate it for the current repository.",
+          "Run the 'pre-commit hook validation' command in your terminal."
+        ]
+      },
+      {
+        "title": "AI Agent Workflow Validation",
+        "estMinutes": 20,
+        "steps": [
+          "Open the 'Agent Configuration' interface in WebCraft Pro.",
+          "Map the required output format (e.g., OpenAPI spec) to the agent's post-commit action.",
+          "Trigger a test run and confirm the CI gate passes without manual override."
+        ]
+      },
+      {
+        "title": "Analyzing Build Failures",
+        "estMinutes": 15,
+        "steps": [
+          "Review the CI log within the WebCraft Pro dashboard after a failure.",
+          "Identify the specific violated standard (e.g., complexity threshold, security pattern).",
+          "Use the 'Remediation Suggestion' feature to auto-generate the required fix."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai",
+      "skill-coding",
+      "skill-ci",
+      "skill-agents"
+    ],
+    "prerequisites": [
+      "Familiarity with standard CI/CD pipeline concepts (e.g., Git, Jenkins/GitHub Actions).",
+      "An active project configured with basic AI coding agents."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "course-cloudish",
+    "toolSlug": "cloudish",
+    "title": "Master Cloudish",
+    "objectives": [
+      "Configure Cloudish with production-grade cloud credentials.",
+      "Implement rolling updates for self-deployed container agents.",
+      "Set up automated health checks and self-healing via Cloudish."
+    ],
+    "modules": [
+      {
+        "title": "Securing Cloudish Deployments",
+        "estMinutes": 15,
+        "steps": [
+          "Integrate HashiCorp Vault for dynamic cloud credential injection.",
+          "Define least-privilege IAM roles for agent provisioning.",
+          "Verify credential rotation policy within the Cloudish manifest."
+        ]
+      },
+      {
+        "title": "Advanced Deployment Strategies",
+        "estMinutes": 20,
+        "steps": [
+          "Modify the agent manifest to specify a canary deployment rollout strategy.",
+          "Configure rollback triggers based on initial health check failures.",
+          "Execute a staged rolling update across a target cluster segment."
+        ]
+      },
+      {
+        "title": "Observability and Resilience",
+        "estMinutes": 15,
+        "steps": [
+          "Bind Cloudish events to Prometheus/Alertmanager via custom webhook.",
+          "Define a `selfHeal` block targeting unhealthy container replicas.",
+          "Simulate node failure and observe automatic agent redeployment via Cloudish."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-containers",
+      "skill-deployment",
+      "skill-cloud"
+    ],
+    "prerequisites": [
+      "Familiarity with Kubernetes networking and lifecycle.",
+      "Working knowledge of CI/CD pipelines (e.g., GitLab CI, GitHub Actions).",
+      "Access to a production-capable cloud environment (AWS/GCP/Azure)."
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "course-redcat-an-open-source-ai-agent-for-your-desktop",
+    "toolSlug": "redcat-an-open-source-ai-agent-for-your-desktop",
+    "title": "Master RedCat an open-source AI agent for your desktop",
+    "objectives": [
+      "Set up RedCat for local execution on a Linux desktop.",
+      "Configure a custom knowledge base using local files.",
+      "Execute a multi-step task using RedCat's agent workflow."
+    ],
+    "modules": [
+      {
+        "title": "Initial Local Deployment",
+        "estMinutes": 15,
+        "steps": [
+          "Clone the RedCat repository using git.",
+          "Install Python dependencies via pip as per the README.",
+          "Run the basic startup command: `redcat start --local`."
+        ]
+      },
+      {
+        "title": "Knowledge Base Integration",
+        "estMinutes": 20,
+        "steps": [
+          "Create a directory named 'docs' next to the RedCat config.",
+          "Place a markdown file (e.g., 'project_specs.md') inside the 'docs' folder.",
+          "Update the `config.yaml` to point the context path to the 'docs' directory."
+        ]
+      },
+      {
+        "title": "Agent Task Execution",
+        "estMinutes": 25,
+        "steps": [
+          "Define a complex prompt requiring external file review, e.g., 'Summarize key risks in project_specs.md'.",
+          "Execute the agent with the task: `redcat run --prompt \"...\"`.",
+          "Review the output log, verifying that RedCat accessed the specified local file."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-desktop",
+      "skill-open-source",
+      "skill-local"
+    ],
+    "prerequisites": [
+      "Familiarity with the Linux command line (cd, git, etc.)",
+      "Python 3.10+ installed",
+      "Basic understanding of YAML configuration files"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "course-mozilla-ai-launches-otari-one-api-key-for-every-model",
+    "toolSlug": "mozilla-ai-launches-otari-one-api-key-for-every-model",
+    "title": "Master Mozilla AI launches Otari, one API key for every model",
+    "objectives": [
+      "Authenticate with the unified Otari API key.",
+      "Successfully call two different underlying AI models (e.g., Llama, GPT) via one endpoint.",
+      "Handle and parse the standardized response structure from Otari."
+    ],
+    "modules": [
+      {
+        "title": "API Key Setup and Verification",
+        "estMinutes": 10,
+        "steps": [
+          "Obtain your Otari API key from the developer portal.",
+          "Use a tool like cURL or Postman to hit the Otari /status endpoint with your key.",
+          "Verify the 200 OK response and key validity."
+        ]
+      },
+      {
+        "title": "Model Agnostic Inference",
+        "estMinutes": 15,
+        "steps": [
+          "Write a script (Python recommended) to send a prompt targeting Model A (e.g., 'summarize this text').",
+          "Modify the same script to target Model B (e.g., 'translate this sentence') using the same Otari key.",
+          "Confirm both models return valid, distinct output structures."
+        ]
+      },
+      {
+        "title": "Response Parsing & Error Handling",
+        "estMinutes": 10,
+        "steps": [
+          "Implement JSON parsing logic to extract the generated text from the standardized Otari payload.",
+          "Test the API with an invalid model ID or empty prompt to trigger an Otari-specific error code.",
+          "Wrap the API calls in try/except blocks to gracefully handle rate limits or authentication failures."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-api",
+      "skill-llm",
+      "skill-model-access",
+      "skill-unified"
+    ],
+    "prerequisites": [
+      "Basic proficiency in HTTP requests (cURL/Postman)",
+      "Familiarity with JSON structure",
+      "Basic scripting knowledge (Python preferred)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "course-nexus",
+    "toolSlug": "nexus",
+    "title": "Master Nexus",
+    "objectives": [
+      "Configure Nexus to securely access a local filesystem path.",
+      "Execute a remote terminal command via Nexus with scoped permissions.",
+      "Integrate a specific desktop utility command into an AI workflow using Nexus."
+    ],
+    "modules": [
+      {
+        "title": "Filesystem Mapping & Scoping",
+        "estMinutes": 15,
+        "steps": [
+          "Define a read-only scope for `/home/user/project_data` in the Nexus config.",
+          "Test AI prompt access to a specific file: `nexus_read_file('project_data/config.yaml')`."
+        ]
+      },
+      {
+        "title": "Controlled Terminal Execution",
+        "estMinutes": 20,
+        "steps": [
+          "Set up an execution policy allowing only `ls` and `grep` in the user's home directory.",
+          "Run the command: `nexus_run_terminal('ls -l /home/user')` and inspect the stdout."
+        ]
+      },
+      {
+        "title": "Desktop Tool Integration",
+        "estMinutes": 25,
+        "steps": [
+          "Grant execution permission for a specific binary (e.g., `imagemagick`) within Nexus policies.",
+          "Invoke the tool via AI: `nexus_execute_tool('imagemagick convert input.png output.jpg')`."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai",
+      "skill-local",
+      "skill-terminal"
+    ],
+    "prerequisites": [
+      "Basic familiarity with Linux/Unix command line.",
+      "Understanding of role-based access control (RBAC) principles.",
+      "A running Nexus instance with administrative access."
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-18T18:07:47.847Z"
   }
 ]
