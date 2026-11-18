@@ -2974,6 +2974,21 @@ a client-side SPA with a static tool catalogue.
   entries, `:32`) still has no `/graveyard` either. Nothing drifted in
   substance — still Build size S, still unbuilt, still the most build-ready
   entry nobody has touched in over two weeks.
+- **Re-verified 2026-11-18 21:04 UTC:** tied with "No public email capture"
+  at last-touched 2026-10-07 (42 days) as the two stalest OPEN entries — this
+  one picked since its last touch was a dedicated re-verification pass
+  rather than the creation date itself. Every fact still holds exactly:
+  `grep -o '"status": "[A-Za-z]*"' src/utils/toolsCatalog.js` is still 652
+  `Active` / 52 `Uncertain`, 47 of 52 carry a non-empty `note`. `App.jsx`'s
+  route block drifted again with unrelated routes landing above it —
+  `/tools/:domain` is now `:131` (was `:128`) and `/ai-tools/:slug` is now
+  `:135` (was `:131`); `/graveyard` still belongs between them, substance of
+  the corrected plan unchanged. `ToolPublic.jsx:42` still renders only
+  `['Worth knowing', tool.note]`, no `status` row. `public/sitemap.xml`
+  still has no `/graveyard` line; `scripts/smoke.mjs`'s `routes` array has
+  grown to 27 entries (`/mcp-servers` and `/vs/:slug` landed since the last
+  check) but still has no `/graveyard`. Nothing drifted in substance — still
+  Build size S, still unbuilt.
 
 ### Embeddable "Featured on Toolnaut" badge — the standard directory backlink loop, missing entirely
 - **Status:** OPEN
@@ -14680,3 +14695,43 @@ discipline. Not logged.
 `npm test` not re-run beyond the implicit `npm ci` install check — docs-only
 change (one re-verify note on an existing entry, this section), no `src/`
 or `radar/` files touched, nothing to ship this pass.
+
+### Research check 2026-11-18 21:04 UTC — eightieth+ pass; re-verified the next-stalest OPEN entry, one fresh lead checked, doesn't survive
+
+`npm ci` clean (201 packages). `list_workflow_runs` on `master`: the latest
+push (`84d93256`, docs-only, closing out today's MCP-servers feature) has
+both `CI` and `Release` `success`. The one `failure` in the window
+(`Release` run 515 on `643740c`) was superseded by the next push's green
+`Release` run 516 — current `master` tip is fully green, not CI-red.
+`npm run radar:health` → `STATUS: OK` (2 runs in the 26h window, last run
+2.9h ago published 10, feed at 599 tools). `list_issues` for
+`agent-fixable`: zero open. No urgent work.
+
+**Re-verified the next-stalest OPEN entry:** the 15:03 UTC pass named "Tool
+graveyard" and "No public email capture" as tied second-stalest behind the
+vendor-claim entry it picked, both last-touched 2026-10-07 (42 days, now
+43). Picked "Tool graveyard" (line 2820) since its last touch was itself a
+dedicated re-verification pass, while "No public email capture"'s was its
+own creation. Re-read every file this plan cites against current `src/`:
+`grep -o '"status": "[A-Za-z]*"' src/utils/toolsCatalog.js` is still exactly
+652 `Active` / 52 `Uncertain`, still 47 of 52 carrying a non-empty `note`.
+`App.jsx`'s route block drifted again (two unrelated routes landed above
+it since 10-07) — `/tools/:domain` is now `:131`, `/ai-tools/:slug` is now
+`:135`, `/graveyard` still belongs between them. `ToolPublic.jsx:42` still
+has no `status` row. `public/sitemap.xml` still has no `/graveyard` line;
+`scripts/smoke.mjs`'s `routes` array grew to 27 entries (`/mcp-servers` and
+`/vs/:slug` landed since) but still has no `/graveyard`. Nothing drifted
+in substance — still Build size S, still unbuilt, note added directly to
+the entry above.
+
+**One fresh lead checked, doesn't survive:** `WebSearch` for 2026 AI-
+directory feature trends around comparison/export/API/verified reviews.
+Every substantive claim traced back to a directory's own marketing copy or
+an affiliate blog (theaisurf.com, aidirectory.com, Toolify breakdowns) —
+none from independent reporting, the same bar that has rejected every
+similar lead in this file since the 09:03 UTC pass today. Nothing new
+survived to log.
+
+`npm test` not re-run beyond the implicit `npm ci` install check — docs-only
+change (one re-verify note on an existing entry plus this section), no
+`src/` or `radar/` files touched, nothing to ship this pass.
