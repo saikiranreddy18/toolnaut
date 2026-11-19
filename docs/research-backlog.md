@@ -6737,6 +6737,16 @@ a client-side SPA with a static tool catalogue.
   `0002_user_state.sql:60-66,75-77` are unchanged and still accurate, and the
   proposed `tool_stack_counts()` function only reads `kind = 'stack'` rows, so
   0010's saved-only cap trigger doesn't interact with it.
+- **Re-verified 2026-11-19 09:03 UTC (one of three tied-stalest OPEN entries,
+  53 days untouched):** still fully unbuilt — `grep -rn "tool_stack_counts|
+  trending" supabase/ src/` is zero hits anywhere. Migrations still run
+  through `0010_saved_limit.sql` (0011 is still the next free number, matches
+  the 2026-09-27 correction). `sync.js`'s delete-then-reinsert `pushAll()`
+  behaviour is unchanged (delete at `:96`, the two separate inserts at
+  `:104`/`:109`) — the "no real weekly window" caveat still holds. One more
+  line drift since the last check: `ToolDetail.jsx`'s "Why it fits" sticker
+  card (the proposed mount point) is now at `ToolDetail.jsx:278-279`, not
+  `:185` — grew further from more content above it. Nothing else moved.
 
 ---
 
@@ -8770,6 +8780,24 @@ a client-side SPA with a static tool catalogue.
   because it is a new artifact type this repo has never shipped, not
   because any single file is large.
 - **Found:** 2026-09-27 21:20 UTC
+- **Re-verified 2026-11-19 09:03 UTC (one of three tied-stalest OPEN entries,
+  53 days untouched, never re-checked since creation):** one real drift
+  found, corrected here — this entry says a popup doesn't need the
+  `Access-Control-Allow-Origin` header "`vercel.json` is still missing
+  today." That's no longer accurate: `vercel.json` now has a dedicated
+  `/tools.json` header block (added shipping the "No public developer API"
+  gap, commit `b8f25d4`) with `Access-Control-Allow-Origin: *` already set.
+  Doesn't change this entry's buildability either way — the point stands
+  that an extension's `host_permissions` never needed that header, CORS
+  only matters to a same-origin `fetch()` from a third-party web page — but
+  "still missing today" is now false, so a future build of this gap gets
+  the CORS half for free rather than needing it added. Everything else
+  checked clean: `find . -iname "manifest.json" -not -path
+  "*/node_modules/*"` still zero hits, `matchesQuery()` is still exported
+  from `src/utils/search.js`, and `public/tools.json`'s current field set
+  (`slug, name, category, sourceCategory, price, pricing, level, blurb, ...`)
+  still carries everything a popup needs. No `extension/` directory exists.
+  Still OPEN, still Build size M, still unbuilt.
 
 ---
 
@@ -14918,4 +14946,61 @@ logged.
 
 `npm test` not re-run beyond the implicit `npm ci` install check — docs-only
 change (one re-verify note on an existing entry plus this section), no
+`src/` or `radar/` files touched, nothing to ship this pass.
+
+
+---
+
+### Research check 2026-11-19 09:03 UTC — eighty-fourth+ pass; re-verified the other two tied-stalest OPEN entries the 06:03 UTC pass left untouched, found one real drift
+
+`npm ci` clean (201 packages). `list_workflow_runs` on `master`: latest push
+(`11f29fca`, the 06:03 UTC re-verify docs commit) has both `CI` and
+`Release` `success` — tip is fully green, not CI-red. `npm run radar:health`
+→ `STATUS: OK` (2 runs in the 26h window, last run 6.3h ago published 5,
+feed at 604 tools). `list_issues` for `agent-fixable`: zero open. No urgent
+work.
+
+**Re-verified the other two tied-stalest OPEN entries:** the 06:03 UTC pass
+found three OPEN entries tied at 53 days untouched since creation ("Weekly
+trending tools," "No testimonial or social-proof quote," "No lookup surface
+outside toolnaut.xyz"), re-verified the third one, and left the first two
+for a future pass — this one. Both re-checked against current `master`,
+notes added directly to each entry:
+- **"Weekly trending tools"** (line ~6574): still fully unbuilt — no
+  `tool_stack_counts` function, no `trending.js`, zero hits for either
+  anywhere in `supabase/`/`src/`. Migrations still run through
+  `0010_saved_limit.sql` (0011 still next free, matches the entry's own
+  2026-09-27 correction). `sync.js`'s delete-then-reinsert `pushAll()`
+  behaviour is unchanged, so the "no real weekly window" caveat still holds.
+  One line-number drift found and corrected: `ToolDetail.jsx`'s proposed
+  mount point (the "Why it fits" sticker) moved from `:185` to `:278-279`.
+- **"No lookup surface outside toolnaut.xyz"** (line ~8682): still fully
+  unbuilt — no `extension/` directory, no `manifest.json` anywhere in the
+  repo. One real drift found and corrected: the entry claims the
+  `Access-Control-Allow-Origin` header on `vercel.json` "is still missing
+  today" — it isn't; the dev-API gap's ship (`b8f25d4`) already added a
+  `/tools.json`-scoped CORS header. Doesn't change buildability (a browser
+  extension's `host_permissions` never needed that header anyway), but the
+  citation was stale and now reads correctly. `matchesQuery()` and
+  `tools.json`'s field set, both load-bearing for this gap, are unchanged.
+
+Every OPEN entry's own last-touch date now has at least one 2026-11 check
+on record; the oldest-untouched-since-creation backlog this routine started
+with (three entries sitting 53+ days with zero re-verification) is cleared.
+
+**One fresh lead checked, doesn't survive:** `WebSearch` for 2026 AI-directory
+feature trends (vendor "verified" badges, integration-marketplace filtering,
+"powered by" embeds) and separately for what Futurepedia/TAAFT shipped this
+month. Both searches returned only SEO-style directory-marketing pages and
+undated newsletter issues, no primary source with a real ship date. The one
+concrete pattern that did surface with enough detail to check — AIDIRECTORY's
+and ToolRadar's vendor-verification badges (owner confirms their own listing
+is accurate; add our badge to your site) — restates ground this file already
+holds twice over: the "Vendor/maker claim-listing path" gap (line ~10006,
+OPEN, deepened) is the claim-and-verify half, and the "Embeddable 'Featured on
+Toolnaut' badge" gap (line ~2994, OPEN) is the badge-on-your-site half. Not
+logged as a new entry.
+
+`npm test` not re-run beyond the implicit `npm ci` install check — docs-only
+change (two re-verify notes on existing entries plus this section), no
 `src/` or `radar/` files touched, nothing to ship this pass.
