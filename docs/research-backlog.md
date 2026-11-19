@@ -8663,6 +8663,18 @@ a client-side SPA with a static tool catalogue.
   needs the schema change, same category as the shared-stacks-gallery gap
   above.
 - **Found:** 2026-09-27 00:12 UTC
+- **Re-verified 2026-11-19 06:03 UTC:** tied stalest OPEN entry (53 days,
+  alongside "Weekly trending tools" and "No lookup surface outside
+  toolnaut.xyz," both also last touched 2026-09-27 and neither re-verified
+  since). Re-checked every citation against current `master`: `grep -rni
+  "testimonial|review quote|case stud|social proof|Trustpilot" src/` is
+  still zero hits; `StatsSection.jsx:23`'s "a number on a landing page is a
+  claim" comment is byte-identical; `StackSurvey.jsx:13-14`'s "a text box
+  would break that promise" comment is byte-identical; `supabase/migrations/`
+  still runs through `0010_saved_limit.sql`, so the next free migration
+  number is `0011` (the entry itself names no number, so nothing to
+  correct). Nothing drifted. Still OPEN, still Build size M, still
+  unbuilt.
 
 ---
 
@@ -14860,6 +14872,49 @@ would NOT include" list already rules this exact mechanism out by design —
 triages, same as radar's own status field is human/LLM-set today, never
 user-set." Not a new gap; restates a tradeoff this file already made
 deliberately. Not logged.
+
+`npm test` not re-run beyond the implicit `npm ci` install check — docs-only
+change (one re-verify note on an existing entry plus this section), no
+`src/` or `radar/` files touched, nothing to ship this pass.
+
+### Research check 2026-11-19 06:03 UTC — eighty-third+ pass; re-verified one of three tied-stalest OPEN entries, one fresh lead checked, doesn't survive
+
+`npm ci` clean (201 packages). `list_workflow_runs` on `master`: latest push
+(`2ba8e5b`, the 03:04 UTC re-verify docs commit) has both `CI` and `Release`
+`success` — current tip is fully green, not CI-red. `npm run radar:health`
+→ `STATUS: OK` (2 runs in the 26h window, last run 3.3h ago published 5,
+feed at 604 tools). `list_issues` for `agent-fixable`: zero open. No urgent
+work.
+
+**Re-verified one of three tied-stalest OPEN entries:** scanned every OPEN
+entry's own dated markers across all real entries with a small script
+(extracting every `2026-MM-DD` date mentioned in each entry's body and
+taking the max as "last touched"). Three entries tie at 2026-09-27 (53
+days, the oldest last-touch of any OPEN entry): "Weekly trending tools,"
+"No testimonial or social-proof quote," and "No lookup surface outside
+toolnaut.xyz" — none re-verified since creation. Picked "No testimonial or
+social-proof quote" (line 8592). Re-checked every citation against current
+`master` (note added directly to the entry): `grep -rni
+"testimonial|review quote|case stud|social proof|Trustpilot" src/` still
+zero hits, `StatsSection.jsx:23` and `StackSurvey.jsx:13-14`'s cited
+comments are byte-identical, migration numbering (`0010_saved_limit.sql`
+still the latest) matches what the trending-tools entry already corrected
+elsewhere in this file. Nothing drifted. Still OPEN, still Build size M,
+still unbuilt. The other two tied entries remain untouched for a future
+pass.
+
+**One fresh lead checked, doesn't survive:** `WebSearch` for how AI tool
+directories without existing users bootstrap their first testimonials/
+social proof, and separately for Futurepedia/TAAFT's newsletter and
+waitlist growth-loop mechanics. Every substantive claim traced back to an
+IndieHackers founder post, a vendor's own guide, or an affiliate review
+(SaaSCity, poweredbyai.app) — the same "Seen in: <competitor, with URL>,
+primary source" bar that has rejected every similar lead in this file
+since 2026-11-18 09:03 UTC. The one structural note worth weighing
+regardless — TAAFT tags many listings "Waitlist" for pre-launch tools —
+doesn't apply to Toolnaut: the catalog only lists tools that already
+exist and are already live, so there is nothing pre-launch to tag. Not
+logged.
 
 `npm test` not re-run beyond the implicit `npm ci` install check — docs-only
 change (one re-verify note on an existing entry plus this section), no
