@@ -7720,6 +7720,21 @@ a client-side SPA with a static tool catalogue.
   zero hits. Narrowed scope for whoever builds this: skip the "core" tag
   step above, it's done; only the stat line itself remains. Still Build
   size S, still the most build-ready entry nobody has shipped.
+- **Re-verified 2026-11-19 21:04 UTC:** 43 days since the last check, still
+  untouched by any feature run despite being Build size S and fully scoped.
+  `HowItWorksSection.jsx:9` still carries the exact "Track progress against
+  your role, not generic benchmarks" copy verbatim. `progressStore.js:10`'s
+  `STATUSES` is unchanged, index 3 is still `'Mastered'`. `personaGenerator.js`
+  still sets `career` the same way (`careerLine()` at line 71, assigned at
+  line 87 — function moved a few lines since the last check, value and shape
+  identical). Two small line-number drifts from refactors since 10-07:
+  `allStackTools`'s `starter: true` map moved from `Stack.jsx:233` to
+  `Stack.jsx:235`, and the "From your persona" card branch moved from
+  `Stack.jsx:368`/`373` to `Stack.jsx:374`. Grepped `Stack.jsx` again for
+  `core.*master|mastered` — still zero hits, the one actual deliverable (the
+  "N of 3 core [role] tools mastered" stat line) is still unbuilt. No drift
+  in substance, only in line numbers; plan is still buildable exactly as
+  narrowed in the 10-07 note.
 
 ---
 
@@ -15164,3 +15179,46 @@ worth taking in the same PR once it ships.
 No code changed this run — the backlog edit is the only diff. `npm test`
 not re-run beyond the implicit `npm ci` install check (docs-only change,
 no `src/`/`radar/` files touched).
+
+---
+
+### Research check 2026-11-19 21:04 UTC — re-verified the stalest ready-to-build entry, checked four problem areas for a new gap and found all already covered or shipped
+
+Scheduled run, UTC hour 21 (a research slot, not the 18:03 feature/digest
+hour). `npm ci` clean (201 packages). Urgent-work checks first: `master`'s
+tip (`b68703a`, the 18:03 digest commit) has `CI` and `Release` both
+`success` — the one `Release` failure visible in recent runs
+(`03be8fb`, run 524) was on a commit since superseded by a green one, not
+a currently-red tip, so this doesn't count as CI-red. `npm run
+radar:health` → `STATUS: OK` (2 runs in the 26h window, last run 2.7h ago
+published 7, feed at 611 tools). `list_issues` for `agent-fixable`: zero
+open. No urgent work.
+
+Swept every OPEN entry for a `Re-verified`/`Deepened` marker to find what,
+if anything, has never been touched since creation: every entry has been
+touched at least once except the newest ("A published catalog entry is
+never re-checked," `Found:` 2026-11-14, only 5 days old — too fresh to
+need it yet). Of the touched-once entries, **"Track progress against your
+role, not generic benchmarks"** (`Found:` 2026-09-15, last touched
+2026-10-07) was the stalest at 43 days and is explicitly the most
+build-ready S-size entry in the file — re-verified it directly against
+current `master` (full note added to the entry above): copy, data shape,
+and the single unbuilt deliverable (a derived "N of 3 core mastered" stat
+in `Stack.jsx`) are all unchanged, only two line numbers drifted.
+
+Checked four candidate new-gap areas before concluding none qualify:
+per-tool ratings/reviews (already `SHIPPED 0448e6f`), structured data /
+JSON-LD (already `SHIPPED`), a browser lookup extension (already its own
+OPEN entry, "No lookup surface outside toolnaut.xyz"), and a
+community/forum surface (`Community.jsx` already ships this). Also
+checked Discover's price filter directly (`Discover.jsx:69,130` — a
+`price` facet already exists) against the "Alternatives to X" pattern
+family, no gap found there either. No genuine new finding this hour, so
+no ninth-plus entry was invented to fill it — per this file's own rule,
+an append-nothing hour on new gaps is correct when the only real work was
+re-verifying an existing one.
+
+No code changed this run — the backlog edit (one re-verify note plus this
+section) is the only diff. `npm test` not re-run beyond the implicit `npm
+ci` install check; `npm run build`/`npm run smoke` not run — docs-only
+change, no `src/` or `radar/` files touched.
