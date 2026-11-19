@@ -5856,6 +5856,25 @@ a client-side SPA with a static tool catalogue.
   Still OPEN; still build size M; ready to build as scoped, with the migration
   renumbered to 0011 and the `:quiz` exclusion added to `leaderboard_top()`'s
   roadmap-step count.
+- **Re-verified 2026-11-19 03:04 UTC — stalest OPEN entry (56 days since its
+  last touch), re-checked in full against current `master`.** Nothing
+  drifted. `IS_SAMPLE = true` is still set (`leaderboardData.js:51`),
+  `RankCard.jsx:4` still imports `SAMPLE_LEADERBOARD`/`IS_SAMPLE` verbatim
+  and still renders `SAMPLE_LEADERBOARD.map(...)` at `:98`. `communityStats
+  .js`'s `myStanding()` still computes `computeScore({ stackSize, stepsDone,
+  streakDays })` with no `roadmapComplete` field (`:89`) and `stepsDone`
+  still excludes `:quiz` keys (`:81`) — the SQL exclusion this entry's last
+  deepening added is still the right call, unchanged. `supabase/migrations/`
+  has not grown since the last check — still exactly 0001 through 0010, so
+  **0011 is still the next free migration number**, not stale again.
+  `authStore.js` still has real `signInWithOAuth` (`:108`) and
+  `signInWithOtp` (`:142`); `sync.js` still exports `syncAvailable()`
+  (`:49`); `0001_explorers.sql`'s `security definer` + `grant execute on
+  function ... to anon, authenticated` precedent (`:37,:44`) is unchanged.
+  Still OPEN, still build size M, still ready to build exactly as scoped —
+  this is now the cheapest fully-specced OPEN entry with zero drift on a
+  re-check, since every other stale-by-date entry above it in this pass's
+  scan needed at least one correction.
 
 ---
 
@@ -14790,6 +14809,57 @@ checking against our own code regardless: their core angle (a quiz that
 filters recommendations by budget) is ground Toolnaut's own onboarding
 quiz and the already-shipped "hard budget filter" (PR #25) already cover,
 not a new gap. Not logged.
+
+`npm test` not re-run beyond the implicit `npm ci` install check — docs-only
+change (one re-verify note on an existing entry plus this section), no
+`src/` or `radar/` files touched, nothing to ship this pass.
+
+### Research check 2026-11-19 03:04 UTC — eighty-second+ pass; re-verified the stalest OPEN entry, one fresh lead checked, doesn't survive
+
+`npm ci` clean (201 packages). Local checkout was 11 commits behind
+`origin/master` (the radar's own `chore(radar): publish newly discovered
+tools` plus yesterday's MCP-servers/research-check pushes) — fast-forwarded
+to `1769ead` before doing anything else, no local changes lost
+(`git status` was clean going in). `list_workflow_runs` on `master`: `CI`
+and `Release` both `success` at `55b9be0` (the 00:06 UTC research-check
+commit); `Radar` `success` at the newer `1769ead` tip. Current `master` is
+fully green, not CI-red. `npm run radar:health` → `STATUS: OK` (3 runs in
+the 26h window, last run 19m ago published 5, feed at 604 tools).
+`list_issues` for `agent-fixable`: zero open. No urgent work.
+
+**Re-verified the stalest OPEN entry:** scanned every OPEN entry's own
+dated markers across all 22 real entries. "The leaderboard's own
+precondition for going real" (line 5711, last Deepened 2026-09-24) was the
+single stalest at 56 days — the 00:06 UTC pass's own re-verify of "No
+educational/how-to content" moved that entry's clock to today, leaving
+this one as the new oldest-untouched. Re-read every file it cites against
+current `master` (note added directly to the entry): zero drift anywhere —
+`IS_SAMPLE`, `RankCard.jsx`'s imports, `communityStats.js`'s score inputs
+and `:quiz` exclusion, the migration count (still 0001–0010, so 0011 is
+still next), the Supabase auth/sync plumbing, and the `explorer_count()`
+precedent all matched exactly as last recorded. Still OPEN, still Build
+size M, still the cheapest fully-specced OPEN entry with no correction
+needed on this pass.
+
+**One fresh lead checked, doesn't survive:** `WebSearch` for 2026 AI-
+directory crowdsourced pricing-accuracy/price-history features and
+user-driven listing fact-checks. Every directory claiming a price-history
+chart or an accuracy score is self-reporting its own methodology
+(aiproductivity.ai's tracker, The Stack Map's "95% accuracy" policy page,
+CostBench's in-progress benchmark) with no independent audit found of any
+of them — the same "Seen in: <competitor, with URL>, primary source" bar
+that has rejected every similar lead since 2026-11-18 09:03 UTC. The one
+concrete mechanism found, AIDIRECTORY's own docs (`aidirectory.com/docs/
+how-verification-works`): a listing's verified badge can be revoked if a
+user reports inaccurate information and a reviewer confirms it — i.e. a
+user report visibly changes something on the listing. Checked this against
+Toolnaut's own already-shipped "report a wrong listing" entry (line 8150,
+SHIPPED `3a7a173`) before logging anything: that entry's own "What this
+would NOT include" list already rules this exact mechanism out by design —
+"no automatic action on the catalog record from a report... a human
+triages, same as radar's own status field is human/LLM-set today, never
+user-set." Not a new gap; restates a tradeoff this file already made
+deliberately. Not logged.
 
 `npm test` not re-run beyond the implicit `npm ci` install check — docs-only
 change (one re-verify note on an existing entry plus this section), no
