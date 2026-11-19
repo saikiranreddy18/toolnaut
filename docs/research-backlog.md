@@ -11697,6 +11697,33 @@ detail. No code changed this run — the backlog edit is the only diff.
   needs a real Vercel preview deploy to confirm the function actually
   serves before calling it done.
 - **Found:** 2026-10-07 06:20 UTC
+- **Deepened 2026-11-19 15:03 UTC:** new evidence sharpening "why it
+  matters" — Toolnaut's own homepage already promises exactly this feature
+  as one of 7 headline Capabilities tiles, and the promise is false for the
+  one audience it's aimed at. `FeaturesSection.jsx:11`: *"Weekly fresh
+  finds — New tools matched to your evolving role, delivered in one
+  scannable digest."* — shown to every visitor before any signup, on the
+  same landing page this entry already names as having no email box
+  anywhere. Two things confirmed against current master:
+  - **"Delivered":** the only path to receiving anything is a full
+    signed-in account through `AlertSettings.jsx`/`/api/alerts`; a visitor
+    reading this exact tile on the homepage has no way to leave an email
+    address anywhere, which is this entry's own "Gap" finding restated as a
+    specific, falsifiable marketing claim rather than a general pattern
+    competitors follow.
+  - **"Weekly":** even signed in, the shipped mechanism
+    (`api/alerts-send.js:1-3`'s own header comment: *"The daily alert run.
+    Vercel cron hits this"*) runs daily, not weekly, and is domain-filtered
+    by a manual toggle in `AlertSettings.jsx` rather than derived from the
+    user's quiz role/`answers.domain` — so even the logged-in version
+    doesn't match what the tile describes.
+  Doesn't change the smallest-useful-version plan above (still exactly: the
+  public signup box, `confirmed` column, and `newsletter-subscribe`
+  function) — adds one more small, independent fix worth bundling into the
+  same PR: once the plan ships, `FeaturesSection.jsx:11`'s copy should say
+  what the product actually does ("Fresh finds" or similar cadence-neutral
+  wording) rather than a cadence ("Weekly") the one shipped mechanism never
+  uses.
 
 ---
 
@@ -15088,3 +15115,43 @@ the entry's case with fresher, more specific evidence than its original
 `npm test` not re-run beyond the implicit `npm ci` install check — docs-only
 change (one re-verify note on an existing entry plus this section), no
 `src/` or `radar/` files touched, nothing to ship this pass.
+
+---
+
+### Research check 2026-11-19 15:03 UTC — eighty-sixth+ pass; deepened the email-capture entry with a marketing-copy citation instead of re-verifying another clean one
+
+Scheduled run, UTC hour 15 (a research slot). `npm ci` clean. Urgent-work
+checks came back clean first: CI green on master (`4da2f6f`), `npm run
+radar:health` reports `STATUS: OK` (2 runs in the 26h window, 5 tools
+published last run, 12.2h ago, 604 in `public/tools.json`), zero open
+`agent-fixable` issues — so the hour went to backlog work.
+
+Re-verified the top-queued, fully-scoped "Alternatives to X never flags the
+free one" entry (Build size S, `Found:` 2026-11-14) against current
+master: every cited line still matches exactly —
+`src/utils/toolSeo.js:64-81`'s `score()` still never reads `price`,
+`src/pages/ToolPublic.jsx:121-144`'s Alternatives section and its price
+chip at `129-131` are unchanged. Zero drift; ready to build exactly as
+scoped, no entry edit needed.
+
+Per the audience-section instruction (check marketing copy in
+`src/components/sections/` against real behaviour), read
+`FeaturesSection.jsx` — the homepage's 7-tile headline Capabilities grid —
+end to end against the app it describes. Six of seven tiles check out
+against shipped behaviour. The seventh, "Weekly fresh finds — New tools
+matched to your evolving role, delivered in one scannable digest," does
+not: nothing is *delivered* to a signed-out visitor (the only path to
+receiving anything requires a full account via `AlertSettings.jsx`), and
+even for a signed-in user the shipped mechanism
+(`api/alerts-send.js:1-3`) runs daily, not weekly, and is domain-filtered
+by manual toggle rather than role-derived. This restates, with a specific
+falsifiable citation, the exact gap the already-OPEN "No public email
+capture" entry (`Found:` 2026-10-07) describes generally — so the finding
+was folded into that entry as a `Deepened 2026-11-19 15:03 UTC` note
+rather than logged as a ninth, overlapping OPEN entry. No change to that
+entry's build plan; adds one small bundled copy fix (the "Weekly" claim)
+worth taking in the same PR once it ships.
+
+No code changed this run — the backlog edit is the only diff. `npm test`
+not re-run beyond the implicit `npm ci` install check (docs-only change,
+no `src/`/`radar/` files touched).
