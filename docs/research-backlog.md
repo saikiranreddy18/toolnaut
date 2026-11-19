@@ -13135,7 +13135,16 @@ feature ship in 5+ weeks to drain against it.
 ---
 
 ### "Alternatives to X" never flags the free one — a validated, separate high-intent query from generic "alternatives"
-- **Status:** OPEN
+- **Status:** SHIPPED 03be8fb — built exactly as scoped below:
+  `relatedTools()` in `toolSeo.js` now adds a `+2` score bonus for a free
+  candidate when the viewed tool itself isn't free, and `ToolPublic.jsx`
+  renders the one-sentence callout above the alternatives grid when it
+  applies. New test in `test/tool-seo.test.mjs` asserts both the bonus and
+  that it doesn't fire when the viewed tool is already free. The static
+  `/ai-tools/:slug` crawler pages (`gen-tool-pages.mjs`) inherit the
+  reordering automatically since they call the same `relatedTools()`, per
+  this entry's own "what this would NOT include" — no separate sentence was
+  added there, matching scope.
 - **Seen in:** two real products built entirely around this sub-intent —
   Open Source Alternative Finder (osalfinder.com), an AI-researched,
   daily-updated directory specifically for replacing paid SaaS/AI tools with

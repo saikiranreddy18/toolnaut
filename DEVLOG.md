@@ -9,6 +9,56 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-11-19
+
+**Radar health:** `OK` — 15 tools published across the last 2 runs in the
+24h window (10, then 5), feed now at 604 published tools. No NO-PUBLISH or
+NO-SOURCE symptoms.
+
+**Researched today:** none — this run landed on the 18:03 UTC feature+digest
+slot. The four research passes before it (03:04, 06:03, 09:03, 12:03, 15:03
+UTC) re-verified stalest OPEN entries and deepened the "no public email
+capture" gap with a falsifiable marketing-copy citation; no new gap was
+logged. CI on master was green all day and no `agent-fixable` issues were
+open.
+
+**Shipped today:** **`03be8fb`** — "Alternatives to X" alternatives sections
+now surface the free option first. `relatedTools()` (`src/utils/toolSeo.js`)
+adds a small score bonus for a free candidate whenever the viewed tool
+itself isn't free, and `ToolPublic.jsx`'s `/ai-tools/:slug` page now shows
+one short callout sentence ("Looking for a free way to do this? **X** is
+free.") above the alternatives grid when it applies. This closes a gap this
+file had already fully scoped: two real competitors (osalfinder.com,
+eliteai.tools) build entire directories around exactly this cost-motivated
+search intent, and Toolnaut already had the SEO page and the price data —
+it just never connected the two. Zero backend, zero new catalog field; a
+new test in `test/tool-seo.test.mjs` asserts both the bonus and that it
+doesn't fire when the viewed tool is already free. **This is visible on
+toolnaut.xyz today** — confirmed in the production build that the string
+compiles into the live route's own JS chunk, and that the free alternative
+(`n8n`, ahead of five paid competitors) is correctly reordered to the top
+of a real tool's (`agentgpt`) alternatives list.
+
+**Verification:** `npm test` (324 tests, all green), `npm run build`
+(prerender confirms the reordering on `agentgpt`'s static page), and
+`npm run smoke` (27/27 routes, 0 console errors) all green, then pushed
+straight to `master`.
+
+**Queued next:** the backlog carries several already-built-but-unmerged PRs
+(#86, #89, #75, #57/#70 — cost calculator, access-method facet, stack
+overlap, GA4 consent) each flagged "needs a human to merge, not more agent
+code" after hitting a push guard weeks ago; worth the project owner's
+attention directly rather than another research pass re-discovering them.
+On the backlog itself: the public-email-capture gap (now twice-deepened,
+`Build size: M`, needs one new serverless function under the Vercel Hobby
+12-function cap plus a DB migration) is the most load-bearing OPEN entry
+left and the next natural feature-run pick once its last open question
+(confirmation-email copy) is settled. The vendor-claim-listing path and the
+catalog-recheck entry remain the next-stalest OPEN items for research to
+revisit.
+
+---
+
 ## 2026-11-18
 
 **Radar health:** `OK` — 22 tools published across the last 3 runs in the
