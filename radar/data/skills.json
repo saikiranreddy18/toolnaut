@@ -240,7 +240,8 @@
       "reflektor",
       "webcraft-pro",
       "mozilla-ai-launches-otari-one-api-key-for-every-model",
-      "nihil"
+      "nihil",
+      "an-open-source-harness-for-android-devs-in-the-terminal"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -478,7 +479,8 @@
       "course-reflektor",
       "course-webcraft-pro",
       "course-mozilla-ai-launches-otari-one-api-key-for-every-model",
-      "course-nihil"
+      "course-nihil",
+      "course-an-open-source-harness-for-android-devs-in-the-terminal"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -689,7 +691,8 @@
       "coral",
       "coderbaba",
       "trnrt",
-      "redcat-an-open-source-ai-agent-for-your-desktop"
+      "redcat-an-open-source-ai-agent-for-your-desktop",
+      "raven-recon"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -795,7 +798,8 @@
       "course-coral",
       "course-coderbaba",
       "course-trnrt",
-      "course-redcat-an-open-source-ai-agent-for-your-desktop"
+      "course-redcat-an-open-source-ai-agent-for-your-desktop",
+      "course-raven-recon"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1300,7 +1304,12 @@
       "kradlebench",
       "railcall",
       "intrusiveai",
-      "sourcepost"
+      "sourcepost",
+      "purple-flow",
+      "disposable",
+      "agentmall",
+      "raven-recon",
+      "dayfileapp"
     ],
     "courses": [
       "course-headless-tools",
@@ -1626,7 +1635,12 @@
       "course-kradlebench",
       "course-railcall",
       "course-intrusiveai",
-      "course-sourcepost"
+      "course-sourcepost",
+      "course-purple-flow",
+      "course-disposable",
+      "course-agentmall",
+      "course-raven-recon",
+      "course-dayfileapp"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2688,7 +2702,8 @@
       "ai-agent-shouldnt-read-that-file-yet",
       "laya-guard",
       "coderbaba",
-      "intrusiveai"
+      "intrusiveai",
+      "raven-recon"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -2734,7 +2749,8 @@
       "course-ai-agent-shouldnt-read-that-file-yet",
       "course-laya-guard",
       "course-coderbaba",
-      "course-intrusiveai"
+      "course-intrusiveai",
+      "course-raven-recon"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3188,7 +3204,8 @@
       "whirl",
       "lacuna",
       "authrot",
-      "ai-spar"
+      "ai-spar",
+      "foolscap"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -3221,7 +3238,8 @@
       "course-whirl",
       "course-lacuna",
       "course-authrot",
-      "course-ai-spar"
+      "course-ai-spar",
+      "course-foolscap"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3806,7 +3824,8 @@
       "system-1-agents",
       "webcraft-pro",
       "cloudish",
-      "sourcepost"
+      "sourcepost",
+      "dayfileapp"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3873,7 +3892,8 @@
       "course-system-1-agents",
       "course-webcraft-pro",
       "course-cloudish",
-      "course-sourcepost"
+      "course-sourcepost",
+      "course-dayfileapp"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4443,7 +4463,8 @@
       "qlcodepreview-syntax-highlighting-in-finders-quick-look",
       "agent-history-cli",
       "korosta",
-      "listodo"
+      "listodo",
+      "foolscap"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -4472,7 +4493,8 @@
       "course-qlcodepreview-syntax-highlighting-in-finders-quick-look",
       "course-agent-history-cli",
       "course-korosta",
-      "course-listodo"
+      "course-listodo",
+      "course-foolscap"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4592,7 +4614,8 @@
       "veduta",
       "atlas",
       "r3",
-      "redcat-an-open-source-ai-agent-for-your-desktop"
+      "redcat-an-open-source-ai-agent-for-your-desktop",
+      "agentmall"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -4633,7 +4656,8 @@
       "course-veduta",
       "course-atlas",
       "course-r3",
-      "course-redcat-an-open-source-ai-agent-for-your-desktop"
+      "course-redcat-an-open-source-ai-agent-for-your-desktop",
+      "course-agentmall"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4758,7 +4782,10 @@
       "kradlebench",
       "nihil",
       "intrusiveai",
-      "sourcepost"
+      "sourcepost",
+      "purple-flow",
+      "disposable",
+      "raven-recon"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4790,7 +4817,10 @@
       "course-kradlebench",
       "course-nihil",
       "course-intrusiveai",
-      "course-sourcepost"
+      "course-sourcepost",
+      "course-purple-flow",
+      "course-disposable",
+      "course-raven-recon"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5755,7 +5785,8 @@
       "aiope",
       "pixelboard",
       "opposable",
-      "kryzz-ai"
+      "kryzz-ai",
+      "an-open-source-harness-for-android-devs-in-the-terminal"
     ],
     "courses": [
       "course-devx",
@@ -5764,7 +5795,8 @@
       "course-aiope",
       "course-pixelboard",
       "course-opposable",
-      "course-kryzz-ai"
+      "course-kryzz-ai",
+      "course-an-open-source-harness-for-android-devs-in-the-terminal"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6129,7 +6161,8 @@
       "humble-bundle",
       "charter",
       "benchmark-coding-agents-on-deploying-apps",
-      "r3"
+      "r3",
+      "an-open-source-harness-for-android-devs-in-the-terminal"
     ],
     "courses": [
       "course-propose-and-dual-control-for-dns-changes",
@@ -6138,7 +6171,8 @@
       "course-humble-bundle",
       "course-charter",
       "course-benchmark-coding-agents-on-deploying-apps",
-      "course-r3"
+      "course-r3",
+      "course-an-open-source-harness-for-android-devs-in-the-terminal"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -9662,7 +9696,8 @@
       "vim-like-hyper-efficient-llm-power-tool",
       "termaxa",
       "now",
-      "nexus"
+      "nexus",
+      "an-open-source-harness-for-android-devs-in-the-terminal"
     ],
     "courses": [
       "course-tenux",
@@ -9674,7 +9709,8 @@
       "course-vim-like-hyper-efficient-llm-power-tool",
       "course-termaxa",
       "course-now",
-      "course-nexus"
+      "course-nexus",
+      "course-an-open-source-harness-for-android-devs-in-the-terminal"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -11050,13 +11086,15 @@
       "openvurp",
       "i-built-a-router-for-agent-tools",
       "moching",
-      "coral"
+      "coral",
+      "disposable"
     ],
     "courses": [
       "course-openvurp",
       "course-i-built-a-router-for-agent-tools",
       "course-moching",
-      "course-coral"
+      "course-coral",
+      "course-disposable"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -14248,7 +14286,8 @@
       "drama-song-ad",
       "ui-for-answering-agent-questions-async",
       "vendiq",
-      "enso-method"
+      "enso-method",
+      "purple-flow"
     ],
     "courses": [
       "course-logitech-launches-mx-keypad-for-developers",
@@ -14256,7 +14295,8 @@
       "course-drama-song-ad",
       "course-ui-for-answering-agent-questions-async",
       "course-vendiq",
-      "course-enso-method"
+      "course-enso-method",
+      "course-purple-flow"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -17218,10 +17258,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "indias-first-ai-agentic-e-commerce-platform"
+      "indias-first-ai-agentic-e-commerce-platform",
+      "agentmall"
     ],
     "courses": [
-      "course-indias-first-ai-agentic-e-commerce-platform"
+      "course-indias-first-ai-agentic-e-commerce-platform",
+      "course-agentmall"
     ],
     "updatedAt": "2026-09-13T13:49:13.602Z"
   },
@@ -19544,10 +19586,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "cve-2026-21858-n8n-fullchain"
+      "cve-2026-21858-n8n-fullchain",
+      "purple-flow"
     ],
     "courses": [
-      "course-cve-2026-21858-n8n-fullchain"
+      "course-cve-2026-21858-n8n-fullchain",
+      "course-purple-flow"
     ],
     "updatedAt": "2026-09-17T14:18:56.690Z"
   },
@@ -19799,10 +19843,12 @@
     "domain": "data",
     "level": "advanced",
     "toolsTeaching": [
-      "ai-crawler-honeypot"
+      "ai-crawler-honeypot",
+      "dayfileapp"
     ],
     "courses": [
-      "course-ai-crawler-honeypot"
+      "course-ai-crawler-honeypot",
+      "course-dayfileapp"
     ],
     "updatedAt": "2026-09-17T23:41:16.935Z"
   },
@@ -24278,5 +24324,109 @@
       "course-intrusiveai"
     ],
     "updatedAt": "2026-11-19T02:49:13.811Z"
+  },
+  {
+    "id": "skill-author",
+    "name": "author",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "foolscap"
+    ],
+    "courses": [
+      "course-foolscap"
+    ],
+    "updatedAt": "2026-11-19T18:19:43.068Z"
+  },
+  {
+    "id": "skill-book",
+    "name": "book",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "foolscap"
+    ],
+    "courses": [
+      "course-foolscap"
+    ],
+    "updatedAt": "2026-11-19T18:19:43.068Z"
+  },
+  {
+    "id": "skill-share",
+    "name": "share",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "disposable"
+    ],
+    "courses": [
+      "course-disposable"
+    ],
+    "updatedAt": "2026-11-19T18:19:43.068Z"
+  },
+  {
+    "id": "skill-rebuild",
+    "name": "rebuild",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "disposable"
+    ],
+    "courses": [
+      "course-disposable"
+    ],
+    "updatedAt": "2026-11-19T18:19:43.068Z"
+  },
+  {
+    "id": "skill-opensource",
+    "name": "opensource",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "an-open-source-harness-for-android-devs-in-the-terminal"
+    ],
+    "courses": [
+      "course-an-open-source-harness-for-android-devs-in-the-terminal"
+    ],
+    "updatedAt": "2026-11-19T18:19:43.068Z"
+  },
+  {
+    "id": "skill-grocery shopping",
+    "name": "grocery shopping",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentmall"
+    ],
+    "courses": [
+      "course-agentmall"
+    ],
+    "updatedAt": "2026-11-19T18:19:43.068Z"
+  },
+  {
+    "id": "skill-recon",
+    "name": "recon",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "raven-recon"
+    ],
+    "courses": [
+      "course-raven-recon"
+    ],
+    "updatedAt": "2026-11-19T18:19:43.068Z"
+  },
+  {
+    "id": "skill-scripts",
+    "name": "scripts",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "dayfileapp"
+    ],
+    "courses": [
+      "course-dayfileapp"
+    ],
+    "updatedAt": "2026-11-19T18:19:43.068Z"
   }
 ]
