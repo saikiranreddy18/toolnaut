@@ -8487,6 +8487,21 @@ a client-side SPA with a static tool catalogue.
   scripts, one footer link-column edit. Same size class as the already-
   shipped vs-competitor gap. No schema, no backend, no new dependency.
 - **Found:** 2026-09-20 03:08 UTC
+- **Re-verified 2026-11-19 00:06 UTC — the stalest untouched OPEN entry (60
+  days, never re-checked since creation):** re-read every file this plan
+  cites against current `master`. Still fully unbuilt: no `/guides` or
+  `/guides/:slug` route in `src/App.jsx`, no `src/content/guides.js`, no
+  `src/pages/Guide.jsx`/`Guides.jsx`. The only line-number drift is in the
+  plan's supporting evidence, not its substance — `scripts/prerender.mjs`'s
+  `ROUTES` array (`:42-64`) has grown from 19 to 20 entries since (`/developers`
+  and `/mcp-servers` landed, both already-shipped gaps from this file), and
+  `ContactSection.jsx`'s "Resources" column (`:43-52`) now has 6 links, not 4
+  — "Developer API" and "MCP servers" were added, but still zero guide/how-to
+  content, so the column's label-vs-reality mismatch this entry describes is
+  unchanged. `src/pages/app/Learning.jsx` is still the only "Learning" surface
+  and still sits behind `AppShell`'s sign-in gate (`App.jsx:162`), not public.
+  Still Build size S, still the cheapest fully-specced OPEN entry with no
+  re-verification touch at all — a strong feature-run candidate.
 
 ---
 
@@ -14731,6 +14746,50 @@ an affiliate blog (theaisurf.com, aidirectory.com, Toolify breakdowns) —
 none from independent reporting, the same bar that has rejected every
 similar lead in this file since the 09:03 UTC pass today. Nothing new
 survived to log.
+
+`npm test` not re-run beyond the implicit `npm ci` install check — docs-only
+change (one re-verify note on an existing entry plus this section), no
+`src/` or `radar/` files touched, nothing to ship this pass.
+
+### Research check 2026-11-19 00:06 UTC — eighty-first+ pass; re-verified the stalest OPEN entry (never touched since creation, now 60 days), one fresh lead checked, doesn't survive
+
+`npm ci` clean (201 packages). `list_workflow_runs` on `master`: the latest
+push (`ef9ec9ba`, the 21:04 UTC re-verify docs commit) has both `CI` and
+`Release` `success` — current tip is fully green. `npm run radar:health` →
+`STATUS: OK` (2 runs in the 26h window, last run 5.9h ago published 10, feed
+at 599 tools). `list_issues` for `agent-fixable`: zero open. No urgent work.
+
+**Re-verified the stalest OPEN entry:** scanned every OPEN entry's own
+dated markers (`Found:`/`Re-verified:`/`Deepened:`) across all 22 real
+entries (excluding the file's own `<short gap name>` template). "No
+educational/how-to content" (line 8407, Found 2026-09-20) was the single
+stalest — the only OPEN entry never touched again after its own creation,
+60 days ago, ahead of "The leaderboard's own precondition for going real"
+(09-24, 56 days) and the three tied at 09-27 (53 days: "Weekly trending
+tools," "No testimonial/social-proof," "No lookup surface outside
+toolnaut.xyz"). Re-read every file this plan cites against current
+`master` (see the new note added directly to the entry): still zero
+`/guides` route, `src/content/guides.js`, or `Guide.jsx`/`Guides.jsx` —
+fully unbuilt. The only drift is in supporting evidence, not substance:
+`scripts/prerender.mjs`'s `ROUTES` array grew from 19 to 20 entries
+(`/developers` and `/mcp-servers` landed, both already-shipped gaps from
+this file) and `ContactSection.jsx`'s "Resources" column grew from 4 links
+to 6 ("Developer API," "MCP servers" added) — still zero guide/how-to
+content behind any of them, so the column's label-vs-reality mismatch this
+entry describes is unchanged. Still Build size S, still the cheapest
+fully-specced OPEN entry with no re-verification touch at all.
+
+**One fresh lead checked, doesn't survive:** `WebSearch` for 2026 AI-
+directory personalization/onboarding/gamification trends. Turned up two
+quiz-based AI tool recommenders (Pickurai, Vantaige's Tool Finder) pitching
+budget-aware quiz matching, but every source was the product's own
+Indie Hackers post or vendor blurb, not independent reporting — the same
+"Seen in: <competitor, with URL>, primary source" bar this file has held
+every lead to since the 09:03 UTC pass on 2026-11-18. The one claim worth
+checking against our own code regardless: their core angle (a quiz that
+filters recommendations by budget) is ground Toolnaut's own onboarding
+quiz and the already-shipped "hard budget filter" (PR #25) already cover,
+not a new gap. Not logged.
 
 `npm test` not re-run beyond the implicit `npm ci` install check — docs-only
 change (one re-verify note on an existing entry plus this section), no
