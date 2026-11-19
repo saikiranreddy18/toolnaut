@@ -38497,5 +38497,275 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "course-kradlebench",
+    "toolSlug": "kradlebench",
+    "title": "Master KradleBench",
+    "objectives": [
+      "Set up a basic multi-agent evaluation in Minecraft using KradleBench.",
+      "Run a predefined evaluation script and interpret the initial results.",
+      "Modify an agent's behavior parameter and re-run the benchmark to observe impact."
+    ],
+    "modules": [
+      {
+        "title": "Environment Setup and Initialization",
+        "estMinutes": 15,
+        "steps": [
+          "Clone the KradleBench repository and install required Python dependencies (e.g., `pip install -r requirements.txt`).",
+          "Configure the target Minecraft server connection parameters in the `config.yaml` file.",
+          "Execute the setup script: `kradlebench setup --environment minecraft`."
+        ]
+      },
+      {
+        "title": "Running a Standard Benchmark",
+        "estMinutes": 20,
+        "steps": [
+          "Select and run a standard task profile using: `kradlebench run --profile resource_gathering`.",
+          "Locate the generated results in the `./output/runs/<timestamp>` directory.",
+          "Use the built-in viewer: `kradlebench visualize --run <timestamp>` to inspect key metrics (e.g., completion time)."
+        ]
+      },
+      {
+        "title": "Parameter Tuning and Iteration",
+        "estMinutes": 25,
+        "steps": [
+          "Edit the agent definition file (e.g., `agents/scavenger.py`) to change a critical parameter (e.g., search radius).",
+          "Run the benchmark again with the modified configuration: `kradlebench run --profile resource_gathering --config modified.yaml`.",
+          "Compare the new visualization against the initial run to quantify the behavioral change."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-minecraft",
+      "skill-multi-agent",
+      "skill-evaluation",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Familiarity with Python environments (virtual environments).",
+      "Basic understanding of multi-agent systems.",
+      "Access to a running or configurable Minecraft server instance."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-19T02:49:13.811Z"
+  },
+  {
+    "id": "course-nihil",
+    "toolSlug": "nihil",
+    "title": "Master Nihil",
+    "objectives": [
+      "Integrate custom AI agents into the design pipeline.",
+      "Execute cross-simulation validation across multiple test vectors.",
+      "Implement automated PCB iteration based on simulation failures."
+    ],
+    "modules": [
+      {
+        "title": "Agent-Driven Constraint Definition",
+        "estMinutes": 20,
+        "steps": [
+          "Load existing project using `nihil load --advanced-schema`.",
+          "Define agent parameters via YAML targeting DRC/power constraints.",
+          "Run initial agent synthesis command: `nihil agent synthesize --target-constraints=yaml`."
+        ]
+      },
+      {
+        "title": "Multi-Vector Simulation & Reporting",
+        "estMinutes": 35,
+        "steps": [
+          "Load required test vector suite: `nihil sim load --vectors=sv_suite.tst`.",
+          "Execute coordinated simulation: `nihil sim run --all-vectors --report=final_metrics.json`.",
+          "Analyze output structure using native JSON parser in Nihil shell."
+        ]
+      },
+      {
+        "title": "Automated Iteration Loop Setup",
+        "estMinutes": 30,
+        "steps": [
+          "Configure failure threshold in project settings: `nihil config set --key=fail_threshold --value=0.05`.",
+          "Initiate automated feedback loop: `nihil iterate --monitor=final_metrics.json --on-fail=resynthesize`.",
+          "Monitor convergence state using `nihil status --loop-info`."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-pcb",
+      "skill-hardware",
+      "skill-ai",
+      "skill-simulation"
+    ],
+    "prerequisites": [
+      "Familiarity with advanced EDA workflows.",
+      "Working knowledge of YAML configuration and JSON data structures.",
+      "Access to a pre-configured Nihil execution environment."
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-19T02:49:13.811Z"
+  },
+  {
+    "id": "course-railcall",
+    "toolSlug": "railcall",
+    "title": "Master RailCall",
+    "objectives": [
+      "Configure a RailCall agent for local execution.",
+      "Implement a multi-step approval workflow within a RailCall process.",
+      "Generate and verify a signed receipt upon successful completion."
+    ],
+    "modules": [
+      {
+        "title": "Local Agent Setup",
+        "estMinutes": 15,
+        "steps": [
+          "Initialize a new RailCall project using `railcall init --local`.",
+          "Define the agent entry point in `config.yaml` pointing to a local script.",
+          "Run the agent locally using `railcall start` to confirm connectivity."
+        ]
+      },
+      {
+        "title": "Implementing Approval Gates",
+        "estMinutes": 20,
+        "steps": [
+          "Insert a `workflow.await_approval` step into your process definition.",
+          "Configure the required approver role via the agent's policy file.",
+          "Trigger the process and use `railcall status --awaiting` to monitor the pending state."
+        ]
+      },
+      {
+        "title": "Signed Receipt Generation",
+        "estMinutes": 15,
+        "steps": [
+          "Add a final `workflow.generate_receipt` step to the process flow.",
+          "Ensure the agent has access to the necessary signing credentials (e.g., key path).",
+          "Retrieve the final receipt artifact using `railcall get-receipt <run-id>` and verify the signature."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agent",
+      "skill-local-first",
+      "skill-runtime"
+    ],
+    "prerequisites": [
+      "Basic familiarity with YAML configuration.",
+      "Node.js/Python environment set up (depending on agent runtime).",
+      "Understanding of local containerization (e.g., Docker, if used for dependencies)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-19T02:49:13.811Z"
+  },
+  {
+    "id": "course-intrusiveai",
+    "toolSlug": "intrusiveai",
+    "title": "Master Intrusive.ai",
+    "objectives": [
+      "Configure Intrusive.ai for a specific target environment (e.g., Docker/K8s).",
+      "Execute a multi-vector attack simulation against the configured target.",
+      "Analyze generated vulnerability reports and map them to MITRE ATT&CK techniques."
+    ],
+    "modules": [
+      {
+        "title": "Target Environment Setup",
+        "estMinutes": 15,
+        "steps": [
+          "Clone the Intrusive.ai repository and install dependencies via pip.",
+          "Define target scope (IP/URL/Container ID) in `config.yaml`.",
+          "Run initial target health check: `intrusive.py check --config config.yaml`"
+        ]
+      },
+      {
+        "title": "Simulation Execution & Monitoring",
+        "estMinutes": 25,
+        "steps": [
+          "Execute the main simulation: `intrusive.py run --config config.yaml --mode advanced`.",
+          "Monitor real-time output and resource utilization using `htop`.",
+          "Terminate simulation cleanly: `Ctrl+C` followed by checking logs in the `output/` directory."
+        ]
+      },
+      {
+        "title": "Reporting and Mapping",
+        "estMinutes": 20,
+        "steps": [
+          "Generate the structured report: `intrusive.py report --config config.yaml --format json`.",
+          "Load JSON report into a tool like Jupyter/Obsidian.",
+          "Cross-reference identified CVEs/vulnerabilities against the MITRE ATT&CK framework using provided mapping scripts."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai",
+      "skill-security",
+      "skill-attack",
+      "skill-simulation"
+    ],
+    "prerequisites": [
+      "Familiarity with Linux CLI and basic Python environments.",
+      "Understanding of common attack vectors (e.g., SQLi, XSS) and security testing methodologies.",
+      "Working knowledge of Docker or Kubernetes concepts."
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-19T02:49:13.811Z"
+  },
+  {
+    "id": "course-sourcepost",
+    "toolSlug": "sourcepost",
+    "title": "Master SourcePost",
+    "objectives": [
+      "Locate and filter agents by specific capabilities within SourcePost.",
+      "Test API connectivity using the provided MCP endpoints.",
+      "Identify the correct usage pattern for integrating a selected agent."
+    ],
+    "modules": [
+      {
+        "title": "Filtering Agents by Capability",
+        "estMinutes": 10,
+        "steps": [
+          "Navigate to the 'Directory' view in SourcePost.",
+          "Use the 'Capability Tags' filter to select 'Image Generation' or 'Data Extraction'.",
+          "Apply the 'Hand-Reviewed' status filter to confirm quality."
+        ]
+      },
+      {
+        "title": "Testing API Connectivity via MCP",
+        "estMinutes": 15,
+        "steps": [
+          "Select an agent and view its 'MCP Endpoint' details.",
+          "Use the built-in MCP testing utility to run a simple 'ping' or 'health check'.",
+          "Verify the API returns a successful HTTP 200 status code."
+        ]
+      },
+      {
+        "title": "Integrating a Selected Agent",
+        "estMinutes": 15,
+        "steps": [
+          "Copy the agent's specific API key and documentation link.",
+          "Reference the documentation to determine required input payload structure (e.g., JSON schema).",
+          "Execute a single test call using your preferred client (e.g., Postman) to validate the workflow."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai",
+      "skill-agents",
+      "skill-directory",
+      "skill-api"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-19T02:49:13.811Z"
   }
 ]

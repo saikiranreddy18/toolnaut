@@ -239,7 +239,8 @@
       "launch-hn-starsling-yc-p25",
       "reflektor",
       "webcraft-pro",
-      "mozilla-ai-launches-otari-one-api-key-for-every-model"
+      "mozilla-ai-launches-otari-one-api-key-for-every-model",
+      "nihil"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -476,7 +477,8 @@
       "course-launch-hn-starsling-yc-p25",
       "course-reflektor",
       "course-webcraft-pro",
-      "course-mozilla-ai-launches-otari-one-api-key-for-every-model"
+      "course-mozilla-ai-launches-otari-one-api-key-for-every-model",
+      "course-nihil"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1294,7 +1296,11 @@
       "lalabase",
       "cloudish",
       "redcat-an-open-source-ai-agent-for-your-desktop",
-      "nexus"
+      "nexus",
+      "kradlebench",
+      "railcall",
+      "intrusiveai",
+      "sourcepost"
     ],
     "courses": [
       "course-headless-tools",
@@ -1616,7 +1622,11 @@
       "course-lalabase",
       "course-cloudish",
       "course-redcat-an-open-source-ai-agent-for-your-desktop",
-      "course-nexus"
+      "course-nexus",
+      "course-kradlebench",
+      "course-railcall",
+      "course-intrusiveai",
+      "course-sourcepost"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2293,7 +2303,8 @@
       "seodatadev-11-free-search-data-for-ai-agents",
       "flights-for-agents",
       "gemini-4-argon-is-now-available-for-developers",
-      "mozilla-ai-launches-otari-one-api-key-for-every-model"
+      "mozilla-ai-launches-otari-one-api-key-for-every-model",
+      "sourcepost"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2315,7 +2326,8 @@
       "course-seodatadev-11-free-search-data-for-ai-agents",
       "course-flights-for-agents",
       "course-gemini-4-argon-is-now-available-for-developers",
-      "course-mozilla-ai-launches-otari-one-api-key-for-every-model"
+      "course-mozilla-ai-launches-otari-one-api-key-for-every-model",
+      "course-sourcepost"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2675,7 +2687,8 @@
       "smart-blur",
       "ai-agent-shouldnt-read-that-file-yet",
       "laya-guard",
-      "coderbaba"
+      "coderbaba",
+      "intrusiveai"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -2720,7 +2733,8 @@
       "course-smart-blur",
       "course-ai-agent-shouldnt-read-that-file-yet",
       "course-laya-guard",
-      "course-coderbaba"
+      "course-coderbaba",
+      "course-intrusiveai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2747,14 +2761,16 @@
       "oconee-runtime",
       "public-beta-a-decision-governance-runtime-for-ai-agents",
       "apowerb",
-      "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
+      "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
+      "railcall"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
       "course-oconee-runtime",
       "course-public-beta-a-decision-governance-runtime-for-ai-agents",
       "course-apowerb",
-      "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen"
+      "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
+      "course-railcall"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3346,7 +3362,8 @@
       "delegator",
       "agent-swarm-oss-multiplayer-ai-for-your-company",
       "guilds",
-      "kradlebench-multi-agent-ai-evals-in-minecraft"
+      "kradlebench-multi-agent-ai-evals-in-minecraft",
+      "kradlebench"
     ],
     "courses": [
       "course-mrea",
@@ -3365,7 +3382,8 @@
       "course-delegator",
       "course-agent-swarm-oss-multiplayer-ai-for-your-company",
       "course-guilds",
-      "course-kradlebench-multi-agent-ai-evals-in-minecraft"
+      "course-kradlebench-multi-agent-ai-evals-in-minecraft",
+      "course-kradlebench"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3787,7 +3805,8 @@
       "standard-support",
       "system-1-agents",
       "webcraft-pro",
-      "cloudish"
+      "cloudish",
+      "sourcepost"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3853,7 +3872,8 @@
       "course-standard-support",
       "course-system-1-agents",
       "course-webcraft-pro",
-      "course-cloudish"
+      "course-cloudish",
+      "course-sourcepost"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4345,7 +4365,9 @@
       "simtower-decompiled-rewritten-and-in-the-browser",
       "tinyaiarena-watch-ai-agents-battle-it-out",
       "emulate-ai",
-      "openwants"
+      "openwants",
+      "nihil",
+      "intrusiveai"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -4355,7 +4377,9 @@
       "course-simtower-decompiled-rewritten-and-in-the-browser",
       "course-tinyaiarena-watch-ai-agents-battle-it-out",
       "course-emulate-ai",
-      "course-openwants"
+      "course-openwants",
+      "course-nihil",
+      "course-intrusiveai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4730,7 +4754,11 @@
       "dez",
       "reflektor",
       "webcraft-pro",
-      "nexus"
+      "nexus",
+      "kradlebench",
+      "nihil",
+      "intrusiveai",
+      "sourcepost"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4758,7 +4786,11 @@
       "course-dez",
       "course-reflektor",
       "course-webcraft-pro",
-      "course-nexus"
+      "course-nexus",
+      "course-kradlebench",
+      "course-nihil",
+      "course-intrusiveai",
+      "course-sourcepost"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4839,7 +4871,8 @@
       "listodo",
       "free-ai-agent-lab",
       "video-agent-with-version-control",
-      "shamus-osint-ai-agent"
+      "shamus-osint-ai-agent",
+      "railcall"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -4854,7 +4887,8 @@
       "course-listodo",
       "course-free-ai-agent-lab",
       "course-video-agent-with-version-control",
-      "course-shamus-osint-ai-agent"
+      "course-shamus-osint-ai-agent",
+      "course-railcall"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -6222,13 +6256,15 @@
       "ai-tools-list",
       "awesome-geo-tools",
       "ranking-the-most-ai-agent-friendly-tools",
-      "the-poteto-frontier-for-ai-agents"
+      "the-poteto-frontier-for-ai-agents",
+      "sourcepost"
     ],
     "courses": [
       "course-ai-tools-list",
       "course-awesome-geo-tools",
       "course-ranking-the-most-ai-agent-friendly-tools",
-      "course-the-poteto-frontier-for-ai-agents"
+      "course-the-poteto-frontier-for-ai-agents",
+      "course-sourcepost"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6905,7 +6941,8 @@
       "self-bench",
       "hieraticbench",
       "benchmark-coding-agents-on-deploying-apps",
-      "kradlebench-multi-agent-ai-evals-in-minecraft"
+      "kradlebench-multi-agent-ai-evals-in-minecraft",
+      "kradlebench"
     ],
     "courses": [
       "course-understudy-scenario-testing-for-ai-agents",
@@ -6927,7 +6964,8 @@
       "course-self-bench",
       "course-hieraticbench",
       "course-benchmark-coding-agents-on-deploying-apps",
-      "course-kradlebench-multi-agent-ai-evals-in-minecraft"
+      "course-kradlebench-multi-agent-ai-evals-in-minecraft",
+      "course-kradlebench"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -7994,7 +8032,8 @@
       "paperweight",
       "verzeta-studio",
       "checkout-this-open-source-local-first-bioinformatics-ai-desk",
-      "kryzz-ai"
+      "kryzz-ai",
+      "railcall"
     ],
     "courses": [
       "course-datazen",
@@ -8009,7 +8048,8 @@
       "course-paperweight",
       "course-verzeta-studio",
       "course-checkout-this-open-source-local-first-bioinformatics-ai-desk",
-      "course-kryzz-ai"
+      "course-kryzz-ai",
+      "course-railcall"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -12240,7 +12280,8 @@
       "lapis-one",
       "nvidia-is-the-central-bank-of-ai",
       "compute-arena",
-      "orbtile"
+      "orbtile",
+      "nihil"
     ],
     "courses": [
       "course-open-source-eink-bike-computer",
@@ -12250,7 +12291,8 @@
       "course-lapis-one",
       "course-nvidia-is-the-central-bank-of-ai",
       "course-compute-arena",
-      "course-orbtile"
+      "course-orbtile",
+      "course-nihil"
     ],
     "updatedAt": "2026-09-04T23:20:31.711Z"
   },
@@ -24085,10 +24127,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "kradlebench-multi-agent-ai-evals-in-minecraft"
+      "kradlebench-multi-agent-ai-evals-in-minecraft",
+      "kradlebench"
     ],
     "courses": [
-      "course-kradlebench-multi-agent-ai-evals-in-minecraft"
+      "course-kradlebench-multi-agent-ai-evals-in-minecraft",
+      "course-kradlebench"
     ],
     "updatedAt": "2026-11-18T18:07:47.847Z"
   },
@@ -24208,5 +24252,31 @@
       "course-mozilla-ai-launches-otari-one-api-key-for-every-model"
     ],
     "updatedAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "id": "skill-pcb",
+    "name": "pcb",
+    "domain": "code",
+    "level": "advanced",
+    "toolsTeaching": [
+      "nihil"
+    ],
+    "courses": [
+      "course-nihil"
+    ],
+    "updatedAt": "2026-11-19T02:49:13.811Z"
+  },
+  {
+    "id": "skill-attack",
+    "name": "attack",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "intrusiveai"
+    ],
+    "courses": [
+      "course-intrusiveai"
+    ],
+    "updatedAt": "2026-11-19T02:49:13.811Z"
   }
 ]

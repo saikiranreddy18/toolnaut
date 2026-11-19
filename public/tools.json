@@ -14288,5 +14288,120 @@
       "terminal"
     ],
     "discoveredAt": "2026-11-18T18:07:47.847Z"
+  },
+  {
+    "slug": "kradlebench",
+    "name": "KradleBench",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free tier available",
+    "level": "intermediate",
+    "blurb": "Multi-agent AI evaluations within the Minecraft environment.",
+    "audience": "AI Researchers & Developers",
+    "dev": "kradle.ai",
+    "year": 2026,
+    "website": "https://www.kradle.ai?1",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "minecraft",
+      "multi-agent",
+      "evaluation",
+      "ai"
+    ],
+    "discoveredAt": "2026-11-19T02:49:13.811Z"
+  },
+  {
+    "slug": "nihil",
+    "name": "Nihil",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "paid",
+    "pricing": "Not specified",
+    "level": "advanced",
+    "blurb": "Hardware IDE where AI agents design, simulate, and test PCBs.",
+    "audience": "Hardware engineers",
+    "dev": "Nihil",
+    "year": 2026,
+    "website": "https://nihil.sh/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "pcb",
+      "hardware",
+      "ai",
+      "simulation"
+    ],
+    "discoveredAt": "2026-11-19T02:49:13.811Z"
+  },
+  {
+    "slug": "railcall",
+    "name": "RailCall",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free/Paid tiers",
+    "level": "intermediate",
+    "blurb": "Local-first agent runtime with approvals and signed receipts.",
+    "audience": "Developers building AI agents",
+    "dev": "RailCall",
+    "year": 2026,
+    "website": "https://railcall.ai/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "agent",
+      "local-first",
+      "runtime",
+      "automation"
+    ],
+    "discoveredAt": "2026-11-19T02:49:13.811Z"
+  },
+  {
+    "slug": "intrusiveai",
+    "name": "Intrusive.ai",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open-source",
+    "level": "advanced",
+    "blurb": "Open-source AI attack simulation for security testing.",
+    "audience": "Security professionals",
+    "dev": "Intrusive.ai",
+    "year": 2026,
+    "website": "https://intrusive.ai/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai",
+      "security",
+      "attack",
+      "simulation"
+    ],
+    "discoveredAt": "2026-11-19T02:49:13.811Z"
+  },
+  {
+    "slug": "sourcepost",
+    "name": "SourcePost",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free to use",
+    "level": "intermediate",
+    "blurb": "A hand-reviewed directory for AI agents via API and MCP.",
+    "audience": "AI developers",
+    "dev": "SourcePost",
+    "year": 2026,
+    "website": "https://sourcepost.dev",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai",
+      "agents",
+      "directory",
+      "api"
+    ],
+    "discoveredAt": "2026-11-19T02:49:13.811Z"
   }
 ]
