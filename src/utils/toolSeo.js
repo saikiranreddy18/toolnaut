@@ -71,6 +71,10 @@ export function relatedTools(t, catalog, limit = 6) {
     + (o.status === 'Active' ? 1 : 0)
     // Bundled, hand-curated entries have no discoveredAt; radar finds do.
     + (o.discoveredAt ? 0 : 1)
+    // A paid tool's alternatives should surface a free option without
+    // letting it outrank a better-matched flagship — enough to beat same-
+    // category paid competitors, not to override the flagship bonus.
+    + (t.price !== 'free' && o.price === 'free' ? 2 : 0)
   return catalog
     .filter((o) => o && o.slug !== t.slug && looksLikeAName(o) && !isCatalogNoise(o)
       && (o.category === t.category || o.sourceCategory === t.sourceCategory))

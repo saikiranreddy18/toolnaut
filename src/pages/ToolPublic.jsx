@@ -120,6 +120,11 @@ export default function ToolPublic() {
       {related.length > 0 && (
         <section className="mt-10">
           <h2 className="font-display text-xl font-semibold text-white">Alternatives to {tool.name}</h2>
+          {tool.price !== 'free' && related[0].price === 'free' && (
+            <p className="mt-2 text-sm text-zinc-400">
+              Looking for a free way to do this? <Link to={toolPath(related[0].slug)} className="font-semibold text-white underline underline-offset-4 hover:text-zinc-200">{related[0].name}</Link> is free.
+            </p>
+          )}
           <ul className="mt-5 grid gap-4 sm:grid-cols-2">
             {related.map((o) => (
               <li key={o.slug}>

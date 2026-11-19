@@ -38,6 +38,16 @@ test('alternatives prefer recognisable tools and drop headline-shaped entries', 
   assert.ok(!rel.some((t) => t.slug === 'vid'), 'unrelated domain is not an alternative')
 })
 
+test('a free tool outranks an equally-matched paid one as an alternative to a paid tool, but not to an already-free one', () => {
+  const PAID_SAME_CAT = { slug: 'antonio', name: 'Antonio', category: 'writing', sourceCategory: 'LLMs & Chatbots', price: 'paid', status: 'Active' }
+  const FREE_SAME_CAT = { slug: 'zelda', name: 'Zelda', category: 'writing', sourceCategory: 'LLMs & Chatbots', price: 'free', status: 'Active' }
+  const rel = relatedTools(B, [B, PAID_SAME_CAT, FREE_SAME_CAT]) // B ('Claude') is priced 'freemium', not free
+  assert.equal(rel[0].slug, 'zelda', 'the free option should outrank the paid one once the viewed tool costs money')
+  const FREE_VIEWED = { ...A, price: 'free' }
+  const relNoBonus = relatedTools(FREE_VIEWED, [FREE_VIEWED, PAID_SAME_CAT, FREE_SAME_CAT])
+  assert.equal(relNoBonus[0].slug, 'antonio', 'no free-alternative bonus when the viewed tool is already free — falls back to name order')
+})
+
 test('static html escapes catalogue text', () => {
   const html = toolStaticHtml({ ...A, name: '<script>x</script>' })
   assert.ok(!html.includes('<script>x'))
