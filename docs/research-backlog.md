@@ -2474,6 +2474,43 @@ a client-side SPA with a static tool catalogue.
   the two files this touches) rather than relying on the app-level smoke
   test alone to catch a regression here.
 - **Found:** 2026-09-28 09:09 UTC
+- **Re-verified 2026-11-19 12:03 UTC:** this was the single stalest OPEN
+  entry in the whole file — the only one with zero touch of any kind since
+  its own creation 52 days ago, missed by the sweep that cleared the three
+  09-27-tied entries at 09:03 UTC today because this one's own `Found:` date
+  (09-28) is one day newer, not because it was actually checked more
+  recently. Re-read every file this plan cites against current `master`:
+  substance is unchanged — `radar/sources/github.js:9,25` still
+  `sort=stars&order=desc` into `raw.stars`, `radar/sources/
+  hackernews.js:27` still stores `hit.points`, `radar/enrich.js`'s two
+  builders (now `enrichFallback:108` and `normalizeEnriched:135`, both
+  shifted from their original `:127`/`:155`) still read neither,
+  `radar/schema.js`'s `HASHED_FIELDS`/`REQUIRED_TOOL_FIELDS`/
+  `makeToolRecord` (now lines 49/52/54, shifted from `41`/`44`/`47`) still
+  have no `popularity` field, and `radar/scripts/sync-to-app.js`'s `FIELDS`
+  allowlist (line 12) is still the same 16 names with no popularity entry.
+  Two real drifts found and corrected here: `Discover.jsx` moved from
+  `src/pages/Discover.jsx` to `src/pages/app/Discover.jsx` (its sort-pill
+  array is now `SORT_OPTIONS` at lines 29-31, and the `newest`/`name`
+  branches are now lines 136-137, not the original `131-138`/`302-304`);
+  `src/utils/sortResults.js` itself is unchanged and already exports
+  `compareByNewest`/`compareByName` in exactly the shape this plan expects
+  the new `compareByPopularity` to match. `radar/test/schema.test.js` and
+  `radar/test/enrich.test.js` both still exist. Still OPEN, still Build
+  size S, plan still buildable exactly as scoped once line citations are
+  read as corrected above.
+- **One fresh competitor lead, corroborates rather than extends:**
+  `WebSearch` ("AI tool directory 2026 popularity score trending algorithm
+  stars upvotes ranking new feature") surfaced dev.indexator.ai's live
+  index, which scores tools from "real signals" including GitHub stars and
+  Hacker News mentions with 24h/7d deltas, and RankmyAI's monthly Top 100
+  (traffic + investment + review score, with a separate "risers" list for
+  month-over-month gains) — both dated 2026, both primary (the directories'
+  own ranking pages, not a blog describing them). Confirms this entry's own
+  premise harder than its original "Seen in" list did (GitHub stars + HN
+  points specifically, the exact two signals Toolnaut's own radar already
+  discards) but adds no new mechanism beyond what "Smallest useful version"
+  already scopes — not expanding the plan, just stronger evidence for it.
 
 ---
 
@@ -15003,4 +15040,51 @@ logged as a new entry.
 
 `npm test` not re-run beyond the implicit `npm ci` install check — docs-only
 change (two re-verify notes on existing entries plus this section), no
+`src/` or `radar/` files touched, nothing to ship this pass.
+
+---
+
+### Research check 2026-11-19 12:03 UTC — eighty-fifth+ pass; found the true stalest OPEN entry the last sweep missed (one day off by its own `Found:` date), re-verified it, one fresh lead corroborates rather than extends
+
+`npm ci` clean (201 packages). `list_workflow_runs` on `master`: latest push
+(`d4e68b0`, the 09:03 UTC re-verify docs commit) has `CI` `success` — tip is
+fully green, not CI-red. `npm run radar:health` → `STATUS: OK` (2 runs in
+the 26h window, last run 9.3h ago published 5, feed at 604 tools).
+`list_issues` for `agent-fixable`: zero open. No urgent work.
+
+**Found the true stalest OPEN entry:** the 09:03 UTC pass declared every
+OPEN entry's "oldest-untouched-since-creation" backlog cleared after
+re-verifying the three entries tied at 2026-09-27. Re-ran that same
+last-touch scan independently (extracting every `2026-MM-DD` date each
+entry's own body mentions and taking the max) across all 22 real OPEN
+entries rather than trusting the prior pass's count, and it wasn't actually
+clear: **"Popularity signal discarded before it reaches a record"** (line
+2378, `Found: 2026-09-28`) carried zero dates anywhere in its body other
+than its own creation timestamp — never re-verified even once, 52 days
+untouched, one day *newer* by `Found:` date than the three 09-27 entries
+the prior sweep caught, which is exactly why a scan sorting by oldest
+`Found:` first would reach it last and a sweep that stopped after clearing
+the 09-27 tie never got to it. Re-read every file this entry cites against
+current `master` (full diff in the note added directly to the entry):
+substance unchanged end to end — `github.js`/`hackernews.js` still discard
+`stars`/`points` after capturing them, `schema.js` still has no
+`popularity` field, `sync-to-app.js`'s allowlist still excludes it. Two
+real line-number/path drifts corrected: `enrich.js`'s two builder functions
+shifted from `:127`/`:155` to `:108`/`:135`; `Discover.jsx` moved wholesale
+from `src/pages/` to `src/pages/app/`, shifting its sort-pill and
+sort-branch line numbers along with it. Still OPEN, still Build size S,
+plan still buildable exactly as scoped.
+
+**One fresh lead checked, corroborates rather than extends:** `WebSearch`
+for 2026 AI-directory popularity/trending-ranking mechanisms turned up two
+primary, dated sources — dev.indexator.ai's live index (scores from GitHub
+stars and Hacker News mentions, with 24h/7d deltas) and RankmyAI's monthly
+Top 100 with a separate "risers" list — both ranking by the same kind of
+signal this entry's own "Smallest useful version" already proposes
+capturing (`candidate.raw?.stars ?? candidate.raw?.points`). Strengthens
+the entry's case with fresher, more specific evidence than its original
+"Seen in" list; doesn't change the plan or survive as a separate entry.
+
+`npm test` not re-run beyond the implicit `npm ci` install check — docs-only
+change (one re-verify note on an existing entry plus this section), no
 `src/` or `radar/` files touched, nothing to ship this pass.
