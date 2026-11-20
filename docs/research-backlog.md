@@ -8399,6 +8399,20 @@ a client-side SPA with a static tool catalogue.
     precedent to copy, even though the write side does not. This keeps the
     feature at Build size **S/M** (was M) and removes the one thing that
     would have surprised a builder mid-implementation.
+- **Re-verified 2026-11-20 00:03 UTC:** this was the single stalest OPEN
+  entry (last touched 2026-10-07, 44 days untouched — every other OPEN
+  entry has a 2026-11 check on record). Re-checked every citation against
+  current `master`: `src/utils/shareStack.js` is still pure
+  `encodeStackSlugs`/`decodeStackSlugs`; `grep -rn
+  "shared_stacks\|public_stacks\|from('stack\|gallery" src` still zero
+  hits; `App.jsx` still routes only `/s/:slugs`, no `/gallery`; migrations
+  still end at `0010_saved_limit.sql` (0011 still next free); `api/` still
+  holds exactly 11 non-underscore functions (one slot free); the RLS
+  pattern at `0002_user_state.sql` (`to authenticated using (auth.uid() =
+  user_id)`) and the anon-SELECT precedent at `0003_tool_claims.sql:77`
+  are both unchanged; `Legal.jsx:78-79` still reads "we also store on our
+  servers: ... the tools in your stack." Zero drift. Still OPEN, Build
+  size S/M, plan still buildable exactly as scoped.
 
 ### No "Toolnaut vs [competitor]" comparison pages — the single highest-intent SEO page type in this category, entirely missing
 - **Status:** SHIPPED 83805fc — built exactly as scoped below:
@@ -15217,6 +15231,53 @@ family, no gap found there either. No genuine new finding this hour, so
 no ninth-plus entry was invented to fill it — per this file's own rule,
 an append-nothing hour on new gaps is correct when the only real work was
 re-verifying an existing one.
+
+No code changed this run — the backlog edit (one re-verify note plus this
+section) is the only diff. `npm test` not re-run beyond the implicit `npm
+ci` install check; `npm run build`/`npm run smoke` not run — docs-only
+change, no `src/` or `radar/` files touched.
+
+---
+
+### Research check 2026-11-20 00:03 UTC — re-verified the stalest OPEN entry, one fresh lead checked against a strict evidence bar, doesn't survive
+
+Scheduled run, UTC hour 00 (a research slot). `npm ci` clean (201 packages,
+10 known vulnerabilities unrelated to this change). Urgent-work checks
+first: `list_workflow_runs` on `master` shows the tip (`76dd26d`, the
+21:04 UTC research-check commit) with both `CI` and `Release` `success` —
+not CI-red. `npm run radar:health` → `STATUS: OK` (2 runs in the 26h
+window, last run 5.7h ago published 7, feed at 611 tools). `list_issues`
+for `agent-fixable`: zero open. No urgent work, so the hour went to
+backlog work.
+
+**Re-verified the stalest OPEN entry:** re-ran the same last-touch scan
+prior passes have used (extracting every `2026-MM-DD` date each entry's
+own body mentions, taking the max, sorting ascending) across all OPEN
+entries. "No browsable gallery of shared stacks" (line ~8311, `Found:`
+2026-09-17, last touched 2026-10-07 when it was deepened) came back
+stalest at 44 days — every other OPEN entry already carries a 2026-11
+check. Re-verified every citation against current `master` (full note
+added directly to the entry): `shareStack.js` still pure encode/decode,
+still zero `shared_stacks`/`gallery` hits in `src/`, `App.jsx` still has
+no `/gallery` route, migrations still end at `0010`, `api/` still holds
+exactly 11 functions (one slot free), and the RLS/anon-SELECT precedents
+the 2026-10-07 auth-model correction relied on are both unchanged. Zero
+drift — still OPEN, still Build size S/M, ready to build exactly as
+scoped.
+
+**One fresh lead checked, doesn't survive:** `WebSearch` for whether
+`llms.txt` (an AI-crawler discovery file some directories have started
+publishing in 2026) is worth adding to a site like this one. The evidence
+against is stronger than the evidence for it: one cited analysis of
+37,894 AI-cited domains found zero citation advantage for sites with
+`llms.txt` versus without, and as of early 2026 no major AI provider
+(OpenAI, Google, Anthropic, Meta, Mistral) has publicly committed to
+reading it in production. Every source in favor was a vendor's own
+marketing guide, not a primary measurement. Fails this file's "Seen in:
+primary source with a real, dated effect" bar on its own evidence, not
+just on genre — not logged as a gap, and not worth doing as a free-form
+small fix either, since the search surfaced no credible upside to weigh
+against the (small) maintenance cost.
 
 No code changed this run — the backlog edit (one re-verify note plus this
 section) is the only diff. `npm test` not re-run beyond the implicit `npm
