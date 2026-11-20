@@ -39125,5 +39125,258 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-19T18:19:43.068Z"
+  },
+  {
+    "id": "course-relic",
+    "toolSlug": "relic",
+    "title": "Master Relic",
+    "objectives": [
+      "Verify Relic's strict context adherence in complex queries.",
+      "Test boundary conditions by providing contradictory context.",
+      "Refine context saving for optimal query focus."
+    ],
+    "modules": [
+      {
+        "title": "Context Isolation Check",
+        "estMinutes": 10,
+        "steps": [
+          "Upload a 1-page document (e.g., Project Scope A).",
+          "Ask Relic a specific question only answerable by that document.",
+          "Verify the answer does not reference external knowledge."
+        ]
+      },
+      {
+        "title": "Contradiction Handling",
+        "estMinutes": 15,
+        "steps": [
+          "Upload Context A (e.g., 'Deadline is May 1st').",
+          "Upload Context B (e.g., 'Deadline is June 15th').",
+          "Query: 'What is the deadline?' and confirm Relic cites the conflicting context."
+        ]
+      },
+      {
+        "title": "Focused Context Structuring",
+        "estMinutes": 10,
+        "steps": [
+          "Create a new, specific context chunk (e.g., 'API endpoint definitions').",
+          "Test a query requiring only this new chunk, ignoring prior documents.",
+          "Delete irrelevant old contexts to test query speed/relevance."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-context-aware",
+      "skill-grounded-ai",
+      "skill-knowledge-base",
+      "skill-qa"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-20T02:36:23.907Z"
+  },
+  {
+    "id": "course-lintsure",
+    "toolSlug": "lintsure",
+    "title": "Master Lintsure",
+    "objectives": [
+      "Integrate Lintsure into a local project environment.",
+      "Run a scan targeting OWASP security rules.",
+      "Configure Lintsure to check for EU AI Act compliance flags."
+    ],
+    "modules": [
+      {
+        "title": "Project Setup and Initialization",
+        "estMinutes": 10,
+        "steps": [
+          "Install Lintsure via npm/pip as required by your language.",
+          "Run `lintsure init` within the root of your codebase.",
+          "Verify the `.lintsure.yml` configuration file is generated."
+        ]
+      },
+      {
+        "title": "Executing OWASP Security Scans",
+        "estMinutes": 15,
+        "steps": [
+          "Execute the command: `lintsure scan --rules owasp`.",
+          "Examine the generated report for high-severity findings.",
+          "Fix one identified vulnerability using the provided remediation advice."
+        ]
+      },
+      {
+        "title": "Configuring EU AI Act Checks",
+        "estMinutes": 15,
+        "steps": [
+          "Edit `.lintsure.yml` to include the `ai_act: true` flag.",
+          "Run `lintsure scan --rules ai_act` to verify detection.",
+          "Document one specific code pattern flagged under the AI Act guidelines."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-code-quality",
+      "skill-owasp",
+      "skill-euaiact",
+      "skill-security"
+    ],
+    "prerequisites": [
+      "Basic proficiency in your target programming language (e.g., Python, JavaScript).",
+      "Familiarity with Node/Pip package management.",
+      "Access to a sample local project repository."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-20T02:36:23.907Z"
+  },
+  {
+    "id": "course-ai-agentic-harness-with-explicit-risk-analysis",
+    "toolSlug": "ai-agentic-harness-with-explicit-risk-analysis",
+    "title": "Master AI Agentic harness with explicit risk analysis",
+    "objectives": [
+      "Integrate structured risk prompts into the agent workflow.",
+      "Parse and categorize agent-generated risk assessments.",
+      "Implement automated mitigation step triggers based on risk severity."
+    ],
+    "modules": [
+      {
+        "title": "Implementing Risk Prompt Injection",
+        "estMinutes": 15,
+        "steps": [
+          "Define a JSON schema for risk outputs (e.g., Severity: High/Med/Low, Impact: X).",
+          "Inject this schema into the agent's system prompt as a required output format for any high-consequence task."
+        ]
+      },
+      {
+        "title": "Automated Risk Parsing & Triage",
+        "estMinutes": 20,
+        "steps": [
+          "Use a dedicated parser (e.g., Pydantic model) to validate the agent's risk JSON.",
+          "Write a conditional handler that branches execution based on the 'Severity' field."
+        ]
+      },
+      {
+        "title": "Triggering Mitigation Workflows",
+        "estMinutes": 15,
+        "steps": [
+          "Map 'High' risk severity to a pre-defined, immutable rollback or human-in-the-loop API call.",
+          "Test the failure path: ensure the agent halts execution immediately upon critical risk detection."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agent",
+      "skill-risk",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Proficiency in Python/Agent framework (e.g., LangChain/CrewAI).",
+      "Understanding of formal risk assessment methodologies (e.g., FMEA basics)."
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-20T02:36:23.907Z"
+  },
+  {
+    "id": "course-billet",
+    "toolSlug": "billet",
+    "title": "Master Billet",
+    "objectives": [
+      "Automate repetitive task chains in Billet",
+      "Implement conditional logic within workflows",
+      "Monitor and debug agent execution logs"
+    ],
+    "modules": [
+      {
+        "title": "Chaining Tasks with Hand-offs",
+        "estMinutes": 15,
+        "steps": [
+          "Create a new workflow and define two sequential tasks (e.g., 'Draft Email' -> 'Review Document').",
+          "Set the output variable of the first task as the input for the second task."
+        ]
+      },
+      {
+        "title": "Using IF/THEN Logic in Agents",
+        "estMinutes": 20,
+        "steps": [
+          "Add a conditional block to an existing workflow, checking a specific variable (e.g., 'ApprovalStatus' == 'Approved').",
+          "Route the workflow path to different subsequent tasks based on the condition outcome."
+        ]
+      },
+      {
+        "title": "Inspecting Agent Logs for Debugging",
+        "estMinutes": 10,
+        "steps": [
+          "Execute a workflow with a deliberately failing step.",
+          "Navigate to the execution history and inspect the full JSON log output for the failing agent to identify the exact error code or input issue."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-task-management",
+      "skill-agentic",
+      "skill-workflow"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-20T02:36:23.907Z"
+  },
+  {
+    "id": "course-taskthread",
+    "toolSlug": "taskthread",
+    "title": "Master Taskthread",
+    "objectives": [
+      "Configure a custom workflow for a multi-agent task.",
+      "Utilize Taskthread's AI suggestions for task breakdown.",
+      "Monitor and adjust agent progress within the thread view."
+    ],
+    "modules": [
+      {
+        "title": "Setting up a Complex Workflow",
+        "estMinutes": 15,
+        "steps": [
+          "Create a new thread and define the primary goal (e.g., 'Generate Market Analysis for Q3').",
+          "Assign specialized AI agents (e.g., DataScraper, Analyst) to specific initial tasks.",
+          "Set dependency triggers so Agent B only starts after Agent A confirms completion."
+        ]
+      },
+      {
+        "title": "AI-Driven Task Refinement",
+        "estMinutes": 10,
+        "steps": [
+          "Input a broad task description into the thread interface.",
+          "Accept or modify the AI's suggested sub-tasks and confidence scores.",
+          "Refine task parameters by editing agent constraints (e.g., tone, output format)."
+        ]
+      },
+      {
+        "title": "Monitoring and Intervention",
+        "estMinutes": 15,
+        "steps": [
+          "Navigate to the 'Progress Stream' to view live agent communications and status updates.",
+          "If an agent stalls, use the 'Prompt Override' feature to provide immediate corrective instructions.",
+          "Mark a stage as complete only after verifying the required output artifact is attached to the thread."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai",
+      "skill-agent",
+      "skill-taskmanagement"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-20T02:36:23.907Z"
   }
 ]

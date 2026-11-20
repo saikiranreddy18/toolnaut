@@ -14564,5 +14564,120 @@
       "automation"
     ],
     "discoveredAt": "2026-11-19T18:19:43.068Z"
+  },
+  {
+    "slug": "relic",
+    "name": "Relic",
+    "category": "writing",
+    "sourceCategory": "LLMs & Chatbots",
+    "price": "freemium",
+    "pricing": "Free tier available",
+    "level": "intermediate",
+    "blurb": "An AI that strictly answers only from the user's saved context.",
+    "audience": "Knowledge workers",
+    "dev": "Relic",
+    "year": 2026,
+    "website": "https://relic-app.com",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "context-aware",
+      "grounded-ai",
+      "knowledge-base",
+      "qa"
+    ],
+    "discoveredAt": "2026-11-20T02:36:23.907Z"
+  },
+  {
+    "slug": "lintsure",
+    "name": "Lintsure",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "Free local code checking with OWASP and EU AI Act rules.",
+    "audience": "Developers",
+    "dev": "lintsure",
+    "year": 2026,
+    "website": "https://github.com/lintsure/lintsure",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "code-quality",
+      "owasp",
+      "euaiact",
+      "security"
+    ],
+    "discoveredAt": "2026-11-20T02:36:23.907Z"
+  },
+  {
+    "slug": "ai-agentic-harness-with-explicit-risk-analysis",
+    "name": "AI Agentic harness with explicit risk analysis",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "advanced",
+    "blurb": "An AI Agentic harness with built-in explicit risk analysis.",
+    "audience": "AI Developers",
+    "dev": "AppliedIngenuity-ai",
+    "year": 2026,
+    "website": "https://github.com/AppliedIngenuity-ai/project-chaperone",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "agent",
+      "risk",
+      "automation",
+      "ai"
+    ],
+    "discoveredAt": "2026-11-20T02:36:23.907Z"
+  },
+  {
+    "slug": "billet",
+    "name": "Billet",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free tier available",
+    "level": "intermediate",
+    "blurb": "Agentic task management system designed for efficient workflow handling.",
+    "audience": "Developers and task managers",
+    "dev": "mktwsk",
+    "year": 2026,
+    "website": "https://mktwsk.xyz/billet/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "task-management",
+      "agentic",
+      "automation",
+      "workflow"
+    ],
+    "discoveredAt": "2026-11-20T02:36:23.907Z"
+  },
+  {
+    "slug": "taskthread",
+    "name": "Taskthread",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "An AI-driven task board for managing workflows for autonomous AI agents.",
+    "audience": "AI Developers/Teams",
+    "dev": "denegra.ai",
+    "year": 2026,
+    "website": "https://taskthread.denegra.ai/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai",
+      "agent",
+      "taskmanagement",
+      "automation"
+    ],
+    "discoveredAt": "2026-11-20T02:36:23.907Z"
   }
 ]

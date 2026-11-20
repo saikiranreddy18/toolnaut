@@ -241,7 +241,8 @@
       "webcraft-pro",
       "mozilla-ai-launches-otari-one-api-key-for-every-model",
       "nihil",
-      "an-open-source-harness-for-android-devs-in-the-terminal"
+      "an-open-source-harness-for-android-devs-in-the-terminal",
+      "lintsure"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -480,7 +481,8 @@
       "course-webcraft-pro",
       "course-mozilla-ai-launches-otari-one-api-key-for-every-model",
       "course-nihil",
-      "course-an-open-source-harness-for-android-devs-in-the-terminal"
+      "course-an-open-source-harness-for-android-devs-in-the-terminal",
+      "course-lintsure"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1309,7 +1311,10 @@
       "disposable",
       "agentmall",
       "raven-recon",
-      "dayfileapp"
+      "dayfileapp",
+      "ai-agentic-harness-with-explicit-risk-analysis",
+      "billet",
+      "taskthread"
     ],
     "courses": [
       "course-headless-tools",
@@ -1640,7 +1645,10 @@
       "course-disposable",
       "course-agentmall",
       "course-raven-recon",
-      "course-dayfileapp"
+      "course-dayfileapp",
+      "course-ai-agentic-harness-with-explicit-risk-analysis",
+      "course-billet",
+      "course-taskthread"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2703,7 +2711,8 @@
       "laya-guard",
       "coderbaba",
       "intrusiveai",
-      "raven-recon"
+      "raven-recon",
+      "lintsure"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -2750,7 +2759,8 @@
       "course-laya-guard",
       "course-coderbaba",
       "course-intrusiveai",
-      "course-raven-recon"
+      "course-raven-recon",
+      "course-lintsure"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3205,7 +3215,8 @@
       "lacuna",
       "authrot",
       "ai-spar",
-      "foolscap"
+      "foolscap",
+      "relic"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -3239,7 +3250,8 @@
       "course-lacuna",
       "course-authrot",
       "course-ai-spar",
-      "course-foolscap"
+      "course-foolscap",
+      "course-relic"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4785,7 +4797,9 @@
       "sourcepost",
       "purple-flow",
       "disposable",
-      "raven-recon"
+      "raven-recon",
+      "ai-agentic-harness-with-explicit-risk-analysis",
+      "taskthread"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4820,7 +4834,9 @@
       "course-sourcepost",
       "course-purple-flow",
       "course-disposable",
-      "course-raven-recon"
+      "course-raven-recon",
+      "course-ai-agentic-harness-with-explicit-risk-analysis",
+      "course-taskthread"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4902,7 +4918,9 @@
       "free-ai-agent-lab",
       "video-agent-with-version-control",
       "shamus-osint-ai-agent",
-      "railcall"
+      "railcall",
+      "ai-agentic-harness-with-explicit-risk-analysis",
+      "taskthread"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -4918,7 +4936,9 @@
       "course-free-ai-agent-lab",
       "course-video-agent-with-version-control",
       "course-shamus-osint-ai-agent",
-      "course-railcall"
+      "course-railcall",
+      "course-ai-agentic-harness-with-explicit-risk-analysis",
+      "course-taskthread"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5196,10 +5216,12 @@
     "domain": "data",
     "level": "intermediate",
     "toolsTeaching": [
-      "launch-hn-risklytics-yc-s26"
+      "launch-hn-risklytics-yc-s26",
+      "ai-agentic-harness-with-explicit-risk-analysis"
     ],
     "courses": [
-      "course-launch-hn-risklytics-yc-s26"
+      "course-launch-hn-risklytics-yc-s26",
+      "course-ai-agentic-harness-with-explicit-risk-analysis"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6926,14 +6948,16 @@
       "argus-open-source-ai-agents-for-testing-web-apps",
       "designing-tests-for-agentic-ai-tools",
       "clientcoded",
-      "e2e"
+      "e2e",
+      "relic"
     ],
     "courses": [
       "course-ai-game-playtester",
       "course-argus-open-source-ai-agents-for-testing-web-apps",
       "course-designing-tests-for-agentic-ai-tools",
       "course-clientcoded",
-      "course-e2e"
+      "course-e2e",
+      "course-relic"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -10880,10 +10904,12 @@
     "domain": "learning",
     "level": "advanced",
     "toolsTeaching": [
-      "owasp-top-for-agentic-applications"
+      "owasp-top-for-agentic-applications",
+      "lintsure"
     ],
     "courses": [
-      "course-owasp-top-for-agentic-applications"
+      "course-owasp-top-for-agentic-applications",
+      "course-lintsure"
     ],
     "updatedAt": "2026-09-02T23:33:29.474Z"
   },
@@ -14287,7 +14313,8 @@
       "ui-for-answering-agent-questions-async",
       "vendiq",
       "enso-method",
-      "purple-flow"
+      "purple-flow",
+      "billet"
     ],
     "courses": [
       "course-logitech-launches-mx-keypad-for-developers",
@@ -14296,7 +14323,8 @@
       "course-ui-for-answering-agent-questions-async",
       "course-vendiq",
       "course-enso-method",
-      "course-purple-flow"
+      "course-purple-flow",
+      "course-billet"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -19517,10 +19545,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "anti-ai-slop"
+      "anti-ai-slop",
+      "lintsure"
     ],
     "courses": [
-      "course-anti-ai-slop"
+      "course-anti-ai-slop",
+      "course-lintsure"
     ],
     "updatedAt": "2026-09-17T14:18:56.690Z"
   },
@@ -23519,10 +23549,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "e2e"
+      "e2e",
+      "billet"
     ],
     "courses": [
-      "course-e2e"
+      "course-e2e",
+      "course-billet"
     ],
     "updatedAt": "2026-10-12T19:05:40.043Z"
   },
@@ -24428,5 +24460,83 @@
       "course-dayfileapp"
     ],
     "updatedAt": "2026-11-19T18:19:43.068Z"
+  },
+  {
+    "id": "skill-context-aware",
+    "name": "context aware",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "relic"
+    ],
+    "courses": [
+      "course-relic"
+    ],
+    "updatedAt": "2026-11-20T02:36:23.907Z"
+  },
+  {
+    "id": "skill-grounded-ai",
+    "name": "grounded ai",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "relic"
+    ],
+    "courses": [
+      "course-relic"
+    ],
+    "updatedAt": "2026-11-20T02:36:23.907Z"
+  },
+  {
+    "id": "skill-knowledge-base",
+    "name": "knowledge base",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "relic"
+    ],
+    "courses": [
+      "course-relic"
+    ],
+    "updatedAt": "2026-11-20T02:36:23.907Z"
+  },
+  {
+    "id": "skill-euaiact",
+    "name": "euaiact",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "lintsure"
+    ],
+    "courses": [
+      "course-lintsure"
+    ],
+    "updatedAt": "2026-11-20T02:36:23.907Z"
+  },
+  {
+    "id": "skill-task-management",
+    "name": "task management",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "billet"
+    ],
+    "courses": [
+      "course-billet"
+    ],
+    "updatedAt": "2026-11-20T02:36:23.907Z"
+  },
+  {
+    "id": "skill-taskmanagement",
+    "name": "taskmanagement",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "taskthread"
+    ],
+    "courses": [
+      "course-taskthread"
+    ],
+    "updatedAt": "2026-11-20T02:36:23.907Z"
   }
 ]
