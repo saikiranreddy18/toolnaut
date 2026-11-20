@@ -39378,5 +39378,155 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-20T02:36:23.907Z"
+  },
+  {
+    "id": "course-soundbench",
+    "toolSlug": "soundbench",
+    "title": "Master SoundBench",
+    "objectives": [
+      "Upload an audio file into SoundBench.",
+      "Apply the AI vocal removal effect.",
+      "Export the processed audio file."
+    ],
+    "modules": [
+      {
+        "title": "File Upload and Interface Familiarization",
+        "estMinutes": 5,
+        "steps": [
+          "Navigate to the SoundBench browser interface.",
+          "Click the 'Upload Audio' button and select a WAV or MP3 file.",
+          "Confirm the file has loaded into the main workspace."
+        ]
+      },
+      {
+        "title": "Applying Vocal Removal",
+        "estMinutes": 8,
+        "steps": [
+          "Locate the 'Vocal Remover' tool from the sidebar.",
+          "Adjust the intensity slider (start at 50%) to test the effect.",
+          "Click the 'Process' button to run the AI analysis."
+        ]
+      },
+      {
+        "title": "Review and Download",
+        "estMinutes": 4,
+        "steps": [
+          "Listen to the output using the built-in audio player.",
+          "Click the 'Export' button and choose MP3 format.",
+          "Save the resulting file to your local computer."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-vocal removal",
+      "skill-audio processing",
+      "skill-browser based"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-20T17:50:30.454Z"
+  },
+  {
+    "id": "course-sandscale",
+    "toolSlug": "sandscale",
+    "title": "Master Sandscale",
+    "objectives": [
+      "Deploy a Sandscale cluster locally using Docker Compose.",
+      "Configure a new Firecracker microVM with specified resource limits.",
+      "Integrate an AI coding agent workflow with a deployed Sandscale VM."
+    ],
+    "modules": [
+      {
+        "title": "Local Cluster Setup via Docker Compose",
+        "estMinutes": 15,
+        "steps": [
+          "Clone the Sandscale repository and navigate to the configuration directory.",
+          "Run `docker-compose up -d` to initialize the required microVM services.",
+          "Verify cluster health using `docker logs <sandscale-service>`."
+        ]
+      },
+      {
+        "title": "Custom VM Provisioning",
+        "estMinutes": 20,
+        "steps": [
+          "Edit the `vm_spec.yaml` to set CPU/RAM limits for the agent environment.",
+          "Execute the provisioning command: `sandscale vm create --spec vm_spec.yaml --name agent-dev`.",
+          "Check the VM status via `sandscale vm status agent-dev`."
+        ]
+      },
+      {
+        "title": "Agent Integration Test",
+        "estMinutes": 15,
+        "steps": [
+          "SSH into the new microVM: `sandscale vm shell agent-dev`.",
+          "Install the required dependencies (e.g., Python, specific SDK) inside the VM.",
+          "Run a minimal test script to confirm agent connectivity and execution."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-microvm",
+      "skill-ai coding",
+      "skill-firecracker",
+      "skill-agents"
+    ],
+    "prerequisites": [
+      "Docker and Docker Compose installed on the host machine.",
+      "Basic familiarity with YAML configuration files.",
+      "Familiarity with Linux command line operations."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-20T17:50:30.454Z"
+  },
+  {
+    "id": "course-agent-guard",
+    "toolSlug": "agent-guard",
+    "title": "Master Agent Guard",
+    "objectives": [
+      "Implement role-based action limitations in Agent Guard.",
+      "Configure emergency stop triggers based on monitored agent behavior.",
+      "Audit and test guard configurations against simulated compromise scenarios."
+    ],
+    "modules": [
+      {
+        "title": "Defining Guard Profiles",
+        "estMinutes": 15,
+        "steps": [
+          "Access the Agent Guard configuration panel and select an existing agent profile.",
+          "Define a strict 'read-only' action set for the compromised state.",
+          "Save the new profile version and verify immediate application."
+        ]
+      },
+      {
+        "title": "Setting Behavioral Triggers",
+        "estMinutes": 20,
+        "steps": [
+          "Navigate to the 'Anomaly Detection' settings and set a threshold for excessive API calls.",
+          "Link this threshold to the 'Quarantine' action within the guard policy.",
+          "Test the trigger by forcing the agent to exceed the defined call limit in a sandbox environment."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agent",
+      "skill-security",
+      "skill-guard",
+      "skill-llm"
+    ],
+    "prerequisites": [
+      "Familiarity with AI Agent lifecycle management.",
+      "Basic understanding of API interaction logging."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-20T17:50:30.454Z"
   }
 ]

@@ -242,7 +242,8 @@
       "mozilla-ai-launches-otari-one-api-key-for-every-model",
       "nihil",
       "an-open-source-harness-for-android-devs-in-the-terminal",
-      "lintsure"
+      "lintsure",
+      "sandscale"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -482,7 +483,8 @@
       "course-mozilla-ai-launches-otari-one-api-key-for-every-model",
       "course-nihil",
       "course-an-open-source-harness-for-android-devs-in-the-terminal",
-      "course-lintsure"
+      "course-lintsure",
+      "course-sandscale"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -854,7 +856,8 @@
       "turn-spoken-thoughts-into-system-design-diagrams",
       "fantastic-canvas",
       "klistra",
-      "dez"
+      "dez",
+      "soundbench"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -900,7 +903,8 @@
       "course-turn-spoken-thoughts-into-system-design-diagrams",
       "course-fantastic-canvas",
       "course-klistra",
-      "course-dez"
+      "course-dez",
+      "course-soundbench"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1314,7 +1318,8 @@
       "dayfileapp",
       "ai-agentic-harness-with-explicit-risk-analysis",
       "billet",
-      "taskthread"
+      "taskthread",
+      "agent-guard"
     ],
     "courses": [
       "course-headless-tools",
@@ -1648,7 +1653,8 @@
       "course-dayfileapp",
       "course-ai-agentic-harness-with-explicit-risk-analysis",
       "course-billet",
-      "course-taskthread"
+      "course-taskthread",
+      "course-agent-guard"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2171,7 +2177,8 @@
       "atlas",
       "trnrt",
       "ai-spar",
-      "mozilla-ai-launches-otari-one-api-key-for-every-model"
+      "mozilla-ai-launches-otari-one-api-key-for-every-model",
+      "agent-guard"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2234,7 +2241,8 @@
       "course-atlas",
       "course-trnrt",
       "course-ai-spar",
-      "course-mozilla-ai-launches-otari-one-api-key-for-every-model"
+      "course-mozilla-ai-launches-otari-one-api-key-for-every-model",
+      "course-agent-guard"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2712,7 +2720,8 @@
       "coderbaba",
       "intrusiveai",
       "raven-recon",
-      "lintsure"
+      "lintsure",
+      "agent-guard"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -2760,7 +2769,8 @@
       "course-coderbaba",
       "course-intrusiveai",
       "course-raven-recon",
-      "course-lintsure"
+      "course-lintsure",
+      "course-agent-guard"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3837,7 +3847,8 @@
       "webcraft-pro",
       "cloudish",
       "sourcepost",
-      "dayfileapp"
+      "dayfileapp",
+      "sandscale"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3905,7 +3916,8 @@
       "course-webcraft-pro",
       "course-cloudish",
       "course-sourcepost",
-      "course-dayfileapp"
+      "course-dayfileapp",
+      "course-sandscale"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4920,7 +4932,8 @@
       "shamus-osint-ai-agent",
       "railcall",
       "ai-agentic-harness-with-explicit-risk-analysis",
-      "taskthread"
+      "taskthread",
+      "agent-guard"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -4938,7 +4951,8 @@
       "course-shamus-osint-ai-agent",
       "course-railcall",
       "course-ai-agentic-harness-with-explicit-risk-analysis",
-      "course-taskthread"
+      "course-taskthread",
+      "course-agent-guard"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -6398,7 +6412,8 @@
       "developer-agency-in-the-age-of-ai",
       "security-cards",
       "productivity-effects-across-generations-of-ai-coding-tools",
-      "gentle-ai-ai-coding-ecosystem"
+      "gentle-ai-ai-coding-ecosystem",
+      "sandscale"
     ],
     "courses": [
       "course-agentseed",
@@ -6407,7 +6422,8 @@
       "course-developer-agency-in-the-age-of-ai",
       "course-security-cards",
       "course-productivity-effects-across-generations-of-ai-coding-tools",
-      "course-gentle-ai-ai-coding-ecosystem"
+      "course-gentle-ai-ai-coding-ecosystem",
+      "course-sandscale"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -21982,10 +21998,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "stateful-linux-microvms-for-coding-agents"
+      "stateful-linux-microvms-for-coding-agents",
+      "sandscale"
     ],
     "courses": [
-      "course-stateful-linux-microvms-for-coding-agents"
+      "course-stateful-linux-microvms-for-coding-agents",
+      "course-sandscale"
     ],
     "updatedAt": "2026-10-05T00:10:23.845Z"
   },
@@ -24538,5 +24556,70 @@
       "course-taskthread"
     ],
     "updatedAt": "2026-11-20T02:36:23.907Z"
+  },
+  {
+    "id": "skill-vocal removal",
+    "name": "vocal removal",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "soundbench"
+    ],
+    "courses": [
+      "course-soundbench"
+    ],
+    "updatedAt": "2026-11-20T17:50:30.454Z"
+  },
+  {
+    "id": "skill-audio processing",
+    "name": "audio processing",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "soundbench"
+    ],
+    "courses": [
+      "course-soundbench"
+    ],
+    "updatedAt": "2026-11-20T17:50:30.454Z"
+  },
+  {
+    "id": "skill-browser based",
+    "name": "browser based",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "soundbench"
+    ],
+    "courses": [
+      "course-soundbench"
+    ],
+    "updatedAt": "2026-11-20T17:50:30.454Z"
+  },
+  {
+    "id": "skill-firecracker",
+    "name": "firecracker",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "sandscale"
+    ],
+    "courses": [
+      "course-sandscale"
+    ],
+    "updatedAt": "2026-11-20T17:50:30.454Z"
+  },
+  {
+    "id": "skill-guard",
+    "name": "guard",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agent-guard"
+    ],
+    "courses": [
+      "course-agent-guard"
+    ],
+    "updatedAt": "2026-11-20T17:50:30.454Z"
   }
 ]
