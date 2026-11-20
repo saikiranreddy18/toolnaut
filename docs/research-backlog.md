@@ -3205,6 +3205,34 @@ a client-side SPA with a static tool catalogue.
     cite; no change to the plan's reasoning.
   No change to build size, steps, or explicitly-excluded scope — this is a
   citation-and-placement correction, not a substance change.
+- **Re-verified 2026-11-20 06:03 UTC:** stalest-by-last-check OPEN entry (42
+  days since the 10-09 re-verify, well ahead of the next-stalest at 40 days).
+  `embedBadge.js` still does not exist; `grep -rniE "embed|badge" src/pages
+  src/components` still returns nothing beyond the same unrelated UI already
+  excluded (level-up badges, pricing-plan ribbon, the galaxy zoom readout,
+  Learning's own unrelated "SHARE MY BADGE" string) — gap fully intact, zero
+  substance drift. Citations re-checked line by line:
+  - "Visit website" is unchanged at `ToolDetail.jsx:234-246` — no drift this
+    time, first entry in this gap's history where that block held steady.
+  - The "Something wrong here?" correction link drifted two lines, now
+    `ToolDetail.jsx:249-256` (was `247-256`). The stack/favorite action row
+    and the "Why it fits" sticker are both unchanged (`:258-276` and `:278`
+    respectively) — the corrected placement from the 10-09 check (badge
+    disclosure after the action row, before "Why it fits") still applies
+    exactly as written.
+  - The `/s/:slugs` route drifted one line, now `App.jsx:126` (was `:123`);
+    `SearchTools.jsx:108`'s independent `encodeStackSlugs([tool.slug])` call
+    is unchanged — the reuse case is exactly as strong as every prior check.
+  - Both copy-to-clipboard precedents drifted again, substance unchanged:
+    `Stack.jsx`'s `copyShareLink()` handler is now `:122-129` (was
+    `121-129`), its button label line now `:267-270` (toggles "🔗 Share" /
+    "✓ Copied", was `:269`); `Learning.jsx` still carries both a dedicated
+    `CopyPrompt` component (`:21-38`) and the separate `shared`/`setShared`
+    badge-share copy (state `:192`, handler `:277`, label `:478`) — either
+    is still a valid citation, no change to the plan's reasoning.
+  No change to build size, steps, or explicitly-excluded scope — citation
+  drift only, this entry remains the most build-ready S-size badge/backlink
+  gap in the file.
 
 ### Per-tool "Alternatives" SEO pages — the single highest-intent directory query has zero pages targeting it
 - **Status:** SHIPPED (discovered already live 2026-10-06 21:04 UTC — commit
@@ -15377,5 +15405,50 @@ entry.
 
 No code changed this run — the backlog edits (one re-verify note on "Pro
 chat assistant," plus this section) are the only diff. `npm test` not
+re-run beyond the implicit `npm ci` check; `npm run build`/`npm run smoke`
+not run — docs-only change, no `src/`/`radar/`/`api/` files touched.
+
+---
+
+### Research check 2026-11-20 06:03 UTC — re-verified the stalest OPEN entry (embed badge, 42 days untouched), one fresh competitor lead checked and rejected as thin
+
+Scheduled run, UTC hour 06 (a research slot, not the 18:03 feature/digest
+hour). `npm ci` clean (201 packages). Urgent-work checks first:
+`list_workflow_runs` on `master` shows the tip (`92c66c5`, the 03:04 UTC
+research-check commit) with both `CI` and `Release` `success` — not
+CI-red. `npm run radar:health` → `STATUS: OK` (2 runs in the 26h window,
+last run 3.5h ago, 5 published that run, feed at 616 tools). `list_issues`
+for `agent-fixable`: zero open. No urgent work, so the hour went to
+backlog work.
+
+**Ran the same last-touch scan prior passes have used** (extract every
+`2026-MM-DD[ HH:MM UTC]` mention in each OPEN entry's body, take the max
+per entry, sort ascending) via script across all 21 real OPEN entries
+rather than by eye, after the 03:04 pass found eyeballing it had missed
+entries before. **"Embeddable 'Featured on Toolnaut' badge"** (line
+~3059, last touched 2026-10-09 03:04) came back clearly stalest at 42
+days — the next-stalest ("No tool has a visual identity," 2026-10-10
+03:04) is two days newer. Re-verified every citation against current
+`master` (full note added directly to the entry): `embedBadge.js` still
+does not exist, the badge/embed grep still returns nothing relevant, and
+every structural dependency this plan relies on (`/s/:slugs` route,
+`SearchTools.jsx`'s single-slug reuse, two independent copy-to-clipboard
+precedents) is unchanged in substance — only line numbers drifted, one of
+them ("Visit website") for the first time holding steady across a check.
+Still OPEN, still Build size S, still the most build-ready backlink-growth
+entry in the file.
+
+**One fresh competitor lead checked, doesn't survive:** `WebSearch` for
+2026 AI-directory launches combining personalized onboarding, a "tool
+roadmap," or an "AI stack builder." Results were the same kind of thin,
+mostly-unverifiable small-site/Product-Hunt listings this file's recent
+passes have already flagged (StackMyAI, One AI Guide, The Promptory) —
+the one concrete feature with real specificity, StackMyAI's goal-based
+"Stack Builder" recommending across 12 categories, describes something
+Toolnaut already ships end-to-end (the quiz → persona → starter stack
+flow), not a gap. Nothing genuine to log as a new entry.
+
+No code changed this run — the backlog edits (one re-verify note on the
+embed-badge entry, plus this section) are the only diff. `npm test` not
 re-run beyond the implicit `npm ci` check; `npm run build`/`npm run smoke`
 not run — docs-only change, no `src/`/`radar/`/`api/` files touched.
