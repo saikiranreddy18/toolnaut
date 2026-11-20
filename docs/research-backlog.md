@@ -4907,6 +4907,24 @@ a client-side SPA with a static tool catalogue.
   still links to the public `${SITE}/ai-tools/${t.slug}` route. Still OPEN,
   still build size S, no corrections needed — ready to build exactly as
   scoped whenever a feature run picks it.
+- **Re-verified 2026-11-20 09:04 UTC:** ran the file-wide last-touch scan
+  (every OPEN entry's own max cited `2026-MM-DD` date, sorted ascending) and
+  this entry came back the true stalest at 41 days (next-stalest, "26 real
+  source categories," is one day newer). Confirmed directly against
+  current `master`: `public/feed.xml` and `radar/scripts/gen-feed.js` still
+  don't exist; `radar.yml`'s export step is still `node radar/scripts/
+  sync-to-app.js` (line 103) immediately followed by `git add radar/data
+  public/tools.json` (line 122) — still missing a `public/feed.xml` glob,
+  exactly as the 2026-09-22 deepening flagged; `isCatalogNoise()` is still at
+  `prominence.js:66-72` verbatim; `sync-to-app.js`'s `FIELDS` array (line 12)
+  and `lifecycle === 'published'` filter (line 30) are unchanged;
+  `NewTools.jsx:38` still links the public `${SITE}/ai-tools/${t.slug}`
+  route. One cosmetic drift: `index.html`'s icon/manifest `<link>` cluster
+  is now lines 31-35, not 31-34 — a `rel="search"` OpenSearch link
+  (`opensearch.xml`) was added after the manifest link since the last check.
+  Doesn't change this plan at all — the new RSS `<link rel="alternate">` tag
+  still goes in the same cluster, one line lower. Zero other drift. Still
+  OPEN, still Build size S, still the most build-ready entry in the file.
 
 ### Settings page hardcodes "no server copy" — the sync backend it's describing already exists elsewhere in the app
 - **Status:** FIXED (this commit) — small, well-scoped defect in already-shipped
@@ -13189,6 +13207,29 @@ feature ship in 5+ weeks to drain against it.
     `limitationOf()` already render — zero new UI), on success leave
     `status`/`note` untouched; either way set `updatedAt` to now and
     `store.upsertTool(tool)`, so a clean result still proves the check ran.
+  - **Deepened 2026-11-20 09:04 UTC:** a fresh `WebSearch` for 2026
+    AI-directory "trust score"/"verified badge"/"sunset" features turned up
+    two concrete, dated precedents sharper than the ones this entry opened
+    with — **ToolChase** (toolchase.com) states every *active* listing is
+    re-checked against the vendor's own site at least monthly (product still
+    exists, pricing, free-tier status) and renders a per-tool "Last verified"
+    date — the same UI shape this entry's own `TrustPanel.jsx` plan already
+    proposes, just independently validated as a real, shipped pattern rather
+    than only this file's own idea of one. **Verdict** (producthunt.com/p/
+    verdict-9) goes further: it tracks each tool's life-status across five
+    states (alive, price-hiked, degrading, sunset-announced, dead), each
+    carrying its own date and source — directly on point for the
+    already-OPEN "Tool graveyard" gap's 52 dead-tool backlog, and a possible
+    future extension of this gap's `status` field beyond today's binary
+    Active/Unreachable once the base reverify script exists. Re-checked every
+    code citation against current `master` (`TrustPanel.jsx:111/113`'s
+    "Last checked" copy, `dedup.js:6`'s comment, `review-bot.js:73`'s
+    module-private `checkWebsite()`, `review-bot.js:189`'s
+    `staged`/`review`-only filter, no `daily-review` reference in any
+    workflow or `package.json` script, no `updatedAt` in either `FIELDS`
+    export) — zero drift, every fact still holds exactly as found. Still
+    OPEN, still Build size M, still ready to build as scoped; the only
+    change is a stronger "Seen in" to cite when this ships.
   - Add `'updatedAt'` to the `FIELDS` arrays in both
     `radar/scripts/sync-to-app.js` and `src/utils/liveCatalog.js` (the same
     one-line-each shape the shipped `discoveredAt` fix used) so it reaches
@@ -15452,3 +15493,71 @@ No code changed this run — the backlog edits (one re-verify note on the
 embed-badge entry, plus this section) are the only diff. `npm test` not
 re-run beyond the implicit `npm ci` check; `npm run build`/`npm run smoke`
 not run — docs-only change, no `src/`/`radar/`/`api/` files touched.
+
+---
+
+### Research check 2026-11-20 09:04 UTC — re-verified the true stalest OPEN entry (RSS feed, 41 days), deepened the catalog-reverification gap with two sharper, dated competitor precedents
+
+Scheduled run, UTC hour 09 (a research slot, not the 18:03 feature/digest
+hour). `npm ci` clean (201 packages). Urgent-work checks first:
+`list_workflow_runs` on `master` shows the tip (`672e37f`, the 06:03 UTC
+research-check commit) with both `CI` and `Release` `success` — not
+CI-red. `npm run radar:health` → `STATUS: OK` (2 runs in the 26h window,
+last run 6.5h ago, 5 published that run, feed at 616 tools). `list_issues`
+for `agent-fixable`: zero open. No urgent work, so the hour went to
+backlog work.
+
+**Ran the file-wide last-touch scan** (extract every `2026-MM-DD[ HH:MM
+UTC]` mention in each OPEN entry's body via script, take the max per entry,
+sort ascending) across all 21 real OPEN entries. **"RSS feed of newly
+discovered tools"** (line ~4708, last touched 2026-10-09 06:09) came back
+clearly stalest at 41 days — "26 real source categories" (2026-10-09 09:04)
+is one day newer. Re-verified every citation against current `master`
+directly (not just grep): `public/feed.xml` and `radar/scripts/gen-feed.js`
+still don't exist; `radar.yml`'s export step (line 103) and `git add` line
+(line 122, still no `public/feed.xml` glob) unchanged; `isCatalogNoise()`
+still at `prominence.js:66-72`; `sync-to-app.js`'s `FIELDS` (line 12) and
+publish filter (line 30) unchanged; `NewTools.jsx:38` still links the
+public route. One cosmetic drift only: `index.html`'s icon/manifest `<link>`
+cluster is now lines 31-35 (a `rel="search"` OpenSearch link was added
+since the last check), not 31-34 — doesn't change the plan. Full note added
+to the entry. Still OPEN, still Build size S, still the most build-ready
+entry in the file.
+
+**Deepened a second entry instead of only re-verifying, per the "deepen
+before you add" rule:** a fresh `WebSearch` for 2026 AI-directory "trust
+score"/"verified badge"/"sunset tracker" features — looking specifically
+for sharper evidence than this file already has, not a brand-new gap —
+turned up two concrete, dated precedents stronger than the ones cited when
+"A published catalog entry is never re-checked" (line ~13122) was first
+logged: **ToolChase** (toolchase.com), which re-checks every active listing
+against the vendor's site at least monthly and shows a per-tool "Last
+verified" date — independently validating the exact `TrustPanel.jsx` UI
+shape this entry's own plan proposes, not just this file's own idea of one
+— and **Verdict** (producthunt.com/p/verdict-9), which tracks each tool's
+life-status across five dated states (alive, price-hiked, degrading,
+sunset-announced, dead), directly relevant to the already-OPEN "Tool
+graveyard" gap's 52-dead-tool backlog as a possible future extension once
+this gap's base reverify script exists. Re-checked every code citation in
+the entry against current `master` (`TrustPanel.jsx:111/113`, `dedup.js:6`,
+`review-bot.js:73`'s module-private `checkWebsite()`, `review-bot.js:189`'s
+staged/review-only filter, no `daily-review` reference anywhere, no
+`updatedAt` in either `FIELDS` export) — zero drift, every fact still
+holds. Still OPEN, still Build size M; only the "Seen in" evidence got
+stronger.
+
+**Other research surfaces checked, read but not acted on:** `src/components/
+sections/StatsSection.jsx` and `CapabilityMatrix.jsx` (candidates for a
+fresh marketing-vs-reality check) — both already carry the same honesty
+discipline this file's own "Pricing already got its honest fix" and
+"Settings page hardcodes 'no server copy'" entries describe: live tiles
+render only when a real count resolves (null stays hidden, never a fake
+zero), and the tier matrix labels every non-live row "planned" and branches
+its disclaimer paragraph on the live `VITE_PAYMENTS_ENABLED` flag. No new
+gap here — already the honest version this file would otherwise ask for.
+
+No code changed this run — the backlog edits (one re-verify note on the
+RSS-feed entry, one deepening note on the catalog-reverification entry,
+plus this section) are the only diff. `npm test` not re-run beyond the
+implicit `npm ci` check; `npm run build`/`npm run smoke` not run —
+docs-only change, no `src/`/`radar/`/`api/` files touched.
