@@ -1655,6 +1655,35 @@ a client-side SPA with a static tool catalogue.
   shape, corrected specifics, no outstanding caveat to verify against
   before calling it done. **Build size, Gap 1: still M**, now with one less
   reason to hesitate before picking it up.
+- **Re-verified 2026-11-20 03:04 UTC:** this is the true stalest OPEN entry
+  by last-check date — untouched since the 2026-10-08 21:04 deepening above
+  (43 days), older than every entry a recent pass credited with "a 2026-11
+  check on record" (that claim, made re-verifying the shared-stack-gallery
+  entry at 00:03 UTC today, does not hold for this one — nor for "Embeddable
+  badge," "RSS feed," "26 source categories," "No tool has a visual
+  identity," or "Changelog only looks backward," all last touched 2026-10-08
+  through 2026-10-10 by the second sweep and not since; noting this so the
+  next pass's "stalest" pick is accurate). Re-checked every citation against
+  current `master`, zero drift: `ChatPanel.jsx` still a self-labelled stub
+  ("Preview — replies are canned" header, `send()` still appends the same
+  hardcoded string with no `fetch` call); `ls api/` still 17 files, 11
+  non-underscore (one slot still free), no `copilot.js`; `api/chat.js` still
+  on the NVIDIA provider exactly as cited (`NVIDIA_API_KEY`,
+  `integrate.api.nvidia.com`, `NVIDIA_CHAT_TIMEOUT_MS` default 9000);
+  `src/state/authStore.js` still zero `team|seat|org|member` hits beyond
+  plan copy. One real update, not drift so much as closure of an adjacent
+  thread: `src/utils/planData.js`'s Pro/Team feature lists are no longer the
+  unqualified false claim Gap 1 was originally filed against — every
+  `planned(...)`-wrapped row and the `onSale: false` Team card (with its own
+  "every Team feature on this card is still planned" comment) confirm the
+  separate "Pricing already got its honest fix written" gap (SHIPPED
+  `c04149e`) is live on current master and the copy-accuracy half of this
+  entry's history is fully resolved. That does not close Gap 1 itself —
+  Gap 1 was already reframed 2026-10-08 from "false claim" to "buildable
+  real feature" (build `api/copilot.js` on the now-proven `api/chat.js`
+  pattern) and that framing still holds, unaffected by the pricing fix.
+  Gap 2 (Team tier) stays REJECTED, unaffected. Still OPEN, Build size M,
+  no changes to the plan.
 - **Status:** SHIPPED 113f375 — built as scoped below: `recentlyViewedStore.js`
   (localStorage, capped at 12, most-recent-first, no duplicates), a
   `useEffect` in `ToolDetail.jsx` recording on mount/slug-change, and a
@@ -15283,3 +15312,70 @@ No code changed this run — the backlog edit (one re-verify note plus this
 section) is the only diff. `npm test` not re-run beyond the implicit `npm
 ci` install check; `npm run build`/`npm run smoke` not run — docs-only
 change, no `src/` or `radar/` files touched.
+
+---
+
+### Research check 2026-11-20 03:04 UTC — eighty-seventh+ pass; the 00:03 pass's "every other OPEN entry has a 2026-11 check" claim doesn't hold — six entries from the second sweep (2026-10-08 through 2026-10-10) are actually older, re-verified the true next-stalest
+
+Scheduled run, UTC hour 03 (a research slot). `npm ci` clean (201
+packages). Urgent-work checks first: `list_workflow_runs` on `master`
+shows the tip (`0855f2b`, the 00:03 UTC research-check commit, with a
+radar publish `7f11a94` on top) with both `CI` and `Release` `success` —
+not CI-red (the one `failure` in the recent list belongs to a superseded
+push, `03be8fb`, that a later same-day commit already supersedes with a
+green run, consistent with every prior pass's note on this pattern).
+`npm run radar:health` → `STATUS: OK` (3 runs in the 26h window, last run
+28m ago, 5 published that run, feed at 616 tools). `list_issues` for
+`agent-fixable`: zero open. No urgent work, so the hour went to backlog
+work.
+
+**Ran the same last-touch scan the 00:03 pass used** (extract every
+`2026-MM-DD` date mentioned in each OPEN entry's body, take the max per
+entry, sort ascending) — but over the full file via script rather than by
+eye, to cross-check the 00:03 pass's claim that "every other OPEN entry
+already carries a 2026-11 check" once the shared-stack-gallery entry
+closed. That claim turns out to be wrong for six entries, not just
+imprecise: "Pro chat assistant" (last touched 2026-10-08 21:04, the
+46th pass), "Embeddable 'Featured on Toolnaut' badge" (2026-10-09 03:04,
+48th), "RSS feed of newly discovered tools" (2026-10-09 06:09, 49th), "26
+real source categories" (2026-10-09 09:04, 50th), "No tool has a visual
+identity" (2026-10-10 03:04, 53rd), and "Changelog only looks backward"
+(2026-10-10 12:07, 56th) — all from the second sweep's run of consecutive
+passes, none touched since. The 00:03 pass's "44 days, stalest" claim
+about the gallery entry was itself still numerically correct (44 days
+beats the Pro-chat-assistant entry's 43), so this isn't a wrong pick, just
+an overstated "every other entry" generalization — worth correcting so a
+future pass doesn't trust that line and skip entries that actually need a
+check.
+
+**Re-verified the true next-stalest entry** ("Pro chat assistant & the
+entire Team tier," line ~1383, untouched 43 days): full note added
+directly to the entry. Zero drift on every citation — `ChatPanel.jsx`
+still a self-labelled stub, `api/` still 11 non-underscore functions (one
+slot free), `api/chat.js` still on the NVIDIA provider as last documented.
+One genuine closure found while re-checking: `src/utils/planData.js`'s
+Pro/Team feature lists are no longer unqualified claims — every row is
+now `planned(...)`-wrapped and the Team card is `onSale: false`, confirming
+the separate "Pricing already got its honest fix written" gap (SHIPPED
+`c04149e`) landed on master and fully resolved this entry's original
+false-claim framing. Gap 1 itself (buildable `api/copilot.js` real
+feature) is unaffected and stays OPEN at Build size M; Gap 2 (Team tier)
+stays REJECTED.
+
+**Two fresh competitor searches tried first, before the sweep correction,
+per the "deepen before you add" rule:** `WebSearch` for "AI tool directory
+2026 new feature 'saved search' OR 'price alert' OR 'tool bundle' launch"
+and for "Futurepedia OR 'There's An AI For That' 2026 site redesign new
+feature announcement." Both came back as the same thin, undated
+third-party listing/review-blog content (`aiindigo.com`, `toolmage.com`,
+`poweredbyai.app`) this file's last dozen passes have already flagged as
+unverifiable — the one concrete claim with any specificity ("granular
+filtering system" and "a comparison feature for placing tools side by
+side" on Futurepedia) describes capabilities Toolnaut already ships
+(Discover filters, `/compare`), not a gap. Nothing genuine to log as a new
+entry.
+
+No code changed this run — the backlog edits (one re-verify note on "Pro
+chat assistant," plus this section) are the only diff. `npm test` not
+re-run beyond the implicit `npm ci` check; `npm run build`/`npm run smoke`
+not run — docs-only change, no `src/`/`radar/`/`api/` files touched.
