@@ -859,7 +859,8 @@
       "dez",
       "soundbench",
       "arkviz",
-      "capcut-pro-video-editor-latest"
+      "capcut-pro-video-editor-latest",
+      "deepai-for-fake-pc"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -908,7 +909,8 @@
       "course-dez",
       "course-soundbench",
       "course-arkviz",
-      "course-capcut-pro-video-editor-latest"
+      "course-capcut-pro-video-editor-latest",
+      "course-deepai-for-fake-pc"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1325,7 +1327,9 @@
       "taskthread",
       "agent-guard",
       "xsquads",
-      "isolated-linux-workstations-for-autonomous-ai-agents"
+      "isolated-linux-workstations-for-autonomous-ai-agents",
+      "clawvet",
+      "cyber-monster"
     ],
     "courses": [
       "course-headless-tools",
@@ -1662,7 +1666,9 @@
       "course-taskthread",
       "course-agent-guard",
       "course-xsquads",
-      "course-isolated-linux-workstations-for-autonomous-ai-agents"
+      "course-isolated-linux-workstations-for-autonomous-ai-agents",
+      "course-clawvet",
+      "course-cyber-monster"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2622,7 +2628,8 @@
       "hnwatch",
       "video-agent-with-version-control",
       "klistra",
-      "capcut-pro-video-editor-latest"
+      "capcut-pro-video-editor-latest",
+      "deepai-for-fake-pc"
     ],
     "courses": [
       "course-canvasformusic",
@@ -2636,7 +2643,8 @@
       "course-hnwatch",
       "course-video-agent-with-version-control",
       "course-klistra",
-      "course-capcut-pro-video-editor-latest"
+      "course-capcut-pro-video-editor-latest",
+      "course-deepai-for-fake-pc"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -2733,7 +2741,8 @@
       "intrusiveai",
       "raven-recon",
       "lintsure",
-      "agent-guard"
+      "agent-guard",
+      "cyber-monster"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -2782,7 +2791,8 @@
       "course-intrusiveai",
       "course-raven-recon",
       "course-lintsure",
-      "course-agent-guard"
+      "course-agent-guard",
+      "course-cyber-monster"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3142,7 +3152,8 @@
       "coreweave-aria-ai-research-and-iteration-agent",
       "openchart",
       "tofu",
-      "i-put-an-ai-agent-on-a-nokia-110"
+      "i-put-an-ai-agent-on-a-nokia-110",
+      "clawvet"
     ],
     "courses": [
       "course-hermes-agent",
@@ -3155,7 +3166,8 @@
       "course-coreweave-aria-ai-research-and-iteration-agent",
       "course-openchart",
       "course-tofu",
-      "course-i-put-an-ai-agent-on-a-nokia-110"
+      "course-i-put-an-ai-agent-on-a-nokia-110",
+      "course-clawvet"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4828,7 +4840,8 @@
       "taskthread",
       "arkviz",
       "xsquads",
-      "capcut-pro-video-editor-latest"
+      "capcut-pro-video-editor-latest",
+      "deepai-for-fake-pc"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4868,7 +4881,8 @@
       "course-taskthread",
       "course-arkviz",
       "course-xsquads",
-      "course-capcut-pro-video-editor-latest"
+      "course-capcut-pro-video-editor-latest",
+      "course-deepai-for-fake-pc"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -9317,14 +9331,16 @@
       "local-ai-assistants-can-be-user-friendly-too",
       "phntm-one-i-built-a-local-ai-desk-assistant",
       "turnpanel-is-a-local-first-ai-workspace",
-      "aitoolsuite"
+      "aitoolsuite",
+      "clawvet"
     ],
     "courses": [
       "course-ai-old-video-restoration-tool",
       "course-local-ai-assistants-can-be-user-friendly-too",
       "course-phntm-one-i-built-a-local-ai-desk-assistant",
       "course-turnpanel-is-a-local-first-ai-workspace",
-      "course-aitoolsuite"
+      "course-aitoolsuite",
+      "course-clawvet"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -16862,10 +16878,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "building-specialized-systems-we-can-trust-with-agents"
+      "building-specialized-systems-we-can-trust-with-agents",
+      "deepai-for-fake-pc"
     ],
     "courses": [
-      "course-building-specialized-systems-we-can-trust-with-agents"
+      "course-building-specialized-systems-we-can-trust-with-agents",
+      "course-deepai-for-fake-pc"
     ],
     "updatedAt": "2026-09-12T12:53:23.830Z"
   },
@@ -24683,5 +24701,83 @@
       "course-capcut-pro-video-editor-latest"
     ],
     "updatedAt": "2026-11-21T02:50:17.656Z"
+  },
+  {
+    "id": "skill-ast",
+    "name": "ast",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "clawvet"
+    ],
+    "courses": [
+      "course-clawvet"
+    ],
+    "updatedAt": "2026-11-21T16:48:37.439Z"
+  },
+  {
+    "id": "skill-rug-pull",
+    "name": "rug pull",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "clawvet"
+    ],
+    "courses": [
+      "course-clawvet"
+    ],
+    "updatedAt": "2026-11-21T16:48:37.439Z"
+  },
+  {
+    "id": "skill-redteam",
+    "name": "redteam",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "cyber-monster"
+    ],
+    "courses": [
+      "course-cyber-monster"
+    ],
+    "updatedAt": "2026-11-21T16:48:37.439Z"
+  },
+  {
+    "id": "skill-blue-team",
+    "name": "blue team",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "cyber-monster"
+    ],
+    "courses": [
+      "course-cyber-monster"
+    ],
+    "updatedAt": "2026-11-21T16:48:37.439Z"
+  },
+  {
+    "id": "skill-forensics",
+    "name": "forensics",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "cyber-monster"
+    ],
+    "courses": [
+      "course-cyber-monster"
+    ],
+    "updatedAt": "2026-11-21T16:48:37.439Z"
+  },
+  {
+    "id": "skill-image",
+    "name": "image",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "deepai-for-fake-pc"
+    ],
+    "courses": [
+      "course-deepai-for-fake-pc"
+    ],
+    "updatedAt": "2026-11-21T16:48:37.439Z"
   }
 ]

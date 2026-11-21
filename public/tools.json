@@ -14839,5 +14839,74 @@
       "socialmedia"
     ],
     "discoveredAt": "2026-11-21T02:50:17.656Z"
+  },
+  {
+    "slug": "clawvet",
+    "name": "ClawVet",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free tier available",
+    "level": "intermediate",
+    "blurb": "Offline AST scanner and rug-pull diff for AI agent skills.",
+    "audience": "AI developers",
+    "dev": "ClawVet",
+    "year": 2026,
+    "website": "https://clawvet.vercel.app/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ast",
+      "rug-pull",
+      "ai-agent",
+      "offline"
+    ],
+    "discoveredAt": "2026-11-21T16:48:37.439Z"
+  },
+  {
+    "slug": "cyber-monster",
+    "name": "Cyber-Monster",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "advanced",
+    "blurb": "A comprehensive red-team and blue-team arsenal for AI agents.",
+    "audience": "Security professionals",
+    "dev": "W4L33Dx",
+    "year": 2026,
+    "website": "https://github.com/W4L33Dx/Cyber-Monster",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "redteam",
+      "blue-team",
+      "security",
+      "forensics"
+    ],
+    "discoveredAt": "2026-11-21T16:48:37.439Z"
+  },
+  {
+    "slug": "deepai-for-fake-pc",
+    "name": "DeepAI-For-Fake-PC",
+    "category": "design",
+    "sourceCategory": "Image Generation & Editing",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "AI tool for image and video transformation and synthetic media generation.",
+    "audience": "Visual artists and developers",
+    "dev": "KPVADALIYA",
+    "year": 2026,
+    "website": "https://github.com/KPVADALIYA/DeepAI-For-Fake-PC",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "image",
+      "video",
+      "synthesis",
+      "ai"
+    ],
+    "discoveredAt": "2026-11-21T16:48:37.439Z"
   }
 ]

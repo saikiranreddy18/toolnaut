@@ -39742,5 +39742,165 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-21T02:50:17.656Z"
+  },
+  {
+    "id": "course-clawvet",
+    "toolSlug": "clawvet",
+    "title": "Master ClawVet",
+    "objectives": [
+      "Run a local AST scan on a private contract using ClawVet.",
+      "Generate a rug-pull difference report for a monitored contract.",
+      "Integrate ClawVet output into an AI agent's analysis pipeline."
+    ],
+    "modules": [
+      {
+        "title": "Basic Local Scan Execution",
+        "estMinutes": 15,
+        "steps": [
+          "Navigate to the ClawVet CLI and verify local configuration paths.",
+          "Execute `clawvet scan --path /local/contract/` targeting a specific ABI.",
+          "Locate the resulting JSON scan report in the designated output directory."
+        ]
+      },
+      {
+        "title": "Rug-Pull Diff Generation",
+        "estMinutes": 20,
+        "steps": [
+          "Use `clawvet diff --contract-address 0x... --baseline-hash 0x...`.",
+          "Filter the output to only show high-risk functions (e.g., `transferAll`, `setOwner`).",
+          "Export the diff as a concise markdown summary for LLM ingestion."
+        ]
+      },
+      {
+        "title": "Agent Integration Workflow",
+        "estMinutes": 25,
+        "steps": [
+          "Write a Python wrapper to call the ClawVet CLI and parse the exit code.",
+          "Pass the structured JSON output directly to the AI agent's pre-processing prompt.",
+          "Implement conditional logic: if `scan_severity > MEDIUM`, trigger an alert instead of a summary."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ast",
+      "skill-rug-pull",
+      "skill-ai-agent",
+      "skill-offline"
+    ],
+    "prerequisites": [
+      "Familiarity with Solidity/EVM contract structure.",
+      "Basic proficiency in command-line interface (CLI) usage.",
+      "Working knowledge of Python for scripting."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-21T16:48:37.439Z"
+  },
+  {
+    "id": "course-cyber-monster",
+    "toolSlug": "cyber-monster",
+    "title": "Master Cyber-Monster",
+    "objectives": [
+      "Configure Cyber-Monster for adversarial simulation against LLM agents.",
+      "Execute and interpret a multi-stage red-team attack chain within the platform.",
+      "Implement automated blue-team detection rules using Cyber-Monster's logging integration."
+    ],
+    "modules": [
+      {
+        "title": "Setting up Adversarial Scenarios",
+        "estMinutes": 20,
+        "steps": [
+          "Define target AI agent API endpoint in the Cyber-Monster configuration YAML.",
+          "Select 'Prompt Injection' and 'Data Exfiltration' attack vectors from the Arsenal selector.",
+          "Run initial, low-intensity simulation to baseline agent response."
+        ]
+      },
+      {
+        "title": "Advanced Attack Chain Orchestration",
+        "estMinutes": 45,
+        "steps": [
+          "Chain a successful payload delivery with a subsequent privilege escalation module.",
+          "Monitor the 'Execution Trace' window for chained state transitions.",
+          "Adjust attack intensity parameters (e.g., token limit bypass attempts) dynamically."
+        ]
+      },
+      {
+        "title": "Blue Team Defense Automation",
+        "estMinutes": 35,
+        "steps": [
+          "Map successful attack logs to the Cyber-Monster SIEM export format (JSON/CEF).",
+          "Define a threshold alert rule (e.g., >5 injection attempts/min) within the platform UI.",
+          "Validate alert triggering by re-running the attack chain; confirm automated notification."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-redteam",
+      "skill-blue-team",
+      "skill-security",
+      "skill-forensics"
+    ],
+    "prerequisites": [],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-21T16:48:37.439Z"
+  },
+  {
+    "id": "course-deepai-for-fake-pc",
+    "toolSlug": "deepai-for-fake-pc",
+    "title": "Master DeepAI-For-Fake-PC",
+    "objectives": [
+      "Generate a high-fidelity synthetic portrait using the DeepAI-For-Fake-PC interface.",
+      "Apply video style transfer to an existing clip within the tool.",
+      "Adjust generation parameters (e.g., resolution, style weight) to achieve desired realism."
+    ],
+    "modules": [
+      {
+        "title": "Synthetic Portrait Generation Workflow",
+        "estMinutes": 15,
+        "steps": [
+          "Upload a reference image to the 'Portrait Generator' tab.",
+          "Select the target style preset (e.g., 'Cinematic Realism').",
+          "Click 'Generate' and download the resulting synthetic image."
+        ]
+      },
+      {
+        "title": "Video Style Transfer Implementation",
+        "estMinutes": 20,
+        "steps": [
+          "Import a source video file into the 'Video Transformer' module.",
+          "Upload a target style image to define the aesthetic.",
+          "Run the style transfer job and export the transformed video file."
+        ]
+      },
+      {
+        "title": "Parameter Tuning for Quality Control",
+        "estMinutes": 10,
+        "steps": [
+          "Locate the 'Output Settings' panel and set resolution to 1080p.",
+          "Increase the 'Style Weight' slider from 0.5 to 0.8 for stronger effect.",
+          "Rerun the transformation and compare output against the default settings."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-image",
+      "skill-video",
+      "skill-synthesis",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Familiarity with standard image/video editing concepts.",
+      "Basic proficiency in using desktop software interfaces."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-21T16:48:37.439Z"
   }
 ]
