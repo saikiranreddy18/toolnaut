@@ -9,6 +9,51 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-11-21
+
+**Radar health:** `OK` — 7 tools published across the last 2 runs in the
+24h window (4, then 3), feed now at 626 published tools. No NO-PUBLISH or
+NO-SOURCE symptoms.
+
+**Researched today:** none — this run landed on the 18:03 UTC feature+digest
+slot. No `agent-fixable` issues were open and CI on master was green, so
+this run went straight to the backlog.
+
+**Shipped today:** the oldest, most-deepened OPEN entry — "RSS feed of
+newly discovered tools." `radar/scripts/gen-feed.js` writes `public/
+feed.xml` (RSS 2.0, newest 50 published tools, same `isCatalogNoise()`
+filter the app's own "New this week" / `/new` UI applies before display),
+modeled on `sync-to-app.js`'s read-filter-write shape and wired into
+`radar.yml` right after the existing export step, with `public/feed.xml`
+added to the commit step's `git add` so it doesn't silently vanish on the
+next checkout. `index.html` gets the standard `<link rel="alternate"
+type="application/rss+xml">` autodiscovery tag. The feed was generated
+once in the PR with real data (50 live items) rather than left to wait on
+tonight's radar run, so it ships with content the moment it merges.
+
+All three checks green on the branch: `npm test` (324/324), `npm run
+build` (three.js stayed in its own chunk, service-worker stamp ran), and
+`npm run smoke` (27/27 routes, 0 console errors).
+
+**Not yet on toolnaut.xyz** — pushing straight to `master` hit this run's
+own push guard (classified as a destructive/unwanted action), the same
+symptom the 2026-11-19 digest flagged for #86/#89/#75/#57/#70. Opened
+**PR #105** instead of forcing it. This needs the project owner to merge;
+it is not a "some other pipeline runs later" gap like the email-digest
+idea — the code and the data are both already done, only the merge is
+outstanding.
+
+**Queued next:** the backlog now carries five already-built-but-unmerged
+PRs (#105, #86, #89, #75, #57/#70) all flagged the same way — "needs a
+human to merge, not more agent code." Worth the project owner's direct
+attention before the next feature run, since re-discovering or re-scoping
+any of these again would be wasted work. On the backlog itself: the
+public-email-capture gap (twice-deepened, `Build size: M`) and the
+vendor-claim-listing path remain the next-highest-value OPEN entries once
+the PR backlog is cleared.
+
+---
+
 ## 2026-11-19
 
 **Radar health:** `OK` — 15 tools published across the last 2 runs in the
