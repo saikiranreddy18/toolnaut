@@ -39528,5 +39528,219 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-20T17:50:30.454Z"
+  },
+  {
+    "id": "course-arkviz",
+    "toolSlug": "arkviz",
+    "title": "Master ArkViz",
+    "objectives": [
+      "Generate a high-level system context diagram in ArkViz.",
+      "Refine component relationships using AI prompts.",
+      "Export a finalized, clean architecture diagram (e.g., Mermaid/PNG)."
+    ],
+    "modules": [
+      {
+        "title": "Initial Context Diagram Generation",
+        "estMinutes": 15,
+        "steps": [
+          "Input a 3-sentence system description into the ArkViz prompt interface.",
+          "Select 'System Context' as the target diagram type.",
+          "Review the initial AI output for immediate structural correctness."
+        ]
+      },
+      {
+        "title": "Refining Component Interactions",
+        "estMinutes": 20,
+        "steps": [
+          "Identify a vague relationship (e.g., 'communicates with') in the generated diagram.",
+          "Use a targeted prompt like: 'Change X to use REST API calls to Y' within the editor.",
+          "Compare the revision against the original to ensure semantic accuracy."
+        ]
+      },
+      {
+        "title": "Finalization and Export",
+        "estMinutes": 10,
+        "steps": [
+          "Adjust diagram styling (e.g., color palette, node shapes) via the style panel.",
+          "Select 'Export' and choose the target format (e.g., Mermaid code or PNG).",
+          "Verify the exported file renders correctly in the target documentation tool."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-architecture",
+      "skill-diagrams",
+      "skill-software",
+      "skill-ai"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-21T02:50:17.656Z"
+  },
+  {
+    "id": "course-xsquads",
+    "toolSlug": "xsquads",
+    "title": "Master XSquads",
+    "objectives": [
+      "Define a multi-agent mission within XSquads.",
+      "Configure agent roles and dependencies for task execution.",
+      "Monitor and interpret mission completion reports."
+    ],
+    "modules": [
+      {
+        "title": "Setting up a Mission Blueprint",
+        "estMinutes": 15,
+        "steps": [
+          "Open the XSquads mission editor and select 'New Autonomous Mission'.",
+          "Define the primary goal (e.g., 'Analyze Q3 sales data') and set scope parameters.",
+          "Save the mission blueprint under a unique identifier."
+        ]
+      },
+      {
+        "title": "Agent Role Assignment & Constraints",
+        "estMinutes": 20,
+        "steps": [
+          "Assign specific roles (e.g., 'Data Analyst', 'Report Generator') to your agents.",
+          "Set constraints for the 'Data Analyst' agent (e.g., 'Use only Pandas and CSV input').",
+          "Link dependencies: ensure 'Report Generator' waits for 'Data Analyst' output."
+        ]
+      },
+      {
+        "title": "Execution and Validation",
+        "estMinutes": 15,
+        "steps": [
+          "Trigger the mission execution via the harness CLI command `xsquads run --mission <ID>`.",
+          "Access the detailed log via `xsquads inspect <ID> --logs` to track agent state changes.",
+          "Verify success by checking the final mission artifact against the predefined success criteria."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-autonomous",
+      "skill-workflow",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Basic familiarity with command-line interfaces (CLI).",
+      "Understanding of agent-based workflows (e.g., roles, dependencies)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-21T02:50:17.656Z"
+  },
+  {
+    "id": "course-isolated-linux-workstations-for-autonomous-ai-agents",
+    "toolSlug": "isolated-linux-workstations-for-autonomous-ai-agents",
+    "title": "Master Isolated Linux workstations for autonomous AI agents",
+    "objectives": [
+      "Securely provision and configure isolated Linux environments.",
+      "Deploy and manage autonomous AI agents within the isolated context.",
+      "Implement secure agent-to-agent communication protocols."
+    ],
+    "modules": [
+      {
+        "title": "Container Isolation Setup (e.g., Kata Containers)",
+        "estMinutes": 35,
+        "steps": [
+          "Install and configure Kata Containers on the host OS.",
+          "Define a base container image tailored for AI dependencies (Python, CUDA).",
+          "Launch a new workstation instance using the Kata runtime specification."
+        ]
+      },
+      {
+        "title": "Agent Deployment and Resource Limiting",
+        "estMinutes": 45,
+        "steps": [
+          "Deploy the target AI agent executable/script inside the isolated container.",
+          "Apply cgroup limits (CPU/Memory) to prevent resource contention or runaway processes.",
+          "Verify agent startup logs within the container's isolated filesystem."
+        ]
+      },
+      {
+        "title": "Secure Inter-Agent Communication",
+        "estMinutes": 30,
+        "steps": [
+          "Configure a secure, internal network namespace for the isolated workstations.",
+          "Implement communication via encrypted gRPC or ZeroMQ endpoints, avoiding external NAT.",
+          "Test controlled, authenticated message passing between two distinct isolated agents."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-linux",
+      "skill-incus",
+      "skill-ai agents",
+      "skill-isolation"
+    ],
+    "prerequisites": [
+      "Familiarity with advanced Linux system administration (namespaces, cgroups).",
+      "Proficiency in containerization (Docker/Podman) and orchestration basics.",
+      "Working knowledge of AI agent frameworks (e.g., AutoGen, BabyAGI) and secure networking principles."
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-21T02:50:17.656Z"
+  },
+  {
+    "id": "course-capcut-pro-video-editor-latest",
+    "toolSlug": "capcut-pro-video-editor-latest",
+    "title": "Master capcut-pro-video-editor-latest",
+    "objectives": [
+      "Automate caption generation for an imported video",
+      "Apply AI-driven background removal in CapCut Pro",
+      "Export a finished project in 4K resolution"
+    ],
+    "modules": [
+      {
+        "title": "Generating Automated Subtitles",
+        "estMinutes": 10,
+        "steps": [
+          "Import your source video into the CapCut timeline.",
+          "Select the clip and choose 'Auto Captions' from the right-hand menu.",
+          "Verify the generated transcript and export it as an SRT file."
+        ]
+      },
+      {
+        "title": "AI Background Removal",
+        "estMinutes": 8,
+        "steps": [
+          "Apply the 'Remove Background' effect to a subject clip.",
+          "Fine-tune the subject selection using the masking tool if necessary.",
+          "Place the clip over a new green screen or solid color background track."
+        ]
+      },
+      {
+        "title": "4K Export Settings",
+        "estMinutes": 5,
+        "steps": [
+          "Click the 'Export' button in the top right corner.",
+          "Set the resolution to 3840x2160 (4K) and frame rate to 30fps.",
+          "Save the final video file to your desired local or cloud location."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-video",
+      "skill-editing",
+      "skill-ai",
+      "skill-socialmedia"
+    ],
+    "prerequisites": [
+      "Familiarity with basic video timeline concepts (trimming, placing clips)",
+      "Active subscription to CapCut Pro"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-21T02:50:17.656Z"
   }
 ]

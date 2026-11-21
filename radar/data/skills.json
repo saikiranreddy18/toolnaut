@@ -857,7 +857,9 @@
       "fantastic-canvas",
       "klistra",
       "dez",
-      "soundbench"
+      "soundbench",
+      "arkviz",
+      "capcut-pro-video-editor-latest"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -904,7 +906,9 @@
       "course-fantastic-canvas",
       "course-klistra",
       "course-dez",
-      "course-soundbench"
+      "course-soundbench",
+      "course-arkviz",
+      "course-capcut-pro-video-editor-latest"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1319,7 +1323,9 @@
       "ai-agentic-harness-with-explicit-risk-analysis",
       "billet",
       "taskthread",
-      "agent-guard"
+      "agent-guard",
+      "xsquads",
+      "isolated-linux-workstations-for-autonomous-ai-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -1654,7 +1660,9 @@
       "course-ai-agentic-harness-with-explicit-risk-analysis",
       "course-billet",
       "course-taskthread",
-      "course-agent-guard"
+      "course-agent-guard",
+      "course-xsquads",
+      "course-isolated-linux-workstations-for-autonomous-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1870,7 +1878,8 @@
       "jevcrawl",
       "kryzz-ai",
       "drawmode-for-ai-agents",
-      "launch-hn-starsling-yc-p25"
+      "launch-hn-starsling-yc-p25",
+      "isolated-linux-workstations-for-autonomous-ai-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -2064,7 +2073,8 @@
       "course-jevcrawl",
       "course-kryzz-ai",
       "course-drawmode-for-ai-agents",
-      "course-launch-hn-starsling-yc-p25"
+      "course-launch-hn-starsling-yc-p25",
+      "course-isolated-linux-workstations-for-autonomous-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2611,7 +2621,8 @@
       "capcut-pro-cracked",
       "hnwatch",
       "video-agent-with-version-control",
-      "klistra"
+      "klistra",
+      "capcut-pro-video-editor-latest"
     ],
     "courses": [
       "course-canvasformusic",
@@ -2624,7 +2635,8 @@
       "course-capcut-pro-cracked",
       "course-hnwatch",
       "course-video-agent-with-version-control",
-      "course-klistra"
+      "course-klistra",
+      "course-capcut-pro-video-editor-latest"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3848,7 +3860,8 @@
       "cloudish",
       "sourcepost",
       "dayfileapp",
-      "sandscale"
+      "sandscale",
+      "xsquads"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3917,7 +3930,8 @@
       "course-cloudish",
       "course-sourcepost",
       "course-dayfileapp",
-      "course-sandscale"
+      "course-sandscale",
+      "course-xsquads"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4811,7 +4825,10 @@
       "disposable",
       "raven-recon",
       "ai-agentic-harness-with-explicit-risk-analysis",
-      "taskthread"
+      "taskthread",
+      "arkviz",
+      "xsquads",
+      "capcut-pro-video-editor-latest"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4848,7 +4865,10 @@
       "course-disposable",
       "course-raven-recon",
       "course-ai-agentic-harness-with-explicit-risk-analysis",
-      "course-taskthread"
+      "course-taskthread",
+      "course-arkviz",
+      "course-xsquads",
+      "course-capcut-pro-video-editor-latest"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5626,14 +5646,16 @@
       "cogram-studio",
       "experiments-with-ai",
       "viaduct",
-      "llm-skill-to-generate-editable-3d-house-designs"
+      "llm-skill-to-generate-editable-3d-house-designs",
+      "arkviz"
     ],
     "courses": [
       "course-agents-should-be-durable-not-long-lived",
       "course-cogram-studio",
       "course-experiments-with-ai",
       "course-viaduct",
-      "course-llm-skill-to-generate-editable-3d-house-designs"
+      "course-llm-skill-to-generate-editable-3d-house-designs",
+      "course-arkviz"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -5785,14 +5807,16 @@
       "ai-agents-started-emailing-philosophers-and-researchers",
       "andon-labs-puts-ai-agents-in-charge-of-real-businesses",
       "openwants",
-      "organ"
+      "organ",
+      "xsquads"
     ],
     "courses": [
       "course-devx",
       "course-ai-agents-started-emailing-philosophers-and-researchers",
       "course-andon-labs-puts-ai-agents-in-charge-of-real-businesses",
       "course-openwants",
-      "course-organ"
+      "course-organ",
+      "course-xsquads"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -7707,10 +7731,12 @@
     "domain": "writing",
     "level": "intermediate",
     "toolsTeaching": [
-      "marktwin"
+      "marktwin",
+      "capcut-pro-video-editor-latest"
     ],
     "courses": [
-      "course-marktwin"
+      "course-marktwin",
+      "course-capcut-pro-video-editor-latest"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -7875,13 +7901,15 @@
       "grith",
       "humble-bundle",
       "truescribe",
-      "now"
+      "now",
+      "isolated-linux-workstations-for-autonomous-ai-agents"
     ],
     "courses": [
       "course-grith",
       "course-humble-bundle",
       "course-truescribe",
-      "course-now"
+      "course-now",
+      "course-isolated-linux-workstations-for-autonomous-ai-agents"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -14096,11 +14124,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "ai-is-making-us-build-too-much",
-      "ai-means-the-end-of-software-as-we-know-it"
+      "ai-means-the-end-of-software-as-we-know-it",
+      "arkviz"
     ],
     "courses": [
       "course-ai-is-making-us-build-too-much",
-      "course-ai-means-the-end-of-software-as-we-know-it"
+      "course-ai-means-the-end-of-software-as-we-know-it",
+      "course-arkviz"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -14330,7 +14360,8 @@
       "vendiq",
       "enso-method",
       "purple-flow",
-      "billet"
+      "billet",
+      "xsquads"
     ],
     "courses": [
       "course-logitech-launches-mx-keypad-for-developers",
@@ -14340,7 +14371,8 @@
       "course-vendiq",
       "course-enso-method",
       "course-purple-flow",
-      "course-billet"
+      "course-billet",
+      "course-xsquads"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -15240,11 +15272,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "adiosdev",
-      "crafting-express"
+      "crafting-express",
+      "isolated-linux-workstations-for-autonomous-ai-agents"
     ],
     "courses": [
       "course-adiosdev",
-      "course-crafting-express"
+      "course-crafting-express",
+      "course-isolated-linux-workstations-for-autonomous-ai-agents"
     ],
     "updatedAt": "2026-09-09T23:30:23.231Z"
   },
@@ -17261,12 +17295,14 @@
     "toolsTeaching": [
       "astah-pro-mcp",
       "uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
-      "turn-spoken-thoughts-into-system-design-diagrams"
+      "turn-spoken-thoughts-into-system-design-diagrams",
+      "arkviz"
     ],
     "courses": [
       "course-astah-pro-mcp",
       "course-uncle-bob-martins-uml-tool-to-manage-grok-ai-agents",
-      "course-turn-spoken-thoughts-into-system-design-diagrams"
+      "course-turn-spoken-thoughts-into-system-design-diagrams",
+      "course-arkviz"
     ],
     "updatedAt": "2026-09-13T13:49:13.602Z"
   },
@@ -24621,5 +24657,31 @@
       "course-agent-guard"
     ],
     "updatedAt": "2026-11-20T17:50:30.454Z"
+  },
+  {
+    "id": "skill-incus",
+    "name": "incus",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "isolated-linux-workstations-for-autonomous-ai-agents"
+    ],
+    "courses": [
+      "course-isolated-linux-workstations-for-autonomous-ai-agents"
+    ],
+    "updatedAt": "2026-11-21T02:50:17.656Z"
+  },
+  {
+    "id": "skill-socialmedia",
+    "name": "socialmedia",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "capcut-pro-video-editor-latest"
+    ],
+    "courses": [
+      "course-capcut-pro-video-editor-latest"
+    ],
+    "updatedAt": "2026-11-21T02:50:17.656Z"
   }
 ]
