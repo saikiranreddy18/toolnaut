@@ -4706,7 +4706,18 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-09-02 03:20 UTC
 
 ### RSS feed of newly discovered tools — the radar publishes daily, nothing subscribes to it
-- **Status:** OPEN
+- **Status:** BUILT, UNMERGED — PR #105 (2026-11-21) implements this exactly
+  as scoped below: `radar/scripts/gen-feed.js` (new), wired into
+  `radar.yml` right after `sync-to-app.js`'s export step with
+  `public/feed.xml` added to the commit step's `git add`, plus the
+  `<link rel="alternate">` autodiscovery tag in `index.html`. `public/
+  feed.xml` was generated once in the PR with real data (50 live items)
+  so it ships with content the moment it merges, not empty. All three
+  checks (`npm test` 324/324, `npm run build`, `npm run smoke` 27/27)
+  green on the branch. Direct push to `master` was blocked by this run's
+  own push guard (same symptom the 2026-11-19 digest flagged for #86/#89/
+  #75/#57/#70 — "needs a human to merge, not more agent code"), so this
+  shipped as a PR instead. Needs the project owner to merge it.
 - **Seen in:** a problem area distinct from any directory studied so far in
   this file — Hacker News (`news.ycombinator.com/rss`), Product Hunt (per-topic
   RSS), and virtually every changelog/blog tool (Linear, GitHub Releases) ship
