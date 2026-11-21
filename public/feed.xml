@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Toolnaut — newly discovered AI tools</title>
+    <link>https://toolnaut.xyz/new</link>
+    <description>AI tools Toolnaut's radar pipeline just added to the catalog.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 Nov 2026 16:48:37 GMT</lastBuildDate>
+    <item>
+      <title>ClawVet</title>
+      <link>https://toolnaut.xyz/ai-tools/clawvet</link>
+      <description>Offline AST scanner and rug-pull diff for AI agent skills.</description>
+      <guid isPermaLink="false">clawvet</guid>
+      <pubDate>Sat, 21 Nov 2026 16:48:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>Cyber-Monster</title>
+      <link>https://toolnaut.xyz/ai-tools/cyber-monster</link>
+      <description>A comprehensive red-team and blue-team arsenal for AI agents.</description>
+      <guid isPermaLink="false">cyber-monster</guid>
+      <pubDate>Sat, 21 Nov 2026 16:48:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>DeepAI-For-Fake-PC</title>
+      <link>https://toolnaut.xyz/ai-tools/deepai-for-fake-pc</link>
+      <description>AI tool for image and video transformation and synthetic media generation.</description>
+      <guid isPermaLink="false">deepai-for-fake-pc</guid>
+      <pubDate>Sat, 21 Nov 2026 16:48:37 GMT</pubDate>
+    </item>
+    <item>
+      <title>ArkViz</title>
+      <link>https://toolnaut.xyz/ai-tools/arkviz</link>
+      <description>AI generates software architecture diagrams for clearer system visualization.</description>
+      <guid isPermaLink="false">arkviz</guid>
+      <pubDate>Sat, 21 Nov 2026 02:50:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>XSquads</title>
+      <link>https://toolnaut.xyz/ai-tools/xsquads</link>
+      <description>Set a mission and have autonomous agents work on it in your harness.</description>
+      <guid isPermaLink="false">xsquads</guid>
+      <pubDate>Sat, 21 Nov 2026 02:50:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>Isolated Linux workstations for autonomous AI agents</title>
+      <link>https://toolnaut.xyz/ai-tools/isolated-linux-workstations-for-autonomous-ai-agents</link>
+      <description>Provides isolated Linux workstations for deploying and running autonomous AI agents.</description>
+      <guid isPermaLink="false">isolated-linux-workstations-for-autonomous-ai-agents</guid>
+      <pubDate>Sat, 21 Nov 2026 02:50:17 GMT</pubDate>
+    </item>
+    <item>
+      <title>SoundBench</title>
+      <link>https://toolnaut.xyz/ai-tools/soundbench</link>
+      <description>AI vocal remover and audio tools running directly in your browser.</description>
+      <guid isPermaLink="false">soundbench</guid>
+      <pubDate>Fri, 20 Nov 2026 17:50:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>Sandscale</title>
+      <link>https://toolnaut.xyz/ai-tools/sandscale</link>
+      <description>Firecracker microVMs designed for powering AI coding agents.</description>
+      <guid isPermaLink="false">sandscale</guid>
+      <pubDate>Fri, 20 Nov 2026 17:50:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>Agent Guard</title>
+      <link>https://toolnaut.xyz/ai-tools/agent-guard</link>
+      <description>Limits the actions an AI agent can take when compromised.</description>
+      <guid isPermaLink="false">agent-guard</guid>
+      <pubDate>Fri, 20 Nov 2026 17:50:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>Relic</title>
+      <link>https://toolnaut.xyz/ai-tools/relic</link>
+      <description>An AI that strictly answers only from the user's saved context.</description>
+      <guid isPermaLink="false">relic</guid>
+      <pubDate>Fri, 20 Nov 2026 02:36:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>Lintsure</title>
+      <link>https://toolnaut.xyz/ai-tools/lintsure</link>
+      <description>Free local code checking with OWASP and EU AI Act rules.</description>
+      <guid isPermaLink="false">lintsure</guid>
+      <pubDate>Fri, 20 Nov 2026 02:36:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI Agentic harness with explicit risk analysis</title>
+      <link>https://toolnaut.xyz/ai-tools/ai-agentic-harness-with-explicit-risk-analysis</link>
+      <description>An AI Agentic harness with built-in explicit risk analysis.</description>
+      <guid isPermaLink="false">ai-agentic-harness-with-explicit-risk-analysis</guid>
+      <pubDate>Fri, 20 Nov 2026 02:36:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>Billet</title>
+      <link>https://toolnaut.xyz/ai-tools/billet</link>
+      <description>Agentic task management system designed for efficient workflow handling.</description>
+      <guid isPermaLink="false">billet</guid>
+      <pubDate>Fri, 20 Nov 2026 02:36:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>Taskthread</title>
+      <link>https://toolnaut.xyz/ai-tools/taskthread</link>
+      <description>An AI-driven task board for managing workflows for autonomous AI agents.</description>
+      <guid isPermaLink="false">taskthread</guid>
+      <pubDate>Fri, 20 Nov 2026 02:36:23 GMT</pubDate>
+    </item>
+    <item>
+      <title>Purple Flow</title>
+      <link>https://toolnaut.xyz/ai-tools/purple-flow</link>
+      <description>AI-first n8n alternative with 10k+ workflows on minimal resources.</description>
+      <guid isPermaLink="false">purple-flow</guid>
+      <pubDate>Thu, 19 Nov 2026 18:19:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>Foolscap</title>
+      <link>https://toolnaut.xyz/ai-tools/foolscap</link>
+      <description>A writing app that reads your book but never writes content for you.</description>
+      <guid isPermaLink="false">foolscap</guid>
+      <pubDate>Thu, 19 Nov 2026 18:19:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>Disposable</title>
+      <link>https://toolnaut.xyz/ai-tools/disposable</link>
+      <description>A platform to share and rebuild small AI-made tools.</description>
+      <guid isPermaLink="false">disposable</guid>
+      <pubDate>Thu, 19 Nov 2026 18:19:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>An open-source harness for Android devs in the terminal</title>
+      <link>https://toolnaut.xyz/ai-tools/an-open-source-harness-for-android-devs-in-the-terminal</link>
+      <description>Open-source terminal harness specifically for Android development.</description>
+      <guid isPermaLink="false">an-open-source-harness-for-android-devs-in-the-terminal</guid>
+      <pubDate>Thu, 19 Nov 2026 18:19:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>AgentMall</title>
+      <link>https://toolnaut.xyz/ai-tools/agentmall</link>
+      <description>An AI agent capable of autonomously purchasing groceries for users.</description>
+      <guid isPermaLink="false">agentmall</guid>
+      <pubDate>Thu, 19 Nov 2026 18:19:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>Raven Recon</title>
+      <link>https://toolnaut.xyz/ai-tools/raven-recon</link>
+      <description>Open-source security research framework utilizing AI agents for reconnaissance.</description>
+      <guid isPermaLink="false">raven-recon</guid>
+      <pubDate>Thu, 19 Nov 2026 18:19:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>Dayfile.app</title>
+      <link>https://toolnaut.xyz/ai-tools/dayfileapp</link>
+      <description>An append-only log for tracking scripts and agents.</description>
+      <guid isPermaLink="false">dayfileapp</guid>
+      <pubDate>Thu, 19 Nov 2026 18:19:43 GMT</pubDate>
+    </item>
+    <item>
+      <title>KradleBench</title>
+      <link>https://toolnaut.xyz/ai-tools/kradlebench</link>
+      <description>Multi-agent AI evaluations within the Minecraft environment.</description>
+      <guid isPermaLink="false">kradlebench</guid>
+      <pubDate>Thu, 19 Nov 2026 02:49:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>Nihil</title>
+      <link>https://toolnaut.xyz/ai-tools/nihil</link>
+      <description>Hardware IDE where AI agents design, simulate, and test PCBs.</description>
+      <guid isPermaLink="false">nihil</guid>
+      <pubDate>Thu, 19 Nov 2026 02:49:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>RailCall</title>
+      <link>https://toolnaut.xyz/ai-tools/railcall</link>
+      <description>Local-first agent runtime with approvals and signed receipts.</description>
+      <guid isPermaLink="false">railcall</guid>
+      <pubDate>Thu, 19 Nov 2026 02:49:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>Intrusive.ai</title>
+      <link>https://toolnaut.xyz/ai-tools/intrusiveai</link>
+      <description>Open-source AI attack simulation for security testing.</description>
+      <guid isPermaLink="false">intrusiveai</guid>
+      <pubDate>Thu, 19 Nov 2026 02:49:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>SourcePost</title>
+      <link>https://toolnaut.xyz/ai-tools/sourcepost</link>
+      <description>A hand-reviewed directory for AI agents via API and MCP.</description>
+      <guid isPermaLink="false">sourcepost</guid>
+      <pubDate>Thu, 19 Nov 2026 02:49:13 GMT</pubDate>
+    </item>
+    <item>
+      <title>KradleBench: Multi-agent AI evals in Minecraft</title>
+      <link>https://toolnaut.xyz/ai-tools/kradlebench-multi-agent-ai-evals-in-minecraft</link>
+      <description>Multi-agent AI evaluations within the Minecraft environment.</description>
+      <guid isPermaLink="false">kradlebench-multi-agent-ai-evals-in-minecraft</guid>
+      <pubDate>Wed, 18 Nov 2026 18:07:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>Klistra</title>
+      <link>https://toolnaut.xyz/ai-tools/klistra</link>
+      <description>Spec-driven AI motion design and video studio.</description>
+      <guid isPermaLink="false">klistra</guid>
+      <pubDate>Wed, 18 Nov 2026 18:07:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>Dez</title>
+      <link>https://toolnaut.xyz/ai-tools/dez</link>
+      <description>Dez is an open-source plaintext AI multimedia studio for creative work.</description>
+      <guid isPermaLink="false">dez</guid>
+      <pubDate>Wed, 18 Nov 2026 18:07:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>Reflektor</title>
+      <link>https://toolnaut.xyz/ai-tools/reflektor</link>
+      <description>Converts AI-generated Pull Requests into human-reviewable formats.</description>
+      <guid isPermaLink="false">reflektor</guid>
+      <pubDate>Wed, 18 Nov 2026 18:07:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>Lalabase</title>
+      <link>https://toolnaut.xyz/ai-tools/lalabase</link>
+      <description>Self-hosted project memory for agencies and their clients.</description>
+      <guid isPermaLink="false">lalabase</guid>
+      <pubDate>Wed, 18 Nov 2026 18:07:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>WebCraft Pro</title>
+      <link>https://toolnaut.xyz/ai-tools/webcraft-pro</link>
+      <description>CI-enforced engineering standards for AI coding agents.</description>
+      <guid isPermaLink="false">webcraft-pro</guid>
+      <pubDate>Wed, 18 Nov 2026 18:07:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>Cloudish</title>
+      <link>https://toolnaut.xyz/ai-tools/cloudish</link>
+      <description>Cloudish allows agents to self-deploy containers on the cloud.</description>
+      <guid isPermaLink="false">cloudish</guid>
+      <pubDate>Wed, 18 Nov 2026 18:07:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>RedCat an open-source AI agent for your desktop</title>
+      <link>https://toolnaut.xyz/ai-tools/redcat-an-open-source-ai-agent-for-your-desktop</link>
+      <description>An open-source AI agent designed to run locally on your desktop.</description>
+      <guid isPermaLink="false">redcat-an-open-source-ai-agent-for-your-desktop</guid>
+      <pubDate>Wed, 18 Nov 2026 18:07:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>Mozilla AI launches Otari, one API key for every model</title>
+      <link>https://toolnaut.xyz/ai-tools/mozilla-ai-launches-otari-one-api-key-for-every-model</link>
+      <description>Otari offers a unified API key for accessing multiple AI models.</description>
+      <guid isPermaLink="false">mozilla-ai-launches-otari-one-api-key-for-every-model</guid>
+      <pubDate>Wed, 18 Nov 2026 18:07:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>Nexus</title>
+      <link>https://toolnaut.xyz/ai-tools/nexus</link>
+      <description>Connect web AI assistants to local files, terminals, and desktop tools with controlled permissions.</description>
+      <guid isPermaLink="false">nexus</guid>
+      <pubDate>Wed, 18 Nov 2026 18:07:47 GMT</pubDate>
+    </item>
+    <item>
+      <title>Sikemux</title>
+      <link>https://toolnaut.xyz/ai-tools/sikemux</link>
+      <description>Sikemux provides a team of AI coders in a single window using Rust.</description>
+      <guid isPermaLink="false">sikemux</guid>
+      <pubDate>Wed, 18 Nov 2026 03:08:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>System 1 Agents</title>
+      <link>https://toolnaut.xyz/ai-tools/system-1-agents</link>
+      <description>A method for local, reliable, and fast agentic AI implementation.</description>
+      <guid isPermaLink="false">system-1-agents</guid>
+      <pubDate>Wed, 18 Nov 2026 03:08:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>R3</title>
+      <link>https://toolnaut.xyz/ai-tools/r3</link>
+      <description>Review AI agent artifacts locally with R3.</description>
+      <guid isPermaLink="false">r3</guid>
+      <pubDate>Wed, 18 Nov 2026 03:08:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>Free AI Agent Lab</title>
+      <link>https://toolnaut.xyz/ai-tools/free-ai-agent-lab</link>
+      <description>Create and run debates between two AI agents in a free lab environment.</description>
+      <guid isPermaLink="false">free-ai-agent-lab</guid>
+      <pubDate>Wed, 18 Nov 2026 03:08:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>Video Agent with Version Control</title>
+      <link>https://toolnaut.xyz/ai-tools/video-agent-with-version-control</link>
+      <description>A video agent solution that integrates version control for enhanced workflow management.</description>
+      <guid isPermaLink="false">video-agent-with-version-control</guid>
+      <pubDate>Wed, 18 Nov 2026 03:08:06 GMT</pubDate>
+    </item>
+    <item>
+      <title>Revix AI</title>
+      <link>https://toolnaut.xyz/ai-tools/revix-ai</link>
+      <description>AI tool for PR review against repository standards.</description>
+      <guid isPermaLink="false">revix-ai</guid>
+      <pubDate>Tue, 17 Nov 2026 18:36:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>Drawmode for AI Agents</title>
+      <link>https://toolnaut.xyz/ai-tools/drawmode-for-ai-agents</link>
+      <description>Drawmode facilitates visual interaction and creation within AI agent workflows.</description>
+      <guid isPermaLink="false">drawmode-for-ai-agents</guid>
+      <pubDate>Tue, 17 Nov 2026 18:36:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>Atlas</title>
+      <link>https://toolnaut.xyz/ai-tools/atlas</link>
+      <description>Provides better web context for AI agents using Atlas compiler.</description>
+      <guid isPermaLink="false">atlas</guid>
+      <pubDate>Tue, 17 Nov 2026 18:36:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>TrnRT</title>
+      <link>https://toolnaut.xyz/ai-tools/trnrt</link>
+      <description>Open-source LLM inference engine optimized for AWS Trainium.</description>
+      <guid isPermaLink="false">trnrt</guid>
+      <pubDate>Tue, 17 Nov 2026 18:36:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>AI Spar</title>
+      <link>https://toolnaut.xyz/ai-tools/ai-spar</link>
+      <description>Structured debate tool for conflicting AI answers.</description>
+      <guid isPermaLink="false">ai-spar</guid>
+      <pubDate>Tue, 17 Nov 2026 18:36:36 GMT</pubDate>
+    </item>
+    <item>
+      <title>Listodo</title>
+      <link>https://toolnaut.xyz/ai-tools/listodo</link>
+      <description>An AI-powered to-do list with an AI agent capable of handling various tasks.</description>
+      <guid isPermaLink="false">listodo</guid>
+      <pubDate>Tue, 17 Nov 2026 04:11:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>We got AI to Wombo Combo</title>
+      <link>https://toolnaut.xyz/ai-tools/we-got-ai-to-wombo-combo</link>
+      <description>Collaborative AI agents for Melee games.</description>
+      <guid isPermaLink="false">we-got-ai-to-wombo-combo</guid>
+      <pubDate>Tue, 17 Nov 2026 04:11:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>Standard Support</title>
+      <link>https://toolnaut.xyz/ai-tools/standard-support</link>
+      <description>A convention for AI agents to file support tickets.</description>
+      <guid isPermaLink="false">standard-support</guid>
+      <pubDate>Tue, 17 Nov 2026 04:11:30 GMT</pubDate>
+    </item>
+    <item>
+      <title>Emelyn, Your AI Social Media Manager</title>
+      <link>https://toolnaut.xyz/ai-tools/emelyn-your-ai-social-media-manager</link>
+      <description>AI social media management for optimized online presence.</description>
+      <guid isPermaLink="false">emelyn-your-ai-social-media-manager</guid>
+      <pubDate>Mon, 16 Nov 2026 19:38:33 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
