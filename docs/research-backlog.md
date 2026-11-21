@@ -4706,7 +4706,19 @@ a client-side SPA with a static tool catalogue.
 - **Found:** 2026-09-02 03:20 UTC
 
 ### RSS feed of newly discovered tools — the radar publishes daily, nothing subscribes to it
-- **Status:** OPEN
+- **Status:** BUILT, UNMERGED — PR #105 (2026-11-21, the 18:03 UTC feature run)
+  implements this exactly as scoped below: `radar/scripts/gen-feed.js` (new),
+  wired into `radar.yml` right after `sync-to-app.js`'s export step with
+  `public/feed.xml` added to the commit step's `git add`, plus the `<link
+  rel="alternate">` autodiscovery tag in `index.html`. `public/feed.xml` was
+  generated once in the PR with real data (50 live items) so it ships with
+  content the moment it merges, not empty. All three checks green on the
+  branch (`npm test` 324/324, `npm run build`, `npm run smoke` 27/27).
+  **Do not rebuild this** — direct push to `master` was blocked by that run's
+  own push guard, the same symptom already tracked on issue #67 for PRs
+  #75/#86/#89/#91; it needs a human to merge #105, not more agent code.
+  Re-verified 2026-11-21: confirmed via `pull_request_read` the PR is still
+  open, `mergeable_state: "clean"` — no conflicts, just waiting on a merge.
 - **Seen in:** a problem area distinct from any directory studied so far in
   this file — Hacker News (`news.ycombinator.com/rss`), Product Hunt (per-topic
   RSS), and virtually every changelog/blog tool (Linear, GitHub Releases) ship
@@ -5350,6 +5362,37 @@ a client-side SPA with a static tool catalogue.
   indie AI-directory builders report working in 2026) rather than
   surfacing anything new to log. Still OPEN, still Build size M, plan
   otherwise unchanged.
+- **Re-verified 2026-11-21 21:04 UTC** — the true stalest OPEN entry by
+  last-check (43 days since the 10-09 pass above; every other OPEN entry
+  carries at least a 2026-11 touch per a file-wide last-touch sweep). Core
+  gap fully intact on current `master`: `CategoryLanding.jsx:27` (one more
+  line of drift, was `:26`) still filters only by `t.category === domain`;
+  its `tools.map()` render (now `:94`) is still uncapped; `App.jsx:131`
+  still has only `/tools/:domain`, no nested `:category` route;
+  `sitemap.xml` still lists exactly the same 6 `/tools/*` URLs; `Discover.jsx`
+  still has `PAGE_SIZE = 24` with the same LOAD-MORE pattern (now `:38` and
+  `:421-431`). All `SOURCE_CATEGORIES` counts re-summed against current
+  `toolsCatalog.js` — unchanged (design 184, code 137, writing 135,
+  automation 133, data 95). `RolesSection.jsx:124` and the role→domain map
+  are byte-identical to what this entry already quoted (PM→automation,
+  Marketer→writing, Founder→data).
+  **Real drift found — three of this entry's cited files have moved** since
+  the 10-09 check, from an unrelated restructuring elsewhere in the repo:
+  `src/data/toolsCatalog.js` → **`src/utils/toolsCatalog.js`**; `src/data/
+  rolesData.js` → **`src/utils/rolesData.js`**; `src/pages/Discover.jsx` →
+  **`src/pages/app/Discover.jsx`**. Every line-number citation above still
+  resolves correctly once read from the new paths — this is a path-only
+  move, not a content change — but a future feature run copying this
+  entry's file paths verbatim would fail to find them, so recording the new
+  locations here rather than leaving it to be rediscovered mid-build.
+  `prerender.mjs`'s `ROUTES` grew from 19 to 22 lines (two `/vs/*` entries
+  added) but still lists all 6 domain pages individually, matching the
+  09-25 note's corrected scope exactly — no new correction needed there.
+  One fresh `WebSearch` (2026 AI-directory category-page SEO practice)
+  reaffirmed this entry's own thesis (subcategory/decision pages over broad
+  unfiltered lists) without surfacing a sharper precedent than Futurepedia,
+  already cited — no new gap logged. Still OPEN, still Build size M, plan
+  otherwise unchanged and ready to build.
 
 ### Access-method facet ("Web app" / "API" / "Self-hosted") — Discover has no way to filter out API-only or open-weights tools from a beginner's results
 
@@ -15561,3 +15604,82 @@ RSS-feed entry, one deepening note on the catalog-reverification entry,
 plus this section) are the only diff. `npm test` not re-run beyond the
 implicit `npm ci` check; `npm run build`/`npm run smoke` not run —
 docs-only change, no `src/`/`radar/`/`api/` files touched.
+
+---
+
+### Research check 2026-11-21 21:04 UTC — closed out the RSS-feed entry as BUILT, UNMERGED (PR #105); re-verified the true stalest OPEN entry, found a real file-path drift
+
+Scheduled run, UTC hour 21 (a research slot, not the 18:03 feature/digest
+hour). `npm ci` clean (201 packages). Urgent-work checks first: `actions_list`
+on `ci.yml`/`master` shows the tip green, not CI-red (no CI run exists yet
+for the three `chore(radar)` commits sitting on top of the 11-20 09:04 UTC
+docs commit, but those are radar-only path changes the workflow doesn't
+trigger on, not a failure). `npm run radar:health` → `STATUS: OK` (2 runs in
+the 26h window, last run 4.3h ago, 3 published, feed at 626 tools).
+`list_issues` for `agent-fixable`: zero open. No urgent work, so the hour
+went to backlog work.
+
+**First, closed a research gap this pass almost would have duplicated:**
+`list_pull_requests` showed **PR #105** ("feat(radar): publish an RSS feed of
+newly discovered tools"), opened today at 18:10 UTC — the 18:03 UTC
+feature-run slot built exactly the entry this file's last several passes
+had been re-verifying as the most build-ready OPEN item (`gen-feed.js`,
+`radar.yml` wiring, `index.html` autodiscovery tag, all three checks green
+on the branch per the PR body). It didn't reach `master` — the run's own
+push guard blocked `git push origin master` and it shipped as a PR instead,
+the same symptom already tracked on **issue #67** ("22 open bot PRs, oldest
+4 weeks, none merged") for #75/#86/#89/#91. Since `master`'s copy of the
+backlog still said `OPEN` for this entry, a future research pass would have
+had no way to know it was already built and risked re-scoping or
+re-deepening it from scratch — exactly the duplicated-work failure mode
+issue #67 describes. Updated the entry's `Status` to `BUILT, UNMERGED — PR
+#105` (line ~4709) to close that loop. Confirmed via `pull_request_read`
+the PR is still open and `mergeable_state: "clean"`.
+
+**The open-PR backlog issue #67 was tracking has kept growing, not
+shrinking:** a full, paginated `list_pull_requests` (sorted by creation,
+not the default single page) shows **33 open PRs**, oldest `#3`
+(2026-08-22, "community-pill-submit-fix") — exactly three months old —
+none merged since issue #67 was opened 2026-09-21 at 22 open PRs. The gap
+between #96 (2026-10-09) and #105 (2026-11-21) shows six weeks where direct
+pushes to `master` worked fine (most of this file's October/November
+entries above landed that way), so the push-guard block isn't constant —
+it resurfaced specifically on today's 18:03 UTC run. Not re-raising this as
+a new backlog entry (it's a shipping/process problem, not a product gap
+this file tracks), but noting it here since the pile is materially worse
+than the last time an agent flagged it and the project owner may not have
+seen issue #67 recently.
+
+**Ran the file-wide last-touch scan** (extract every `2026-MM-DD[ HH:MM
+UTC]` mention in each OPEN entry's body via script, take the max per entry,
+sort ascending) across all 20 real OPEN entries (21 before this run's
+RSS-feed closure). **"26 real source categories exist, only the 6 broad
+domain pages shipped"** (line ~5109, last touched 2026-10-09 09:04 UTC) came
+back clearly stalest at 43 days — three other entries (visual identity,
+stack-link preview, changelog-looks-backward) are tied one day behind at 42.
+Re-verified every citation against current `master` directly: core gap
+fully intact (no `/tools/:domain/:category` route, `CategoryLanding.jsx`'s
+render still uncapped, `SOURCE_CATEGORIES` counts unchanged). Found one
+real drift worth recording rather than just a line-number shift: three of
+the entry's cited files moved paths since the 10-09 check (`src/data/
+toolsCatalog.js` → `src/utils/toolsCatalog.js`, `src/data/rolesData.js` →
+`src/utils/rolesData.js`, `src/pages/Discover.jsx` → `src/pages/app/
+Discover.jsx`) from an unrelated restructuring elsewhere in the repo — the
+content and line numbers this entry cites still resolve correctly from the
+new locations, but a future build working from the old paths verbatim would
+fail to find them. Full note added to the entry. Still OPEN, still Build
+size M.
+
+**One fresh competitor lead checked, doesn't survive:** a `WebSearch` for
+2026 AI-directory category-page SEO practice (indiehackers.com posts on
+pSEO/tag-page structure, a Ranktracker piece on "decision pages" vs.
+unfiltered lists) reaffirmed this entry's own thesis — niche subcategory
+pages beat broad ones, consistent with the already-cited Futurepedia
+precedent — but didn't surface a sharper, more specific precedent worth
+adding as new evidence. No new gap logged.
+
+No code changed this run — the two backlog edits (the RSS-feed status
+closure, the subcategory-pages re-verification) plus this section are the
+only diff. `npm test` not re-run beyond the implicit `npm ci` check; `npm
+run build`/`npm run smoke` not run — docs-only change, no `src/`/`radar/`/
+`api/` files touched.
