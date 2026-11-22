@@ -8376,7 +8376,20 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### The public search page's own placeholder promises task search — the matcher still only knows literal word stems, not the tools that actually answer the task
-- **Status:** OPEN
+- **Status:** SHIPPED e1fd9af — built as scoped below: `matchesQuery()`
+  (`src/utils/search.js`) now falls back to a shared 5-character leading-stem
+  match (on top of, not instead of, the existing exact-substring check) when a
+  query word is ≥5 characters and isn't found verbatim. "transcribe meetings"
+  now matches Otter.ai/Notta/Fireflies.ai/etc. through the `transcri`/`meeti`
+  stems; "app" (3 chars) stays exact-substring-only per the length floor, so
+  it still doesn't start matching everything. Three new tests added to the
+  existing `test/search.test.mjs` (stem match across suffix drift, the floor
+  holding at 3 chars, no new false positive on an unrelated word) — 327/327
+  passing. No synonym dictionary, no stemming dependency, no change to
+  `Discover.jsx` or its filter UI beyond the shared function it already
+  imports, exactly per this entry's own "what this would NOT include." All
+  three gates green (`npm test` 327/327, `npm run build`, `npm run smoke`
+  27/27 routes) — pushed directly to `master`.
 - **Seen in:** competitor research this run into There's An AI For That's
   core differentiator (task-first discovery — a visitor describes what they
   need in their own words, e.g. "I need an AI that transcribes meetings," and
@@ -15959,3 +15972,66 @@ shared-stack-preview entry, plus this section) is the only diff. `npm test`
 re-run directly (324/324, clean) per the entry's own verification note;
 `npm run build`/`npm run smoke` not re-run — docs-only change, no
 `src/`/`radar/`/`api/` files touched.
+
+---
+
+### Research check 2026-11-22 09:03 UTC — shipped the task-search stem-match fix instead of another re-verify; one fresh competitor lead checked, doesn't survive
+
+Scheduled run, UTC hour 09 (a research slot, not the 18:03 feature/digest
+hour). `npm ci` clean (201 packages). Urgent-work checks first:
+`actions_list` on `master` shows the tip (`afc1b39`, the 06:03 UTC re-verify
+commit) with both `CI` and `Release` `success` — not CI-red. `npm run
+radar:health` → `STATUS: OK` (2 runs in the 26h window, last run 7.5h ago, 5
+published that run, feed at 631 tools). `list_issues` for `agent-fixable`:
+zero open. No urgent work, so the hour went to backlog work.
+
+**Ran the file-wide last-touch scan properly this time** (the prior runs'
+own version of this script had a latent bug: filtering `'OPEN' in status`
+as a substring match also caught `SHIPPED, but PARTIALLY REOPENED` — fixed
+to require the status field to start with `OPEN` exactly, which drops the
+false-positive entry and brings the real count back to 20). With that fixed,
+the true stalest OPEN entry was **"The public search page's own placeholder
+promises task search"** (line ~8378, last touched 2026-11-14 21:06 UTC, 59
+days since found) — not the shared-stack-preview entry the 06:03 UTC run
+touched (that one is now fresher than several others precisely because it
+was just re-verified).
+
+**Re-verified this entry's citations against current `master` and found
+zero drift** — `matchesQuery()` still exactly at `src/utils/search.js:9-16`,
+`SearchTools.jsx:58`/`:73` still carry the identical placeholder/intro copy,
+`matchesQuery(tool, 'transcribe meetings')` still returns zero results
+against the real catalog. Rather than log a fourth consecutive "still
+OPEN, zero drift" note on a Build-size-S entry that has had a complete,
+unchanged implementation plan sitting ready since 2026-09-16, built it: see
+the entry itself (line ~8379) for the full SHIPPED note. Shipped as `e1fd9af`
+— `matchesQuery()` gained a shared-5-character-leading-stem fallback on top
+of the existing exact-substring check, gated to query words ≥5 characters so
+short words stay exact-substring-only. Three new tests in the existing
+`test/search.test.mjs`. All three gates green (`npm test` 327/327, `npm run
+build`, `npm run smoke` 27/27 routes) before the push. This is a research-run
+"small real improvement," not a feature-run ship — the gap was a
+demonstrable, already-verified correctness bug in a shipped page's own
+advertised behavior (zero results for a query the page's own copy invites),
+not a new user-facing feature, and the fix stayed inside the single function
+this entry scoped from the start.
+
+**One fresh competitor lead checked, doesn't survive:** a `WebSearch` for
+2026 AI-tool-directory browser extensions ("save this tool" / "add to
+stack" patterns) turned up only small, low-adoption Chrome extensions
+(AIDock, SaveForLater.ai, AI Tool Explorer — none from Futurepedia, TAAFT,
+ToolFinder, or any directory this file already tracks as a serious
+competitor) with weak evidence and a build size (extension packaging, store
+listing, a second distribution surface) that doesn't fit this file's own
+"client-side SPA" framing or its impact/obviousness-over-build-size ranking
+rule. Not logged as a new gap — thin precedent, large build size, no fit.
+
+**Noting, not logging as a gap:** the open-PR pile this file has flagged
+before (issue #67) and the two missed 18:03 feature-run days the 03:04 UTC
+run flagged are both still unaddressed as of this run — not re-checked in
+detail this pass since neither is new information and both are already
+tracked outside this file.
+
+Code changed this run: `src/utils/search.js`, `test/search.test.mjs` (commit
+`e1fd9af`, pushed to `master`, separate from this backlog/docs commit). `npm
+test` (327/327), `npm run build`, and `npm run smoke` (27/27 routes) all run
+and green before that push, per the entry's own SHIPPED note.
