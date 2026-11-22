@@ -5894,6 +5894,43 @@ a client-side SPA with a static tool catalogue.
   `SharedStack.jsx`'s `adoptAndGo` is still at line 48, `getTool` import
   still at line 3. Still OPEN, still build size S/M, plan still exactly
   right.
+- **Re-verified 2026-11-22 12:07 UTC — the true stalest OPEN entry (last
+  touched 2026-11-16 21:03 UTC, next-newest OPEN entry is 2026-11-18). Every
+  citation re-checked against current `master`, one line-number drift and
+  otherwise zero: `App.jsx:128` has moved to `:131` (file grew by three
+  lines elsewhere — same route order, `/s/:slugs`, `/compare/:slugs`,
+  `/vs/:slug` immediately above `/tools/:domain`, `/ai-tools/:slug` below,
+  unchanged); `CategoryLanding.jsx:95`'s card markup and `:47`'s
+  `CollectionPage` JSON-LD both byte-for-byte unchanged; `NewTools.jsx:26`
+  unchanged; `capabilityMatrix.js:62-66`'s `'Workflow templates'` row still
+  `status: 'planned'` in all three tiers, free copy still `'A few samples'`.
+  `grep -rniE "collection|bundle|curated.{0,15}(stack|list)" src/pages
+  src/components` now also matches `McpServers.jsx:32`'s `CollectionPage`
+  JSON-LD (a page added since the last check) — same unrelated SEO-markup
+  shape as the other two hits, not a real bundles feature. Still OPEN, still
+  Build size S/M, plan unchanged — this is the most build-ready entry in the
+  file (two pages closely mirroring existing markup, one data file, one
+  `prerender.mjs` addition, one `capabilityMatrix.js` status flip) and a
+  strong candidate for the next 18:03 feature run.
+
+  Two fresh `WebSearch` queries tried, per the "deepen before you add" rule:
+  "Futurepedia OR 'There's An AI For That' OR ToolFinder 2026 new feature
+  curated bundles collections workflow templates" surfaced no confirmed 2026
+  feature launch from any of the three named competitors — only general
+  directory roundups and other, smaller directories (ToolDirectory.ai's 54
+  hand-picked collections) that this file already treats as weaker
+  precedent than the named three. "AI tool directory 2026 'personalized
+  onboarding' OR 'tool stack quiz' new launch competitor feature" turned up
+  a handful of small/indie quiz-based stack builders (Meta Tools' "Find Your
+  Stack," AIGearBase's 7-question quiz) that corroborate this entry's own
+  "role-based bundles" framing rather than describing anything new — none
+  verified as a real launch with traction, none from a competitor this file
+  already tracks as a serious reference. Not logged as a new gap — both
+  searches returned evidence this entry already cites or evidence too thin
+  to meet this file's own bar.
+
+  Docs-only pass, no `src/`/`radar/`/`api/` edit this run. `npm test`
+  (327/327) run directly against current `master` — clean.
 
 ---
 
@@ -16035,3 +16072,56 @@ Code changed this run: `src/utils/search.js`, `test/search.test.mjs` (commit
 `e1fd9af`, pushed to `master`, separate from this backlog/docs commit). `npm
 test` (327/327), `npm run build`, and `npm run smoke` (27/27 routes) all run
 and green before that push, per the entry's own SHIPPED note.
+
+---
+
+### Research check 2026-11-22 12:07 UTC — re-verified the true stalest OPEN entry (Collections, 6 days), two fresh leads checked, neither survives
+
+Scheduled run, UTC hour 12 (a research slot). `npm ci` clean (201 packages).
+Urgent-work checks first: `actions_list` on `master` found the tip at
+`c9cc109` (the 09:03 UTC research commit) with both `CI` and `Release`
+`success` — not CI-red. Local `master` had drifted behind `origin/master`
+(36 commits, stale checkout from a prior session) — fast-forwarded before
+doing anything else. `npm run radar:health` → `STATUS: OK` (2 runs in the
+26h window, last run 10.5h ago, 5 published that run, feed at 631 tools).
+`list_issues` for `agent-fixable`: zero open. No urgent work, so the hour
+went to backlog work. (Separately, a repo-native scheduled workflow,
+`.github/workflows/agent-bugfix.yml`, shows a `failure` conclusion on its
+latest run — that is the PR-based `bot/<agent>/<slug>` automation CLAUDE.md
+describes for `.github/workflows/agent-*.yml`, a different automation layer
+from this direct-to-master research/feature cycle; not touched here since
+it isn't this run's `ci.yml`/`release.yml` and `.github/workflows/` is
+off-limits.)
+
+**Ran the file-wide last-touch scan** (every OPEN entry's `Found` date or
+latest `Deepened`/`Re-verified` sub-note, whichever is later; 19 of 20 OPEN
+entries carry a dated sub-note). The true stalest was **"Curated tool
+bundles (\"Collections\")"** (line ~5723, last touched 2026-11-16 21:03 UTC,
+6 days) — every other OPEN entry has a note dated 2026-11-18 or later, so
+the gap between stalest and next-stalest is now small; the aggressive
+re-verify cadence of the last several days has largely caught the file up.
+Re-verified its citations against current `master` directly (see the
+entry's own new sub-note for the full check): one line-number drift
+(`App.jsx:128` → `:131`, same route order) and otherwise zero — still
+fully unbuilt, still Build size S/M, still the most build-ready OPEN entry
+in the file. Did not re-ship it myself: a research-run "small real
+improvement" is scoped to a demonstrable bug fix, not a ~S/M multi-file
+feature build, which belongs to the 18:03 feature run per this file's own
+rules.
+
+**Two fresh `WebSearch` queries tried, neither survives** (see the
+Collections entry's new sub-note for the full results): no 2026 feature
+launch from Futurepedia, There's An AI For That, or ToolFinder matching
+curated bundles/workflow templates; a handful of small, unverified indie
+quiz-based stack builders (Meta Tools, AIGearBase) corroborate this file's
+existing "role-based bundles" framing rather than describing anything new.
+Not logged as a new gap.
+
+**Noting, not logging as a gap:** same open-PR pile (issue #67) and missed
+18:03 feature-run days the 03:04 and 09:03 UTC passes already flagged —
+still unaddressed, still outside this file's scope to fix directly.
+
+Docs-only pass, no `src/`/`radar/`/`api/` edit this run. `npm test`
+(327/327) run directly against current `master` — clean; `npm run
+build`/`npm run smoke` not re-run since nothing touching build output or
+runtime behavior changed.
