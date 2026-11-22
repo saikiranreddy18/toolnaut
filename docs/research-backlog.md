@@ -8233,6 +8233,56 @@ a client-side SPA with a static tool catalogue.
   backlog entry itself), so `npm run build`/`npm run smoke` were not re-run;
   nothing in this commit touches build output or runtime behavior.
 
+- **Re-verified 2026-11-22 06:03 UTC — the true stalest OPEN entry again (43
+  days untouched; the file-wide last-touch scan across all 21 real OPEN
+  entries put this one clearly first, "The public search page's own
+  placeholder promises task search" at 2026-11-14 the next-newest). Every
+  citation re-checked against current `master` directly, zero drift
+  anywhere: `head.js` is still 95 lines with zero `og:image`/`twitter:image`
+  hits; no `middleware.js` exists at the repo root or anywhere else in the
+  repo; `api/geo.js:9` and every other `api/*.js` file is still a plain
+  `export default function handler(req, res)` Vercel Node function — this
+  project still has zero Edge Runtime precedent, so the planned middleware
+  would still be the first file needing those constraints; `vercel.json`'s
+  catch-all rewrite still sends everything to `/_shell.html`
+  (`vercel.json:43`); `shareStack.js`'s two exports
+  (`encodeStackSlugs`/`decodeStackSlugs`) and `toolsCatalog.js:763`'s
+  `getTool()` are byte-for-byte unchanged; `SharedStack.jsx`'s own header
+  comment explaining why `/s/:slugs` isn't in `prerender.mjs`'s `ROUTES` is
+  now at `:20-24` (one line later than the 10-10 check's `:20-23` — the file
+  gained a line elsewhere, not a content change) and `ROUTES` itself is
+  unchanged in substance. Still OPEN, still Build size M, still the single
+  most-neglected entry in this file.
+
+  Two fresh `WebSearch` queries tried, per the "deepen before you add" rule:
+  a search for 2026 feature announcements from Futurepedia, TAAFT, or
+  ToolFinder on sharing/personalization/roadmaps surfaced nothing from any
+  of the three directly — only third-party aggregator chatter and one
+  unrelated item (a SaaS-comparison blog's claim that HubSpot acquired
+  Futurepedia in April 2026, and that its paid `/enhanced` listing page was
+  404ing as of this month with no public explanation — interesting as
+  directory-market trivia, not relevant to this entry or any other OPEN one).
+  A second search for current Vercel Edge Middleware / dynamic `og:image`
+  practice mostly reconfirmed the entry's own existing plan (UA-regex
+  routing at the edge, bots don't execute JS, 1200×630 image dimensions) but
+  surfaced one new consideration worth naming rather than folding into the
+  plan outright: a few sources flag that serving different HTML to a
+  detected bot UA than to a normal browser request risks reading as cloaking
+  to a platform that polices it. On reflection this doesn't actually apply
+  here — the content substance is identical (same tool names, same stack),
+  only *when* the meta tags render differs (server response vs.
+  post-hydration `useEffect`), which is the exact dynamic-rendering pattern
+  Google itself long recommended for JS-heavy sites, not deceptive
+  substitution — but it's worth the builder re-confirming that framing
+  holds before shipping, so noting it here rather than silently dropping it.
+  Nothing else from either search changes the plan. Still OPEN, still Build
+  size M, no change to scope.
+
+  Ran `npm test` (324/324) directly against current `master` — clean. This
+  was a docs-only research pass (no `src/`/`radar/`/`api/` edit beyond the
+  backlog entry itself), so `npm run build`/`npm run smoke` were not re-run;
+  nothing in this commit touches build output or runtime behavior.
+
 ### The Spend Audit shipped fully working this morning — every page that tells a visitor what Pro buys still says it doesn't exist
 - **Status:** SHIPPED b7f87af — built exactly as scoped below: `capabilityMatrix.js`
   gained the one new `Spend audit` row (free = health score + total spend,
@@ -15860,3 +15910,52 @@ No fresh competitor lead was checked this pass — the bug found while
 re-verifying the stalest entry was substantive enough to fill the hour on
 its own, consistent with this file's own guidance to deepen real findings
 rather than pad with a thin new entry.
+
+---
+
+### Research check 2026-11-22 06:03 UTC — re-verified the true stalest OPEN entry (shared-stack link preview, 43 days), zero drift; two fresh searches found nothing new worth adding
+
+Scheduled run, UTC hour 06 (a research slot, not the 18:03 feature/digest
+hour). `npm ci` clean (201 packages). Urgent-work checks first:
+`actions_list` on `master` shows the tip (`51f4604`, the 03:04 UTC
+regex-fix commit) with both `CI` and `Release` `success` — not CI-red.
+`npm run radar:health` → `STATUS: OK` (2 runs in the 26h window, last run
+4.5h ago, 5 published that run, feed at 631 tools). `list_issues` for
+`agent-fixable`: zero open. 33 open bot PRs exist (oldest `#3`, three
+months old; tracked on issue #67), none mergeable from here and not this
+run's concern. No urgent work, so the hour went to backlog work.
+
+**Ran the file-wide last-touch scan** (extract every `2026-MM-DD[ HH:MM
+UTC]` mention in each OPEN entry's body via script, take the max per entry,
+sort ascending) across all 21 real OPEN entries. **"Sharing a stack link
+produces zero personalized preview"** (line ~8111, last touched 2026-10-10
+09:04 UTC) came back clearly stalest at 43 days — the next-newest
+("The public search page's own placeholder promises task search,"
+2026-11-14) is 8 days behind. Full re-verify note added directly to the
+entry: every code citation re-checked against current `master`
+(`head.js`, `vercel.json`, `shareStack.js`, `toolsCatalog.js:763`,
+`SharedStack.jsx`, `prerender.mjs`'s `ROUTES`) — zero drift beyond one
+cosmetic line-number shift. This project still has no `middleware.js` and
+no Edge Runtime precedent anywhere (`api/*.js` are all plain Node Vercel
+functions), so the entry's proposed approach would still be a first for
+this codebase. Still OPEN, still Build size M.
+
+**Two fresh searches, neither surfaces a new gap or changes the plan:** a
+search for 2026 feature announcements from Futurepedia, TAAFT, or
+ToolFinder on sharing/personalization found nothing from any of the three
+directly (only third-party aggregator noise, plus an unrelated and
+unverifiable claim that HubSpot acquired Futurepedia in April 2026 — noted
+on the entry, not logged as a gap). A search for current Vercel Edge
+Middleware / dynamic `og:image` practice mostly reconfirmed the entry's own
+existing plan; the one new wrinkle (serving bot UAs different HTML can read
+as "cloaking" to a platform that polices it) was checked against this
+entry's actual mechanics and doesn't apply — same tool-name content either
+way, only *when* the meta tags render differs — but was still worth noting
+on the entry for whoever builds it to re-confirm. Nothing genuine to log as
+a new gap this run.
+
+No code changed this run — the backlog edit (one re-verify note on the
+shared-stack-preview entry, plus this section) is the only diff. `npm test`
+re-run directly (324/324, clean) per the entry's own verification note;
+`npm run build`/`npm run smoke` not re-run — docs-only change, no
+`src/`/`radar/`/`api/` files touched.
