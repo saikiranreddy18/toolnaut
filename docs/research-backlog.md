@@ -15809,3 +15809,54 @@ No code changed this run — the backlog edits (one re-verify note on the
 favicon/logo entry, plus this section) are the only diff. `npm test` not
 re-run beyond the implicit `npm ci` check; `npm run build`/`npm run smoke`
 not run — docs-only change, no `src/`/`radar/`/`api/` files touched.
+
+---
+
+### Research check 2026-11-22 03:04 UTC — found and fixed a broken regression guard, not a thin re-verify; one genuinely new gap logged below
+
+Scheduled run, UTC hour 03 (a research slot, not the 18:03 feature/digest
+hour). `npm ci` clean (201 packages). Urgent-work checks first:
+`actions_list` on `master` shows the tip (`773e916`, a radar publish) with
+both `CI` and `Release` green from the prior commit (`bedb238`) — not
+CI-red. `npm run radar:health` → `STATUS: OK` (3 runs in the 26h window,
+last run 1.5h ago, 5 published, feed at 631 tools). `list_issues` for
+`agent-fixable`: zero open. No urgent work, so the hour went to backlog
+work.
+
+**Re-verified the tied-stalest OPEN entry ("Changelog only looks
+backward," last touched 2026-10-10, tied with "Sharing a stack link"
+preview at the same date) and found more than drift.** Full details are on
+the entry itself (line ~6376), summarized here: the forward-looking
+"What's next" section this entry specs is still fully unbuilt, unchanged.
+But checking the backward half's own staleness history turned up a live
+recurrence — `changelogData.js` was missing an entry for `03be8fb`
+(2026-11-19's real ship) — and, worse, the dedicated regression test added
+one day earlier specifically to catch this (`29af1ae`) had a regex bug that
+made it pass unconditionally regardless of content, so `npm test` stayed
+green through the exact failure it exists to catch. Fixed both: corrected
+the test's lookahead (bare `$` under `/m` matches end-of-line, not
+end-of-string, so the lazy body-capture group was always empty) and
+backfilled the missing `changelogData.js` entry. Verified the fix is real
+by confirming the corrected regex now captures a non-empty body containing
+the `03be8fb` sha, and that reverting just the regex fix (keeping the
+backfilled entry) makes the test fail as expected. All three gates green —
+`npm test` (109 radar + 324 app), `npm run build` (`/changelog` prerenders
+the new entry), `npm run smoke` (27/27 routes) — pushed directly to
+`master` as `51f4604`. This is the kind of fix CLAUDE.md's "smallest
+possible diff" rule is written for: three files, no new abstractions, no
+scope creep into the entry's still-OPEN forward-looking build.
+
+**Noting, not logging as a gap:** `DEVLOG.md`'s newest section is still
+`## 2026-11-19` — the 18:03 UTC feature+digest slot did not fire on either
+2026-11-20 or 2026-11-21 (confirmed via `git log` on `origin/master`: the
+only commits in that window are `docs(research)` checks and
+`chore(radar)` publishes, no `feat`/`fix` ship and no DEVLOG section for
+either day). Two full days produced no feature-run output. This is a
+scheduling/execution gap, not a product gap this file tracks — flagging it
+plainly in case it recurs, same as prior passes have done for similar
+misses.
+
+No fresh competitor lead was checked this pass — the bug found while
+re-verifying the stalest entry was substantive enough to fill the hour on
+its own, consistent with this file's own guidance to deepen real findings
+rather than pad with a thin new entry.
