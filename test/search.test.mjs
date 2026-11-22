@@ -65,4 +65,25 @@ describe('matchesQuery', () => {
   test('multi-word literal-phrase queries that matched before still match', () => {
     assert.equal(matchesQuery(TOOL, 'long documents'), true)
   })
+
+  test('a shared 5-char leading stem matches across suffix drift ("transcribe" vs "transcription", "meetings" vs "meeting")', () => {
+    const meetingTool = {
+      name: 'Otter.ai',
+      blurb: 'Live meeting transcription and AI notes',
+      sourceCategory: 'Productivity',
+      dev: 'Otter.ai',
+      tags: ['automation', 'notes', 'meeting', 'transcription'],
+    }
+    assert.equal(matchesQuery(meetingTool, 'transcribe meetings'), true)
+  })
+
+  test('the stem heuristic does not fire below the 5-character floor', () => {
+    // "app" is a substring of plenty of unrelated words ("happy", "apparel");
+    // the floor keeps short query words to the exact-substring check only.
+    assert.equal(matchesQuery(TOOL, 'app'), false)
+  })
+
+  test('the stem heuristic does not create false positives on unrelated words', () => {
+    assert.equal(matchesQuery(TOOL, 'spreadsheet'), false)
+  })
 })
