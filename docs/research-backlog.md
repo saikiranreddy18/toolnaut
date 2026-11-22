@@ -4459,6 +4459,40 @@ a client-side SPA with a static tool catalogue.
   only corrects line numbers, widens the confirmed-affected-surface count by
   two, and — the one substantive change — downgrades "never verify locally
   again" to "re-check the sandbox each time, it isn't consistently one way."
+- **Re-verified 2026-11-22 00:03 UTC:** the true stalest OPEN entry by the
+  file-wide last-touch scan (43 days since the 2026-10-10 check, the next
+  two — stack-link preview, changelog-looks-backward — tied one day behind
+  at 42). **Re-ran the throwaway sandbox network check again, per the
+  09-22/10-10 notes' instruction to never trust a prior day's result:**
+  `page.goto` to the Google favicon URL resolved cleanly in 885ms, status
+  200 — a fourth distinct outcome across four checks (hang, fast-cert-reject,
+  clean success, clean success again), consistent with the running theory
+  that the agent-proxy's state varies day to day rather than this sandbox
+  having one fixed behavior. Today's regime would trust a local `npm run
+  smoke` result outright if this gap were built this run.
+  **Re-verified the gap itself, zero drift:** `grep -n "<img"` across
+  `ToolCard.jsx` (`src/components/app/ToolCard.jsx`), `ToolDetail.jsx`
+  (`src/pages/app/ToolDetail.jsx`), `CategoryLanding.jsx`, `SharedStack.jsx`,
+  `Compare.jsx` (`src/pages/app/Compare.jsx`), `CompareCompetitor.jsx`, and
+  `PublicCompare.jsx` (`src/pages/PublicCompare.jsx`) is still zero hits on
+  every one — the gap is exactly as wide as the 10-10 check left it, no
+  further comparison-shaped page has shipped since. Every line reference
+  from the 10-10 note still resolves exactly: `ToolCard.jsx`'s `<h3>` at
+  lines 81-88, `ToolDetail.jsx`'s `<h1>` at line 216, "Visit website" at
+  line 241. `website` field count unchanged at 704 total, 42 empty
+  (`grep -o '"website": "[^"]*"' src/utils/toolsCatalog.js`). `faviconUrl.js`
+  still does not exist anywhere in `src/utils/`. No change to the core spec
+  — still Build size S, still the most build-ready "every competitor has it,
+  we don't" entry in this file, still unbuilt twelve-plus weeks after it was
+  found. **One fresh competitor search tried before settling on this
+  re-verify, per the "deepen before you add" rule:** `WebSearch` for 2026
+  AI-directory launches combining saved search, price-drop alerts, or a
+  public roadmap, and separately for Futurepedia/TAAFT 2026 changelog
+  entries — both came back as the same thin, undated small-listing content
+  (AllAITools, Tool Engine, YourAIFinder, AI Tools Explorer) this file's
+  recent passes have already flagged as unverifiable, with no site-wide
+  changelog for either directory surfacing at all. Nothing genuine to log
+  as a new gap.
 - **Re-verified 2026-10-10 03:04 UTC:** this was the single stalest OPEN
   entry by its own last-check date (18 days since the 09-22 deepening,
   staler than every other OPEN entry's last-touch timestamp checked against
@@ -15683,3 +15717,50 @@ closure, the subcategory-pages re-verification) plus this section are the
 only diff. `npm test` not re-run beyond the implicit `npm ci` check; `npm
 run build`/`npm run smoke` not run — docs-only change, no `src/`/`radar/`/
 `api/` files touched.
+
+---
+
+### Research check 2026-11-22 00:03 UTC — re-verified the true stalest OPEN entry (favicon/logo gap, 43 days), one fresh competitor lead checked, doesn't survive
+
+Scheduled run, UTC hour 00 (a research slot, not the 18:03 feature/digest
+hour). `npm ci` clean (201 packages, local `master` was 29 commits behind
+`origin/master` at session start — fast-forwarded, nothing local to lose).
+Urgent-work checks first: `list_workflow_runs` on `master` shows the tip
+(`03840ad`, the 21:04 UTC research-check commit) with both `CI` and
+`Release` `success` — not CI-red. `npm run radar:health` → `STATUS: OK`
+(2 runs in the 26h window, last run 7.3h ago, 3 published, feed at 626
+tools). `list_issues` for `agent-fixable`: zero open. No urgent work, so
+the hour went to backlog work.
+
+**Ran the file-wide last-touch scan** (extract every `2026-MM-DD[ HH:MM
+UTC]` mention in each OPEN entry's body via script, take the max per entry,
+sort ascending) across all 20 real OPEN entries. **"No tool has a visual
+identity"** (line ~4253, last touched 2026-10-10 03:04 UTC) came back
+clearly stalest at 43 days — "Sharing a stack link produces zero
+personalized preview" and "Changelog only looks backward" (both 2026-10-10,
+same day, different entries) are one day behind. Re-verified the entry in
+full (note added directly to it): re-ran its own throwaway sandbox-network
+check one more time (a Google-favicon `page.goto` resolved cleanly in
+885ms, status 200 — a fourth distinct outcome across four separate checks
+on four different days, further confirming the agent-proxy's own state is
+what varies, not this sandbox having one fixed behavior); re-grepped every
+cited surface for `<img>` (still zero hits on all seven card-shaped pages);
+confirmed every line number from the prior check still resolves exactly
+(`ToolCard.jsx:81-88`, `ToolDetail.jsx:216,241`); confirmed the `website`
+field count is unchanged (704 total, 42 empty). Zero drift found anywhere
+— still OPEN, still Build size S, still the single most build-ready entry
+in this file, now unbuilt for twelve-plus weeks.
+
+**One fresh competitor lead checked, doesn't survive:** two `WebSearch`
+queries — 2026 AI-directory launches combining saved search, price-drop
+alerts, or a public roadmap; and Futurepedia/There's An AI For That's own
+2026 changelog — both returned the same thin, undated small-listing
+content (AllAITools, Tool Engine, YourAIFinder, AI Tools Explorer) this
+file's recent passes have already flagged as unverifiable, and neither
+directory's own site-wide changelog surfaced at all. Nothing genuine to
+log as a new gap.
+
+No code changed this run — the backlog edits (one re-verify note on the
+favicon/logo entry, plus this section) are the only diff. `npm test` not
+re-run beyond the implicit `npm ci` check; `npm run build`/`npm run smoke`
+not run — docs-only change, no `src/`/`radar/`/`api/` files touched.
