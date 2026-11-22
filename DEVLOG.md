@@ -9,6 +9,62 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-11-22
+
+**Radar health:** `OK` — 10 tools published across 2 runs in the 24h window
+(5, then 5), feed now at 636 published tools. No NO-PUBLISH or NO-SOURCE
+symptoms.
+
+**Researched today:** no new gap logged — all five research passes today
+(00:03, 03:04, 06:03, 09:03, 12:07, 15:03 UTC) re-verified already-deep OPEN
+entries and checked fresh competitor leads that didn't survive the file's
+own evidence bar, continuing the backlog's current state of having caught
+up on staleness (every OPEN entry carried a 2026-11 check before today). The
+09:03 pass also shipped a real fix outside the backlog — a search-matcher
+stemming bug. Two feature-run days were missed this week (2026-11-20,
+2026-11-21 — the 18:03 UTC slot didn't fire or wasn't picked up), which the
+backlog's own research passes already flagged; today's run is the first to
+land since 2026-11-19.
+
+**Shipped today:** **`f904ac3`** — Curated tool "Collections," the gap
+research had explicitly flagged as the single most build-ready OPEN entry
+(re-verified clean across four separate passes since 2026-09-10, Build size
+S/M). Toolnaut had exactly three ways to land on more than one tool —
+the 6 broad `/tools/:domain` pages (too wide), the session-gated Discover
+grid (requires already knowing what to filter for), and a user's own shared
+stack link (one-off, not browsable) — and none of them was "here are 5
+tools that work well together for X," the exact middle step Product Hunt
+Collections and Futurepedia's grouped categories fill between "every
+product" and "my personal list." Added seven hand-curated bundles
+(`src/utils/collectionsData.js`, e.g. "The Solo Founder's Stack," "AI Coding
+Crew") with real catalog slugs and editorial rationale text, a
+`/collections` index and `/collections/:slug` detail page reusing
+`CategoryLanding.jsx`'s card markup and `SharedStack.jsx`'s `adoptAndGo`
+pattern verbatim (zero new interaction invented), both routes wired into
+`App.jsx`, `prerender.mjs` and `smoke.mjs`, a footer link, and sitemap
+entries. Also flipped `capabilityMatrix.js`'s free-tier "Workflow templates"
+row from `planned` to `live` on `/pricing` — the plan's own cross-reference
+found the pricing page had been promising "a few samples" of exactly this
+shape since before the gap was even logged. No backend, no radar/schema
+change. **This is visible on toolnaut.xyz today** — confirmed in the
+production build that all 8 new pages (index + 7 bundles) prerendered with
+800-1000 characters of real text each, not an empty client shell.
+
+**Verification:** `npm test` (327/327), `npm run build` (8 new pages
+prerendered with real content, three.js chunk unaffected), and `npm run
+smoke` (29/29 routes including both new ones, 0 console errors) all green,
+then pushed straight to `master`. Repo hadn't advanced mid-run — pushed
+clean on the first attempt.
+
+**Queued next:** the backlog's other build-ready picks — the vendor/maker
+claim-listing path (re-verified 4 days ago, GitHub-issue-only flow scoped
+around the no-backend constraint) and the catalog re-verification job
+remain the next-stalest OPEN entries. The same open-PR pile (issue #67, 22+
+unmerged bot branches) still needs a human to merge rather than more agent
+code — unchanged this week.
+
+---
+
 ## 2026-11-19
 
 **Radar health:** `OK` — 15 tools published across the last 2 runs in the

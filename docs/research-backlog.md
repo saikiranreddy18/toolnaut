@@ -5721,7 +5721,7 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### Curated tool bundles ("Collections") — the multi-tool middle step between Discover and the quiz, missing entirely
-- **Status:** OPEN — DEEPENED 2026-09-12 03:20 UTC, see cross-reference below
+- **Status:** SHIPPED f904ac3 (2026-11-22 18:03 UTC feature run)
 - **Seen in:** Product Hunt Collections (producthunt.com/collections) — themed,
   curated lists of multiple products ("GIF Apps," "Marketing Tools," "X for Y")
   that Product Hunt itself describes as having two intents, personal
@@ -5931,6 +5931,22 @@ a client-side SPA with a static tool catalogue.
 
   Docs-only pass, no `src/`/`radar/`/`api/` edit this run. `npm test`
   (327/327) run directly against current `master` — clean.
+- **Shipped 2026-11-22 18:03 UTC (`f904ac3`):** built exactly the smallest
+  useful version above — seven hand-curated bundles in
+  `src/utils/collectionsData.js`, `/collections` (index) and
+  `/collections/:slug` (detail) reusing `CategoryLanding.jsx`'s card markup
+  and `SharedStack.jsx`'s `adoptAndGo` pattern verbatim, both routes added to
+  `App.jsx` (next to `/tools/:domain`, matching the deepening's placement
+  note), `scripts/prerender.mjs`'s `ROUTES` (all 8 pages prerendered with
+  800-1000 real chars of text each) and `scripts/smoke.mjs`'s route list, a
+  footer link under "Product," and `public/sitemap.xml` entries. Also flipped
+  `capabilityMatrix.js:63`'s free-tier "Workflow templates" `status` from
+  `planned` to `live` as the plan's last step. None of the "what this would
+  NOT include" exclusions were crossed: no user-submitted collections, no
+  editing UI, nav placement picked independently (footer "Product" column).
+  `npm test` (327/327), `npm run build` (all 8 new pages prerendered with
+  real content, three.js chunk unaffected), `npm run smoke` (29/29 routes incl.
+  both new ones, 0 console errors) all green before push.
 
 ---
 
