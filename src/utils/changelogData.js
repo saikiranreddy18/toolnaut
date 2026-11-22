@@ -7,6 +7,11 @@
 // SHIPPED — pulled from that day's real commit, not invented.
 export const CHANGELOG = [
   {
+    date: '2026-11-19',
+    title: 'Free alternatives surface first',
+    body: "On a paid tool's page, the \"Alternatives\" section now calls out a free option right at the top when one exists, instead of leaving you to spot it yourself further down the list.",
+  },
+  {
     date: '2026-11-18',
     title: 'A directory of MCP-ready tools',
     body: "Toolnaut's catalog has quietly tracked MCP (Model Context Protocol) support for a while — now there's a dedicated page for it, listing every tool that ships an MCP server.",

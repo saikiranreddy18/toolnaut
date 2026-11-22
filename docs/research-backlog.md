@@ -6515,6 +6515,51 @@ a client-side SPA with a static tool catalogue.
   unrelated 2026-AI-trend roundups and indie-directory launch posts with no
   company-run roadmap page cited. Build plan, sizing (S) and scope
   unchanged; still fully unbuilt.
+- **Re-verified 2026-11-22 03:04 UTC — the forward-looking build is still
+  fully unbuilt (core gap unchanged), but re-checking the backward half
+  surfaced and fixed a real bug in its own regression guard:** `Changelog.jsx`
+  (now 94 lines) still renders only the `CHANGELOG.map(...)` block plus a
+  CTA — no roadmap/forward section exists anywhere in `src/`. While checking
+  whether the backward-half staleness bug (fixed six times already per this
+  entry's own history, most recently guarded against by a dedicated test,
+  `29af1ae`, added 2026-11-18) had recurred a seventh time, found that it
+  had — and that the guard test itself was silently broken and had already
+  failed to catch it. `DEVLOG.md`'s newest section (still `## 2026-11-19`,
+  since the 18:03 UTC feature+digest slot never fired on either 2026-11-20
+  or 2026-11-21 — no DEVLOG section, no shipped commit, no changelog entry
+  for either day) cites a real shipped commit, `03be8fb` (2026-11-19,
+  "surface the free alternative first"), but `src/utils/changelogData.js`
+  had no entry dated `2026-11-19` at all — its newest entry was still
+  `2026-11-18`. `test/changelog-freshness.test.mjs` (`29af1ae`) was written
+  specifically to fail on exactly this, and `npm test` was green anyway.
+  Root cause: its date-extraction regex used a bare `$` inside the
+  lookahead's second alternative, which matches end-of-*line* under the
+  `/m` flag rather than end-of-string — combined with the lazy `[\s\S]*?`
+  quantifier, the lookahead was satisfied with zero characters consumed,
+  right after the heading line itself. `body` was therefore always `''`,
+  the `if (!/`[0-9a-f]{6,40}`/.test(body)) return` guard always returned
+  early, and the test passed unconditionally regardless of what DEVLOG or
+  changelogData.js actually contained — it had never once performed its
+  real check, not even on the day it was added. **Fixed in this run**
+  (small, demonstrable, verifiably-true bug fix, same category as the
+  other FIXED entries in this file): changed the lookahead to require a
+  literal newline before the next heading (`\n## \d{4}-\d{2}-\d{2}\n`) or
+  genuine end-of-string (`$(?![\s\S])`) instead of relying on multiline
+  `$`; confirmed by hand that the captured body now actually contains the
+  2026-11-19 section text and correctly includes the `03be8fb` sha. Also
+  backfilled the missing entry itself into `changelogData.js` (dated
+  `2026-11-19`, "Free alternatives surface first," plain-language, matching
+  the file's existing voice) so the now-correctly-strict test passes true
+  rather than false. `npm test` (109 radar + 324 app, all green), `npm run
+  build` (`/changelog` prerenders the new entry, 5636 chars of text), and
+  `npm run smoke` (27/27 routes, 0 console errors) all green before this
+  shipped. This entry's own remaining scope (the forward-looking "What's
+  next" section) is untouched and still OPEN, still Build size S — only the
+  backward-half bug and its guard were in scope for this fix. Separately
+  noting, not as a backlog gap: the two skipped 18:03 UTC feature-run days
+  mean no feature shipped and no gap was drained from this file for two
+  full days; worth the project owner's attention if the pattern continues,
+  same as prior passes have flagged missed runs.
 
 ---
 

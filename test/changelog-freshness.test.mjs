@@ -15,7 +15,12 @@ const read = (p) => readFileSync(join(root, p), 'utf8')
 
 test('the newest DEVLOG ship-day has a matching changelogData.js entry', () => {
   const devlog = read('DEVLOG.md')
-  const match = devlog.match(/^## (\d{4}-\d{2}-\d{2})$([\s\S]*?)(?=^## \d{4}-\d{2}-\d{2}$|$)/m)
+  // The lookahead's bare `$` matches end-of-*line* under the `m` flag, so with
+  // a lazy `[\s\S]*?` it used to stop zero characters in — right after the
+  // heading itself — making `body` always empty and this test always pass.
+  // Requiring a literal leading newline before the next heading (or genuine
+  // end-of-string via `(?![\s\S])`) forces it to actually consume the section.
+  const match = devlog.match(/^## (\d{4}-\d{2}-\d{2})\n([\s\S]*?)(?=\n## \d{4}-\d{2}-\d{2}\n|$(?![\s\S]))/m)
   assert.ok(match, 'DEVLOG.md must have at least one dated "## YYYY-MM-DD" section')
   const [, date, body] = match
 
