@@ -15023,5 +15023,120 @@
       "tools"
     ],
     "discoveredAt": "2026-11-22T01:35:00.891Z"
+  },
+  {
+    "slug": "prompt-upgrader",
+    "name": "Prompt Upgrader",
+    "category": "writing",
+    "sourceCategory": "LLMs & Chatbots",
+    "price": "free",
+    "pricing": "Free to use",
+    "level": "intermediate",
+    "blurb": "Scores and rewrites AI prompts to improve output quality without sign-up.",
+    "audience": "AI prompt engineers",
+    "dev": "madgpt1",
+    "year": 2026,
+    "website": "https://madgpt1.github.io/prompt-upgrader/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "prompt",
+      "ai",
+      "writing",
+      "llm"
+    ],
+    "discoveredAt": "2026-11-22T17:11:24.714Z"
+  },
+  {
+    "slug": "agent-doctor",
+    "name": "Agent Doctor",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free/Paid tiers available",
+    "level": "intermediate",
+    "blurb": "Tune AI agents with domain expertise without writing code.",
+    "audience": "Domain experts and non-coders",
+    "dev": "Agent Doctor",
+    "year": 2026,
+    "website": "https://theagentdoctor.com/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agent",
+      "no code",
+      "domain expertise",
+      "automation"
+    ],
+    "discoveredAt": "2026-11-22T17:11:24.714Z"
+  },
+  {
+    "slug": "capcut-seedance-win",
+    "name": "capcut-seedance-win",
+    "category": "design",
+    "sourceCategory": "Video Generation & Avatars",
+    "price": "free",
+    "pricing": "free",
+    "level": "beginner",
+    "blurb": "AI video generation tool for text-to-video synthesis and motion effects on Windows.",
+    "audience": "Beginners creating videos",
+    "dev": "aroralayla99",
+    "year": 2026,
+    "website": "https://aroralayla99.github.io/capcut-seedance-win/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "capcut",
+      "video",
+      "ai",
+      "text-to-video"
+    ],
+    "discoveredAt": "2026-11-22T17:11:24.714Z"
+  },
+  {
+    "slug": "substance-3d-sampler-win",
+    "name": "substance-3d-sampler-win",
+    "category": "design",
+    "sourceCategory": "Image Generation & Editing",
+    "price": "paid",
+    "pricing": "Not specified",
+    "level": "intermediate",
+    "blurb": "AI-assisted material creation and PBR texturing for 3D meshes on Windows.",
+    "audience": "3D artists",
+    "dev": "Barnes Diego",
+    "year": 2026,
+    "website": "https://barnesdiego1.github.io/substance-3d-sampler-win/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "3d",
+      "texturing",
+      "photogrammetry",
+      "pbr"
+    ],
+    "discoveredAt": "2026-11-22T17:11:24.714Z"
+  },
+  {
+    "slug": "octosift",
+    "name": "OctoSift",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "Reddit monitoring and lead generation tool that scores posts and drafts replies.",
+    "audience": "Marketers and Sales Teams",
+    "dev": "Octosift",
+    "year": 2026,
+    "website": "https://github.com/Octosift/OctoSift",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "reddit",
+      "leadgen",
+      "automation",
+      "ai"
+    ],
+    "discoveredAt": "2026-11-22T17:11:24.714Z"
   }
 ]

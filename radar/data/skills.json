@@ -860,7 +860,9 @@
       "soundbench",
       "arkviz",
       "capcut-pro-video-editor-latest",
-      "deepai-for-fake-pc"
+      "deepai-for-fake-pc",
+      "capcut-seedance-win",
+      "substance-3d-sampler-win"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -910,7 +912,9 @@
       "course-soundbench",
       "course-arkviz",
       "course-capcut-pro-video-editor-latest",
-      "course-deepai-for-fake-pc"
+      "course-deepai-for-fake-pc",
+      "course-capcut-seedance-win",
+      "course-substance-3d-sampler-win"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1334,7 +1338,9 @@
       "cappz",
       "track-flag-ai-agents-in-system",
       "an-interactive-lab-for-deterministic-ai-agent-authorization",
-      "google-one-tools"
+      "google-one-tools",
+      "agent-doctor",
+      "octosift"
     ],
     "courses": [
       "course-headless-tools",
@@ -1678,7 +1684,9 @@
       "course-cappz",
       "course-track-flag-ai-agents-in-system",
       "course-an-interactive-lab-for-deterministic-ai-agent-authorization",
-      "course-google-one-tools"
+      "course-google-one-tools",
+      "course-agent-doctor",
+      "course-octosift"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2211,7 +2219,8 @@
       "ai-spar",
       "mozilla-ai-launches-otari-one-api-key-for-every-model",
       "agent-guard",
-      "worldfoundry"
+      "worldfoundry",
+      "prompt-upgrader"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2276,7 +2285,8 @@
       "course-ai-spar",
       "course-mozilla-ai-launches-otari-one-api-key-for-every-model",
       "course-agent-guard",
-      "course-worldfoundry"
+      "course-worldfoundry",
+      "course-prompt-upgrader"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2649,7 +2659,8 @@
       "video-agent-with-version-control",
       "klistra",
       "capcut-pro-video-editor-latest",
-      "deepai-for-fake-pc"
+      "deepai-for-fake-pc",
+      "capcut-seedance-win"
     ],
     "courses": [
       "course-canvasformusic",
@@ -2664,7 +2675,8 @@
       "course-video-agent-with-version-control",
       "course-klistra",
       "course-capcut-pro-video-editor-latest",
-      "course-deepai-for-fake-pc"
+      "course-deepai-for-fake-pc",
+      "course-capcut-seedance-win"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3270,7 +3282,8 @@
       "authrot",
       "ai-spar",
       "foolscap",
-      "relic"
+      "relic",
+      "prompt-upgrader"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -3305,7 +3318,8 @@
       "course-authrot",
       "course-ai-spar",
       "course-foolscap",
-      "course-relic"
+      "course-relic",
+      "course-prompt-upgrader"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4685,7 +4699,8 @@
       "atlas",
       "r3",
       "redcat-an-open-source-ai-agent-for-your-desktop",
-      "agentmall"
+      "agentmall",
+      "agent-doctor"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -4727,7 +4742,8 @@
       "course-atlas",
       "course-r3",
       "course-redcat-an-open-source-ai-agent-for-your-desktop",
-      "course-agentmall"
+      "course-agentmall",
+      "course-agent-doctor"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4862,7 +4878,10 @@
       "xsquads",
       "capcut-pro-video-editor-latest",
       "deepai-for-fake-pc",
-      "an-interactive-lab-for-deterministic-ai-agent-authorization"
+      "an-interactive-lab-for-deterministic-ai-agent-authorization",
+      "prompt-upgrader",
+      "capcut-seedance-win",
+      "octosift"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4904,7 +4923,10 @@
       "course-xsquads",
       "course-capcut-pro-video-editor-latest",
       "course-deepai-for-fake-pc",
-      "course-an-interactive-lab-for-deterministic-ai-agent-authorization"
+      "course-an-interactive-lab-for-deterministic-ai-agent-authorization",
+      "course-prompt-upgrader",
+      "course-capcut-seedance-win",
+      "course-octosift"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -12623,11 +12645,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "airuncode",
-      "made-an-open-source-lego-ai-generator"
+      "made-an-open-source-lego-ai-generator",
+      "substance-3d-sampler-win"
     ],
     "courses": [
       "course-airuncode",
-      "course-made-an-open-source-lego-ai-generator"
+      "course-made-an-open-source-lego-ai-generator",
+      "course-substance-3d-sampler-win"
     ],
     "updatedAt": "2026-09-04T23:20:31.711Z"
   },
@@ -13456,10 +13480,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "robin"
+      "robin",
+      "prompt-upgrader"
     ],
     "courses": [
-      "course-robin"
+      "course-robin",
+      "course-prompt-upgrader"
     ],
     "updatedAt": "2026-09-06T23:10:17.799Z"
   },
@@ -24854,5 +24880,122 @@
       "course-track-flag-ai-agents-in-system"
     ],
     "updatedAt": "2026-11-22T01:35:00.891Z"
+  },
+  {
+    "id": "skill-no code",
+    "name": "no code",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agent-doctor"
+    ],
+    "courses": [
+      "course-agent-doctor"
+    ],
+    "updatedAt": "2026-11-22T17:11:24.714Z"
+  },
+  {
+    "id": "skill-domain expertise",
+    "name": "domain expertise",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agent-doctor"
+    ],
+    "courses": [
+      "course-agent-doctor"
+    ],
+    "updatedAt": "2026-11-22T17:11:24.714Z"
+  },
+  {
+    "id": "skill-capcut",
+    "name": "capcut",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "capcut-seedance-win"
+    ],
+    "courses": [
+      "course-capcut-seedance-win"
+    ],
+    "updatedAt": "2026-11-22T17:11:24.714Z"
+  },
+  {
+    "id": "skill-text-to-video",
+    "name": "text to video",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "capcut-seedance-win"
+    ],
+    "courses": [
+      "course-capcut-seedance-win"
+    ],
+    "updatedAt": "2026-11-22T17:11:24.714Z"
+  },
+  {
+    "id": "skill-texturing",
+    "name": "texturing",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "substance-3d-sampler-win"
+    ],
+    "courses": [
+      "course-substance-3d-sampler-win"
+    ],
+    "updatedAt": "2026-11-22T17:11:24.714Z"
+  },
+  {
+    "id": "skill-photogrammetry",
+    "name": "photogrammetry",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "substance-3d-sampler-win"
+    ],
+    "courses": [
+      "course-substance-3d-sampler-win"
+    ],
+    "updatedAt": "2026-11-22T17:11:24.714Z"
+  },
+  {
+    "id": "skill-pbr",
+    "name": "pbr",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "substance-3d-sampler-win"
+    ],
+    "courses": [
+      "course-substance-3d-sampler-win"
+    ],
+    "updatedAt": "2026-11-22T17:11:24.714Z"
+  },
+  {
+    "id": "skill-reddit",
+    "name": "reddit",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "octosift"
+    ],
+    "courses": [
+      "course-octosift"
+    ],
+    "updatedAt": "2026-11-22T17:11:24.714Z"
+  },
+  {
+    "id": "skill-leadgen",
+    "name": "leadgen",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "octosift"
+    ],
+    "courses": [
+      "course-octosift"
+    ],
+    "updatedAt": "2026-11-22T17:11:24.714Z"
   }
 ]
