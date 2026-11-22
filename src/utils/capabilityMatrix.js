@@ -60,7 +60,7 @@ export const CAPABILITIES = [
   },
   {
     capability: 'Workflow templates',
-    free: { text: 'A few samples', status: 'planned' },
+    free: { text: 'A few samples', status: 'live' },
     pro: { text: 'Full library, customisable', status: 'planned' },
     team: { text: 'Team workflows and deployment guides', status: 'planned' },
   },

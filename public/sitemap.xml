@@ -11,6 +11,14 @@
   <url><loc>https://toolnaut.xyz/tools/learning</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://toolnaut.xyz/new</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://toolnaut.xyz/mcp-servers</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://toolnaut.xyz/collections</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://toolnaut.xyz/collections/solo-founder-stack</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://toolnaut.xyz/collections/content-creator-starter-kit</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://toolnaut.xyz/collections/ai-coding-crew</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://toolnaut.xyz/collections/research-writing-desk</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://toolnaut.xyz/collections/no-code-automation-crew</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://toolnaut.xyz/collections/ai-video-production-studio</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://toolnaut.xyz/collections/design-without-a-designer</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://toolnaut.xyz/search</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://toolnaut.xyz/example</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://toolnaut.xyz/methodology</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>

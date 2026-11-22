@@ -39,6 +39,8 @@ const PublicCompare = lazy(() => import('./pages/PublicCompare'))
 const CompareCompetitor = lazy(() => import('./pages/CompareCompetitor'))
 const ToolPublic = lazy(() => import('./pages/ToolPublic'))
 const CategoryLanding = lazy(() => import('./pages/CategoryLanding'))
+const Collections = lazy(() => import('./pages/Collections'))
+const CollectionDetail = lazy(() => import('./pages/CollectionDetail'))
 const McpServers = lazy(() => import('./pages/McpServers'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 const NewTools = lazy(() => import('./pages/NewTools'))
@@ -129,6 +131,8 @@ export default function App() {
                 from /compare above. Slugs come from src/content/comparisons.js. */}
             <Route path="/vs/:slug" element={<CompareCompetitor />} />
             <Route path="/tools/:domain" element={<CategoryLanding />} />
+            <Route path="/collections" element={<Collections />} />
+            <Route path="/collections/:slug" element={<CollectionDetail />} />
             <Route path="/mcp-servers" element={<McpServers />} />
             {/* One public, indexable page per tool. /app/tools/:slug stays the
                 personalised in-app view. */}
