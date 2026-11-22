@@ -7,6 +7,11 @@
 // SHIPPED — pulled from that day's real commit, not invented.
 export const CHANGELOG = [
   {
+    date: '2026-11-22',
+    title: 'Curated collections for common jobs',
+    body: "Seven hand-picked tool bundles — things like \"The Solo Founder's Stack\" and \"AI Coding Crew\" — are now browsable at /collections, a quicker starting point than the full quiz when you already know the kind of work you're doing.",
+  },
+  {
     date: '2026-11-19',
     title: 'Free alternatives surface first',
     body: "On a paid tool's page, the \"Alternatives\" section now calls out a free option right at the top when one exists, instead of leaving you to spot it yourself further down the list.",
