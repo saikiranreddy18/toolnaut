@@ -39902,5 +39902,258 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-21T16:48:37.439Z"
+  },
+  {
+    "id": "course-worldfoundry",
+    "toolSlug": "worldfoundry",
+    "title": "Master WorldFoundry",
+    "objectives": [
+      "Integrate an external API data source into WorldFoundry.",
+      "Configure a custom experience simulation for an AI agent.",
+      "Evaluate agent performance using WorldFoundry's built-in metrics."
+    ],
+    "modules": [
+      {
+        "title": "Connecting External Data",
+        "estMinutes": 15,
+        "steps": [
+          "Navigate to the 'Data Sources' panel in WorldFoundry.",
+          "Select 'API Endpoint' and input your target REST URL.",
+          "Run the initial sync test to validate data schema ingestion."
+        ]
+      },
+      {
+        "title": "Designing a Simulation Loop",
+        "estMinutes": 20,
+        "steps": [
+          "Create a new 'Experience Scenario' defining state transitions (e.g., 'uninformed' -> 'acting').",
+          "Map the ingested API data to specific simulation variables within the scenario.",
+          "Set the simulation duration or trigger condition (e.g., agent success/failure)."
+        ]
+      },
+      {
+        "title": "Analyzing Agent Trajectories",
+        "estMinutes": 15,
+        "steps": [
+          "Execute the configured scenario with your target AI agent instance.",
+          "Access the 'Metrics Dashboard' specific to the run ID.",
+          "Filter results to compare agent decision accuracy against the ground truth data."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-experience",
+      "skill-llm"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-22T01:35:00.891Z"
+  },
+  {
+    "id": "course-cappz",
+    "toolSlug": "cappz",
+    "title": "Master Cappz",
+    "objectives": [
+      "Deploy a multi-stage Cappz agent workflow on XRPL.",
+      "Configure cross-agent payment verification and escrow.",
+      "Monitor and debug agent execution logs within the Cappz dashboard."
+    ],
+    "modules": [
+      {
+        "title": "Initializing Multi-Stage Contract",
+        "estMinutes": 15,
+        "steps": [
+          "Use `cappz init --stages=3 --network=testnet` to scaffold the agent.",
+          "Define stage 2's input dependency strictly on stage 1's output payload schema.",
+          "Execute `cappz compile` to generate the final XRPL contract binary."
+        ]
+      },
+      {
+        "title": "Setting Up Inter-Agent Payout Logic",
+        "estMinutes": 20,
+        "steps": [
+          "Implement the `onStageComplete` hook to trigger the escrow release mechanism.",
+          "Configure the payment module to verify the required XRPL token amount before final transfer.",
+          "Test the payment path using a mock agent environment via `cappz simulate --payment`."
+        ]
+      },
+      {
+        "title": "Advanced Execution Monitoring",
+        "estMinutes": 10,
+        "steps": [
+          "Access the detailed transaction logs using `cappz log --agent-id <ID> --level=debug`.",
+          "Identify failed stages by parsing the `runtimeError` field in the latest ledger entry.",
+          "Use the integrated dashboard to trigger a targeted re-execution of a specific stage."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-xrpl",
+      "skill-blockchain"
+    ],
+    "prerequisites": [
+      "Familiarity with XRPL transaction lifecycle.",
+      "Basic Solidity/Rust contract deployment understanding.",
+      "Access to a testnet environment configured for Cappz."
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-22T01:35:00.891Z"
+  },
+  {
+    "id": "course-track-flag-ai-agents-in-system",
+    "toolSlug": "track-flag-ai-agents-in-system",
+    "title": "Master Track, flag AI agents in system",
+    "objectives": [
+      "Locate the AI agent tracking interface",
+      "Implement a specific flagging rule based on agent behavior",
+      "Export a filtered list of flagged agents"
+    ],
+    "modules": [
+      {
+        "title": "Accessing the Agent Dashboard",
+        "estMinutes": 10,
+        "steps": [
+          "Navigate to 'System Oversight' and select 'AI Agent Tracking'",
+          "Verify the real-time agent list is visible and operational"
+        ]
+      },
+      {
+        "title": "Setting Behavioral Flags",
+        "estMinutes": 15,
+        "steps": [
+          "Click 'Define Flag Rule' and set a condition (e.g., 'API Call > 100/min')",
+          "Apply the new rule to target specific agent classes (e.g., 'DataProcessor_v2')"
+        ]
+      },
+      {
+        "title": "Reviewing and Exporting Alerts",
+        "estMinutes": 10,
+        "steps": [
+          "Filter the dashboard view by the newly set flag condition",
+          "Use the 'Export Filtered Data' function to save the flagged agents as a CSV"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-tracking",
+      "skill-system monitoring"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-22T01:35:00.891Z"
+  },
+  {
+    "id": "course-an-interactive-lab-for-deterministic-ai-agent-authorization",
+    "toolSlug": "an-interactive-lab-for-deterministic-ai-agent-authorization",
+    "title": "Master An interactive lab for deterministic AI agent authorization",
+    "objectives": [
+      "Set up a deterministic authorization test case.",
+      "Execute the agent under defined policy constraints.",
+      "Analyze the resulting authorization decision logs."
+    ],
+    "modules": [
+      {
+        "title": "Configuring a Policy Test",
+        "estMinutes": 10,
+        "steps": [
+          "Load the 'strict_access.yaml' policy into the lab environment.",
+          "Define an agent profile with required role 'read_only_data'.",
+          "Validate the initial configuration using the 'check-policy' command."
+        ]
+      },
+      {
+        "title": "Running a Deterministic Scenario",
+        "estMinutes": 15,
+        "steps": [
+          "Execute the agent against the 'sensitive_endpoint' resource.",
+          "Observe the real-time authorization output in the console.",
+          "Repeat the execution while modifying one input parameter (e.g., user_id) to confirm determinism."
+        ]
+      },
+      {
+        "title": "Interpreting Authorization Logs",
+        "estMinutes": 10,
+        "steps": [
+          "Retrieve the full execution log using 'export-trace --session=xyz'.",
+          "Filter the log for 'DENIED' entries using the built-in log viewer.",
+          "Correlate the denial reason code with the specific policy rule ID from 'strict_access.yaml'."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai",
+      "skill-agent",
+      "skill-authorization",
+      "skill-deterministic"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-22T01:35:00.891Z"
+  },
+  {
+    "id": "course-google-one-tools",
+    "toolSlug": "google-one-tools",
+    "title": "Master google-one-tools",
+    "objectives": [
+      "Integrate Google One storage usage into a script",
+      "Automate plan upgrade checks via the tool",
+      "Parse specific Google One usage metrics from the output"
+    ],
+    "modules": [
+      {
+        "title": "Querying Current Storage Status",
+        "estMinutes": 10,
+        "steps": [
+          "Run `google-one-tools status --detail`",
+          "Identify the output JSON field corresponding to 'used_gb'"
+        ]
+      },
+      {
+        "title": "Simulating a Plan Check",
+        "estMinutes": 15,
+        "steps": [
+          "Execute `google-one-tools plan --check-upgrade --target=2TB`",
+          "Analyze the resulting 'upgrade_required' boolean flag"
+        ]
+      },
+      {
+        "title": "Scripting Metric Extraction",
+        "estMinutes": 12,
+        "steps": [
+          "Pipe the output from `google-one-tools status` into `jq`",
+          "Extract the 'total_allowance_gb' field into a shell variable"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-google",
+      "skill-api",
+      "skill-tools"
+    ],
+    "prerequisites": [
+      "Familiarity with Google Cloud CLI setup (or equivalent authentication for Google APIs)",
+      "Basic proficiency in shell scripting (bash/zsh)",
+      "Installed `jq` utility"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-22T01:35:00.891Z"
   }
 ]

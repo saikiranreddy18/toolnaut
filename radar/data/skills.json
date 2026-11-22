@@ -1329,7 +1329,12 @@
       "xsquads",
       "isolated-linux-workstations-for-autonomous-ai-agents",
       "clawvet",
-      "cyber-monster"
+      "cyber-monster",
+      "worldfoundry",
+      "cappz",
+      "track-flag-ai-agents-in-system",
+      "an-interactive-lab-for-deterministic-ai-agent-authorization",
+      "google-one-tools"
     ],
     "courses": [
       "course-headless-tools",
@@ -1668,7 +1673,12 @@
       "course-xsquads",
       "course-isolated-linux-workstations-for-autonomous-ai-agents",
       "course-clawvet",
-      "course-cyber-monster"
+      "course-cyber-monster",
+      "course-worldfoundry",
+      "course-cappz",
+      "course-track-flag-ai-agents-in-system",
+      "course-an-interactive-lab-for-deterministic-ai-agent-authorization",
+      "course-google-one-tools"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1885,7 +1895,10 @@
       "kryzz-ai",
       "drawmode-for-ai-agents",
       "launch-hn-starsling-yc-p25",
-      "isolated-linux-workstations-for-autonomous-ai-agents"
+      "isolated-linux-workstations-for-autonomous-ai-agents",
+      "worldfoundry",
+      "cappz",
+      "track-flag-ai-agents-in-system"
     ],
     "courses": [
       "course-headless-tools",
@@ -2080,7 +2093,10 @@
       "course-kryzz-ai",
       "course-drawmode-for-ai-agents",
       "course-launch-hn-starsling-yc-p25",
-      "course-isolated-linux-workstations-for-autonomous-ai-agents"
+      "course-isolated-linux-workstations-for-autonomous-ai-agents",
+      "course-worldfoundry",
+      "course-cappz",
+      "course-track-flag-ai-agents-in-system"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2194,7 +2210,8 @@
       "trnrt",
       "ai-spar",
       "mozilla-ai-launches-otari-one-api-key-for-every-model",
-      "agent-guard"
+      "agent-guard",
+      "worldfoundry"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2258,7 +2275,8 @@
       "course-trnrt",
       "course-ai-spar",
       "course-mozilla-ai-launches-otari-one-api-key-for-every-model",
-      "course-agent-guard"
+      "course-agent-guard",
+      "course-worldfoundry"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2350,7 +2368,8 @@
       "flights-for-agents",
       "gemini-4-argon-is-now-available-for-developers",
       "mozilla-ai-launches-otari-one-api-key-for-every-model",
-      "sourcepost"
+      "sourcepost",
+      "google-one-tools"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2373,7 +2392,8 @@
       "course-flights-for-agents",
       "course-gemini-4-argon-is-now-available-for-developers",
       "course-mozilla-ai-launches-otari-one-api-key-for-every-model",
-      "course-sourcepost"
+      "course-sourcepost",
+      "course-google-one-tools"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -4841,7 +4861,8 @@
       "arkviz",
       "xsquads",
       "capcut-pro-video-editor-latest",
-      "deepai-for-fake-pc"
+      "deepai-for-fake-pc",
+      "an-interactive-lab-for-deterministic-ai-agent-authorization"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4882,7 +4903,8 @@
       "course-arkviz",
       "course-xsquads",
       "course-capcut-pro-video-editor-latest",
-      "course-deepai-for-fake-pc"
+      "course-deepai-for-fake-pc",
+      "course-an-interactive-lab-for-deterministic-ai-agent-authorization"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4967,7 +4989,8 @@
       "railcall",
       "ai-agentic-harness-with-explicit-risk-analysis",
       "taskthread",
-      "agent-guard"
+      "agent-guard",
+      "an-interactive-lab-for-deterministic-ai-agent-authorization"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -4986,7 +5009,8 @@
       "course-railcall",
       "course-ai-agentic-harness-with-explicit-risk-analysis",
       "course-taskthread",
-      "course-agent-guard"
+      "course-agent-guard",
+      "course-an-interactive-lab-for-deterministic-ai-agent-authorization"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -6928,13 +6952,15 @@
       "gemini-omni-11-flash",
       "google-seo-mcp",
       "cc-is-an-ai-agent-for-families-and-groups",
-      "gemini-4-argon-is-now-available-for-developers"
+      "gemini-4-argon-is-now-available-for-developers",
+      "google-one-tools"
     ],
     "courses": [
       "course-gemini-omni-11-flash",
       "course-google-seo-mcp",
       "course-cc-is-an-ai-agent-for-families-and-groups",
-      "course-gemini-4-argon-is-now-available-for-developers"
+      "course-gemini-4-argon-is-now-available-for-developers",
+      "course-google-one-tools"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -9394,11 +9420,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "verb-authority",
-      "praesidias"
+      "praesidias",
+      "an-interactive-lab-for-deterministic-ai-agent-authorization"
     ],
     "courses": [
       "course-verb-authority",
-      "course-praesidias"
+      "course-praesidias",
+      "course-an-interactive-lab-for-deterministic-ai-agent-authorization"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -11173,14 +11201,16 @@
       "i-built-a-router-for-agent-tools",
       "moching",
       "coral",
-      "disposable"
+      "disposable",
+      "google-one-tools"
     ],
     "courses": [
       "course-openvurp",
       "course-i-built-a-router-for-agent-tools",
       "course-moching",
       "course-coral",
-      "course-disposable"
+      "course-disposable",
+      "course-google-one-tools"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -11450,10 +11480,12 @@
     "domain": "code",
     "level": "advanced",
     "toolsTeaching": [
-      "reverify"
+      "reverify",
+      "an-interactive-lab-for-deterministic-ai-agent-authorization"
     ],
     "courses": [
-      "course-reverify"
+      "course-reverify",
+      "course-an-interactive-lab-for-deterministic-ai-agent-authorization"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -19377,10 +19409,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "nexus-arc"
+      "nexus-arc",
+      "cappz"
     ],
     "courses": [
-      "course-nexus-arc"
+      "course-nexus-arc",
+      "course-cappz"
     ],
     "updatedAt": "2026-09-17T14:18:56.690Z"
   },
@@ -21934,11 +21968,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "run-osier-to-track-how-your-ai-coding-agent-does",
-      "korosta"
+      "korosta",
+      "track-flag-ai-agents-in-system"
     ],
     "courses": [
       "course-run-osier-to-track-how-your-ai-coding-agent-does",
-      "course-korosta"
+      "course-korosta",
+      "course-track-flag-ai-agents-in-system"
     ],
     "updatedAt": "2026-10-04T14:48:35.350Z"
   },
@@ -24779,5 +24815,44 @@
       "course-deepai-for-fake-pc"
     ],
     "updatedAt": "2026-11-21T16:48:37.439Z"
+  },
+  {
+    "id": "skill-experience",
+    "name": "experience",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "worldfoundry"
+    ],
+    "courses": [
+      "course-worldfoundry"
+    ],
+    "updatedAt": "2026-11-22T01:35:00.891Z"
+  },
+  {
+    "id": "skill-xrpl",
+    "name": "xrpl",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "cappz"
+    ],
+    "courses": [
+      "course-cappz"
+    ],
+    "updatedAt": "2026-11-22T01:35:00.891Z"
+  },
+  {
+    "id": "skill-system monitoring",
+    "name": "system monitoring",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "track-flag-ai-agents-in-system"
+    ],
+    "courses": [
+      "course-track-flag-ai-agents-in-system"
+    ],
+    "updatedAt": "2026-11-22T01:35:00.891Z"
   }
 ]

@@ -14908,5 +14908,120 @@
       "ai"
     ],
     "discoveredAt": "2026-11-21T16:48:37.439Z"
+  },
+  {
+    "slug": "worldfoundry",
+    "name": "WorldFoundry",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Demo available",
+    "level": "intermediate",
+    "blurb": "WorldFoundry helps AI agents gain experience beyond just training data.",
+    "audience": "AI Developers",
+    "dev": "WorldFoundry",
+    "year": 2026,
+    "website": "https://worldfoundry-demo.vercel.app/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "experience",
+      "automation",
+      "llm"
+    ],
+    "discoveredAt": "2026-11-22T01:35:00.891Z"
+  },
+  {
+    "slug": "cappz",
+    "name": "Cappz",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "paid per stage",
+    "level": "advanced",
+    "blurb": "AI agents sell work to each other on XRPL, paid per stage.",
+    "audience": "developers and blockchain users",
+    "dev": "CAPPZ-ai",
+    "year": 2026,
+    "website": "https://github.com/CAPPZ-ai/cappz-sdk",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "xrpl",
+      "automation",
+      "blockchain"
+    ],
+    "discoveredAt": "2026-11-22T01:35:00.891Z"
+  },
+  {
+    "slug": "track-flag-ai-agents-in-system",
+    "name": "Track, flag AI agents in system",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free to start",
+    "level": "intermediate",
+    "blurb": "Track and flag AI agents within your system for better oversight.",
+    "audience": "System administrators",
+    "dev": "agentreel.dev",
+    "year": 2026,
+    "website": "https://agentreel.dev",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "tracking",
+      "system monitoring",
+      "automation"
+    ],
+    "discoveredAt": "2026-11-22T01:35:00.891Z"
+  },
+  {
+    "slug": "an-interactive-lab-for-deterministic-ai-agent-authorization",
+    "name": "An interactive lab for deterministic AI agent authorization",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open Lab",
+    "level": "intermediate",
+    "blurb": "Interactive lab for testing deterministic AI agent authorization.",
+    "audience": "AI Developers",
+    "dev": "ilion-project.org",
+    "year": 2026,
+    "website": "https://ilion-project.org/lab/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai",
+      "agent",
+      "authorization",
+      "deterministic"
+    ],
+    "discoveredAt": "2026-11-22T01:35:00.891Z"
+  },
+  {
+    "slug": "google-one-tools",
+    "name": "google-one-tools",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "A set of tools designed for interacting with Google One services.",
+    "audience": "Developers",
+    "dev": "hatsunemiku",
+    "year": 2026,
+    "website": "https://github.com/hatsunemiku-ai/google-one-tools",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "google",
+      "automation",
+      "api",
+      "tools"
+    ],
+    "discoveredAt": "2026-11-22T01:35:00.891Z"
   }
 ]
