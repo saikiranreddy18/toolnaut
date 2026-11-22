@@ -10498,6 +10498,27 @@ entry's accuracy rather than adding ground.
   path exists anywhere yet. Nothing drifted in substance — still Build size
   S, still the cheapest unbuilt entry in this file, still waiting for a
   feature run.
+- **Re-verified 2026-11-22 15:03 UTC:** true stalest OPEN entry again (4
+  days since the 11-18 check — every other OPEN entry has a note dated
+  11-19 or later). Re-checked every citation against current `master`:
+  `src/utils/suggestTool.js` still exports exactly `buildSuggestToolUrl`
+  and `buildReportIssueUrl`, no third export; `ToolDetail.jsx`'s link is
+  still at `:250-256` (no further drift since 11-18); `ToolPublic.jsx`'s
+  sibling link still at `:92-99`, byte-for-byte unchanged; re-grepped `claim` across `src/` and
+  `radar/`, same two unrelated hits as before (`FounderRibbon`/
+  `FounderOffer` checkout copy, `toolResources.js`'s `tool_claims` table).
+  Zero drift. One fresh `WebSearch` ("vendor claim listing verification AI
+  tool directory 2026") surfaced a sharper, more specific precedent than
+  the AI Kaptan citation this entry already carries: AIDirectory's actual
+  documented flow is a two-step request-verification-with-a-work-email +
+  6-digit-code-to-that-email check, gated on the email's domain matching
+  the product's own site. Worth recording as a second, more concrete
+  example of the domain-match-or-manual-review pattern this entry's plan
+  already assumes — it doesn't change the plan, since Toolnaut still has
+  no backend or mailer to send a verification code with, which is exactly
+  why this entry scoped a GitHub-issue-only, human-triaged flow instead of
+  an automated one. Still OPEN, still Build size S, still the cheapest
+  unbuilt entry in this file.
 
 ---
 
@@ -16123,5 +16144,64 @@ still unaddressed, still outside this file's scope to fix directly.
 
 Docs-only pass, no `src/`/`radar/`/`api/` edit this run. `npm test`
 (327/327) run directly against current `master` — clean; `npm run
+build`/`npm run smoke` not re-run since nothing touching build output or
+runtime behavior changed.
+
+---
+
+### Research check 2026-11-22 15:03 UTC — re-verified the true stalest OPEN entry (vendor/maker claim-listing path, 4 days), one fresh competitor lead corroborates the plan without changing it
+
+Scheduled run, UTC hour 15 (a research slot, not the 18:03 feature/digest
+hour). `npm ci` clean (201 packages). Urgent-work checks first:
+`actions_list` on `master` found the tip at `29a89c9` (the 12:07 UTC
+research commit) with both `CI` and `Release` `success` — not CI-red.
+Local `master` had drifted behind `origin/master` again (37 commits,
+stale checkout from a prior session) — fast-forwarded before doing
+anything else. `npm run radar:health` → `STATUS: OK` (2 runs in the 26h
+window, last publish 13.5h ago, 5 published that run, feed at 631 tools).
+`list_issues` for `agent-fixable`: zero open. No urgent work, so the hour
+went to backlog work.
+
+**Ran the file-wide last-touch scan** (a fresh script this run, not reused
+from a prior pass verbatim — parses every non-"Research check" `### `
+heading's body for a `**Status:**` line requiring it to start with `OPEN`,
+then takes the latest `2026-MM-DD[ HH:MM UTC]` mention anywhere in that
+entry's body as its last-touch date; 79 total gap entries, 20 real OPEN
+after excluding the file's own `<short gap name>` template heading).
+**"Vendor/maker claim-listing path"** (line ~10396, last touched
+2026-11-18 15:03 UTC) came back clearly stalest at 4 days — every other
+OPEN entry carries a note dated 2026-11-19 or later, confirming prior
+passes' observation that the aggressive re-verify cadence has caught the
+file up; there is no longer a multi-week-stale entry anywhere in it.
+
+**Re-verified every citation against current `master` — zero drift.**
+`src/utils/suggestTool.js` still exports exactly `buildSuggestToolUrl` and
+`buildReportIssueUrl`, no third `buildClaimListingUrl`; `ToolDetail.jsx`'s
+"Something wrong here?" link still at `:250-256`; `ToolPublic.jsx`'s
+sibling link still at `:92-99`, byte-for-byte; re-grepped `claim` across
+`src/` and `radar/` and found the same two unrelated hits as every prior
+pass (`FounderRibbon`/`FounderOffer` checkout copy, `toolResources.js`'s
+`tool_claims` table). Full note added directly to the entry (see above).
+
+**One fresh `WebSearch` lead checked, corroborates rather than changes the
+plan:** a search for current vendor-claim verification practice surfaced
+AIDirectory's actual documented flow (work-email-to-the-product's-own-
+domain + a 6-digit code sent to that email, two-step) — a sharper,
+dated precedent than the existing AI Kaptan citation. Added to the entry
+as supporting evidence; doesn't change the plan, since Toolnaut's own
+constraint (no backend, no mailer) is exactly why this entry already
+scoped a GitHub-issue-only, human-triaged flow instead of an automated
+domain-verification one. A second `WebSearch` for any 2026 feature launch
+from Futurepedia, There's An AI For That, or Toolify turned up only
+comparison-blog noise with internally-inconsistent numbers and no primary
+changelog or blog post from any of the three — nothing to log.
+
+**Noting, not logging as a gap:** same open-PR pile (issue #67) and the
+two missed 18:03 feature-run days (2026-11-20, 2026-11-21) prior passes
+have already flagged — still unaddressed, still outside this file's scope
+to fix directly from a research run.
+
+Docs-only pass, no `src/`/`radar/`/`api/` edit this run. `npm test`
+(327/327) re-run directly against current `master` — clean; `npm run
 build`/`npm run smoke` not re-run since nothing touching build output or
 runtime behavior changed.
