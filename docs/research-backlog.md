@@ -9158,6 +9158,24 @@ a client-side SPA with a static tool catalogue.
   number is `0011` (the entry itself names no number, so nothing to
   correct). Nothing drifted. Still OPEN, still Build size M, still
   unbuilt.
+- **Re-verified 2026-11-23 12:03 UTC:** stalest OPEN entry by last-touch date
+  once the six tied at 2026-11-19 are ordered by time of day (06:03 UTC,
+  the earliest of that day's re-verifications, is oldest). Re-checked every
+  citation against current `master`: `grep -rni
+  "testimonial|review quote|case stud|social proof|Trustpilot" src/` is
+  still zero hits; `StatsSection.jsx:23`'s "a number on a landing page is a
+  claim" comment is byte-identical; `StackSurvey.jsx:13-14`'s "a text box
+  would break that promise" comment is byte-identical; `supabase/migrations/`
+  still ends at `0010_saved_limit.sql`, `0011` still next free. Nothing
+  drifted. One fresh `WebSearch` lead checked and doesn't survive: Senja and
+  similar testimonial-widget tools (Senja.io, "Social Proof Everywhere")
+  collect and republish quotes a vendor already has — they don't solve this
+  entry's actual problem, which is that Toolnaut has no honest capture path
+  to get a real quote in the first place. Importing a third-party widget
+  would still mean displaying something nobody at Toolnaut verified came
+  from a real user, the same fabrication risk this entry exists to avoid.
+  Not logged, doesn't change the plan. Still OPEN, still Build size M,
+  still unbuilt.
 
 ---
 
@@ -16559,3 +16577,61 @@ Docs-only pass, no `src/`/`radar/`/`api/` edit this run. `npm test`
 (327/327) run directly against current `master` — clean; `npm run
 build`/`npm run smoke` not re-run since nothing touching build output or
 runtime behavior changed.
+
+---
+
+### Research check 2026-11-23 12:03 UTC — re-verified the true stalest OPEN entry (testimonial/social-proof capture, tied-oldest group from 2026-11-19 broken by time of day), one fresh lead checked, doesn't survive
+
+Scheduled run, UTC hour 12 (a research slot). `npm ci` clean (201 packages).
+Urgent-work checks first: `list_workflow_runs` on `master` shows the tip at
+`96930bf` (the 09:08 UTC research commit) with `CI` and `Release` both
+`success` — not CI-red. (Two other scheduled workflows, `Agent · Bugfix` and
+`Agent · Maintainer`, show `conclusion: failure` on recent runs, but those
+are separate automated agents' own workflows, not this project's
+verification gate, and outside this run's scope — not investigated.) `npm
+run radar:health` → `STATUS: OK` (2 runs in the 26h window, last publish
+10.1h ago, 6 published that run, feed at 642 tools). `list_issues` for
+`agent-fixable`: zero open. No urgent work, so the hour went to backlog
+work.
+
+**Found the true next-stalest entry first.** The 09:08 UTC pass's
+file-wide last-touch scan had been returning the leaderboard entry four
+times running because its last re-verification never left a dated
+sub-note inside the entry itself; that bookkeeping gap is now fixed, so
+this pass re-ran the scan fresh. It surfaced six entries tied at
+2026-11-19 (the last day this file did a dedicated sweep through its
+then-oldest-untouched group): "Popularity signal discarded," "Weekly
+trending tools," "no benchmark of either kind," "No testimonial or
+social-proof quote," "No lookup surface outside toolnaut.xyz," and "No
+public email capture." Rather than pick arbitrarily among a six-way tie,
+pulled the exact re-verification timestamp each one carries: testimonial
+(06:03 UTC) < lookup-surface/weekly-trending (09:03 UTC, tied) < popularity
+signal (12:03 UTC) < email capture (15:03 UTC) < benchmark (21:04 UTC).
+Ordered by clock time, "No testimonial or social-proof quote" (06:03 UTC)
+is the single oldest, so this pass re-verified it.
+
+**Re-verified "No testimonial or social-proof quote exists anywhere on the
+site"** (line ~9075, 57 days since creation). Re-checked every citation
+against current `master`: `grep -rni
+"testimonial|review quote|case stud|social proof|Trustpilot" src/` is
+still zero hits; `StatsSection.jsx:23`'s "a number on a landing page is a
+claim" comment is byte-identical; `StackSurvey.jsx:13-14`'s "a text box
+would break that promise" comment is byte-identical; `supabase/migrations/`
+still ends at `0010_saved_limit.sql`, so `0011` is still the next free
+number. Nothing drifted — plan, build size, and boundaries all still hold.
+Dated sub-note added directly to the entry.
+
+**One fresh `WebSearch` lead checked, doesn't survive:** testimonial-capture
+SaaS tools (Senja.io and its "Social Proof Everywhere" extension) came up
+as the obvious adjacent pattern. They don't apply here — they're built to
+collect and republish quotes a vendor already has in hand, not to solve
+this entry's actual problem, which is that Toolnaut has no honest capture
+path to get a real quote from a real user in the first place. Bolting on a
+third-party widget would still mean displaying something nobody at
+Toolnaut verified, the same fabrication risk this entry exists to avoid.
+Not logged as a new gap, doesn't change the existing plan.
+
+No small bug spotted to fix this pass. `npm test` (327/327) run directly
+against current `master` — clean; `npm run build`/`npm run smoke` not
+re-run since this was a docs-only change (one re-verify note plus this
+section), nothing touching build output or runtime behavior.
