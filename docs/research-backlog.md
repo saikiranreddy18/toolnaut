@@ -6152,6 +6152,27 @@ a client-side SPA with a static tool catalogue.
   this is now the cheapest fully-specced OPEN entry with zero drift on a
   re-check, since every other stale-by-date entry above it in this pass's
   scan needed at least one correction.
+- **Re-verified 2026-11-23 06:03–09:08 UTC — the 06:03 UTC research check
+  re-checked every citation below and found zero drift, but the log entry
+  never got mirrored here as a dated sub-note, so the file's own last-touch
+  scan kept surfacing this as stale across two more passes. Closing that
+  gap now with facts re-checked fresh a second time, not copied from the
+  06:03 log blind.** `leaderboardData.js:51` still sets `IS_SAMPLE = true`;
+  `RankCard.jsx:4` still imports `SAMPLE_LEADERBOARD`/`IS_SAMPLE` and
+  renders `SAMPLE_LEADERBOARD.map(...)` at `:98` — the component also now
+  reads a `SEEDED` flag from `communityStats.js` (`:5,:27`) for the
+  "Preview" chip's other trigger condition (the seeded `#1301` starting
+  rank on *your standing*, a separate, already-intentional placeholder this
+  entry's plan never proposed changing), which does not touch or contradict
+  anything above. `communityStats.js:89`'s `myStanding()` still omits
+  `roadmapComplete` from `computeScore()`, and `:81`'s `stepsDone` still
+  excludes `:quiz` keys. `supabase/migrations/` is still `0001`–`0010`, so
+  `0011` is still the next free number. No code changed underneath this
+  entry across all three 2026-11-23 passes. Still OPEN, still build size M,
+  still ready to build exactly as scoped. Re-verifying this specific entry
+  a further time today would add nothing; the next research pass should
+  treat the *next*-stalest OPEN entry (by this same last-touch scan) as the
+  one to check instead.
 
 ---
 
@@ -16464,6 +16485,75 @@ orphaned-tag collisions, #99/#69/#34 CI/LLM-provider failures, #11
 re-enrichment, #107 "Dev digest 2026-11-22" still open past its expected
 same-run closure) — all outside this file's scope to fix from a research
 pass.
+
+Docs-only pass, no `src/`/`radar/`/`api/` edit this run. `npm test`
+(327/327) run directly against current `master` — clean; `npm run
+build`/`npm run smoke` not re-run since nothing touching build output or
+runtime behavior changed.
+
+---
+
+### Research check 2026-11-23 09:08 UTC — closed a bookkeeping gap on the leaderboard entry instead of re-running an identical fourth check, two fresh competitor leads on AI-agent marketplaces checked and set aside
+
+Scheduled run, UTC hour 09 (a research slot). `npm ci` clean (201 packages).
+Urgent-work checks first: `actions_list` on `master` found the tip at
+`77b3000` (the 06:03 UTC research commit) with both `CI` and `Release`
+`success` — not CI-red. `npm run radar:health` → `STATUS: OK` (2 runs in the
+26h window, last publish 7.1h ago, 6 published that run, feed at 642 tools).
+`list_issues` for `agent-fixable`: zero open — the same 8 already-tracked
+issues (#107 digest, #99/#74/#69/#52/#34 CI/radar/release failures, #67
+open-PR pile, #11 re-enrichment), nothing new. No urgent work, so the hour
+went to backlog work.
+
+**Ran the same file-wide last-touch scan the last three passes used, and it
+surfaced the same entry a fourth time — which is itself the finding.** "The
+leaderboard's own precondition for going real" (line ~5988) still read as
+the stalest OPEN entry by its last dated sub-note (2026-11-19 03:04 UTC),
+even though the 06:03 UTC pass earlier today had already fully re-verified
+every citation in it with zero drift. Reading that pass's own log text
+confirmed it: it recited the facts correctly but never added a dated
+sub-note *inside* the entry, so the entry's own last-touch timestamp never
+advanced, and the scan kept pointing back at the same already-checked gap.
+Re-running an identical check a fourth time in nine hours, on an entry nine
+hours can't have changed, would have been exactly the padding this file's
+header warns against — so instead of a fifth zero-drift re-verification,
+this pass re-confirmed the facts itself one more time (`grep -n IS_SAMPLE
+src/utils/leaderboardData.js`, `RankCard.jsx:4,27,98`, `communityStats
+.js:81,89`, `ls supabase/migrations/`) and added the missing sub-note
+directly to the entry (see its new 2026-11-23 06:03–09:08 UTC note), closing
+the bookkeeping gap so the next pass's scan advances to a different entry
+instead of looping on this one again. One new fact surfaced in the re-check
+that the 06:03 pass's log hadn't mentioned: `RankCard.jsx:5,27` now also
+reads a `SEEDED` flag from `communityStats.js` for the same "Preview" chip
+— confirmed it's about the *your-standing* seeded starting rank (`#1301`),
+a separate placeholder this entry's plan never touches, not a change to the
+sample-leaderboard rows this gap is about. Noted in the sub-note; doesn't
+change the plan.
+
+**Two fresh `WebSearch` leads this pass, neither logged:** a search for
+November 2026 feature launches from There's An AI For That, Futurepedia, or
+Toolify turned up only dated listing pages and small-directory noise, no
+primary-sourced feature announcement from any of the three named platforms
+— same unconfirmed-stays-unlogged outcome prior passes hit on this exact
+query. A second search on the 2026 "AI agent marketplace" trend (Fetch.ai
+Agentverse, AI Agents Directory, Agent.ai, MuleRun, Oracle's Fusion AI Agent
+Marketplace) surfaced a crowded but largely self-reported, unverifiable
+space — and checked it against what Toolnaut already ships rather than
+treat it as new: the catalog's "AI Agents & Automation" `sourceCategory`
+already holds 46 tools (second-largest category after AI Coding &
+Development's 62), and the already-`SHIPPED` MCP-servers page
+(`/mcp-servers`, `643740c`) already covers the adjacent agent-tooling
+surface this file logged as its own gap. A marketplace-style "hire an
+agent" transaction flow would need real agent listings with real pricing
+Toolnaut doesn't have and can't fabricate — the same fabricated-data
+objection this file's "Stack cost estimate" and "Trust Score" rejections
+already apply — so not logged as a gap.
+
+**Noting, not logging as a gap:** the same tracked issues prior passes have
+flagged are all still open and unchanged (#67 open-PR pile, #74/#52 Release
+orphaned-tag collisions, #99/#69/#34 CI/LLM-provider failures, #11
+re-enrichment, #107 "Dev digest 2026-11-22" still open a full day past its
+expected same-run closure — closing it belongs to the next 18:03 digest run).
 
 Docs-only pass, no `src/`/`radar/`/`api/` edit this run. `npm test`
 (327/327) run directly against current `master` — clean; `npm run
