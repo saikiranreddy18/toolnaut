@@ -247,7 +247,8 @@
       "snippai",
       "trix",
       "ai-ide-system-utilities-idm-pro-v6-42-karon",
-      "willow"
+      "willow",
+      "verfy"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -492,7 +493,8 @@
       "course-snippai",
       "course-trix",
       "course-ai-ide-system-utilities-idm-pro-v6-42-karon",
-      "course-willow"
+      "course-willow",
+      "course-verfy"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -871,7 +873,8 @@
       "deepai-for-fake-pc",
       "capcut-seedance-win",
       "substance-3d-sampler-win",
-      "glasshour"
+      "glasshour",
+      "gostudioai"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -924,7 +927,8 @@
       "course-deepai-for-fake-pc",
       "course-capcut-seedance-win",
       "course-substance-3d-sampler-win",
-      "course-glasshour"
+      "course-glasshour",
+      "course-gostudioai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1351,7 +1355,10 @@
       "google-one-tools",
       "agent-doctor",
       "octosift",
-      "aether"
+      "aether",
+      "truce",
+      "wyrd-oss",
+      "i-built-a-spa-for-ai-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -1698,7 +1705,10 @@
       "course-google-one-tools",
       "course-agent-doctor",
       "course-octosift",
-      "course-aether"
+      "course-aether",
+      "course-truce",
+      "course-wyrd-oss",
+      "course-i-built-a-spa-for-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1918,7 +1928,8 @@
       "isolated-linux-workstations-for-autonomous-ai-agents",
       "worldfoundry",
       "cappz",
-      "track-flag-ai-agents-in-system"
+      "track-flag-ai-agents-in-system",
+      "truce"
     ],
     "courses": [
       "course-headless-tools",
@@ -2116,7 +2127,8 @@
       "course-isolated-linux-workstations-for-autonomous-ai-agents",
       "course-worldfoundry",
       "course-cappz",
-      "course-track-flag-ai-agents-in-system"
+      "course-track-flag-ai-agents-in-system",
+      "course-truce"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2342,7 +2354,8 @@
       "coderbaba",
       "sikemux",
       "webcraft-pro",
-      "trix"
+      "trix",
+      "verfy"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2364,7 +2377,8 @@
       "course-coderbaba",
       "course-sikemux",
       "course-webcraft-pro",
-      "course-trix"
+      "course-trix",
+      "course-verfy"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2678,7 +2692,8 @@
       "klistra",
       "capcut-pro-video-editor-latest",
       "deepai-for-fake-pc",
-      "capcut-seedance-win"
+      "capcut-seedance-win",
+      "gostudioai"
     ],
     "courses": [
       "course-canvasformusic",
@@ -2694,7 +2709,8 @@
       "course-klistra",
       "course-capcut-pro-video-editor-latest",
       "course-deepai-for-fake-pc",
-      "course-capcut-seedance-win"
+      "course-capcut-seedance-win",
+      "course-gostudioai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3925,7 +3941,8 @@
       "sourcepost",
       "dayfileapp",
       "sandscale",
-      "xsquads"
+      "xsquads",
+      "i-built-a-spa-for-ai-agents"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3995,7 +4012,8 @@
       "course-sourcepost",
       "course-dayfileapp",
       "course-sandscale",
-      "course-xsquads"
+      "course-xsquads",
+      "course-i-built-a-spa-for-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4904,7 +4922,11 @@
       "prompt-upgrader",
       "capcut-seedance-win",
       "octosift",
-      "snippai"
+      "snippai",
+      "verfy",
+      "wyrd-oss",
+      "gostudioai",
+      "i-built-a-spa-for-ai-agents"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4950,7 +4972,11 @@
       "course-prompt-upgrader",
       "course-capcut-seedance-win",
       "course-octosift",
-      "course-snippai"
+      "course-snippai",
+      "course-verfy",
+      "course-wyrd-oss",
+      "course-gostudioai",
+      "course-i-built-a-spa-for-ai-agents"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5037,7 +5063,8 @@
       "taskthread",
       "agent-guard",
       "an-interactive-lab-for-deterministic-ai-agent-authorization",
-      "aether"
+      "aether",
+      "verfy"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -5058,7 +5085,8 @@
       "course-taskthread",
       "course-agent-guard",
       "course-an-interactive-lab-for-deterministic-ai-agent-authorization",
-      "course-aether"
+      "course-aether",
+      "course-verfy"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -7517,7 +7545,8 @@
       "termaxa",
       "openappa-deterministic-guardrails-that-dont-break-agents",
       "nvidia-debuted-the-open-agent-safety-platform",
-      "ariodb"
+      "ariodb",
+      "verfy"
     ],
     "courses": [
       "course-dipstick-alerts",
@@ -7527,7 +7556,8 @@
       "course-termaxa",
       "course-openappa-deterministic-guardrails-that-dont-break-agents",
       "course-nvidia-debuted-the-open-agent-safety-platform",
-      "course-ariodb"
+      "course-ariodb",
+      "course-verfy"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -8333,10 +8363,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "doodle-ai-open-source-photo-to-doodle-avatar-generator"
+      "doodle-ai-open-source-photo-to-doodle-avatar-generator",
+      "gostudioai"
     ],
     "courses": [
-      "course-doodle-ai-open-source-photo-to-doodle-avatar-generator"
+      "course-doodle-ai-open-source-photo-to-doodle-avatar-generator",
+      "course-gostudioai"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -10439,7 +10471,8 @@
       "trustnotch",
       "promptsign",
       "higherlevel",
-      "ai-spar"
+      "ai-spar",
+      "wyrd-oss"
     ],
     "courses": [
       "course-mc-dc-coverage-so-coding-agents-could-work-overnight",
@@ -10447,7 +10480,8 @@
       "course-trustnotch",
       "course-promptsign",
       "course-higherlevel",
-      "course-ai-spar"
+      "course-ai-spar",
+      "course-wyrd-oss"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -17487,13 +17521,15 @@
       "agentsdock-an-ide-designed-for-agentic-ai-research",
       "sikemux",
       "trix",
-      "ai-ide-system-utilities-idm-pro-v6-42-karon"
+      "ai-ide-system-utilities-idm-pro-v6-42-karon",
+      "i-built-a-spa-for-ai-agents"
     ],
     "courses": [
       "course-agentsdock-an-ide-designed-for-agentic-ai-research",
       "course-sikemux",
       "course-trix",
-      "course-ai-ide-system-utilities-idm-pro-v6-42-karon"
+      "course-ai-ide-system-utilities-idm-pro-v6-42-karon",
+      "course-i-built-a-spa-for-ai-agents"
     ],
     "updatedAt": "2026-09-13T13:49:13.602Z"
   },
@@ -24447,10 +24483,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "dez"
+      "dez",
+      "gostudioai"
     ],
     "courses": [
-      "course-dez"
+      "course-dez",
+      "course-gostudioai"
     ],
     "updatedAt": "2026-11-18T18:07:47.847Z"
   },
@@ -25090,5 +25128,57 @@
       "course-glasshour"
     ],
     "updatedAt": "2026-11-23T01:58:48.594Z"
+  },
+  {
+    "id": "skill-mediation",
+    "name": "mediation",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "truce"
+    ],
+    "courses": [
+      "course-truce"
+    ],
+    "updatedAt": "2026-11-23T21:28:19.942Z"
+  },
+  {
+    "id": "skill-dispute resolution",
+    "name": "dispute resolution",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "truce"
+    ],
+    "courses": [
+      "course-truce"
+    ],
+    "updatedAt": "2026-11-23T21:28:19.942Z"
+  },
+  {
+    "id": "skill-oss",
+    "name": "oss",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "wyrd-oss"
+    ],
+    "courses": [
+      "course-wyrd-oss"
+    ],
+    "updatedAt": "2026-11-23T21:28:19.942Z"
+  },
+  {
+    "id": "skill-realtime",
+    "name": "realtime",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "wyrd-oss"
+    ],
+    "courses": [
+      "course-wyrd-oss"
+    ],
+    "updatedAt": "2026-11-23T21:28:19.942Z"
   }
 ]

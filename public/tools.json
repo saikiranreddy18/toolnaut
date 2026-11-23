@@ -15276,5 +15276,120 @@
       "javascript"
     ],
     "discoveredAt": "2026-11-23T01:58:48.594Z"
+  },
+  {
+    "slug": "truce",
+    "name": "Truce",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free to start",
+    "level": "intermediate",
+    "blurb": "A neutral AI mediator for resolving disputes between AI agents.",
+    "audience": "AI Developers",
+    "dev": "Truce HQ",
+    "year": 2026,
+    "website": "https://trucehq.com/agents",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "mediation",
+      "dispute resolution",
+      "automation"
+    ],
+    "discoveredAt": "2026-11-23T21:28:19.942Z"
+  },
+  {
+    "slug": "verfy",
+    "name": "Verfy",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "Verfy checks AI coding agents' tool calls before execution for safety and correctness.",
+    "audience": "AI Developers",
+    "dev": "verfy-dev",
+    "year": 2026,
+    "website": "https://github.com/verfy-dev/verfy",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai",
+      "coding",
+      "safety",
+      "agent"
+    ],
+    "discoveredAt": "2026-11-23T21:28:19.942Z"
+  },
+  {
+    "slug": "wyrd-oss",
+    "name": "Wyrd (OSS)",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "advanced",
+    "blurb": "Real-time verification for AI systems.",
+    "audience": "AI Developers",
+    "dev": "bohmian-ai",
+    "year": 2026,
+    "website": "https://github.com/bohmian-ai/wyrd",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "verification",
+      "ai",
+      "oss",
+      "realtime"
+    ],
+    "discoveredAt": "2026-11-23T21:28:19.942Z"
+  },
+  {
+    "slug": "gostudioai",
+    "name": "Gostudio.ai",
+    "category": "design",
+    "sourceCategory": "Image Generation & Editing",
+    "price": "freemium",
+    "pricing": "Free tier available",
+    "level": "beginner",
+    "blurb": "AI photo and video studio with 38 one-click editing tools.",
+    "audience": "Content creators",
+    "dev": "Gostudio.ai",
+    "year": 2026,
+    "website": "https://www.gostudio.ai/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "photo",
+      "video",
+      "studio",
+      "ai"
+    ],
+    "discoveredAt": "2026-11-23T21:28:19.942Z"
+  },
+  {
+    "slug": "i-built-a-spa-for-ai-agents",
+    "name": "I built a spa for AI agents",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free to start",
+    "level": "intermediate",
+    "blurb": "A spa designed specifically for building and managing AI agents.",
+    "audience": "AI developers",
+    "dev": "agentic",
+    "year": 2026,
+    "website": "https://www.agentic.spa",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai",
+      "agents",
+      "automation",
+      "development"
+    ],
+    "discoveredAt": "2026-11-23T21:28:19.942Z"
   }
 ]

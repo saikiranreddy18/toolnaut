@@ -40718,5 +40718,247 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-23T01:58:48.594Z"
+  },
+  {
+    "id": "course-truce",
+    "toolSlug": "truce",
+    "title": "Master Truce",
+    "objectives": [
+      "Configure a Truce session with two distinct AI agents.",
+      "Initiate mediation and monitor the proposal exchange.",
+      "Approve or reject a mediated resolution outcome."
+    ],
+    "modules": [
+      {
+        "title": "Setting up a Dispute Context",
+        "estMinutes": 10,
+        "steps": [
+          "Load Agent A and Agent B profiles into the Truce workspace.",
+          "Define the specific dispute parameters (e.g., resource allocation conflict) within the session setup."
+        ]
+      },
+      {
+        "title": "Running the Mediation Cycle",
+        "estMinutes": 15,
+        "steps": [
+          "Execute the 'Initiate Mediation' command in the Truce console.",
+          "Review the log output to confirm agents are submitting proposals to the mediator."
+        ]
+      },
+      {
+        "title": "Finalizing the Resolution",
+        "estMinutes": 10,
+        "steps": [
+          "Examine the recommended resolution draft provided by Truce.",
+          "Click 'Approve & Commit' or 'Counter-propose' to conclude the session."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-mediation",
+      "skill-dispute resolution"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-23T21:28:19.942Z"
+  },
+  {
+    "id": "course-verfy",
+    "toolSlug": "verfy",
+    "title": "Master Verfy",
+    "objectives": [
+      "Review a pending tool call in the Verfy interface.",
+      "Apply a correction or approve a verified tool call.",
+      "Understand the scope of safety and correctness checks performed by Verfy."
+    ],
+    "modules": [
+      {
+        "title": "Inspecting a Tool Call",
+        "estMinutes": 10,
+        "steps": [
+          "Navigate to the 'Verification Queue' within Verfy.",
+          "Select a specific AI agent's pending tool call to view its parameters and intended action.",
+          "Examine the 'Safety Flags' and 'Correctness Assessment' sections displayed for that call."
+        ]
+      },
+      {
+        "title": "Approving or Modifying Calls",
+        "estMinutes": 15,
+        "steps": [
+          "If correct, click the 'Approve & Execute' button on the verification panel.",
+          "If incorrect, use the inline editor to modify the tool arguments directly.",
+          "Save modifications and resubmit the call for final approval before execution."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai",
+      "skill-coding",
+      "skill-safety",
+      "skill-agent"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-23T21:28:19.942Z"
+  },
+  {
+    "id": "course-wyrd-oss",
+    "toolSlug": "wyrd-oss",
+    "title": "Master Wyrd (OSS)",
+    "objectives": [
+      "Integrate Wyrd with a live inference endpoint.",
+      "Configure custom verification checks for drift detection.",
+      "Interpret and act upon Wyrd's real-time anomaly reports."
+    ],
+    "modules": [
+      {
+        "title": "Endpoint Hookup and Baseline Establishment",
+        "estMinutes": 15,
+        "steps": [
+          "Configure `wyrd.yaml` pointing to a live FastAPI/TorchServe endpoint URL.",
+          "Run the initial verification job to establish a baseline distribution profile.",
+          "Verify real-time data flow by monitoring the local Wyrd logs."
+        ]
+      },
+      {
+        "title": "Custom Drift Verification Implementation",
+        "estMinutes": 20,
+        "steps": [
+          "Develop a custom Python checker class inheriting from Wyrd's `Verifier` interface.",
+          "Implement a statistical test (e.g., PSI or KS) within the custom checker's `verify` method.",
+          "Register the custom checker in the Wyrd configuration file."
+        ]
+      },
+      {
+        "title": "Alerting and Remediation Workflow",
+        "estMinutes": 15,
+        "steps": [
+          "Set up an external webhook integration in Wyrd to trigger alerts (e.g., Slack, PagerDuty).",
+          "Define threshold actions (e.g., automatic shadow deployment rollback) in the deployment pipeline linked to Wyrd output.",
+          "Review the historical anomaly report dashboard to diagnose past system degradation."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-verification",
+      "skill-ai",
+      "skill-oss",
+      "skill-realtime"
+    ],
+    "prerequisites": [
+      "Proficiency in Python and asynchronous programming.",
+      "Familiarity with MLOps concepts (drift, monitoring).",
+      "A running, containerized AI inference service."
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-23T21:28:19.942Z"
+  },
+  {
+    "id": "course-gostudioai",
+    "toolSlug": "gostudioai",
+    "title": "Master Gostudio.ai",
+    "objectives": [
+      "Create a new AI-generated image in Gostudio.ai",
+      "Apply one of the 38 one-click editing tools to an image",
+      "Export a finished photo or video clip"
+    ],
+    "modules": [
+      {
+        "title": "Getting Started & Image Generation",
+        "estMinutes": 10,
+        "steps": [
+          "Navigate to Gostudio.ai and click 'New Project'.",
+          "Enter a descriptive prompt (e.g., 'Cyberpunk cat on a neon rooftop') into the generation box.",
+          "Select and download the best resulting AI image."
+        ]
+      },
+      {
+        "title": "One-Click Editing Demo",
+        "estMinutes": 8,
+        "steps": [
+          "Upload your downloaded image into the editor workspace.",
+          "Locate the 'One-Click Tools' panel and select 'Vintage Filter'.",
+          "Preview the change and confirm the edit on the image."
+        ]
+      },
+      {
+        "title": "Exporting Your Work",
+        "estMinutes": 5,
+        "steps": [
+          "Click the 'Export' button in the top right corner.",
+          "Choose your desired file format (e.g., JPEG or MP4 for video clips).",
+          "Save the final output file to your local device."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-photo",
+      "skill-video",
+      "skill-studio",
+      "skill-ai"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-23T21:28:19.942Z"
+  },
+  {
+    "id": "course-i-built-a-spa-for-ai-agents",
+    "toolSlug": "i-built-a-spa-for-ai-agents",
+    "title": "Master I built a spa for AI agents",
+    "objectives": [
+      "Deploy a multi-agent workflow via the spa interface",
+      "Configure agent memory and tool access within the spa",
+      "Monitor and debug agent interactions in real-time"
+    ],
+    "modules": [
+      {
+        "title": "Workflow Setup and Deployment",
+        "estMinutes": 15,
+        "steps": [
+          "Navigate to 'Workflows' and select a template matching your goal (e.g., data retrieval).",
+          "Define input/output parameters and click 'Deploy Instance'."
+        ]
+      },
+      {
+        "title": "Memory and Tool Configuration",
+        "estMinutes": 20,
+        "steps": [
+          "Edit the target agent profile, setting the required vector store connection (e.g., ChromaDB URL).",
+          "Assign necessary tools (e.g., API client, file reader) from the integrated marketplace and validate permissions."
+        ]
+      },
+      {
+        "title": "Real-time Monitoring and Debugging",
+        "estMinutes": 15,
+        "steps": [
+          "Access the active instance logs from the 'Monitoring' tab.",
+          "Use the step-by-step execution trace to inspect the agent's reasoning (scratchpad) before each action."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai",
+      "skill-agents",
+      "skill-development"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-23T21:28:19.942Z"
   }
 ]
