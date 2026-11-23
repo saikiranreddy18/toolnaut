@@ -15138,5 +15138,143 @@
       "ai"
     ],
     "discoveredAt": "2026-11-22T17:11:24.714Z"
+  },
+  {
+    "slug": "snippai",
+    "name": "Snippai",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "Converts screenshots into LaTeX, Markdown, and answers using AI.",
+    "audience": "Developers & Students",
+    "dev": "xyTom",
+    "year": 2026,
+    "website": "https://github.com/xyTom/snippai",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "screenshots",
+      "latex",
+      "markdown",
+      "ai"
+    ],
+    "discoveredAt": "2026-11-23T01:58:48.594Z"
+  },
+  {
+    "slug": "trix",
+    "name": "Trix",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "freemium",
+    "pricing": "Free/Paid tiers",
+    "level": "intermediate",
+    "blurb": "A terminal workspace integrating coding agents for development tasks.",
+    "audience": "Developers",
+    "dev": "Trix",
+    "year": 2026,
+    "website": "https://trixapp.ai/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "terminal",
+      "coding",
+      "ai agent",
+      "development"
+    ],
+    "discoveredAt": "2026-11-23T01:58:48.594Z"
+  },
+  {
+    "slug": "ai-ide-system-utilities-idm-pro-v6-42-karon",
+    "name": "ai-ide-system-utilities-idm-pro-v6-42-karon",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "AI IDE utilities for managing dev environment configuration and tooling integration.",
+    "audience": "Developers",
+    "dev": "luciferdclxvi6-hash",
+    "year": 2026,
+    "website": "https://github.com/luciferdclxvi6-hash/ai-ide-system-utilities-idm-pro-v6-42-karon",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ide",
+      "development",
+      "utilities",
+      "config"
+    ],
+    "discoveredAt": "2026-11-23T01:58:48.594Z"
+  },
+  {
+    "slug": "aether",
+    "name": "aether",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open-source",
+    "level": "intermediate",
+    "blurb": "Open-source AI agent for Android allowing local LLM chat with file and bash tools.",
+    "audience": "Android developers and power users",
+    "dev": "aether-aiagent",
+    "year": 2026,
+    "website": "https://aether-aiagent.github.io/aether/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "android",
+      "llm",
+      "agent",
+      "local"
+    ],
+    "discoveredAt": "2026-11-23T01:58:48.594Z"
+  },
+  {
+    "slug": "willow",
+    "name": "Willow",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Open-source",
+    "level": "intermediate",
+    "blurb": "Windows desktop token tracker to monitor AI coding tool usage and estimate costs.",
+    "audience": "AI Developers",
+    "dev": "hey-pu",
+    "year": 2026,
+    "website": "https://github.com/hey-pu/Willow",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "token-tracker",
+      "ai-coding",
+      "windows",
+      "cost-estimation"
+    ],
+    "discoveredAt": "2026-11-23T01:58:48.594Z"
+  },
+  {
+    "slug": "glasshour",
+    "name": "glasshour",
+    "category": "design",
+    "sourceCategory": "Productivity & Meetings",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "beginner",
+    "blurb": "Custom Chrome new tab page with clock, search, and quick window switching.",
+    "audience": "Chrome users",
+    "dev": "wittiden",
+    "year": 2026,
+    "website": "https://github.com/wittiden/glasshour",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "chrome",
+      "new tab",
+      "productivity",
+      "javascript"
+    ],
+    "discoveredAt": "2026-11-23T01:58:48.594Z"
   }
 ]

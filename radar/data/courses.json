@@ -40407,5 +40407,316 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-22T17:11:24.714Z"
+  },
+  {
+    "id": "course-snippai",
+    "toolSlug": "snippai",
+    "title": "Master Snippai",
+    "objectives": [
+      "Accurately convert complex screenshots into runnable LaTeX code.",
+      "Leverage Snippai's AI for structured Markdown documentation generation.",
+      "Use the integrated Q&A feature to extract specific technical information from an image."
+    ],
+    "modules": [
+      {
+        "title": "LaTeX Conversion Workflow",
+        "estMinutes": 10,
+        "steps": [
+          "Upload a screenshot containing mathematical notation to Snippai.",
+          "Select 'LaTeX Output' and verify the generated code against the original image.",
+          "Copy the resulting LaTeX block into your preferred editor (e.g., Overleaf)."
+        ]
+      },
+      {
+        "title": "AI-Driven Markdown Structuring",
+        "estMinutes": 8,
+        "steps": [
+          "Upload a UI workflow screenshot to Snippai.",
+          "Select 'Markdown Output' and prompt the AI to structure steps using numbered lists.",
+          "Refine the generated Markdown by tweaking the AI prompt within the Snippai interface."
+        ]
+      },
+      {
+        "title": "Targeted Information Extraction (Q&A)",
+        "estMinutes": 7,
+        "steps": [
+          "Upload a technical diagram or code snippet screenshot.",
+          "Use the chat interface to ask a precise question (e.g., 'What is the function signature shown here?').",
+          "Validate the AI's answer against the image to ensure accuracy before use."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-screenshots",
+      "skill-latex",
+      "skill-markdown",
+      "skill-ai"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-23T01:58:48.594Z"
+  },
+  {
+    "id": "course-trix",
+    "toolSlug": "trix",
+    "title": "Master Trix",
+    "objectives": [
+      "Integrate a specific coding agent (e.g., GPT-4) into a Trix workspace.",
+      "Execute a multi-step development task using Trix agents (e.g., 'refactor function X').",
+      "Inspect and modify agent output within the Trix terminal environment."
+    ],
+    "modules": [
+      {
+        "title": "Setting up an Agent Workspace",
+        "estMinutes": 10,
+        "steps": [
+          "Run `trix init --agent <agent-name>` in your terminal.",
+          "Configure the required API key via `trix config set api_key <key>`."
+        ]
+      },
+      {
+        "title": "Executing a Directed Task",
+        "estMinutes": 15,
+        "steps": [
+          "Start a new workspace: `trix ws new --project ./my_repo`.",
+          "Execute the task: `trix agent run 'Implement unit tests for UserService.ts'`."
+        ]
+      },
+      {
+        "title": "Reviewing and Iterating on Output",
+        "estMinutes": 10,
+        "steps": [
+          "View the agent's working directory: `trix ls`.",
+          "Manually edit the generated file using the integrated editor: `trix edit generated_file.ts`."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-terminal",
+      "skill-coding",
+      "skill-ai agent",
+      "skill-development"
+    ],
+    "prerequisites": [
+      "Basic proficiency in the target programming language (e.g., TypeScript).",
+      "Familiarity with standard Unix/Linux terminal commands."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-23T01:58:48.594Z"
+  },
+  {
+    "id": "course-ai-ide-system-utilities-idm-pro-v6-42-karon",
+    "toolSlug": "ai-ide-system-utilities-idm-pro-v6-42-karon",
+    "title": "Master ai-ide-system-utilities-idm-pro-v6-42-karon",
+    "objectives": [
+      "Integrate a custom linter configuration via IDM Pro.",
+      "Automate environment setup using AI IDE utility scripts.",
+      "Troubleshoot tooling integration errors within the Karon framework."
+    ],
+    "modules": [
+      {
+        "title": "Configuring External Linters",
+        "estMinutes": 15,
+        "steps": [
+          "Navigate to 'Configuration Manager' in IDM Pro.",
+          "Select 'Linter Integration' and upload your `.eslintrc.json`.",
+          "Verify real-time linting feedback in the IDE pane."
+        ]
+      },
+      {
+        "title": "Automating Dev Environment Setup",
+        "estMinutes": 20,
+        "steps": [
+          "Use the AI Utility panel to generate a `setup.sh` script for dependencies.",
+          "Execute the generated script via the integrated terminal.",
+          "Confirm all required tools (e.g., Docker, Node) are reported as active by the system."
+        ]
+      },
+      {
+        "title": "Debugging Tooling Integration Issues",
+        "estMinutes": 25,
+        "steps": [
+          "Check the 'Integration Logs' within IDM Pro for error codes related to tooling.",
+          "Run the 'Tool Check Diagnostic' feature targeting the failed integration.",
+          "Consult the Karon documentation section on environment variable precedence for fixes."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ide",
+      "skill-development",
+      "skill-utilities",
+      "skill-config"
+    ],
+    "prerequisites": [
+      "Familiarity with standard IDE workflows (VS Code/IntelliJ equivalent).",
+      "Basic understanding of environment variables and dependency management (npm/pip)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-23T01:58:48.594Z"
+  },
+  {
+    "id": "course-aether",
+    "toolSlug": "aether",
+    "title": "Master aether",
+    "objectives": [
+      "Integrate a custom local LLM model via Aether.",
+      "Execute a file operation using the built-in Bash tool.",
+      "Enable Aether to process and query a local document (e.g., PDF/TXT)."
+    ],
+    "modules": [
+      {
+        "title": "Model Configuration and Setup",
+        "estMinutes": 10,
+        "steps": [
+          "Locate the Aether configuration file (e.g., `config.yaml`) on your Android device/emulation environment.",
+          "Update the `llm_endpoint` to point to your locally accessible LLM server (e.g., Ollama running locally)."
+        ]
+      },
+      {
+        "title": "Bash Tool Invocation",
+        "estMinutes": 8,
+        "steps": [
+          "In the Aether chat interface, start a prompt using the tool invocation syntax (e.g., `!bash ls /sdcard`).",
+          "Verify the output appears directly in the chat response, confirming tool execution."
+        ]
+      },
+      {
+        "title": "File Contextual Chat",
+        "estMinutes": 12,
+        "steps": [
+          "Use the Aether file picker interface to load a target document (e.g., `report.txt`).",
+          "Prompt Aether: 'Summarize the key findings from this document in three bullet points.'",
+          "Confirm the LLM uses the file content rather than general knowledge for the answer."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-android",
+      "skill-llm",
+      "skill-agent",
+      "skill-local"
+    ],
+    "prerequisites": [
+      "Aether installed on an Android environment.",
+      "A running, accessible local LLM service (e.g., Ollama setup) on the device or connected network.",
+      "Basic familiarity with Android file navigation."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-23T01:58:48.594Z"
+  },
+  {
+    "id": "course-willow",
+    "toolSlug": "willow",
+    "title": "Master Willow",
+    "objectives": [
+      "Set up usage tracking rules in Willow.",
+      "Analyze token consumption per AI model.",
+      "Generate cost estimation reports for billing."
+    ],
+    "modules": [
+      {
+        "title": "Configuring Token Triggers",
+        "estMinutes": 15,
+        "steps": [
+          "Open Willow settings and navigate to 'Usage Rules'.",
+          "Define a threshold (e.g., 5000 tokens) for specific AI tool interactions.",
+          "Save the rule, ensuring it applies to the target coding environment."
+        ]
+      },
+      {
+        "title": "Reviewing Model Breakdown",
+        "estMinutes": 10,
+        "steps": [
+          "Access the 'Token Distribution' dashboard within Willow.",
+          "Filter data by time range (e.g., last 7 days) to isolate model usage (GPT-4 vs. Claude).",
+          "Export the breakdown chart as a CSV for detailed review."
+        ]
+      },
+      {
+        "title": "Generating Cost Estimates",
+        "estMinutes": 12,
+        "steps": [
+          "Select the 'Cost Projection' tab in Willow.",
+          "Input the current per-token pricing rates for each tracked AI service.",
+          "Run the 'Generate Estimate' function and save the resulting PDF report."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-token-tracker",
+      "skill-ai-coding",
+      "skill-windows",
+      "skill-cost-estimation"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-23T01:58:48.594Z"
+  },
+  {
+    "id": "course-glasshour",
+    "toolSlug": "glasshour",
+    "title": "Master glasshour",
+    "objectives": [
+      "Install the GlassHour Chrome extension.",
+      "Customize the clock and search function on the new tab page.",
+      "Use the quick window switching feature effectively."
+    ],
+    "modules": [
+      {
+        "title": "Installation and Initial View",
+        "estMinutes": 3,
+        "steps": [
+          "Navigate to the Chrome Web Store and search for 'GlassHour'.",
+          "Click 'Add to Chrome' and confirm the installation prompt.",
+          "Open a new tab to see the default GlassHour layout."
+        ]
+      },
+      {
+        "title": "Customizing Time and Search",
+        "estMinutes": 5,
+        "steps": [
+          "Click the settings gear icon within the GlassHour interface.",
+          "Change the clock format (e.g., 12h to 24h) using the provided dropdown.",
+          "Enter your preferred search engine URL into the designated search field."
+        ]
+      },
+      {
+        "title": "Mastering Window Switching",
+        "estMinutes": 4,
+        "steps": [
+          "Open at least three different browser windows (e.g., Gmail, Docs, Web Search).",
+          "Use the designated keyboard shortcut (check extension documentation for default) or click the switching element.",
+          "Cycle between your open windows using the quick switch feature."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-chrome",
+      "skill-new tab",
+      "skill-productivity",
+      "skill-javascript"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-23T01:58:48.594Z"
   }
 ]

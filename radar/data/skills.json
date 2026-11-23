@@ -243,7 +243,11 @@
       "nihil",
       "an-open-source-harness-for-android-devs-in-the-terminal",
       "lintsure",
-      "sandscale"
+      "sandscale",
+      "snippai",
+      "trix",
+      "ai-ide-system-utilities-idm-pro-v6-42-karon",
+      "willow"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -484,7 +488,11 @@
       "course-nihil",
       "course-an-open-source-harness-for-android-devs-in-the-terminal",
       "course-lintsure",
-      "course-sandscale"
+      "course-sandscale",
+      "course-snippai",
+      "course-trix",
+      "course-ai-ide-system-utilities-idm-pro-v6-42-karon",
+      "course-willow"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -862,7 +870,8 @@
       "capcut-pro-video-editor-latest",
       "deepai-for-fake-pc",
       "capcut-seedance-win",
-      "substance-3d-sampler-win"
+      "substance-3d-sampler-win",
+      "glasshour"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -914,7 +923,8 @@
       "course-capcut-pro-video-editor-latest",
       "course-deepai-for-fake-pc",
       "course-capcut-seedance-win",
-      "course-substance-3d-sampler-win"
+      "course-substance-3d-sampler-win",
+      "course-glasshour"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1340,7 +1350,8 @@
       "an-interactive-lab-for-deterministic-ai-agent-authorization",
       "google-one-tools",
       "agent-doctor",
-      "octosift"
+      "octosift",
+      "aether"
     ],
     "courses": [
       "course-headless-tools",
@@ -1686,7 +1697,8 @@
       "course-an-interactive-lab-for-deterministic-ai-agent-authorization",
       "course-google-one-tools",
       "course-agent-doctor",
-      "course-octosift"
+      "course-octosift",
+      "course-aether"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2220,7 +2232,8 @@
       "mozilla-ai-launches-otari-one-api-key-for-every-model",
       "agent-guard",
       "worldfoundry",
-      "prompt-upgrader"
+      "prompt-upgrader",
+      "aether"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2286,7 +2299,8 @@
       "course-mozilla-ai-launches-otari-one-api-key-for-every-model",
       "course-agent-guard",
       "course-worldfoundry",
-      "course-prompt-upgrader"
+      "course-prompt-upgrader",
+      "course-aether"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2327,7 +2341,8 @@
       "claktor",
       "coderbaba",
       "sikemux",
-      "webcraft-pro"
+      "webcraft-pro",
+      "trix"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2348,7 +2363,8 @@
       "course-claktor",
       "course-coderbaba",
       "course-sikemux",
-      "course-webcraft-pro"
+      "course-webcraft-pro",
+      "course-trix"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2473,14 +2489,16 @@
       "claude-codex-cursor-token-saver",
       "cve-2026-42978-poc-research",
       "wvm",
-      "app-launch-grabthat-nlp-launcher-for-windows"
+      "app-launch-grabthat-nlp-launcher-for-windows",
+      "willow"
     ],
     "courses": [
       "course-edify",
       "course-claude-codex-cursor-token-saver",
       "course-cve-2026-42978-poc-research",
       "course-wvm",
-      "course-app-launch-grabthat-nlp-launcher-for-windows"
+      "course-app-launch-grabthat-nlp-launcher-for-windows",
+      "course-willow"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -4548,7 +4566,8 @@
       "agent-history-cli",
       "korosta",
       "listodo",
-      "foolscap"
+      "foolscap",
+      "glasshour"
     ],
     "courses": [
       "course-aristra-your-life-os",
@@ -4578,7 +4597,8 @@
       "course-agent-history-cli",
       "course-korosta",
       "course-listodo",
-      "course-foolscap"
+      "course-foolscap",
+      "course-glasshour"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4700,7 +4720,8 @@
       "r3",
       "redcat-an-open-source-ai-agent-for-your-desktop",
       "agentmall",
-      "agent-doctor"
+      "agent-doctor",
+      "trix"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -4743,7 +4764,8 @@
       "course-r3",
       "course-redcat-an-open-source-ai-agent-for-your-desktop",
       "course-agentmall",
-      "course-agent-doctor"
+      "course-agent-doctor",
+      "course-trix"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4881,7 +4903,8 @@
       "an-interactive-lab-for-deterministic-ai-agent-authorization",
       "prompt-upgrader",
       "capcut-seedance-win",
-      "octosift"
+      "octosift",
+      "snippai"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4926,7 +4949,8 @@
       "course-an-interactive-lab-for-deterministic-ai-agent-authorization",
       "course-prompt-upgrader",
       "course-capcut-seedance-win",
-      "course-octosift"
+      "course-octosift",
+      "course-snippai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5012,7 +5036,8 @@
       "ai-agentic-harness-with-explicit-risk-analysis",
       "taskthread",
       "agent-guard",
-      "an-interactive-lab-for-deterministic-ai-agent-authorization"
+      "an-interactive-lab-for-deterministic-ai-agent-authorization",
+      "aether"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -5032,7 +5057,8 @@
       "course-ai-agentic-harness-with-explicit-risk-analysis",
       "course-taskthread",
       "course-agent-guard",
-      "course-an-interactive-lab-for-deterministic-ai-agent-authorization"
+      "course-an-interactive-lab-for-deterministic-ai-agent-authorization",
+      "course-aether"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5906,7 +5932,8 @@
       "pixelboard",
       "opposable",
       "kryzz-ai",
-      "an-open-source-harness-for-android-devs-in-the-terminal"
+      "an-open-source-harness-for-android-devs-in-the-terminal",
+      "aether"
     ],
     "courses": [
       "course-devx",
@@ -5916,7 +5943,8 @@
       "course-pixelboard",
       "course-opposable",
       "course-kryzz-ai",
-      "course-an-open-source-harness-for-android-devs-in-the-terminal"
+      "course-an-open-source-harness-for-android-devs-in-the-terminal",
+      "course-aether"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6068,7 +6096,8 @@
       "mymarkdown",
       "texposit",
       "web2md",
-      "solipsist"
+      "solipsist",
+      "snippai"
     ],
     "courses": [
       "course-serve-markdown-to-ai-agents-with-accept-headers",
@@ -6078,7 +6107,8 @@
       "course-mymarkdown",
       "course-texposit",
       "course-web2md",
-      "course-solipsist"
+      "course-solipsist",
+      "course-snippai"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -7857,12 +7887,14 @@
     "toolsTeaching": [
       "openinstinct",
       "agentbridge",
-      "agent-history-cli"
+      "agent-history-cli",
+      "willow"
     ],
     "courses": [
       "course-openinstinct",
       "course-agentbridge",
-      "course-agent-history-cli"
+      "course-agent-history-cli",
+      "course-willow"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -9831,7 +9863,8 @@
       "termaxa",
       "now",
       "nexus",
-      "an-open-source-harness-for-android-devs-in-the-terminal"
+      "an-open-source-harness-for-android-devs-in-the-terminal",
+      "trix"
     ],
     "courses": [
       "course-tenux",
@@ -9844,7 +9877,8 @@
       "course-termaxa",
       "course-now",
       "course-nexus",
-      "course-an-open-source-harness-for-android-devs-in-the-terminal"
+      "course-an-open-source-harness-for-android-devs-in-the-terminal",
+      "course-trix"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -13196,11 +13230,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "nimvarya",
-      "chrome-bridge"
+      "chrome-bridge",
+      "glasshour"
     ],
     "courses": [
       "course-nimvarya",
-      "course-chrome-bridge"
+      "course-chrome-bridge",
+      "course-glasshour"
     ],
     "updatedAt": "2026-09-06T12:54:08.108Z"
   },
@@ -13554,11 +13590,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "mdmanagerai",
-      "where-every-ai-coding-tool-keeps-its-config"
+      "where-every-ai-coding-tool-keeps-its-config",
+      "ai-ide-system-utilities-idm-pro-v6-42-karon"
     ],
     "courses": [
       "course-mdmanagerai",
-      "course-where-every-ai-coding-tool-keeps-its-config"
+      "course-where-every-ai-coding-tool-keeps-its-config",
+      "course-ai-ide-system-utilities-idm-pro-v6-42-karon"
     ],
     "updatedAt": "2026-09-06T23:10:17.799Z"
   },
@@ -14216,12 +14254,14 @@
     "toolsTeaching": [
       "catenary",
       "agentsdock-an-ide-designed-for-agentic-ai-research",
-      "i-forked-jetbrains-new-agent-ide-to-host-claude-code"
+      "i-forked-jetbrains-new-agent-ide-to-host-claude-code",
+      "ai-ide-system-utilities-idm-pro-v6-42-karon"
     ],
     "courses": [
       "course-catenary",
       "course-agentsdock-an-ide-designed-for-agentic-ai-research",
-      "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code"
+      "course-i-forked-jetbrains-new-agent-ide-to-host-claude-code",
+      "course-ai-ide-system-utilities-idm-pro-v6-42-karon"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -15798,10 +15838,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "listpro"
+      "listpro",
+      "snippai"
     ],
     "courses": [
-      "course-listpro"
+      "course-listpro",
+      "course-snippai"
     ],
     "updatedAt": "2026-09-10T13:38:44.077Z"
   },
@@ -17443,11 +17485,15 @@
     "level": "advanced",
     "toolsTeaching": [
       "agentsdock-an-ide-designed-for-agentic-ai-research",
-      "sikemux"
+      "sikemux",
+      "trix",
+      "ai-ide-system-utilities-idm-pro-v6-42-karon"
     ],
     "courses": [
       "course-agentsdock-an-ide-designed-for-agentic-ai-research",
-      "course-sikemux"
+      "course-sikemux",
+      "course-trix",
+      "course-ai-ide-system-utilities-idm-pro-v6-42-karon"
     ],
     "updatedAt": "2026-09-13T13:49:13.602Z"
   },
@@ -18718,11 +18764,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "ai-subtools",
-      "aitoolsuite"
+      "aitoolsuite",
+      "ai-ide-system-utilities-idm-pro-v6-42-karon"
     ],
     "courses": [
       "course-ai-subtools",
-      "course-aitoolsuite"
+      "course-aitoolsuite",
+      "course-ai-ide-system-utilities-idm-pro-v6-42-karon"
     ],
     "updatedAt": "2026-09-16T14:13:20.724Z"
   },
@@ -19013,10 +19061,12 @@
     "domain": "writing",
     "level": "intermediate",
     "toolsTeaching": [
-      "texposit"
+      "texposit",
+      "snippai"
     ],
     "courses": [
-      "course-texposit"
+      "course-texposit",
+      "course-snippai"
     ],
     "updatedAt": "2026-09-16T14:13:20.724Z"
   },
@@ -20888,12 +20938,14 @@
     "toolsTeaching": [
       "appmaker",
       "rhubarb",
-      "chloe-is-a-typescript-ai-agent"
+      "chloe-is-a-typescript-ai-agent",
+      "glasshour"
     ],
     "courses": [
       "course-appmaker",
       "course-rhubarb",
-      "course-chloe-is-a-typescript-ai-agent"
+      "course-chloe-is-a-typescript-ai-agent",
+      "course-glasshour"
     ],
     "updatedAt": "2026-09-29T15:55:26.286Z"
   },
@@ -22500,7 +22552,8 @@
       "system-1-agents",
       "r3",
       "redcat-an-open-source-ai-agent-for-your-desktop",
-      "nexus"
+      "nexus",
+      "aether"
     ],
     "courses": [
       "course-flagshiprouter",
@@ -22508,7 +22561,8 @@
       "course-system-1-agents",
       "course-r3",
       "course-redcat-an-open-source-ai-agent-for-your-desktop",
-      "course-nexus"
+      "course-nexus",
+      "course-aether"
     ],
     "updatedAt": "2026-10-06T15:59:06.042Z"
   },
@@ -24997,5 +25051,44 @@
       "course-octosift"
     ],
     "updatedAt": "2026-11-22T17:11:24.714Z"
+  },
+  {
+    "id": "skill-token-tracker",
+    "name": "token tracker",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "willow"
+    ],
+    "courses": [
+      "course-willow"
+    ],
+    "updatedAt": "2026-11-23T01:58:48.594Z"
+  },
+  {
+    "id": "skill-cost-estimation",
+    "name": "cost estimation",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "willow"
+    ],
+    "courses": [
+      "course-willow"
+    ],
+    "updatedAt": "2026-11-23T01:58:48.594Z"
+  },
+  {
+    "id": "skill-new tab",
+    "name": "new tab",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "glasshour"
+    ],
+    "courses": [
+      "course-glasshour"
+    ],
+    "updatedAt": "2026-11-23T01:58:48.594Z"
   }
 ]
