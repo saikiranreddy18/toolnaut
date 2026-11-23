@@ -3055,6 +3055,41 @@ a client-side SPA with a static tool catalogue.
   grown to 27 entries (`/mcp-servers` and `/vs/:slug` landed since the last
   check) but still has no `/graveyard`. Nothing drifted in substance — still
   Build size S, still unbuilt.
+- **Re-verified 2026-11-23 00:03 UTC:** file-wide last-touch scan (every
+  non-"Research check" OPEN entry's `Found` date or latest `Deepened`/
+  `Re-verified` sub-note, whichever is later; 18 real OPEN entries after
+  excluding the template heading) found this one clearly stalest again at
+  2026-11-18 21:04 UTC (4.5 days) — every other OPEN entry carries a note
+  dated 2026-11-19 or later. Re-checked every citation against current
+  `master`: `grep -o '"status": "[A-Za-z]*"' src/utils/toolsCatalog.js` is
+  still exactly 652 `Active` / 52 `Uncertain`. `App.jsx`'s route block
+  drifted again (two routes, `/collections` and `/collections/:slug`,
+  landed above it from the 2026-11-22 Collections ship) —
+  `/tools/:domain` is now `:133` (was `:131`) and `/ai-tools/:slug` is now
+  `:139` (was `:135`); `/graveyard` still belongs between them. `ToolPublic.
+  jsx:42` still renders only `['Worth knowing', tool.note]`, no `status`
+  row. `public/sitemap.xml` still carries no `/graveyard` line.
+  `scripts/smoke.mjs`'s `routes` array has grown to 29 entries (`/collections`
+  and `/collections/solo-founder-stack` landed since the last check) but
+  still has no `/graveyard`. Nothing drifted in substance — still Build
+  size S, still the most build-ready unbuilt entry in the file.
+  **Two fresh `WebSearch` leads checked:** (1) Futurepedia/TAAFT/ToolFinder
+  2026 feature-launch search turned up only third-party aggregator noise
+  (ToolMage, AI Indigo, aitoolsrecap.com) and unverifiable tool-count
+  claims, nothing primary-sourced — not logged. (2) A fresh, sharper search
+  for the graveyard pattern itself surfaced more and better precedents than
+  this entry's original Fast.io citation: ToolDirectory.AI runs a dedicated
+  `/ai-graveyard` with cause-based sub-pages (`/cause/shutdown`,
+  `/cause/domain-expired`, `/cause/abandoned`) and year pages (`/2025`,
+  `/2026`), reporting 218 shut-down-or-acquired tools as of 2026-07-25;
+  FutureTools.io keeps a paginated `/removed-tools` "Catalog history" (588
+  removals logged since 2026-07-08); ToolChase runs a standalone
+  `/discontinued` page. Three independent, currently-live competitor
+  implementations of the exact pattern this entry already scoped — stronger
+  evidence than before, doesn't change the plan (still a static filter over
+  existing `status`/`note` data, still Build size S), just corroborates it
+  further. Added here rather than opening a new entry, since it's the same
+  gap, not a new one.
 
 ### Embeddable "Featured on Toolnaut" badge — the standard directory backlink loop, missing entirely
 - **Status:** OPEN
@@ -16219,5 +16254,61 @@ to fix directly from a research run.
 
 Docs-only pass, no `src/`/`radar/`/`api/` edit this run. `npm test`
 (327/327) re-run directly against current `master` — clean; `npm run
+build`/`npm run smoke` not re-run since nothing touching build output or
+runtime behavior changed.
+
+---
+
+### Research check 2026-11-23 00:03 UTC — re-verified the true stalest OPEN entry (tool graveyard page, 4.5 days), two fresh leads checked, one corroborates without changing the plan
+
+Scheduled run, UTC hour 00 (a research slot, not the 18:03 feature/digest
+hour). `npm ci` clean (201 packages). Urgent-work checks first:
+`actions_list` on `master` found the tip at `a0a4be6` (yesterday's
+changelog-freshness fix) with `CI` `success`; the `Release` workflow failed
+on the same commit and the one before it with `fatal: tag 'v0.72.37' already
+exists` — the same already-tracked orphaned-tag bug as issues #52 and #74
+(non-atomic `git push --follow-tags`: the tag ref landed on a prior attempt
+while the branch ref push lost a race, so `package.json` is stuck at
+`0.72.36` while the tag it would bump to already exists remotely). Not a new
+finding and not CI-red (the `ci.yml` test/build/smoke workflow itself is
+green) — both tracking issues are already open, so left untouched rather
+than filing a third. `npm run radar:health` → `STATUS: OK` (2 runs in the 26h
+window, last publish 6.9h ago, 5 published that run, feed at 636 tools).
+`list_issues` for `agent-fixable`: zero open. No urgent work, so the hour
+went to backlog work.
+
+**Ran the file-wide last-touch scan** (every non-"Research check" `### `
+heading with a `**Status:**` line starting exactly with `OPEN`, latest
+`202Y-MM-DD[ HH:MM UTC]` mention anywhere in its body as last-touch date; 18
+real OPEN entries after excluding the file's own template heading). **"Tool
+graveyard page"** (line ~2886, last touched 2026-11-18 21:04 UTC) came back
+clearly stalest at 4.5 days — every other OPEN entry carries a note dated
+2026-11-19 or later.
+
+**Re-verified every citation against current `master` — zero drift in
+substance, one more line-number shift.** See the entry's own new sub-note
+for the full check: catalog status counts unchanged (652 Active / 52
+Uncertain), `App.jsx` route positions shifted by two lines (the 2026-11-22
+Collections routes landed above the insertion point), `ToolPublic.jsx` still
+has no `status` row, `sitemap.xml` and `smoke.mjs` still carry no
+`/graveyard` entry. Still Build size S, still the most build-ready unbuilt
+entry in the file — a strong candidate for the next 18:03 feature run.
+
+**Two fresh `WebSearch` leads checked:** one (Futurepedia/TAAFT/ToolFinder
+2026 feature launches) turned up only unverifiable aggregator noise, not
+logged. The other, a sharper search for the graveyard pattern itself,
+surfaced three independent live competitor implementations stronger than
+this entry's original citation (ToolDirectory.AI's `/ai-graveyard` with
+cause-based and year sub-pages, FutureTools.io's paginated `/removed-tools`
+history, ToolChase's `/discontinued` page) — added to the entry as
+corroborating evidence since it's the same already-OPEN gap, not a new one.
+
+**Noting, not logging as a gap:** the open-PR pile (issue #67, 22+ unmerged
+bot branches) and the Release-workflow orphaned-tag recurrence above are
+both still unaddressed — already tracked outside this file, not re-opened
+here.
+
+Docs-only pass, no `src/`/`radar/`/`api/` edit this run. `npm test`
+(327/327) run directly against current `master` — clean; `npm run
 build`/`npm run smoke` not re-run since nothing touching build output or
 runtime behavior changed.
