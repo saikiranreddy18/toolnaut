@@ -7,6 +7,11 @@
 // SHIPPED — pulled from that day's real commit, not invented.
 export const CHANGELOG = [
   {
+    date: '2026-11-23',
+    title: "See what's coming next",
+    body: "The changelog only ever looked backward — now there's a \"What's next\" section below it, a plain-language roadmap of what we're building next. No dates, no promises, just the order we're working through.",
+  },
+  {
     date: '2026-11-22',
     title: 'Curated collections for common jobs',
     body: "Seven hand-picked tool bundles — things like \"The Solo Founder's Stack\" and \"AI Coding Crew\" — are now browsable at /collections, a quicker starting point than the full quiz when you already know the kind of work you're doing.",
