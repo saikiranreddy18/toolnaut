@@ -9,6 +9,68 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-11-23
+
+**Radar health:** `OK` — 6 tools published in the last 24h (one run, 01:58
+UTC; the prior run at 2026-11-22 17:11 UTC falls just outside the 24h
+window), feed now at 642 published tools. No NO-PUBLISH or NO-SOURCE
+symptoms.
+
+**Researched today:** no new gap logged — all six research passes today
+(00:03, 03:03, 06:03, 09:08, 12:03, 15:04 UTC) re-verified already-deep OPEN
+entries against current `master` and checked fresh competitor leads that
+didn't clear the file's own evidence bar. The 09:08 pass closed a
+bookkeeping gap on the leaderboard entry (a missing dated sub-note that had
+made it look stalest four runs running). The 15:04 pass found and fixed a
+real structural bug instead — a second orphaned `### ` heading in this
+backlog file (same failure mode a 2026-09-28 note had already found and
+fixed once before, for a different entry) — then shipped the small, fully
+scoped follow-up it led to: `ToolDetail.jsx` and `Compare.jsx` were the two
+remaining public pages never calling the existing `useHead()` hook, so their
+own shipped JSON-LD was citing canonical tool URLs that carried the
+homepage's generic title/description. Fixed in `8019fcd`, verified live
+against a built `vite preview` server.
+
+**Shipped today:** **`e0f3484`** — a forward-looking "What's next" section
+on `/changelog`, closing the single most-recommended OPEN gap in the
+backlog (flagged as the next feature run's pick across three separate
+re-verification passes going back to 2026-10-10, Build size S). The
+changelog page only ever looked backward, even though this project's own
+`docs/research-backlog.md` already tracks ranked, spec'd future work as a
+side effect of how the product gets built — translating four of today's
+top OPEN entries (an honest usage-count version of "weekly trending tools,"
+a browsable gallery of shared stacks, a browser-extension lookup surface,
+and a how-to guide library) into a new hand-authored `src/utils/
+roadmapData.js` cost no new research or decision-making. `Changelog.jsx`
+gets one more section below the existing backward-looking list, same
+`sticker` card styling, with a "no dates — just the order we're working
+through" disclaimer so it reads as an honest priority list, not a
+commitment. No backend, no new route, no new dependency.
+**This is visible on toolnaut.xyz today** — confirmed in the production
+build that `/changelog` prerenders the new section (6728 chars of text, up
+from its prior size) and a direct read of the built page shows all four
+roadmap items rendering correctly.
+
+**Verification:** `npm test` (327/327), `npm run build` (`/changelog`
+prerenders the new content, three.js stayed in its own chunk, service-worker
+stamp ran), and `npm run smoke` (29/29 routes, 0 console errors) all green
+before pushing straight to `master`. Local checkout was 49 commits behind
+`origin/master` at session start (same recurring container-start behavior
+prior passes have noted) — fast-forwarded cleanly before re-running all
+three checks against the current tip and pushing; `git log` confirms
+`e0f3484` landed on `origin/master`.
+
+**Queued next:** the three roadmap items not picked this run (browsable
+stack gallery, browser-extension lookup, how-to guide library) plus the
+vendor/maker claim-listing path remain the next-ready OPEN entries. The
+same tracked issues prior passes have flagged are all still open and
+unchanged: #67 (22+ unmerged bot PRs, a separate PR-based automation this
+routine doesn't touch), #74/#52 (Release workflow orphaned-tag collisions),
+#99/#69/#34 (CI/LLM-provider failures in other agents' own workflows), #11
+(re-enrichment).
+
+---
+
 ## 2026-11-22
 
 **Radar health:** `OK` — 10 tools published across 2 runs in the 24h window
