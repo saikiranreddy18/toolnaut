@@ -9,6 +9,7 @@ import { useAnalytics } from '../../hooks/useAnalytics'
 import { markActed } from '../../utils/funnel'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
+import { useHead, SITE } from '../../utils/head'
 import { Fragment, useEffect, useState } from 'react'
 
 // Comparison state lives entirely in the ?tools= query string, same pattern
@@ -31,6 +32,33 @@ export default function Compare() {
   // Every opening, unlike markActed above which latches once per person:
   // this is the count that says whether Compare gets found.
   useEffect(() => { track(EVENTS.COMPARE_OPENED, { tools: tools.length }) }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Not prerendered — a logged-in comparison isn't the SEO target
+  // PublicCompare.jsx's own /compare/:slugs route already is — but a signed-in
+  // visitor can still paste this link, and it shouldn't preview/title as a
+  // bare, generic "command center" page when they do.
+  const names = tools.map((t) => t.name)
+  useHead(
+    tools.length > 0
+      ? {
+          title: `${names.slice(0, 2).join(' vs ')}${names.length > 2 ? ` +${names.length - 2} more` : ''} — compared | Toolnaut`,
+          description: `Side-by-side comparison of ${names.join(', ')} — category, price, level and more, from Toolnaut's 1,000+ tool catalog.`,
+          path: `/app/compare?tools=${slugs.join(',')}`,
+          jsonLd: {
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            numberOfItems: tools.length,
+            itemListElement: tools.map((t, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              name: t.name,
+              description: t.blurb,
+              url: `${SITE}/app/tools/${t.slug}`,
+            })),
+          },
+        }
+      : { path: '/app/compare' },
+  )
 
   function removeTool(slug) {
     const next = tools.filter((t) => t.slug !== slug).map((t) => t.slug)

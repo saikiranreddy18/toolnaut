@@ -1379,6 +1379,35 @@ a client-side SPA with a static tool catalogue.
   **Build size of the reopened follow-up:** S — two `useHead()` call sites
   using data already in scope, zero routing change, zero new file. Ships
   independently of the sitemap/prerender follow-up named above.
+- **Reopened follow-up SHIPPED this run (2026-11-23 15:04 UTC):** built
+  exactly as scoped above, nothing more. `ToolDetail.jsx` now calls
+  `useHead()` before its `!tool` early return (mirroring the existing
+  `related`-useMemo pattern there for the same reason — hooks must run on
+  every render regardless of whether the slug resolves): a found tool gets
+  `${tool.name} — Toolnaut`, `tool.blurb` as the description, `path:
+  /app/tools/${tool.slug}`, and a `SoftwareApplication` JSON-LD block (name,
+  description, `applicationCategory: tool.sourceCategory`, url — no `offers`
+  block, since `tool.price`/`tool.pricing` are free-text labels like
+  "Freemium", not the numeric `price`/`priceCurrency` schema.org's `Offer`
+  type requires, and fabricating one would be worse than omitting it); an
+  unresolved slug gets `noindex: true` via the hook's own existing param
+  instead of a fabricated title. `Compare.jsx` (the `/app/compare?tools=`
+  route, not `PublicCompare.jsx`, which already had this) got the same
+  treatment mirroring `PublicCompare.jsx`'s own call almost verbatim: a
+  "X vs Y (+N more) — compared" title, an `ItemList` JSON-LD of the compared
+  tools, `path: /app/compare?tools=<slugs>` (query string included so two
+  different comparisons don't share one canonical). Verified beyond
+  `npm run smoke`'s own 0-console-errors pass on both routes: a throwaway
+  Playwright script loaded `/app/tools/chatgpt` and `/app/compare?tools=
+  chatgpt,claude` against a built `vite preview` server and read back
+  `document.title`/the description meta/the canonical link/`#route-jsonld`
+  — all four populated correctly on both routes, confirming this isn't just
+  "no error," it's the actual fix. `npm test` (327/327), `npm run build`,
+  `npm run smoke` (all 30 routes, 0 console errors) all green before this
+  pushed. This closes the follow-up; the base gap's one remaining named
+  item (prerendering ~700 `ToolDetail` slugs plus a full sitemap generator)
+  stays a separate, larger, not-yet-logged-as-its-own-entry piece of work,
+  same as this follow-up's own "what this does NOT fix" already said.
 
 ### Pro chat assistant & the entire Team tier are unbacked and unbuildable client-side
 - **Status:** OPEN (Gap 1 only) — PARTIALLY REOPENED 2026-09-01 15:20 UTC. Gap
@@ -1684,6 +1713,10 @@ a client-side SPA with a static tool catalogue.
   pattern) and that framing still holds, unaffected by the pricing fix.
   Gap 2 (Team tier) stays REJECTED, unaffected. Still OPEN, Build size M,
   no changes to the plan.
+
+---
+
+### Recently viewed tools — the detail-page visit signal was never captured
 - **Status:** SHIPPED 113f375 — built as scoped below: `recentlyViewedStore.js`
   (localStorage, capped at 12, most-recent-first, no duplicates), a
   `useEffect` in `ToolDetail.jsx` recording on mount/slug-change, and a
@@ -16635,3 +16668,81 @@ No small bug spotted to fix this pass. `npm test` (327/327) run directly
 against current `master` — clean; `npm run build`/`npm run smoke` not
 re-run since this was a docs-only change (one re-verify note plus this
 section), nothing touching build output or runtime behavior.
+
+---
+
+### Research check 2026-11-23 15:04 UTC — found and fixed a real orphaned-heading bug in this file, then shipped the smallest open follow-up it uncovered instead of another re-verify pass
+
+Scheduled run, UTC hour 15 (a research slot). `npm ci` clean (201 packages).
+Urgent-work checks first: `list_workflow_runs` on `master` shows the tip at
+`0331f4c` (the 12:03 UTC research commit) with `CI` and `Release` both
+`success` — not CI-red. (`Agent · Research`, a separate automated agent's
+own workflow, shows `conclusion: failure` on its latest run — not this
+project's verification gate, outside this run's scope, not investigated,
+same stance prior passes took on the sibling `Agent · Bugfix`/`Agent ·
+Maintainer` workflows.) `npm run radar:health` → `STATUS: OK` (2 runs in the
+26h window, last publish 13.1h ago, 6 published that run, feed at 642
+tools). `list_issues` for `agent-fixable`: zero open. No urgent work, so the
+hour went to backlog work.
+
+**Every OPEN entry in this file is now fully specced** (exact citations,
+sized, "what this would NOT include" sections) after ~15 passes of
+deepening — re-verifying one for a sixth or seventh time, with zero drift
+expected, would be the padding this file's header already warns against.
+So instead of the usual last-touch scan, read through the file's own
+structure directly, and it paid off: "Per-route page titles, meta
+descriptions & social preview cards" (line 1088) carries its own 2026-09-28
+note documenting that **this exact heading had previously gone missing from
+the file** (an orphan `- **Status:**` block with no `### ` title above it,
+from an earlier "restore research-backlog.md" incident) and was restored by
+chance. Checked whether the same failure mode had recurred since: `awk`
+over every `- **Status:**` line confirmed exactly one more orphan existed —
+a `SHIPPED 113f375` ("Recently viewed tools") block sitting directly inside
+the "Pro chat assistant" entry's body with no `### ` heading or `---`
+separator of its own, silently inflating that entry's apparent content
+and corrupting any last-touch date scan that reads to the end of a
+section's body (confirmed this bug directly: a naive last-touch script
+mis-read "Pro chat assistant"'s last date as 2026-08-26 instead of its
+true 2026-11-20, because the orphaned block's own trailing "Found:
+2026-08-26" date sits after it in file order despite being chronologically
+unrelated). **Fixed**: inserted the missing `---`/`### Recently viewed
+tools — the detail-page visit signal was never captured` heading at line
+1687; zero content changed, same restoration approach the 2026-09-28 note
+already used for the first orphan.
+
+**With the structure fixed, re-ran a corrected last-touch scan** (max date
+anywhere in each entry's body, not last-in-text) across all 21 real OPEN
+entries. It surfaced "Per-route page titles" itself as functionally
+stalest in substance (last real content dated 2026-09-13, after which
+only an unrelated orphaned block sat in its body) — and that entry's own
+2026-09-13 deepening already fully specs a tiny, genuinely still-open
+follow-up: `ToolDetail.jsx` and `Compare.jsx` (the `/app/compare?tools=`
+route) never got the `useHead()` call five sibling pages already have,
+confirmed absent by grepping both files for `useHead` (zero hits) before
+starting. Rather than log this as a seventh "re-verified, no drift" note
+on an entry that's actually fully buildable, built it — this run's "one
+small real improvement" allowance, not the day's feature (that's the
+18:03 run's job; this is Build size S, already scoped down to "two
+`useHead()` call sites using data already in scope, zero routing change,
+zero new file").
+
+**Shipped, see the entry's own new sub-note above for the full build and
+verification record.** Summary: `ToolDetail.jsx` and `Compare.jsx` both now
+set a real per-page title/description/canonical/JSON-LD instead of
+inheriting the generic homepage ones — fixing a real, previously-flagged
+inconsistency where four already-public, already-prerendered pages'
+`ItemList` JSON-LD cites `${SITE}/app/tools/${slug}` as every listed tool's
+canonical `url`, a URL that carried the homepage's own metadata until this
+run. `npm test` (327/327), `npm run build`, `npm run smoke` (30/30 routes,
+0 console errors, including the two touched routes) all green before
+pushing — plus a direct Playwright check against a built `vite preview`
+server confirming `document.title`/description/canonical/`#route-jsonld`
+all populate correctly on `/app/tools/chatgpt` and `/app/compare?tools=
+chatgpt,claude`, since a clean smoke run alone only proves "no error," not
+"the fix works."
+
+**No separate new competitor/problem-area research this pass** — the hour
+went to finding and closing a real structural bug plus the genuinely-open,
+fully-specced follow-up it led to, which is more useful than a new
+one-line candidate gap or an eighth re-verification of an already-settled
+entry.

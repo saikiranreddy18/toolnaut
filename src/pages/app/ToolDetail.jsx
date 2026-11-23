@@ -14,6 +14,7 @@ import { buildReportIssueUrl } from '../../utils/suggestTool'
 import { getReviews, getAverageRating, addReview } from '../../state/toolReviewsStore'
 import { timeAgo } from '../../utils/communityData'
 import { loadSession } from '../../state/authStore'
+import { useHead, SITE } from '../../utils/head'
 import { HeartIcon, StarIcon } from '../../components/app/icons'
 import TrustPanel from '../../components/app/TrustPanel'
 import ToolResources from '../../components/app/ToolResources'
@@ -86,6 +87,29 @@ export default function ToolDetail() {
 
   const tool = getTool(slug)
   const [reviews, setReviews] = useState(() => (tool ? getReviews(tool.slug) : []))
+
+  // Not in prerender.mjs's ROUTES (700+ slugs is a different order of build-time
+  // cost than the 6 category pages there) — but the client-side tags still fix
+  // the tab title, a pasted-link preview, and the stale canonical every public,
+  // prerendered page (CategoryLanding, NewTools, SharedStack) already points at
+  // this exact URL for every tool they list.
+  useHead(
+    tool
+      ? {
+          title: `${tool.name} — Toolnaut`,
+          description: tool.blurb,
+          path: `/app/tools/${tool.slug}`,
+          jsonLd: {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name: tool.name,
+            description: tool.blurb,
+            applicationCategory: tool.sourceCategory,
+            url: `${SITE}/app/tools/${tool.slug}`,
+          },
+        }
+      : { path: `/app/tools/${slug}`, noindex: true },
+  )
 
   // Prefer neighbours in the exact source category, then fall back to domain.
   // Memoized so actions unrelated to this list (e.g. toggleStack, which only
