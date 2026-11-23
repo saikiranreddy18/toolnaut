@@ -6516,7 +6516,25 @@ a client-side SPA with a static tool catalogue.
 ---
 
 ### Changelog only looks backward — nothing visitor-facing says what's coming next, though this exact file tracks it in detail
-- **Status:** OPEN
+- **Status:** SHIPPED (this run, sha in DEVLOG) — built exactly as scoped
+  below: new `src/utils/roadmapData.js` (a `ROADMAP` array of `{ title,
+  note }` pairs, same hand-authored convention as `changelogData.js`, no
+  shas/file paths/ETAs) translated from this run's top four OPEN entries at
+  the time ("Weekly trending tools," the honest usage-count version; "No
+  browsable gallery of shared stacks"; "No lookup surface outside
+  toolnaut.xyz"; "No educational/how-to content"). `Changelog.jsx` gets one
+  more section below the existing `CHANGELOG.map` block — same `sticker`
+  card styling, headed "▸ What's next" with the "no dates — just the order
+  we're working through" disclaimer this entry's own plan specified,
+  rendering `ROADMAP` the same way the section above it renders
+  `CHANGELOG`. No new route, no backend, no new dependency. `npm test`
+  (327/327), `npm run build` (`/changelog` prerenders the new section,
+  6728 chars of text, three.js stayed in its own chunk), and `npm run
+  smoke` (29/29 routes, 0 console errors, including `/changelog` and a
+  direct Playwright read of the built page confirming both the new
+  heading and all four roadmap items render) all green before pushing.
+  When an item here ships for real, remove it from `ROADMAP` and add its
+  `changelogData.js` entry instead, per this entry's own convention.
 - **Seen in:** a problem area rather than one directory competitor, though
   Linear (`linear.app/roadmap`, a public "planned / in progress / shipped"
   board next to its changelog) and Notion's own public roadmap page are the

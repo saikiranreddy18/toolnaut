@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { BRAND } from '../config'
 import { CHANGELOG } from '../utils/changelogData'
+import { ROADMAP } from '../utils/roadmapData'
 
 // Public, crawlable proof that the product is actively maintained — the
 // cheapest possible answer to "is this still being worked on?" for a
@@ -69,6 +70,36 @@ export default function Changelog() {
               </time>
               <h2 className="arcade-heading mt-2 text-lg">{entry.title}</h2>
               <p className="mt-3 text-sm leading-relaxed text-zinc-300">{entry.body}</p>
+            </motion.article>
+          ))}
+        </div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-16 text-xs font-medium uppercase tracking-[0.22em] cosmic-text"
+          style={{ color: 'var(--lime)' }}
+        >
+          ▸ What's next
+        </motion.p>
+        <p className="mt-2 max-w-xl text-xs text-zinc-500">
+          No dates — just the order we're working through.
+        </p>
+
+        <div className="mt-6 space-y-6">
+          {ROADMAP.map((entry, i) => (
+            <motion.article
+              key={entry.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ delay: Math.min(i, 6) * 0.05 }}
+              className="sticker p-6 backdrop-blur-sm bg-black/10"
+              style={{ transform: 'rotate(0)' }}
+            >
+              <h2 className="arcade-heading text-lg">{entry.title}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-300">{entry.note}</p>
             </motion.article>
           ))}
         </div>
