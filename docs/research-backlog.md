@@ -8945,6 +8945,44 @@ a client-side SPA with a static tool catalogue.
   and still sits behind `AppShell`'s sign-in gate (`App.jsx:162`), not public.
   Still Build size S, still the cheapest fully-specced OPEN entry with no
   re-verification touch at all — a strong feature-run candidate.
+- **Re-verified 2026-11-23 03:03 UTC — came back stalest again (4 days
+  since the last touch above), re-checked every citation against current
+  `master`:** still fully unbuilt — no `src/content/guides.js`,
+  `src/pages/Guide.jsx`, `src/pages/Guides.jsx`, or `/guides` route exist.
+  `scripts/prerender.mjs`'s `ROUTES` array has grown again since the last
+  check (now 29+ entries — the 2026-11-22 Collections ship added
+  `/collections` and 7 `/collections/:slug` routes above the category
+  grids), but the substance is unchanged: every entry is still a product
+  surface, none a guide. `ContactSection.jsx`'s "Resources" column shifted
+  to `:44-51` (still 6 links: How it works, How we choose, What's new,
+  Developer API, MCP servers, Open the app) — same label-vs-reality
+  mismatch, the column still contains zero guide content despite the
+  name. `src/pages/app/Learning.jsx` is still the only "Learning" surface,
+  now gated at `App.jsx:166` (shifted from `:162` by the Collections
+  routes), still behind `AppShell`'s sign-in gate, still not public. Build
+  size still S — no other OPEN entry's build size has shrunk below it in
+  the interim, so it remains the cheapest fully-specced unbuilt entry in
+  the file.
+  Two fresh `WebSearch` leads, both corroborate rather than change the
+  plan: a search for AI-directory content strategy turned up mostly
+  unverifiable 2026 SEO-blog noise, but one source (Ranktracker's take on
+  Google's AI Mode) argues directories built as plain listings need to
+  evolve toward "decision pages" — comparisons, alternatives, and guides —
+  or lose ground to AI-generated answers, which is the same bottom-of-
+  funnel-is-not-enough argument this entry already makes, now from a
+  search-visibility angle rather than a competitor-feature angle. A
+  second search for task-first guide pages surfaced two sharper, more
+  concrete precedents than any cited here before: Aigotools, a directory
+  whose own guides are organized by the job a visitor needs finished
+  (its own example: "I need to turn scanned invoices into a CSV") rather
+  than by tool name or category, and LeadWithAI, which frames its guide
+  pages as literal questions ("Which AI tool should I use for this?")
+  with a worked task, the matched tool's relevant plan tier, and a
+  ready-to-copy prompt. Both are closer to this entry's "how do I
+  automate video editing with AI" framing than the Futurepedia citation
+  this entry opened with, and neither changes the smallest-useful-version
+  plan — they're additional evidence the task-first guide shape is a
+  real, live pattern in this category, not a hypothetical one.
 
 ---
 
@@ -16307,6 +16345,64 @@ corroborating evidence since it's the same already-OPEN gap, not a new one.
 bot branches) and the Release-workflow orphaned-tag recurrence above are
 both still unaddressed — already tracked outside this file, not re-opened
 here.
+
+Docs-only pass, no `src/`/`radar/`/`api/` edit this run. `npm test`
+(327/327) run directly against current `master` — clean; `npm run
+build`/`npm run smoke` not re-run since nothing touching build output or
+runtime behavior changed.
+
+---
+
+### Research check 2026-11-23 03:03 UTC — re-verified the true stalest OPEN entry (educational/how-to content, 4 days), two fresh leads sharpen its competitor citations without changing the plan
+
+Scheduled run, UTC hour 03 (a research slot, not the 18:03 feature/digest
+hour). `npm ci` clean (201 packages). Urgent-work checks first: `actions_list`
+on `master` found the tip (the 00:03 UTC research commit, `8150325`) with
+`CI` and `Release` both `success` — not CI-red. `npm run radar:health` →
+`STATUS: OK` (3 runs in the 26h window, last publish 1.1h ago, 6 published
+that run, feed at 642 tools). `list_issues` for `agent-fixable`: zero open.
+No urgent work, so the hour went to backlog work.
+
+**Ran the file-wide last-touch scan** (every non-"Research check" `### `
+heading with a `**Status:** OPEN` line, latest `202Y-MM-DD[ HH:MM UTC]`
+mention anywhere in its body as last-touch date; 18 real OPEN entries after
+excluding the file's own template heading). **"No educational/how-to
+content"** (line ~8850, last touched 2026-11-19 00:06 UTC) came back clearly
+stalest at 4 days — every other OPEN entry carries a note dated 2026-11-19
+21:04 UTC or later.
+
+**Re-verified every citation against current `master` — zero drift in
+substance, several line-number shifts from the 2026-11-22 Collections ship.**
+See the entry's own new sub-note for the full check: still no
+`src/content/guides.js`, `Guide.jsx`/`Guides.jsx`, or `/guides` route;
+`prerender.mjs`'s `ROUTES` array grew to 29+ entries (Collections routes
+inserted above the category grids) but every one is still a product
+surface; `ContactSection.jsx`'s "Resources" column shifted to `:44-51`,
+still 6 links, still zero guide content; `Learning.jsx` shifted to
+`App.jsx:166`, still sign-in-gated. Still Build size S, still the cheapest
+fully-specced unbuilt entry in the file.
+
+**Two fresh `WebSearch` leads checked, both corroborate without changing
+the plan:** a content-strategy search turned up mostly unverifiable 2026
+SEO-blog noise, but surfaced Ranktracker's argument that listing-only
+directories need to evolve toward "decision pages" (comparisons,
+alternatives, guides) to stay visible against Google's AI Mode — the same
+argument this entry already makes, from a search-visibility angle instead
+of a competitor-feature one. A task-first-guide search surfaced two
+sharper precedents than this entry's original Futurepedia citation:
+Aigotools (guides organized by the job to be done, e.g. "turn scanned
+invoices into a CSV") and LeadWithAI (literal-question guide titles, e.g.
+"Which AI tool should I use for this?", each pairing a matched tool with
+its relevant plan tier and a ready-to-copy prompt). Added to the entry as
+corroborating evidence since it sharpens the existing plan's citations
+rather than describing anything new.
+
+**Noting, not logging as a gap:** the same tracked issues prior passes
+have already flagged (#67 open-PR pile, #74/#52 Release orphaned-tag
+collisions, #99/#69/#34 CI/LLM-provider failures, #11 re-enrichment) are
+all still open and unchanged; issue #107 ("Dev digest 2026-11-22") is also
+still open, one day past its expected same-run closure, but closing it
+belongs to the next 18:03 digest run, not a research pass.
 
 Docs-only pass, no `src/`/`radar/`/`api/` edit this run. `npm test`
 (327/327) run directly against current `master` — clean; `npm run
