@@ -16408,3 +16408,64 @@ Docs-only pass, no `src/`/`radar/`/`api/` edit this run. `npm test`
 (327/327) run directly against current `master` — clean; `npm run
 build`/`npm run smoke` not re-run since nothing touching build output or
 runtime behavior changed.
+
+---
+
+### Research check 2026-11-23 06:03 UTC — re-verified the true stalest OPEN entry (fake leaderboard, 4 days), two fresh leads checked, neither survives
+
+Scheduled run, UTC hour 06 (a research slot, not the 18:03 feature/digest
+hour). `npm ci` clean (201 packages). Urgent-work checks first: `actions_list`
+on `master` found the tip at `17d296a` (the 03:03 UTC research commit) with
+both `CI` and `Release` `success` — not CI-red. `npm run radar:health` →
+`STATUS: OK` (2 runs in the 26h window, last publish 4.1h ago, 6 published
+that run, feed at 642 tools). `list_issues` for `agent-fixable`: zero open —
+the 8 open issues are the same already-tracked set (#107 digest, #99/#74/
+#69/#52/#34 CI/radar/release failures, #67 open-PR pile, #11 re-enrichment),
+nothing new. No urgent work, so the hour went to backlog work.
+
+**Ran the file-wide last-touch scan** (every non-"Research check" `### `
+heading with a `**Status:** OPEN` line, latest `202Y-MM-DD[ HH:MM UTC]`
+mention anywhere in its body as last-touch date; 18 real OPEN entries after
+excluding the file's own template heading). **"The leaderboard's own
+precondition for going real has already shipped"** (line ~5988, last touched
+2026-11-19 03:04 UTC) came back clearly stalest at just over 4 days — every
+other OPEN entry carries a note dated 2026-11-19 06:03 UTC or later.
+
+**Re-verified every citation against current `master` — zero drift.**
+`leaderboardData.js:51` still sets `IS_SAMPLE = true`; `RankCard.jsx` still
+imports `SAMPLE_LEADERBOARD`/`IS_SAMPLE` at `:4` and renders
+`SAMPLE_LEADERBOARD.map(...)` at `:98`, unchanged line numbers (the
+2026-11-22 Collections routes touched `App.jsx`, not this component).
+`communityStats.js`'s `myStanding()` still calls `computeScore({ stackSize,
+stepsDone, streakDays })` with no `roadmapComplete` field (`:89`) and
+`stepsDone` still excludes `:quiz` keys (`:81`) — the SQL exclusion this
+entry's plan already carries is still correct. `supabase/migrations/` has
+not grown since the last check — still exactly `0001` through `0010`, so
+**`0011` is still the next free migration number**. `grep -rn handle
+supabase/migrations/` still returns only the unrelated UPI-handle comment in
+`0008_account_deletion.sql`. Still Build size M, still ready to build exactly
+as scoped.
+
+**Two fresh `WebSearch` leads checked, neither survives this file's evidence
+bar:** a search for 2026 commentary on gamified onboarding and seeded/fake
+leaderboard data surfaced only vendor blog posts (Userpilot, Appcues) making
+the generic point that synthetic engagement data erodes trust once
+recognized — directionally the same warning this entry's own "Why it
+matters" section already makes, but none names a specific product or dated
+incident, so it doesn't meet the bar for a named precedent and wasn't added.
+A second search for a November 2026 feature launch from Futurepedia,
+There's An AI For That, or Toolify (checking whether any of them now ships a
+real cross-account leaderboard worth citing as precedent) returned only
+undated aggregator noise — nothing primary-sourced to cite either way.
+
+**Noting, not logging as a gap:** the same tracked issues prior passes have
+flagged are all still open and unchanged (#67 open-PR pile, #74/#52 Release
+orphaned-tag collisions, #99/#69/#34 CI/LLM-provider failures, #11
+re-enrichment, #107 "Dev digest 2026-11-22" still open past its expected
+same-run closure) — all outside this file's scope to fix from a research
+pass.
+
+Docs-only pass, no `src/`/`radar/`/`api/` edit this run. `npm test`
+(327/327) run directly against current `master` — clean; `npm run
+build`/`npm run smoke` not re-run since nothing touching build output or
+runtime behavior changed.
