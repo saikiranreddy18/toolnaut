@@ -6551,3 +6551,56 @@ sensitive-category (Legal/Healthcare/Finance) users" framing after counting:
 those three categories hold only 14 tools combined and just 1 overlaps with
 any privacy tag, too thin to support that specific claim — logged the
 narrower, data-supported version instead.
+
+---
+### Research check 2026-11-24 15:00 UTC — no new gap found, no demonstrable bug found
+
+Research run (UTC hour 15, not the 18:00 digest hour). CI green on master
+(`CI`/`Release` workflows both completed successfully on the last push),
+radar health OK (2 runs in the 26h window, published 5 tools last run, feed
+at 652 tools), no open `agent-fixable` issues. (Two separate scheduled
+GitHub Actions — `Agent · Research` run #87 and `Agent · Bugfix` run #131 —
+both show `conclusion: failure` today at 14:24 and 12:47 UTC; these are a
+different automation path (`.github/workflows/agent-*.yml`, governed by
+`CLAUDE.md`) from this session's own schedule, and the literal `CI` workflow
+they ran against is green, so left uninvestigated rather than treated as
+"CI red on master.")
+
+The newest OPEN entry (privacy/data-handling facet, logged 12:10 UTC the
+previous run) was checked first per the "deepen a thin gap" rule — it is
+already fully specced (exact util, exact `Discover.jsx` line numbers, S
+build size, explicit exclusions) and not thin enough to deepen further.
+Spot-checked four more OPEN entries at random (shared-stack gallery,
+testimonial/social-proof, lookup-surface, catalog-recheck) — all four
+already carry complete "Smallest useful version" sections too. All 18 OPEN
+entries in `research-backlog.md` are build-ready; none needed deepening.
+
+Studied fresh angles instead, all came back already covered:
+- Marketing-copy audit of the five least-checked homepage sections
+  (`AudienceSection.jsx`, `CTASection.jsx`, `FeaturesSection.jsx`,
+  `CapabilityMatrix.jsx`, `StatsSection.jsx`) against the app — every claim
+  in all five is either genuinely true today (`StatsSection`'s "Live count"
+  tiles really do read from the DB and hide when a value is unknown;
+  `CapabilityMatrix`'s live/planned split really does branch correctly on
+  `VITE_PAYMENTS_ENABLED`) or already tracked as an open gap
+  (`FeaturesSection`'s "Weekly fresh finds" and "Live tool comparison" lines
+  map to the already-logged/already-shipped entries of the same name).
+- Community-voting / "Hall of Fame" leaderboard pattern (fresh WebSearch,
+  AIXploria) — already researched and reflected in the existing "Popularity
+  signal discarded" OPEN entry; per-tool upvoting is already
+  `communityStore.js`'s thread upvotes.
+- Toolify.ai (fresh WebSearch) — large paid-listing directory, no feature
+  pattern here that isn't already covered (sorting/filtering, submission
+  flow, newsletter all already logged or shipped elsewhere in this file).
+- Search autocomplete/typeahead, regional currency display, dark-mode
+  toggle — grepped backlog + archive, all three were already checked and
+  closed out in earlier passes (autocomplete: debounce-free instant results
+  already exist; currency: `region.js` INR/USD switch already live;
+  dark mode: already closed, no toggle, single dark theme by design).
+
+Also grepped `src/` for `TODO|FIXME|XXX` looking for a small demonstrable
+bug to fix this hour instead — zero hits, nothing to pick up.
+
+Per the "never invent a gap to fill the hour" rule, appended nothing new to
+`research-backlog.md` and made no code change. The feature run already has
+18 build-ready OPEN gaps to choose from.
