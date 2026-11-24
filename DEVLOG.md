@@ -9,6 +9,61 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-11-24
+
+**Radar health:** `OK` — 2 runs in the last 24h (21:28 UTC 11-23, 05:31 UTC
+11-24), 10 tools published total, feed now at 652 published tools. No
+NO-PUBLISH or NO-SOURCE symptoms; `npm run radar:health` exits 0.
+
+**Researched today:** no gap added this run — this slot was the end-of-day
+feature run, which drains the backlog rather than adding to it. The four
+preceding hourly research passes (00:03, 03:03, 06:03, 09:08 UTC —
+re-verification and backlog-file cleanup) and the 12:03/15:xx passes already
+covered today's research, including splitting 109 process-journal entries
+out to `docs/research-log-archive.md` and logging the privacy-facet gap
+picked up below.
+
+**Shipped today:** **`fe846a3`** — a privacy/data-handling filter facet on
+Discover, the newest OPEN gap in the backlog (logged this morning at 12:10
+UTC) and a clean, fully-scoped S-size build. 45 of the catalog's 652
+published tools already self-identify via tags (`privacy`, `local-first`,
+`on-device`, `self-hosted`, `encryption`) but nothing let a visitor filter on
+that axis — distinct from the already-built-but-unmerged access-method
+facet (PR #89), which answers "how much setup does this take" rather than
+"what happens to my data." Built exactly as scoped: new pure util
+`src/utils/privacySignal.js` (`isPrivacyConscious()`), one toggle `Pill` on
+`Discover.jsx` after the existing Sort row, one added clause in the
+`results` filter predicate, and `privacy` folded into `hasFilters`/
+`filterKey`/the empty-state copy alongside the pre-existing filters. No
+facet count on the toggle pill, matching the Sort row's own precedent. No
+backend, no radar/schema change, no new dependency. Verified the util
+against the live `public/tools.json`: 45/652 tools pass, matching the
+backlog entry's own count exactly.
+**This is visible on toolnaut.xyz today** — `/app/discover` is a signed-in
+app route (not a crawlable marketing page), but the smoke suite renders it
+clean and the filter is live the moment this deploy finishes; any visitor
+who opens Discover sees the new "🔒 Privacy-conscious" pill immediately.
+
+**Verification:** `npm test` (332/332, including 5 new tests in
+`test/privacy-signal.test.mjs`), `npm run build` (three.js stayed in its own
+chunk, service-worker stamp ran, prerender wrote all 29 routes clean), and
+`npm run smoke` (29/29 routes, 0 console errors) all green before pushing
+straight to `master`. Session started in a detached HEAD 7 commits behind
+`origin/master`; fast-forwarded local `master` to the fetched tip before
+committing, then fast-forwarded the feature commit on top and pushed —
+`git log`/`git push` output confirms `fe846a3` landed on `origin/master`.
+
+**Queued next:** highest-ranked remaining OPEN gaps are "weekly trending
+tools" (account data already exists, unused), the role-based progress
+benchmark, and the stack-share personalized preview — all re-verified
+against current `master` within the last week and ready to build without
+further research. The access-method facet (PR #89) and four other feature
+PRs (#75, #86, #91, #105) remain open and unmerged from push-guard failures
+in earlier runs (tracked on issue #67) — none were rebuilt or duplicated
+this run.
+
+---
+
 ## 2026-11-23
 
 **Radar health:** `OK` — 6 tools published in the last 24h (one run, 01:58

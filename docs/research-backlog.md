@@ -10613,7 +10613,14 @@ without changing it, logs that in the archive file, not here.** Only append to
 ---
 
 ### No privacy/data-handling facet — a distinct axis from the already-built "self-hosted" filter, backed by real tag data nobody filters on
-- **Status:** OPEN
+- **Status:** SHIPPED (this run, sha in DEVLOG) — built exactly as scoped
+  below: `src/utils/privacySignal.js` (new, `isPrivacyConscious()`), one
+  toggle `Pill` on `Discover.jsx` after the Sort row, one added clause in the
+  `results` filter predicate, `privacy` folded into `hasFilters`/`filterKey`/
+  the empty-state copy alongside the existing filters. No facet count on the
+  toggle, matching the Sort row's own precedent. Verified against the live
+  catalog: 45/652 published tools pass the filter, matching this entry's
+  original count exactly. 5 new tests in `test/privacy-signal.test.mjs`.
 - **Seen in:** There's An AI For That runs a dedicated `/s/dataprotection/`
   category page (fetched directly) collecting tools by data-handling
   posture, separate from its functional categories. Vucense's privacy-tools
