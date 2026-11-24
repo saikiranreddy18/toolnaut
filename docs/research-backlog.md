@@ -9340,6 +9340,31 @@ a client-side SPA with a static tool catalogue.
   (`slug, name, category, sourceCategory, price, pricing, level, blurb, ...`)
   still carries everything a popup needs. No `extension/` directory exists.
   Still OPEN, still Build size M, still unbuilt.
+- **Re-verified 2026-11-24 00:03 UTC (stalest OPEN entry, tied with "Weekly
+  trending tools" at 09:03 UTC on 2026-11-19 but fewer touches and a
+  shorter body — picked over it):** same checks re-run, same result —
+  `find . -iname "manifest.json"` still zero hits outside `node_modules/`,
+  no `extension/` directory, `matchesQuery()` still exported from
+  `src/utils/search.js`, `public/tools.json` still carries the same field
+  set a popup needs, and `vercel.json`'s `/tools.json` block still sets
+  `Access-Control-Allow-Origin: *` (irrelevant to this gap either way, as
+  already noted). One stale internal citation found and corrected: this
+  entry's own plan cites the status-badge render at "`ToolDetail.jsx:123-
+  130`" — the file has since moved to `src/pages/app/ToolDetail.jsx` and
+  the badge itself is now a single-line conditional at lines 224-229
+  (`{tool.status && tool.status !== 'Active' && (...)}`), not a 7-line
+  block at 123-130. Doesn't change the plan — the badge logic to port is
+  the same, just shorter and at a different address — but the citation is
+  corrected here so a future build doesn't go looking in the wrong place.
+  Fresh competitor check: "AI Tools Explorer" (the entry's own primary
+  example) now has a live Chrome Web Store listing
+  (chromewebstore.google.com/detail/ai-tool-explorer/...) rather than only
+  the dev.to writeup this entry originally cited — a sturdier, independent
+  confirmation that the extension is real, published and current, not just
+  a blog claim. No new competitor shape found (the rest of this search's
+  results are side-panel/popup directory extensions with no lookup
+  feature, already distinct from what this entry proposes). Still OPEN,
+  still Build size M, still unbuilt.
 
 ---
 
@@ -16764,3 +16789,65 @@ went to finding and closing a real structural bug plus the genuinely-open,
 fully-specced follow-up it led to, which is more useful than a new
 one-line candidate gap or an eighth re-verification of an already-settled
 entry.
+
+---
+
+### Research check 2026-11-24 00:03 UTC — re-verified the stalest OPEN entry ("no lookup surface outside toolnaut.xyz"); commented a 6-day-old Release-workflow recurrence onto issue #74 instead of fixing it myself
+
+Scheduled run, UTC hour 00 (a research slot). `npm ci` clean (201 packages).
+Urgent-work checks first: `list_workflow_runs` on `master` shows `ci.yml`
+green at HEAD (`3150ccc`, the last radar auto-commit) — not CI-red under
+this file's own definition. `npm run radar:health` → `STATUS: OK` (2 runs
+in the 26h window, last publish 2.6h ago, 5 published that run, feed at 647
+tools). `list_issues` for `agent-fixable`: zero open. So the hour went to
+backlog work, same as every other non-18:03 slot.
+
+**`release.yml` is still red, 6 days after issue #74's last comment, same
+root cause — commented, not fixed, same as the last two recurrences:**
+`list_workflow_runs` on `master` shows three consecutive `Release` failures
+(runs `45203050520`, `45235975160`, `45266638878`, spanning 2026-11-23
+15:14–21:08 UTC) all failing the "Bump, tag and push" step with
+`fatal: tag 'v0.72.37' already exists`; `ci.yml` and `release.yml`'s own
+earlier `npm test`/`npm run build` steps all stayed green on the same
+commits. Pulled the latest job's log directly (`get_job_logs`) rather than
+trust the one-line conclusion. Confirmed via `git merge-base
+--is-ancestor` that both `v0.72.37` and the older `v0.73.0` (issue #74's
+original case) still point to commits that are not ancestors of
+`origin/master`, and `package.json` on `master` is still `0.72.36` — the
+exact same two-tag state the 2026-11-18 03:03 UTC pass already found and
+commented. No third tag has accumulated since (`git tag -l 'v*' | sort -V
+| tail` shows nothing past `v0.73.0`). This doesn't block CI, build, smoke,
+or the Vercel deploy — `release.yml` only bumps `package.json` and tags a
+GitHub release, which Vercel's build doesn't depend on — so it stays a
+comment on the existing issue, not a stop-everything fix, and per CLAUDE.md
+and issue #74's own prior notes this needs a human (`git push origin
+:refs/tags/v0.72.37` and `:refs/tags/v0.73.0`) rather than an agent
+deleting a pushed tag unattended. Added that evidence as a new comment on
+#74 rather than opening a fourth duplicate issue.
+
+**Re-verified the stalest OPEN entry:** of the five entries tied at
+2026-11-19 (the oldest last-touch date across all 17 real OPEN entries —
+`2441`/12:03, `6968`/09:03, `7988`/21:04, `9234`/09:03, `12116`/15:03),
+`6968` ("Weekly trending tools") and `9234` ("No lookup surface outside
+toolnaut.xyz") tie for earliest time-of-day (09:03 UTC); picked `9234` —
+fewer prior touches (2 vs 3) and a shorter body (113 vs 180 lines), so the
+thinner of the two tied-stalest. Re-ran every cited claim against current
+`master`: still zero `manifest.json` hits outside `node_modules/`, still no
+`extension/` directory, `matchesQuery()` still exported from
+`src/utils/search.js`, `public/tools.json`'s field set unchanged, and
+`vercel.json`'s `/tools.json` CORS header unchanged (irrelevant to this gap
+either way, as the entry already notes). Found and fixed one stale internal
+citation: the entry pointed at `ToolDetail.jsx:123-130` for the status-badge
+render to port; the file is now `src/pages/app/ToolDetail.jsx` and the
+badge is a single-line conditional at `224-229`. One fresh competitor
+check: "AI Tools Explorer," the entry's own primary example, now has a live
+Chrome Web Store listing (not just the dev.to writeup originally cited) —
+corroborates the example without changing the plan. No new competitor
+shape found; the rest of the search results are side-panel/popup directory
+extensions with no lookup feature, already distinct from what this entry
+proposes. Still OPEN, still Build size M, still unbuilt — see the entry's
+own new sub-note above for the full record.
+
+**No separate new competitor/problem-area research this pass** — the hour
+split between the Release-workflow follow-up and the re-verification above;
+no fresh problem area was studied independently of those two.
