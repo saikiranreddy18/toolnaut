@@ -7141,6 +7141,29 @@ a client-side SPA with a static tool catalogue.
   line drift since the last check: `ToolDetail.jsx`'s "Why it fits" sticker
   card (the proposed mount point) is now at `ToolDetail.jsx:278-279`, not
   `:185` — grew further from more content above it. Nothing else moved.
+- **Re-verified 2026-11-24 03:03 UTC (true stalest OPEN entry, 5 days
+  untouched — the other three 2026-11-19 ties were each touched more
+  recently than this one, per a full re-sort of every OPEN entry's latest
+  dated note):** still fully unbuilt — `grep -rn "tool_stack_counts|
+  trending" supabase/ src/` is zero hits. `supabase/migrations/` still runs
+  through `0010_saved_limit.sql`, so 0011 is still the next free number.
+  `sync.js`'s delete-then-reinsert shape is unchanged (delete `:96`, inserts
+  `:104`/`:109`), and `planData.js`'s Pro-tier `planned()` block is still at
+  `:116-118` (unchanged since the 2026-09-27 correction). One more line
+  drift: `ToolDetail.jsx`'s "Why it fits" sticker card has moved again, to
+  `ToolDetail.jsx:302-303` (was `:278-279`) — nothing else about that card
+  changed, the file just grew above it again. **One fresh lead, sharpens
+  without changing the plan:** searched for directories that already publish
+  a live per-tool usage count, the closest real-world analog to this entry's
+  proposed "N members have this in their stack." Most AI-tool directories
+  publish only catalog or community totals (ToolJunction's "50,000+ members"
+  is a community count, not per-tool; Toolradar's live figures are submission
+  counts). Product Hunt is the one exception: every listing shows a per-
+  product "user count" next to its upvotes — a closer analog to this entry's
+  per-tool sticker than the daily-ranking citation already in "Seen in" above,
+  since it's a per-item number sitting next to one product rather than a
+  site-wide leaderboard. Doesn't change the build — just a sharper citation
+  for why a per-tool count (not a ranking) is the right shape to ship first.
 
 ---
 
@@ -16851,3 +16874,53 @@ own new sub-note above for the full record.
 **No separate new competitor/problem-area research this pass** — the hour
 split between the Release-workflow follow-up and the re-verification above;
 no fresh problem area was studied independently of those two.
+
+---
+
+### Research check 2026-11-24 03:03 UTC — re-verified the true stalest OPEN entry ("Weekly trending tools"), one fresh competitor lead sharpens its citation without changing the plan
+
+Scheduled run, UTC hour 03 (a research slot). `npm ci` clean (201 packages).
+Urgent-work checks first: `list_workflow_runs` on `master` shows the latest
+`CI`/`Release` push (`447f64b`, the 00:03 UTC pass's own commit) with CI
+green and Release still failing on the same already-tracked orphaned-tag
+issue (#74) — not a new CI-red condition, so nothing to act on there.
+`npm run radar:health` → `STATUS: OK` (2 runs in the 26h window, last
+publish 5.6h ago, 5 tools published that run, feed at 647 tools).
+`list_issues` for `agent-fixable`: zero open. So the hour went to backlog
+work.
+
+**Re-verified the true stalest OPEN entry:** re-sorted every OPEN entry's
+latest dated note (the 00:03 UTC pass above closed out `9234` at the same
+2026-11-19 09:03 UTC tie, which it had picked over `6968`). With `9234`
+now current, `6968` ("Weekly trending tools is sold on the Pro tier...")
+is the sole true stalest, last touched 2026-11-19 09:03 UTC, five days
+untouched. Re-ran every cited claim against current `master`: `grep -rn
+"tool_stack_counts|trending" supabase/ src/` still zero hits anywhere, so
+the feature is still fully unbuilt. `supabase/migrations/` still runs
+through `0010_saved_limit.sql`, so `0011` is still the next free migration
+number. `sync.js`'s delete-then-reinsert `pushAll()` is unchanged (delete
+`:96`, the two separate inserts `:104`/`:109`), so the "no real weekly
+window" caveat still holds. `planData.js`'s Pro-tier `planned()` block is
+still at `:116-118`, unchanged since the 2026-09-27 correction. One line
+drift: `ToolDetail.jsx`'s "Why it fits" sticker card (the proposed mount
+point) moved again, now `ToolDetail.jsx:302-303` (was `:278-279`) — the
+file grew further above it, nothing about the card itself changed.
+
+**One fresh competitor lead, sharpens without changing the plan:** searched
+for AI-tool directories that already publish a live per-tool usage count —
+the closest real-world analog to this entry's proposed "N members have
+this in their stack" sticker. Most publish only catalog or community
+totals (ToolJunction's "50,000+ members" is a community count, not
+per-tool; Toolradar's live figures are submission counts, not usage).
+Product Hunt is the one real exception: every listing shows a per-product
+"user count" next to its upvotes, a closer analog than the daily-ranking
+citation already in this entry's "Seen in" section, since it's a per-item
+number beside one product rather than a site-wide leaderboard. Added as a
+corroborating sub-note on the entry; doesn't change the build.
+
+Still OPEN, still Build size S/M, still unbuilt — see the entry's own new
+sub-note above for the full record.
+
+**No separate new competitor/problem-area research this pass** — the hour
+went to the re-verification and its one corroborating lead above; no
+independent new problem area was studied.
