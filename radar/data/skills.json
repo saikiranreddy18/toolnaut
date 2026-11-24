@@ -248,7 +248,9 @@
       "trix",
       "ai-ide-system-utilities-idm-pro-v6-42-karon",
       "willow",
-      "verfy"
+      "verfy",
+      "ultracite-linter-and-formatter-for-agentic-development",
+      "agentbadge"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -494,7 +496,9 @@
       "course-trix",
       "course-ai-ide-system-utilities-idm-pro-v6-42-karon",
       "course-willow",
-      "course-verfy"
+      "course-verfy",
+      "course-ultracite-linter-and-formatter-for-agentic-development",
+      "course-agentbadge"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1363,7 +1367,13 @@
       "i-built-a-spa-for-ai-agents",
       "an-on-device-ai-agent-for-android",
       "merget",
-      "gal"
+      "gal",
+      "costcatch",
+      "moonbooth",
+      "ai-vtuber-toolkit",
+      "stream-clips-ai",
+      "subtitles-studio-ai",
+      "clip-cutter-ai"
     ],
     "courses": [
       "course-headless-tools",
@@ -1716,7 +1726,13 @@
       "course-i-built-a-spa-for-ai-agents",
       "course-an-on-device-ai-agent-for-android",
       "course-merget",
-      "course-gal"
+      "course-gal",
+      "course-costcatch",
+      "course-moonbooth",
+      "course-ai-vtuber-toolkit",
+      "course-stream-clips-ai",
+      "course-subtitles-studio-ai",
+      "course-clip-cutter-ai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2363,7 +2379,8 @@
       "sikemux",
       "webcraft-pro",
       "trix",
-      "verfy"
+      "verfy",
+      "agentbadge"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2386,7 +2403,8 @@
       "course-sikemux",
       "course-webcraft-pro",
       "course-trix",
-      "course-verfy"
+      "course-verfy",
+      "course-agentbadge"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2480,11 +2498,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "edify",
-      "short-video-maker"
+      "short-video-maker",
+      "subtitles-studio-ai"
     ],
     "courses": [
       "course-edify",
-      "course-short-video-maker"
+      "course-short-video-maker",
+      "course-subtitles-studio-ai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2494,10 +2514,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "edify"
+      "edify",
+      "ai-vtuber-toolkit"
     ],
     "courses": [
-      "course-edify"
+      "course-edify",
+      "course-ai-vtuber-toolkit"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2701,7 +2723,9 @@
       "capcut-pro-video-editor-latest",
       "deepai-for-fake-pc",
       "capcut-seedance-win",
-      "gostudioai"
+      "gostudioai",
+      "subtitles-studio-ai",
+      "clip-cutter-ai"
     ],
     "courses": [
       "course-canvasformusic",
@@ -2718,7 +2742,9 @@
       "course-capcut-pro-video-editor-latest",
       "course-deepai-for-fake-pc",
       "course-capcut-seedance-win",
-      "course-gostudioai"
+      "course-gostudioai",
+      "course-subtitles-studio-ai",
+      "course-clip-cutter-ai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3328,7 +3354,8 @@
       "foolscap",
       "relic",
       "prompt-upgrader",
-      "humanizer-and-ai-text-detection-tools"
+      "humanizer-and-ai-text-detection-tools",
+      "subtitles-studio-ai"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -3365,7 +3392,8 @@
       "course-foolscap",
       "course-relic",
       "course-prompt-upgrader",
-      "course-humanizer-and-ai-text-detection-tools"
+      "course-humanizer-and-ai-text-detection-tools",
+      "course-subtitles-studio-ai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3954,7 +3982,8 @@
       "dayfileapp",
       "sandscale",
       "xsquads",
-      "i-built-a-spa-for-ai-agents"
+      "i-built-a-spa-for-ai-agents",
+      "moonbooth"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -4025,7 +4054,8 @@
       "course-dayfileapp",
       "course-sandscale",
       "course-xsquads",
-      "course-i-built-a-spa-for-ai-agents"
+      "course-i-built-a-spa-for-ai-agents",
+      "course-moonbooth"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4939,7 +4969,12 @@
       "wyrd-oss",
       "gostudioai",
       "i-built-a-spa-for-ai-agents",
-      "an-on-device-ai-agent-for-android"
+      "an-on-device-ai-agent-for-android",
+      "moonbooth",
+      "agentbadge",
+      "stream-clips-ai",
+      "subtitles-studio-ai",
+      "clip-cutter-ai"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4990,7 +5025,12 @@
       "course-wyrd-oss",
       "course-gostudioai",
       "course-i-built-a-spa-for-ai-agents",
-      "course-an-on-device-ai-agent-for-android"
+      "course-an-on-device-ai-agent-for-android",
+      "course-moonbooth",
+      "course-agentbadge",
+      "course-stream-clips-ai",
+      "course-subtitles-studio-ai",
+      "course-clip-cutter-ai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5080,7 +5120,9 @@
       "aether",
       "verfy",
       "an-on-device-ai-agent-for-android",
-      "gal"
+      "gal",
+      "costcatch",
+      "agentbadge"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -5104,7 +5146,9 @@
       "course-aether",
       "course-verfy",
       "course-an-on-device-ai-agent-for-android",
-      "course-gal"
+      "course-gal",
+      "course-costcatch",
+      "course-agentbadge"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -6028,7 +6072,8 @@
       "shellshock",
       "a-youtube-transcript-cli-built-for-humans-and-ai-agents",
       "claktor",
-      "shamus-osint-ai-agent"
+      "shamus-osint-ai-agent",
+      "costcatch"
     ],
     "courses": [
       "course-devx",
@@ -6057,7 +6102,8 @@
       "course-shellshock",
       "course-a-youtube-transcript-cli-built-for-humans-and-ai-agents",
       "course-claktor",
-      "course-shamus-osint-ai-agent"
+      "course-shamus-osint-ai-agent",
+      "course-costcatch"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -8110,11 +8156,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "coordination-layer-for-coding-agents",
-      "cc-is-an-ai-agent-for-families-and-groups"
+      "cc-is-an-ai-agent-for-families-and-groups",
+      "moonbooth"
     ],
     "courses": [
       "course-coordination-layer-for-coding-agents",
-      "course-cc-is-an-ai-agent-for-families-and-groups"
+      "course-cc-is-an-ai-agent-for-families-and-groups",
+      "course-moonbooth"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -8374,10 +8422,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "doodle-ai-open-source-photo-to-doodle-avatar-generator"
+      "doodle-ai-open-source-photo-to-doodle-avatar-generator",
+      "ai-vtuber-toolkit"
     ],
     "courses": [
-      "course-doodle-ai-open-source-photo-to-doodle-avatar-generator"
+      "course-doodle-ai-open-source-photo-to-doodle-avatar-generator",
+      "course-ai-vtuber-toolkit"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -9971,7 +10021,8 @@
       "ai-agent-vercel-eve-web-interface-amazing",
       "robodiag-harness",
       "sulcus",
-      "memdebug"
+      "memdebug",
+      "costcatch"
     ],
     "courses": [
       "course-selfshipai",
@@ -9980,7 +10031,8 @@
       "course-ai-agent-vercel-eve-web-interface-amazing",
       "course-robodiag-harness",
       "course-sulcus",
-      "course-memdebug"
+      "course-memdebug",
+      "course-costcatch"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -12072,10 +12124,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "top-ai-agent-skills-for-building-live-streaming-apps"
+      "top-ai-agent-skills-for-building-live-streaming-apps",
+      "ai-vtuber-toolkit"
     ],
     "courses": [
-      "course-top-ai-agent-skills-for-building-live-streaming-apps"
+      "course-top-ai-agent-skills-for-building-live-streaming-apps",
+      "course-ai-vtuber-toolkit"
     ],
     "updatedAt": "2026-09-03T23:31:51.252Z"
   },
@@ -15510,11 +15564,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "ai-burn-clock",
-      "ai-cost-dashboard-is-probably-wrong"
+      "ai-cost-dashboard-is-probably-wrong",
+      "costcatch"
     ],
     "courses": [
       "course-ai-burn-clock",
-      "course-ai-cost-dashboard-is-probably-wrong"
+      "course-ai-cost-dashboard-is-probably-wrong",
+      "course-costcatch"
     ],
     "updatedAt": "2026-09-09T23:30:23.231Z"
   },
@@ -16967,11 +17023,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "dont-hit-send",
-      "foundrradio"
+      "foundrradio",
+      "stream-clips-ai"
     ],
     "courses": [
       "course-dont-hit-send",
-      "course-foundrradio"
+      "course-foundrradio",
+      "course-stream-clips-ai"
     ],
     "updatedAt": "2026-09-12T12:53:23.830Z"
   },
@@ -23812,11 +23870,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "e2e",
-      "billet"
+      "billet",
+      "ultracite-linter-and-formatter-for-agentic-development"
     ],
     "courses": [
       "course-e2e",
-      "course-billet"
+      "course-billet",
+      "course-ultracite-linter-and-formatter-for-agentic-development"
     ],
     "updatedAt": "2026-10-12T19:05:40.043Z"
   },
@@ -25272,5 +25332,96 @@
       "course-merget"
     ],
     "updatedAt": "2026-11-24T05:31:47.026Z"
+  },
+  {
+    "id": "skill-urls",
+    "name": "urls",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "moonbooth"
+    ],
+    "courses": [
+      "course-moonbooth"
+    ],
+    "updatedAt": "2026-11-24T20:11:42.053Z"
+  },
+  {
+    "id": "skill-linter",
+    "name": "linter",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ultracite-linter-and-formatter-for-agentic-development"
+    ],
+    "courses": [
+      "course-ultracite-linter-and-formatter-for-agentic-development"
+    ],
+    "updatedAt": "2026-11-24T20:11:42.053Z"
+  },
+  {
+    "id": "skill-formatter",
+    "name": "formatter",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ultracite-linter-and-formatter-for-agentic-development"
+    ],
+    "courses": [
+      "course-ultracite-linter-and-formatter-for-agentic-development"
+    ],
+    "updatedAt": "2026-11-24T20:11:42.053Z"
+  },
+  {
+    "id": "skill-readiness",
+    "name": "readiness",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentbadge"
+    ],
+    "courses": [
+      "course-agentbadge"
+    ],
+    "updatedAt": "2026-11-24T20:11:42.053Z"
+  },
+  {
+    "id": "skill-ai voice",
+    "name": "ai voice",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-vtuber-toolkit"
+    ],
+    "courses": [
+      "course-ai-vtuber-toolkit"
+    ],
+    "updatedAt": "2026-11-24T20:11:42.053Z"
+  },
+  {
+    "id": "skill-clipper",
+    "name": "clipper",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "stream-clips-ai"
+    ],
+    "courses": [
+      "course-stream-clips-ai"
+    ],
+    "updatedAt": "2026-11-24T20:11:42.053Z"
+  },
+  {
+    "id": "skill-cutting",
+    "name": "cutting",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "clip-cutter-ai"
+    ],
+    "courses": [
+      "course-clip-cutter-ai"
+    ],
+    "updatedAt": "2026-11-24T20:11:42.053Z"
   }
 ]

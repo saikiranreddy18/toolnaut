@@ -41200,5 +41200,426 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-24T05:31:47.026Z"
+  },
+  {
+    "id": "course-costcatch",
+    "toolSlug": "costcatch",
+    "title": "Master Costcatch",
+    "objectives": [
+      "Integrate Costcatch into an existing agent framework (e.g., LangChain).",
+      "Analyze cost breakdowns by specific LLM calls or agent steps.",
+      "Configure cost alerts and set spending thresholds."
+    ],
+    "modules": [
+      {
+        "title": "Basic Setup & Initialization",
+        "estMinutes": 15,
+        "steps": [
+          "Install Costcatch via pip: `pip install costcatch`",
+          "Configure your API key using `costcatch config set key <YOUR_KEY>`"
+        ]
+      },
+      {
+        "title": "Tracing an Agent Run",
+        "estMinutes": 20,
+        "steps": [
+          "Wrap your primary agent execution call with the Costcatch decorator or context manager.",
+          "Run the agent, generating cost logs automatically in the defined output directory."
+        ]
+      },
+      {
+        "title": "Reporting and Alerting",
+        "estMinutes": 15,
+        "steps": [
+          "Generate a cost summary using `costcatch report --period last_24h`",
+          "Set up a spending alert using `costcatch alerts set threshold 100.00` (USD)"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-cli",
+      "skill-agent",
+      "skill-cost-tracking",
+      "skill-debugging"
+    ],
+    "prerequisites": [
+      "Basic proficiency in Python and command-line usage.",
+      "An active API key for the target LLM provider (e.g., OpenAI, Anthropic)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-24T20:11:42.053Z"
+  },
+  {
+    "id": "course-moonbooth",
+    "toolSlug": "moonbooth",
+    "title": "Master Moonbooth",
+    "objectives": [
+      "Create a new short URL within Moonbooth for an existing long URL.",
+      "Configure access permissions (read-only/editable) for the generated short link.",
+      "Integrate the short URL into a simple agent coordination workflow."
+    ],
+    "modules": [
+      {
+        "title": "Generating and Previewing Links",
+        "estMinutes": 10,
+        "steps": [
+          "Navigate to the Moonbooth dashboard and select 'New Link'.",
+          "Paste the target URL and click 'Generate Short URL'.",
+          "Verify the shortened link in the preview panel."
+        ]
+      },
+      {
+        "title": "Setting Link Permissions",
+        "estMinutes": 8,
+        "steps": [
+          "Edit the newly created link in the dashboard.",
+          "Set the required permission level (e.g., 'Agent View Only').",
+          "Save changes to enforce the access policy."
+        ]
+      },
+      {
+        "title": "Workflow Integration Test",
+        "estMinutes": 12,
+        "steps": [
+          "Share the short URL with a test agent in your coordination environment.",
+          "Confirm the receiving agent can successfully resolve the link and view the content.",
+          "Test access restrictions by attempting to modify the link with a restricted agent."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-urls",
+      "skill-coordination",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Basic understanding of URL structure.",
+      "An active Moonbooth account.",
+      "Familiarity with a simple agent coordination concept."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-24T20:11:42.053Z"
+  },
+  {
+    "id": "course-ultracite-linter-and-formatter-for-agentic-development",
+    "toolSlug": "ultracite-linter-and-formatter-for-agentic-development",
+    "title": "Master Ultracite: Linter and Formatter for Agentic Development",
+    "objectives": [
+      "Configure Ultracite for a specific agent framework (e.g., AutoGen, CrewAI).",
+      "Apply and resolve common agentic pattern violations (e.g., overly broad tool invocation).",
+      "Integrate Ultracite into a CI/CD pipeline for automated pre-commit checks."
+    ],
+    "modules": [
+      {
+        "title": "Setting up Framework-Specific Rules",
+        "estMinutes": 15,
+        "steps": [
+          "Locate your project's `ultracite.config.yml`.",
+          "Define a `framework_profile` matching your agent (e.g., `autogen_strict`).",
+          "Run `ultracite init --profile autogen_strict` in the root directory."
+        ]
+      },
+      {
+        "title": "Fixing Agentic Code Issues",
+        "estMinutes": 20,
+        "steps": [
+          "Run `ultracite check` on a failing agent script.",
+          "Use `ultracite fix --auto` to resolve simple formatting and redundant prompt syntax.",
+          "Manually review warnings related to 'Context Leakage' and adjust prompt scoping."
+        ]
+      },
+      {
+        "title": "CI/CD Integration",
+        "estMinutes": 10,
+        "steps": [
+          "Add `ultracite lint` as a mandatory step in your `.github/workflows/ci.yml`.",
+          "Configure the pipeline to fail immediately upon finding errors (exit code check).",
+          "Test the pipeline locally using `ultracite lint --fail-on-error`."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-linter",
+      "skill-formatter",
+      "skill-agentic"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-24T20:11:42.053Z"
+  },
+  {
+    "id": "course-agentbadge",
+    "toolSlug": "agentbadge",
+    "title": "Master Agentbadge",
+    "objectives": [
+      "Integrate Agentbadge into an existing AI coding agent workflow.",
+      "Analyze the readiness score and interpret its components.",
+      "Implement feedback loops based on Agentbadge diagnostics to improve agent performance."
+    ],
+    "modules": [
+      {
+        "title": "Basic Agentbadge Setup and Scoring",
+        "estMinutes": 15,
+        "steps": [
+          "Install the Agentbadge CLI/library into your agent project.",
+          "Run the initial readiness scan against a sample code task.",
+          "Examine the resulting JSON output to identify the overall 0-100 score."
+        ]
+      },
+      {
+        "title": "Interpreting Readiness Factors",
+        "estMinutes": 20,
+        "steps": [
+          "Review the detailed breakdown (e.g., Planning Cohesion, Tool Utilization) for your low-scoring areas.",
+          "Compare the metrics against the documentation thresholds for 'Ready' vs. 'Needs Refinement'.",
+          "Identify the top two lowest-scoring sub-metrics for focused iteration."
+        ]
+      },
+      {
+        "title": "Actionable Improvement Loop",
+        "estMinutes": 25,
+        "steps": [
+          "Modify a specific agent component (e.g., prompt structure or tool invocation logic) targeting the weakest sub-metric.",
+          "Rerun Agentbadge on the modified agent and track the score delta.",
+          "Repeat the scan and refinement cycle until the target readiness threshold (e.g., 85+) is met."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai",
+      "skill-coding",
+      "skill-agent",
+      "skill-readiness"
+    ],
+    "prerequisites": [
+      "Familiarity with AI coding agents (e.g., using LangChain/AutoGen).",
+      "Intermediate knowledge of CLI/API integration in your primary development language.",
+      "A working, testable AI coding agent setup."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-24T20:11:42.053Z"
+  },
+  {
+    "id": "course-ai-vtuber-toolkit",
+    "toolSlug": "ai-vtuber-toolkit",
+    "title": "Master ai-vtuber-toolkit",
+    "objectives": [
+      "Integrate face tracking with the live VTuber model in the toolkit.",
+      "Configure the AI voice engine for low-latency speech-to-audio output.",
+      "Set up automated reaction triggers based on recognized in-stream events."
+    ],
+    "modules": [
+      {
+        "title": "Face Tracking Setup",
+        "estMinutes": 15,
+        "steps": [
+          "Connect webcam to the 'Input Sources' tab.",
+          "Select desired tracking model (e.g., ARKit/MediaPipe) and calibrate parameters.",
+          "Verify real-time model movement matches facial expressions."
+        ]
+      },
+      {
+        "title": "AI Voice Configuration",
+        "estMinutes": 20,
+        "steps": [
+          "Select pre-trained voice profile from the 'Voice Engine' panel.",
+          "Input a short test script and adjust latency threshold to <100ms.",
+          "Route AI output directly to the stream audio mixer."
+        ]
+      },
+      {
+        "title": "Auto Reaction Triggering",
+        "estMinutes": 18,
+        "steps": [
+          "Define an event (e.g., Super Chat received) in the 'Event Manager'.",
+          "Map the event to a specific pre-defined VTuber reaction animation file.",
+          "Test the trigger by simulating the defined stream event."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-vtuber",
+      "skill-avatar",
+      "skill-ai voice",
+      "skill-live streaming"
+    ],
+    "prerequisites": [
+      "Basic familiarity with streaming software (OBS/Streamlabs).",
+      "A configured 3D VTuber model file (e.g., VRM).",
+      "Access and setup of the ai-vtuber-toolkit software."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-24T20:11:42.053Z"
+  },
+  {
+    "id": "course-stream-clips-ai",
+    "toolSlug": "stream-clips-ai",
+    "title": "Master stream-clips-ai",
+    "objectives": [
+      "Automate clip detection using stream-clips-ai configuration",
+      "Implement webhook triggering for immediate clip sharing",
+      "Fine-tune AI settings for optimal clip quality and length"
+    ],
+    "modules": [
+      {
+        "title": "Basic Setup & Detection Configuration",
+        "estMinutes": 15,
+        "steps": [
+          "Configure `stream-clips-ai` with your streaming source URL (e.g., Twitch/YouTube RTMP).",
+          "Set the target clip duration range (e.g., 30-90 seconds) in the config file.",
+          "Run the tool in monitor mode to confirm automatic clip segmentation."
+        ]
+      },
+      {
+        "title": "Webhook Integration for Automation",
+        "estMinutes": 20,
+        "steps": [
+          "Register a unique endpoint (e.g., Zapier/Discord webhook) to receive clip notifications.",
+          "Update the `stream-clips-ai` config to point the output action to this webhook URL.",
+          "Test a live segment to verify the webhook payload is successfully delivered upon clip completion."
+        ]
+      },
+      {
+        "title": "AI Tuning and Post-Processing",
+        "estMinutes": 15,
+        "steps": [
+          "Adjust the AI sensitivity/score threshold within the configuration for more/fewer candidates.",
+          "Define preferred output formats (e.g., MP4 with specific bitrate) in the settings.",
+          "Execute a simulated run, reviewing the generated clip metadata vs. the AI confidence scores."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-streaming",
+      "skill-clipper",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Familiarity with command-line interfaces (CLI).",
+      "Basic understanding of streaming platforms (Twitch/YouTube).",
+      "Access to a webhook testing service (e.g., RequestBin, Zapier)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-24T20:11:42.053Z"
+  },
+  {
+    "id": "course-subtitles-studio-ai",
+    "toolSlug": "subtitles-studio-ai",
+    "title": "Master subtitles-studio-ai",
+    "objectives": [
+      "Import a video file into Subtitles Studio AI.",
+      "Generate accurate AI subtitles from the video.",
+      "Export the final subtitle file (SRT format)."
+    ],
+    "modules": [
+      {
+        "title": "Video Import and Setup",
+        "estMinutes": 5,
+        "steps": [
+          "Click 'Import Media' and select your video file (MP4 recommended).",
+          "Verify the tool recognizes the audio track."
+        ]
+      },
+      {
+        "title": "AI Transcription Generation",
+        "estMinutes": 8,
+        "steps": [
+          "Click 'Generate Subtitles' and select your preferred language.",
+          "Wait for the AI processing bar to reach 100%."
+        ]
+      },
+      {
+        "title": "Review and Export",
+        "estMinutes": 5,
+        "steps": [
+          "Use the built-in editor to correct any AI timing or errors.",
+          "Click 'Export' and save the file as .srt for use in any player."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-subtitles",
+      "skill-ai",
+      "skill-video",
+      "skill-automation"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-24T20:11:42.053Z"
+  },
+  {
+    "id": "course-clip-cutter-ai",
+    "toolSlug": "clip-cutter-ai",
+    "title": "Master clip-cutter-ai",
+    "objectives": [
+      "Automate clip selection using AI prompts",
+      "Refine AI-generated cuts with manual adjustments",
+      "Export optimized, short-form video segments"
+    ],
+    "modules": [
+      {
+        "title": "AI Initial Cut Generation",
+        "estMinutes": 10,
+        "steps": [
+          "Upload source video to the clip-cutter-ai interface.",
+          "Input a specific prompt (e.g., 'highlight key product features' or 'extract best interview soundbites').",
+          "Review the initial AI-generated timeline segments."
+        ]
+      },
+      {
+        "title": "Fine-Tuning and Editing",
+        "estMinutes": 15,
+        "steps": [
+          "Manually trim the start/end points of any overly long or short AI clips.",
+          "Use the 're-prompt' function on a segment if the AI misinterpreted the context.",
+          "Arrange and reorder the resulting clips for optimal narrative flow."
+        ]
+      },
+      {
+        "title": "Exporting for Platforms",
+        "estMinutes": 5,
+        "steps": [
+          "Select desired output aspect ratios (e.g., 9:16 for Reels/TikTok).",
+          "Configure final settings (resolution, bitrate) in the export panel.",
+          "Generate and download the finalized, optimized short-form video file."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-video",
+      "skill-cutting",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Familiarity with video editing concepts (cuts, aspect ratios)",
+      "Access and basic navigation of the clip-cutter-ai platform"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-24T20:11:42.053Z"
   }
 ]
