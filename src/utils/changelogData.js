@@ -7,6 +7,11 @@
 // SHIPPED — pulled from that day's real commit, not invented.
 export const CHANGELOG = [
   {
+    date: '2026-11-24',
+    title: 'Filter by how your data is handled',
+    body: "Discover now has a privacy toggle — switch it on to show only tools that are local-first, self-hosted, on-device, or carry a clear no-training guarantee, instead of having to open each tool's page to find out.",
+  },
+  {
     date: '2026-11-23',
     title: "See what's coming next",
     body: "The changelog only ever looked backward — now there's a \"What's next\" section below it, a plain-language roadmap of what we're building next. No dates, no promises, just the order we're working through.",
