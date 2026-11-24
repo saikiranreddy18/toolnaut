@@ -2573,6 +2573,59 @@ a client-side SPA with a static tool catalogue.
   points specifically, the exact two signals Toolnaut's own radar already
   discards) but adds no new mechanism beyond what "Smallest useful version"
   already scopes — not expanding the plan, just stronger evidence for it.
+- **Re-verified 2026-11-24 06:03 UTC:** this was again the single stalest
+  OPEN entry (last touched 2026-11-19 12:03, 5 days). Re-read every cited
+  file against current `master`, zero drift on the pipeline side:
+  `radar/sources/github.js:9` still `sort=stars&order=desc`, line 25 still
+  `raw: { stars: repo.stargazers_count, ... }`; `radar/sources/
+  hackernews.js:27` still `raw: { points: hit.points, ... }`;
+  `radar/enrich.js`'s two builders (`enrichFallback:108`,
+  `normalizeEnriched:135`) still only read `candidate.raw?.owner` (into
+  `dev`, lines 127/155), never `stars`/`points`; `radar/schema.js`'s
+  `HASHED_FIELDS`/`REQUIRED_TOOL_FIELDS`/`makeToolRecord` (lines
+  49/52/54) still have no `popularity` field; `radar/scripts/
+  sync-to-app.js`'s `FIELDS` allowlist (line 12) is still the same 16
+  names. One citation drift: the 11-19 note's `Discover.jsx` sort-pill
+  array is named `SORTS`, not `SORT_OPTIONS`, and sits at lines 27-31 (not
+  29-31) — a transcription slip in that note, not a code change (`grep -n
+  SORT_OPTIONS src/pages/app/Discover.jsx` is zero hits; the array has
+  always been `SORTS`). The `newest`/`name` branches this plan would add a
+  third line next to are confirmed at `Discover.jsx:136-137`.
+
+  **Real deepening, not just re-verification:** a second, independent part
+  of the app hit this exact missing field since the last check and had to
+  work around it. `src/utils/prominence.js` (added in the MCP-servers-page
+  commit `643740c`, unrelated to this gap) is now the shared tiebreak
+  behind `matchScore()` everywhere personalization ranks tools —
+  `Discover.jsx:125` (`match` sort, the default), `Favorites.jsx:59`,
+  `Stack.jsx` (empty-state starters), `personaGenerator.js` (the 3-tool
+  starter stack), and `stackAudit.js` (swap suggestions, weighting
+  `starterScore` at 30% of its rank). Its own header comment says why it
+  exists: "The source data has no popularity signal, so this small
+  curated list keeps a fresh user's picks full of names they'll actually
+  recognise" (`prominence.js:21-23`, repeated at `:102-104`). `FLAGSHIP`
+  is a hand-maintained list of exactly 5 names per domain (30 total,
+  `prominence.js:24-31`) — any tool outside that list, including every
+  radar-discovered one, gets zero prominence bonus from `starterScore()`
+  and falls through to `looksLikeAProduct()` then alphabetical order
+  (`prominence.js:37-48,77-95`). That is the same gap this entry already
+  described for `Discover`'s missing "popular" sort pill, just hit a
+  second time by the ranking engine itself rather than by a user-facing
+  sort control — and it can't be solved the same curated-list way at
+  scale, since radar adds tools daily that no hand-maintained list will
+  ever include.
+
+  This sharpens "why it matters" (two independently-discovered symptoms of
+  one missing field, not one) and gives the eventual build a second,
+  smaller wiring point once `popularity` exists: `starterScore()`
+  (`prominence.js:37-48`) could add a small bonus for a real stars/points
+  value on non-flagship tools, so a radar-discovered tool with real
+  traction stops being indistinguishable from one with none the moment it
+  falls outside the curated list — a follow-up once the field exists, same
+  "not this build" framing this entry already applies to the alerts-copy
+  and star-badge follow-ups. Still OPEN, still Build size S, plan
+  unchanged; this is new corroborating evidence and one sharper pointer at
+  a second consumer, not a change to what to actually build first.
 
 ---
 
@@ -16924,3 +16977,40 @@ sub-note above for the full record.
 **No separate new competitor/problem-area research this pass** — the hour
 went to the re-verification and its one corroborating lead above; no
 independent new problem area was studied.
+
+### Research check 2026-11-24 06:03 UTC — re-verified the true stalest OPEN entry ("Popularity signal discarded before it reaches a record"), found a genuine second consumer of the missing field since the last check
+
+Scheduled run, UTC hour 06 (a research slot). `npm ci` clean (201 packages).
+Urgent-work checks first: `list_workflow_runs` on `master` — latest `Radar`
+run (`994ea5d`) completed successfully, latest `CI`/`Release` pushes both
+green, no red condition on master. `npm run radar:health` → `STATUS: OK`
+(2 runs in the 26h window, last publish 32m ago, 5 tools published that
+run, feed at 652 tools). `list_issues` for `agent-fixable`: zero open. So
+the hour went to backlog work.
+
+**Re-verified the true stalest OPEN entry:** sorted every OPEN entry's
+latest dated note; "Popularity signal discarded before it reaches a
+record" (last touched 2026-11-19 12:03) was still the sole stalest, 5 days
+untouched. Re-checked every cited file against current `master` — the
+radar-pipeline side is byte-for-byte unchanged (`github.js:9,25`,
+`hackernews.js:27`, `enrich.js:108/127/135/155`, `schema.js:49/52/54`,
+`sync-to-app.js:12`), and found one small transcription drift in the prior
+note (`Discover.jsx`'s sort array is `SORTS`, not `SORT_OPTIONS`, at
+lines 27-31 not 29-31) — corrected in place. See the entry's own new
+sub-note for the full record.
+
+**Genuine deepening, not a clean re-verify:** `src/utils/prominence.js`
+shipped since the last check (unrelated commit, the MCP-servers page) and
+is now the shared tiebreak behind every personalization ranking path in
+the app (`Discover`'s default sort, `Favorites`, `Stack`'s starters,
+`personaGenerator`, `stackAudit`'s swap suggestions) — its own comments
+say twice, verbatim, that it exists *because* "the source data has no
+popularity signal." That's independent, first-party evidence the missing
+field is already costing the product a second time, in a place a user
+never sees a sort pill for, and it points at a second, smaller wiring
+spot (`starterScore()`) for whoever eventually builds this. Folded into
+the entry rather than logged separately, since it's the same gap, not a
+new one.
+
+**No separate new competitor/problem-area research this pass** — the hour
+went to this deepening; no independent new problem area was studied.
