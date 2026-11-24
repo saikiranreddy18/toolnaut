@@ -8,6 +8,7 @@ import { loadRecentlyViewed } from '../../state/recentlyViewedStore'
 import { loadStreak, daysSinceLastVisit } from '../../state/streakStore'
 import { matchesQuery } from '../../utils/search'
 import { getFacetCounts } from '../../utils/facetCounts'
+import { isPrivacyConscious } from '../../utils/privacySignal'
 import { compareByNewest, compareByName } from '../../utils/sortResults'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
@@ -68,6 +69,7 @@ export default function Discover() {
   const cat = searchParams.get('cat') || ''
   const price = searchParams.get('price') || ''
   const level = searchParams.get('level') || ''
+  const privacy = searchParams.get('privacy') || ''
   const sort = searchParams.get('sort') || 'match'
   // Search is counted once per visit, not once per keystroke.
   const searchedRef = useRef(false)
@@ -129,6 +131,7 @@ export default function Discover() {
         (!cat || tool.category === cat) &&
         (!price || tool.price === price) &&
         (!level || tool.level === level) &&
+        (!privacy || isPrivacyConscious(tool)) &&
         matchesQuery(tool, q),
       )
       .map((tool) => ({ ...tool, score: matchScore(tool, answers) }))
@@ -141,7 +144,7 @@ export default function Discover() {
     // The baseline is fixed and scores now spread, but prominence still
     // breaks the genuine ties.
     return scored.sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || tieBreak(a, b))
-  }, [q, cat, price, level, sort, answersKey, tieBreak])
+  }, [q, cat, price, level, privacy, sort, answersKey, tieBreak])
 
   // Lets every filter pill show how many results it leads to before it's
   // clicked, instead of a blind guess-and-check loop against the grid below.
@@ -149,12 +152,12 @@ export default function Discover() {
   // "All" shows the query-only count (facets cleared), matching what clicking it does.
   const allCount = useMemo(() => TOOLS.filter((t) => matchesQuery(t, q)).length, [q])
 
-  const hasFilters = !!(q || cat || price || level)
+  const hasFilters = !!(q || cat || price || level || privacy)
 
   // Paging is derived, not an effect: storing the filter signature alongside
   // the count resets the page during the same render that changes the filters,
   // so a new result set never flashes the previous page length first.
-  const filterKey = `${q}|${cat}|${price}|${level}|${sort}`
+  const filterKey = `${q}|${cat}|${price}|${level}|${privacy}|${sort}`
   const [page, setPage] = useState({ key: filterKey, count: PAGE_SIZE })
   const visibleCount = page.key === filterKey ? page.count : PAGE_SIZE
   const visible = results.slice(0, visibleCount)
@@ -327,6 +330,9 @@ export default function Discover() {
             {label}
           </Pill>
         ))}
+        <Pill active={!!privacy} onClick={() => setParam('privacy', privacy ? '' : '1')}>
+          🔒 Privacy-conscious
+        </Pill>
       </div>
 
       {results.length === 0 ? (
@@ -336,7 +342,7 @@ export default function Discover() {
           <h2 className="arcade-heading section text-xl sm:text-2xl">No tools match</h2>
           <p className="mt-3 max-w-md text-sm text-zinc-400">
             {q ? <>Nothing in the catalog matches “<span className="font-bold text-white">{q}</span>”</> : 'Nothing matches these filters'}
-            {(cat || price || level) && ' with the filters you have on'}. Try a
+            {(cat || price || level || privacy) && ' with the filters you have on'}. Try a
             broader search, or jump into a category that has tools waiting:
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
