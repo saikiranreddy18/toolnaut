@@ -12351,6 +12351,40 @@ detail. No code changed this run — the backlog edit is the only diff.
   what the product actually does ("Fresh finds" or similar cadence-neutral
   wording) rather than a cadence ("Weekly") the one shipped mechanism never
   uses.
+- **Re-verified 2026-11-24 09:11 UTC:** true stalest OPEN entry (last
+  touched 2026-11-19 15:03 UTC, 4.9 days — the "Track progress against your
+  role" entry's own last note is 2026-11-19 21:04 UTC, six hours later the
+  same day, confirmed by re-reading both). Checked every citation against
+  current `master`: `api/*.js` (excluding `_`-prefixed helpers) is still
+  exactly 11 route files — `account-delete`, `alerts-send`,
+  `alerts-unsubscribe`, `alerts`, `chat`, `create-order`, `entitlement`,
+  `geo`, `metrics`, `razorpay-webhook`, `verify-payment` — so the "one slot
+  left under Vercel Hobby's 12-function cap" framing still holds exactly.
+  `FeaturesSection.jsx:11` still carries the "Weekly fresh finds ...
+  delivered in one scannable digest" line verbatim. `api/alerts-send.js`'s
+  header comment and its subscriber query (still no `confirmed` filter, line
+  101) are unchanged. `supabase/migrations/` still ends at `0010_saved_
+  limit.sql` — `0011` is still the next free number, and
+  `alert_subscribers` still has no `confirmed` column. `sendEmail()` is
+  still exported from `_mail.js` and still shared by exactly
+  `alerts-send.js` and `account-delete.js` (not `_accountDeletion.js` — that
+  file doesn't exist; the entry's own naming was already correct, this pass
+  just double-checked after momentarily mistyping it). One real line-number
+  drift in `ContactSection.jsx`: the social-icon `<ul>` is now `82-104`
+  (was `79-101`), the "count tools · catalogue updated" line is now `:107`
+  (was `:105`), and the `mailto:` link moved from `:153` to `:155-156` —
+  all one-line-type shifts from unrelated edits above, nothing structural;
+  the proposed mount point (between the social row and the count line) is
+  unchanged. **One fresh lead, doesn't change the plan:** TAAFT's own
+  newsletter has since published a "2,000,000: An Achievement to Remember"
+  post (newsletter.theresanaiforthat.com) — a primary-sourced *lower*
+  figure than the "~2.5M-subscriber newsletter" line this project's own
+  `comparisons.js:13` currently quotes. That's a separate, minor copy-
+  accuracy question about an unrelated file (TAAFT comparison marketing
+  copy), not this entry's email-capture build, so it's noted here rather
+  than acted on — fixing `comparisons.js`'s number is a one-line follow-up
+  for whoever next touches that file, not part of this gap's scope. Still
+  OPEN, still Build size M, still unbuilt.
 
 ---
 
@@ -17014,3 +17048,58 @@ new one.
 
 **No separate new competitor/problem-area research this pass** — the hour
 went to this deepening; no independent new problem area was studied.
+
+### Research check 2026-11-24 09:11 UTC — re-verified the true stalest OPEN entry ("No public email capture anywhere on the marketing site"), one fresh lead flags unrelated copy drift rather than changing the plan
+
+Scheduled run, UTC hour 09 (a research slot). `npm ci` clean (201
+packages, 10 known audit advisories unchanged). Urgent-work checks first:
+`list_workflow_runs` on `master` shows `ci.yml` and `release.yml` both
+green at HEAD (`6816336`, the 06:03 UTC pass's own commit) — no CI-red
+condition. `npm run radar:health` → `STATUS: OK` (2 runs in the 26h
+window, last publish 3.5h ago, 5 tools published that run, feed at 652
+tools). `list_issues` for `agent-fixable`: zero open. Also ran all three
+local gates directly as a sanity check beyond the usual urgent-work scan
+(`npm test`: 327/327 pass; `npm run build`: clean, 29 routes + 1310 tool
+pages + sitemap; `npm run smoke`: all 30 routes render with 0 console
+errors) — all green, confirming there was nothing to fix before the hour
+went to backlog work.
+
+**Re-verified the true stalest OPEN entry:** the last three passes today
+(00:03, 03:03, 06:03) each re-verified one of the five entries tied at
+2026-11-19, leaving two from that original tied group — "Track progress
+against your role" (last touched 2026-11-19 21:04 UTC) and "No public
+email capture anywhere on the marketing site" (last touched 2026-11-19
+15:03 UTC) — the latter six hours earlier in the day, so the sole true
+stalest. Re-ran every cited claim against current `master`: `api/*.js`
+(excluding `_`-prefixed helpers) is still exactly the same 11 route files,
+so the "one function slot left under Vercel Hobby's 12 cap" framing still
+holds precisely; `FeaturesSection.jsx:11`'s "Weekly fresh finds ...
+delivered in one scannable digest" line is unchanged; `alerts-send.js`'s
+subscriber query still has no `confirmed` filter; `supabase/migrations/`
+still ends at `0010`, so `0011` is still free; `sendEmail()` is still
+shared by exactly `alerts-send.js` and `account-delete.js`. Found one
+real line-number drift in `ContactSection.jsx` (social row, the "count
+tools" line, and the `mailto:` link each shifted a couple of lines from
+unrelated edits above) and corrected it in place — the proposed mount
+point between the social row and the count line is unchanged. See the
+entry's own new sub-note for the full record.
+
+**One fresh lead, doesn't change the plan:** searched for an updated
+newsletter-subscriber figure for There's An AI For That, the entry's own
+primary example. TAAFT's own newsletter has since published a
+"2,000,000: An Achievement to Remember" post — a primary-sourced number
+lower than the "~2.5M-subscriber newsletter" line this project's own
+`src/content/comparisons.js:13` currently quotes in its TAAFT comparison
+copy. That's a real drift, but in an unrelated file's marketing copy, not
+in anything this entry's email-capture build touches — noted on the entry
+as a one-line follow-up for whoever next edits `comparisons.js`, not acted
+on here, to keep this pass's diff at zero code changes.
+
+**No separate new competitor/problem-area research this pass beyond the
+one lead above** — a broader search for a genuinely new AI-directory
+feature (one search covering 2026 "AI tool finder" launches, personalization
+and comparison trends) returned only SEO-listicle coverage of already-
+familiar directories (TAAFT, Futurepedia, Toolify, Future Tools) and one
+vague "re-testing tools, tracking shutdowns" pattern that is the same
+shape as this file's own already-OPEN catalog-re-check entry — nothing
+survived as a distinct new gap, so nothing new was logged.
