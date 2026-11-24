@@ -40960,5 +40960,245 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-23T21:28:19.942Z"
+  },
+  {
+    "id": "course-outloud-reader",
+    "toolSlug": "outloud-reader",
+    "title": "Master Outloud Reader",
+    "objectives": [
+      "Set up Outloud Reader for the first time.",
+      "Capture a clear image of a physical page.",
+      "Listen to the digitized text using the reader."
+    ],
+    "modules": [
+      {
+        "title": "Initial Setup",
+        "estMinutes": 5,
+        "steps": [
+          "Install the Outloud Reader app on your mobile device.",
+          "Grant necessary camera and storage permissions within the app settings."
+        ]
+      },
+      {
+        "title": "Capturing Text",
+        "estMinutes": 8,
+        "steps": [
+          "Open the app and tap the 'Scan' or 'Capture' button.",
+          "Position the camera directly over the text in good, even lighting.",
+          "Confirm the scan is captured and preview the resulting digital page."
+        ]
+      },
+      {
+        "title": "Listening to Content",
+        "estMinutes": 7,
+        "steps": [
+          "Select the newly scanned page from your library.",
+          "Tap the 'Play' or 'Listen' icon associated with the text.",
+          "Use the on-screen controls to pause, skip, or adjust playback speed."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-text-to-speech",
+      "skill-OCR",
+      "skill-reading",
+      "skill-mobile"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-24T05:31:47.026Z"
+  },
+  {
+    "id": "course-humanizer-and-ai-text-detection-tools",
+    "toolSlug": "humanizer-and-ai-text-detection-tools",
+    "title": "Master Humanizer and AI-text detection tools",
+    "objectives": [
+      "Differentiate between AI-generated patterns and natural human writing.",
+      "Apply targeted rephrasing to bypass basic AI detection flags.",
+      "Use detection tools for quality assurance, not just plagiarism checking."
+    ],
+    "modules": [
+      {
+        "title": "Analyzing AI Signatures",
+        "estMinutes": 15,
+        "steps": [
+          "Run a sample AI text through two different detection tools (e.g., GPTZero, Originality.ai).",
+          "Identify recurring markers like overly formal transitions or predictable sentence structures."
+        ]
+      },
+      {
+        "title": "Tactical Humanization",
+        "estMinutes": 20,
+        "steps": [
+          "Replace passive voice constructions with active verbs in a 150-word text block.",
+          "Inject personal anecdote or colloquial phrasing into existing, sterile paragraphs."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-writing",
+      "skill-ai-detection",
+      "skill-humanizer",
+      "skill-content"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-24T05:31:47.026Z"
+  },
+  {
+    "id": "course-an-on-device-ai-agent-for-android",
+    "toolSlug": "an-on-device-ai-agent-for-android",
+    "title": "Master An on-device AI agent for Android",
+    "objectives": [
+      "Integrate an on-device ML model into an Android project.",
+      "Implement local inference using the Android NNAPI.",
+      "Handle asynchronous results for AI agent interactions within an Activity."
+    ],
+    "modules": [
+      {
+        "title": "Model Integration via Android Studio",
+        "estMinutes": 15,
+        "steps": [
+          "Add the TFLite model file to the 'assets' folder.",
+          "Use Android's AssetManager to load the model byte array in a Kotlin class."
+        ]
+      },
+      {
+        "title": "NNAPI Acceleration Setup",
+        "estMinutes": 20,
+        "steps": [
+          "Initialize the Android Neural Networks API (NNAPI) delegate for TFLite.",
+          "Configure the Interpreter builder to prioritize NNAPI execution over CPU fallback."
+        ]
+      },
+      {
+        "title": "Asynchronous Inference Handling",
+        "estMinutes": 25,
+        "steps": [
+          "Wrap model input/output preparation in a Coroutine scope.",
+          "Call interpreter.run() within 'withContext(Dispatchers.IO)' and observe the result on the Main thread."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-android",
+      "skill-on-device",
+      "skill-agent",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Intermediate knowledge of Kotlin and Android Lifecycle.",
+      "Basic understanding of TensorFlow Lite (TFLite) model structure."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-24T05:31:47.026Z"
+  },
+  {
+    "id": "course-merget",
+    "toolSlug": "merget",
+    "title": "Master Merget",
+    "objectives": [
+      "Configure Merget to track a specific GitHub repository.",
+      "Analyze a PR queue state using Merget's reporting.",
+      "Execute a merge operation based on Merget's recommended queue order."
+    ],
+    "modules": [
+      {
+        "title": "Repository Setup and Connection",
+        "estMinutes": 10,
+        "steps": [
+          "Run `merget init --repo OWNER/REPO_NAME` in your terminal.",
+          "Authenticate Merget via the provided GitHub OAuth flow.",
+          "Verify connection status using `merget status`."
+        ]
+      },
+      {
+        "title": "Queue Analysis and Conflict Identification",
+        "estMinutes": 15,
+        "steps": [
+          "Generate the current queue report: `merget analyze --output json > queue.json`.",
+          "Inspect `queue.json` for flagged conflicts or blocked PRs.",
+          "Use `merget report --filter BLOCK_REASON` to isolate problematic merges."
+        ]
+      },
+      {
+        "title": "Executing a Safe Merge",
+        "estMinutes": 10,
+        "steps": [
+          "Identify the top-priority PR ID from the analysis report.",
+          "Execute the targeted merge: `merget merge PR_ID --strategy REBASE`.",
+          "Confirm merge completion and update the queue state: `merget sync`."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-github",
+      "skill-pr",
+      "skill-static_analysis",
+      "skill-devops"
+    ],
+    "prerequisites": [
+      "Familiarity with GitHub Pull Request workflows.",
+      "Basic command-line proficiency (CLI).",
+      "A target GitHub repository accessible by the user."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-24T05:31:47.026Z"
+  },
+  {
+    "id": "course-gal",
+    "toolSlug": "gal",
+    "title": "Master Gal",
+    "objectives": [
+      "Configure Gal with custom per-call permissions.",
+      "Execute a multi-step workflow utilizing Gal's rollback feature.",
+      "Inspect the execution log to verify permission enforcement."
+    ],
+    "modules": [
+      {
+        "title": "Setting Per-Call Permissions",
+        "estMinutes": 15,
+        "steps": [
+          "Edit the `gal.config` file to define a resource-specific permission scope (e.g., 'read_only_api').",
+          "Define an agent task in your workflow requiring this specific scope.",
+          "Run the workflow with the agent and confirm the permission check passes locally."
+        ]
+      },
+      {
+        "title": "Implementing Rollback on Failure",
+        "estMinutes": 20,
+        "steps": [
+          "Develop a two-step workflow: Step 1 (Write) followed by Step 2 (Verify).",
+          "Introduce a simulated failure condition in Step 2 (e.g., invalid data input).",
+          "Execute the workflow and verify that Gal automatically reverts any state changes made by Step 1."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agent",
+      "skill-local-first",
+      "skill-runtime",
+      "skill-permissions"
+    ],
+    "prerequisites": [
+      "Basic familiarity with command-line environments.",
+      "Understanding of local-first agent concepts (e.g., context, state)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-24T05:31:47.026Z"
   }
 ]

@@ -34876,5 +34876,62 @@
     "enrichedBy": "fallback:rules",
     "lifecycle": "in_review",
     "version": 1
+  },
+  {
+    "slug": "internal-changelogs-unlock-autonomous-coding-agents",
+    "name": "Internal Changelogs unlock autonomous coding agents",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Internal Changelogs unlock autonomous coding agents",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://rallywith.ai/blog/internal-changelogs/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "code",
+      "agent"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=50620060",
+    "discoveredAt": "2026-11-24T05:31:47.026Z",
+    "updatedAt": "2026-11-24T05:31:47.026Z",
+    "contentHash": "190afc49752eb771",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
+  },
+  {
+    "slug": "gpt-61-terra-circumvents-restrictions-in-a-controlled-evalua",
+    "name": "GPT-6.1 Terra circumvents restrictions in a controlled evaluation",
+    "category": "automation",
+    "sourceCategory": "Productivity & Meetings",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "GPT-6.1 Terra circumvents restrictions in a controlled evaluation",
+    "audience": "",
+    "dev": "",
+    "year": 2026,
+    "website": "https://www.crawlspider.com/pages/ai-agents-gone-rogue/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "automation"
+    ],
+    "source": "hackernews",
+    "sourceUrl": "https://news.ycombinator.com/item?id=50619988",
+    "discoveredAt": "2026-11-24T05:31:47.026Z",
+    "updatedAt": "2026-11-24T05:31:47.026Z",
+    "contentHash": "d3007fcc227d34d4",
+    "confidence": 0.6,
+    "enrichedBy": "fallback:rules",
+    "lifecycle": "in_review",
+    "version": 1
   }
 ]

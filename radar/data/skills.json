@@ -874,7 +874,8 @@
       "capcut-seedance-win",
       "substance-3d-sampler-win",
       "glasshour",
-      "gostudioai"
+      "gostudioai",
+      "outloud-reader"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -928,7 +929,8 @@
       "course-capcut-seedance-win",
       "course-substance-3d-sampler-win",
       "course-glasshour",
-      "course-gostudioai"
+      "course-gostudioai",
+      "course-outloud-reader"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1358,7 +1360,10 @@
       "aether",
       "truce",
       "wyrd-oss",
-      "i-built-a-spa-for-ai-agents"
+      "i-built-a-spa-for-ai-agents",
+      "an-on-device-ai-agent-for-android",
+      "merget",
+      "gal"
     ],
     "courses": [
       "course-headless-tools",
@@ -1708,7 +1713,10 @@
       "course-aether",
       "course-truce",
       "course-wyrd-oss",
-      "course-i-built-a-spa-for-ai-agents"
+      "course-i-built-a-spa-for-ai-agents",
+      "course-an-on-device-ai-agent-for-android",
+      "course-merget",
+      "course-gal"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2886,7 +2894,8 @@
       "public-beta-a-decision-governance-runtime-for-ai-agents",
       "apowerb",
       "nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
-      "railcall"
+      "railcall",
+      "gal"
     ],
     "courses": [
       "course-gibson-adk-and-zero-trust-runtime",
@@ -2894,7 +2903,8 @@
       "course-public-beta-a-decision-governance-runtime-for-ai-agents",
       "course-apowerb",
       "course-nvidia-openshell-safe-private-runtime-for-autonomous-ai-agen",
-      "course-railcall"
+      "course-railcall",
+      "course-gal"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3317,7 +3327,8 @@
       "ai-spar",
       "foolscap",
       "relic",
-      "prompt-upgrader"
+      "prompt-upgrader",
+      "humanizer-and-ai-text-detection-tools"
     ],
     "courses": [
       "course-try-to-beat-this-ai-writing-detector",
@@ -3353,7 +3364,8 @@
       "course-ai-spar",
       "course-foolscap",
       "course-relic",
-      "course-prompt-upgrader"
+      "course-prompt-upgrader",
+      "course-humanizer-and-ai-text-detection-tools"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4926,7 +4938,8 @@
       "verfy",
       "wyrd-oss",
       "gostudioai",
-      "i-built-a-spa-for-ai-agents"
+      "i-built-a-spa-for-ai-agents",
+      "an-on-device-ai-agent-for-android"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -4976,7 +4989,8 @@
       "course-verfy",
       "course-wyrd-oss",
       "course-gostudioai",
-      "course-i-built-a-spa-for-ai-agents"
+      "course-i-built-a-spa-for-ai-agents",
+      "course-an-on-device-ai-agent-for-android"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5064,7 +5078,9 @@
       "agent-guard",
       "an-interactive-lab-for-deterministic-ai-agent-authorization",
       "aether",
-      "verfy"
+      "verfy",
+      "an-on-device-ai-agent-for-android",
+      "gal"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -5086,7 +5102,9 @@
       "course-agent-guard",
       "course-an-interactive-lab-for-deterministic-ai-agent-authorization",
       "course-aether",
-      "course-verfy"
+      "course-verfy",
+      "course-an-on-device-ai-agent-for-android",
+      "course-gal"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5961,7 +5979,8 @@
       "opposable",
       "kryzz-ai",
       "an-open-source-harness-for-android-devs-in-the-terminal",
-      "aether"
+      "aether",
+      "an-on-device-ai-agent-for-android"
     ],
     "courses": [
       "course-devx",
@@ -5972,7 +5991,8 @@
       "course-opposable",
       "course-kryzz-ai",
       "course-an-open-source-harness-for-android-devs-in-the-terminal",
-      "course-aether"
+      "course-aether",
+      "course-an-on-device-ai-agent-for-android"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6340,7 +6360,8 @@
       "charter",
       "benchmark-coding-agents-on-deploying-apps",
       "r3",
-      "an-open-source-harness-for-android-devs-in-the-terminal"
+      "an-open-source-harness-for-android-devs-in-the-terminal",
+      "merget"
     ],
     "courses": [
       "course-propose-and-dual-control-for-dns-changes",
@@ -6350,7 +6371,8 @@
       "course-charter",
       "course-benchmark-coding-agents-on-deploying-apps",
       "course-r3",
-      "course-an-open-source-harness-for-android-devs-in-the-terminal"
+      "course-an-open-source-harness-for-android-devs-in-the-terminal",
+      "course-merget"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -8259,7 +8281,8 @@
       "verzeta-studio",
       "checkout-this-open-source-local-first-bioinformatics-ai-desk",
       "kryzz-ai",
-      "railcall"
+      "railcall",
+      "gal"
     ],
     "courses": [
       "course-datazen",
@@ -8275,7 +8298,8 @@
       "course-verzeta-studio",
       "course-checkout-this-open-source-local-first-bioinformatics-ai-desk",
       "course-kryzz-ai",
-      "course-railcall"
+      "course-railcall",
+      "course-gal"
     ],
     "updatedAt": "2026-08-29T14:30:52.619Z"
   },
@@ -9015,11 +9039,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "piqt-ios",
-      "aiope"
+      "aiope",
+      "an-on-device-ai-agent-for-android"
     ],
     "courses": [
       "course-piqt-ios",
-      "course-aiope"
+      "course-aiope",
+      "course-an-on-device-ai-agent-for-android"
     ],
     "updatedAt": "2026-08-30T23:53:08.057Z"
   },
@@ -9922,12 +9948,14 @@
     "toolsTeaching": [
       "tenux",
       "nomacapp",
-      "novus"
+      "novus",
+      "outloud-reader"
     ],
     "courses": [
       "course-tenux",
       "course-nomacapp",
-      "course-novus"
+      "course-novus",
+      "course-outloud-reader"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -10928,7 +10956,8 @@
       "ai-agents-zero-to-hero",
       "fantastic-canvas",
       "revix-ai",
-      "reflektor"
+      "reflektor",
+      "merget"
     ],
     "courses": [
       "course-memcode-launches-github-code-review",
@@ -10936,7 +10965,8 @@
       "course-ai-agents-zero-to-hero",
       "course-fantastic-canvas",
       "course-revix-ai",
-      "course-reflektor"
+      "course-reflektor",
+      "course-merget"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -12645,10 +12675,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "audiorealityai"
+      "audiorealityai",
+      "outloud-reader"
     ],
     "courses": [
-      "course-audiorealityai"
+      "course-audiorealityai",
+      "course-outloud-reader"
     ],
     "updatedAt": "2026-09-04T23:20:31.711Z"
   },
@@ -15341,10 +15373,12 @@
     "domain": "learning",
     "level": "beginner",
     "toolsTeaching": [
-      "briff"
+      "briff",
+      "outloud-reader"
     ],
     "courses": [
-      "course-briff"
+      "course-briff",
+      "course-outloud-reader"
     ],
     "updatedAt": "2026-09-09T23:30:23.231Z"
   },
@@ -20554,10 +20588,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "keydris-sudo-for-ai-agents"
+      "keydris-sudo-for-ai-agents",
+      "gal"
     ],
     "courses": [
-      "course-keydris-sudo-for-ai-agents"
+      "course-keydris-sudo-for-ai-agents",
+      "course-gal"
     ],
     "updatedAt": "2026-09-18T23:34:59.552Z"
   },
@@ -21144,10 +21180,12 @@
     "domain": "automation",
     "level": "beginner",
     "toolsTeaching": [
-      "hnwatch"
+      "hnwatch",
+      "humanizer-and-ai-text-detection-tools"
     ],
     "courses": [
-      "course-hnwatch"
+      "course-hnwatch",
+      "course-humanizer-and-ai-text-detection-tools"
     ],
     "updatedAt": "2026-09-29T15:55:26.286Z"
   },
@@ -24498,10 +24536,12 @@
     "domain": "code",
     "level": "intermediate",
     "toolsTeaching": [
-      "reflektor"
+      "reflektor",
+      "merget"
     ],
     "courses": [
-      "course-reflektor"
+      "course-reflektor",
+      "course-merget"
     ],
     "updatedAt": "2026-11-18T18:07:47.847Z"
   },
@@ -25180,5 +25220,57 @@
       "course-wyrd-oss"
     ],
     "updatedAt": "2026-11-23T21:28:19.942Z"
+  },
+  {
+    "id": "skill-OCR",
+    "name": "OCR",
+    "domain": "design",
+    "level": "beginner",
+    "toolsTeaching": [
+      "outloud-reader"
+    ],
+    "courses": [
+      "course-outloud-reader"
+    ],
+    "updatedAt": "2026-11-24T05:31:47.026Z"
+  },
+  {
+    "id": "skill-ai-detection",
+    "name": "ai detection",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "humanizer-and-ai-text-detection-tools"
+    ],
+    "courses": [
+      "course-humanizer-and-ai-text-detection-tools"
+    ],
+    "updatedAt": "2026-11-24T05:31:47.026Z"
+  },
+  {
+    "id": "skill-humanizer",
+    "name": "humanizer",
+    "domain": "writing",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "humanizer-and-ai-text-detection-tools"
+    ],
+    "courses": [
+      "course-humanizer-and-ai-text-detection-tools"
+    ],
+    "updatedAt": "2026-11-24T05:31:47.026Z"
+  },
+  {
+    "id": "skill-static_analysis",
+    "name": "static_analysis",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "merget"
+    ],
+    "courses": [
+      "course-merget"
+    ],
+    "updatedAt": "2026-11-24T05:31:47.026Z"
   }
 ]
