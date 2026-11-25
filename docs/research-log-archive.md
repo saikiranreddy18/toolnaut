@@ -6672,6 +6672,47 @@ Per the "never invent a gap to fill the hour" rule, appended nothing new to
 17 build-ready OPEN gaps to choose from.
 
 ---
+### Research check 2026-11-25 09:03 UTC — no new gap found, no demonstrable bug found
+
+Research run (UTC hour 09). CI green on master (latest run on `0c758d5`
+succeeded), radar health OK (2 runs in the 26h window, published 9 tools
+last run, feed at 669 tools), no open `agent-fixable` issues.
+
+Fresh angles studied this hour, both close out without surviving the
+evidence bar:
+- "Verified"/trust badges on AI-tool directories (two WebSearches): found a
+  real, recurring mechanism — Product Hunt's Toolverity and several newer
+  directories let a maker claim a listing by publishing a DNS TXT record,
+  meta tag, or file on their own domain, and G2's 2026 "AI Verified"
+  designation gates on 10+ reviewers confirming direct use. Checked this
+  against the already-OPEN "Vendor/maker claim-listing path" entry
+  (deepened 2026-10-06, re-verified 2026-11-18): that entry already
+  deliberately rejects any domain-verification *automation* in favor of a
+  GitHub-issue-only, human-triaged claim — explicitly matching the
+  industry's own fallback path for non-domain-matched claims, which is what
+  this pass's fresh search confirms is still the norm even where
+  DNS-token verification exists for the easy case. Nothing to add; the
+  existing plan's manual-triage shape is already the correct one for a
+  static SPA with no mailer.
+- 2026 AI-directory trend pieces (DEV Community, TrendHunter-style
+  listicles) — curation-over-volume messaging, usage-signal ranking, and
+  "trend radar" framing, all either generic marketing copy with no concrete
+  feature behind it, or already covered ground (usage signal ≈ the OPEN
+  "Popularity signal discarded" entry; submission path ≈ the already-shipped
+  "Suggest a tool" flow). No new, buildable, precedented gap surfaced.
+
+Also grepped `src/` and `radar/` for `TODO|FIXME|XXX` — zero hits. Spot-checked
+yesterday's privacy-facet ship (`fe846a3`) for an accessibility regression
+since it's the newest UI surface in the app: `Discover.jsx`'s `Pill`
+component sets `aria-pressed={active}` on every filter toggle including the
+new 🔒 pill — correct, no bug found.
+
+Per the "never invent a gap to fill the hour" rule, appended nothing new to
+`research-backlog.md` and made no code change. The feature run still has 17
+build-ready OPEN gaps to choose from.
+
+---
+
 ### Research check 2026-11-25 06:05 UTC — no new gap found, no demonstrable bug found
 
 Research run (UTC hour 06). CI green on master, radar health OK (3 runs in
