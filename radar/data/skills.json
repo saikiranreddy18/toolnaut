@@ -884,7 +884,10 @@
       "outloud-reader",
       "leonardo-ai",
       "luminar-ai",
-      "graphics-optimizer-ai"
+      "graphics-optimizer-ai",
+      "animama",
+      "pintura",
+      "lightroom-for-windows-and-macos"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -942,7 +945,10 @@
       "course-outloud-reader",
       "course-leonardo-ai",
       "course-luminar-ai",
-      "course-graphics-optimizer-ai"
+      "course-graphics-optimizer-ai",
+      "course-animama",
+      "course-pintura",
+      "course-lightroom-for-windows-and-macos"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1386,7 +1392,9 @@
       "ai-analytics-team-approved-agent-ready",
       "strukto-first-virtual-terminal-for-ai-agents",
       "dialpad",
-      "ai-game-coach"
+      "ai-game-coach",
+      "avva",
+      "eustella-europes-ai-agent"
     ],
     "courses": [
       "course-headless-tools",
@@ -1750,7 +1758,9 @@
       "course-ai-analytics-team-approved-agent-ready",
       "course-strukto-first-virtual-terminal-for-ai-agents",
       "course-dialpad",
-      "course-ai-game-coach"
+      "course-ai-game-coach",
+      "course-avva",
+      "course-eustella-europes-ai-agent"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3105,7 +3115,8 @@
       "senro",
       "an-mcp-server-for-searching-ai-engineering-jobs",
       "gatool",
-      "awesome-iran-mcp"
+      "awesome-iran-mcp",
+      "avva"
     ],
     "courses": [
       "course-coolplugz",
@@ -3147,7 +3158,8 @@
       "course-senro",
       "course-an-mcp-server-for-searching-ai-engineering-jobs",
       "course-gatool",
-      "course-awesome-iran-mcp"
+      "course-awesome-iran-mcp",
+      "course-avva"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3457,10 +3469,12 @@
     "domain": "writing",
     "level": "beginner",
     "toolsTeaching": [
-      "try-to-beat-this-ai-writing-detector"
+      "try-to-beat-this-ai-writing-detector",
+      "educational-os-fundamentals-interactive-tool"
     ],
     "courses": [
-      "course-try-to-beat-this-ai-writing-detector"
+      "course-try-to-beat-this-ai-writing-detector",
+      "course-educational-os-fundamentals-interactive-tool"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3870,7 +3884,8 @@
       "stayleet",
       "moodle-tool-human2human",
       "syncopate",
-      "shadowclone-skills-learned-from-your-coding-agent-correction"
+      "shadowclone-skills-learned-from-your-coding-agent-correction",
+      "educational-os-fundamentals-interactive-tool"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3928,7 +3943,8 @@
       "course-stayleet",
       "course-moodle-tool-human2human",
       "course-syncopate",
-      "course-shadowclone-skills-learned-from-your-coding-agent-correction"
+      "course-shadowclone-skills-learned-from-your-coding-agent-correction",
+      "course-educational-os-fundamentals-interactive-tool"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4807,7 +4823,8 @@
       "redcat-an-open-source-ai-agent-for-your-desktop",
       "agentmall",
       "agent-doctor",
-      "trix"
+      "trix",
+      "avva"
     ],
     "courses": [
       "course-launch-hn-vendo-yc-s26",
@@ -4851,7 +4868,8 @@
       "course-redcat-an-open-source-ai-agent-for-your-desktop",
       "course-agentmall",
       "course-agent-doctor",
-      "course-trix"
+      "course-trix",
+      "course-avva"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5006,7 +5024,10 @@
       "dialpad",
       "luminar-ai",
       "ai-game-coach",
-      "graphics-optimizer-ai"
+      "graphics-optimizer-ai",
+      "animama",
+      "eustella-europes-ai-agent",
+      "lightroom-for-windows-and-macos"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -5068,7 +5089,10 @@
       "course-dialpad",
       "course-luminar-ai",
       "course-ai-game-coach",
-      "course-graphics-optimizer-ai"
+      "course-graphics-optimizer-ai",
+      "course-animama",
+      "course-eustella-europes-ai-agent",
+      "course-lightroom-for-windows-and-macos"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5160,7 +5184,9 @@
       "an-on-device-ai-agent-for-android",
       "gal",
       "costcatch",
-      "agentbadge"
+      "agentbadge",
+      "pintura",
+      "eustella-europes-ai-agent"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -5186,7 +5212,9 @@
       "course-an-on-device-ai-agent-for-android",
       "course-gal",
       "course-costcatch",
-      "course-agentbadge"
+      "course-agentbadge",
+      "course-pintura",
+      "course-eustella-europes-ai-agent"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -7565,11 +7593,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "clipdrop-desktop-clipdrop-ai-tools-2026",
-      "luminar-ai"
+      "luminar-ai",
+      "lightroom-for-windows-and-macos"
     ],
     "courses": [
       "course-clipdrop-desktop-clipdrop-ai-tools-2026",
-      "course-luminar-ai"
+      "course-luminar-ai",
+      "course-lightroom-for-windows-and-macos"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -7822,10 +7852,12 @@
     "domain": "learning",
     "level": "beginner",
     "toolsTeaching": [
-      "trana"
+      "trana",
+      "animama"
     ],
     "courses": [
-      "course-trana"
+      "course-trana",
+      "course-animama"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -8301,11 +8333,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "slidex",
-      "agy-ppt"
+      "agy-ppt",
+      "pintura"
     ],
     "courses": [
       "course-slidex",
-      "course-agy-ppt"
+      "course-agy-ppt",
+      "course-pintura"
     ],
     "updatedAt": "2026-08-29T03:23:03.469Z"
   },
@@ -9804,7 +9838,8 @@
       "eliza-the-ai-that-fooled-the-world",
       "is-ai-solving-math-too-fast",
       "teacher-planner",
-      "moodle-tool-human2human"
+      "moodle-tool-human2human",
+      "educational-os-fundamentals-interactive-tool"
     ],
     "courses": [
       "course-aicademy",
@@ -9814,7 +9849,8 @@
       "course-eliza-the-ai-that-fooled-the-world",
       "course-is-ai-solving-math-too-fast",
       "course-teacher-planner",
-      "course-moodle-tool-human2human"
+      "course-moodle-tool-human2human",
+      "course-educational-os-fundamentals-interactive-tool"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -12852,12 +12888,14 @@
     "toolsTeaching": [
       "airuncode",
       "made-an-open-source-lego-ai-generator",
-      "substance-3d-sampler-win"
+      "substance-3d-sampler-win",
+      "animama"
     ],
     "courses": [
       "course-airuncode",
       "course-made-an-open-source-lego-ai-generator",
-      "course-substance-3d-sampler-win"
+      "course-substance-3d-sampler-win",
+      "course-animama"
     ],
     "updatedAt": "2026-09-04T23:20:31.711Z"
   },
@@ -19008,11 +19046,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "kaflow-search",
-      "redcat-an-open-source-ai-agent-for-your-desktop"
+      "redcat-an-open-source-ai-agent-for-your-desktop",
+      "animama"
     ],
     "courses": [
       "course-kaflow-search",
-      "course-redcat-an-open-source-ai-agent-for-your-desktop"
+      "course-redcat-an-open-source-ai-agent-for-your-desktop",
+      "course-animama"
     ],
     "updatedAt": "2026-09-16T14:13:20.724Z"
   },
@@ -24063,10 +24103,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "veda-first-ai-agentic-hobby-os"
+      "veda-first-ai-agentic-hobby-os",
+      "educational-os-fundamentals-interactive-tool"
     ],
     "courses": [
-      "course-veda-first-ai-agentic-hobby-os"
+      "course-veda-first-ai-agentic-hobby-os",
+      "course-educational-os-fundamentals-interactive-tool"
     ],
     "updatedAt": "2026-10-13T02:43:12.640Z"
   },
@@ -25087,10 +25129,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "deepai-for-fake-pc"
+      "deepai-for-fake-pc",
+      "lightroom-for-windows-and-macos"
     ],
     "courses": [
-      "course-deepai-for-fake-pc"
+      "course-deepai-for-fake-pc",
+      "course-lightroom-for-windows-and-macos"
     ],
     "updatedAt": "2026-11-21T16:48:37.439Z"
   },
@@ -25639,5 +25683,83 @@
       "course-graphics-optimizer-ai"
     ],
     "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "skill-expertise compression",
+    "name": "expertise compression",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "avva"
+    ],
+    "courses": [
+      "course-avva"
+    ],
+    "updatedAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "id": "skill-fundamentals",
+    "name": "fundamentals",
+    "domain": "learning",
+    "level": "beginner",
+    "toolsTeaching": [
+      "educational-os-fundamentals-interactive-tool"
+    ],
+    "courses": [
+      "course-educational-os-fundamentals-interactive-tool"
+    ],
+    "updatedAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "id": "skill-yaml",
+    "name": "yaml",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "pintura"
+    ],
+    "courses": [
+      "course-pintura"
+    ],
+    "updatedAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "id": "skill-presentation",
+    "name": "presentation",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "pintura"
+    ],
+    "courses": [
+      "course-pintura"
+    ],
+    "updatedAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "id": "skill-europe",
+    "name": "europe",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "eustella-europes-ai-agent"
+    ],
+    "courses": [
+      "course-eustella-europes-ai-agent"
+    ],
+    "updatedAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "id": "skill-lightroom",
+    "name": "lightroom",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "lightroom-for-windows-and-macos"
+    ],
+    "courses": [
+      "course-lightroom-for-windows-and-macos"
+    ],
+    "updatedAt": "2026-11-25T19:20:09.404Z"
   }
 ]

@@ -15897,5 +15897,144 @@
       "ai"
     ],
     "discoveredAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "slug": "animama",
+    "name": "Animama",
+    "category": "design",
+    "sourceCategory": "3D, Gaming & Simulation",
+    "price": "free",
+    "pricing": "Open-source",
+    "level": "intermediate",
+    "blurb": "Open-source AI desktop companion featuring 3D avatars.",
+    "audience": "Developers & Enthusiasts",
+    "dev": "raymond-van",
+    "year": 2026,
+    "website": "https://github.com/raymond-van/animama",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai",
+      "desktop",
+      "3d",
+      "companion"
+    ],
+    "discoveredAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "slug": "avva",
+    "name": "Avva",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free tier available",
+    "level": "intermediate",
+    "blurb": "Compress your expertise to make it available to AI agents via MCP.",
+    "audience": "AI developers",
+    "dev": "Avva",
+    "year": 2026,
+    "website": "https://avva.chat/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agent",
+      "mcp",
+      "expertise compression",
+      "automation"
+    ],
+    "discoveredAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "slug": "educational-os-fundamentals-interactive-tool",
+    "name": "Educational OS fundamentals interactive tool",
+    "category": "learning",
+    "sourceCategory": "Education & Learning",
+    "price": "freemium",
+    "pricing": "Free tier available",
+    "level": "beginner",
+    "blurb": "Interactive tool for learning fundamental Operating System concepts.",
+    "audience": "Students and beginners",
+    "dev": "Claude AI",
+    "year": 2026,
+    "website": "https://claude.ai/artifact/92CFxQiGu7rarFhhtkf1e1",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "os",
+      "education",
+      "fundamentals",
+      "interactive"
+    ],
+    "discoveredAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "slug": "pintura",
+    "name": "Pintura",
+    "category": "design",
+    "sourceCategory": "Presentations, Design & Websites",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "YAML Slides for agents to edit and humans to review presentations.",
+    "audience": "Developers and Presenters",
+    "dev": "editide",
+    "year": 2026,
+    "website": "https://github.com/editide/pintura",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "yaml",
+      "slides",
+      "agent",
+      "presentation"
+    ],
+    "discoveredAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "slug": "eustella-europes-ai-agent",
+    "name": "Eustella: Europe's AI Agent",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free to start",
+    "level": "intermediate",
+    "blurb": "Europe's AI Agent designed to assist with various tasks.",
+    "audience": "Professionals",
+    "dev": "Eustella",
+    "year": 2026,
+    "website": "https://eustella.com",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "europe",
+      "agent",
+      "automation",
+      "ai"
+    ],
+    "discoveredAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "slug": "lightroom-for-windows-and-macos",
+    "name": "Lightroom-For-Windows-And-Macos",
+    "category": "design",
+    "sourceCategory": "Image Generation & Editing",
+    "price": "paid",
+    "pricing": "Subscription",
+    "level": "intermediate",
+    "blurb": "Professional photo editor and organizer with AI tools for photographers.",
+    "audience": "Photographers",
+    "dev": "Adobe",
+    "year": 2026,
+    "website": "https://github.com/LogoMajorInverter/Lightroom-For-Windows-And-Macos",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "photo editing",
+      "lightroom",
+      "ai",
+      "design",
+      "image"
+    ],
+    "discoveredAt": "2026-11-25T19:20:09.404Z"
   }
 ]

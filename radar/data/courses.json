@@ -42090,5 +42090,311 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "course-animama",
+    "toolSlug": "animama",
+    "title": "Master Animama",
+    "objectives": [
+      "Integrate custom 3D models into existing Animama scenes.",
+      "Configure advanced avatar emotional states via scripting.",
+      "Optimize local AI inference settings for lower latency."
+    ],
+    "modules": [
+      {
+        "title": "Custom Model Import Workflow",
+        "estMinutes": 15,
+        "steps": [
+          "Export a rigged GLTF model from Blender.",
+          "Navigate to 'Assets' panel and drag the GLTF into the scene tree.",
+          "Verify bone mapping integrity within the Animama rigging inspector."
+        ]
+      },
+      {
+        "title": "Scripted Emotional State Control",
+        "estMinutes": 20,
+        "steps": [
+          "Open the 'Behavior Script' editor attached to the avatar.",
+          "Implement a Python command to set the emotion state (e.g., `avatar.set_emotion('joy', intensity=0.8)`).",
+          "Trigger the script via a hotkey binding in the main configuration."
+        ]
+      },
+      {
+        "title": "Inference Performance Tuning",
+        "estMinutes": 15,
+        "steps": [
+          "Access the 'AI Backend Settings' menu.",
+          "Switch the quantization level from FP32 to INT8.",
+          "Set the GPU offload threads to match the physical GPU core count."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-ai",
+      "skill-desktop",
+      "skill-3d",
+      "skill-companion"
+    ],
+    "prerequisites": [
+      "Basic familiarity with the Animama UI.",
+      "Knowledge of GLTF/rigging fundamentals (Blender preferred)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "id": "course-avva",
+    "toolSlug": "avva",
+    "title": "Master Avva",
+    "objectives": [
+      "Connect an existing Avva knowledge base to an MCP endpoint.",
+      "Test knowledge retrieval accuracy using an AI agent prompt.",
+      "Configure access permissions for specific agent groups."
+    ],
+    "modules": [
+      {
+        "title": "MCP Endpoint Setup",
+        "estMinutes": 15,
+        "steps": [
+          "Navigate to 'Integrations' in the Avva dashboard.",
+          "Select 'MCP Connector' and input your target agent endpoint URL."
+        ]
+      },
+      {
+        "title": "Knowledge Mapping & Sync",
+        "estMinutes": 20,
+        "steps": [
+          "Select the relevant internal document set from your Avva repository.",
+          "Initiate a 'Targeted Sync' to push selected data blocks to the MCP endpoint."
+        ]
+      },
+      {
+        "title": "Agent Retrieval Validation",
+        "estMinutes": 10,
+        "steps": [
+          "Use a test AI agent (e.g., Sandbox Agent Alpha).",
+          "Prompt the agent: 'Summarize the SLA procedure for high-priority tickets in Avva format.'",
+          "Verify the output aligns precisely with the source Avva content."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agent",
+      "skill-mcp",
+      "skill-expertise compression"
+    ],
+    "prerequisites": [
+      "Familiarity with Avva basic interface (viewing/editing content).",
+      "An active, documented MCP agent endpoint URL."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "id": "course-educational-os-fundamentals-interactive-tool",
+    "toolSlug": "educational-os-fundamentals-interactive-tool",
+    "title": "Master Educational OS fundamentals interactive tool",
+    "objectives": [
+      "Identify core OS components (Kernel, Shell)",
+      "Understand the concept of process management",
+      "Navigate basic file system structures"
+    ],
+    "modules": [
+      {
+        "title": "OS Basics: What is an OS?",
+        "estMinutes": 10,
+        "steps": [
+          "Click the 'Components' interactive diagram to label the Kernel.",
+          "Drag the 'Resource Manager' label onto the correct OS function box."
+        ]
+      },
+      {
+        "title": "Command Line Intro (Shell)",
+        "estMinutes": 15,
+        "steps": [
+          "Type `pwd` into the simulated terminal and observe the output path.",
+          "Execute the `ls -l` command to list directory contents with details."
+        ]
+      },
+      {
+        "title": "File Navigation & Creation",
+        "estMinutes": 10,
+        "steps": [
+          "Use the `mkdir` command to create a new directory named 'study'.",
+          "Use the `touch` command to create an empty file inside the 'study' directory."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-os",
+      "skill-education",
+      "skill-fundamentals",
+      "skill-interactive"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "id": "course-pintura",
+    "toolSlug": "pintura",
+    "title": "Master Pintura",
+    "objectives": [
+      "Edit existing Pintura slides using YAML structure",
+      "Implement conditional content logic within a slide definition",
+      "Review generated output by validating against agent constraints"
+    ],
+    "modules": [
+      {
+        "title": "Modifying Slide Content",
+        "estMinutes": 15,
+        "steps": [
+          "Open a sample `.pintura` file in VS Code",
+          "Locate a specific slide block (e.g., `slide_id: 3`) and update the `content` array text",
+          "Run the `pintura render --output presentation.pdf` command to verify changes"
+        ]
+      },
+      {
+        "title": "Using Conditional Rendering",
+        "estMinutes": 20,
+        "steps": [
+          "Add an `if` block to a slide definition targeting a variable (e.g., `if condition: true`)",
+          "Place dynamic content within the `if` block",
+          "Test rendering with both condition met and condition unmet inputs"
+        ]
+      },
+      {
+        "title": "Validation Workflow",
+        "estMinutes": 10,
+        "steps": [
+          "Define an expected output structure in a separate `validation.yaml` file",
+          "Use the Pintura CLI flag (e.g., `--validate`) during rendering",
+          "Inspect the CLI error output for constraint violations instead of just reviewing the PDF"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-yaml",
+      "skill-slides",
+      "skill-agent",
+      "skill-presentation"
+    ],
+    "prerequisites": [
+      "Familiarity with YAML syntax",
+      "Basic command-line proficiency (running CLI tools)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "id": "course-eustella-europes-ai-agent",
+    "toolSlug": "eustella-europes-ai-agent",
+    "title": "Master Eustella: Europe's AI Agent",
+    "objectives": [
+      "Integrate Eustella with a specific workflow (e.g., data parsing).",
+      "Configure custom prompts for nuanced task execution.",
+      "Monitor and refine Eustella's output accuracy in a real-world scenario."
+    ],
+    "modules": [
+      {
+        "title": "Advanced Prompt Chaining in Eustella",
+        "estMinutes": 15,
+        "steps": [
+          "Open the 'Workflow Builder' and select a multi-step chain template.",
+          "Define an initial data extraction prompt followed by a summarization prompt.",
+          "Test the chain with a complex, unstructured European policy document."
+        ]
+      },
+      {
+        "title": "Custom Tool Integration (API Hook)",
+        "estMinutes": 20,
+        "steps": [
+          "Locate the 'Tool Configuration' panel and input a target API endpoint (e.g., a local CRM).",
+          "Define the required input parameters (JSON schema) for Eustella to call the API.",
+          "Execute a test run requiring Eustella to read/write data via the configured hook."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-europe",
+      "skill-agent",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Basic proficiency in natural language prompting.",
+      "Familiarity with JSON structure.",
+      "Access to a sandbox environment with Eustella deployed."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "id": "course-lightroom-for-windows-and-macos",
+    "toolSlug": "lightroom-for-windows-and-macos",
+    "title": "Master Lightroom-For-Windows-And-Macos",
+    "objectives": [
+      "Master local adjustments using the Develop module sliders.",
+      "Efficiently cull and organize photos using keywords and collections.",
+      "Apply and modify AI-powered masking (Subject/Sky) for precise edits."
+    ],
+    "modules": [
+      {
+        "title": "Targeted Local Adjustments",
+        "estMinutes": 15,
+        "steps": [
+          "Select a specific area using the Radial or Graduated Filter.",
+          "Adjust Exposure and Highlights within the selected mask.",
+          "Toggle the 'Masking' panel to verify selection accuracy."
+        ]
+      },
+      {
+        "title": "AI Masking Workflow",
+        "estMinutes": 20,
+        "steps": [
+          "Activate the 'Select Subject' mask in the Masking panel.",
+          "Refine the selection by painting on or off the mask boundary.",
+          "Apply localized Tone Curve adjustments only to the subject mask."
+        ]
+      },
+      {
+        "title": "Organization & Culling",
+        "estMinutes": 15,
+        "steps": [
+          "Use the Library module to apply 'Flagging' (Pick/Reject) to images.",
+          "Create a new Smart Collection based on 'Rating' (e.g., 4 stars).",
+          "Apply three specific keywords to the entire selected folder in batch."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-photo editing",
+      "skill-lightroom",
+      "skill-ai",
+      "skill-image"
+    ],
+    "prerequisites": [
+      "Basic familiarity with image editing concepts (Exposure, Contrast).",
+      "Installation and opening of Lightroom Classic on Windows/macOS."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-25T19:20:09.404Z"
   }
 ]
