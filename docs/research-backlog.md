@@ -4666,6 +4666,36 @@ without changing it, logs that in the archive file, not here.** Only append to
   core spec — still Build size S, still the most build-ready "every
   competitor has it, we don't" entry in this file, still unbuilt six weeks
   after it was found.
+- **Re-verified 2026-11-25 00:03 UTC:** stalest OPEN entry by a wide margin —
+  46 days since the 10-10 check, next-closest OPEN entries ("Weekly trending
+  tools," "No lookup surface") are at most 1-2 days stale. **Re-ran the
+  entry's own throwaway sandbox check, per its standing instruction to never
+  trust a prior day's result:** `page.goto` the Google favicon URL resolved
+  cleanly in 1090ms, status 200; the closer-to-real `<img>`-embed check
+  reached `networkidle` in 1193ms with zero console errors. A fifth distinct
+  check, a repeat of the "clean success" regime (same as 10-10 and 11-22),
+  not the hang or cert-reject regimes seen earlier — reinforces the running
+  theory that the proxy's state varies day to day with no fixed pattern, and
+  confirms today would be a day a feature run could trust local `npm run
+  smoke` outright for this gap.
+  **Re-verified the gap itself, zero drift in substance:** `src/utils/
+  faviconUrl.js` still does not exist; `grep -n "<img"` across
+  `src/components/app/ToolCard.jsx`, `src/pages/app/ToolDetail.jsx`,
+  `src/pages/CategoryLanding.jsx`, `src/pages/SharedStack.jsx`,
+  `src/pages/app/Compare.jsx`, `src/pages/CompareCompetitor.jsx`,
+  `src/pages/PublicCompare.jsx` and `src/pages/NewTools.jsx` is still zero
+  hits on all eight surfaces. `website` field count on `toolsCatalog.js` is
+  unchanged: 704 total, 42 empty.
+  **Line numbers drifted again, corrected here:** `ToolCard.jsx`'s `<h3>` is
+  unchanged at line 81. `ToolDetail.jsx`'s `<h1>` moved from line 216 to line
+  240, and the "Visit website" button block now starts at line 257 (link
+  text itself at line 265), up from line 241 — both pushed down further by
+  intervening growth in the page (a reviews-count span now renders just above
+  the `<h1>`). Same field, same behavior, new addresses only — no change to
+  what the build touches or how.
+  No change to the core spec. Still Build size S, still unbuilt twelve-plus
+  weeks after it was found, still the single most build-ready item in this
+  backlog.
 
 ### Discover has filters but no sort control — the 700+ result grid has exactly one fixed order
 
