@@ -9,6 +9,71 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-11-25
+
+**Radar health:** `OK` — 2 runs in the last 24h (20:11 UTC 11-24, 04:35 UTC
+11-25), 17 tools published total (8 + 9), feed now at 669 published tools. No
+NO-PUBLISH or NO-SOURCE symptoms; `npm run radar:health` exits 0.
+
+**Researched today:** five hourly passes (00:03, 06:03, 09:03, 12:03, 15:04
+UTC) kept deepening rather than padding the backlog with new one-liners. The
+00:03 and 15:04 checks re-verified "No tool has a visual identity" (favicons)
+as the single stalest, most build-ready OPEN entry and re-ran its standing
+sandbox-network check each time, per its own instruction to never trust a
+prior day's result. The 12:03 check went further: it re-ran that same
+throwaway check against both installed Chromium binaries and found the
+09-13/09-14 "never verify locally again" conclusion no longer held — both
+launches resolved the Google favicon URL in under a second, overriding the
+old guidance. 06:03 and 09:03 each tried two fresh competitor angles
+(saved-search alerts, a keyboard cheat sheet, claim-listing badges, 2026
+directory trend pieces) and found nothing new to log, plus a clean a11y spot
+check on yesterday's privacy-facet ship.
+
+**Shipped today:** **`60dfda9`** — the favicon/logo gap flagged
+above, the oldest OPEN entry in the backlog (found 2026-08-31, reverted once
+on 2026-09-13 for a sandbox-specific false negative). Built exactly as
+scoped: new pure util `src/utils/faviconUrl.js` (`getFaviconUrl`, backed by
+Google's `s2/favicons` service, `null` on a missing/malformed `website`
+field), a 28px `<img>` next to `ToolCard.jsx`'s tool-name heading, and a 56px
+`<img>` next to `ToolDetail.jsx`'s `<h1>` — both decorative (`alt=""`),
+lazy-loaded, and hiding themselves via `onError` rather than showing a
+broken-image icon. `CategoryLanding.jsx`/`NewTools.jsx`/`SharedStack.jsx`/
+`Compare.jsx` intentionally do not get a logo yet, per the entry's own v1/v2
+scope split — a cheap, separately-shippable follow-up once this is proven on
+the two highest-traffic surfaces.
+Today's sandbox re-check (per the entry's standing instruction) resolved the
+Google favicon URL in ~1.1s with no hang or cert error, so `npm run smoke`
+ran for real rather than being skipped on a leap of faith. It caught one
+genuine issue first try: three catalog domains (`gentle-ai.gentleman
+programming.com`, `agenttuneup.ai`, `audioreality.ai`) have no icon Google's
+favicon service can resolve, and the browser's generic 404 console text
+carries no URL, so `scripts/smoke.mjs`'s existing text-based favicon filter
+never actually matched it. Fixed the verifier itself (allowed — it's the
+smoke script, not a workflow) to track those 4xx responses by URL via a
+`response` listener instead of guessing from console text. Re-ran clean
+after that: `npm test` 336/336 (5 new in `test/favicon-url.test.mjs`),
+`npm run build`, `npm run smoke` 29/29 routes with 0 console errors.
+Verified visually in a real preview build — ChatGPT's OpenAI mark renders at
+both card and detail scale.
+**This is visible on toolnaut.xyz today** — Discover and every tool detail
+page are live app routes rendered the moment this deploy finishes; no other
+pipeline gates it.
+
+**Verification:** all three checks green locally before pushing straight to
+`master` (session started in a detached HEAD 18 commits behind
+`origin/master`; fast-forwarded first). `git log`/`git push` confirm the
+commit landed on `origin/master`.
+
+**Queued next:** with the favicon gap shipped, the next highest-ranked OPEN
+entries are "Weekly trending tools" (account data already exists, unused),
+the role-based progress benchmark (now the single stalest OPEN entry), and
+the embeddable "Featured on Toolnaut" badge — all re-verified against current
+`master` within the last week. Four feature PRs (#75, #86, #91, #105) remain
+open and unmerged from push-guard failures in earlier runs (tracked on issue
+#67); none were rebuilt or duplicated this run.
+
+---
+
 ## 2026-11-24
 
 **Radar health:** `OK` — 2 runs in the last 24h (21:28 UTC 11-23, 05:31 UTC

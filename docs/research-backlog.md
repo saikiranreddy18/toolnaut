@@ -4381,8 +4381,37 @@ without changing it, logs that in the archive file, not here.** Only append to
 - **Found:** 2026-08-30 12:20 UTC
 
 ### No tool has a visual identity — 704 catalog entries, zero logos or favicons anywhere
-- **Status:** OPEN — ATTEMPTED AND REVERTED 2026-09-13, see note below before
-  retrying as-specified
+- **Status:** SHIPPED 60dfda9 — built exactly as scoped below, v1 surfaces
+  only (`ToolCard.jsx`, `ToolDetail.jsx`).
+- **Shipped 2026-11-25 18:03 UTC:** `src/utils/faviconUrl.js` (`getFaviconUrl`,
+  with `test/favicon-url.test.mjs`), a 28px `<img>` next to `ToolCard.jsx`'s
+  `<h3>` and a 56px `<img>` next to `ToolDetail.jsx`'s `<h1>`, both with
+  `onError` hiding the broken-image state via local `useState` rather than a
+  placeholder, exactly as scoped. The sandbox network re-check (per this
+  entry's own standing instruction) resolved the Google favicon URL in
+  ~1080ms with Playwright's `chromium.launch()` — no hang, no cert error — so
+  `npm run smoke` ran for real this time rather than being skipped. It failed
+  once on first run: `/app/discover` picked up 3 genuine 404s from Google's
+  favicon service (3 catalog domains it has no icon for,
+  `gentle-ai.gentlemanprogramming.com`, `agenttuneup.ai`, `audioreality.ai`)
+  and the browser's generic "Failed to load resource: the server responded
+  with a status of 404" console text carries no URL, so `smoke.mjs`'s
+  existing `/favicon/i` text filter never matched it despite trying to.
+  Fixed `smoke.mjs` itself (allowed — it's the verifier, not a workflow file)
+  to track 4xx responses from `google.com/s2/favicons`/`gstatic.com/faviconV2`
+  by URL via a `response` listener and discount an equal count of generic
+  404 console lines, rather than widening the text match blindly. Re-ran
+  clean after that fix: `npm test` (336/336), `npm run build`, `npm run
+  smoke` (29/29 routes, 0 errors) all green. Verified visually in a real
+  preview build: ChatGPT's OpenAI logo renders at both the card and detail
+  scale. This ships live on toolnaut.xyz once this push deploys — no other
+  pipeline gates it. Per the "smallest useful version" scope below,
+  `CategoryLanding.jsx`/`NewTools.jsx`/`SharedStack.jsx`/`Compare.jsx` and
+  the two newer comparison pages intentionally do not get a logo yet; that
+  rollout is the obvious, cheap, separately-shippable follow-up this entry
+  already named.
+- **Status (pre-ship, kept for the record):** OPEN — ATTEMPTED AND REVERTED
+  2026-09-13, see note below before retrying as-specified
 - **Attempt note (2026-09-13):** built exactly as scoped (`faviconUrl.js`,
   `<img>` in `ToolCard.jsx`/`ToolDetail.jsx`, `onError` hiding) and it passed
   `npm test`/`npm run build`, but `npm run smoke` failed on every `/app/*`
