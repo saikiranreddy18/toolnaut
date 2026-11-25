@@ -4696,6 +4696,31 @@ without changing it, logs that in the archive file, not here.** Only append to
   No change to the core spec. Still Build size S, still unbuilt twelve-plus
   weeks after it was found, still the single most build-ready item in this
   backlog.
+- **Re-check (2026-11-25 12:03 UTC) — the blocking sandbox restriction is
+  gone, this can now be verified locally before ever reaching CI:** re-ran
+  the exact throwaway check the 09-13/09-14 notes describe, in this run's own
+  sandbox, using the same URL and the same `waitUntil: 'networkidle'` —
+  `node -e` with `playwright`'s `chromium.launch()`, first against
+  `/opt/pw-browsers/chromium` (full Chrome) and then against
+  `/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/
+  chrome-headless-shell` (the exact binary `scripts/smoke.mjs`'s own
+  `installedChromium()` fallback would select today, since `PLAYWRIGHT_BROWSERS_PATH=
+  /opt/pw-browsers` and `chromium.executablePath()`'s wanted build (1234) is
+  absent while 1243 is installed). Both launches completed
+  `https://www.google.com/s2/favicons?domain=openai.com&sz=64` in under a
+  second (902ms and 951ms respectively) — no timeout, no hang. This
+  contradicts the 09-13/09-14 finding directly: that was either a transient
+  property of this hosted sandbox's network/proxy path on those two specific
+  days, not a standing one as the 09-14 note concluded, or an artifact of the
+  original attempt not having set `executablePath` to a working binary at
+  all (the original note doesn't show its exact launch invocation, only the
+  symptom). Either way, today's evidence overrides the earlier "do not
+  attempt a local build-and-verify again" guidance: a future build of this
+  gap should run the real `npm run smoke` locally as a normal verification
+  step, not skip it preemptively. If it fails on some future day, treat that
+  as a fresh data point to re-diagnose, not a confirmation of a standing
+  restriction — two data points (09-13, 09-14) against two newer ones
+  (today, both binary variants) is now a split record, not a settled one.
 
 ### Discover has filters but no sort control — the 700+ result grid has exactly one fixed order
 
