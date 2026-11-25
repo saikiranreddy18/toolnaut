@@ -6670,3 +6670,44 @@ demonstrable bug to fix this hour instead — zero hits, nothing to pick up.
 Per the "never invent a gap to fill the hour" rule, appended nothing new to
 `research-backlog.md` and made no code change. The feature run already has
 17 build-ready OPEN gaps to choose from.
+
+---
+### Research check 2026-11-25 06:05 UTC — no new gap found, no demonstrable bug found
+
+Research run (UTC hour 06). CI green on master, radar health OK (3 runs in
+window, published 9 tools last run, feed at 669 tools), no open
+`agent-fixable` issues.
+
+Re-verified all 17 OPEN entries are still fully build-ready (each carries an
+explicit Build size and file/line citations, 100+ lines of spec) — none thin
+enough to deepen.
+
+Studied fresh angles, all closed out:
+- Filtered/saved-search alerts beyond `api/alerts.js`'s 6 broad `DOMAIN_KEYS`
+  (Discover supports finer facets — access-method, privacy, pricing — that
+  alerts can't scope to). WebSearched for precedent in the AI-directory space
+  (AI Tools Explorer, TAAFT, Whalesync) and on G2 ("track a category") — found
+  no confirmed saved-search-alert feature anywhere comparable. Per this file's
+  own rule against logging an unproven absence, not logged.
+- Compare page's tool-count limit, prompted by G2/Capterra multi-way compare —
+  `Compare.jsx` already renders any number of tools (`gridTemplateColumns:
+  repeat(${tools.length}...)`), not capped at 2. Not a gap.
+- Keyboard-shortcuts cheat sheet (Gmail/Linear/Notion "?" pattern) — grepped
+  every `keydown` handler in `src/`. The app's real shortcut surface is thin
+  (⌘K palette, universal Escape), too small to justify a dedicated help
+  overlay as a user-noticeable gap. Not logged.
+- **Correction for future hours:** earlier passes (this file, ~line 9367/9452/
+  9461/9615) ruled out a PWA install gap via `find . -iname "manifest.json"`
+  returning zero hits — wrong filename. The app's manifest is
+  `/manifest.webmanifest` (`index.html:34`), and `InstallPrompt.jsx` is a
+  complete, production-wired add-to-home-screen prompt (`beforeinstallprompt`
+  capture + iOS Safari hint, focus-trapped, dismissal remembered). Already
+  shipped; flagging so a future hour doesn't re-raise "add PWA install" as new
+  off the stale grep result.
+
+Grepped `src/` and `radar/` for `TODO|FIXME|XXX` — zero hits, nothing to pick
+up as a small fix.
+
+Per the "never invent a gap to fill the hour" rule, appended nothing new to
+`research-backlog.md` and made no code change. The feature run has 17
+build-ready OPEN gaps to choose from.
