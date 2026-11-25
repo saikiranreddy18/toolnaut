@@ -6752,3 +6752,66 @@ up as a small fix.
 Per the "never invent a gap to fill the hour" rule, appended nothing new to
 `research-backlog.md` and made no code change. The feature run has 17
 build-ready OPEN gaps to choose from.
+
+---
+
+### Research check 2026-11-25 15:04 UTC — no new gap found, stalest OPEN entry re-verified with zero drift
+
+Ad hoc research run outside the normal 00:03/06:03/12:03/18:03 cadence. CI
+green on master (`ci.yml`/`release.yml` both successful on the latest push),
+radar health OK (2 runs in the 26h window, published 9 tools last run, feed at
+669 tools, last publish 10.5h ago), no open `agent-fixable` issues. (Noted but
+out of scope: the separate `agent-research.yml`/`agent-bugfix.yml` GitHub
+Actions workflows have been reporting `conclusion: failure` on effectively
+every run for months, including both of today's — the underlying Claude Code
+action call itself returns `is_error:true` after ~1 turn and $0 cost, before
+doing any work. That's a different automation track from this session, not
+this project's CI, and `.github/workflows/` other than `radar.yml` is off
+limits here, so it's flagged rather than touched.)
+
+Ran the file-wide last-touch scan (every OPEN entry's `Found` date or its
+latest `Deepened`/`Re-verified` sub-note, whichever is later; 17 real OPEN
+entries). Stalest by a clear margin: **"Track progress against your role, not
+generic benchmarks"** (last touched 2026-11-19 21:04 UTC, 6 days). Re-verified
+every citation against current `master`:
+- `HowItWorksSection.jsx:9` still carries the exact copy verbatim.
+- `progressStore.js:10`'s `STATUSES` array is unchanged, index 3 still
+  `'Mastered'`.
+- `personaGenerator.js` still sets `career` the same way.
+- `Stack.jsx`'s `starter: true` map is still at line 235, the "From your
+  persona" card branch still at line 374 — no drift since the 11-19 check,
+  not even a line-number shift this time.
+- `grep -ni "core.*master\|mastered" src/pages/app/Stack.jsx` — still zero
+  hits; the one actual deliverable (a derived "N of 3 core [role] tools
+  mastered" stat line) is still entirely unbuilt.
+
+Zero drift in substance or line numbers, so per this file's own 2026-11-24
+policy (a pass that just re-verifies without changing the entry logs here,
+not in `research-backlog.md`), not re-noted there. It remains the single
+most build-ready unbuilt entry in the file — Build size S, fully scoped,
+nothing left to deepen.
+
+Studied two fresh angles, neither cleared this file's evidence bar:
+- Gamification (achievement badges / learning-path mechanics) as a
+  Stack/SkillGraph extension — WebSearched "AI tool directory gamification
+  achievement badges 2026". Results were generic LMS/edtech vendor marketing
+  (TalentLMS, Docebo, Teachfloor) with no authoritative evidence this pattern
+  exists in the AI-tool-directory category specifically, and no primary
+  competitor citation to ground a gap entry the way every other entry in
+  this file has one. Not logged.
+- Public feature-roadmap / voting board (seen on "Hey It's AI" via
+  Featurebase, and community-upvote directories like FutureStack) —
+  WebSearched "AI tool directory 2026 public feature roadmap voting board
+  user feedback". Real precedent exists, but it needs a backend to store
+  votes across visitors, the same reason this file already rejects/defers
+  the leaderboard, Pro chat assistant, and Team-tier gaps for a client-side
+  SPA with no server. Not logged.
+
+Grepped `src/`/`radar/` for `TODO|FIXME|XXX` — zero hits. Spot-checked
+`Discover.jsx`'s privacy-facet pill (newest UI surface, shipped this run
+cycle) for a11y regressions — `aria-pressed` still set correctly on every
+pill including the new one; no bug found.
+
+Per the "never invent a gap to fill the hour" rule, appended nothing new to
+`research-backlog.md` and made no code change. The feature run still has 17
+build-ready OPEN gaps to choose from, same count as this morning's checks.
