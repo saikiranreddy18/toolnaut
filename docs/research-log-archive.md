@@ -6604,3 +6604,69 @@ bug to fix this hour instead — zero hits, nothing to pick up.
 Per the "never invent a gap to fill the hour" rule, appended nothing new to
 `research-backlog.md` and made no code change. The feature run already has
 18 build-ready OPEN gaps to choose from.
+
+---
+### Research check 2026-11-25 03:04 UTC — no new gap found, no demonstrable bug found
+
+Research run (UTC hour 03). CI green on master (`Release`/`CI` both
+succeeded on commit `9dc342e`), radar health OK (2 runs in the 26h window,
+published 8 tools last run, feed at 660 tools), no open `agent-fixable`
+issues.
+
+Re-grepped `research-backlog.md` for every OPEN entry (17 of them, not 18 —
+the privacy facet logged 11-24 has since shipped as `fe846a3`) and read the
+closing dated note on each candidate that looked short enough to be thin:
+`"26 real source categories"`, `"leaderboard's own precondition"`, `"Weekly
+trending tools"`, `"Track progress against your role"`, `"Popularity signal
+discarded"` (its most recent sub-note, a 2026-10-09 five-pass
+re-verification), and `"Tool graveyard"`/`"Embeddable badge"` (both already
+carry a full "Smallest useful version" with exact file/line citations and a
+"What this would NOT include" section). Every one explicitly states, in its
+own last dated note, that a further re-check would add nothing — three say
+so in those words. None was thin enough to deepen.
+
+Studied fresh angles instead, all either already covered or too weak to log:
+- Fetched Futurepedia's current homepage directly (`WebFetch`) rather than
+  relying on memory: personalized onboarding, "Smart Tool Stacks," a
+  "Workflow Library" of role-based playbooks, progress tracking, a Compare
+  page, and a "Trusted By" logo row. Checked each against the app: Smart
+  Tool Stacks ≈ the just-shipped Collections gap (`f904ac3`, 2026-11-22);
+  Workflow Library ≈ Toolnaut's own existing 4-week role-based roadmap
+  (`roadmapGenerator.js`); progress tracking and Compare are both already
+  shipped; a logo-based "Trusted By" row needs real customer relationships
+  this pre-revenue product doesn't have, same constraint already documented
+  on the testimonial-quote gap.
+- Considered logging "no AI-tool directory shows third-party model
+  benchmark scores (Artificial Analysis / Chatbot Arena) on a tool's own
+  listing" as a new gap (two fresh WebSearches on the idea) — rejected:
+  could not find a single directory that actually does this, so it has no
+  "Seen in" competitor precedent, only an absence; logging an unproven
+  absence as a gap would be inventing one to fill the hour, which the file's
+  own rules forbid.
+- `llms.txt` / AI-answer-engine discoverability (fresh WebSearch on 2026
+  adoption data) — already shipped (`public/llms.txt`) and already
+  extensively covered in two existing backlog entries; the fresh data point
+  (May 2026 Ahrefs crawl: ~97% of sites with the file get zero requests for
+  it) doesn't change either entry's build status.
+- Checked whether "sequenced for your level and your available time"
+  (`FeaturesSection.jsx`) and "Track progress against your role" type
+  promises in `HowItWorksSection.jsx`/`RolesSection.jsx` are backed: the pace
+  question (`quizLogic.js:84-108`) really does drive roadmap length via
+  `PACE_STEPS` in `roadmapGenerator.js` — true claim, not a gap (the
+  role-benchmark half is the already-logged, already build-ready entry
+  above).
+- Checked for real browser push notifications vs. the "Turn on notifications
+  in Settings" copy (`changelogData.js:147`) — confirmed this refers to the
+  existing email-alert toggle (`AlertSettings.jsx`), not the Notification/
+  PushManager Web API (zero hits for either across `src/`/`public/sw.js`);
+  the changelog entry's own title, "Email alerts for new tools," already
+  disambiguates this correctly, so it isn't a false claim.
+- Confirmed dark/light theming already exists (`src/state/themeStore.js`) —
+  not a gap.
+
+Also grepped `src/` and `radar/` for `TODO|FIXME|XXX` looking for a small
+demonstrable bug to fix this hour instead — zero hits, nothing to pick up.
+
+Per the "never invent a gap to fill the hour" rule, appended nothing new to
+`research-backlog.md` and made no code change. The feature run already has
+17 build-ready OPEN gaps to choose from.
