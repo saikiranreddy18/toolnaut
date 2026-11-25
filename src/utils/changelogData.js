@@ -7,6 +7,11 @@
 // SHIPPED — pulled from that day's real commit, not invented.
 export const CHANGELOG = [
   {
+    date: '2026-11-25',
+    title: 'Tool logos, not just a color dot',
+    body: "Every tool card and tool page now shows the tool's actual logo next to its name, instead of the small category-color dot that was our only visual identity before.",
+  },
+  {
     date: '2026-11-24',
     title: 'Filter by how your data is handled',
     body: "Discover now has a privacy toggle — switch it on to show only tools that are local-first, self-hosted, on-device, or carry a clear no-training guarantee, instead of having to open each tool's page to find out.",
