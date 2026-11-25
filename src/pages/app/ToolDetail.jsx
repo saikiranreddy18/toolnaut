@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getTool, TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
+import { getFaviconUrl } from '../../utils/faviconUrl'
 import { matchScore, matchReasons, fitBand } from '../../utils/matchScore'
 import { loadQuiz } from '../../state/quizStore'
 import { loadStack, addToStack, removeFromStack } from '../../state/stackStore'
@@ -87,6 +88,7 @@ export default function ToolDetail() {
 
   const tool = getTool(slug)
   const [reviews, setReviews] = useState(() => (tool ? getReviews(tool.slug) : []))
+  const [faviconBroken, setFaviconBroken] = useState(false)
 
   // Not in prerender.mjs's ROUTES (700+ slugs is a different order of build-time
   // cost than the 6 category pages there) — but the client-side tags still fix
@@ -155,6 +157,7 @@ export default function ToolDetail() {
   const score = matchScore(tool, answers)
   const reasons = matchReasons(tool, answers)
   const meta = CATEGORY_META[tool.category] || { name: tool.category, color: 'var(--cyan)' }
+  const faviconUrl = getFaviconUrl(tool)
   const added = stack.includes(tool.slug)
   const favorited = favorites.includes(tool.slug)
   const avgRating = getAverageRating(tool.slug)
@@ -237,7 +240,20 @@ export default function ToolDetail() {
         )}
       </div>
 
-      <h1 className="arcade-heading mt-4 text-4xl sm:text-5xl">{tool.name}</h1>
+      <h1 className="arcade-heading mt-4 flex items-center gap-3 text-4xl sm:text-5xl">
+        {faviconUrl && !faviconBroken && (
+          <img
+            src={faviconUrl}
+            alt=""
+            loading="lazy"
+            width={56}
+            height={56}
+            className="h-14 w-14 shrink-0 rounded-full"
+            onError={() => setFaviconBroken(true)}
+          />
+        )}
+        {tool.name}
+      </h1>
       {(tool.dev || tool.year) && (
         <p className="mt-2 font-display text-sm font-semibold" style={{ color: 'var(--lime)' }}>
           {tool.dev}{tool.dev && tool.year ? ' · ' : ''}{tool.year ? `Since ${tool.year}` : ''}

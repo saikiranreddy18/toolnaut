@@ -70,6 +70,16 @@ let bad = 0
 for (const r of routes) {
   const page = await browser.newPage()
   const errs = []
+  // Chrome's console text for a failed resource load is the same generic
+  // string regardless of what failed ("...status of 404 (Not Found)"), with
+  // no URL in it — so the "favicon" keyword below can never match a real
+  // favicon 404 by text alone. Some catalog domains genuinely have no icon
+  // Google's favicon service can resolve; track those via the response URL
+  // instead and discount an equal number of generic 404 console lines.
+  let faviconFailures = 0
+  page.on('response', res => {
+    if (res.status() >= 400 && /google\.com\/s2\/favicons|gstatic\.com\/faviconV2/i.test(res.url())) faviconFailures++
+  })
   page.on('console', m => { if (m.type() === 'error') errs.push(m.text()) })
   page.on('pageerror', e => errs.push('PAGEERROR ' + e.message))
   // /app/* sits behind AppShell's session guard. Without a seeded session every
@@ -98,7 +108,15 @@ for (const r of routes) {
     }
     await page.waitForTimeout(1200)
     const rootHtml = await page.$eval('#root', el => el.innerHTML.length).catch(() => 0)
-    const real = errs.filter(e => !/favicon|fonts.googleapis|fonts.gstatic|ERR_INTERNET|net::ERR|WebGL|Failed to load resource.*tools\.json/i.test(e))
+    let faviconDiscount = faviconFailures
+    const real = errs.filter(e => {
+      if (/favicon|fonts.googleapis|fonts.gstatic|ERR_INTERNET|net::ERR|WebGL|Failed to load resource.*tools\.json/i.test(e)) return false
+      if (faviconDiscount > 0 && /Failed to load resource: the server responded with a status of \d+/i.test(e)) {
+        faviconDiscount--
+        return false
+      }
+      return true
+    })
     // A guarded route that bounced to login proves nothing about the page asked for.
     // Compare pathnames only — `r` may carry a query string (e.g. /app/compare?tools=...)
     // that page.url().pathname never includes, so comparing against the raw route

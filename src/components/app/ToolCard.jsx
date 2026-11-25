@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../../utils/toolsCatalog'
 import { isNewTool } from '../../utils/newTools'
+import { getFaviconUrl } from '../../utils/faviconUrl'
 import { HeartIcon } from './icons'
 import { fitBand } from '../../utils/matchScore'
 
@@ -34,6 +36,8 @@ export default function ToolCard({
 }) {
   const meta = CATEGORY_META[tool.category] || { name: tool.category, color: 'var(--cyan)' }
   const stickerColor = index % 3 === 0 ? '' : index % 3 === 1 ? 'pink' : 'cyan'
+  const [faviconBroken, setFaviconBroken] = useState(false)
+  const faviconUrl = getFaviconUrl(tool)
 
   return (
     <article className={`sticker ${stickerColor} group relative flex flex-col p-4`}>
@@ -78,7 +82,18 @@ export default function ToolCard({
         </span>
       </div>
 
-      <h3 className="arcade-heading compact mt-3 text-base">
+      <h3 className="arcade-heading compact mt-3 flex items-center gap-2 text-base">
+        {faviconUrl && !faviconBroken && (
+          <img
+            src={faviconUrl}
+            alt=""
+            loading="lazy"
+            width={28}
+            height={28}
+            className="h-7 w-7 shrink-0 rounded-full"
+            onError={() => setFaviconBroken(true)}
+          />
+        )}
         <Link
           to={`/app/tools/${tool.slug}`}
           className="after:absolute after:inset-0 after:content-[''] group-hover:opacity-80"
