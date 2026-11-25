@@ -250,7 +250,8 @@
       "willow",
       "verfy",
       "ultracite-linter-and-formatter-for-agentic-development",
-      "agentbadge"
+      "agentbadge",
+      "claude-code-unlimited"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -498,7 +499,8 @@
       "course-willow",
       "course-verfy",
       "course-ultracite-linter-and-formatter-for-agentic-development",
-      "course-agentbadge"
+      "course-agentbadge",
+      "course-claude-code-unlimited"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -879,7 +881,10 @@
       "substance-3d-sampler-win",
       "glasshour",
       "gostudioai",
-      "outloud-reader"
+      "outloud-reader",
+      "leonardo-ai",
+      "luminar-ai",
+      "graphics-optimizer-ai"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -934,7 +939,10 @@
       "course-substance-3d-sampler-win",
       "course-glasshour",
       "course-gostudioai",
-      "course-outloud-reader"
+      "course-outloud-reader",
+      "course-leonardo-ai",
+      "course-luminar-ai",
+      "course-graphics-optimizer-ai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1373,7 +1381,12 @@
       "ai-vtuber-toolkit",
       "stream-clips-ai",
       "subtitles-studio-ai",
-      "clip-cutter-ai"
+      "clip-cutter-ai",
+      "strix-halo-ai-toolboxes",
+      "ai-analytics-team-approved-agent-ready",
+      "strukto-first-virtual-terminal-for-ai-agents",
+      "dialpad",
+      "ai-game-coach"
     ],
     "courses": [
       "course-headless-tools",
@@ -1732,7 +1745,12 @@
       "course-ai-vtuber-toolkit",
       "course-stream-clips-ai",
       "course-subtitles-studio-ai",
-      "course-clip-cutter-ai"
+      "course-clip-cutter-ai",
+      "course-strix-halo-ai-toolboxes",
+      "course-ai-analytics-team-approved-agent-ready",
+      "course-strukto-first-virtual-terminal-for-ai-agents",
+      "course-dialpad",
+      "course-ai-game-coach"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1953,7 +1971,8 @@
       "worldfoundry",
       "cappz",
       "track-flag-ai-agents-in-system",
-      "truce"
+      "truce",
+      "strukto-first-virtual-terminal-for-ai-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -2152,7 +2171,8 @@
       "course-worldfoundry",
       "course-cappz",
       "course-track-flag-ai-agents-in-system",
-      "course-truce"
+      "course-truce",
+      "course-strukto-first-virtual-terminal-for-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2269,7 +2289,8 @@
       "agent-guard",
       "worldfoundry",
       "prompt-upgrader",
-      "aether"
+      "aether",
+      "claude-code-unlimited"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2336,7 +2357,8 @@
       "course-agent-guard",
       "course-worldfoundry",
       "course-prompt-upgrader",
-      "course-aether"
+      "course-aether",
+      "course-claude-code-unlimited"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3022,7 +3044,8 @@
       "a-c-compiler-written-with-help-of-claude",
       "never-again",
       "anthropic-is-planning-to-launch-its-ipo-in-november",
-      "jevmem"
+      "jevmem",
+      "claude-code-unlimited"
     ],
     "courses": [
       "course-coolplugz",
@@ -3032,7 +3055,8 @@
       "course-a-c-compiler-written-with-help-of-claude",
       "course-never-again",
       "course-anthropic-is-planning-to-launch-its-ipo-in-november",
-      "course-jevmem"
+      "course-jevmem",
+      "course-claude-code-unlimited"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4435,7 +4459,8 @@
       "lightweight-self-hosted-web-analytics-app",
       "proofsource-find-where-ai-leaves-you-out-and-fix-it",
       "eevo",
-      "prettywhaleai"
+      "prettywhaleai",
+      "ai-analytics-team-approved-agent-ready"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -4504,7 +4529,8 @@
       "course-lightweight-self-hosted-web-analytics-app",
       "course-proofsource-find-where-ai-leaves-you-out-and-fix-it",
       "course-eevo",
-      "course-prettywhaleai"
+      "course-prettywhaleai",
+      "course-ai-analytics-team-approved-agent-ready"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4974,7 +5000,13 @@
       "agentbadge",
       "stream-clips-ai",
       "subtitles-studio-ai",
-      "clip-cutter-ai"
+      "clip-cutter-ai",
+      "strix-halo-ai-toolboxes",
+      "ai-analytics-team-approved-agent-ready",
+      "dialpad",
+      "luminar-ai",
+      "ai-game-coach",
+      "graphics-optimizer-ai"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -5030,7 +5062,13 @@
       "course-agentbadge",
       "course-stream-clips-ai",
       "course-subtitles-studio-ai",
-      "course-clip-cutter-ai"
+      "course-clip-cutter-ai",
+      "course-strix-halo-ai-toolboxes",
+      "course-ai-analytics-team-approved-agent-ready",
+      "course-dialpad",
+      "course-luminar-ai",
+      "course-ai-game-coach",
+      "course-graphics-optimizer-ai"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5488,7 +5526,8 @@
       "pbi-guard",
       "usejunction",
       "agentlytics",
-      "proofsource-find-where-ai-leaves-you-out-and-fix-it"
+      "proofsource-find-where-ai-leaves-you-out-and-fix-it",
+      "ai-analytics-team-approved-agent-ready"
     ],
     "courses": [
       "course-launch-hn-risklytics-yc-s26",
@@ -5504,7 +5543,8 @@
       "course-pbi-guard",
       "course-usejunction",
       "course-agentlytics",
-      "course-proofsource-find-where-ai-leaves-you-out-and-fix-it"
+      "course-proofsource-find-where-ai-leaves-you-out-and-fix-it",
+      "course-ai-analytics-team-approved-agent-ready"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6073,7 +6113,8 @@
       "a-youtube-transcript-cli-built-for-humans-and-ai-agents",
       "claktor",
       "shamus-osint-ai-agent",
-      "costcatch"
+      "costcatch",
+      "claude-code-unlimited"
     ],
     "courses": [
       "course-devx",
@@ -6103,7 +6144,8 @@
       "course-a-youtube-transcript-cli-built-for-humans-and-ai-agents",
       "course-claktor",
       "course-shamus-osint-ai-agent",
-      "course-costcatch"
+      "course-costcatch",
+      "course-claude-code-unlimited"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6996,11 +7038,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "google-flow",
-      "free-ai-image-tools-no-signup"
+      "free-ai-image-tools-no-signup",
+      "leonardo-ai"
     ],
     "courses": [
       "course-google-flow",
-      "course-free-ai-image-tools-no-signup"
+      "course-free-ai-image-tools-no-signup",
+      "course-leonardo-ai"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -7520,10 +7564,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "clipdrop-desktop-clipdrop-ai-tools-2026"
+      "clipdrop-desktop-clipdrop-ai-tools-2026",
+      "luminar-ai"
     ],
     "courses": [
-      "course-clipdrop-desktop-clipdrop-ai-tools-2026"
+      "course-clipdrop-desktop-clipdrop-ai-tools-2026",
+      "course-luminar-ai"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -9553,12 +9599,14 @@
     "toolsTeaching": [
       "i-built-a-real-time-translator-for-google-meet",
       "jamb-ai",
-      "ai-agents-in-a-stand-up-call"
+      "ai-agents-in-a-stand-up-call",
+      "dialpad"
     ],
     "courses": [
       "course-i-built-a-real-time-translator-for-google-meet",
       "course-jamb-ai",
-      "course-ai-agents-in-a-stand-up-call"
+      "course-ai-agents-in-a-stand-up-call",
+      "course-dialpad"
     ],
     "updatedAt": "2026-09-01T14:10:39.887Z"
   },
@@ -9972,7 +10020,8 @@
       "now",
       "nexus",
       "an-open-source-harness-for-android-devs-in-the-terminal",
-      "trix"
+      "trix",
+      "strukto-first-virtual-terminal-for-ai-agents"
     ],
     "courses": [
       "course-tenux",
@@ -9986,7 +10035,8 @@
       "course-now",
       "course-nexus",
       "course-an-open-source-harness-for-android-devs-in-the-terminal",
-      "course-trix"
+      "course-trix",
+      "course-strukto-first-virtual-terminal-for-ai-agents"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -10308,13 +10358,15 @@
       "anthropic-launches-fable-51-and-mythos-51",
       "anthropic-reveals-rogue-ai-agents-hate-captchas",
       "anyhropic-launches-google-docs-alternative-claude-docs",
-      "anthropic-is-planning-to-launch-its-ipo-in-november"
+      "anthropic-is-planning-to-launch-its-ipo-in-november",
+      "claude-code-unlimited"
     ],
     "courses": [
       "course-anthropic-launches-fable-51-and-mythos-51",
       "course-anthropic-reveals-rogue-ai-agents-hate-captchas",
       "course-anyhropic-launches-google-docs-alternative-claude-docs",
-      "course-anthropic-is-planning-to-launch-its-ipo-in-november"
+      "course-anthropic-is-planning-to-launch-its-ipo-in-november",
+      "course-claude-code-unlimited"
     ],
     "updatedAt": "2026-09-01T23:34:11.678Z"
   },
@@ -12998,11 +13050,15 @@
     "level": "intermediate",
     "toolsTeaching": [
       "cs2-aim-toolkit",
-      "we-got-ai-to-wombo-combo"
+      "we-got-ai-to-wombo-combo",
+      "ai-game-coach",
+      "graphics-optimizer-ai"
     ],
     "courses": [
       "course-cs2-aim-toolkit",
-      "course-we-got-ai-to-wombo-combo"
+      "course-we-got-ai-to-wombo-combo",
+      "course-ai-game-coach",
+      "course-graphics-optimizer-ai"
     ],
     "updatedAt": "2026-09-05T12:45:39.833Z"
   },
@@ -16122,10 +16178,12 @@
     "domain": "automation",
     "level": "advanced",
     "toolsTeaching": [
-      "natively"
+      "natively",
+      "dialpad"
     ],
     "courses": [
-      "course-natively"
+      "course-natively",
+      "course-dialpad"
     ],
     "updatedAt": "2026-09-10T23:24:02.732Z"
   },
@@ -17614,14 +17672,16 @@
       "sikemux",
       "trix",
       "ai-ide-system-utilities-idm-pro-v6-42-karon",
-      "i-built-a-spa-for-ai-agents"
+      "i-built-a-spa-for-ai-agents",
+      "strix-halo-ai-toolboxes"
     ],
     "courses": [
       "course-agentsdock-an-ide-designed-for-agentic-ai-research",
       "course-sikemux",
       "course-trix",
       "course-ai-ide-system-utilities-idm-pro-v6-42-karon",
-      "course-i-built-a-spa-for-ai-agents"
+      "course-i-built-a-spa-for-ai-agents",
+      "course-strix-halo-ai-toolboxes"
     ],
     "updatedAt": "2026-09-13T13:49:13.602Z"
   },
@@ -25423,5 +25483,161 @@
       "course-clip-cutter-ai"
     ],
     "updatedAt": "2026-11-24T20:11:42.053Z"
+  },
+  {
+    "id": "skill-toolboxes",
+    "name": "toolboxes",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "strix-halo-ai-toolboxes"
+    ],
+    "courses": [
+      "course-strix-halo-ai-toolboxes"
+    ],
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "skill-llms",
+    "name": "llms",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "strukto-first-virtual-terminal-for-ai-agents"
+    ],
+    "courses": [
+      "course-strukto-first-virtual-terminal-for-ai-agents"
+    ],
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "skill-ai art",
+    "name": "ai art",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "leonardo-ai"
+    ],
+    "courses": [
+      "course-leonardo-ai"
+    ],
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "skill-inpainting",
+    "name": "inpainting",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "leonardo-ai"
+    ],
+    "courses": [
+      "course-leonardo-ai"
+    ],
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "skill-concept art",
+    "name": "concept art",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "leonardo-ai"
+    ],
+    "courses": [
+      "course-leonardo-ai"
+    ],
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "skill-voip",
+    "name": "voip",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "dialpad"
+    ],
+    "courses": [
+      "course-dialpad"
+    ],
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "skill-sky replacement",
+    "name": "sky replacement",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "luminar-ai"
+    ],
+    "courses": [
+      "course-luminar-ai"
+    ],
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "skill-retouching",
+    "name": "retouching",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "luminar-ai"
+    ],
+    "courses": [
+      "course-luminar-ai"
+    ],
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "skill-coach",
+    "name": "coach",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-game-coach"
+    ],
+    "courses": [
+      "course-ai-game-coach"
+    ],
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "skill-replay",
+    "name": "replay",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "ai-game-coach"
+    ],
+    "courses": [
+      "course-ai-game-coach"
+    ],
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "skill-graphics",
+    "name": "graphics",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "graphics-optimizer-ai"
+    ],
+    "courses": [
+      "course-graphics-optimizer-ai"
+    ],
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "skill-optimizer",
+    "name": "optimizer",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "graphics-optimizer-ai"
+    ],
+    "courses": [
+      "course-graphics-optimizer-ai"
+    ],
+    "updatedAt": "2026-11-25T04:35:53.480Z"
   }
 ]

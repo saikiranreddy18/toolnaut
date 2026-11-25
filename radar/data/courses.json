@@ -41621,5 +41621,474 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-24T20:11:42.053Z"
+  },
+  {
+    "id": "course-strix-halo-ai-toolboxes",
+    "toolSlug": "strix-halo-ai-toolboxes",
+    "title": "Master Strix Halo AI Toolboxes",
+    "objectives": [
+      "Integrate a pre-built Strix Halo AI model into a Python script.",
+      "Configure specific input parameters for a text generation task.",
+      "Evaluate the output using the built-in metric reporting within the Toolbox environment."
+    ],
+    "modules": [
+      {
+        "title": "Basic Toolbox Initialization and Loading",
+        "estMinutes": 15,
+        "steps": [
+          "Install the required Strix Halo SDK via pip.",
+          "Use `strix_halo.load_toolbox('nlp_generator')` to initialize the specific toolkit.",
+          "Verify successful loading by printing the toolkit version."
+        ]
+      },
+      {
+        "title": "Parameter Configuration for Text Generation",
+        "estMinutes": 20,
+        "steps": [
+          "Define a dictionary for input arguments (e.g., 'prompt': '...', 'max_tokens': 100).",
+          "Pass this configuration dictionary directly to the `toolbox.generate()` method.",
+          "Capture the resulting generated text string into a variable."
+        ]
+      },
+      {
+        "title": "Output Validation and Metric Reporting",
+        "estMinutes": 15,
+        "steps": [
+          "Call `toolbox.evaluate(input_data, ground_truth)` with a sample dataset.",
+          "Access the results via `toolbox.get_metrics()`.",
+          "Print the computed coherence score to the console."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai",
+      "skill-toolboxes",
+      "skill-development"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "course-ai-analytics-team-approved-agent-ready",
+    "toolSlug": "ai-analytics-team-approved-agent-ready",
+    "title": "Master AI Analytics. Team Approved. Agent Ready",
+    "objectives": [
+      "Generate a team-approved data insight report using the AI Analytics tool.",
+      "Assess current agent readiness metrics within the tool.",
+      "Configure a proactive alert based on low agent readiness scores."
+    ],
+    "modules": [
+      {
+        "title": "Generating Approved Insights",
+        "estMinutes": 15,
+        "steps": [
+          "Navigate to the 'Insight Generation' tab and select the 'Team Approved Data Set'.",
+          "Prompt the AI with: 'Identify top 3 performance deviations for Q3'.",
+          "Review and export the generated report via the 'Approve/Export' button."
+        ]
+      },
+      {
+        "title": "Agent Readiness Snapshot",
+        "estMinutes": 10,
+        "steps": [
+          "Switch to the 'Agent Readiness Dashboard' module.",
+          "Filter data for 'Current Cohort' and view the 'Readiness Score' metric.",
+          "Drill down into the 'Skills Gap' breakdown for the lowest-scoring agents."
+        ]
+      },
+      {
+        "title": "Setting Readiness Alerts",
+        "estMinutes": 15,
+        "steps": [
+          "Access the 'Alert Configuration' panel and select 'Agent Readiness'.",
+          "Set a threshold trigger: Alert if 'Readiness Score' drops below 75% for 24 hours.",
+          "Confirm delivery channel as 'Slack Channel #ops-alerts'."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-analytics",
+      "skill-ai",
+      "skill-automation"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "course-strukto-first-virtual-terminal-for-ai-agents",
+    "toolSlug": "strukto-first-virtual-terminal-for-ai-agents",
+    "title": "Master Strukto: First Virtual Terminal for AI Agents",
+    "objectives": [
+      "Connect a Strukto terminal to a running AI agent instance.",
+      "Execute environment commands within the agent's simulated terminal.",
+      "Pipe standard input/output from the agent to the host environment."
+    ],
+    "modules": [
+      {
+        "title": "Establishing the Agent Connection",
+        "estMinutes": 10,
+        "steps": [
+          "Launch Strukto and select 'Connect Existing Agent'.",
+          "Input the agent's runtime endpoint URL provided by the orchestration layer.",
+          "Verify the connection status indicator turns green in the Strukto UI."
+        ]
+      },
+      {
+        "title": "Running Initial Commands",
+        "estMinutes": 15,
+        "steps": [
+          "Open the integrated terminal panel within Strukto.",
+          "Type `ls -la` and press Enter to list the agent's working directory contents.",
+          "Execute a simulated script using `python agent_script.py` to check environment setup."
+        ]
+      },
+      {
+        "title": "I/O Redirection Practice",
+        "estMinutes": 15,
+        "steps": [
+          "In the Strukto input prompt, type `echo 'Test input' | some_agent_tool`.",
+          "Observe the output appearing in the Strukto terminal buffer.",
+          "Use the terminal to capture logs: `tee agent_output.log` followed by a command that generates output."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-terminal",
+      "skill-llms"
+    ],
+    "prerequisites": [
+      "A running, accessible AI agent instance with a defined runtime endpoint.",
+      "Basic familiarity with Linux/Unix command line syntax (e.g., ls, echo, |)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "course-leonardo-ai",
+    "toolSlug": "leonardo-ai",
+    "title": "Master leonardo-ai",
+    "objectives": [
+      "Master advanced prompt engineering for specific artistic styles in Leonardo AI.",
+      "Effectively use inpainting to selectively modify or repair parts of generated images.",
+      "Implement upscaling workflows to achieve high-resolution, print-ready outputs."
+    ],
+    "modules": [
+      {
+        "title": "Refining Style with Weighting and Aspect Ratios",
+        "estMinutes": 15,
+        "steps": [
+          "Experiment with prompt weighting syntax (e.g., `(keyword:1.3)`) for emphasis.",
+          "Set non-standard aspect ratios (e.g., 16:9 or 4:5) within the image settings.",
+          "Compare results using two distinct fine-tuned models for the same prompt."
+        ]
+      },
+      {
+        "title": "Precision Editing with Inpainting",
+        "estMinutes": 20,
+        "steps": [
+          "Generate a base image, then select the Inpainting tool.",
+          "Mask only the area needing change (e.g., changing a hat color) and input a replacement prompt.",
+          "Adjust the 'Guidance Scale' during inpainting to maintain prompt adherence."
+        ]
+      },
+      {
+        "title": "High-Fidelity Output via Upscaling",
+        "estMinutes": 10,
+        "steps": [
+          "Use the built-in upscaling feature after final generation.",
+          "Test different upscaler algorithms (e.g., 4x UltraSharp vs. ESRGAN) on the same image.",
+          "Download the final, high-resolution image and verify pixel density."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-image generation",
+      "skill-ai art",
+      "skill-inpainting",
+      "skill-concept art"
+    ],
+    "prerequisites": [
+      "Basic proficiency in text-to-image prompting.",
+      "An active Leonardo AI account and understanding of its interface."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "course-dialpad",
+    "toolSlug": "dialpad",
+    "title": "Master dialpad",
+    "objectives": [
+      "Automate call routing using Dialpad's rules.",
+      "Utilize AI transcription features for meeting summaries.",
+      "Set up integrated messaging workflows."
+    ],
+    "modules": [
+      {
+        "title": "Configuring Call Routing Rules",
+        "estMinutes": 15,
+        "steps": [
+          "Navigate to 'Call Settings' and select 'Routing Rules'.",
+          "Define a rule: If Caller ID matches [XYZ], route to [Extension 123].",
+          "Test the rule by placing a test call from the defined ID."
+        ]
+      },
+      {
+        "title": "Analyzing AI Transcripts",
+        "estMinutes": 10,
+        "steps": [
+          "Join a meeting via the Dialpad app and ensure recording/transcription is enabled.",
+          "Access the meeting recording in the Dialpad dashboard.",
+          "Review the automatically generated summary and key action items within the transcript."
+        ]
+      },
+      {
+        "title": "Implementing Workflow Messages",
+        "estMinutes": 12,
+        "steps": [
+          "Go to 'Integrations' and connect a relevant CRM (e.g., Salesforce).",
+          "Set up an automated message trigger: When a new lead enters CRM, send an SMS via Dialpad.",
+          "Verify the outbound SMS delivery status in the communication logs."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-communication",
+      "skill-voip",
+      "skill-ai",
+      "skill-meetings"
+    ],
+    "prerequisites": [
+      "Basic navigation of the Dialpad web/desktop application.",
+      "Admin or high-level user permissions within the Dialpad account."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "course-luminar-ai",
+    "toolSlug": "luminar-ai",
+    "title": "Master luminar-ai",
+    "objectives": [
+      "Master the AI Sky Replacement feature for dramatic landscape edits.",
+      "Efficiently remove complex objects using the Luminar AI removal tool.",
+      "Apply targeted retouching to portraits while preserving natural textures."
+    ],
+    "modules": [
+      {
+        "title": "Sky Replacement Workflow",
+        "estMinutes": 15,
+        "steps": [
+          "Import a landscape photo with an undesirable sky into Luminar AI.",
+          "Select the Sky Replacement tool and choose a pre-set or custom sky from the library.",
+          "Adjust the blending and luminosity sliders until the new sky integrates seamlessly."
+        ]
+      },
+      {
+        "title": "Advanced Object Removal",
+        "estMinutes": 12,
+        "steps": [
+          "Use the AI Removal tool to mask a complex object (e.g., power lines, photobomber).",
+          "Observe the AI-generated patch and refine the selection boundary manually if necessary.",
+          "Review the result at 100% zoom to ensure no artifacting remains around the removed area."
+        ]
+      },
+      {
+        "title": "Portrait Retouching Quick Fixes",
+        "estMinutes": 18,
+        "steps": [
+          "Load a portrait and activate the Portrait retouching panel.",
+          "Use the localized smoothing tool sparingly on skin areas, avoiding harsh blurring.",
+          "Apply subtle enhancement to eyes or teeth using dedicated sliders rather than global filters."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-photo editing",
+      "skill-ai",
+      "skill-sky replacement",
+      "skill-retouching"
+    ],
+    "prerequisites": [
+      "Familiarity with Windows software interfaces.",
+      "Basic photo editing concepts (exposure, contrast).",
+      "Luminar AI installed and licensed."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "course-claude-code-unlimited",
+    "toolSlug": "claude-code-unlimited",
+    "title": "Master claude-code-unlimited",
+    "objectives": [
+      "Locate the configuration file for `claude-code-unlimited`.",
+      "Set up an automated session rotation schedule.",
+      "Verify successful session rotation in the logs."
+    ],
+    "modules": [
+      {
+        "title": "Configuring Rotation Interval",
+        "estMinutes": 10,
+        "steps": [
+          "Open `config.yaml` using a text editor.",
+          "Modify the `rotation_interval_minutes` to your desired time (e.g., 60).",
+          "Save and ensure the configuration file permissions are correct (e.g., read-only for the service user)."
+        ]
+      },
+      {
+        "title": "Starting the Rotator Service",
+        "estMinutes": 5,
+        "steps": [
+          "Execute `claude-code-unlimited start --config config.yaml` in the terminal.",
+          "Confirm the service output shows 'Rotator Service Active'.",
+          "Use `systemctl status claude-rotator` to verify background operation."
+        ]
+      },
+      {
+        "title": "Monitoring Rotation Events",
+        "estMinutes": 10,
+        "steps": [
+          "Check the dedicated log file: `tail -f /var/log/claude-rotator.log`.",
+          "Wait for the configured interval to pass.",
+          "Verify the log entry stating 'Session rotated successfully to new ID: XXXX'."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-claude",
+      "skill-llm",
+      "skill-cli",
+      "skill-anthropic"
+    ],
+    "prerequisites": [
+      "Basic familiarity with Linux command line (cd, tail, systemctl).",
+      "Access to the project configuration files."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "course-ai-game-coach",
+    "toolSlug": "ai-game-coach",
+    "title": "Master ai-game-coach",
+    "objectives": [
+      "Upload a replay file for analysis.",
+      "Interpret the AI's flagged mistakes and generated reports.",
+      "Apply personalized tips to improve specific gameplay elements."
+    ],
+    "modules": [
+      {
+        "title": "Replay Upload & Initial Scan",
+        "estMinutes": 10,
+        "steps": [
+          "Navigate to the 'Analyze Replay' tab and select your game file (.replay format).",
+          "Confirm settings (e.g., focus on positioning vs. combat) and initiate the scan."
+        ]
+      },
+      {
+        "title": "Mistake Identification & Review",
+        "estMinutes": 15,
+        "steps": [
+          "Review the timeline heatmap to pinpoint error timestamps.",
+          "Click a flagged moment to view the AI's specific textual explanation of the mistake."
+        ]
+      },
+      {
+        "title": "Actionable Tip Integration",
+        "estMinutes": 10,
+        "steps": [
+          "Open the 'Personalized Tips' section for the relevant mistake category (e.g., resource management).",
+          "Bookmark the top 2 suggested drills or behavioral changes for immediate practice."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-gaming",
+      "skill-coach",
+      "skill-replay",
+      "skill-ai"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-25T04:35:53.480Z"
+  },
+  {
+    "id": "course-graphics-optimizer-ai",
+    "toolSlug": "graphics-optimizer-ai",
+    "title": "Master graphics-optimizer-ai",
+    "objectives": [
+      "Analyze current hardware limitations using the tool's diagnostics.",
+      "Apply recommended FPS/Visual balance profiles.",
+      "Validate performance gains in a target game."
+    ],
+    "modules": [
+      {
+        "title": "Hardware Profile Scan",
+        "estMinutes": 10,
+        "steps": [
+          "Launch graphics-optimizer-ai and select 'Scan My Rig'.",
+          "Note the 'Target FPS Range' and 'Visual Quality Threshold' output."
+        ]
+      },
+      {
+        "title": "Profile Generation & Application",
+        "estMinutes": 15,
+        "steps": [
+          "Use the AI to generate a profile matching your threshold (e.g., 60 FPS/Medium Visuals).",
+          "Select 'Apply Settings' for the target game profile."
+        ]
+      },
+      {
+        "title": "Post-Optimization Verification",
+        "estMinutes": 10,
+        "steps": [
+          "Launch the target game and monitor FPS using in-game overlay.",
+          "Run the tool's 'Validation Check' function to confirm settings stability."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-graphics",
+      "skill-optimizer",
+      "skill-gaming",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "A PC capable of running the target game.",
+      "Installation of graphics-optimizer-ai."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-25T04:35:53.480Z"
   }
 ]
