@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { generateRoadmap } from '../../utils/roadmapGenerator'
+import { downloadRoadmapIcs } from '../../utils/roadmapCalendar'
 import { CATEGORY_META } from '../../utils/toolsCatalog'
 import { loadQuiz } from '../../state/quizStore'
 import { QUESTIONS } from '../../utils/quizLogic'
@@ -283,15 +284,25 @@ export default function Learning() {
     window.print()
   }
 
+  function addToCalendar() {
+    haptic.tap()
+    downloadRoadmapIcs(milestones)
+  }
+
   return (
     <div className="print-roadmap relative z-10 mx-auto max-w-5xl px-5 xl:max-w-6xl py-6 lg:py-10">
       <p className="text-xs font-medium uppercase tracking-[0.22em] cosmic-text">Learn</p>
       <h1 className="arcade-heading mt-2 text-3xl sm:text-4xl">Your 4-week<br/>Orbit</h1>
 
         {canExportRoadmap ? (
-          <button onClick={exportRoadmap} className="nb-btn dark print:hidden mt-4 px-4 py-2 text-xs">
-            🖨️ Export as PDF
-          </button>
+          <div className="mt-4 flex flex-wrap gap-3 print:hidden">
+            <button onClick={exportRoadmap} className="nb-btn dark px-4 py-2 text-xs">
+              🖨️ Export as PDF
+            </button>
+            <button onClick={addToCalendar} className="nb-btn dark px-4 py-2 text-xs">
+              📅 Add to calendar
+            </button>
+          </div>
         ) : (
           <Link
             to="/pricing"
