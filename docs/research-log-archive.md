@@ -6878,3 +6878,63 @@ site-wide (11 distinct call sites across `src/components/`, `src/hooks/`,
 Per the "never invent a gap to fill the hour" rule, appended nothing new to
 `research-backlog.md` and made no code change. The feature run still has 18
 build-ready OPEN gaps to choose from.
+
+### Research check 2026-11-26 09:07 UTC — re-verified the true stalest OPEN entry, zero drift; logged one genuinely new gap (roadmap calendar export)
+Research run (UTC hour 09). `npm run radar:health` -> STATUS: OK (2 runs in
+26h window, 3 tools published last run 5.3h ago, feed at 678 tools). CI and
+Release both green on the latest master push (`b2a7a9f`). No issue labelled
+`agent-fixable` open. All three urgent-work checks clear, so proceeded to the
+research job for the hour.
+
+Re-verified the stalest OPEN entry by last-check date, "Track progress
+against your role" (found 2026-09-15, last touched 2026-11-19, 7 days
+untouched — the oldest of all 18 OPEN entries' own last-check timestamps).
+Checked every citation against current master: `HowItWorksSection.jsx:9`
+still carries the exact "Track progress against your role, not generic
+benchmarks" copy; `progressStore.js:10`'s `STATUSES` is unchanged, index 3
+still `'Mastered'`; `personaGenerator.js`'s `careerLine()`/`career` assignment
+unchanged in shape; `Stack.jsx`'s `starter: true` map (line 235) and the
+"From your persona" card branch (line 374) are exactly where the 2026-11-19
+note left them, no further line drift since; `grep -ni "core.*master|mastered"
+Stack.jsx` still zero hits — the one actual deliverable (a "N of 3 core
+[role] tools mastered" stat line) is still unbuilt. Zero drift. Not re-logged
+here per this file's own rule (a clean re-verify belongs in this archive, not
+the backlog) — still OPEN, Build size S, still the most build-ready entry
+nobody has shipped.
+
+Checked one new angle before falling back to a fresh competitor study, since
+the backlog's own "DEEPEN a thin gap" instruction didn't apply (nothing OPEN
+was thin — every entry already carries a full smallest-useful-version spec).
+Noticed `src/pages/app/Stack.jsx` already computes a deterministic
+"`toolOfTheDay`" per-user personalized daily pick (lines 25-33, used only on
+the signed-in dashboard) and wondered whether a *public* tool-of-the-day
+spotlight (a known growth/SEO pattern on some directories) was a real,
+missing surface. WebSearched Futurepedia and There's An AI For That
+specifically for this; found no solid evidence either site runs a public
+daily-pick feature (TAAFT's "Day Rank" hits were Product Hunt's own ranking
+of TAAFT's listing, not a TAAFT feature; a separate unrelated site,
+aiofthe.day, shares the name coincidentally). Evidence too thin to clear this
+file's bar — not logged. Also would overlap heavily with the two already-OPEN
+ranking-shaped entries (leaderboard precondition, Weekly trending tools), so
+even with better evidence it would need to be sharply distinguished from
+those rather than added as a third.
+
+Pivoted to checking the product's own already-shipped roadmap feature for a
+genuine, narrower export gap instead, and found one: `Learning.jsx`'s only
+roadmap export is `window.print()` (PDF snapshot, gated behind
+`canExportRoadmap`); `generateRoadmap()` already returns four dated-in-spirit
+milestones (`week`, `title`, `focus`, `steps`) with no calendar-export path
+anywhere in the repo (grepped `ics|icalendar|calendar|VCALENDAR`
+case-insensitive, zero real hits). Confirmed via Todoist's and Notion's own
+official calendar-export features that "a dated plan should leave the app as
+calendar events" is a real, named SaaS pattern ("export" is explicitly one
+of the pattern categories this file is told to study), distinct from the
+already-OPEN "No portable copy of your stack" entry (that one is about the
+*stack* as static text for a resume/Notion page; this one is about the
+*roadmap*'s weekly structure becoming real calendar events with reminders)
+and from the shipped PDF export (static snapshot vs. actionable dated
+events). Logged as a new Build-size-S entry in `docs/research-backlog.md`
+("The 4-week roadmap only exports as a PDF snapshot...").
+
+No code change this run beyond the two doc files. The feature run now has 19
+build-ready OPEN gaps to choose from.

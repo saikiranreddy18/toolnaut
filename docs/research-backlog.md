@@ -10969,3 +10969,85 @@ without changing it, logs that in the archive file, not here.** Only append to
   interaction pattern on one existing page. No new dependency, no new
   route, no schema change.
 - **Found:** 2026-11-26 06:03 UTC
+
+### The 4-week roadmap only exports as a PDF snapshot — no way to get its weekly milestones onto a real calendar with reminders
+- **Status:** OPEN
+- **Seen in:** general SaaS export/scheduling pattern this product's own
+  roadmap feature invites — Todoist ships an official per-project calendar
+  feed so scheduled tasks appear inside Google/Apple/Outlook calendar
+  (todoist.com/help/articles/208789889); Notion ships a native "export as
+  iCalendar" action on any database with dates, specifically so deadlines
+  travel into a calendar app instead of staying inside the product
+  (documented via the open-source `notion-to-ics` exporter and Notion's own
+  calendar-view export action). Neither is an AI-tool directory, but both
+  are the direct precedent for "a dated, multi-step plan should be able to
+  leave the app as calendar events" — exactly PRD-sold instructions say to
+  check for ("export" is explicitly named as a SaaS pattern category this
+  file should study).
+- **Gap:** Toolnaut's own marketing promise is a "4-week guided roadmap"
+  (this repo's own top-level description), and `src/utils/roadmapGenerator.js`
+  already builds exactly that: `generateRoadmap()` returns `{ persona,
+  milestones }`, four milestones each with a `week` (1-4), `title` (e.g.
+  "Master Cursor"), `focus`, and a `steps` array — real, dated-in-spirit
+  content, just never anchored to a real calendar date. `src/pages/app/
+  Learning.jsx:282-284`'s only export path is `exportRoadmap()`, which calls
+  `window.print()` against the `print-roadmap` CSS class — a static,
+  point-in-time PDF/paper snapshot, not an interactive artifact. Grepped the
+  whole repo for `ics|icalendar|calendar|VCALENDAR` (case-insensitive,
+  excluding comments/unrelated hits in `PricingPillar.jsx`/`ThemePicker.jsx`
+  that just contain the substring "calendar" nowhere near scheduling): zero
+  hits outside this search itself. `src/state/roadmapStore.js` tracks only
+  per-step/per-milestone completion booleans, never a start date, so there
+  is currently no way for a user to get "Master Cursor: Nov 30 – Dec 6" onto
+  their own calendar with a reminder — the plan lives and dies inside
+  `/app/learning`.
+- **Why it matters:** a PDF is something you read once and then forget; a
+  calendar event with a reminder is something that resurfaces at the moment
+  it matters — Monday morning, week 2, "time to start Perplexity." The
+  product's own framing is a *guided* roadmap, and the thing that makes a
+  plan actually guide someone through four real weeks (not just four weeks
+  of app sessions) is showing up where they already look: their calendar,
+  not a second open tab for toolnaut.xyz. This also doesn't require solving
+  the harder, already-logged "reminder/notification" gaps elsewhere in this
+  category (no backend, no push notifications, no email cadence) — a
+  downloaded `.ics` file is a static artifact the calendar app itself then
+  owns the reminders for.
+- **Smallest useful version (what to actually build):**
+  - New pure function `src/utils/roadmapCalendar.js` → `roadmapToIcs(milestones)`.
+    No new dependency: the iCalendar format is plain text (`BEGIN:VCALENDAR`
+    / `BEGIN:VEVENT` blocks with `DTSTART`/`DTEND`/`SUMMARY`/`DESCRIPTION`),
+    small enough to hand-build with template strings the same way
+    `shareStack.js`'s formatters are hand-built, no library needed.
+  - Anchor dates at generation time, not at quiz time (no new stored state):
+    `DTSTART` for milestone `week` = today + `(week - 1) * 7` days, each
+    event spanning 7 days (all-day `VALUE=DATE` events, not timed — the
+    roadmap has no time-of-day concept to preserve). `SUMMARY` = milestone
+    `title`; `DESCRIPTION` = `focus` plus the `steps` joined with `\n` (CRLF-
+    escaped per the RFC 5545 text-escaping rules — the one real wrinkle to
+    get right, since commas/semicolons/newlines all need backslash-escaping
+    in iCalendar text fields).
+  - On `Learning.jsx`, add one "Add to calendar" button next to the existing
+    `🖨️ Export as PDF` button (`Learning.jsx:291-295`), calling
+    `roadmapToIcs(milestones)` and triggering a download via a `Blob`
+    (`type: 'text/calendar'`) + a temporary `<a download="toolnaut-roadmap.ics">`
+    click — the same browser-download pattern `exportUserData.js`'s "Download
+    my data" button already uses for its JSON blob, just a different MIME
+    type and filename. Gate it behind the same `canExportRoadmap` entitlement
+    check already guarding the PDF button, for consistency with how that
+    button treats this as a Pro-tier perk once payments go live.
+  - **What this would NOT include** (kept out to bound the diff): no live
+    calendar *sync* (a one-time downloaded file, not a subscribed feed a
+    calendar polls — that would need a stable public URL per user, which is
+    a backend feature this static SPA doesn't have); no per-step events
+    (one event per week/milestone only, not one per step — keeps the
+    calendar from being spammed with 12-16 entries for a 4-week plan); no
+    timed reminders/alarms baked into the `.ics` itself (left to the
+    receiving calendar app's own defaults, consistent with this file's
+    existing caution about reminder cadence being a calendar-app job, not a
+    file-format job); no change to the PDF export, which stays as-is for
+    users who want a paper/read-only copy.
+- **Build size:** S — one new pure util (`roadmapCalendar.js`, unit-testable
+  with `node --test` the same way the share-link encode/decode functions
+  are), one new button reusing an existing download pattern on one existing
+  page. No new dependency, no new route, no schema change, no backend.
+- **Found:** 2026-11-26 09:07 UTC
