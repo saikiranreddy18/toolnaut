@@ -6985,3 +6985,44 @@ doesn't have.
 
 No code change this run beyond this archive file. The feature run still has
 19 build-ready OPEN gaps to choose from.
+
+---
+### Research check 2026-11-26 15:03 UTC — no new gap found, master unchanged since the 12:04 UTC pass
+Off-cadence run (UTC hour 15, not the usual :03/:06/:12/:18 schedule).
+`npm run radar:health` -> STATUS: OK (2 runs in 26h window, 3 tools published
+11.3h ago, feed at 678 tools). `git fetch origin master` confirmed the tip is
+still `2e96a00` — the exact commit the 12:04 UTC research check left master
+at; nothing has shipped in the 3 hours since. CI/Release green on that
+commit, no issue labelled `agent-fixable` open.
+
+Given master hadn't moved, re-running the 12:04 pass's own stalest-entry
+re-verification would reproduce that run's result almost verbatim (it
+already found zero drift on "Track progress against your role" and
+confirmed every other OPEN entry carries a complete build plan), so skipped
+that and looked for two genuinely fresh angles instead:
+
+1. **Reduced-motion accessibility** (WCAG 2.1 AA 2.3.3) — plausible gap given
+   how much the app leans on `framer-motion` and `@react-three/fiber` for the
+   galaxy/hero. Grepped `prefers-reduced-motion|useReducedMotion` across
+   `src/`: 14 files already handle it, including the galaxy itself
+   (`HeroSection.jsx`, `ToolStars.jsx`, `Scene.jsx`'s documented "calm" mode),
+   cursor effects (`CursorStars.jsx`, `Tilt.jsx`, `DottedWordmark.jsx`),
+   auth-flow motion (`SignInPage.jsx`, `ArrivalLaunch.jsx`), haptics, smooth
+   scroll, and four `@media (prefers-reduced-motion: reduce)` blocks in
+   `index.css`. Already thoroughly covered — not a gap.
+2. **Deprecated-tool replacement suggestions** — WebSearched for a 2026
+   directory pattern of alerting on or suggesting alternatives for dead
+   tools. Found Toolchase's discontinued-tools page (each entry links a
+   "where to go instead" alternative) and the previously-cited
+   ToolDirectory.AI/FutureTools.io/ToolChase graveyard precedents. This is
+   the exact same ground the already-OPEN "Tool 'graveyard' page" entry
+   (line ~2981, re-verified three times, last 2026-11-23) has already
+   researched in more depth, down to the same competitor names. A
+   replacement-suggestion column would need real tool-to-tool mapping data
+   this catalog doesn't have — the same fabrication risk that entry and the
+   testimonial gap both already guard against. Nothing new to add.
+
+Not logged to `research-backlog.md` — neither lead cleared the bar, and
+re-logging the existing graveyard entry's own already-stronger evidence
+would be duplication. No code change this run beyond this archive file. The
+feature run still has 19 build-ready OPEN gaps to choose from.
