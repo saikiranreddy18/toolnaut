@@ -11051,3 +11051,70 @@ without changing it, logs that in the archive file, not here.** Only append to
   are), one new button reusing an existing download pattern on one existing
   page. No new dependency, no new route, no schema change, no backend.
 - **Found:** 2026-11-26 09:07 UTC
+
+### Favicons shipped on 2 of 10 tool-card surfaces — the other 8 still render text-only rows, including the two highest-intent SEO landing pages
+- **Status:** OPEN
+- **Seen in:** this is a direct, named follow-up to this file's own "No tool
+  has a visual identity" entry above (shipped `60dfda9`, 2026-11-25), not a
+  new competitor study — that entry explicitly scoped itself to
+  `ToolCard.jsx`/`ToolDetail.jsx` only and named the rest as "a cheap,
+  obvious, and separately-shippable follow-up," but never got promoted to
+  its own tracked entry, so it sat unbuilt and easy to lose track of. Re-
+  confirmed the underlying competitor fact still holds: Futurepedia, There's
+  An AI For That, Product Hunt and G2/Capterra render a logo on every
+  surface that lists a tool, not just the primary two.
+- **Gap:** grepped `src/` for `faviconUrl|getFaviconUrl` — only three hits:
+  `src/utils/faviconUrl.js` itself, `ToolCard.jsx` (used by Discover,
+  Favorites and Stack — confirmed via `grep -rl "from.*ToolCard"`) and
+  `ToolDetail.jsx`. Then read every other file in `src/pages/` that renders
+  a tool's `name` in a card-shaped row to confirm none of them import
+  `ToolCard` or call `getFaviconUrl`: `src/pages/CategoryLanding.jsx:94-102`
+  (the "Best AI tools for X" SEO pages), `src/pages/NewTools.jsx:91`,
+  `src/pages/SharedStack.jsx:78`, `src/pages/app/Compare.jsx` (the signed-in
+  comparison table), `src/pages/PublicCompare.jsx:89` (its public,
+  prerendered `/compare/:slugs` counterpart — confirmed by this file's own
+  "Compare already works entirely off a URL" entry above), `src/pages/
+  CollectionDetail.jsx:76`, `src/pages/ToolPublic.jsx:72` (the public,
+  crawlable `/ai-tools/:slug` page) and `src/pages/SearchTools.jsx:119`. Each
+  one still renders only the small `CATEGORY_META[...].color` dot next to a
+  text name, the exact pre-favicon pattern `ToolCard.jsx` itself used until
+  yesterday.
+- **Why it matters:** two of these eight — `CategoryLanding.jsx` and
+  `ToolPublic.jsx` — are the two highest-intent, most-crawlable surfaces in
+  the entire app (category SEO landing pages and public tool pages, the
+  pages a visitor coming from Google lands on first, before ever creating an
+  account), yet they're exactly the ones still stuck on text-only rows.
+  `PublicCompare.jsx` and `SharedStack.jsx` are the two growth-loop pages
+  this backlog has repeatedly flagged as what a non-signed-in recipient sees
+  when someone pastes a Toolnaut link — the first impression of the product
+  for a brand-new visitor currently has no logos at all, only on the two
+  pages a returning, already-signed-in user sees. Shipping the other 8 is
+  the difference between "we tried this once" and "this is how every tool
+  looks here."
+- **Smallest useful version (what to actually build):** no new util, no new
+  tradeoff to re-litigate — `faviconUrl.js` and its Google-favicon-service
+  decision are already shipped and already proven in production. Copy
+  `ToolCard.jsx:39-40,86-96`'s exact four-line pattern (`useState` broken
+  flag, `getFaviconUrl(tool)`, the `faviconUrl && !faviconBroken` guarded
+  `<img>` with `loading="lazy"`, `alt=""`, `onError` hiding) into each of the
+  8 files above, sized to each file's existing heading (28px to match
+  `ToolCard`, 48-56px on `ToolPublic.jsx` to match `ToolDetail.jsx` since
+  it's a single-tool detail-shaped page, 28px on the other seven which are
+  all grid/list rows). `Compare.jsx`/`PublicCompare.jsx` need the import
+  added to both files since they're separate signed-in/public components
+  despite rendering near-identical tables (same split this file's own
+  Compare-related entries have noted before). **What this would NOT
+  include:** no change to `faviconUrl.js` itself or its Google-service
+  tradeoff (already shipped, already disclosed); no new surfaces beyond the
+  8 named above — if a ninth card-shaped page is found later it's a trivial
+  continuation of this same diff, not a reason to hold this one; no retry of
+  the sandbox-Chromium-can't-reach-Google-favicons smoke-test problem the
+  original entry already solved — that fix lives in `smoke.mjs` already and
+  applies to every route, not per-component.
+- **Build size:** XS — no new util, no new dependency, no new route, no
+  schema change, no backend: purely copying one already-shipped, already-
+  tested four-line pattern into 8 existing files. Likely the single cheapest
+  non-trivial visible gap left in this file relative to its impact, since
+  the hard design/tradeoff decision and the one genuinely new util it needed
+  are both already done.
+- **Found:** 2026-11-26 21:03 UTC
