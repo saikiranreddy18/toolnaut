@@ -10887,3 +10887,85 @@ without changing it, logs that in the archive file, not here.** Only append to
   template. No schema change (the explorers table and its insert-conflict
   signal already exist), no new provider, no new dependency.
 - **Found:** 2026-11-26 00:07 UTC
+
+---
+
+### No portable copy of your stack exists — the live share link and the GDPR data dump both exist, but nothing presentable to paste into a resume, LinkedIn post or Notion page
+- **Status:** OPEN
+- **Seen in:** general resume/portfolio-building pattern this category's
+  users actually have a reason to want — StackShare (stackshare.io) lets a
+  user embed or copy their stack as a readable badge/markdown block
+  specifically so it can go on a GitHub README or resume, not just a live
+  profile URL; Notion and Linear both ship "copy as Markdown" on content
+  that already has a shareable link, treating the link and the static copy
+  as two different jobs. Toolnaut's own existing gaps already drew this
+  exact line once each, for two *other* pages, and both excluded this one
+  on purpose: the (shipped) "Share / export your stack" gap explicitly
+  listed "no CSV/PDF export" as out of scope for v1, and the (shipped)
+  "Download my data" gap explicitly chose JSON over CSV because it was
+  building a GDPR-style raw account dump, not something presentable
+  ("nested objects like `roadmapProgress` don't flatten cleanly" —
+  correct for that use case, irrelevant to this one).
+- **Gap:** confirmed both exclusions are still exactly where they were left
+  and nothing has since filled the space between them. `src/pages/app/
+  Stack.jsx:122-130`'s `copyShareLink()` only ever builds
+  `${origin}/s/${encodeStackSlugs(slugs)}` and writes that URL to the
+  clipboard — re-read `src/utils/shareStack.js` in full (14 lines): it
+  exports exactly `encodeStackSlugs`/`decodeStackSlugs`, nothing else, no
+  text/markdown formatter of any kind. `src/utils/exportUserData.js`
+  (the shipped "Download my data" util) returns one `JSON.stringify`
+  blob of the whole account — quiz answers, raw progress keys, theme
+  prefs — not a stack summary a person would want to show someone else.
+  Grepped `src/` for `markdown|\.md\b|toMarkdown|clipboard.*text\/plain`
+  (case-insensitive) outside test files: zero hits beyond the two share/
+  export utilities already named above. The only thing a Toolnaut user can
+  currently hand someone who isn't going to click a link — a recruiter
+  skimming a resume bullet, a Notion page, a Slack message to a non-
+  technical colleague — is nothing: they'd have to manually retype their
+  own stack by eye from `/app/stack`.
+- **Why it matters:** a share link requires the recipient to open a browser
+  and load toolnaut.xyz; a resume bullet, a Notion embed, or a pasted Slack
+  message needs static text that already reads correctly where it lands.
+  This is a different moment from either shipped gap — not "show someone my
+  live stack" (the `/s/:slugs` link already does that) and not "get my raw
+  account data out" (the JSON download already does that) — it's "I want to
+  describe my AI stack somewhere that isn't toolnaut.xyz, in one paste, with
+  no link-clicking required of the reader." `AudienceSection.jsx`'s own
+  framing ("walk into interviews with a working stack") is explicitly about
+  this moment — a stack as something to show in a job search — and today
+  there's no artifact suited to that context at all.
+- **Smallest useful version (what to actually build):**
+  - One new pure function in `src/utils/shareStack.js` (same file, not a
+    new module — it already owns the slug encode/decode half of this
+    feature): `stackToMarkdown(allStackTools, persona)` → a short plain-
+    text/Markdown block: a heading line (`persona.name`'s career label, or
+    a generic fallback), then one bullet per tool (`- **{name}** — 
+    {category/blurb}`), ending with the same `/s/:slugs` share link as a
+    "see it live" footer line so the two formats stay connected rather than
+    competing.
+  - On `Stack.jsx`, add one small "Copy as text" action next to the
+    existing `copyShareLink()` button (`Stack.jsx:263-271`'s action row),
+    calling `navigator.clipboard.writeText(stackToMarkdown(allStackTools,
+    persona))` — same transient "✓ Copied" label swap already implemented
+    for the share button, same `copied`/`setCopied` state, no new UI
+    primitive.
+  - No new route, no new page, no schema change, no backend call: this is
+    a second formatter function sitting beside the one `shareStack.js`
+    already has, plus one more button reusing an interaction pattern
+    `Stack.jsx` already implements twice (progress-cycle buttons, share
+    button).
+  - **What this would NOT include** (kept out to bound the diff): no file
+    download (`.md`/`.txt` via Blob) in v1 — clipboard-only, matching how
+    the share link itself works today (copy, not download); no PDF/image
+    rendering (the already-shipped roadmap-PDF gap covers the print-
+    stylesheet pattern for a different page, not duplicated here); no
+    social-card/OG image generation (a separate, already-logged OPEN gap
+    on the share link itself); no customization of what's included (always
+    the full current stack, no field picker) — a v1 this small doesn't need
+    configurability.
+- **Build size:** S — one new pure function in an existing util file (unit-
+  testable with `node --test` the same way `encodeStackSlugs`/
+  `decodeStackSlugs` already are), one button reusing an existing
+  interaction pattern on one existing page. No new dependency, no new
+  route, no schema change.
+- **Found:** 2026-11-26 06:03 UTC
