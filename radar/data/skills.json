@@ -251,7 +251,8 @@
       "verfy",
       "ultracite-linter-and-formatter-for-agentic-development",
       "agentbadge",
-      "claude-code-unlimited"
+      "claude-code-unlimited",
+      "claude-code-token-accounting-statement"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -500,7 +501,8 @@
       "course-verfy",
       "course-ultracite-linter-and-formatter-for-agentic-development",
       "course-agentbadge",
-      "course-claude-code-unlimited"
+      "course-claude-code-unlimited",
+      "course-claude-code-token-accounting-statement"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1394,7 +1396,9 @@
       "dialpad",
       "ai-game-coach",
       "avva",
-      "eustella-europes-ai-agent"
+      "eustella-europes-ai-agent",
+      "heycube",
+      "simplellmchat"
     ],
     "courses": [
       "course-headless-tools",
@@ -1760,7 +1764,9 @@
       "course-dialpad",
       "course-ai-game-coach",
       "course-avva",
-      "course-eustella-europes-ai-agent"
+      "course-eustella-europes-ai-agent",
+      "course-heycube",
+      "course-simplellmchat"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2300,7 +2306,8 @@
       "worldfoundry",
       "prompt-upgrader",
       "aether",
-      "claude-code-unlimited"
+      "claude-code-unlimited",
+      "simplellmchat"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2368,7 +2375,8 @@
       "course-worldfoundry",
       "course-prompt-upgrader",
       "course-aether",
-      "course-claude-code-unlimited"
+      "course-claude-code-unlimited",
+      "course-simplellmchat"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3055,7 +3063,8 @@
       "never-again",
       "anthropic-is-planning-to-launch-its-ipo-in-november",
       "jevmem",
-      "claude-code-unlimited"
+      "claude-code-unlimited",
+      "claude-code-token-accounting-statement"
     ],
     "courses": [
       "course-coolplugz",
@@ -3066,7 +3075,8 @@
       "course-never-again",
       "course-anthropic-is-planning-to-launch-its-ipo-in-november",
       "course-jevmem",
-      "course-claude-code-unlimited"
+      "course-claude-code-unlimited",
+      "course-claude-code-token-accounting-statement"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4023,7 +4033,8 @@
       "sandscale",
       "xsquads",
       "i-built-a-spa-for-ai-agents",
-      "moonbooth"
+      "moonbooth",
+      "heycube"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -4095,7 +4106,8 @@
       "course-sandscale",
       "course-xsquads",
       "course-i-built-a-spa-for-ai-agents",
-      "course-moonbooth"
+      "course-moonbooth",
+      "course-heycube"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5027,7 +5039,8 @@
       "graphics-optimizer-ai",
       "animama",
       "eustella-europes-ai-agent",
-      "lightroom-for-windows-and-macos"
+      "lightroom-for-windows-and-macos",
+      "heycube"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -5092,7 +5105,8 @@
       "course-graphics-optimizer-ai",
       "course-animama",
       "course-eustella-europes-ai-agent",
-      "course-lightroom-for-windows-and-macos"
+      "course-lightroom-for-windows-and-macos",
+      "course-heycube"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5186,7 +5200,8 @@
       "costcatch",
       "agentbadge",
       "pintura",
-      "eustella-europes-ai-agent"
+      "eustella-europes-ai-agent",
+      "simplellmchat"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -5214,7 +5229,8 @@
       "course-costcatch",
       "course-agentbadge",
       "course-pintura",
-      "course-eustella-europes-ai-agent"
+      "course-eustella-europes-ai-agent",
+      "course-simplellmchat"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -10839,7 +10855,8 @@
       "crypllm-ai-chat-agent-for-cryptool-2",
       "whirl",
       "ufcagent",
-      "tune-up"
+      "tune-up",
+      "simplellmchat"
     ],
     "courses": [
       "course-local-ai-assistants-can-be-user-friendly-too",
@@ -10856,7 +10873,8 @@
       "course-crypllm-ai-chat-agent-for-cryptool-2",
       "course-whirl",
       "course-ufcagent",
-      "course-tune-up"
+      "course-tune-up",
+      "course-simplellmchat"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -11097,7 +11115,8 @@
       "fantastic-canvas",
       "revix-ai",
       "reflektor",
-      "merget"
+      "merget",
+      "claude-code-token-accounting-statement"
     ],
     "courses": [
       "course-memcode-launches-github-code-review",
@@ -11106,7 +11125,8 @@
       "course-fantastic-canvas",
       "course-revix-ai",
       "course-reflektor",
-      "course-merget"
+      "course-merget",
+      "course-claude-code-token-accounting-statement"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -25761,5 +25781,57 @@
       "course-lightroom-for-windows-and-macos"
     ],
     "updatedAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "id": "skill-feed",
+    "name": "feed",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "heycube"
+    ],
+    "courses": [
+      "course-heycube"
+    ],
+    "updatedAt": "2026-11-26T03:46:30.511Z"
+  },
+  {
+    "id": "skill-tokens",
+    "name": "tokens",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "claude-code-token-accounting-statement"
+    ],
+    "courses": [
+      "course-claude-code-token-accounting-statement"
+    ],
+    "updatedAt": "2026-11-26T03:46:30.511Z"
+  },
+  {
+    "id": "skill-accounting",
+    "name": "accounting",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "claude-code-token-accounting-statement"
+    ],
+    "courses": [
+      "course-claude-code-token-accounting-statement"
+    ],
+    "updatedAt": "2026-11-26T03:46:30.511Z"
+  },
+  {
+    "id": "skill-windowsxp",
+    "name": "windowsxp",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "simplellmchat"
+    ],
+    "courses": [
+      "course-simplellmchat"
+    ],
+    "updatedAt": "2026-11-26T03:46:30.511Z"
   }
 ]

@@ -16036,5 +16036,74 @@
       "image"
     ],
     "discoveredAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "slug": "heycube",
+    "name": "HeyCube",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free to start",
+    "level": "intermediate",
+    "blurb": "Personalized feed for always-on AI agents.",
+    "audience": "AI power users",
+    "dev": "inxpanse",
+    "year": 2026,
+    "website": "https://inxpanse.com/heycube",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai",
+      "agents",
+      "feed",
+      "automation"
+    ],
+    "discoveredAt": "2026-11-26T03:46:30.511Z"
+  },
+  {
+    "slug": "claude-code-token-accounting-statement",
+    "name": "Claude Code Token Accounting Statement",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "Tool for tracking Claude code token usage.",
+    "audience": "Developers using Claude",
+    "dev": "oshricohenme",
+    "year": 2026,
+    "website": "https://github.com/oshricohenme/ai_multi_tool",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "claude",
+      "tokens",
+      "accounting",
+      "github"
+    ],
+    "discoveredAt": "2026-11-26T03:46:30.511Z"
+  },
+  {
+    "slug": "simplellmchat",
+    "name": "SimpleLLMChat",
+    "category": "automation",
+    "sourceCategory": "LLMs & Chatbots",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "beginner",
+    "blurb": "A simple AI Agent and Chat Harness designed for Windows XP.",
+    "audience": "Windows XP users",
+    "dev": "randomNinja64",
+    "year": 2026,
+    "website": "https://github.com/randomNinja64/SimpleLLMChat",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "llm",
+      "chatbot",
+      "windowsxp",
+      "agent"
+    ],
+    "discoveredAt": "2026-11-26T03:46:30.511Z"
   }
 ]

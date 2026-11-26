@@ -42396,5 +42396,158 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-25T19:20:09.404Z"
+  },
+  {
+    "id": "course-heycube",
+    "toolSlug": "heycube",
+    "title": "Master HeyCube",
+    "objectives": [
+      "Customize agent feed prioritization using tags",
+      "Implement dynamic feed filtering based on agent status",
+      "Configure personalized view layouts for specific agent groups"
+    ],
+    "modules": [
+      {
+        "title": "Tag-Based Feed Prioritization",
+        "estMinutes": 10,
+        "steps": [
+          "Assign custom tags (e.g., #Urgent, #Review) to three existing HeyCube agents.",
+          "Navigate to Feed Settings and set the default sort order to 'Priority by Tag'.",
+          "Verify that tagged items appear at the top of your main feed."
+        ]
+      },
+      {
+        "title": "Dynamic Status Filtering",
+        "estMinutes": 12,
+        "steps": [
+          "Create a new feed view dedicated to agents marked 'Awaiting Input'.",
+          "Apply a filter constraint within the view to only show agents with status = 'Awaiting Input'.",
+          "Save this view and test it by setting one agent status manually."
+        ]
+      },
+      {
+        "title": "Layout Customization for Agent Groups",
+        "estMinutes": 15,
+        "steps": [
+          "Identify two distinct agent groups (e.g., 'DevOps', 'Marketing').",
+          "Create a dedicated 'DevOps Hub' feed view and set its layout to 'List View'.",
+          "Switch the 'Marketing' agent group view to 'Card View' for a denser overview."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai",
+      "skill-agents",
+      "skill-feed"
+    ],
+    "prerequisites": [
+      "Basic navigation of the HeyCube interface",
+      "Familiarity with assigning tags to agents"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-26T03:46:30.511Z"
+  },
+  {
+    "id": "course-claude-code-token-accounting-statement",
+    "toolSlug": "claude-code-token-accounting-statement",
+    "title": "Master Claude Code Token Accounting Statement",
+    "objectives": [
+      "Locate the token accounting statement within the Claude interface.",
+      "Analyze token breakdown by input vs. output for a specific session.",
+      "Identify patterns for cost optimization using the statement data."
+    ],
+    "modules": [
+      {
+        "title": "Accessing Usage Reports",
+        "estMinutes": 10,
+        "steps": [
+          "Navigate to the 'Usage & Billing' section in your Claude workspace.",
+          "Select the 'Code Token Accounting' report filter for the desired timeframe.",
+          "Download the statement as a CSV for offline review."
+        ]
+      },
+      {
+        "title": "Interpreting Token Metrics",
+        "estMinutes": 15,
+        "steps": [
+          "Examine the 'Prompt Input Tokens' column to see query size.",
+          "Compare this against 'Completion Output Tokens' to gauge response verbosity.",
+          "Calculate the ratio (Input/Output) to benchmark prompt efficiency."
+        ]
+      },
+      {
+        "title": "Optimization Strategy",
+        "estMinutes": 10,
+        "steps": [
+          "Filter the statement to find sessions with high Input/Output ratios (>3:1).",
+          "Review the prompts from these high-cost sessions for unnecessary context.",
+          "Refine future prompts by explicitly instructing Claude on required output length (e.g., 'Maximum 5 lines')."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-claude",
+      "skill-tokens",
+      "skill-accounting",
+      "skill-github"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-26T03:46:30.511Z"
+  },
+  {
+    "id": "course-simplellmchat",
+    "toolSlug": "simplellmchat",
+    "title": "Master SimpleLLMChat",
+    "objectives": [
+      "Install SimpleLLMChat on Windows XP.",
+      "Open the main chat interface successfully.",
+      "Submit your first text prompt to the AI."
+    ],
+    "modules": [
+      {
+        "title": "Installation Guide",
+        "estMinutes": 10,
+        "steps": [
+          "Locate the SimpleLLMChat setup file in your download folder.",
+          "Double-click the installer and click 'Next' through any prompts."
+        ]
+      },
+      {
+        "title": "First Launch",
+        "estMinutes": 5,
+        "steps": [
+          "Navigate to the installed program folder (e.g., C:\\SimpleLLMChat).",
+          "Double-click 'SimpleLLMChat.exe' to open the application window."
+        ]
+      },
+      {
+        "title": "Basic Interaction",
+        "estMinutes": 7,
+        "steps": [
+          "Type 'What is the capital of France?' into the input text box.",
+          "Press the 'Send' button or the Enter key.",
+          "Review the AI's response in the chat history panel."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-llm",
+      "skill-chatbot",
+      "skill-windowsxp",
+      "skill-agent"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-26T03:46:30.511Z"
   }
 ]
