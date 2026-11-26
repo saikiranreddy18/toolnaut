@@ -7,6 +7,11 @@
 // SHIPPED — pulled from that day's real commit, not invented.
 export const CHANGELOG = [
   {
+    date: '2026-11-26',
+    title: 'Add your roadmap to a real calendar',
+    body: "Your 4-week roadmap now has an \"Add to calendar\" button next to the PDF export — download a calendar file with one event per week, so each milestone shows up where you already look instead of staying inside Toolnaut.",
+  },
+  {
     date: '2026-11-25',
     title: 'Tool logos, not just a color dot',
     body: "Every tool card and tool page now shows the tool's actual logo next to its name, instead of the small category-color dot that was our only visual identity before.",

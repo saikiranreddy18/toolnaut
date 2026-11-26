@@ -9,6 +9,69 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-11-26
+
+**Radar health:** `OK` — 2 runs in the last 26h (19:20 UTC 11-25, 03:46 UTC
+11-26), 9 tools published total (6 + 3), feed now at 678 published tools. No
+NO-PUBLISH or NO-SOURCE symptoms; `npm run radar:health` exits 0.
+
+**Researched today:** four hourly passes (00:07, 03:03, 09:07, 12:04, 15:03
+UTC — five total counting the 00:07 run from the previous slot's tail) kept
+the backlog honest rather than padding it. 03:03 studied five fresh angles
+(multi-stack folders, product screenshots on cards, a referral loop,
+light-mode theming, search typeahead) and logged none — each either had no
+competitor precedent in this niche, contradicted an existing on-site trust
+claim, or needed backend/infra scope this static SPA can't carry. 09:07
+re-verified the stalest OPEN entry (role-based progress benchmark, zero
+drift) and logged one genuinely new, build-ready gap: turning the 4-week
+roadmap's milestones into a downloadable calendar file. 12:04 and 15:03 found
+nothing new (a compliance-badge idea was rejected for too-thin catalog data;
+reduced-motion a11y and dead-tool suggestions were both already covered).
+
+**Shipped today:** **`20554b3`** — "Add to calendar" on `/app/learning`, the
+roadmap-calendar gap logged at 09:07 UTC today. `src/utils/roadmapCalendar.js`
+is a new pure function, `roadmapToIcs(milestones)`, that hand-builds a
+RFC 5545 `.ics` file (no new dependency): one all-day `VEVENT` per
+week/milestone — not per step, so a 4-week plan doesn't spam 12-16 calendar
+entries — anchored at generation time (`today + (week-1)*7` days), with
+proper comma/semicolon/newline escaping and 75-octet line folding. Wired into
+`Learning.jsx` as a second button next to the existing "🖨️ Export as PDF",
+reusing the same `canExportRoadmap` entitlement gate and `Blob` + temporary
+`<a download>` pattern `exportUserData.js`'s "Download my data" button
+already established. Chosen over the other build-ready OPEN gap from the same
+research pass ("copy stack as text/Markdown" — also S-sized and solid, but
+the calendar export maps more directly to the product's own "guided roadmap"
+promise and resurfaces at the moment it's supposed to matter, not just at
+share time).
+5 new tests in `test/roadmap-calendar.test.mjs` (VCALENDAR structure, 7-day
+anchoring, RFC 5545 escaping, step-joining, stable per-milestone UIDs) — all
+341 app tests pass, 109 radar tests pass, `npm run build` clean, `npm run
+smoke` 29/29 routes with 0 console errors. Beyond the three required checks,
+also drove it end-to-end in a real headless-Chromium preview with a seeded
+completed quiz: clicked the real button, captured the real downloaded file,
+and confirmed its four `VEVENT`s, dates and escaped text by eye before
+shipping.
+**This is visible on toolnaut.xyz today** — `/app/learning` is a live app
+route; any signed-in or guest user with a completed quiz sees the new button
+and gets a real file the moment this deploy finishes.
+
+**Verification:** all three checks green locally before pushing straight to
+`master` (session again started in a detached HEAD, one commit behind
+`origin/master` — same pattern noted yesterday; fast-forwarded and reattached
+`master` to it before pushing). `git log`/`git push` confirm `20554b3` landed
+on `origin/master`.
+
+**Queued next:** with the calendar-export gap shipped, the next highest-value
+OPEN entries are "copy stack as Markdown/text" (found the same research pass,
+S-sized, not built today), "Weekly trending tools" (account data already
+exists, unused), and the role-based progress benchmark (re-verified twice
+this week, zero drift, still the stalest OPEN entry by last-check date). The
+same four feature PRs (#75, #86, #91, #105) remain open and unmerged from
+earlier push-guard failures (tracked on issue #67); none were rebuilt or
+duplicated this run.
+
+---
+
 ## 2026-11-25
 
 **Radar health:** `OK` — 2 runs in the last 24h (20:11 UTC 11-24, 04:35 UTC

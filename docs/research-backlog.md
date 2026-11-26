@@ -10971,7 +10971,7 @@ without changing it, logs that in the archive file, not here.** Only append to
 - **Found:** 2026-11-26 06:03 UTC
 
 ### The 4-week roadmap only exports as a PDF snapshot — no way to get its weekly milestones onto a real calendar with reminders
-- **Status:** OPEN
+- **Status:** SHIPPED 20554b33e6223c3394bc0580d246a7a0c83a756f
 - **Seen in:** general SaaS export/scheduling pattern this product's own
   roadmap feature invites — Todoist ships an official per-project calendar
   feed so scheduled tasks appear inside Google/Apple/Outlook calendar
