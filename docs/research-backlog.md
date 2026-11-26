@@ -10789,3 +10789,101 @@ without changing it, logs that in the archive file, not here.** Only append to
 
 ---
 
+### No welcome/onboarding email exists — the signup-vs-returning signal needed to send one is already computed and thrown away
+- **Status:** OPEN
+- **Seen in:** a near-universal SaaS onboarding pattern, not one competitor's
+  trick — There's An AI For That, Futurepedia and every directory with
+  accounts send a short "you're in" email on signup (often bundling 2-3
+  starter picks or a "here's how to get value fast" nudge), the same
+  onboarding category this file's own research brief names as a Toolnaut
+  gap to check for. Toolnaut already ships the harder half of this pattern
+  for a *different* trigger: `api/account-delete.js` sends a transactional
+  HTML email today (a six-digit deletion code, `codeEmail()` at
+  `api/account-delete.js:42-50`) through the exact same `sendEmail()` /
+  `_mail.js` / Resend pipeline a welcome email would reuse — this is not
+  new infrastructure, it's an unused second caller of infrastructure that
+  is already in production.
+- **Gap:** grepped the whole `src/` and `api/` trees for
+  `welcome|onboarding.*email|signup.*email|confirmation.*email` (case
+  -insensitive): zero hits outside this file's own text. No email of any
+  kind fires when someone creates a Toolnaut account. Traced the actual
+  signup path in full: `src/state/authStore.js:65-85` (`watchSession`) is
+  the single place every arrival passes through — first sign-up, returning
+  sign-in, and token refresh alike — and it already calls
+  `registerExplorer(user.id)` on every one of them
+  (`authStore.js:81,86`). `registerExplorer()` itself
+  (`src/utils/explorerCount.js:19-32`) inserts into `public.explorers`
+  keyed on the auth id and explicitly branches on whether that insert
+  succeeded or hit the unique-constraint conflict (`error.code === '23505'`
+  at `explorerCount.js:27` = returning explorer, no error = brand-new
+  explorer) — **this is exactly the "is this a first-ever signup"
+  signal a welcome email needs, already computed on every single
+  sign-in, and currently discarded**: the function returns nothing,
+  callers never see which branch ran. Confirmed Supabase's own default
+  auth emails (the ones `supabase.auth` can be configured to send, e.g. a
+  magic-link or confirm-email template) are a separate, unrelated system —
+  `grep -rn "email_confirm\|welcome\|send_email" supabase/migrations/`
+  returns zero hits, and Google OAuth (the only sign-in method this app
+  ships, confirmed by reading `SignInPage.jsx` and
+  `authStore.js:97-130`'s `signIn`/`signInWithEmail`) does not pass through
+  Supabase's email-template system at all — there is no competing or
+  duplicate welcome flow already running out of sight.
+- **Why it matters:** a first-time Google sign-in drops someone straight
+  into `/app/stack` (new accounts start with an empty stack and the
+  "First-session onboarding checklist" gap above still open) with no
+  follow-up outside the product itself. An email that lands a few minutes
+  later — even a short one — is a second touchpoint that costs nothing
+  per-send (Resend is already paid for and verified) and is the standard
+  way this category re-engages someone who signed up, got distracted, and
+  closed the tab before finishing the quiz or building a stack.
+- **Smallest useful version (what to actually build):** no new provider,
+  no new verified sender, no schema change —
+  - `explorerCount.js`'s `registerExplorer()` returns a tri-state instead of
+    nothing: `'new' | 'returning' | null` (null on any failure/unconfigured
+    path, matching this file's existing "null means not known, never guess"
+    contract one function up). The `error.code === '23505'` branch becomes
+    `'returning'`, the no-error branch becomes `'new'`.
+  - `authStore.js`'s two `registerExplorer(user.id)` call sites
+    (`watchSession`, lines 81 and 86) check the return value; on `'new'`
+    only, fire-and-forget a call to a new `POST /api/welcome-email` with
+    `{ email: user.email }` guarded the same way `account-delete.js`
+    already guards its own calls (never block the sign-in UI on the
+    email's own success or failure — the account-deletion code email is
+    already held to this bar).
+  - New `api/welcome-email.js`: same shape as `account-delete.js`'s request
+    step minus the code generation — `originAllowed()` from `_razorpay.js`,
+    `rateLimit()` from `_security.js`, `mailConfigured()` guard, one short
+    inline-HTML template in the same plain `system-ui` style
+    `codeEmail()`/`goneEmail()` already use (no template engine, no new
+    dependency). **Identity problem this endpoint must solve that
+    `account-delete.js` does not have**: that file reads the user from a
+    validated Supabase token (`getUserFromRequest(req)`) because it is
+    destructive and must never trust a client-supplied identity; a welcome
+    email is not destructive, but accepting a bare, unauthenticated email
+    string in the POST body is an open mail-relay risk (anyone could spam
+    anyone's inbox with `{ email: "victim@x.com" }`). The safe version
+    reuses `getUserFromRequest(req)` the same way and ignores any `email`
+    field in the body entirely, sending only to the token's own verified
+    address — the same pattern `account-delete.js` already uses for the
+    identical reason, not a new design.
+  - One idempotency note: because `registerExplorer`'s insert is already the
+    sole gate (`'new'` can only be returned once per account, ever, since
+    the row persists), no separate "have we emailed this person" table or
+    column is needed — the explorers table itself is the idempotency check,
+    for free.
+  - **What this would NOT include:** no multi-step onboarding drip
+    (day-1/day-3/day-7 sequence) — one single email, this run's evidence
+    bar is for the smallest real version, not a campaign; no personalization
+    by quiz answers or persona (the welcome email fires on account
+    creation, before any quiz result exists to personalize with — the
+    "First-session onboarding checklist" gap already owns in-product
+    first-run guidance); no unsubscribe/preference link (a transactional
+    account email, not a marketing list — same category Resend and most
+    providers exempt from list-unsubscribe requirements, unlike the
+    separate digest-alert emails which already have one).
+- **Build size:** M — one new `api/` route copying an existing route's
+  security scaffolding, a two-line change to `explorerCount.js`'s return
+  value, a two-call-site change in `authStore.js`, one inline HTML
+  template. No schema change (the explorers table and its insert-conflict
+  signal already exist), no new provider, no new dependency.
+- **Found:** 2026-11-26 00:07 UTC
