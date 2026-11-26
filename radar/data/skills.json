@@ -252,7 +252,9 @@
       "ultracite-linter-and-formatter-for-agentic-development",
       "agentbadge",
       "claude-code-unlimited",
-      "claude-code-token-accounting-statement"
+      "claude-code-token-accounting-statement",
+      "talira",
+      "dev-mem"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -502,7 +504,9 @@
       "course-ultracite-linter-and-formatter-for-agentic-development",
       "course-agentbadge",
       "course-claude-code-unlimited",
-      "course-claude-code-token-accounting-statement"
+      "course-claude-code-token-accounting-statement",
+      "course-talira",
+      "course-dev-mem"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -889,7 +893,8 @@
       "graphics-optimizer-ai",
       "animama",
       "pintura",
-      "lightroom-for-windows-and-macos"
+      "lightroom-for-windows-and-macos",
+      "vegas-pro-edition"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -950,7 +955,8 @@
       "course-graphics-optimizer-ai",
       "course-animama",
       "course-pintura",
-      "course-lightroom-for-windows-and-macos"
+      "course-lightroom-for-windows-and-macos",
+      "course-vegas-pro-edition"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1398,7 +1404,9 @@
       "avva",
       "eustella-europes-ai-agent",
       "heycube",
-      "simplellmchat"
+      "simplellmchat",
+      "neui",
+      "behavioral-drift-detector-for-ai-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -1766,7 +1774,9 @@
       "course-avva",
       "course-eustella-europes-ai-agent",
       "course-heycube",
-      "course-simplellmchat"
+      "course-simplellmchat",
+      "course-neui",
+      "course-behavioral-drift-detector-for-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1988,7 +1998,9 @@
       "cappz",
       "track-flag-ai-agents-in-system",
       "truce",
-      "strukto-first-virtual-terminal-for-ai-agents"
+      "strukto-first-virtual-terminal-for-ai-agents",
+      "talira",
+      "behavioral-drift-detector-for-ai-agents"
     ],
     "courses": [
       "course-headless-tools",
@@ -2188,7 +2200,9 @@
       "course-cappz",
       "course-track-flag-ai-agents-in-system",
       "course-truce",
-      "course-strukto-first-virtual-terminal-for-ai-agents"
+      "course-strukto-first-virtual-terminal-for-ai-agents",
+      "course-talira",
+      "course-behavioral-drift-detector-for-ai-agents"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2524,10 +2538,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "edify"
+      "edify",
+      "vegas-pro-edition"
     ],
     "courses": [
-      "course-edify"
+      "course-edify",
+      "course-vegas-pro-edition"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2765,7 +2781,8 @@
       "capcut-seedance-win",
       "gostudioai",
       "subtitles-studio-ai",
-      "clip-cutter-ai"
+      "clip-cutter-ai",
+      "vegas-pro-edition"
     ],
     "courses": [
       "course-canvasformusic",
@@ -2784,7 +2801,8 @@
       "course-capcut-seedance-win",
       "course-gostudioai",
       "course-subtitles-studio-ai",
-      "course-clip-cutter-ai"
+      "course-clip-cutter-ai",
+      "course-vegas-pro-edition"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3301,7 +3319,8 @@
       "openchart",
       "tofu",
       "i-put-an-ai-agent-on-a-nokia-110",
-      "clawvet"
+      "clawvet",
+      "neui"
     ],
     "courses": [
       "course-hermes-agent",
@@ -3315,7 +3334,8 @@
       "course-openchart",
       "course-tofu",
       "course-i-put-an-ai-agent-on-a-nokia-110",
-      "course-clawvet"
+      "course-clawvet",
+      "course-neui"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5040,7 +5060,8 @@
       "animama",
       "eustella-europes-ai-agent",
       "lightroom-for-windows-and-macos",
-      "heycube"
+      "heycube",
+      "vegas-pro-edition"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -5106,7 +5127,8 @@
       "course-animama",
       "course-eustella-europes-ai-agent",
       "course-lightroom-for-windows-and-macos",
-      "course-heycube"
+      "course-heycube",
+      "course-vegas-pro-edition"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -8016,11 +8038,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "marktwin",
-      "capcut-pro-video-editor-latest"
+      "capcut-pro-video-editor-latest",
+      "vegas-pro-edition"
     ],
     "courses": [
       "course-marktwin",
-      "course-capcut-pro-video-editor-latest"
+      "course-capcut-pro-video-editor-latest",
+      "course-vegas-pro-edition"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -11989,11 +12013,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "mcp-tool-definition-quality-score-tdqs-spec",
-      "drawmode-for-ai-agents"
+      "drawmode-for-ai-agents",
+      "talira"
     ],
     "courses": [
       "course-mcp-tool-definition-quality-score-tdqs-spec",
-      "course-drawmode-for-ai-agents"
+      "course-drawmode-for-ai-agents",
+      "course-talira"
     ],
     "updatedAt": "2026-09-03T23:31:51.252Z"
   },
@@ -20989,10 +21015,12 @@
     "domain": "data",
     "level": "intermediate",
     "toolsTeaching": [
-      "banker"
+      "banker",
+      "dev-mem"
     ],
     "courses": [
-      "course-banker"
+      "course-banker",
+      "course-dev-mem"
     ],
     "updatedAt": "2026-09-27T18:09:19.103Z"
   },
@@ -22805,7 +22833,8 @@
       "r3",
       "redcat-an-open-source-ai-agent-for-your-desktop",
       "nexus",
-      "aether"
+      "aether",
+      "dev-mem"
     ],
     "courses": [
       "course-flagshiprouter",
@@ -22814,7 +22843,8 @@
       "course-r3",
       "course-redcat-an-open-source-ai-agent-for-your-desktop",
       "course-nexus",
-      "course-aether"
+      "course-aether",
+      "course-dev-mem"
     ],
     "updatedAt": "2026-10-06T15:59:06.042Z"
   },
@@ -23008,10 +23038,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "sheetrelay"
+      "sheetrelay",
+      "neui"
     ],
     "courses": [
-      "course-sheetrelay"
+      "course-sheetrelay",
+      "course-neui"
     ],
     "updatedAt": "2026-10-08T06:11:53.861Z"
   },
@@ -25567,10 +25599,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "strukto-first-virtual-terminal-for-ai-agents"
+      "strukto-first-virtual-terminal-for-ai-agents",
+      "behavioral-drift-detector-for-ai-agents"
     ],
     "courses": [
-      "course-strukto-first-virtual-terminal-for-ai-agents"
+      "course-strukto-first-virtual-terminal-for-ai-agents",
+      "course-behavioral-drift-detector-for-ai-agents"
     ],
     "updatedAt": "2026-11-25T04:35:53.480Z"
   },
@@ -25833,5 +25867,96 @@
       "course-simplellmchat"
     ],
     "updatedAt": "2026-11-26T03:46:30.511Z"
+  },
+  {
+    "id": "skill-go",
+    "name": "go",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "neui"
+    ],
+    "courses": [
+      "course-neui"
+    ],
+    "updatedAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "id": "skill-web-app",
+    "name": "web app",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "neui"
+    ],
+    "courses": [
+      "course-neui"
+    ],
+    "updatedAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "id": "skill-software search",
+    "name": "software search",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "talira"
+    ],
+    "courses": [
+      "course-talira"
+    ],
+    "updatedAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "id": "skill-developer",
+    "name": "developer",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "talira"
+    ],
+    "courses": [
+      "course-talira"
+    ],
+    "updatedAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "id": "skill-knowledge_graph",
+    "name": "knowledge_graph",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "dev-mem"
+    ],
+    "courses": [
+      "course-dev-mem"
+    ],
+    "updatedAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "id": "skill-ai_agents",
+    "name": "ai_agents",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "dev-mem"
+    ],
+    "courses": [
+      "course-dev-mem"
+    ],
+    "updatedAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "id": "skill-drift detection",
+    "name": "drift detection",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "behavioral-drift-detector-for-ai-agents"
+    ],
+    "courses": [
+      "course-behavioral-drift-detector-for-ai-agents"
+    ],
+    "updatedAt": "2026-11-26T19:03:52.534Z"
   }
 ]

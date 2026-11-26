@@ -16105,5 +16105,120 @@
       "agent"
     ],
     "discoveredAt": "2026-11-26T03:46:30.511Z"
+  },
+  {
+    "slug": "neui",
+    "name": "Neui",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "A Go web app framework with a built-in AI agent capability.",
+    "audience": "Go developers",
+    "dev": "doors-dev",
+    "year": 2026,
+    "website": "https://github.com/doors-dev/neui",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "go",
+      "web-app",
+      "ai-agent",
+      "backend"
+    ],
+    "discoveredAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "slug": "talira",
+    "name": "Talira",
+    "category": "code",
+    "sourceCategory": "LLMs & Chatbots",
+    "price": "freemium",
+    "pricing": "Free to start",
+    "level": "intermediate",
+    "blurb": "A search engine optimized for use by AI agents to find software.",
+    "audience": "AI Developers",
+    "dev": "Talira",
+    "year": 2026,
+    "website": "https://talira.ai/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "software search",
+      "llm tools",
+      "developer"
+    ],
+    "discoveredAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "slug": "dev-mem",
+    "name": "Dev-Mem",
+    "category": "code",
+    "sourceCategory": "AI Coding & Development",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "Local-first SQLite knowledge graph for building AI coding agents.",
+    "audience": "AI Developers",
+    "dev": "HarsH-1877",
+    "year": 2026,
+    "website": "https://github.com/HarsH-1877/Dev-Mem",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "sqlite",
+      "knowledge_graph",
+      "ai_agents",
+      "local"
+    ],
+    "discoveredAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "slug": "behavioral-drift-detector-for-ai-agents",
+    "name": "Behavioral drift detector for AI agents",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Freemium",
+    "level": "intermediate",
+    "blurb": "Detects behavioral drift in AI agents to maintain consistency and performance.",
+    "audience": "AI Developers",
+    "dev": "crossagentsi",
+    "year": 2026,
+    "website": "https://crossagentsi.vercel.app/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "drift detection",
+      "automation",
+      "llms"
+    ],
+    "discoveredAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "slug": "vegas-pro-edition",
+    "name": "vegas-pro-edition",
+    "category": "design",
+    "sourceCategory": "Video Generation & Avatars",
+    "price": "paid",
+    "pricing": "Paid License",
+    "level": "advanced",
+    "blurb": "Professional non-linear video editing suite with AI tools for creators.",
+    "audience": "Filmmakers and Creators",
+    "dev": "Apparitiongrefurnish",
+    "year": 2026,
+    "website": "https://github.com/Apparitiongrefurnish/vegas-pro-edition",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "video",
+      "editing",
+      "nle",
+      "ai"
+    ],
+    "discoveredAt": "2026-11-26T19:03:52.534Z"
   }
 ]

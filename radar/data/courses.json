@@ -42549,5 +42549,270 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-26T03:46:30.511Z"
+  },
+  {
+    "id": "course-neui",
+    "toolSlug": "neui",
+    "title": "Master Neui",
+    "objectives": [
+      "Integrate a basic AI agent endpoint into a Neui application.",
+      "Configure routing and dependency injection within a Neui project.",
+      "Serve a complete, runnable Neui application demonstrating AI interaction."
+    ],
+    "modules": [
+      {
+        "title": "Project Setup and Routing",
+        "estMinutes": 15,
+        "steps": [
+          "Initialize a new Neui project using `neui new myapp`.",
+          "Define a primary route handler in `main.go` for `/chat`.",
+          "Register necessary middleware (e.g., logging) to the router."
+        ]
+      },
+      {
+        "title": "Implementing the AI Agent Hook",
+        "estMinutes": 25,
+        "steps": [
+          "Define an interface for the AI service (e.g., `AIProvider`) in your service layer.",
+          "Implement the provider using a mock or actual OpenAI/local API client.",
+          "Inject this `AIProvider` into your `/chat` handler via Neui's context."
+        ]
+      },
+      {
+        "title": "Full Integration and Testing",
+        "estMinutes": 20,
+        "steps": [
+          "Create a simple HTML/JS frontend that makes an AJAX call to the `/chat` endpoint.",
+          "Instantiate and run the Neui server using `neui run`.",
+          "Test the full loop: Browser -> Neui Handler -> AI Agent -> Response back to Browser."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-go",
+      "skill-web-app",
+      "skill-ai-agent",
+      "skill-backend"
+    ],
+    "prerequisites": [
+      "Basic proficiency in Go (structs, interfaces, goroutines).",
+      "Familiarity with standard HTTP request/response cycles.",
+      "Docker/Go environment setup."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "id": "course-talira",
+    "toolSlug": "talira",
+    "title": "Master Talira",
+    "objectives": [
+      "Execute targeted software searches using AI agent prompts in Talira.",
+      "Filter search results based on specific criteria like integration capability.",
+      "Refine subsequent searches by feeding prior results back into the query."
+    ],
+    "modules": [
+      {
+        "title": "Basic Agent Query Construction",
+        "estMinutes": 10,
+        "steps": [
+          "Open Talira and input a prompt like 'Find project management SaaS for remote teams'.",
+          "Examine the initial results, noting the returned software names and brief descriptions.",
+          "Adjust the prompt to include a negative constraint, e.g., '...but not requiring Slack integration'."
+        ]
+      },
+      {
+        "title": "Advanced Filtering and Curation",
+        "estMinutes": 15,
+        "steps": [
+          "Use the built-in filter sidebar to isolate tools supporting 'API access' or 'OAuth'.",
+          "Select 3 promising candidates and use the 'Agent Deep Dive' function on one.",
+          "Note the specific integration documentation link provided in the deep dive summary."
+        ]
+      },
+      {
+        "title": "Iterative Search Refinement",
+        "estMinutes": 15,
+        "steps": [
+          "Start a new query: 'Compare the top 3 CRM tools found previously'.",
+          "Paste the names of the 3 tools into the prompt for direct comparison.",
+          "Analyze the resulting comparative summary and use its findings to formulate the final, narrow requirement."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-ai agents",
+      "skill-software search",
+      "skill-llm tools",
+      "skill-developer"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "id": "course-dev-mem",
+    "toolSlug": "dev-mem",
+    "title": "Master Dev-Mem",
+    "objectives": [
+      "Initialize a Dev-Mem graph from existing code context.",
+      "Query structured knowledge using Cypher against the local SQLite DB.",
+      "Integrate graph retrieval into a basic Python coding agent loop."
+    ],
+    "modules": [
+      {
+        "title": "Context Ingestion & Schema Check",
+        "estMinutes": 15,
+        "steps": [
+          "Run `devmem init --context ./src` to ingest source files.",
+          "Execute `devmem schema` to confirm entity/relationship types.",
+          "Verify the SQLite file is created in the local directory."
+        ]
+      },
+      {
+        "title": "Advanced Knowledge Querying",
+        "estMinutes": 20,
+        "steps": [
+          "Write a Cypher query finding all functions linked to a specific class.",
+          "Use `devmem query --cypher \"...\"` to execute it directly.",
+          "Parse the resulting JSON output into a Python dictionary."
+        ]
+      },
+      {
+        "title": "Agent Integration Proof-of-Concept",
+        "estMinutes": 25,
+        "steps": [
+          "Wrap the `devmem query` command in a Python helper function.",
+          "Call the helper within an agent loop to fetch dependencies for the current file.",
+          "Log the returned structured knowledge to guide the agent's next action (e.g., 'refactor X because Y depends on it')."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-sqlite",
+      "skill-knowledge_graph",
+      "skill-ai_agents",
+      "skill-local"
+    ],
+    "prerequisites": [
+      "Basic proficiency in Python and command-line usage.",
+      "Familiarity with SQLite concepts (tables, schemas).",
+      "Understanding of basic Graph Query Language (Cypher syntax)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "id": "course-behavioral-drift-detector-for-ai-agents",
+    "toolSlug": "behavioral-drift-detector-for-ai-agents",
+    "title": "Master Behavioral drift detector for AI agents",
+    "objectives": [
+      "Identify common indicators of behavioral drift in an AI agent.",
+      "Configure the drift detector using agent telemetry data.",
+      "Interpret drift alerts to diagnose root causes and remediate the agent."
+    ],
+    "modules": [
+      {
+        "title": "Telemetry Setup for Drift Monitoring",
+        "estMinutes": 15,
+        "steps": [
+          "Ensure agent logs output structured metrics (e.g., decision confidence, action frequency) to a time-series DB.",
+          "Define baseline performance windows using historical, stable agent runs."
+        ]
+      },
+      {
+        "title": "Configuring the Drift Thresholds",
+        "estMinutes": 20,
+        "steps": [
+          "Set statistical thresholds (e.g., KS-test p-value < 0.05) comparing current vs. baseline feature distributions.",
+          "Deploy the detector service against the live telemetry stream."
+        ]
+      },
+      {
+        "title": "Alert Interpretation and Mitigation",
+        "estMinutes": 25,
+        "steps": [
+          "Examine drift reports, isolating specific input/output feature divergence causing the alert.",
+          "Implement corrective action: either retraining the agent on recent data or rolling back to the stable baseline model."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-drift detection",
+      "skill-llms"
+    ],
+    "prerequisites": [
+      "Familiarity with AI/ML agent lifecycle and performance metrics.",
+      "Basic proficiency in time-series database querying (e.g., Prometheus/InfluxDB)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "id": "course-vegas-pro-edition",
+    "toolSlug": "vegas-pro-edition",
+    "title": "Master vegas-pro-edition",
+    "objectives": [
+      "Master advanced multi-cam synchronization in Vegas Pro.",
+      "Implement AI-driven object tracking and masking workflows.",
+      "Optimize project delivery using complex codec and rendering profiles."
+    ],
+    "modules": [
+      {
+        "title": "Advanced Multi-Cam Editing",
+        "estMinutes": 15,
+        "steps": [
+          "Import multi-cam footage into the Project Media bin.",
+          "Use the Multi-Camera Source window to sync by timecode or audio waveform.",
+          "Switch to the dedicated Multi-Cam timeline view for rapid cutting."
+        ]
+      },
+      {
+        "title": "AI Object Tracking & Masking",
+        "estMinutes": 20,
+        "steps": [
+          "Apply the AI tracking effect to a target element on the timeline.",
+          "Refine the generated mask using manual keyframing within the tracking parameters.",
+          "Use the tracked mask for color correction or isolation effects."
+        ]
+      },
+      {
+        "title": "High-Efficiency Rendering Pipelines",
+        "estMinutes": 15,
+        "steps": [
+          "Configure the Render As dialogue with ProRes or DNxHR codecs for intermediate masters.",
+          "Set up Render Queue presets specific to target platforms (e.g., YouTube H.264 4K).",
+          "Utilize GPU rendering acceleration settings within the Project Settings."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-video",
+      "skill-editing",
+      "skill-nle",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Proficiency with basic timeline editing and track management in Vegas Pro.",
+      "Familiarity with video codecs (e.g., H.264, ProRes)."
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-26T19:03:52.534Z"
   }
 ]
