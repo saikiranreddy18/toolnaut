@@ -6815,3 +6815,66 @@ pill including the new one; no bug found.
 Per the "never invent a gap to fill the hour" rule, appended nothing new to
 `research-backlog.md` and made no code change. The feature run still has 17
 build-ready OPEN gaps to choose from, same count as this morning's checks.
+
+---
+### Research check 2026-11-26 03:03 UTC — no new gap found
+Research run (UTC hour 03). `npm run radar:health` → STATUS: OK (2 runs in
+26h window, 6 tools published last run, feed at 675 tools, last publish 7.7h
+ago). CI and Release both green on the latest master push
+(`ed86b3e`). No issue labelled `agent-fixable` open. All three urgent-work
+checks clear, so proceeded to the research job for the hour.
+
+`docs/research-backlog.md` already carries 18 OPEN entries, each with a full
+"Smallest useful version" / "what this would NOT include" section — spot-
+checked the newest (welcome-email, found 00:07 UTC the same day by the prior
+run) and the oldest-unbuilt (role-based progress benchmark, Build size S,
+re-verified twice, zero drift) and both are already fully build-ready with
+nothing thin left to deepen.
+
+Studied five fresh angles, none cleared this file's evidence bar for a new
+entry:
+- **Multiple saved stacks / folders per user** (`stackStore.js` is a single
+  flat slug array, one stack per account — confirmed no multi-stack concept
+  anywhere in `src/state/`). WebSearched for AI-directory precedent
+  ("multiple saved lists", "collections", "folders" against Futurepedia,
+  There's An AI For That, ToolDirectory.ai) — found generic bookmark-folder
+  patterns on unrelated products (daily.dev, Guru) but no AI-tool-directory
+  competitor that does this for user-created stacks; ToolDirectory.ai's
+  "collections" are editorial bundles, not user lists. No concrete
+  category precedent, so not logged, consistent with this file's standing
+  bar.
+- **Product screenshots / visual previews on tool cards or detail pages**
+  (grepped `toolsCatalog.js` and `radar/` for `screenshot|thumbnail` —
+  zero catalog fields, confirmed real gap vs. Futurepedia/TAAFT which both
+  show a product image). But capturing and hosting a screenshot per catalog
+  entry (704 tools) needs either a paid third-party screenshot API or
+  headless-browser capture wired into the daily radar pipeline plus
+  committing/hosting hundreds of images — a backend/infra scope well past
+  "S/M, client-side SPA" and a reliability risk to the radar pipeline CLAUDE.md
+  explicitly asks to protect. Build size L, likely REJECTED on sight; not
+  logged without a smaller slice to propose.
+- **Referral/affiliate growth loop** — standard SaaS pattern, but
+  `TrustPanel.jsx` already carries a sitewide trust claim of "no affiliate
+  link, no referral code" (confirmed via existing backlog entry at
+  line ~4364); building one would contradict a claim the product already
+  makes publicly. Not logged.
+- **Dark/light theme toggle** — grepped `prefers-color-scheme|ThemeToggle`
+  across `src/`, zero hits; the whole app is a single dark "galaxy" brand
+  identity with no CSS-variable light palette to flip to. Build size L
+  (hundreds of color references), and light mode isn't a pattern this
+  niche's competitors are known for over a branded dark aesthetic. Not
+  logged.
+- **Search autocomplete/typeahead or fuzzy (typo-tolerant) matching** —
+  `src/utils/search.js`'s `matchesQuery` already does order-independent,
+  multi-word, stemmed matching (the tokenization gap this file logged and
+  shipped earlier). No live-suggestion dropdown exists, but no concrete
+  gap beyond what's already shipped was found worth the evidence bar this
+  pass.
+
+Also re-confirmed `prefers-reduced-motion` handling is already thorough
+site-wide (11 distinct call sites across `src/components/`, `src/hooks/`,
+`src/index.css`) — no a11y regression found, no small fix to make this pass.
+
+Per the "never invent a gap to fill the hour" rule, appended nothing new to
+`research-backlog.md` and made no code change. The feature run still has 18
+build-ready OPEN gaps to choose from.
