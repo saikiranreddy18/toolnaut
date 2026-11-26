@@ -6938,3 +6938,50 @@ events). Logged as a new Build-size-S entry in `docs/research-backlog.md`
 
 No code change this run beyond the two doc files. The feature run now has 19
 build-ready OPEN gaps to choose from.
+
+---
+### Research check 2026-11-26 12:04 UTC — no new gap found, redundant re-verify avoided
+Research run (UTC hour 12). `npm run radar:health` -> STATUS: OK (2 runs in
+26h window, 3 tools published last run 8.3h ago, feed at 678 tools). CI and
+Release both green on the latest master push. No issue labelled
+`agent-fixable` open. All three urgent-work checks clear, so proceeded to the
+research job for the hour.
+
+Re-scanned every OPEN entry in `research-backlog.md` for last-touch date to
+find the stalest one (the file's own established pattern). The same entry
+the 09:07 UTC run already re-verified today ("Track progress against your
+role") came up again by date, and re-checking its citations independently
+(`HowItWorksSection.jsx:9`, `progressStore.js:10`'s `STATUSES`,
+`personaGenerator.js`'s `careerLine()`, `Stack.jsx`'s `starter`/"From your
+persona" branch, and `grep -ni "core.*master|mastered" Stack.jsx` still zero
+hits) confirmed zero drift again — but since the 09:07 run already logged
+this exact zero-drift result a few hours earlier today, logging it a second
+time here would be pure duplication. Not re-logged. Still OPEN, Build size
+S, still the most build-ready entry nobody has shipped.
+
+Also spot-checked every other OPEN entry's "Smallest useful version" section
+across the file (automated line-count + keyword scan, not a full re-read of
+every one) — every single OPEN entry already carries a complete build plan,
+a "what this would NOT include" scope fence, and at least one prior
+re-verification pass. None were thin enough to warrant deepening this run.
+
+Studied one fresh angle before concluding nothing clears the bar: compliance/
+certification badges (SOC 2, GDPR, ISO 27001), a real pattern confirmed via
+WebSearch — aitoolsexplorer.com runs a dedicated "AI Tools by Compliance"
+page sourced from vendor trust centers, and Nudge Security's tool profiles
+label specific certifications. This looked like the same shape as the
+already-shipped privacy facet (`isPrivacyConscious()`, 45/652 tools), so
+checked the catalog directly: `public/tools.json` has a generic `compliance`
+tag, but only **2 of 652** tools carry it (`TrustNotch`, `InfiniHash App
+Store`), nowhere near the ~45-tool floor that made the privacy facet viable,
+and neither the radar pipeline nor the catalog schema captures any specific
+certification (no `soc2`/`iso27001`/`hipaa`/`gdpr`-shaped tags exist at all —
+checked by regex across every tag in the live feed). Building a filter or
+badge on 2 self-reported tags would also mean displaying an unverified trust
+claim, the same fabrication risk the testimonial gap and `StatsSection.jsx`'s
+own comment already guard against. Not logged — too thin on data, no
+honest path to verification without a human audit process this project
+doesn't have.
+
+No code change this run beyond this archive file. The feature run still has
+19 build-ready OPEN gaps to choose from.
