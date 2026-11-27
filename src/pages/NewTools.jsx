@@ -6,6 +6,7 @@ import { getNewTools } from '../utils/newTools'
 import { isCatalogNoise } from '../utils/prominence'
 import { timeAgo } from '../utils/communityData'
 import { newestDiscovery, formatUpdated } from '../utils/freshness'
+import { getFaviconUrl } from '../utils/faviconUrl'
 
 // Public, crawlable, no session required — same tier as CategoryLanding.jsx
 // and SharedStack.jsx. Reuses the already-tested getNewTools() util (the same
@@ -87,7 +88,18 @@ export default function NewTools() {
                 <span className="truncate">{tool.sourceCategory}</span>
                 <span className="shrink-0 text-exus-lime">Added {timeAgo(new Date(tool.discoveredAt).getTime())}</span>
               </span>
-              <Link to={`/ai-tools/${tool.slug}`} className="arcade-heading mt-2 block text-base hover:underline underline-offset-4">
+              <Link to={`/ai-tools/${tool.slug}`} className="arcade-heading mt-2 flex items-center gap-2 text-base hover:underline underline-offset-4">
+                {getFaviconUrl(tool) && (
+                  <img
+                    src={getFaviconUrl(tool)}
+                    alt=""
+                    loading="lazy"
+                    width={28}
+                    height={28}
+                    className="h-7 w-7 shrink-0 rounded-full"
+                    onError={(e) => { e.currentTarget.style.display = 'none' }}
+                  />
+                )}
                 {tool.name}
               </Link>
               <p className="mt-2 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>

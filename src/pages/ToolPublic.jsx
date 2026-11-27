@@ -4,6 +4,7 @@ import { BrandLogo, LOGO } from '../components/ui/Mascot'
 import { TOOLS, getTool, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../utils/toolsCatalog'
 import { relatedTools, toolDescription, toolJsonLd, toolPath, toolTitle } from '../utils/toolSeo'
 import { buildReportIssueUrl } from '../utils/suggestTool'
+import { getFaviconUrl } from '../utils/faviconUrl'
 
 // /ai-tools/:slug — the public, indexable page for one tool.
 //
@@ -69,7 +70,20 @@ export default function ToolPublic() {
         <span className="text-zinc-400">{tool.name}</span>
       </nav>
 
-      <h1 className="arcade-heading mt-4 text-4xl sm:text-5xl">{tool.name}</h1>
+      <h1 className="arcade-heading mt-4 flex items-center gap-3 text-4xl sm:text-5xl">
+        {getFaviconUrl(tool) && (
+          <img
+            src={getFaviconUrl(tool)}
+            alt=""
+            loading="lazy"
+            width={56}
+            height={56}
+            className="h-12 w-12 shrink-0 rounded-full sm:h-14 sm:w-14"
+            onError={(e) => { e.currentTarget.style.display = 'none' }}
+          />
+        )}
+        {tool.name}
+      </h1>
       {tool.blurb && <p className="mt-4 max-w-2xl text-lg leading-relaxed text-zinc-300">{tool.blurb}</p>}
 
       <div className="mt-7 flex flex-wrap gap-3">

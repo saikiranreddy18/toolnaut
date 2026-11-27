@@ -4,6 +4,7 @@ import { getTool, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../utils/too
 import { decodeStackSlugs } from '../utils/shareStack'
 import { resourcesFor } from '../data/toolResources'
 import { useHead, SITE } from '../utils/head'
+import { getFaviconUrl } from '../utils/faviconUrl'
 
 // Public, read-only fork of the authenticated Compare.jsx table — no session,
 // no Fit row (there is no quiz context for a stranger landing on this link),
@@ -86,7 +87,20 @@ export default function PublicCompare() {
                       <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
                       <span className="truncate">{tool.sourceCategory}</span>
                     </span>
-                    <p className="arcade-heading compact mt-2 text-base">{tool.name}</p>
+                    <p className="arcade-heading compact mt-2 flex items-center gap-2 text-base">
+                      {getFaviconUrl(tool) && (
+                        <img
+                          src={getFaviconUrl(tool)}
+                          alt=""
+                          loading="lazy"
+                          width={28}
+                          height={28}
+                          className="h-7 w-7 shrink-0 rounded-full"
+                          onError={(e) => { e.currentTarget.style.display = 'none' }}
+                        />
+                      )}
+                      {tool.name}
+                    </p>
                     <p className="mt-2 line-clamp-3 flex-1 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>
                   </div>
                 )
@@ -120,7 +134,20 @@ export default function PublicCompare() {
                     <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
                     <span className="truncate">{tool.sourceCategory}</span>
                   </span>
-                  <p className="arcade-heading compact mt-2 text-base">{tool.name}</p>
+                  <p className="arcade-heading compact mt-2 flex items-center gap-2 text-base">
+                    {getFaviconUrl(tool) && (
+                      <img
+                        src={getFaviconUrl(tool)}
+                        alt=""
+                        loading="lazy"
+                        width={28}
+                        height={28}
+                        className="h-7 w-7 shrink-0 rounded-full"
+                        onError={(e) => { e.currentTarget.style.display = 'none' }}
+                      />
+                    )}
+                    {tool.name}
+                  </p>
                   <p className="mt-2 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>
                   <dl className="mt-3 space-y-1.5">
                     {ROWS.map((row) => (

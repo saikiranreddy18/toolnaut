@@ -10,6 +10,7 @@ import { markActed } from '../../utils/funnel'
 import { EVENTS } from '../../utils/analyticsEvents'
 import { haptic } from '../../utils/haptics'
 import { useHead, SITE } from '../../utils/head'
+import { getFaviconUrl } from '../../utils/faviconUrl'
 import { Fragment, useEffect, useState } from 'react'
 
 // Comparison state lives entirely in the ?tools= query string, same pattern
@@ -145,7 +146,18 @@ export default function Compare() {
                       <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
                       <span className="truncate">{tool.sourceCategory}</span>
                     </span>
-                    <Link to={`/app/tools/${tool.slug}`} className="arcade-heading compact mt-2 text-base hover:opacity-80">
+                    <Link to={`/app/tools/${tool.slug}`} className="arcade-heading compact mt-2 flex items-center gap-2 text-base hover:opacity-80">
+                      {getFaviconUrl(tool) && (
+                        <img
+                          src={getFaviconUrl(tool)}
+                          alt=""
+                          loading="lazy"
+                          width={28}
+                          height={28}
+                          className="h-7 w-7 shrink-0 rounded-full"
+                          onError={(e) => { e.currentTarget.style.display = 'none' }}
+                        />
+                      )}
                       {tool.name}
                     </Link>
                     <p className="mt-2 line-clamp-3 flex-1 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>
@@ -196,7 +208,18 @@ export default function Compare() {
                       ✕
                     </button>
                   </div>
-                  <Link to={`/app/tools/${tool.slug}`} className="arcade-heading compact mt-2 block text-base hover:opacity-80">
+                  <Link to={`/app/tools/${tool.slug}`} className="arcade-heading compact mt-2 flex items-center gap-2 text-base hover:opacity-80">
+                    {getFaviconUrl(tool) && (
+                      <img
+                        src={getFaviconUrl(tool)}
+                        alt=""
+                        loading="lazy"
+                        width={28}
+                        height={28}
+                        className="h-7 w-7 shrink-0 rounded-full"
+                        onError={(e) => { e.currentTarget.style.display = 'none' }}
+                      />
+                    )}
                     {tool.name}
                   </Link>
                   <p className="mt-2 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>

@@ -5,6 +5,7 @@ import { getCollection } from '../utils/collectionsData'
 import { getTool, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../utils/toolsCatalog'
 import { loadSession } from '../state/authStore'
 import { addToStack, loadStack } from '../state/stackStore'
+import { getFaviconUrl } from '../utils/faviconUrl'
 
 // Same "adopt" pattern as SharedStack.jsx's adoptAndGo, applied to a
 // hand-curated slug list instead of a pasted-link user stack.
@@ -72,7 +73,18 @@ export default function CollectionDetail() {
                 <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
                 <span className="truncate">{tool.sourceCategory}</span>
               </span>
-              <Link to={`/ai-tools/${tool.slug}`} className="arcade-heading mt-2 block text-base hover:underline underline-offset-4">
+              <Link to={`/ai-tools/${tool.slug}`} className="arcade-heading mt-2 flex items-center gap-2 text-base hover:underline underline-offset-4">
+                {getFaviconUrl(tool) && (
+                  <img
+                    src={getFaviconUrl(tool)}
+                    alt=""
+                    loading="lazy"
+                    width={28}
+                    height={28}
+                    className="h-7 w-7 shrink-0 rounded-full"
+                    onError={(e) => { e.currentTarget.style.display = 'none' }}
+                  />
+                )}
                 {tool.name}
               </Link>
               <p className="mt-2 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>

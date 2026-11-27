@@ -2,6 +2,7 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import { useHead, SITE } from '../utils/head'
 import { TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../utils/toolsCatalog'
 import { newestDiscovery, formatUpdated } from '../utils/freshness'
+import { getFaviconUrl } from '../utils/faviconUrl'
 
 // One-line, honest descriptions — no per-tool editorial content is invented,
 // this just frames what the domain's filtered tool list already contains.
@@ -97,7 +98,18 @@ export default function CategoryLanding() {
                 <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
                 <span className="truncate">{tool.sourceCategory}</span>
               </span>
-              <Link to={`/ai-tools/${tool.slug}`} className="arcade-heading mt-2 block text-base hover:underline underline-offset-4">
+              <Link to={`/ai-tools/${tool.slug}`} className="arcade-heading mt-2 flex items-center gap-2 text-base hover:underline underline-offset-4">
+                {getFaviconUrl(tool) && (
+                  <img
+                    src={getFaviconUrl(tool)}
+                    alt=""
+                    loading="lazy"
+                    width={28}
+                    height={28}
+                    className="h-7 w-7 shrink-0 rounded-full"
+                    onError={(e) => { e.currentTarget.style.display = 'none' }}
+                  />
+                )}
                 {tool.name}
               </Link>
               <p className="mt-2 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>

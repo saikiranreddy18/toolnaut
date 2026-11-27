@@ -9,6 +9,51 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-11-27
+
+**Radar health:** `OK` — 2 runs in the last 26h window, 8 tools published in
+the most recent run (14.3h before this write-up), feed now at 691 published
+tools. `npm run radar:health` exits 0, no NO-PUBLISH/NO-SOURCE symptoms.
+
+**Researched today:** the hourly automation kept the backlog moving —
+logged two genuinely new gaps (price-change detection: `radar/schema.js`'s
+`contentHash()` already hashes `price` but is only ever computed at creation
+time, never re-compared, so a Pro-tier "Price changes" promise in
+`capabilityMatrix.js` has nothing behind it; a dormant-user win-back email,
+scoped to extend the existing `alerts-send.js` cron rather than spend a new
+Vercel function slot) and one re-verification pass that found zero drift on
+the oldest OPEN benchmark entry, just corrected a stale insertion-point note
+in its own plan.
+
+**Shipped today:** **(sha below)** — favicons on the 8 tool-card surfaces
+that still rendered text-only rows: `CategoryLanding.jsx` and `ToolPublic.jsx`
+(the two highest-intent, most-crawlable SEO pages), `NewTools.jsx`,
+`SharedStack.jsx` and `PublicCompare.jsx` (the growth-loop pages a
+non-signed-in recipient sees first), `CollectionDetail.jsx`, `SearchTools.jsx`
+and `Compare.jsx` (desktop table + mobile cards). This was a tracked
+follow-up to the "No tool has a visual identity" gap shipped two days ago,
+which deliberately scoped itself to `ToolCard.jsx`/`ToolDetail.jsx` only and
+named the rest as a cheap, separate follow-up — it sat OPEN since
+2026-11-26 21:03 UTC until today. Reused the already-shipped
+`getFaviconUrl()` util and Google favicon service with no changes to either.
+One deliberate deviation from the backlog's plan: those 8 files map over a
+tool list inline rather than through a shared card component, so there's no
+per-row slot for a `useState` broken-image flag the way `ToolCard.jsx` has
+one — used `onError={(e) => e.currentTarget.style.display = 'none'}` directly
+on each `<img>` instead, same "never a broken image" guarantee without adding
+per-item state to a list render. **Visible on the live site immediately** —
+pure client-side React, no backend/radar dependency, deploys straight from
+this push.
+
+**Queued next:** price-change detection (M, depends on a sibling
+"never re-checked" reachability job that's also still OPEN — don't build two
+competing daily-slice schedulers), dormant-user win-back email (needs the
+Supabase/Vercel-function side, not pure client-side), and the public-browsable
+shared-stacks gallery and OG-preview-for-share-links gaps still sitting OPEN
+from earlier passes.
+
+---
+
 ## 2026-11-26
 
 **Radar health:** `OK` — 2 runs in the last 26h (19:20 UTC 11-25, 03:46 UTC

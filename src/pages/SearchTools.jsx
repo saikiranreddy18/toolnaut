@@ -4,6 +4,7 @@ import { useHead } from '../utils/head'
 import { TOOLS, CATEGORY_META, PRICE_LABELS, LEVEL_LABELS } from '../utils/toolsCatalog'
 import { matchesQuery } from '../utils/search'
 import { encodeStackSlugs } from '../utils/shareStack'
+import { getFaviconUrl } from '../utils/faviconUrl'
 
 const RESULT_CAP = 60
 
@@ -116,7 +117,20 @@ export default function SearchTools() {
                   />
                   <span className="truncate">{tool.sourceCategory}</span>
                 </span>
-                <p className="arcade-heading mt-2 text-base">{tool.name}</p>
+                <p className="arcade-heading mt-2 flex items-center gap-2 text-base">
+                  {getFaviconUrl(tool) && (
+                    <img
+                      src={getFaviconUrl(tool)}
+                      alt=""
+                      loading="lazy"
+                      width={28}
+                      height={28}
+                      className="h-7 w-7 shrink-0 rounded-full"
+                      onError={(e) => { e.currentTarget.style.display = 'none' }}
+                    />
+                  )}
+                  {tool.name}
+                </p>
                 <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>
                 <div className="mt-3 flex items-center gap-2 text-[10px] font-bold text-zinc-500">
                   <span className="rounded-full border border-white/20 px-2 py-0.5">{PRICE_LABELS[tool.price]}</span>

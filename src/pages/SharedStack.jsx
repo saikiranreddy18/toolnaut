@@ -5,6 +5,7 @@ import { decodeStackSlugs } from '../utils/shareStack'
 import { loadSession } from '../state/authStore'
 import { addToStack, loadStack } from '../state/stackStore'
 import { useHead, SITE } from '../utils/head'
+import { getFaviconUrl } from '../utils/faviconUrl'
 
 // Public, read-only view of someone else's stack — except the CTA below,
 // which does write to stackStore: adopting a shared stack is the entire
@@ -75,7 +76,20 @@ export default function SharedStack() {
                   <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: meta.color }} aria-hidden="true" />
                   <span className="truncate">{tool.sourceCategory}</span>
                 </span>
-                <p className="arcade-heading mt-2 text-base">{tool.name}</p>
+                <p className="arcade-heading mt-2 flex items-center gap-2 text-base">
+                  {getFaviconUrl(tool) && (
+                    <img
+                      src={getFaviconUrl(tool)}
+                      alt=""
+                      loading="lazy"
+                      width={28}
+                      height={28}
+                      className="h-7 w-7 shrink-0 rounded-full"
+                      onError={(e) => { e.currentTarget.style.display = 'none' }}
+                    />
+                  )}
+                  {tool.name}
+                </p>
                 <p className="mt-2 text-xs leading-relaxed text-zinc-300">{tool.blurb}</p>
                 <div className="mt-3 flex items-center gap-2 text-[10px] font-bold text-zinc-500">
                   <span className="rounded-full border border-white/20 px-2 py-0.5">{PRICE_LABELS[tool.price]}</span>

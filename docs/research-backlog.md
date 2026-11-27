@@ -11077,7 +11077,18 @@ without changing it, logs that in the archive file, not here.** Only append to
 - **Found:** 2026-11-26 09:07 UTC
 
 ### Favicons shipped on 2 of 10 tool-card surfaces — the other 8 still render text-only rows, including the two highest-intent SEO landing pages
-- **Status:** OPEN
+- **Status:** SHIPPED (this run, sha in DEVLOG) — built close to scope: all 8
+  files got the favicon treatment (`CategoryLanding.jsx`, `NewTools.jsx`,
+  `SharedStack.jsx`, `Compare.jsx` desktop+mobile, `PublicCompare.jsx`
+  desktop+mobile, `CollectionDetail.jsx`, `ToolPublic.jsx` at 56px matching
+  `ToolDetail.jsx`, `SearchTools.jsx`). One deliberate deviation from the
+  plan: these pages map over a tool list inline rather than through a
+  reusable card component, so there's no per-row slot for `ToolCard.jsx`'s
+  `useState` broken-flag — used `onError={(e) => e.currentTarget.style.display
+  = 'none'}` directly on the `<img>` instead, which gets the same "never a
+  broken image" outcome without adding per-item state to a list render. All
+  8 routes already covered by `scripts/smoke.mjs`'s existing route list, so
+  no smoke.mjs change was needed; it passed clean with 0 console errors.
 - **Seen in:** this is a direct, named follow-up to this file's own "No tool
   has a visual identity" entry above (shipped `60dfda9`, 2026-11-25), not a
   new competitor study — that entry explicitly scoped itself to
