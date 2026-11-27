@@ -11077,7 +11077,7 @@ without changing it, logs that in the archive file, not here.** Only append to
 - **Found:** 2026-11-26 09:07 UTC
 
 ### Favicons shipped on 2 of 10 tool-card surfaces — the other 8 still render text-only rows, including the two highest-intent SEO landing pages
-- **Status:** SHIPPED (this run, sha in DEVLOG) — built close to scope: all 8
+- **Status:** SHIPPED 6f02989 — built close to scope: all 8
   files got the favicon treatment (`CategoryLanding.jsx`, `NewTools.jsx`,
   `SharedStack.jsx`, `Compare.jsx` desktop+mobile, `PublicCompare.jsx`
   desktop+mobile, `CollectionDetail.jsx`, `ToolPublic.jsx` at 56px matching

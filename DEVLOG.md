@@ -25,7 +25,7 @@ Vercel function slot) and one re-verification pass that found zero drift on
 the oldest OPEN benchmark entry, just corrected a stale insertion-point note
 in its own plan.
 
-**Shipped today:** **(sha below)** — favicons on the 8 tool-card surfaces
+**Shipped today:** **`6f02989`** — favicons on the 8 tool-card surfaces
 that still rendered text-only rows: `CategoryLanding.jsx` and `ToolPublic.jsx`
 (the two highest-intent, most-crawlable SEO pages), `NewTools.jsx`,
 `SharedStack.jsx` and `PublicCompare.jsx` (the growth-loop pages a
