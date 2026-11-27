@@ -254,7 +254,9 @@
       "claude-code-unlimited",
       "claude-code-token-accounting-statement",
       "talira",
-      "dev-mem"
+      "dev-mem",
+      "codesignflo",
+      "mcp-superassistant-g"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -506,7 +508,9 @@
       "course-claude-code-unlimited",
       "course-claude-code-token-accounting-statement",
       "course-talira",
-      "course-dev-mem"
+      "course-dev-mem",
+      "course-codesignflo",
+      "course-mcp-superassistant-g"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -897,7 +901,8 @@
       "vegas-pro-edition",
       "old-photo-life",
       "game-settings-optimizer",
-      "slides-maker-x"
+      "slides-maker-x",
+      "codesignflo"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -962,7 +967,8 @@
       "course-vegas-pro-edition",
       "course-old-photo-life",
       "course-game-settings-optimizer",
-      "course-slides-maker-x"
+      "course-slides-maker-x",
+      "course-codesignflo"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1415,7 +1421,11 @@
       "behavioral-drift-detector-for-ai-agents",
       "agent-harness",
       "file-organizer-ai",
-      "driver-tool-ai"
+      "driver-tool-ai",
+      "flowmaps",
+      "emelyn",
+      "no-equipment-workout-generator-with-3d-to-2d-svg-figures",
+      "bloque"
     ],
     "courses": [
       "course-headless-tools",
@@ -1788,7 +1798,11 @@
       "course-behavioral-drift-detector-for-ai-agents",
       "course-agent-harness",
       "course-file-organizer-ai",
-      "course-driver-tool-ai"
+      "course-driver-tool-ai",
+      "course-flowmaps",
+      "course-emelyn",
+      "course-no-equipment-workout-generator-with-3d-to-2d-svg-figures",
+      "course-bloque"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2012,7 +2026,9 @@
       "truce",
       "strukto-first-virtual-terminal-for-ai-agents",
       "talira",
-      "behavioral-drift-detector-for-ai-agents"
+      "behavioral-drift-detector-for-ai-agents",
+      "flowmaps",
+      "codesignflo"
     ],
     "courses": [
       "course-headless-tools",
@@ -2214,7 +2230,9 @@
       "course-truce",
       "course-strukto-first-virtual-terminal-for-ai-agents",
       "course-talira",
-      "course-behavioral-drift-detector-for-ai-agents"
+      "course-behavioral-drift-detector-for-ai-agents",
+      "course-flowmaps",
+      "course-codesignflo"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3166,7 +3184,8 @@
       "an-mcp-server-for-searching-ai-engineering-jobs",
       "gatool",
       "awesome-iran-mcp",
-      "avva"
+      "avva",
+      "bloque"
     ],
     "courses": [
       "course-coolplugz",
@@ -3209,7 +3228,8 @@
       "course-an-mcp-server-for-searching-ai-engineering-jobs",
       "course-gatool",
       "course-awesome-iran-mcp",
-      "course-avva"
+      "course-avva",
+      "course-bloque"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5089,7 +5109,8 @@
       "heycube",
       "vegas-pro-edition",
       "old-photo-life",
-      "slides-maker-x"
+      "slides-maker-x",
+      "no-equipment-workout-generator-with-3d-to-2d-svg-figures"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -5158,7 +5179,8 @@
       "course-heycube",
       "course-vegas-pro-edition",
       "course-old-photo-life",
-      "course-slides-maker-x"
+      "course-slides-maker-x",
+      "course-no-equipment-workout-generator-with-3d-to-2d-svg-figures"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -6489,7 +6511,8 @@
       "termy",
       "interpretation-to-ai-agents",
       "bee",
-      "meta-launches-subscriptions-with-enhanced-ai-features"
+      "meta-launches-subscriptions-with-enhanced-ai-features",
+      "emelyn"
     ],
     "courses": [
       "course-bytedance-launches-ai-office-product-doubao-work",
@@ -6497,7 +6520,8 @@
       "course-termy",
       "course-interpretation-to-ai-agents",
       "course-bee",
-      "course-meta-launches-subscriptions-with-enhanced-ai-features"
+      "course-meta-launches-subscriptions-with-enhanced-ai-features",
+      "course-emelyn"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -7206,13 +7230,15 @@
       "gemini-omni-11-flash",
       "gemini-agentic-video-understanding",
       "pixelboard",
-      "gemini-4-argon-is-now-available-for-developers"
+      "gemini-4-argon-is-now-available-for-developers",
+      "mcp-superassistant-g"
     ],
     "courses": [
       "course-gemini-omni-11-flash",
       "course-gemini-agentic-video-understanding",
       "course-pixelboard",
-      "course-gemini-4-argon-is-now-available-for-developers"
+      "course-gemini-4-argon-is-now-available-for-developers",
+      "course-mcp-superassistant-g"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -10617,7 +10643,8 @@
       "open-source-skills-for-end-to-end-video-ad-campaigns",
       "growthengineer",
       "marketing-agent-for-founders",
-      "emelyn-your-ai-social-media-manager"
+      "emelyn-your-ai-social-media-manager",
+      "emelyn"
     ],
     "courses": [
       "course-octoloops",
@@ -10629,7 +10656,8 @@
       "course-open-source-skills-for-end-to-end-video-ad-campaigns",
       "course-growthengineer",
       "course-marketing-agent-for-founders",
-      "course-emelyn-your-ai-social-media-manager"
+      "course-emelyn-your-ai-social-media-manager",
+      "course-emelyn"
     ],
     "updatedAt": "2026-09-02T13:42:33.502Z"
   },
@@ -14583,11 +14611,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "inspyry",
-      "logo-design-skill"
+      "logo-design-skill",
+      "no-equipment-workout-generator-with-3d-to-2d-svg-figures"
     ],
     "courses": [
       "course-inspyry",
-      "course-logo-design-skill"
+      "course-logo-design-skill",
+      "course-no-equipment-workout-generator-with-3d-to-2d-svg-figures"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -14773,7 +14803,8 @@
       "enso-method",
       "purple-flow",
       "billet",
-      "xsquads"
+      "xsquads",
+      "flowmaps"
     ],
     "courses": [
       "course-logitech-launches-mx-keypad-for-developers",
@@ -14784,7 +14815,8 @@
       "course-enso-method",
       "course-purple-flow",
       "course-billet",
-      "course-xsquads"
+      "course-xsquads",
+      "course-flowmaps"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -17798,7 +17830,8 @@
       "ai-ide-system-utilities-idm-pro-v6-42-karon",
       "i-built-a-spa-for-ai-agents",
       "strix-halo-ai-toolboxes",
-      "agent-harness"
+      "agent-harness",
+      "flowmaps"
     ],
     "courses": [
       "course-agentsdock-an-ide-designed-for-agentic-ai-research",
@@ -17807,7 +17840,8 @@
       "course-ai-ide-system-utilities-idm-pro-v6-42-karon",
       "course-i-built-a-spa-for-ai-agents",
       "course-strix-halo-ai-toolboxes",
-      "course-agent-harness"
+      "course-agent-harness",
+      "course-flowmaps"
     ],
     "updatedAt": "2026-09-13T13:49:13.602Z"
   },
@@ -22009,11 +22043,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "ai-agent-gateway",
-      "coral"
+      "coral",
+      "bloque"
     ],
     "courses": [
       "course-ai-agent-gateway",
-      "course-coral"
+      "course-coral",
+      "course-bloque"
     ],
     "updatedAt": "2026-10-02T15:51:16.985Z"
   },
@@ -22262,11 +22298,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "revline",
-      "emelyn-your-ai-social-media-manager"
+      "emelyn-your-ai-social-media-manager",
+      "emelyn"
     ],
     "courses": [
       "course-revline",
-      "course-emelyn-your-ai-social-media-manager"
+      "course-emelyn-your-ai-social-media-manager",
+      "course-emelyn"
     ],
     "updatedAt": "2026-10-04T00:02:58.648Z"
   },
@@ -23622,11 +23660,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "shellshock",
-      "jevmem"
+      "jevmem",
+      "mcp-superassistant-g"
     ],
     "courses": [
       "course-shellshock",
-      "course-jevmem"
+      "course-jevmem",
+      "course-mcp-superassistant-g"
     ],
     "updatedAt": "2026-10-10T15:24:25.498Z"
   },
@@ -26166,5 +26206,122 @@
       "course-driver-tool-ai"
     ],
     "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "skill-logic",
+    "name": "logic",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "flowmaps"
+    ],
+    "courses": [
+      "course-flowmaps"
+    ],
+    "updatedAt": "2026-11-27T19:01:12.527Z"
+  },
+  {
+    "id": "skill-workout",
+    "name": "workout",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "no-equipment-workout-generator-with-3d-to-2d-svg-figures"
+    ],
+    "courses": [
+      "course-no-equipment-workout-generator-with-3d-to-2d-svg-figures"
+    ],
+    "updatedAt": "2026-11-27T19:01:12.527Z"
+  },
+  {
+    "id": "skill-fitness",
+    "name": "fitness",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "no-equipment-workout-generator-with-3d-to-2d-svg-figures"
+    ],
+    "courses": [
+      "course-no-equipment-workout-generator-with-3d-to-2d-svg-figures"
+    ],
+    "updatedAt": "2026-11-27T19:01:12.527Z"
+  },
+  {
+    "id": "skill-noequipment",
+    "name": "noequipment",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "no-equipment-workout-generator-with-3d-to-2d-svg-figures"
+    ],
+    "courses": [
+      "course-no-equipment-workout-generator-with-3d-to-2d-svg-figures"
+    ],
+    "updatedAt": "2026-11-27T19:01:12.527Z"
+  },
+  {
+    "id": "skill-it-less",
+    "name": "it less",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "bloque"
+    ],
+    "courses": [
+      "course-bloque"
+    ],
+    "updatedAt": "2026-11-27T19:01:12.527Z"
+  },
+  {
+    "id": "skill-figma",
+    "name": "figma",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "codesignflo"
+    ],
+    "courses": [
+      "course-codesignflo"
+    ],
+    "updatedAt": "2026-11-27T19:01:12.527Z"
+  },
+  {
+    "id": "skill-code sync",
+    "name": "code sync",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "codesignflo"
+    ],
+    "courses": [
+      "course-codesignflo"
+    ],
+    "updatedAt": "2026-11-27T19:01:12.527Z"
+  },
+  {
+    "id": "skill-google_ai_studio",
+    "name": "google_ai_studio",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "mcp-superassistant-g"
+    ],
+    "courses": [
+      "course-mcp-superassistant-g"
+    ],
+    "updatedAt": "2026-11-27T19:01:12.527Z"
+  },
+  {
+    "id": "skill-ai_assistant",
+    "name": "ai_assistant",
+    "domain": "code",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "mcp-superassistant-g"
+    ],
+    "courses": [
+      "course-mcp-superassistant-g"
+    ],
+    "updatedAt": "2026-11-27T19:01:12.527Z"
   }
 ]

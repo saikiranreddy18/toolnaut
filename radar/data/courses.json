@@ -43217,5 +43217,315 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "course-flowmaps",
+    "toolSlug": "flowmaps",
+    "title": "Master Flowmaps",
+    "objectives": [
+      "Define conditional branching within a Flowmap logic layer.",
+      "Integrate an external API call as an agent step.",
+      "Implement state management for multi-step AI workflows."
+    ],
+    "modules": [
+      {
+        "title": "Implementing IF/ELSE Logic",
+        "estMinutes": 15,
+        "steps": [
+          "Drag a 'Condition' node onto the canvas.",
+          "Set the condition using a variable check (e.g., 'input.status == 'active'').",
+          "Connect subsequent nodes based on 'True' or 'False' outputs."
+        ]
+      },
+      {
+        "title": "External API Integration",
+        "estMinutes": 20,
+        "steps": [
+          "Add an 'HTTP Request' node to the flow.",
+          "Configure the URL, method (e.g., POST), and necessary headers.",
+          "Map the returned JSON body into a Flowmap state variable."
+        ]
+      },
+      {
+        "title": "State Persistence and Flow Control",
+        "estMinutes": 25,
+        "steps": [
+          "Initialize a workflow with a starting state object.",
+          "Use a 'Set State' node after a processing step to update variables.",
+          "Reference the updated state variable in a downstream 'Condition' node to control flow."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-workflow",
+      "skill-logic",
+      "skill-development"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-27T19:01:12.527Z"
+  },
+  {
+    "id": "course-emelyn",
+    "toolSlug": "emelyn",
+    "title": "Master Emelyn",
+    "objectives": [
+      "Connect your primary social media account to Emelyn.",
+      "Generate a content idea using Emelyn's prompts.",
+      "Schedule a post directly from the Emelyn interface."
+    ],
+    "modules": [
+      {
+        "title": "Account Setup & Sync",
+        "estMinutes": 10,
+        "steps": [
+          "Click 'Connect Account' and authorize your Instagram/X profile.",
+          "Verify the connection using the on-screen confirmation code."
+        ]
+      },
+      {
+        "title": "Idea Generation",
+        "estMinutes": 8,
+        "steps": [
+          "Select 'Content Prompt' and input your niche (e.g., 'small coffee shops').",
+          "Review the top 3 AI-suggested post angles and select the best one."
+        ]
+      },
+      {
+        "title": "Scheduling Workflow",
+        "estMinutes": 7,
+        "steps": [
+          "Paste the generated copy into the 'Draft Post' field.",
+          "Choose a target date/time (e.g., Tuesday at 10 AM) and hit 'Schedule Now'."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-social media",
+      "skill-assistant",
+      "skill-marketing"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-27T19:01:12.527Z"
+  },
+  {
+    "id": "course-no-equipment-workout-generator-with-3d-to-2d-svg-figures",
+    "toolSlug": "no-equipment-workout-generator-with-3d-to-2d-svg-figures",
+    "title": "Master No-equipment workout generator with 3D-to-2D SVG figures",
+    "objectives": [
+      "Generate a basic no-equipment workout.",
+      "Understand the SVG figure output for exercises.",
+      "Customize a simple workout routine."
+    ],
+    "modules": [
+      {
+        "title": "Generating Your First Workout",
+        "estMinutes": 10,
+        "steps": [
+          "Input 'beginner' and 'no-equipment' into the generator.",
+          "Select the default 5-exercise workout and generate the plan.",
+          "Review the resulting list of exercises and estimated sets/reps."
+        ]
+      },
+      {
+        "title": "Interpreting the SVG Visuals",
+        "estMinutes": 8,
+        "steps": [
+          "Click the SVG icon next to any exercise (e.g., Squat).",
+          "Observe the 2D SVG rendering of the 3D pose.",
+          "Identify key movement points within the SVG to ensure correct form."
+        ]
+      },
+      {
+        "title": "Quick Routine Modification",
+        "estMinutes": 7,
+        "steps": [
+          "Change the intensity setting from 'beginner' to 'low-impact'.",
+          "Remove one exercise by using the 'Exclude' toggle on the plan.",
+          "Regenerate the workout and confirm the updated structure."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-workout",
+      "skill-fitness",
+      "skill-svg",
+      "skill-noequipment",
+      "skill-ai"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-27T19:01:12.527Z"
+  },
+  {
+    "id": "course-bloque",
+    "toolSlug": "bloque",
+    "title": "Master Bloque",
+    "objectives": [
+      "Connect a new service endpoint via Bloque.",
+      "Configure basic authentication within a gateway setup.",
+      "Monitor active connection health within the Bloque dashboard."
+    ],
+    "modules": [
+      {
+        "title": "Adding a New Endpoint",
+        "estMinutes": 10,
+        "steps": [
+          "Navigate to 'Service Endpoints' in the Bloque console.",
+          "Click 'Add New' and paste the target service URL.",
+          "Select the appropriate protocol (e.g., HTTPS/TCP) from the dropdown."
+        ]
+      },
+      {
+        "title": "Setting Up Basic Auth",
+        "estMinutes": 8,
+        "steps": [
+          "Edit the newly added endpoint and locate the 'Security' tab.",
+          "Choose 'Basic Auth' and enter the provided username/password.",
+          "Save the endpoint configuration to apply the credentials."
+        ]
+      },
+      {
+        "title": "Checking Connection Health",
+        "estMinutes": 7,
+        "steps": [
+          "Go to the 'Gateway Status' dashboard.",
+          "Filter by the endpoint added in Module 1.",
+          "Verify the 'Last Successful Ping' timestamp is current and check the 'Active Connections' count."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-mcp",
+      "skill-gateway",
+      "skill-it-less"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-27T19:01:12.527Z"
+  },
+  {
+    "id": "course-codesignflo",
+    "toolSlug": "codesignflo",
+    "title": "Master CoDesignFlo",
+    "objectives": [
+      "Connect CoDesignFlo to an existing Figma file.",
+      "Trigger AI code generation from the synchronized design.",
+      "Inspect and merge generated code into a target repository."
+    ],
+    "modules": [
+      {
+        "title": "Linking Figma to CoDesignFlo",
+        "estMinutes": 10,
+        "steps": [
+          "Navigate to the CoDesignFlo dashboard and select 'New Sync'.",
+          "Authenticate and select the specific Figma file/page ID.",
+          "Verify the connection status displays 'Active' in the settings panel."
+        ]
+      },
+      {
+        "title": "Generating Code from Design Elements",
+        "estMinutes": 15,
+        "steps": [
+          "Select a component (e.g., Button) in Figma and open the CoDesignFlo panel.",
+          "Set the target framework (e.g., React/Tailwind) and click 'Generate Code'.",
+          "Review the generated snippet preview within the CoDesignFlo UI for accuracy."
+        ]
+      },
+      {
+        "title": "Repository Integration and Commit",
+        "estMinutes": 10,
+        "steps": [
+          "In the generated output view, select 'Push to GitHub/GitLab'.",
+          "Authorize CoDesignFlo with your chosen Git credentials.",
+          "Confirm the branch and commit message, then finalize the push."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-figma",
+      "skill-code sync",
+      "skill-ai agents",
+      "skill-design"
+    ],
+    "prerequisites": [
+      "Figma access to the target design file.",
+      "A configured GitHub/GitLab repository for code output.",
+      "Basic understanding of your target frontend framework (e.g., React)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-27T19:01:12.527Z"
+  },
+  {
+    "id": "course-mcp-superassistant-g",
+    "toolSlug": "mcp-superassistant-g",
+    "title": "Master MCP-SuperAssistant-G",
+    "objectives": [
+      "Integrate MCP-SuperAssistant-G with a local MCP tool.",
+      "Execute a multi-step workflow using the assistant's chained prompts.",
+      "Troubleshoot basic connectivity issues between the local tool and Gemini Web/AI Studio."
+    ],
+    "modules": [
+      {
+        "title": "Local Tool Configuration",
+        "estMinutes": 15,
+        "steps": [
+          "Verify the local MCP tool API endpoint is accessible via `curl` locally.",
+          "Update the `config.json` within the MCP-SuperAssistant-G repository with the correct local endpoint URL.",
+          "Restart the MCP-SuperAssistant-G service instance."
+        ]
+      },
+      {
+        "title": "Workflow Chaining in Gemini Studio",
+        "estMinutes": 20,
+        "steps": [
+          "Define the first step prompt instructing the assistant to call the specific local MCP tool function.",
+          "Configure the subsequent prompt to accept the structured output from the first step as input.",
+          "Test the end-to-end chain execution within the Gemini Web/AI Studio interface."
+        ]
+      },
+      {
+        "title": "Error Handling & Logging",
+        "estMinutes": 10,
+        "steps": [
+          "Examine the assistant's console logs for HTTP status codes (4xx/5xx) returned from the local tool.",
+          "Implement a retry mechanism in the prompt sequence for transient network errors.",
+          "Map specific local tool error codes back into a human-readable failure message in the final AI output."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-gemini",
+      "skill-google_ai_studio",
+      "skill-codex",
+      "skill-ai_assistant"
+    ],
+    "prerequisites": [
+      "Familiarity with JSON and API concepts.",
+      "Basic proficiency in running local command-line services.",
+      "Access and setup within Gemini Web/AI Studio environment."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-27T19:01:12.527Z"
   }
 ]
