@@ -7,6 +7,11 @@
 // SHIPPED — pulled from that day's real commit, not invented.
 export const CHANGELOG = [
   {
+    date: '2026-11-27',
+    title: 'Favicons on every tool list, not just tool pages',
+    body: "Tool cards across Discover, Compare, Search, your shared stacks, collections and category pages now show the tool's real favicon — previously only the quiz result and tool detail pages did.",
+  },
+  {
     date: '2026-11-26',
     title: 'Add your roadmap to a real calendar',
     body: "Your 4-week roadmap now has an \"Add to calendar\" button next to the PDF export — download a calendar file with one event per week, so each milestone shows up where you already look instead of staying inside Toolnaut.",
