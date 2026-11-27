@@ -8261,6 +8261,30 @@ without changing it, logs that in the archive file, not here.** Only append to
   "N of 3 core [role] tools mastered" stat line) is still unbuilt. No drift
   in substance, only in line numbers; plan is still buildable exactly as
   narrowed in the 10-07 note.
+- **Re-verified 2026-11-27 15:07 UTC — stalest OPEN entry tied with "The
+  leaderboard's own precondition" (both last-touched 11-19), but that
+  entry's own 11-23 note explicitly says to check the *next*-stalest one
+  instead, so this one, not that one.** Re-ran every check: `HowItWorksSection
+  .jsx:9` still carries the copy verbatim; `progressStore.js:10`'s `STATUSES`
+  unchanged; `personaGenerator.js`'s `careerLine()` (still line 71, `career`
+  still assigned at line 87) unchanged in shape; `Stack.jsx:235` still sets
+  `starter: true` on `persona.stack` entries, `:373-374` still renders "From
+  your persona" for them; `grep -in "core.*master|mastered" Stack.jsx` is
+  still zero hits — the stat line is still unbuilt, 73 days after this entry
+  was found and 8 days since its last check. One real correction to the plan
+  itself, not just a line-number shift: the "near the existing streak/
+  progress-ring header" placement instruction is imprecise and would mislead
+  whoever builds this. `ProgressRing` (defined `Stack.jsx:51`) is not a
+  single header-level summary — it's rendered once *per card* at `:362`,
+  inside the kit grid, sized to that one tool's own status. There is no
+  existing header progress stat to sit "next to." The actual header content
+  at the top of the page is `persona.name`/`persona.tagline`
+  (`Stack.jsx:263-264`), with `SkillGraph` (the six-domain bar chart) right
+  below it at `:307`. The natural insertion point is between those two —
+  right after the `persona.name`/`tagline` block and before `SkillGraph` —
+  not "next to ProgressRing," which doesn't exist at header scope. Still
+  OPEN, still Build size S, still the cheapest fully-scoped entry in this
+  file with a real plan correction now folded in; still unbuilt.
 
 ---
 
