@@ -894,7 +894,10 @@
       "animama",
       "pintura",
       "lightroom-for-windows-and-macos",
-      "vegas-pro-edition"
+      "vegas-pro-edition",
+      "old-photo-life",
+      "game-settings-optimizer",
+      "slides-maker-x"
     ],
     "courses": [
       "course-i-built-an-ai-music-generator-with-some-harnesses",
@@ -956,7 +959,10 @@
       "course-animama",
       "course-pintura",
       "course-lightroom-for-windows-and-macos",
-      "course-vegas-pro-edition"
+      "course-vegas-pro-edition",
+      "course-old-photo-life",
+      "course-game-settings-optimizer",
+      "course-slides-maker-x"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1406,7 +1412,10 @@
       "heycube",
       "simplellmchat",
       "neui",
-      "behavioral-drift-detector-for-ai-agents"
+      "behavioral-drift-detector-for-ai-agents",
+      "agent-harness",
+      "file-organizer-ai",
+      "driver-tool-ai"
     ],
     "courses": [
       "course-headless-tools",
@@ -1776,7 +1785,10 @@
       "course-heycube",
       "course-simplellmchat",
       "course-neui",
-      "course-behavioral-drift-detector-for-ai-agents"
+      "course-behavioral-drift-detector-for-ai-agents",
+      "course-agent-harness",
+      "course-file-organizer-ai",
+      "course-driver-tool-ai"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2321,7 +2333,8 @@
       "prompt-upgrader",
       "aether",
       "claude-code-unlimited",
-      "simplellmchat"
+      "simplellmchat",
+      "agent-harness"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2390,7 +2403,8 @@
       "course-prompt-upgrader",
       "course-aether",
       "course-claude-code-unlimited",
-      "course-simplellmchat"
+      "course-simplellmchat",
+      "course-agent-harness"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2590,7 +2604,11 @@
       "cve-2026-42978-poc-research",
       "wvm",
       "app-launch-grabthat-nlp-launcher-for-windows",
-      "willow"
+      "willow",
+      "game-settings-optimizer",
+      "file-organizer-ai",
+      "driver-tool-ai",
+      "slides-maker-x"
     ],
     "courses": [
       "course-edify",
@@ -2598,7 +2616,11 @@
       "course-cve-2026-42978-poc-research",
       "course-wvm",
       "course-app-launch-grabthat-nlp-launcher-for-windows",
-      "course-willow"
+      "course-willow",
+      "course-game-settings-optimizer",
+      "course-file-organizer-ai",
+      "course-driver-tool-ai",
+      "course-slides-maker-x"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3915,7 +3937,8 @@
       "moodle-tool-human2human",
       "syncopate",
       "shadowclone-skills-learned-from-your-coding-agent-correction",
-      "educational-os-fundamentals-interactive-tool"
+      "educational-os-fundamentals-interactive-tool",
+      "scolast"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -3974,7 +3997,8 @@
       "course-moodle-tool-human2human",
       "course-syncopate",
       "course-shadowclone-skills-learned-from-your-coding-agent-correction",
-      "course-educational-os-fundamentals-interactive-tool"
+      "course-educational-os-fundamentals-interactive-tool",
+      "course-scolast"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4508,7 +4532,8 @@
       "proofsource-find-where-ai-leaves-you-out-and-fix-it",
       "eevo",
       "prettywhaleai",
-      "ai-analytics-team-approved-agent-ready"
+      "ai-analytics-team-approved-agent-ready",
+      "gmbrank"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -4578,7 +4603,8 @@
       "course-proofsource-find-where-ai-leaves-you-out-and-fix-it",
       "course-eevo",
       "course-prettywhaleai",
-      "course-ai-analytics-team-approved-agent-ready"
+      "course-ai-analytics-team-approved-agent-ready",
+      "course-gmbrank"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5061,7 +5087,9 @@
       "eustella-europes-ai-agent",
       "lightroom-for-windows-and-macos",
       "heycube",
-      "vegas-pro-edition"
+      "vegas-pro-edition",
+      "old-photo-life",
+      "slides-maker-x"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -5128,7 +5156,9 @@
       "course-eustella-europes-ai-agent",
       "course-lightroom-for-windows-and-macos",
       "course-heycube",
-      "course-vegas-pro-edition"
+      "course-vegas-pro-edition",
+      "course-old-photo-life",
+      "course-slides-maker-x"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5223,7 +5253,8 @@
       "agentbadge",
       "pintura",
       "eustella-europes-ai-agent",
-      "simplellmchat"
+      "simplellmchat",
+      "agent-harness"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -5252,7 +5283,8 @@
       "course-agentbadge",
       "course-pintura",
       "course-eustella-europes-ai-agent",
-      "course-simplellmchat"
+      "course-simplellmchat",
+      "course-agent-harness"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -8374,12 +8406,14 @@
     "toolsTeaching": [
       "slidex",
       "agy-ppt",
-      "pintura"
+      "pintura",
+      "slides-maker-x"
     ],
     "courses": [
       "course-slidex",
       "course-agy-ppt",
-      "course-pintura"
+      "course-pintura",
+      "course-slides-maker-x"
     ],
     "updatedAt": "2026-08-29T03:23:03.469Z"
   },
@@ -9483,11 +9517,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "open-source-thinking-orb-animations-for-ai-agents",
-      "ai-agent-for-animation"
+      "ai-agent-for-animation",
+      "old-photo-life"
     ],
     "courses": [
       "course-open-source-thinking-orb-animations-for-ai-agents",
-      "course-ai-agent-for-animation"
+      "course-ai-agent-for-animation",
+      "course-old-photo-life"
     ],
     "updatedAt": "2026-09-01T00:47:42.422Z"
   },
@@ -13136,13 +13172,15 @@
       "cs2-aim-toolkit",
       "we-got-ai-to-wombo-combo",
       "ai-game-coach",
-      "graphics-optimizer-ai"
+      "graphics-optimizer-ai",
+      "game-settings-optimizer"
     ],
     "courses": [
       "course-cs2-aim-toolkit",
       "course-we-got-ai-to-wombo-combo",
       "course-ai-game-coach",
-      "course-graphics-optimizer-ai"
+      "course-graphics-optimizer-ai",
+      "course-game-settings-optimizer"
     ],
     "updatedAt": "2026-09-05T12:45:39.833Z"
   },
@@ -15212,10 +15250,12 @@
     "domain": "design",
     "level": "beginner",
     "toolsTeaching": [
-      "free-ai-image-tools-no-signup"
+      "free-ai-image-tools-no-signup",
+      "old-photo-life"
     ],
     "courses": [
-      "course-free-ai-image-tools-no-signup"
+      "course-free-ai-image-tools-no-signup",
+      "course-old-photo-life"
     ],
     "updatedAt": "2026-09-09T13:45:32.864Z"
   },
@@ -17757,7 +17797,8 @@
       "trix",
       "ai-ide-system-utilities-idm-pro-v6-42-karon",
       "i-built-a-spa-for-ai-agents",
-      "strix-halo-ai-toolboxes"
+      "strix-halo-ai-toolboxes",
+      "agent-harness"
     ],
     "courses": [
       "course-agentsdock-an-ide-designed-for-agentic-ai-research",
@@ -17765,7 +17806,8 @@
       "course-trix",
       "course-ai-ide-system-utilities-idm-pro-v6-42-karon",
       "course-i-built-a-spa-for-ai-agents",
-      "course-strix-halo-ai-toolboxes"
+      "course-strix-halo-ai-toolboxes",
+      "course-agent-harness"
     ],
     "updatedAt": "2026-09-13T13:49:13.602Z"
   },
@@ -22420,10 +22462,12 @@
     "domain": "data",
     "level": "intermediate",
     "toolsTeaching": [
-      "ranking-the-most-ai-agent-friendly-tools"
+      "ranking-the-most-ai-agent-friendly-tools",
+      "gmbrank"
     ],
     "courses": [
-      "course-ranking-the-most-ai-agent-friendly-tools"
+      "course-ranking-the-most-ai-agent-friendly-tools",
+      "course-gmbrank"
     ],
     "updatedAt": "2026-10-05T00:10:23.845Z"
   },
@@ -22565,10 +22609,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "leftovers"
+      "leftovers",
+      "file-organizer-ai"
     ],
     "courses": [
-      "course-leftovers"
+      "course-leftovers",
+      "course-file-organizer-ai"
     ],
     "updatedAt": "2026-10-05T18:31:10.418Z"
   },
@@ -25718,10 +25764,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "graphics-optimizer-ai"
+      "graphics-optimizer-ai",
+      "game-settings-optimizer"
     ],
     "courses": [
-      "course-graphics-optimizer-ai"
+      "course-graphics-optimizer-ai",
+      "course-game-settings-optimizer"
     ],
     "updatedAt": "2026-11-25T04:35:53.480Z"
   },
@@ -25731,10 +25779,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "graphics-optimizer-ai"
+      "graphics-optimizer-ai",
+      "game-settings-optimizer"
     ],
     "courses": [
-      "course-graphics-optimizer-ai"
+      "course-graphics-optimizer-ai",
+      "course-game-settings-optimizer"
     ],
     "updatedAt": "2026-11-25T04:35:53.480Z"
   },
@@ -25783,10 +25833,12 @@
     "domain": "design",
     "level": "intermediate",
     "toolsTeaching": [
-      "pintura"
+      "pintura",
+      "slides-maker-x"
     ],
     "courses": [
-      "course-pintura"
+      "course-pintura",
+      "course-slides-maker-x"
     ],
     "updatedAt": "2026-11-25T19:20:09.404Z"
   },
@@ -25958,5 +26010,161 @@
       "course-behavioral-drift-detector-for-ai-agents"
     ],
     "updatedAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "id": "skill-google business profile",
+    "name": "google business profile",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "gmbrank"
+    ],
+    "courses": [
+      "course-gmbrank"
+    ],
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "skill-local seo",
+    "name": "local seo",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "gmbrank"
+    ],
+    "courses": [
+      "course-gmbrank"
+    ],
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "skill-geo-grid",
+    "name": "geo grid",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "gmbrank"
+    ],
+    "courses": [
+      "course-gmbrank"
+    ],
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "skill-ai tutor",
+    "name": "ai tutor",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "scolast"
+    ],
+    "courses": [
+      "course-scolast"
+    ],
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "skill-self-learning",
+    "name": "self learning",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "scolast"
+    ],
+    "courses": [
+      "course-scolast"
+    ],
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "skill-bloom",
+    "name": "bloom",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "scolast"
+    ],
+    "courses": [
+      "course-scolast"
+    ],
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "skill-edtech",
+    "name": "edtech",
+    "domain": "learning",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "scolast"
+    ],
+    "courses": [
+      "course-scolast"
+    ],
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "skill-old photo",
+    "name": "old photo",
+    "domain": "design",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "old-photo-life"
+    ],
+    "courses": [
+      "course-old-photo-life"
+    ],
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "skill-file organizer",
+    "name": "file organizer",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "file-organizer-ai"
+    ],
+    "courses": [
+      "course-file-organizer-ai"
+    ],
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "skill-deduplication",
+    "name": "deduplication",
+    "domain": "automation",
+    "level": "beginner",
+    "toolsTeaching": [
+      "file-organizer-ai"
+    ],
+    "courses": [
+      "course-file-organizer-ai"
+    ],
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "skill-driver",
+    "name": "driver",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "driver-tool-ai"
+    ],
+    "courses": [
+      "course-driver-tool-ai"
+    ],
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "skill-update",
+    "name": "update",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "driver-tool-ai"
+    ],
+    "courses": [
+      "course-driver-tool-ai"
+    ],
+    "updatedAt": "2026-11-27T03:47:25.244Z"
   }
 ]

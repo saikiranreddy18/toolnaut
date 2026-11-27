@@ -42814,5 +42814,408 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-26T19:03:52.534Z"
+  },
+  {
+    "id": "course-gmbrank",
+    "toolSlug": "gmbrank",
+    "title": "Master Gmbrank",
+    "objectives": [
+      "Interpret geo-grid heatmap data in Gmbrank.",
+      "Analyze ranking variance across specific local clusters.",
+      "Use Gmbrank reports to inform targeted GBP optimization."
+    ],
+    "modules": [
+      {
+        "title": "Decoding Geo-Grid Heatmaps",
+        "estMinutes": 15,
+        "steps": [
+          "Filter your GBP data to a target city/radius.",
+          "Identify the top 2 most dense (hottest) geo-grid cells.",
+          "Compare the average ranking within those cells against the overall average."
+        ]
+      },
+      {
+        "title": "Pinpointing Rank Drift",
+        "estMinutes": 20,
+        "steps": [
+          "Select a specific 5km geo-grid area of interest.",
+          "Use the historical view to observe rank changes (up/down) month-over-month.",
+          "Note any correlation between ranking drops and local competitor activity in that grid."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-google business profile",
+      "skill-local seo",
+      "skill-ranking",
+      "skill-geo-grid"
+    ],
+    "prerequisites": [
+      "Active Google Business Profile connected to Gmbrank.",
+      "Familiarity with interpreting basic SEO/Local SEO concepts."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "course-scolast",
+    "toolSlug": "scolast",
+    "title": "Master Scolast",
+    "objectives": [
+      "Configure Bloom's 2 Sigma problem within Scolast",
+      "Engage the AI tutor for targeted knowledge gaps",
+      "Analyze generated mastery reports for next steps"
+    ],
+    "modules": [
+      {
+        "title": "Setting up the Learning Goal",
+        "estMinutes": 10,
+        "steps": [
+          "Navigate to the 'Problem Definition' section.",
+          "Input the specific concept/skill you aim to master.",
+          "Confirm the Bloom's 2 Sigma parameter setting."
+        ]
+      },
+      {
+        "title": "Tutor Interaction Loop",
+        "estMinutes": 20,
+        "steps": [
+          "Initiate the session by posing a complex prompt related to the goal.",
+          "Respond directly to the AI's targeted questions to test understanding.",
+          "Request a concept clarification when stuck, referencing the specific knowledge gap identified."
+        ]
+      },
+      {
+        "title": "Reviewing Progress & Iteration",
+        "estMinutes": 15,
+        "steps": [
+          "Access the 'Mastery Dashboard' after the session concludes.",
+          "Identify topics flagged with low confidence scores.",
+          "Use the low-confidence areas as the input for the next Scolast session."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-learning",
+      "skill-ai tutor",
+      "skill-self-learning",
+      "skill-bloom",
+      "skill-edtech"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "course-agent-harness",
+    "toolSlug": "agent-harness",
+    "title": "Master Agent Harness",
+    "objectives": [
+      "Define and instantiate a basic Agent Harness agent.",
+      "Configure an agent to utilize a specific external tool.",
+      "Run and observe the agent's execution trace for debugging."
+    ],
+    "modules": [
+      {
+        "title": "Basic Agent Setup",
+        "estMinutes": 15,
+        "steps": [
+          "Install Agent Harness via pip.",
+          "Write a Python script defining an Agent class inheriting from the base Agent.",
+          "Instantiate the agent object in the main execution block."
+        ]
+      },
+      {
+        "title": "Tool Integration",
+        "estMinutes": 20,
+        "steps": [
+          "Implement a simple external function (e.g., 'get_weather') decorated as a tool.",
+          "Pass this decorated function to the agent's tool configuration during instantiation.",
+          "Prompt the agent with a query that requires using the defined tool."
+        ]
+      },
+      {
+        "title": "Tracing and Debugging",
+        "estMinutes": 15,
+        "steps": [
+          "Set the agent execution logging level to DEBUG.",
+          "Execute the agent with a complex, multi-step task.",
+          "Parse the generated execution trace log to verify tool calling and reasoning steps."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agent",
+      "skill-llm",
+      "skill-development"
+    ],
+    "prerequisites": [],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "course-old-photo-life",
+    "toolSlug": "old-photo-life",
+    "title": "Master old-photo-life",
+    "objectives": [
+      "Master the facial animation settings for realistic aging simulation.",
+      "Successfully composite animated figures onto original photo backgrounds.",
+      "Export high-resolution, optimized video files ready for social media."
+    ],
+    "modules": [
+      {
+        "title": "Refining Facial Dynamics",
+        "estMinutes": 15,
+        "steps": [
+          "Upload a photo exhibiting subtle facial features (e.g., smile, gaze).",
+          "Adjust the 'Lifelike Intensity' slider between 65% and 75%.",
+          "Test the 'Subtle Movement' preset vs. custom keyframing."
+        ]
+      },
+      {
+        "title": "Seamless Compositing",
+        "estMinutes": 20,
+        "steps": [
+          "Import a complementary background image into the project canvas.",
+          "Use the 'Depth Mapping' tool to align the animated subject with the background's perspective.",
+          "Apply the 'Ambient Lighting Match' filter to unify color tones."
+        ]
+      },
+      {
+        "title": "Final Output & Optimization",
+        "estMinutes": 10,
+        "steps": [
+          "Set the export resolution to 1080p (1920x1080) and frame rate to 24fps.",
+          "Select the 'Social Media Optimized (H.264)' preset.",
+          "Render the final video and confirm file size is under 150MB for quick sharing."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-old photo",
+      "skill-animation",
+      "skill-image editing",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Basic proficiency in image selection (high-quality, clear faces).",
+      "Understanding of common video export formats (MP4/H.264)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "course-game-settings-optimizer",
+    "toolSlug": "game-settings-optimizer",
+    "title": "Master game-settings-optimizer",
+    "objectives": [
+      "Analyze current hardware limitations using the tool.",
+      "Generate an optimized preset for target FPS.",
+      "Apply and validate the settings in the game."
+    ],
+    "modules": [
+      {
+        "title": "Hardware Profile Input",
+        "estMinutes": 10,
+        "steps": [
+          "Launch game-settings-optimizer and select 'Load PC Specs'.",
+          "Confirm CPU/GPU/RAM data automatically imported from system diagnostics."
+        ]
+      },
+      {
+        "title": "Target FPS Optimization Run",
+        "estMinutes": 15,
+        "steps": [
+          "Set the target FPS (e.g., 60) and 'Visual Acceptability' slider to 7/10.",
+          "Run the 'Generate Optimal Preset' function and review the resulting setting list."
+        ]
+      },
+      {
+        "title": "Implementation and Testing",
+        "estMinutes": 10,
+        "steps": [
+          "Export the generated config file (.ini) and manually apply it within the game's settings menu.",
+          "Launch the game and use the in-game FPS counter to confirm stable performance meets the target."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-gaming",
+      "skill-graphics",
+      "skill-optimizer",
+      "skill-windows"
+    ],
+    "prerequisites": [
+      "A PC with modern graphics card (NVIDIA/AMD)",
+      "The 'game-settings-optimizer' executable installed",
+      "Access to a game with configurable graphics settings"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "course-file-organizer-ai",
+    "toolSlug": "file-organizer-ai",
+    "title": "Master file-organizer-ai",
+    "objectives": [
+      "Run the file-organizer-ai on a test folder",
+      "Identify and remove duplicate files using the tool",
+      "Apply an AI-suggested folder structure cleanup"
+    ],
+    "modules": [
+      {
+        "title": "First Run Setup",
+        "estMinutes": 5,
+        "steps": [
+          "Download and launch file-organizer-ai for Windows.",
+          "Select a small, non-critical test folder (e.g., 'Test_Cleanup')."
+        ]
+      },
+      {
+        "title": "Finding Duplicates",
+        "estMinutes": 7,
+        "steps": [
+          "Run the 'Scan for Duplicates' feature on the test folder.",
+          "Select all identified duplicates and click 'Permanently Delete Selected'."
+        ]
+      },
+      {
+        "title": "AI Cleanup Suggestion",
+        "estMinutes": 8,
+        "steps": [
+          "Activate the 'AI Organization Suggestion' module.",
+          "Review the proposed folder structure changes in the preview pane.",
+          "Click 'Apply Cleanup' to reorganize the test files."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-file organizer",
+      "skill-deduplication",
+      "skill-windows",
+      "skill-cleanup"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "course-driver-tool-ai",
+    "toolSlug": "driver-tool-ai",
+    "title": "Master driver-tool-ai",
+    "objectives": [
+      "Scan a system for outdated drivers using `driver-tool-ai`.",
+      "Execute a safe update process for identified drivers.",
+      "Initiate and verify a rollback if an update fails."
+    ],
+    "modules": [
+      {
+        "title": "Initial System Scan",
+        "estMinutes": 10,
+        "steps": [
+          "Run `driver-tool-ai scan --target windows` to enumerate all drivers.",
+          "Filter output for 'Outdated' status, saving the list to `drivers_to_update.json`."
+        ]
+      },
+      {
+        "title": "Safe Update Execution",
+        "estMinutes": 15,
+        "steps": [
+          "Execute `driver-tool-ai update --file drivers_to_update.json --mode safe`.",
+          "Monitor the CLI output for success confirmation or specific error codes."
+        ]
+      },
+      {
+        "title": "Rollback Verification",
+        "estMinutes": 10,
+        "steps": [
+          "If errors occur, run `driver-tool-ai rollback --log_id [UpdateRunID]` immediately.",
+          "Verify system stability using a pre-update diagnostic script."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-driver",
+      "skill-windows",
+      "skill-update"
+    ],
+    "prerequisites": [
+      "Windows OS environment",
+      "Node.js installed",
+      "Basic command-line proficiency"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-27T03:47:25.244Z"
+  },
+  {
+    "id": "course-slides-maker-x",
+    "toolSlug": "slides-maker-x",
+    "title": "Master slides-maker-x",
+    "objectives": [
+      "Generate a full slide deck from a simple topic prompt.",
+      "Customize the generated theme and layout.",
+      "Export the final presentation as a standard PPTX file."
+    ],
+    "modules": [
+      {
+        "title": "First Deck Generation",
+        "estMinutes": 10,
+        "steps": [
+          "Open slides-maker-x and click 'New Presentation'.",
+          "Enter a topic (e.g., 'Benefits of Remote Work') in the prompt box.",
+          "Click 'Generate' and review the initial output."
+        ]
+      },
+      {
+        "title": "Theme and Layout Adjustments",
+        "estMinutes": 8,
+        "steps": [
+          "Select the 'Design' tab on the top toolbar.",
+          "Choose a pre-set theme from the gallery (e.g., 'Modern Blue').",
+          "Click on a specific slide and use the 'Layout' dropdown to change it from 'Title Only' to 'Two Content'."
+        ]
+      },
+      {
+        "title": "Exporting Your Work",
+        "estMinutes": 5,
+        "steps": [
+          "Go to 'File' in the top menu bar.",
+          "Select 'Export As' and choose 'Microsoft PowerPoint (.pptx)'.",
+          "Save the resulting file to your local computer."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-design",
+      "skill-presentation",
+      "skill-ai",
+      "skill-slides",
+      "skill-windows"
+    ],
+    "prerequisites": [],
+    "level": "beginner",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-27T03:47:25.244Z"
   }
 ]
