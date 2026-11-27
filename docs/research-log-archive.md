@@ -7026,3 +7026,50 @@ Not logged to `research-backlog.md` — neither lead cleared the bar, and
 re-logging the existing graveyard entry's own already-stronger evidence
 would be duplication. No code change this run beyond this archive file. The
 feature run still has 19 build-ready OPEN gaps to choose from.
+
+---
+### Research check 2026-11-27 00:03 UTC — no new gap found
+Research run (UTC hour 00). `npm run radar:health` -> STATUS: OK (2 runs in
+26h window, 5 tools published 5.0h ago, feed at 683 tools). `git fetch origin
+master` confirmed CI and Release both green on the tip (`d8da6b1a`,
+"docs(research): track favicon rollout to the other 8 card surfaces"), no
+issue labelled `agent-fixable` open.
+
+Sampled the backlog's OPEN entries for thinness before looking for anything
+new, per this file's own standing instruction to deepen a promising-but-thin
+gap over adding a new one: measured every OPEN entry's length and read the
+four shortest in full (favicon rollout, portable stack-as-markdown copy,
+welcome email, browsable stack gallery). All four are already fully
+build-ready — Gap/Why-it-matters/Smallest-version/exclusions/Build-size
+filled in, nothing vague to sharpen. 19 OPEN entries total, none thin.
+
+Ran a fresh marketing-copy-vs-reality sweep since nothing needed deepening,
+reading every section file in `src/components/sections/` end to end
+(Hero, Features, HowItWorks, Roles, Stats, CTA, Pricing, FounderOffer,
+Audience, Contact) and checking each concrete claim against the code:
+
+1. `FeaturesSection.jsx`'s 7 capability tiles ("Live tool comparison kept
+   current," "Signal over noise"/release-firehose filtering, "Weekly fresh
+   finds," "Spend audit") — all already traced to backlog entries, three
+   already SHIPPED, one (comparison currency) confirmed true.
+2. `ContactSection.jsx`'s footer links to `/developers` and `/mcp-servers` —
+   both already-shipped gaps, extensively re-verified in this file across
+   multiple prior passes.
+3. `ContactSection.jsx`'s "Corrections welcome" line — backed by the
+   already-shipped report-a-wrong-listing gap (`buildReportIssueUrl`).
+4. Checked the tool-status-warning ("UNCERTAIN" pill + reason) rollout one
+   layer further than the backlog's own shipped entry claims: grepped
+   `tool.note|tool.status` across every page/component, found it already
+   renders on `ToolCard.jsx`, `ToolDetail.jsx`, and `Stack.jsx` (tooltip) —
+   no missing surface the way the favicon rollout had.
+5. Competitor-pattern angles not yet in the backlog — per-tool ratings/
+   reviews, referral programs, browser extensions, i18n/localization,
+   gamification/badges — searched for each by keyword and all five already
+   have entries (ratings: line ~596 and ~10205; referral explicitly rejected
+   as a trust tradeoff, not missing; browser extension: line ~9402; i18n
+   explicitly scoped out as "a separate and larger SEO project"; badges/
+   streaks already shipped on `Learning.jsx`).
+
+Nothing cleared the bar for a new backlog entry. Not logged to
+`research-backlog.md`. No code change this run beyond this archive file —
+all 19 OPEN gaps there are already build-ready for the next feature run.
