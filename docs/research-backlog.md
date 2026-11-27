@@ -11233,3 +11233,108 @@ without changing it, logs that in the archive file, not here.** Only append to
   additions, one small `TrustPanel.jsx` row addition. No new dependency, no
   new route, no schema migration (radar's own JSON store, not Supabase).
 - **Found:** 2026-11-27 09:10 UTC
+
+---
+
+### No dormant-user win-back email — once someone signs up and goes quiet, nothing ever reaches them again
+- **Status:** OPEN
+- **Seen in:** a standard, dated 2026 SaaS retention pattern, not one
+  competitor's trick — Sequenzy's 2026 "Best Email Tools for SaaS Churn
+  Prevention" roundup lists a dedicated inactivity-triggered sequence
+  distinct from onboarding/dunning/cancellation flows, with a **7-14 day
+  no-login trigger**; Freemius's and Userpilot's win-back guides describe
+  the same shape — one short, honest "haven't seen you in a while" email,
+  not a hard sell. The trigger this file's sibling entry below needs
+  (first-ever signup) and the trigger this entry needs (login, then
+  silence) are the same underlying signal — "when did this person last
+  authenticate" — just read at opposite ends.
+- **Gap:** this is the direct mirror of this file's own still-OPEN
+  "No welcome/onboarding email exists" entry above, which fires once, at
+  signup. Nothing fires afterward. Grepped `api/` and `src/` for
+  `dormant|inactive|win.?back|re.?engag` (case-insensitive): zero hits
+  outside this file's own text. Confirmed the data to detect dormancy
+  already exists, just not where the welcome-email entry's fix reads from:
+  `public.explorers` (`supabase/migrations/0001_explorers.sql`) is
+  deliberately insert-only with **no columns beyond `id`/`joined_at`** —
+  its own comment says why: *"Deliberately holds NO personal data... A
+  public counter should not be a reason to store anything about anyone."*
+  Adding a `last_seen_at`/email column there to drive this gap would break
+  that stated design intent, so this entry does **not** touch that table.
+  The actual last-authenticated timestamp already lives in Supabase's own
+  `auth.users.last_sign_in_at`, reachable today over the GoTrue admin API
+  with the service-role key — not a new integration: `api/account-
+  delete.js:167` already calls exactly this host
+  (`` `${SUPABASE_URL}/auth/v1/admin/users/${user.id}` ``, same
+  `apikey`/`authorization: Bearer SERVICE_KEY` header pair) to delete a
+  user's auth row. The only unused piece is the **list** form of that same
+  endpoint (`GET /auth/v1/admin/users`, paginated, each row carrying
+  `email` and `last_sign_in_at`) — same host, same key, same auth, a
+  method this codebase has never called.
+- **Why it matters:** `AlertSettings.jsx` already proves there's a
+  population worth re-engaging — every row in `alert_subscribers` is
+  someone who created an account, opted into email, and has a working
+  `unsubscribe_token` (`supabase/migrations/0007_alert_subscribers.sql`),
+  but the only email that table's own cron (`api/alerts-send.js`) ever
+  sends them is "new tools matching your domains." A subscriber who stops
+  opening the app still gets that email forever — there is no "you used to
+  check in, you haven't in a month, here's what you missed" nudge, the
+  single highest-leverage retention email this category runs. Scoping to
+  existing `alert_subscribers` rows (not every signed-up account) is
+  deliberate, not just convenient: it keeps this entry inside email
+  consent already given, with an unsubscribe link already wired, instead
+  of opening the harder question of whether a non-marketing account
+  deserves an unprompted marketing-shaped email — the same consent line
+  the welcome-email entry above draws for the opposite reason (that one
+  stays a one-off transactional send specifically to avoid needing this
+  entry's opt-out machinery).
+- **Smallest useful version (what to actually build):**
+  - Add one watermark column, `alert_subscribers.last_winback_at
+    timestamptz`, via a new `0011_winback.sql` migration — same shape as
+    `last_notified_at` the table already has, same idempotency purpose
+    (never re-send within the cooldown window).
+  - Extend `api/alerts-send.js`'s existing daily cron run rather than
+    adding a new route or a second `vercel.json` cron entry. This matters
+    concretely, not just as tidiness: that file's own header comment notes
+    Vercel's Hobby plan function cap forced `alerts-status.js` and
+    `alerts-toggle.js` to merge into one `alerts.js` to free a slot for
+    `account-delete.js` — counting today's `api/*.js` routes (excluding
+    `_`-prefixed helpers) puts the project at 11 of that same 12-function
+    ceiling, and the sibling welcome-email entry above already proposes
+    spending the last one on `api/welcome-email.js`. Reusing this cron's
+    existing invocation spends zero function slots and zero cron slots.
+  - After today's new-tool send loop finishes (or on a day `fresh.length
+    === 0`, which currently returns early at `alerts-send.js:96` before any
+    subscriber is even read — this entry's check must run before that
+    early return, not after it), do one paginated `GET {SUPABASE_URL}/
+    auth/v1/admin/users?page=N&per_page=1000` sweep (same header pair as
+    `account-delete.js:167`) to build an `email → last_sign_in_at` map,
+    then iterate `alert_subscribers` rows where `last_winback_at` is null
+    or older than the cooldown and the mapped `last_sign_in_at` is older
+    than the dormancy threshold (30 days — the looser end of the
+    Freemius/Sequenzy range, chosen because this product's own use pattern
+    is occasional/project-based, not daily-login software).
+  - Send one plain email reusing `_mail.js`'s `sendEmail()` and the same
+    `List-Unsubscribe`/`List-Unsubscribe-Post` header pair
+    `alerts-send.js:130-131` already sets, pointing at a short "a few new
+    things since you checked" message (reuse the already-fetched `tools`
+    array, newest few regardless of domain match, same `buildEmail()`
+    template function parameterized with a different intro line) — no new
+    template engine, no new provider.
+  - Stamp `last_winback_at` on successful send only, same after-send-
+    succeeds ordering `last_notified_at` already uses at
+    `alerts-send.js:138-140`, for the same reason: a failed send must retry
+    next run, not silently count as sent.
+- **What this would NOT include:** no separate inactivity sequence (3-email
+  drip some guides recommend) — one single nudge per dormant subscriber,
+  matching this file's own smallest-real-version bar; no targeting of
+  non-subscriber accounts (the `explorers` table stays untouched, per its
+  own no-personal-data design); no new `api/` route or cron entry, for the
+  function-slot reason above; no change to the dormancy/cooldown thresholds
+  being configurable per-subscriber — one fixed window for v1.
+- **Build size:** M — one one-column migration, one paginated admin-API
+  sweep added to an existing cron invocation (new fetch shape for this
+  codebase: *list*, not *get-by-id* or *delete*, but same host/auth/error
+  handling already proven at `account-delete.js:167`), one new email
+  variant reusing the existing template function and send/stamp pattern.
+  No new dependency, no new provider, no new function or cron slot.
+- **Found:** 2026-11-27 12:07 UTC
