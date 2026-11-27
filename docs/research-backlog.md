@@ -11118,3 +11118,118 @@ without changing it, logs that in the archive file, not here.** Only append to
   the hard design/tradeoff decision and the one genuinely new util it needed
   are both already done.
 - **Found:** 2026-11-26 21:03 UTC
+
+---
+
+### Price-change detection already has its own content hash sitting unused — a Pro-tier promise names exactly this and it was never built
+- **Status:** OPEN
+- **Seen in:** a real, dated 2026 pattern in this exact category, not a
+  generic SaaS analogy — **AI Pricing Index** (buttondown.com/aipricingindex)
+  re-checks a rotating slice of AI tools on a cycle and publishes "what
+  changed" per update (its late-October 2026 run: "re-checked 30 tools...
+  added 5... no list-price moves this week" — the honest-when-nothing-
+  changed framing this file's own Fresh-Finds and trending-counts entries
+  already favor); **AI Tool Price Tracker** (aiproductivity.ai) tracks
+  vendor-verified prices "across our pricing refreshes," reporting the
+  median AI-tool price rose 5.3% from 2026-01 to 2026-06 across 285 tools —
+  concrete evidence that AI tool pricing changes often enough for a directory
+  in this category to make tracking it a visible feature. This isn't a
+  borrowed idea, though: Toolnaut already *named* it as a Pro-tier capability
+  — `src/utils/capabilityMatrix.js:52`, `pro: { text: 'Price changes, better
+  alternatives, stack drift', status: 'planned' }` — and never built the
+  "Price changes" third of that promise.
+- **Gap:** traced why that promise has sat unbuilt and found the detection
+  mechanism already exists, one layer down, wired to nothing. `radar/schema
+  .js:49`'s `HASHED_FIELDS` (`['name', 'category', 'sourceCategory', 'price',
+  'level', 'blurb', 'website', 'dev', 'tags']`) deliberately includes `price`,
+  and `radar/util/hash.js:4-6`'s `contentHash()` says exactly what it's for in
+  its own comment: *"Same meaningful content → same hash, so re-runs are
+  idempotent and **real changes are detectable**."* It's called in exactly
+  two places — `radar/enrich.js:34` and `radar/seed.js:35` — both at
+  **creation time only**, writing `record.contentHash` once. Grepped every
+  call site (`grep -rn contentHash radar/ --include=*.js`, excluding tests):
+  nothing anywhere re-computes a tool's hash a second time and compares it to
+  the stored one. That's not an oversight this file found first — `radar/
+  dedup.js:5-6`'s own comment says it outright: *"nothing gets re-enriched day
+  after day... refreshing an existing tool's data is a separate dedicated
+  job"* — and `isKnown()` (`dedup.js:16`) permanently skips any slug already
+  in the store. The net effect: once a tool's `price` is written at discovery,
+  it is **structurally incapable of ever changing** in the current pipeline,
+  no matter what the vendor actually does — not because change-detection is
+  hard, but because the one piece built for it (`contentHash`) is never asked
+  twice.
+- **Direct relationship to the sibling "never re-checked" gap above (same
+  file, `Status: OPEN`, Build size M):** that entry scopes itself deliberately
+  to reachability only and explicitly lists what it is *not* building: *"no
+  content re-enrichment (no second LLM pass re-checking price/category/blurb
+  text — reachability is the cheapest signal with code already behind it; a
+  full content recheck is a materially larger, separately-shippable
+  feature)."* This entry is that named, separately-shippable feature — it
+  depends on that sibling's bounded daily rotation existing (so this doesn't
+  duplicate the "which 50 tools get touched today" logic) but adds the one
+  thing that entry explicitly excluded: actually re-deriving `price` for the
+  tools in each day's slice and comparing hashes.
+- **Why it matters:** this is the strongest kind of find this file's own
+  rubric asks for — a *disclosed*, dated Pro-tier promise (`status: 'planned'`,
+  not a false `'live'` claim, so no trust violation today) sitting on top of
+  a mechanism that's 90% built and simply never invoked a second time. Of the
+  three things that one capability-matrix line promises ("Price changes,
+  better alternatives, stack drift"), "better alternatives" already ships
+  (`alternativesFor()`, cited by the sibling entries above) and "stack drift"
+  is a plausible future read on the already-shipped "Stack overlap warning"
+  entry's redundancy signal — "price changes" is the one third with genuinely
+  nothing behind it yet, and it's also the one a buyer cares about most
+  concretely: a tool that quietly removed its free tier or doubled its price
+  is exactly the kind of thing a role-aware recommendation engine should
+  catch before it recommends that tool again.
+- **Smallest useful version (what to actually build):**
+  - In the sibling entry's new `radar/scripts/reverify-catalog.mjs`, once it
+    exists: for each tool in the bounded daily slice, after `checkWebsite()`
+    succeeds, run the existing enrichment classifier against the current
+    website (`radar/enrich.js`'s exported path — no new LLM call shape, same
+    one discovery already uses) and compute `contentHash()` on the result.
+    Compare to `tool.contentHash`. If they differ **and** specifically
+    `tool.price` differs from the freshly-derived value, that's a price
+    change; if only `blurb`/`tags`/etc. differ, log it for visibility but
+    change nothing else yet (re-enriching text wholesale is explicitly out of
+    scope below, matching the sibling entry's own caution).
+  - On a real price change: write `{ slug, from: tool.price, to: newPrice,
+    at: new Date().toISOString() }` to a new append-only `radar/data/
+    price-changes.json` (same `jsonStore.js` load/save pattern every other
+    radar store already uses — `load()` still rethrows anything but ENOENT,
+    per this file's own load-bearing rule), then update the live record:
+    `tool.price = newPrice`, `tool.previousPrice = oldPrice`,
+    `tool.priceChangedAt = now`, `tool.contentHash = newHash`,
+    `store.upsertTool(tool)`.
+  - Add `'previousPrice'`, `'priceChangedAt'` to the `FIELDS` arrays in both
+    `radar/scripts/sync-to-app.js` and `src/utils/liveCatalog.js` — the same
+    one-line-each addition the sibling entry already makes for `updatedAt`.
+  - On `TrustPanel.jsx`'s existing "Pricing" row (`:87-90`, today: `{tool.price
+    || tool.pricing || 'See the vendor's site'}` plus a "(not independently
+    verified)" note): when `tool.priceChangedAt` is present, add one line
+    underneath — `Changed from {previousPrice} on {date}` — reusing the same
+    `Row` primitive, zero new components.
+  - Leave `capabilityMatrix.js:52` at `status: 'planned'` until this ships
+    end-to-end (detection **and** the TrustPanel line visible) — flipping it
+    to `'live'` on the backend piece alone would repeat the exact
+    promise-ahead-of-reality mistake this file's alerts-send entry already
+    caught and corrected once.
+  - **What this would NOT include** (kept out to bound the diff): no
+    wholesale re-enrichment of `blurb`/`category`/`tags` even when the hash
+    differs there too — only a `price` mismatch triggers the write path above,
+    everything else is log-only for now, a future entry's problem; no email
+    or changelog surfacing of price changes (`api/alerts-send.js` is the
+    obvious future consumer — it already has subscriber/cron/send-cap
+    infrastructure — but it's keyed entirely on `discoveredAt` today and
+    teaching it a second event type is its own diff); no historical price
+    *chart* or multi-entry timeline, `price-changes.json` is an append-only
+    audit log for this v1, not a rendered feature; no change to the sibling
+    reverify entry's own reachability logic, this only adds a step after it
+    succeeds.
+- **Build size:** M — depends on the sibling "never re-checked" entry's
+  rotation script existing first (do not build two competing daily-slice
+  schedulers); on top of it, one re-enrichment call reusing existing classifier
+  code, one new append-only `jsonStore`-backed log, two one-line `FIELDS`
+  additions, one small `TrustPanel.jsx` row addition. No new dependency, no
+  new route, no schema migration (radar's own JSON store, not Supabase).
+- **Found:** 2026-11-27 09:10 UTC
