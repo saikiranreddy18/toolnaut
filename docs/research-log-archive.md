@@ -7073,3 +7073,52 @@ Audience, Contact) and checking each concrete claim against the code:
 Nothing cleared the bar for a new backlog entry. Not logged to
 `research-backlog.md`. No code change this run beyond this archive file —
 all 19 OPEN gaps there are already build-ready for the next feature run.
+
+### Research check 2026-11-27 03:03 UTC — no new gap found
+Research run (UTC hour 03). `npm run radar:health` -> STATUS: OK (2 runs in
+26h window, 5 tools published 8.0h ago, feed at 683 tools). GitHub Actions
+confirmed CI and Release both green on the tip (`944d9c5d`, "docs(research):
+log no-new-gap finding for 00:03 UTC research run"), no issue labelled
+`agent-fixable` open.
+
+Measured every OPEN entry's length (19 total) and read the shortest several
+in full (favicon rollout, portable stack-as-markdown copy, welcome email,
+testimonial capture) — same set the 00:03 UTC run already confirmed
+build-ready; re-reading them 3 hours later changed nothing, all still have
+Gap/Why-it-matters/Smallest-version/exclusions/Build-size filled in, nothing
+thin to sharpen.
+
+Since nothing needed deepening, checked five fresh angles not explicitly
+verified by name in the prior run, each against the actual code rather than
+assumed from the backlog's own claims:
+
+1. **Sitemap coverage of the ~700 individual tool pages** — initially looked
+   like a real gap: `public/sitemap.xml` (the committed source file) lists
+   only 35 hand-maintained URLs and zero `/ai-tools/:slug` entries. Traced
+   further before writing it up: `scripts/gen-tool-pages.mjs` prerenders every
+   tool page at build time and appends each one to `dist/sitemap.xml`
+   (confirmed by its own log line, `gen-tool-pages: N tool pages written,
+   sitemap updated`, and the `mapPath = join(DIST, 'sitemap.xml')` write).
+   The committed file deliberately holds only what isn't build-generated.
+   Not a gap — correctly architected, just easy to misread from the source
+   file alone.
+2. **Collections/vs-page sitemap completeness** — cross-checked counts
+   instead of assuming: `src/utils/collectionsData.js` has 7 `COLLECTIONS`
+   entries, sitemap lists 7 `/collections/:slug` URLs; `src/content/
+   comparisons.js` has 2 `COMPARISONS` entries, sitemap lists both `/vs/:slug`
+   URLs. Both fully covered, nothing missing.
+3. **Categorical pricing-tier filter** (distinct from the already-REJECTED
+   dollar-cost stack estimate, which needs real price data Toolnaut doesn't
+   have) — already shipped: `Discover.jsx:24`'s `PRICES = ['free',
+   'freemium', 'paid']` facet, wired to `tool.price` on every catalog record
+   and rendered as filter pills with live counts.
+4. **Command palette / Cmd+K quick-jump** (common Linear/Notion power-user
+   pattern) — already shipped: `src/components/app/CommandPalette.jsx`,
+   wired into `AppShell.jsx` with a visible `⌘K` hint, listed in its own
+   changelog entry.
+5. **robots.txt / sitemap directive correctness** — read in full, no
+   misconfiguration: explicitly allows the named AI-answer-engine crawlers
+   plus a wildcard, correct `Sitemap:` directive pointing at the real URL.
+
+Nothing cleared the bar for a new backlog entry. Not logged to
+`research-backlog.md`. No code change this run beyond this archive file.
