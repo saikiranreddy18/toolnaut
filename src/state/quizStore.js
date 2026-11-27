@@ -1,7 +1,7 @@
 // Guest-safe quiz state, persisted to localStorage after every answer so a
 // refresh mid-quiz never loses progress. On signup, this payload is what gets
 // synced to the server (see APP-FLOW.md §3.1).
-import { read, write } from './scopedStorage'
+import { read, write, remove } from './scopedStorage'
 import { resetRoadmapProgress } from './roadmapStore'
 
 const KEY = 'exus_quiz_v1'
@@ -31,12 +31,12 @@ export function completeQuiz() {
   const s = loadQuiz()
   s.completed = true
   save(s)
-  return s
   // A new kit deserves a fresh "does this fit?" — the stored answer rated the
   // PREVIOUS kit, and leaving it in place meant a retake never re-asked.
   // Through scopedStorage, not raw localStorage: a signed-in account stores
   // this under exus_stack_feedback_v1::<uid>, which a bare removeItem misses.
-  removeScoped('exus_stack_feedback_v1')
+  remove('exus_stack_feedback_v1')
+  return s
 }
 
 export function resetQuiz() {

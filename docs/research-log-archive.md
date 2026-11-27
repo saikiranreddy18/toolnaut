@@ -7122,3 +7122,40 @@ assumed from the backlog's own claims:
 
 Nothing cleared the bar for a new backlog entry. Not logged to
 `research-backlog.md`. No code change this run beyond this archive file.
+
+### Research check 2026-11-27 06:03 UTC — no new gap found, one real bug fixed instead
+Research run (UTC hour 06). `npm run radar:health` -> STATUS: OK (2 runs in
+26h window, 8 tools published 2.3h ago, feed at 691 tools). GitHub Actions
+confirmed CI and Release both green on the tip (`2aa2e11`, "chore(radar):
+publish newly discovered tools"), no issue labelled `agent-fixable` open.
+
+Measured every OPEN entry's length again (19 total, unchanged since the
+00:03/03:03 UTC passes) — same shortest set already read in full twice this
+cycle, nothing new to sharpen. Checked one fresh angle before falling back to
+code: PWA installability (`src/components/app/InstallPrompt.jsx` already
+handles `beforeinstallprompt` + iOS `standalone` detection, `manifest.webmanifest`
+is linked and populated) — already built, not a gap.
+
+While reading app state stores for the installability check, found a real
+bug in `src/state/quizStore.js`'s `completeQuiz()`: the call to clear the
+stale "does this fit?" feedback (`exus_stack_feedback_v1`) sat *after* a
+`return` statement — dead code — and called a function named `removeScoped`
+that was never imported (`scopedStorage.js` exports `remove`, not
+`removeScoped`). Confirmed the call sites: `GoalChat.jsx` calls
+`completeQuiz()` at the end of the quiz flow (both branches, lines 123 and
+151), and `QuizResult.jsx:64` reads `exus_stack_feedback_v1` on mount to
+decide whether to show the "does this fit?" prompt. Net effect: every quiz
+retake left the previous kit's fit-feedback in place, so a user who retook
+the quiz and got a different persona never got re-asked whether the *new*
+kit fit — exactly the regression the function's own comment says it exists
+to prevent, silently never running.
+
+Fixed: moved the `remove('exus_stack_feedback_v1')` call before `return s`
+and imported `remove` (not `removeScoped`) from `./scopedStorage`. Three-line
+diff in one file, no new dependency, no behavior change beyond making the
+already-intended clear actually fire. All three checks green (341 tests,
+build, 29-route smoke) before push.
+
+Not logged to `research-backlog.md` — no new gap found this run, and a
+defect fix isn't a backlog candidate. 19 OPEN gaps still available for the
+next feature run.
