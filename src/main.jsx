@@ -9,12 +9,17 @@ import { loadLiveCatalog } from './utils/liveCatalog'
 import { loadTheme, applyTheme } from './state/themeStore'
 import { loadMoon, applyMoon } from './state/moonStore'
 import { watchSession } from './state/authStore'
+import { stashRef } from './utils/referral'
 
 // First, so a crash in any of the boot steps below is still reported.
 initErrorReporting()
 initAnalytics()
 applyTheme(loadTheme()) // paint the saved play-mode before first render
 applyMoon(loadMoon())   // and the saved sky, so there is no flash of the wrong night
+
+// Capture a `?ref=<uuid>` invite link before anything else touches the URL —
+// in particular before a sign-in redirect, which never carries it back.
+stashRef()
 
 // Mirror the Supabase session into localStorage for the life of the tab, so the
 // synchronous loadSession() every guard calls stays accurate. No-op until the

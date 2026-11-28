@@ -131,6 +131,17 @@ export default function Settings() {
     navigate('/goal')
   }
 
+  const [refCopied, setRefCopied] = useState(false)
+  async function copyReferralLink() {
+    haptic.tap()
+    const url = `${window.location.origin}/?ref=${session.user.id}`
+    try {
+      await navigator.clipboard.writeText(url)
+      setRefCopied(true)
+      setTimeout(() => setRefCopied(false), 1600)
+    } catch { /* clipboard blocked */ }
+  }
+
   const [cursor, setCursorState] = useState(loadCursor)
   function pickCursor(next) {
     haptic.tap()
@@ -492,6 +503,22 @@ export default function Settings() {
               is no server copy yet, so clearing site data clears them.
             </p>
           ) : null}
+          {/* Needs a real account id to put in the link, so this sits out the
+              simulated dev-preview session the same way every other
+              entitlement-backed feature does. */}
+          {!session?.simulated && (
+            <div className="mt-4 border-t border-white/10 pt-4">
+              <p className="text-xs text-zinc-400">
+                Invite a friend — you both get extra trial days when they sign in.
+              </p>
+              <button
+                onClick={copyReferralLink}
+                className="nb-btn dark mt-2.5 min-h-11 px-4 py-2 text-xs"
+              >
+                {refCopied ? '✓ Copied' : '🔗 Copy invite link'}
+              </button>
+            </div>
+          )}
         </div>
         )}
       </section>

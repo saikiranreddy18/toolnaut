@@ -2,6 +2,7 @@
 // user_entitlements) is the authority; this just asks it with the current
 // Supabase access token and hands back one small, honest object.
 import { supabase, isSupabaseConfigured } from './supabase'
+import { consumeRef } from './referral'
 
 export async function getAccessToken() {
   if (!isSupabaseConfigured) return null
@@ -21,7 +22,12 @@ export async function fetchEntitlement() {
   const token = await getAccessToken()
   if (!token) return { active: false, unknown: false, paymentsEnabled: false, configured: false }
   try {
-    const res = await fetch('/api/entitlement', {
+    // One-shot: a stashed invite code rides along on this call only. The
+    // server only ever acts on it inside the first-grant branch, so sending
+    // it exactly once is enough — any later call has nothing left to send.
+    const ref = consumeRef()
+    const url = ref ? `/api/entitlement?ref=${encodeURIComponent(ref)}` : '/api/entitlement'
+    const res = await fetch(url, {
       headers: { authorization: `Bearer ${token}` },
     })
     if (!res.ok && res.status !== 401) return { active: false, unknown: true }

@@ -146,6 +146,28 @@ export async function activateEntitlement({ userId, planCode, transactionId, per
   return { ok: res.ok, endsAt: res.ok ? endsAt : null }
 }
 
+// Extend one entitlement row's ends_at by `days`, from its CURRENT end if
+// that is still in the future, otherwise from now — the same rule
+// activateEntitlement uses for a renewal, factored out so referral credits
+// (api/entitlement.js) can reuse it without touching plan_code or source,
+// which activateEntitlement always writes and a bonus extension must not:
+// doing so would relabel a trial or bonus as a Razorpay purchase and corrupt
+// api/metrics.js's trial-vs-paid split.
+export async function extendEntitlementDays(id, currentEndsAt, days) {
+  const now = Date.now()
+  const base = currentEndsAt && new Date(currentEndsAt).getTime() > now
+    ? new Date(currentEndsAt).getTime()
+    : now
+  const endsAt = new Date(base + days * 86_400_000).toISOString()
+  const res = await rest(`user_entitlements?id=eq.${id}`, {
+    method: 'PATCH',
+    headers: { prefer: 'return=minimal' },
+    body: { ends_at: endsAt, updated_at: new Date().toISOString() },
+  })
+  if (!res.ok) console.error('extendEntitlementDays failed', id, res.status, res.text?.slice(0, 200))
+  return { ok: res.ok, endsAt: res.ok ? endsAt : null }
+}
+
 // ── webhook signature ────────────────────────────────────────────────────────
 // HMAC-SHA256 over the RAW body with the webhook secret, compared in constant
 // time — the same discipline as the checkout signature in _razorpay.js.
