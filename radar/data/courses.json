@@ -43527,5 +43527,114 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-27T19:01:12.527Z"
+  },
+  {
+    "id": "course-ai-coding-agent-tool",
+    "toolSlug": "ai-coding-agent-tool",
+    "title": "Master ai-coding-agent-tool",
+    "objectives": [
+      "Integrate the ai-coding-agent-tool with a local codebase.",
+      "Configure the agent for specific task types (e.g., refactoring, unit testing).",
+      "Implement a feedback loop to refine agent-generated code iteratively."
+    ],
+    "modules": [
+      {
+        "title": "Initial Setup and API Hooking",
+        "estMinutes": 15,
+        "steps": [
+          "Install the required dependencies (`pip install ai-coding-agent-tool`).",
+          "Set environment variables for your chosen LLM (e.g., `OPENAI_API_KEY`).",
+          "Run the basic connectivity test script provided in the documentation."
+        ]
+      },
+      {
+        "title": "Task Definition and Execution",
+        "estMinutes": 20,
+        "steps": [
+          "Define a target file/function path in your project.",
+          "Execute the agent with a clear, constrained prompt (e.g., 'Refactor this function to use list comprehension').",
+          "Review the generated patch/diff output before accepting changes."
+        ]
+      },
+      {
+        "title": "Iterative Refinement Loop",
+        "estMinutes": 15,
+        "steps": [
+          "If the output is flawed, use the agent to analyze its own code against unit tests.",
+          "Provide corrective feedback in the next prompt (e.g., 'The logic fails on null input; fix this specifically').",
+          "Apply the final, validated changes to your local source control."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-code",
+      "skill-coding",
+      "skill-agent",
+      "skill-openai",
+      "skill-claude"
+    ],
+    "prerequisites": [
+      "Basic proficiency in Python and command-line usage.",
+      "Access and API keys for either Claude Code or OpenAI Codex."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-28T03:31:24.596Z"
+  },
+  {
+    "id": "course-crypto-ai-trading-bot",
+    "toolSlug": "crypto-ai-trading-bot",
+    "title": "Master crypto-ai-trading-bot",
+    "objectives": [
+      "Connect the bot to a real-time exchange API.",
+      "Configure a custom AI trading strategy (e.g., MACD crossover).",
+      "Monitor live portfolio performance and execute paper trades."
+    ],
+    "modules": [
+      {
+        "title": "API Key Setup & Connection",
+        "estMinutes": 15,
+        "steps": [
+          "Generate API keys from your chosen exchange (e.g., Binance).",
+          "Update the `config.json` file with the private/public keys.",
+          "Run `bot.py --test-connect` to verify live data reception."
+        ]
+      },
+      {
+        "title": "Strategy Implementation",
+        "estMinutes": 25,
+        "steps": [
+          "Open `strategy_config.yaml` and select 'MACD_Crossover' for testing.",
+          "Adjust the lookback periods (e.g., 12, 26, 9) in the configuration.",
+          "Execute the strategy simulation: `bot.py --simulate --strategy=MACD`."
+        ]
+      },
+      {
+        "title": "Live Monitoring & Deployment",
+        "estMinutes": 20,
+        "steps": [
+          "Start the bot in live execution mode: `bot.py --live --pair=BTC/USDT`.",
+          "Access the integrated portfolio dashboard via the web UI (default: http://localhost:8080).",
+          "Place a small, monitored paper trade using the built-in portfolio tool first."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-crypto",
+      "skill-trading",
+      "skill-ai",
+      "skill-bot"
+    ],
+    "prerequisites": [
+      "Basic Python environment setup (Python 3.8+)",
+      "Familiarity with JSON/YAML configuration files",
+      "Access to a cryptocurrency exchange account"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-28T03:31:24.596Z"
   }
 ]

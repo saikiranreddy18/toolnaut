@@ -256,7 +256,8 @@
       "talira",
       "dev-mem",
       "codesignflo",
-      "mcp-superassistant-g"
+      "mcp-superassistant-g",
+      "ai-coding-agent-tool"
     ],
     "courses": [
       "course-ablo-make-your-ai-app-multiplayer",
@@ -510,7 +511,8 @@
       "course-talira",
       "course-dev-mem",
       "course-codesignflo",
-      "course-mcp-superassistant-g"
+      "course-mcp-superassistant-g",
+      "course-ai-coding-agent-tool"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -1425,7 +1427,8 @@
       "flowmaps",
       "emelyn",
       "no-equipment-workout-generator-with-3d-to-2d-svg-figures",
-      "bloque"
+      "bloque",
+      "crypto-ai-trading-bot"
     ],
     "courses": [
       "course-headless-tools",
@@ -1802,7 +1805,8 @@
       "course-flowmaps",
       "course-emelyn",
       "course-no-equipment-workout-generator-with-3d-to-2d-svg-figures",
-      "course-bloque"
+      "course-bloque",
+      "course-crypto-ai-trading-bot"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2466,7 +2470,8 @@
       "webcraft-pro",
       "trix",
       "verfy",
-      "agentbadge"
+      "agentbadge",
+      "ai-coding-agent-tool"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2490,7 +2495,8 @@
       "course-webcraft-pro",
       "course-trix",
       "course-verfy",
-      "course-agentbadge"
+      "course-agentbadge",
+      "course-ai-coding-agent-tool"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3122,7 +3128,8 @@
       "anthropic-is-planning-to-launch-its-ipo-in-november",
       "jevmem",
       "claude-code-unlimited",
-      "claude-code-token-accounting-statement"
+      "claude-code-token-accounting-statement",
+      "ai-coding-agent-tool"
     ],
     "courses": [
       "course-coolplugz",
@@ -3134,7 +3141,8 @@
       "course-anthropic-is-planning-to-launch-its-ipo-in-november",
       "course-jevmem",
       "course-claude-code-unlimited",
-      "course-claude-code-token-accounting-statement"
+      "course-claude-code-token-accounting-statement",
+      "course-ai-coding-agent-tool"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5110,7 +5118,8 @@
       "vegas-pro-edition",
       "old-photo-life",
       "slides-maker-x",
-      "no-equipment-workout-generator-with-3d-to-2d-svg-figures"
+      "no-equipment-workout-generator-with-3d-to-2d-svg-figures",
+      "crypto-ai-trading-bot"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -5180,7 +5189,8 @@
       "course-vegas-pro-edition",
       "course-old-photo-life",
       "course-slides-maker-x",
-      "course-no-equipment-workout-generator-with-3d-to-2d-svg-figures"
+      "course-no-equipment-workout-generator-with-3d-to-2d-svg-figures",
+      "course-crypto-ai-trading-bot"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5276,7 +5286,8 @@
       "pintura",
       "eustella-europes-ai-agent",
       "simplellmchat",
-      "agent-harness"
+      "agent-harness",
+      "ai-coding-agent-tool"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -5306,7 +5317,8 @@
       "course-pintura",
       "course-eustella-europes-ai-agent",
       "course-simplellmchat",
-      "course-agent-harness"
+      "course-agent-harness",
+      "course-ai-coding-agent-tool"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5316,10 +5328,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "aifi-on-aws"
+      "aifi-on-aws",
+      "crypto-ai-trading-bot"
     ],
     "courses": [
-      "course-aifi-on-aws"
+      "course-aifi-on-aws",
+      "course-crypto-ai-trading-bot"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -7580,13 +7594,15 @@
       "openai-is-developing-a-persistent-ai-agent",
       "openais-rogue-ai-agents-used-more-sites",
       "senator-hawley-opens-investigation-into-openai-huggingface-h",
-      "openai-discloses-six-new-ai-safety-incidents"
+      "openai-discloses-six-new-ai-safety-incidents",
+      "ai-coding-agent-tool"
     ],
     "courses": [
       "course-openai-is-developing-a-persistent-ai-agent",
       "course-openais-rogue-ai-agents-used-more-sites",
       "course-senator-hawley-opens-investigation-into-openai-huggingface-h",
-      "course-openai-discloses-six-new-ai-safety-incidents"
+      "course-openai-discloses-six-new-ai-safety-incidents",
+      "course-ai-coding-agent-tool"
     ],
     "updatedAt": "2026-08-28T09:13:13.222Z"
   },
@@ -21421,12 +21437,14 @@
     "toolsTeaching": [
       "investment-bets",
       "openchart",
-      "layer"
+      "layer",
+      "crypto-ai-trading-bot"
     ],
     "courses": [
       "course-investment-bets",
       "course-openchart",
-      "course-layer"
+      "course-layer",
+      "course-crypto-ai-trading-bot"
     ],
     "updatedAt": "2026-09-29T15:55:26.286Z"
   },
@@ -24189,10 +24207,12 @@
     "domain": "automation",
     "level": "intermediate",
     "toolsTeaching": [
-      "discord-server-raider"
+      "discord-server-raider",
+      "crypto-ai-trading-bot"
     ],
     "courses": [
-      "course-discord-server-raider"
+      "course-discord-server-raider",
+      "course-crypto-ai-trading-bot"
     ],
     "updatedAt": "2026-10-12T19:05:40.043Z"
   },
