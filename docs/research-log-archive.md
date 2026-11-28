@@ -7210,3 +7210,71 @@ run beyond this archive entry. The backlog's existing OPEN gaps (stalest by
 last-touch: "Embeddable 'Featured on Toolnaut' badge" and "A published
 catalog entry is never re-checked", both last touched 2026-11-20) remain
 ready for the next feature run or a future deepening pass.
+
+---
+### Research check 2026-11-28 09:04 UTC — no new gap found
+Research run (UTC hour 09, off the normal 00/06/12/18 cadence). `npm run
+radar:health` -> STATUS: OK (2 runs in 26h window, 2 tools published 5.5h
+ago, feed at 699 tools). GitHub Actions confirmed CI and Release both green
+on the tip (`29496a5`, "docs(research): log 06:03 UTC check — five angles
+ruled out, nothing to add"), no issue labelled `agent-fixable` open.
+
+Re-verified the two stalest-by-last-touch OPEN entries against current
+`master` before looking for anything new, per the standing rule to deepen a
+thin gap over adding a new one — neither is thin, so this was a drift check,
+not a deepening:
+1. **Embeddable "Featured on Toolnaut" badge** — `grep -rniE "badge|embed"
+   src/pages/app/ToolDetail.jsx` still shows no embed/badge affordance, gap
+   still real. One line reference had drifted ("Visit website" moved from
+   `ToolDetail.jsx:151-163` to `:281`) but the plan itself is unchanged and
+   still buildable exactly as scoped — not worth a backlog edit for a bare
+   line-number shift with no substantive change, same call the 2026-11-27
+   00:03 UTC run made for similar drift elsewhere.
+2. **A published catalog entry is never re-checked** — every cited fact
+   re-checked verbatim against current code and all still hold exactly:
+   `TrustPanel.jsx:111/113`'s "not re-verified on a schedule" copy,
+   `dedup.js:6`'s comment, `review-bot.js:73`'s module-private
+   `checkWebsite()`, `review-bot.js:189`'s `staged`/`review`-only filter, no
+   `daily-review` reference in any workflow or `package.json` script, no
+   `updatedAt` in either `FIELDS` export. Zero drift.
+
+Since neither needed deepening, checked two fresh angles by `WebSearch`
+before falling back to code:
+1. **Saved searches / "notify me" alerts for a filtered Discover query** — a
+   pattern several SaaS directories support. Searched specifically for 2026
+   AI-directory precedent; none of the directories checked (AI Tools
+   Explorer, Whalesync's AI Tools Directory, TAAFT, FutureTools) document
+   saved-search or email-alert features, so this isn't a validated
+   competitor pattern yet, just a hypothetical — and any Toolnaut version
+   would need a backend to send the notification, the same wall this file's
+   rubric already routes to REJECTED on sight. Not logged.
+2. **AI Tools Explorer's compliance-standard filter** (GDPR/HIPAA/SOC2/ISO
+   27001 as its own facet) — this is the same data-handling axis the
+   already-SHIPPED "No privacy/data-handling facet" entry
+   (`src/utils/privacySignal.js`) covers; Toolnaut's tag vocabulary has no
+   per-standard granularity to split further and the catalog has no process
+   to verify a compliance claim, so a sharper facet than the shipped one
+   isn't buildable honestly. Not logged.
+
+Also checked three angles directly against the app rather than a
+competitor, since those two leads were quick to rule out: search
+autocomplete/typeahead for Discover's search box (not needed — the existing
+box already filters live on every keystroke, `Discover.jsx:247`, so a
+suggestion dropdown would duplicate what instant filtering already does
+better); multiple named stacks per user, as opposed to the single
+`exus_stack_v1` list (`stackStore.js`) — this is exactly the
+already-OPEN "Collections" gap's shape, not a new one; and a dedicated
+"recently viewed tools" page — already shipped as a rail inside Discover
+itself (`recentlyViewedStore.js`, `Discover.jsx:196-197,286-293`), not
+missing.
+
+Noted in passing, not acted on: four bot-branch PRs from before direct-
+master pushes were reliably allowed in this sandbox (#89, #91, #96, #105)
+are still open and unmerged, waiting on human review — unrelated to this
+hour's research, flagged here only so a future pass doesn't rediscover the
+same four PRs from scratch.
+
+Nothing cleared the bar for a new backlog entry. Not logged to
+`research-backlog.md`. No code change this run beyond this archive entry.
+All ~24 OPEN gaps in the backlog remain build-ready for the next feature
+run.
