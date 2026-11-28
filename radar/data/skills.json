@@ -1428,7 +1428,13 @@
       "emelyn",
       "no-equipment-workout-generator-with-3d-to-2d-svg-figures",
       "bloque",
-      "crypto-ai-trading-bot"
+      "crypto-ai-trading-bot",
+      "fleetlayer",
+      "github",
+      "agentic-signal",
+      "turbotap",
+      "voicehook",
+      "agent-desktop-fleet"
     ],
     "courses": [
       "course-headless-tools",
@@ -1806,7 +1812,13 @@
       "course-emelyn",
       "course-no-equipment-workout-generator-with-3d-to-2d-svg-figures",
       "course-bloque",
-      "course-crypto-ai-trading-bot"
+      "course-crypto-ai-trading-bot",
+      "course-fleetlayer",
+      "course-github",
+      "course-agentic-signal",
+      "course-turbotap",
+      "course-voicehook",
+      "course-agent-desktop-fleet"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2032,7 +2044,8 @@
       "talira",
       "behavioral-drift-detector-for-ai-agents",
       "flowmaps",
-      "codesignflo"
+      "codesignflo",
+      "fleetlayer"
     ],
     "courses": [
       "course-headless-tools",
@@ -2236,7 +2249,8 @@
       "course-talira",
       "course-behavioral-drift-detector-for-ai-agents",
       "course-flowmaps",
-      "course-codesignflo"
+      "course-codesignflo",
+      "course-fleetlayer"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -2471,7 +2485,8 @@
       "trix",
       "verfy",
       "agentbadge",
-      "ai-coding-agent-tool"
+      "ai-coding-agent-tool",
+      "voicehook"
     ],
     "courses": [
       "course-glm-53-open-weight-beat-anthropic-openai-models",
@@ -2496,7 +2511,8 @@
       "course-trix",
       "course-verfy",
       "course-agentbadge",
-      "course-ai-coding-agent-tool"
+      "course-ai-coding-agent-tool",
+      "course-voicehook"
     ],
     "updatedAt": "2026-08-25T09:25:10.610Z"
   },
@@ -3653,7 +3669,8 @@
       "agent-swarm-oss-multiplayer-ai-for-your-company",
       "guilds",
       "kradlebench-multi-agent-ai-evals-in-minecraft",
-      "kradlebench"
+      "kradlebench",
+      "fleetlayer"
     ],
     "courses": [
       "course-mrea",
@@ -3673,7 +3690,8 @@
       "course-agent-swarm-oss-multiplayer-ai-for-your-company",
       "course-guilds",
       "course-kradlebench-multi-agent-ai-evals-in-minecraft",
-      "course-kradlebench"
+      "course-kradlebench",
+      "course-fleetlayer"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -3692,7 +3710,8 @@
       "kyno",
       "chloe-is-a-typescript-ai-agent",
       "pi-forge",
-      "guilds"
+      "guilds",
+      "fleetlayer"
     ],
     "courses": [
       "course-mrea",
@@ -3704,7 +3723,8 @@
       "course-kyno",
       "course-chloe-is-a-typescript-ai-agent",
       "course-pi-forge",
-      "course-guilds"
+      "course-guilds",
+      "course-fleetlayer"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4106,7 +4126,9 @@
       "xsquads",
       "i-built-a-spa-for-ai-agents",
       "moonbooth",
-      "heycube"
+      "heycube",
+      "agentic-signal",
+      "agent-desktop-fleet"
     ],
     "courses": [
       "course-designing-loops-for-production-grade-work",
@@ -4179,7 +4201,9 @@
       "course-xsquads",
       "course-i-built-a-spa-for-ai-agents",
       "course-moonbooth",
-      "course-heycube"
+      "course-heycube",
+      "course-agentic-signal",
+      "course-agent-desktop-fleet"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -4561,7 +4585,8 @@
       "eevo",
       "prettywhaleai",
       "ai-analytics-team-approved-agent-ready",
-      "gmbrank"
+      "gmbrank",
+      "dashprompts"
     ],
     "courses": [
       "course-genbio-launches-a-virtual-biological-cell",
@@ -4632,7 +4657,8 @@
       "course-eevo",
       "course-prettywhaleai",
       "course-ai-analytics-team-approved-agent-ready",
-      "course-gmbrank"
+      "course-gmbrank",
+      "course-dashprompts"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5119,7 +5145,10 @@
       "old-photo-life",
       "slides-maker-x",
       "no-equipment-workout-generator-with-3d-to-2d-svg-figures",
-      "crypto-ai-trading-bot"
+      "crypto-ai-trading-bot",
+      "dashprompts",
+      "github",
+      "turbotap"
     ],
     "courses": [
       "course-ai-resume-screening",
@@ -5190,7 +5219,10 @@
       "course-old-photo-life",
       "course-slides-maker-x",
       "course-no-equipment-workout-generator-with-3d-to-2d-svg-figures",
-      "course-crypto-ai-trading-bot"
+      "course-crypto-ai-trading-bot",
+      "course-dashprompts",
+      "course-github",
+      "course-turbotap"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -5287,7 +5319,10 @@
       "eustella-europes-ai-agent",
       "simplellmchat",
       "agent-harness",
-      "ai-coding-agent-tool"
+      "ai-coding-agent-tool",
+      "github",
+      "turbotap",
+      "voicehook"
     ],
     "courses": [
       "course-aifi-on-aws",
@@ -5318,7 +5353,10 @@
       "course-eustella-europes-ai-agent",
       "course-simplellmchat",
       "course-agent-harness",
-      "course-ai-coding-agent-tool"
+      "course-ai-coding-agent-tool",
+      "course-github",
+      "course-turbotap",
+      "course-voicehook"
     ],
     "updatedAt": "2026-08-26T02:18:24.360Z"
   },
@@ -6248,7 +6286,8 @@
       "claktor",
       "shamus-osint-ai-agent",
       "costcatch",
-      "claude-code-unlimited"
+      "claude-code-unlimited",
+      "turbotap"
     ],
     "courses": [
       "course-devx",
@@ -6279,7 +6318,8 @@
       "course-claktor",
       "course-shamus-osint-ai-agent",
       "course-costcatch",
-      "course-claude-code-unlimited"
+      "course-claude-code-unlimited",
+      "course-turbotap"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -6959,7 +6999,8 @@
       "grove",
       "qlcodepreview-syntax-highlighting-in-finders-quick-look",
       "leftovers",
-      "vmpal"
+      "vmpal",
+      "github"
     ],
     "courses": [
       "course-ta",
@@ -6969,7 +7010,8 @@
       "course-grove",
       "course-qlcodepreview-syntax-highlighting-in-finders-quick-look",
       "course-leftovers",
-      "course-vmpal"
+      "course-vmpal",
+      "course-github"
     ],
     "updatedAt": "2026-08-27T06:10:30.704Z"
   },
@@ -8286,14 +8328,16 @@
       "humble-bundle",
       "truescribe",
       "now",
-      "isolated-linux-workstations-for-autonomous-ai-agents"
+      "isolated-linux-workstations-for-autonomous-ai-agents",
+      "agent-desktop-fleet"
     ],
     "courses": [
       "course-grith",
       "course-humble-bundle",
       "course-truescribe",
       "course-now",
-      "course-isolated-linux-workstations-for-autonomous-ai-agents"
+      "course-isolated-linux-workstations-for-autonomous-ai-agents",
+      "course-agent-desktop-fleet"
     ],
     "updatedAt": "2026-08-28T20:56:00.761Z"
   },
@@ -11984,10 +12028,12 @@
     "domain": "data",
     "level": "intermediate",
     "toolsTeaching": [
-      "token-dashboard"
+      "token-dashboard",
+      "dashprompts"
     ],
     "courses": [
-      "course-token-dashboard"
+      "course-token-dashboard",
+      "course-dashprompts"
     ],
     "updatedAt": "2026-09-03T13:37:04.770Z"
   },
@@ -14670,11 +14716,13 @@
     "level": "beginner",
     "toolsTeaching": [
       "ai-agent-for-beautiful-data-visuals",
-      "rhubarb"
+      "rhubarb",
+      "dashprompts"
     ],
     "courses": [
       "course-ai-agent-for-beautiful-data-visuals",
-      "course-rhubarb"
+      "course-rhubarb",
+      "course-dashprompts"
     ],
     "updatedAt": "2026-09-08T13:40:03.372Z"
   },
@@ -18296,11 +18344,13 @@
     "level": "intermediate",
     "toolsTeaching": [
       "nowdex",
-      "tabmail-open-source-ai-email-for-thunderbird-and-iphone"
+      "tabmail-open-source-ai-email-for-thunderbird-and-iphone",
+      "turbotap"
     ],
     "courses": [
       "course-nowdex",
-      "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone"
+      "course-tabmail-open-source-ai-email-for-thunderbird-and-iphone",
+      "course-turbotap"
     ],
     "updatedAt": "2026-09-14T23:59:11.393Z"
   },
@@ -19185,12 +19235,14 @@
     "toolsTeaching": [
       "kaflow-search",
       "redcat-an-open-source-ai-agent-for-your-desktop",
-      "animama"
+      "animama",
+      "agent-desktop-fleet"
     ],
     "courses": [
       "course-kaflow-search",
       "course-redcat-an-open-source-ai-agent-for-your-desktop",
-      "course-animama"
+      "course-animama",
+      "course-agent-desktop-fleet"
     ],
     "updatedAt": "2026-09-16T14:13:20.724Z"
   },
@@ -21379,12 +21431,14 @@
     "toolsTeaching": [
       "talktome",
       "call4me-an-ai-agent-that-handles-phone-calls-for-you",
-      "turn-spoken-thoughts-into-system-design-diagrams"
+      "turn-spoken-thoughts-into-system-design-diagrams",
+      "voicehook"
     ],
     "courses": [
       "course-talktome",
       "course-call4me-an-ai-agent-that-handles-phone-calls-for-you",
-      "course-turn-spoken-thoughts-into-system-design-diagrams"
+      "course-turn-spoken-thoughts-into-system-design-diagrams",
+      "course-voicehook"
     ],
     "updatedAt": "2026-09-29T15:55:26.286Z"
   },
@@ -22547,11 +22601,13 @@
     "level": "advanced",
     "toolsTeaching": [
       "stateful-linux-microvms-for-coding-agents",
-      "sandscale"
+      "sandscale",
+      "agent-desktop-fleet"
     ],
     "courses": [
       "course-stateful-linux-microvms-for-coding-agents",
-      "course-sandscale"
+      "course-sandscale",
+      "course-agent-desktop-fleet"
     ],
     "updatedAt": "2026-10-05T00:10:23.845Z"
   },
@@ -26343,5 +26399,70 @@
       "course-mcp-superassistant-g"
     ],
     "updatedAt": "2026-11-27T19:01:12.527Z"
+  },
+  {
+    "id": "skill-power bi",
+    "name": "power bi",
+    "domain": "data",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "dashprompts"
+    ],
+    "courses": [
+      "course-dashprompts"
+    ],
+    "updatedAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "id": "skill-distributed",
+    "name": "distributed",
+    "domain": "automation",
+    "level": "advanced",
+    "toolsTeaching": [
+      "fleetlayer"
+    ],
+    "courses": [
+      "course-fleetlayer"
+    ],
+    "updatedAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "id": "skill-local-llm",
+    "name": "local llm",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentic-signal"
+    ],
+    "courses": [
+      "course-agentic-signal"
+    ],
+    "updatedAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "id": "skill-nodes",
+    "name": "nodes",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentic-signal"
+    ],
+    "courses": [
+      "course-agentic-signal"
+    ],
+    "updatedAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "id": "skill-ai-development",
+    "name": "ai development",
+    "domain": "automation",
+    "level": "intermediate",
+    "toolsTeaching": [
+      "agentic-signal"
+    ],
+    "courses": [
+      "course-agentic-signal"
+    ],
+    "updatedAt": "2026-11-28T17:35:36.652Z"
   }
 ]

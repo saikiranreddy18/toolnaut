@@ -43636,5 +43636,382 @@
     "generatedBy": "llm",
     "version": 1,
     "updatedAt": "2026-11-28T03:31:24.596Z"
+  },
+  {
+    "id": "course-dashprompts",
+    "toolSlug": "dashprompts",
+    "title": "Master DashPrompts",
+    "objectives": [
+      "Translate a complex dashboard need into a detailed DashPrompts input.",
+      "Generate and validate a functional Power BI file from the AI output.",
+      "Refine the initial prompt to adjust visualizations or data sources."
+    ],
+    "modules": [
+      {
+        "title": "Crafting the Perfect Input Prompt",
+        "estMinutes": 10,
+        "steps": [
+          "Define target DAX measures and required data tables within the prompt.",
+          "Specify visualization types (e.g., 'line chart for trend,' 'matrix for comparison') clearly."
+        ]
+      },
+      {
+        "title": "Generating and Importing the File",
+        "estMinutes": 15,
+        "steps": [
+          "Run the prompt in DashPrompts and select the 'Generate Power BI' output.",
+          "Download the `.pbix` file and open it directly in Power BI Desktop for immediate testing."
+        ]
+      },
+      {
+        "title": "Iterative Prompt Refinement",
+        "estMinutes": 15,
+        "steps": [
+          "Identify a specific visual error or missing filter in the imported file.",
+          "Append a corrective instruction (e.g., 'Change the sales chart filter to Q3 2023 only') to the original prompt and regenerate."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-data",
+      "skill-power bi",
+      "skill-dashboard",
+      "skill-data visualization",
+      "skill-ai"
+    ],
+    "prerequisites": [
+      "Basic proficiency in Power BI Desktop (understanding of fields, visuals, and data loading).",
+      "Familiarity with structured, detailed prompt engineering principles."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "id": "course-fleetlayer",
+    "toolSlug": "fleetlayer",
+    "title": "Master Fleetlayer",
+    "objectives": [
+      "Deploy a multi-agent system across a Kubernetes cluster using Fleetlayer.",
+      "Configure distributed state management between remote agents.",
+      "Implement dynamic task routing based on agent resource availability."
+    ],
+    "modules": [
+      {
+        "title": "Cluster Provisioning and Agent Deployment",
+        "estMinutes": 20,
+        "steps": [
+          "Initialize Fleetlayer configuration pointing to existing K8s context.",
+          "Apply the multi-agent deployment manifest (`fleet-agent.yaml`).",
+          "Verify agent pod status across target nodes using `kubectl get pods`."
+        ]
+      },
+      {
+        "title": "Distributed State & Communication Setup",
+        "estMinutes": 25,
+        "steps": [
+          "Integrate Redis/Consul as the distributed state backend in the Fleetlayer config.",
+          "Test cross-node state update using a diagnostic agent script.",
+          "Validate latency between two geographically separated agents."
+        ]
+      },
+      {
+        "title": "Dynamic Task Routing Implementation",
+        "estMinutes": 30,
+        "steps": [
+          "Define a resource-aware routing policy within the Fleetlayer orchestrator.",
+          "Submit a large workload job requiring specialized node affinity.",
+          "Monitor the task execution logs to confirm routing based on agent capacity metrics."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai agents",
+      "skill-multi-agent",
+      "skill-framework",
+      "skill-distributed"
+    ],
+    "prerequisites": [
+      "Familiarity with Kubernetes (Deployment, Services, Pods).",
+      "Working knowledge of agent-based AI paradigms.",
+      "Access to a multi-node Kubernetes cluster."
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "id": "course-github",
+    "toolSlug": "github",
+    "title": "Master GitHub",
+    "objectives": [
+      "Clone a remote repository using the command line on macOS.",
+      "Create and switch between local feature branches effectively.",
+      "Submit changes using `git push` and resolve common merge conflicts."
+    ],
+    "modules": [
+      {
+        "title": "Initial Repository Setup",
+        "estMinutes": 10,
+        "steps": [
+          "Navigate to your desired local directory in Terminal.",
+          "Run `git clone <repository_url>` to copy the project."
+        ]
+      },
+      {
+        "title": "Branching Workflow",
+        "estMinutes": 15,
+        "steps": [
+          "Execute `git checkout -b feature/new-function` to create a branch.",
+          "Make and stage a file change (`git add .`).",
+          "Verify branch status with `git branch`."
+        ]
+      },
+      {
+        "title": "Commit and Sync",
+        "estMinutes": 15,
+        "steps": [
+          "Commit changes with a descriptive message: `git commit -m 'feat: implemented X'`.",
+          "Push the local branch to GitHub: `git push origin feature/new-function`.",
+          "Merge the branch via the GitHub web interface after confirmation."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-macos",
+      "skill-ai",
+      "skill-agent"
+    ],
+    "prerequisites": [
+      "Basic macOS Terminal usage.",
+      "Git installed and configured (username/email set).",
+      "Understanding of remote repositories (GitHub)."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "id": "course-agentic-signal",
+    "toolSlug": "agentic-signal",
+    "title": "Master Agentic Signal",
+    "objectives": [
+      "Connect local models to Agentic Signal nodes",
+      "Design and execute a multi-step agent workflow",
+      "Debug and iterate on agent prompt configuration"
+    ],
+    "modules": [
+      {
+        "title": "Loading a Local LLM Node",
+        "estMinutes": 15,
+        "steps": [
+          "Install the required local model runner (e.g., Ollama client)",
+          "Drag a 'Local LLM' node onto the canvas and configure the endpoint",
+          "Verify connectivity by running a simple single-prompt test execution"
+        ]
+      },
+      {
+        "title": "Building a Sequential Agent Chain",
+        "estMinutes": 20,
+        "steps": [
+          "Add a 'Tool Use' node downstream from the LLM node",
+          "Connect the LLM output as input to the Tool Use node",
+          "Set up the workflow to pass the tool result back to the LLM for final synthesis"
+        ]
+      },
+      {
+        "title": "Prompt Tuning and Execution",
+        "estMinutes": 15,
+        "steps": [
+          "Refine the system prompt in the LLM node to define the agent's role and output format",
+          "Execute the full multi-node agent workflow with a complex task",
+          "Inspect the execution log to identify and adjust prompt instructions or node data flow"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-local-llm",
+      "skill-nodes",
+      "skill-ai-development"
+    ],
+    "prerequisites": [
+      "Basic familiarity with local LLM execution (e.g., running Ollama)",
+      "Understanding of basic agent concepts (e.g., planning, tool use)"
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "id": "course-turbotap",
+    "toolSlug": "turbotap",
+    "title": "Master Turbotap",
+    "objectives": [
+      "Connect Turbotap to a specific iPhone device via Wi-Fi.",
+      "Execute a basic navigation command (e.g., open Safari).",
+      "Implement a multi-step agent workflow using Turbotap's scripting features."
+    ],
+    "modules": [
+      {
+        "title": "Initial Device Pairing & Verification",
+        "estMinutes": 15,
+        "steps": [
+          "Run `turbotap scan` to identify active iPhone MAC addresses on the network.",
+          "Execute `turbotap connect --device <MAC_ADDRESS>` and verify connection status via CLI output.",
+          "Send a simple diagnostic command like `turbotap get_device_info` to confirm remote access."
+        ]
+      },
+      {
+        "title": "Basic Interaction Scripting",
+        "estMinutes": 20,
+        "steps": [
+          "Create a minimal script file (e.g., `open_browser.tap`) using the Turbotap command structure.",
+          "Execute the script using `turbotap run open_browser.tap` to launch Safari on the paired device.",
+          "Use `turbotap get_screen_state` immediately after to confirm the application foreground state."
+        ]
+      },
+      {
+        "title": "Sequential Agent Workflow",
+        "estMinutes": 25,
+        "steps": [
+          "Define a sequence in a script: `open_app` -> `type_text` -> `tap_element`.",
+          "Run the complex script: `turbotap run workflow.tap` to automate a simple task (e.g., search in Safari).",
+          "Implement error checking within the script by checking command return codes before proceeding to the next step."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-ai",
+      "skill-agent",
+      "skill-cli",
+      "skill-iphone"
+    ],
+    "prerequisites": [
+      "Basic familiarity with the Linux/macOS CLI.",
+      "Turbotap installed and functional in the environment.",
+      "iPhone connected to the same Wi-Fi network as the host machine."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "id": "course-voicehook",
+    "toolSlug": "voicehook",
+    "title": "Master Voicehook",
+    "objectives": [
+      "Integrate Voicehook with a specified coding IDE.",
+      "Execute a multi-step coding prompt using natural voice commands.",
+      "Configure error handling and feedback within Voicehook sessions."
+    ],
+    "modules": [
+      {
+        "title": "IDE Setup and Hook Initialization",
+        "estMinutes": 10,
+        "steps": [
+          "Install the Voicehook extension/plugin for VS Code (or chosen IDE).",
+          "Authenticate Voicehook with your primary coding environment credentials.",
+          "Run the 'initial_connection_test' command via voice to confirm IDE integration."
+        ]
+      },
+      {
+        "title": "Complex Prompt Execution",
+        "estMinutes": 15,
+        "steps": [
+          "Issue a composite prompt like: 'Create a Python function that reads a CSV and returns a Pandas DataFrame.'",
+          "Use follow-up voice commands to iterate: 'Now, add error handling for missing columns.'",
+          "Verify the generated code directly within the IDE file using Voicehook's output highlight."
+        ]
+      },
+      {
+        "title": "Refinement and Debug Feedback",
+        "estMinutes": 10,
+        "steps": [
+          "Ask Voicehook to analyze a specific block: 'Review lines 45-52 for complexity and suggest refactoring.'",
+          "Respond vocally to suggestions: 'Implement that refactoring, ensuring O(n) time complexity.'",
+          "Trigger a summary: 'Summarize the changes made in the last turn as a Git commit message.'"
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-voice",
+      "skill-coding",
+      "skill-agent"
+    ],
+    "prerequisites": [
+      "Working knowledge of at least one programming language (Python/JS preferred).",
+      "Familiarity with IDE shortcuts and basic code navigation.",
+      "A microphone setup capable of clear speech input."
+    ],
+    "level": "intermediate",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "id": "course-agent-desktop-fleet",
+    "toolSlug": "agent-desktop-fleet",
+    "title": "Master agent-desktop-fleet",
+    "objectives": [
+      "Deploy a multi-agent fleet using a custom fleet config.",
+      "Configure inter-agent communication via shared state.",
+      "Monitor and debug agent behavior with fleet logging tools."
+    ],
+    "modules": [
+      {
+        "title": "Custom Fleet Configuration",
+        "estMinutes": 15,
+        "steps": [
+          "Define a `fleet_config.yaml` specifying 4 distinct agent image tags.",
+          "Execute `agent-desktop-fleet deploy --config fleet_config.yaml`.",
+          "Verify all four sandboxes are running via `agent-desktop-fleet status`."
+        ]
+      },
+      {
+        "title": "Inter-Agent Communication Setup",
+        "estMinutes": 20,
+        "steps": [
+          "Inject a shared Redis endpoint into the environment variables of all deployed agents.",
+          "Modify agent code to use the shared endpoint for state synchronization.",
+          "Restart the fleet with `agent-desktop-fleet redeploy --update-env`."
+        ]
+      },
+      {
+        "title": "Advanced Fleet Debugging",
+        "estMinutes": 15,
+        "steps": [
+          "Capture logs for a specific agent ID using `agent-desktop-fleet logs <agent_id> --tail 100`.",
+          "Attach a remote debugger (e.g., GDB) to a running sandbox via `agent-desktop-fleet attach <agent_id> --debug`.",
+          "Use `agent-desktop-fleet kill --force <agent_id>` for controlled termination."
+        ]
+      }
+    ],
+    "skills": [
+      "skill-automation",
+      "skill-agents",
+      "skill-microvm",
+      "skill-linux",
+      "skill-desktop"
+    ],
+    "prerequisites": [
+      "Working knowledge of Docker/containerization.",
+      "Familiarity with Linux CLI and YAML configuration.",
+      "Basic understanding of lightweight AI agent architecture."
+    ],
+    "level": "advanced",
+    "generatedBy": "llm",
+    "version": 1,
+    "updatedAt": "2026-11-28T17:35:36.652Z"
   }
 ]

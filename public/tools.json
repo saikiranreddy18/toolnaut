@@ -16590,5 +16590,166 @@
       "bot"
     ],
     "discoveredAt": "2026-11-28T03:31:24.596Z"
+  },
+  {
+    "slug": "dashprompts",
+    "name": "DashPrompts",
+    "category": "data",
+    "sourceCategory": "Data & Analytics",
+    "price": "freemium",
+    "pricing": "Free to use",
+    "level": "intermediate",
+    "blurb": "Generate working Power BI files from dashboard descriptions using AI.",
+    "audience": "Data analysts",
+    "dev": "dashprompts",
+    "year": 2026,
+    "website": "https://dashprompts.com/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "power bi",
+      "dashboard",
+      "data visualization",
+      "ai"
+    ],
+    "discoveredAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "slug": "fleetlayer",
+    "name": "Fleetlayer",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free tier available",
+    "level": "advanced",
+    "blurb": "Framework for running multiple AI agents across multiple machines.",
+    "audience": "AI developers",
+    "dev": "Fleetlayer",
+    "year": 2026,
+    "website": "https://fleetlayer.ai/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai agents",
+      "multi-agent",
+      "framework",
+      "distributed"
+    ],
+    "discoveredAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "slug": "github",
+    "name": "GitHub",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "Allows AI agents to control classic Mac OS environments.",
+    "audience": "Developers",
+    "dev": "SeanFDZ",
+    "year": 2026,
+    "website": "https://github.com/SeanFDZ/agentbridge",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "macos",
+      "ai",
+      "agent",
+      "automation"
+    ],
+    "discoveredAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "slug": "agentic-signal",
+    "name": "Agentic Signal",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "intermediate",
+    "blurb": "Build and run AI agents from nodes using local models.",
+    "audience": "Developers",
+    "dev": "code-forge-temple",
+    "year": 2026,
+    "website": "https://github.com/code-forge-temple/agentic-signal",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "agents",
+      "local-llm",
+      "nodes",
+      "ai-development"
+    ],
+    "discoveredAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "slug": "turbotap",
+    "name": "Turbotap",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open-Source",
+    "level": "intermediate",
+    "blurb": "Open-Source CLI for AI Agents to drive an iPhone over Wi-Fi.",
+    "audience": "Developers",
+    "dev": "Maxteabag",
+    "year": 2026,
+    "website": "https://github.com/Maxteabag/turbotap",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "ai",
+      "agent",
+      "cli",
+      "iphone"
+    ],
+    "discoveredAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "slug": "voicehook",
+    "name": "Voicehook",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "freemium",
+    "pricing": "Free to start",
+    "level": "intermediate",
+    "blurb": "Answer coding agent prompts using voice commands.",
+    "audience": "Developers",
+    "dev": "Voicehook",
+    "year": 2026,
+    "website": "https://voicehook.ai/",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "voice",
+      "coding",
+      "agent",
+      "automation"
+    ],
+    "discoveredAt": "2026-11-28T17:35:36.652Z"
+  },
+  {
+    "slug": "agent-desktop-fleet",
+    "name": "agent-desktop-fleet",
+    "category": "automation",
+    "sourceCategory": "AI Agents & Automation",
+    "price": "free",
+    "pricing": "Open Source",
+    "level": "advanced",
+    "blurb": "Run multiple lightweight, sandboxed Linux desktops for AI agents locally.",
+    "audience": "Developers",
+    "dev": "CodeGeek04",
+    "year": 2026,
+    "website": "https://github.com/CodeGeek04/agent-desktop-fleet",
+    "status": "Active",
+    "note": "",
+    "tags": [
+      "agents",
+      "microvm",
+      "linux",
+      "desktop"
+    ],
+    "discoveredAt": "2026-11-28T17:35:36.652Z"
   }
 ]
