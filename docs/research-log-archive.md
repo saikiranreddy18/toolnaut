@@ -7278,3 +7278,51 @@ Nothing cleared the bar for a new backlog entry. Not logged to
 `research-backlog.md`. No code change this run beyond this archive entry.
 All ~24 OPEN gaps in the backlog remain build-ready for the next feature
 run.
+
+---
+
+### Research check 2026-11-28 15:03 UTC — no new gap found
+
+Re-verified the two tied-stalest-by-last-touch OPEN entries (both last
+substantively touched 2026-11-20, 8 days — the 12:03 UTC pass today handled
+the "Pro chat assistant" entry, the actual stalest overall, so these two were
+next): "Embeddable Featured on Toolnaut badge" and "A published catalog
+entry is never re-checked." Both already re-verified 2-3 times before with
+zero substance drift each time, and that held again: `grep -n "Visit
+website" src/pages/app/ToolDetail.jsx` still shows the same anchor at line
+281 (badge disclosure plan unaffected), no `embed|badge` affordance exists
+anywhere in `ToolDetail.jsx`; `TrustPanel.jsx:111-113`'s "not re-verified on
+a schedule" copy is byte-identical, `review-bot.js`'s `checkWebsite()` (line
+73) is still called only from the `staged`/`review`-lifecycle-filtered
+`runDailyReview()` (line 189), and no workflow or `package.json` script
+references `daily-review`. Neither needed a backlog edit for a bare
+re-confirmation with no drift.
+
+Two fresh angles by `WebSearch`, both ruled out:
+1. **A jargon/glossary page** (RAG, agent, LLM, fine-tuning — explaining the
+   AI terms the catalog's own tool blurbs and category names assume a
+   visitor already knows). Searched specifically for an AI-tool-directory
+   precedent; found only generic, non-directory AI glossaries (Analytics
+   Insight, a few dev-education sites) — no directory in this category ships
+   one as part of its own product, so this has no validated competitor
+   pattern backing it, only a hypothetical usefulness case. The already-OPEN
+   "No educational/how-to content" gap's task-first guide plan is the
+   stronger, already-sourced version of "explain things to a visitor who
+   doesn't know the vocabulary yet" — a glossary would duplicate that
+   entry's intent with weaker evidence, not add a new one.
+2. **Public roadmap feature voting** (letting a visitor upvote items on the
+   already-shipped `/changelog` "What's next" section). Checked
+   `src/state/communityStore.js` in full: its own upvote mechanism is
+   local-only — a per-browser toggle added on top of a hand-authored seed
+   count (`loadThreads()`'s `t.upvotes + (upvotes[t.id] ? 1 : 0)`), never
+   aggregated or synced anywhere. Porting that same mechanic to roadmap
+   items would be a fake vote count visible only to the voter, not a real
+   prioritization signal — and the roadmap entry's own plan (`docs/
+   research-backlog.md`, the "What's next" section gap) already explicitly
+   excluded voting from scope for close to this same reason ("that's the
+   `communityStore.js` upvote primitive doing a different job, on user
+   posts, not on this list"). A real cross-visitor vote count needs backend
+   aggregation this static SPA doesn't have for this surface; not logged.
+
+Nothing cleared the bar for a new backlog entry. Not logged to
+`research-backlog.md`. No code change this run beyond this archive entry.
