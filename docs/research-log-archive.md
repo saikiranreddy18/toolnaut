@@ -7159,3 +7159,54 @@ build, 29-route smoke) before push.
 Not logged to `research-backlog.md` — no new gap found this run, and a
 defect fix isn't a backlog candidate. 19 OPEN gaps still available for the
 next feature run.
+
+### Research check 2026-11-28 06:03 UTC — no new gap found, nothing shipped either
+Research run (UTC hour 06). `npm run radar:health` -> STATUS: OK (2 runs in
+26h window, 2 tools published 2.5h ago, feed at 699 tools). GitHub Actions
+confirmed CI and Release both green on the tip (`ae649b5`, "docs(research):
+note gallery-of-shared-stacks gap is now a public roadmap item"), no issue
+labelled `agent-fixable` open. The backlog already holds well over a dozen
+fully-specced OPEN gaps (each with its own "Smallest useful version" and
+"What this would NOT include" sections), so this pass skipped deepening and
+went straight to fresh competitor/problem-area research per the cumulative
+rule, checking five angles against real code before ruling each out:
+
+1. **G2's "Emerging AI Software" category pages** (buyer-segment % breakdown
+   by company size, a standardized cross-vendor score) — the segment
+   breakdown needs self-reported company-size data Toolnaut's accounts don't
+   collect, and a cross-vendor score is the same backend-shaped ask this
+   file's rubric already disfavors; no filter/badge shape turned up that
+   isn't already covered by an existing entry.
+2. **AI-tool lookup browser extensions** (AI Tools Explorer, LinkAtlas, Find
+   AI) — already the exact pattern the still-OPEN "No lookup surface outside
+   toolnaut.xyz" entry (`docs/research-backlog.md`) specs in full, including
+   the same competitors; nothing new to add.
+3. **Regional/currency pricing** — already shipped: `PricingSection.jsx:32`
+   has a live INR/USD toggle with IP-based default, `Pay.jsx` shows both
+   figures side by side.
+4. **SEO crawl surface** (robots directives, sitemap completeness, an
+   AI-answer-engine-specific summary file) — all three already mature:
+   `public/robots.txt` explicitly allows GPTBot/ClaudeBot/PerplexityBot/etc.
+   plus a wildcard and points at a real `Sitemap:` URL, `public/sitemap.xml`
+   is stamped by `scripts/stamp-sitemap.mjs`, and `public/llms.txt` already
+   exists as a structured summary for answer engines — nothing missing.
+5. **Quiz-retake data loss** — checked whether retaking silently destroys
+   progress with no warning; it doesn't: `Settings.jsx:305-308`'s copy
+   directly under the "Update my answers" button already discloses exactly
+   what survives ("Saved tools and tools you added yourself are kept;
+   roadmap ticks are cleared, because the new path has different steps")
+   before the click, so this is a disclosed design choice, not a hidden gap.
+   Also checked for 2FA/passkey support (absent) but didn't log it — the
+   app's only auth paths are Google OAuth and email magic-links, both
+   already passwordless, so 2FA would harden a credential class this app
+   doesn't use, and `authStore.js`/Supabase Auth MFA setup is the kind of
+   backend-infra lift this file's rubric routes to REJECTED on sight rather
+   than OPEN.
+
+Nothing cleared the bar for a new backlog entry, and nothing clearly broken
+turned up to fix in its place. Per the "never invent a gap to fill the hour"
+rule, appended nothing to `research-backlog.md` and made no code change this
+run beyond this archive entry. The backlog's existing OPEN gaps (stalest by
+last-touch: "Embeddable 'Featured on Toolnaut' badge" and "A published
+catalog entry is never re-checked", both last touched 2026-11-20) remain
+ready for the next feature run or a future deepening pass.
