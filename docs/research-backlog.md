@@ -9026,8 +9026,41 @@ without changing it, logs that in the archive file, not here.** Only append to
   are both unchanged; `Legal.jsx:78-79` still reads "we also store on our
   servers: ... the tools in your stack." Zero drift. Still OPEN, Build
   size S/M, plan still buildable exactly as scoped.
-
-### No "Toolnaut vs [competitor]" comparison pages — the single highest-intent SEO page type in this category, entirely missing
+- **Re-verified 2026-11-28 03:06 UTC — stalest OPEN entry (last touched
+  2026-11-20, 8 days — every other OPEN entry has a check dated 11-21 or
+  later). Every citation above still checks out with zero drift:
+  `shareStack.js` is still pure encode/decode; `grep -rn "shared_stacks\|
+  public_stacks\|from('stack" src` is still zero hits (one unrelated new
+  hit on bare `gallery` — see below, not a false positive on the old
+  pattern); `App.jsx:128` still routes only `/s/:slugs`; migrations still
+  end at `0010_saved_limit.sql`; `api/` still holds exactly 11
+  non-underscore functions (one slot free); the RLS/anon-SELECT precedents
+  and `Legal.jsx:78-82` copy are unchanged. One real, material finding this
+  pass turned up:**
+  - `src/pages/Changelog.jsx` shipped a public "What's next" section
+    (`e0f3484`, 2026-11-23 — after this entry's last check) that renders
+    `ROADMAP` from the new `src/utils/roadmapData.js`, whose own header
+    comment says the array is "hand-authored, highest-priority first — the
+    customer-facing translation of this project's own
+    `docs/research-backlog.md`." Its **second** entry, verbatim: *title*
+    "Browse stacks other people built", *note* "An opt-in gallery of
+    stacks real users shared, so you can see what a founder's or
+    designer's stack actually looks like before building your own." That
+    is this exact gap, word for word, now live on `/changelog` as a public,
+    dated-order commitment — not just a researched opportunity anymore but
+    a promise a visitor can read today. (The array's first/higher-priority
+    entry, "a live count of who's actually using each tool," is the
+    separate still-OPEN "Popularity signal discarded" gap elsewhere in this
+    file — confirmed unbuilt too, `grep -rn "in their own stack" src` has
+    only the roadmap-copy hit itself, no implementation.)
+  - This doesn't change the plan, scope, or Build size (still S/M, still
+    publish-requires-sign-in-only per the 10-07 correction) — it changes
+    the priority case for picking it. This backlog has no explicit
+    cross-entry ranking field, but "the product's own public roadmap names
+    this second, right after a sibling gap that's also still open" is
+    stronger, more current evidence than this entry had on any prior pass,
+    and worth weighing heavily the next time a feature run scans this file
+    for the highest-value OPEN gap to build. — the single highest-intent SEO page type in this category, entirely missing
 - **Status:** SHIPPED 83805fc — built exactly as scoped below:
   `src/content/comparisons.js` (2 hand-verified competitor entries — There's An
   AI For That, Futurepedia), `src/pages/CompareCompetitor.jsx` + `/vs/:slug`
