@@ -1722,6 +1722,30 @@ without changing it, logs that in the archive file, not here.** Only append to
   pattern) and that framing still holds, unaffected by the pricing fix.
   Gap 2 (Team tier) stays REJECTED, unaffected. Still OPEN, Build size M,
   no changes to the plan.
+- **Re-verified 2026-11-28 12:03 UTC — true stalest OPEN entry again** (last
+  touched 2026-11-20, 8 days; every other OPEN entry in this file now has a
+  2026-11-2x check on record, including the shared-stacks-gallery entry
+  re-verified earlier this same day at 03:06 UTC). Re-checked every citation
+  against current `master`, zero drift: `ChatPanel.jsx` is still the same
+  self-labelled stub (header still "Preview — replies are canned" at line
+  53, `send()` at lines 30-43 still appends one hardcoded string, zero
+  `fetch` calls); `ls api/` is still 11 non-underscore files (one slot
+  free), still no `copilot.js`; `api/chat.js` is still on the NVIDIA
+  provider exactly as last cited (`NVIDIA_API_KEY`, `integrate.api.
+  nvidia.com`, `NVIDIA_CHAT_TIMEOUT_MS` default 9000, `CHAT_PER_MINUTE`
+  20); `src/state/authStore.js` still zero `team|seat|org` hits beyond plan
+  copy; `planData.js` still wraps "AI-powered chat assistant (Claude-
+  powered Q&A)" and "5 team members (5 seats included)" in `planned(...)`,
+  so the marketing-honesty half of this entry (closed 2026-10-08) stays
+  closed. Two fresh `WebSearch` passes this run (general 2026 AI-directory
+  feature trends, and specifically "chat with an AI about your own tool
+  stack") turned up personalized stack *builders* everywhere — Meta Tools'
+  "Find Your Stack," GateOnAI's AI Stack Builder, TopAI.tools' AI-Assist —
+  but zero directories offering a chat surface over a stack the visitor
+  already assembled, the same gap Gap 1 would fill. That's a reason to
+  weigh this entry higher the next time a feature run scans for the
+  highest-value pick, not a change to the plan itself: still OPEN, Build
+  size M, buildable exactly as scoped since 2026-10-08.
 
 ---
 
