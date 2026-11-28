@@ -9,6 +9,64 @@ shipped, and what is queued next. The ranked gap list itself lives in
 
 ---
 
+## 2026-11-28
+
+**Radar health:** `OK` — 3 runs in the last 26h window, 7 tools published in
+the most recent run (37 minutes before this write-up), feed now at 706
+published tools. `npm run radar:health` exits 0, no NO-PUBLISH/NO-SOURCE
+symptoms. No CI red on master, no open `agent-fixable` issues — this was a
+clean feature run with no urgent work ahead of it.
+
+**Researched today:** the hourly research runs through the day kept
+re-verifying the backlog's oldest OPEN entries (AI copilot/Team tier, the
+embeddable badge, the catalog re-check job) and found zero drift, so nothing
+new was logged until this run. The most fully-developed OPEN gap by a wide
+margin was the referral/invite-a-friend entry from this morning's 00:13 UTC
+pass — it already named exact files, functions, a table schema and a build
+size (M), so this run built it rather than deepening or logging anything else.
+
+**Shipped today:** **`ffe5964`** — referral / invite-a-friend trial bonus.
+Toolnaut already grants every new account a 7-day trial
+(`TRIAL_DAYS` in `api/entitlement.js`) with no acquisition loop wired to it —
+this reuses that exact mechanic instead of inventing a cash/credit reward
+the product can't back. A signed-in account gets a "copy invite link" button
+in Settings' Account card (`${origin}/?ref=<their auth id>`); a new
+`src/utils/referral.js` stashes `?ref=` into plain `localStorage` on app boot
+(before any OAuth redirect, which never carries the param back) and sends it
+once on the first entitlement fetch after sign-in. The server only acts on it
+inside `api/entitlement.js`'s existing first-grant branch — a returning user,
+a retried request, or a self-referral are all no-ops — and extends both
+sides' `ends_at` by 7 days without touching `plan_code`/`source`, so
+`metrics.js`'s trial-vs-paid split stays correct. Referrers cap at 5 lifetime
+credits (35 bonus days max). New `supabase/migrations/0011_referrals.sql`
+table, RLS enabled with zero policies, same service-role-only shape as
+`payment_transactions`/`webhook_events`. 9 new/changed files, +357/-2 lines.
+Two new test files (`test/referral.test.mjs`, `test/referral-credit.test.mjs`)
+cover the capture/consume one-shot behaviour and the crediting branches
+(valid referral, self-referral, invalid code, duplicate/retried referral,
+referrer past the cap) against a fake PostgREST, same style as
+`entitlement-activation.test.mjs`. All 460 app+radar tests pass, build and
+smoke are clean.
+
+**Partially visible today, not fully live yet:** the "copy invite link"
+button itself deploys and renders immediately — pure client-side React, no
+backend dependency. The bonus-crediting half does not take effect until
+`supabase/migrations/0011_referrals.sql` is run against the production
+Supabase project (same manual step every migration in this repo needs,
+per each file's own "Run once in Supabase → SQL Editor" comment). Until then
+`creditReferral`'s insert fails closed — no crash, no bonus, the trial grant
+itself is unaffected — so a visitor copying and using an invite link today
+gets a working link with no reward behind it yet. Flagging this explicitly
+rather than letting it read as shipped-and-working end to end.
+
+**Queued next:** the backlog's next-most-developed OPEN entries are the
+public developer-facing education content gap, the "no public email capture"
+growth-loop gap, and the dormant-user win-back email — none are scoped to
+the referral entry's level of detail yet, so a research run should deepen
+one of those before the next feature run reaches for it.
+
+---
+
 ## 2026-11-27
 
 **Radar health:** `OK` — 2 runs in the last 26h window, 8 tools published in

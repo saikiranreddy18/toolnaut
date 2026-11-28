@@ -11434,7 +11434,16 @@ without changing it, logs that in the archive file, not here.** Only append to
 ---
 
 ### No referral / invite-a-friend growth loop — the exact trial-day mechanic dozens of SaaS products reward with already exists in `user_entitlements`, unused for this
-- **Status:** OPEN
+- **Status:** SHIPPED ffe5964 — built exactly as scoped below: `?ref=<uuid>`
+  capture (`src/utils/referral.js`), redemption inside `api/entitlement.js`'s
+  existing first-grant branch, a new `public.referrals` table
+  (`supabase/migrations/0011_referrals.sql`), and the "copy invite link"
+  button in `Settings.jsx`'s Account card. One deviation from the plan below:
+  the stash/consume helpers use plain `localStorage` directly rather than
+  `src/state/scopedStorage.js` — scoping by uid would read back a DIFFERENT
+  key once sign-in completes than the one the guest-mode write used, since
+  the code is captured before any account exists to scope it to. Functionally
+  identical; just not the module the plan named.
 - **Seen in:** general SaaS practice, not one AI-directory competitor's trick
   — a fresh `WebSearch` this run for an AI-tool-directory-specific referral
   program turned up nothing but the same thin, unverifiable listicle sites
