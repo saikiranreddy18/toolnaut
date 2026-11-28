@@ -11373,3 +11373,124 @@ without changing it, logs that in the archive file, not here.** Only append to
   variant reusing the existing template function and send/stamp pattern.
   No new dependency, no new provider, no new function or cron slot.
 - **Found:** 2026-11-27 12:07 UTC
+
+---
+
+### No referral / invite-a-friend growth loop — the exact trial-day mechanic dozens of SaaS products reward with already exists in `user_entitlements`, unused for this
+- **Status:** OPEN
+- **Seen in:** general SaaS practice, not one AI-directory competitor's trick
+  — a fresh `WebSearch` this run for an AI-tool-directory-specific referral
+  program turned up nothing but the same thin, unverifiable listicle sites
+  this file's 2026-10-10 pass already flagged as unreliable, so this is
+  honestly sourced from the wider category, same disclosure the welcome-
+  email entry above gives for its own pattern. Trello and Todoist both
+  reward a referral with the product's own trial/paid period rather than
+  cash or credit (Trello: one free month of Trello Gold per successful
+  referral; Todoist: two free months of Pro once the referred signup
+  upgrades) — the exact mechanic Toolnaut's existing trial system is
+  already shaped to extend. Dropbox and Notion instead reward with storage
+  or account credit, which needs a quota/ledger this SPA-plus-thin-API
+  stack doesn't have and has no data to back — the same "can't honor a
+  reward Toolnaut can't actually afford" reasoning that got the vendor-
+  coupon idea REJECTED elsewhere in this file, which is why this entry
+  copies the trial-day shape and not the credit shape.
+- **Gap:** grepped `src/` and `api/` for `referral|invite|refcode|ref_code`
+  (case-insensitive): the repo's only 5 hits for "invite" are unrelated
+  prose (this file's own "no org/team entity... no invite" line, a copy-
+  invites-queries UI note) — zero code, zero schema, zero UI. `api/
+  entitlement.js`'s `TRIAL_DAYS = 7` (line 13) and its first-ever-grant
+  branch (`if (!row && ...)`, lines 43-56) are the one place a brand-new
+  account's trial is created, keyed purely on "no entitlement row exists
+  yet" — unambiguous and independent of the still-unbuilt tri-state return
+  the sibling "No welcome/onboarding email" gap above proposes for
+  `explorerCount.js`; a referral redemption does not need to wait on that
+  other gap shipping first. `supabase/migrations/0004_payments.sql`'s
+  `user_entitlements` table (lines 66-94) already has the `ends_at` column
+  a bonus would extend, and its one-active-entitlement-per-user partial
+  unique index (lines 86-88) is the same constraint any bonus write must
+  respect — PATCH the existing active row, never INSERT a second one.
+  `api/_supabase.js`'s `activateEntitlement()` (lines 83-147) looks like a
+  ready-made "extend the end date" helper but is not safely reusable as-is:
+  it unconditionally writes `plan_code` and `source: 'razorpay_order'`
+  (lines 127-134), which would relabel a trial or bonus extension as a
+  Razorpay purchase and corrupt `api/metrics.js`'s trial-vs-paid churn
+  split (`metrics.js:43-44,67`, which filters specifically on `source ===
+  'trial'`). A referral redemption needs its own small function that
+  copies `activateEntitlement`'s extend-from-current-end-if-still-future
+  rule (lines 112-115) without ever touching `plan_code` or `source`.
+- **Why it matters:** Toolnaut already gives every new account 7 free days
+  before the paywall (`TRIAL_DAYS`) — the trial is the one lever this
+  product can extend without negotiating anything with anyone, unlike the
+  already-REJECTED vendor-coupon idea. A referral loop is also the one
+  acquisition channel in this file that depends on neither SEO nor a
+  directory listing nor paid ads. `AudienceSection.jsx`'s "walk into
+  interviews with a working stack" framing already gives a signed-in user
+  a reason to want to show someone else their stack — the shipped share
+  link and the OPEN "portable copy of your stack" gap both exist for
+  exactly that moment — this is the version of that same moment that also
+  benefits Toolnaut, not only the person sharing.
+- **Smallest useful version (what to actually build):**
+  - The referral "code" is just the referrer's own auth id — no vanity/
+    short-code table to maintain. New "Invite a friend" block in
+    `Settings.jsx`'s existing "Account" section (`Settings.jsx:431-497`):
+    a copy-to-clipboard button for `${origin}/?ref=${session.user.id}`,
+    reusing the same copied/`setCopied` transient-label interaction
+    `Stack.jsx`'s share button already implements.
+  - Capture, client-side: new `src/utils/referral.js` with `stashRef()`
+    (reads `?ref=` off the URL on app boot, writes it to
+    `src/state/scopedStorage.js` under a new `exus_ref_v1` key — the same
+    module `Stack.jsx` and `quizStore.js` already use — then clears the
+    query param via `history.replaceState` so it doesn't linger) and
+    `consumeRef()` (reads and deletes the stashed value once). Must stash
+    on load, before any Google OAuth redirect: `signInWithOAuth`'s
+    `redirectTo` (`authStore.js:117`) comes back to a fixed destination
+    that never carries `?ref=` itself, so the page that first sees the
+    param is the only point that can capture it.
+  - On the first entitlement fetch after sign-in, the client sends the
+    stashed code once: `entitlement.js`'s GET gains an optional
+    `?ref=<uuid>` param, read ONLY inside the existing first-grant branch
+    (lines 43-56) — a returning user's request never reaches that branch,
+    so a stale/resent code is always a no-op for them. The server checks
+    the code is a syntactically valid uuid and not the signing-in user's
+    own id (blocks the trivial self-referral case; a determined person
+    chaining separate Google accounts is the same residual risk every
+    referral program in the research above accepts, not something this
+    build can close).
+  - New tiny table `public.referrals` (`referrer_id uuid`, `referred_id
+    uuid unique not null`, `created_at`), RLS enabled, zero anon/
+    authenticated policies — service-role-only writes, the same "nobody
+    writes this from a browser" shape `0004_payments.sql`'s own comment
+    gives `payment_transactions`/`webhook_events`. The `referred_id`
+    UNIQUE constraint is the whole integrity guarantee: one account can
+    only ever be "referred" once, so a retried request can't double-credit
+    a referrer for the same friend — it just hits the constraint and no-ops.
+  - Redemption (inside `entitlement.js`'s first-grant branch, right after
+    the new trial row is inserted): if a valid, non-self ref code came
+    with the request, insert into `referrals` (safe to attempt on a retry —
+    the UNIQUE constraint makes a second attempt a harmless no-op); on
+    success, extend the new user's own just-created `ends_at` by +7 days
+    (14 total), and — capped at 5 successful `referrals` rows per
+    `referrer_id` (one `count(*)` check before crediting) — PATCH the
+    referrer's own active row's `ends_at` forward by +7 days using the
+    extend-from-current-end-if-still-future rule copied from
+    `activateEntitlement`, never touching their `plan_code` or `source`, so
+    a paying Pro subscriber's period extends and a still-trialing
+    referrer's trial extends, but neither looks like a new purchase to
+    `metrics.js`.
+  - **What this would NOT include:** no cash/credit reward (the trial-day
+    shape specifically avoids the vendor-coupon rejection's "promising
+    something Toolnaut can't back" problem); no reward past 5 referrals
+    lifetime per account (caps the realistic abuse ceiling at 35 bonus
+    days, not unlimited); no "N friends joined" counter or leaderboard UI
+    in v1 — just the invite link, with the extended `ends_at` already
+    showing through the existing trial/paywall expiry display for free; no
+    referral capture in the no-Supabase simulated-session dev mode (gated
+    by `isSupabaseConfigured`, same as every other entitlement-backed gap);
+    no email-based invite sending, copy-link only.
+- **Build size:** M — one new 3-column table + RLS (same shape as
+  `0007_alert_subscribers.sql`), one small new pure util
+  (`src/utils/referral.js`, unit-testable), a handful of lines added to the
+  existing `api/entitlement.js` first-grant branch (no new endpoint, no new
+  route), one new UI block in `Settings.jsx`'s existing Account section. No
+  new dependency.
+- **Found:** 2026-11-28 00:13 UTC
